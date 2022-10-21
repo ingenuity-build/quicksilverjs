@@ -25,6 +25,24 @@ export const MessageComposer = {
     }
 
   },
+  toJSON: {
+    createVestingAccount(value: MsgCreateVestingAccount) {
+      return {
+        typeUrl: "/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
+        value: MsgCreateVestingAccount.toJSON(value)
+      };
+    }
+
+  },
+  fromJSON: {
+    createVestingAccount(value: any) {
+      return {
+        typeUrl: "/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
+        value: MsgCreateVestingAccount.fromJSON(value)
+      };
+    }
+
+  },
   fromPartial: {
     createVestingAccount(value: MsgCreateVestingAccount) {
       return {

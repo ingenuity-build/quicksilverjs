@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { AminoMsg, decodeBech32Pubkey, encodeBech32Pubkey } from "@cosmjs/amino";
 import { fromBase64, toBase64 } from "@cosmjs/encoding";
 import { Long } from "../../../helpers";
@@ -113,7 +114,7 @@ export const AminoConverter = {
         },
         value: {
           denom: value.denom,
-          amount: Long.fromNumber(value.amount).toString()
+          amount: Long.fromValue(value.amount).toString()
         }
       };
     },
@@ -206,7 +207,7 @@ export const AminoConverter = {
         validator_address: validatorAddress,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
+          amount: Long.fromValue(amount.amount).toString()
         }
       };
     },
@@ -239,7 +240,7 @@ export const AminoConverter = {
         validator_dst_address: validatorDstAddress,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
+          amount: Long.fromValue(amount.amount).toString()
         }
       };
     },
@@ -272,7 +273,7 @@ export const AminoConverter = {
         validator_address: validatorAddress,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
+          amount: Long.fromValue(amount.amount).toString()
         }
       };
     },

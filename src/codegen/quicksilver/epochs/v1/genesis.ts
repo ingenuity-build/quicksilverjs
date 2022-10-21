@@ -1,22 +1,22 @@
-import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, Long, DeepPartial } from "../../../helpers";
+import { Long, isSet, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 export interface EpochInfo {
   identifier: string;
-  startTime?: Date;
+  startTime?: Timestamp;
   duration?: Duration;
   currentEpoch: Long;
-  currentEpochStartTime?: Date;
+  currentEpochStartTime?: Timestamp;
   epochCountingStarted: boolean;
   currentEpochStartHeight: Long;
 }
 export interface EpochInfoSDKType {
   identifier: string;
-  start_time?: Date;
+  start_time?: TimestampSDKType;
   duration?: DurationSDKType;
   current_epoch: Long;
-  current_epoch_start_time?: Date;
+  current_epoch_start_time?: TimestampSDKType;
   epoch_counting_started: boolean;
   current_epoch_start_height: Long;
 }
@@ -50,7 +50,7 @@ export const EpochInfo = {
     }
 
     if (message.startTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.startTime), writer.uint32(18).fork()).ldelim();
+      Timestamp.encode(message.startTime, writer.uint32(18).fork()).ldelim();
     }
 
     if (message.duration !== undefined) {
@@ -62,7 +62,7 @@ export const EpochInfo = {
     }
 
     if (message.currentEpochStartTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.currentEpochStartTime), writer.uint32(42).fork()).ldelim();
+      Timestamp.encode(message.currentEpochStartTime, writer.uint32(42).fork()).ldelim();
     }
 
     if (message.epochCountingStarted === true) {
@@ -90,7 +90,7 @@ export const EpochInfo = {
           break;
 
         case 2:
-          message.startTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.startTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         case 3:
@@ -102,7 +102,7 @@ export const EpochInfo = {
           break;
 
         case 5:
-          message.currentEpochStartTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.currentEpochStartTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         case 6:
@@ -122,13 +122,37 @@ export const EpochInfo = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<EpochInfo>): EpochInfo {
+  fromJSON(object: any): EpochInfo {
+    return {
+      identifier: isSet(object.identifier) ? String(object.identifier) : "",
+      startTime: isSet(object.startTime) ? fromJsonTimestamp(object.startTime) : undefined,
+      duration: isSet(object.duration) ? Duration.fromJSON(object.duration) : undefined,
+      currentEpoch: isSet(object.currentEpoch) ? Long.fromValue(object.currentEpoch) : Long.ZERO,
+      currentEpochStartTime: isSet(object.currentEpochStartTime) ? fromJsonTimestamp(object.currentEpochStartTime) : undefined,
+      epochCountingStarted: isSet(object.epochCountingStarted) ? Boolean(object.epochCountingStarted) : false,
+      currentEpochStartHeight: isSet(object.currentEpochStartHeight) ? Long.fromValue(object.currentEpochStartHeight) : Long.ZERO
+    };
+  },
+
+  toJSON(message: EpochInfo): unknown {
+    const obj: any = {};
+    message.identifier !== undefined && (obj.identifier = message.identifier);
+    message.startTime !== undefined && (obj.startTime = fromTimestamp(message.startTime).toISOString());
+    message.duration !== undefined && (obj.duration = message.duration ? Duration.toJSON(message.duration) : undefined);
+    message.currentEpoch !== undefined && (obj.currentEpoch = (message.currentEpoch || Long.ZERO).toString());
+    message.currentEpochStartTime !== undefined && (obj.currentEpochStartTime = fromTimestamp(message.currentEpochStartTime).toISOString());
+    message.epochCountingStarted !== undefined && (obj.epochCountingStarted = message.epochCountingStarted);
+    message.currentEpochStartHeight !== undefined && (obj.currentEpochStartHeight = (message.currentEpochStartHeight || Long.ZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<EpochInfo>): EpochInfo {
     const message = createBaseEpochInfo();
     message.identifier = object.identifier ?? "";
-    message.startTime = object.startTime ?? undefined;
+    message.startTime = object.startTime !== undefined && object.startTime !== null ? Timestamp.fromPartial(object.startTime) : undefined;
     message.duration = object.duration !== undefined && object.duration !== null ? Duration.fromPartial(object.duration) : undefined;
     message.currentEpoch = object.currentEpoch !== undefined && object.currentEpoch !== null ? Long.fromValue(object.currentEpoch) : Long.ZERO;
-    message.currentEpochStartTime = object.currentEpochStartTime ?? undefined;
+    message.currentEpochStartTime = object.currentEpochStartTime !== undefined && object.currentEpochStartTime !== null ? Timestamp.fromPartial(object.currentEpochStartTime) : undefined;
     message.epochCountingStarted = object.epochCountingStarted ?? false;
     message.currentEpochStartHeight = object.currentEpochStartHeight !== undefined && object.currentEpochStartHeight !== null ? Long.fromValue(object.currentEpochStartHeight) : Long.ZERO;
     return message;
@@ -173,7 +197,25 @@ export const GenesisState = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
+  fromJSON(object: any): GenesisState {
+    return {
+      epochs: Array.isArray(object?.epochs) ? object.epochs.map((e: any) => EpochInfo.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: GenesisState): unknown {
+    const obj: any = {};
+
+    if (message.epochs) {
+      obj.epochs = message.epochs.map(e => e ? EpochInfo.toJSON(e) : undefined);
+    } else {
+      obj.epochs = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.epochs = object.epochs?.map(e => EpochInfo.fromPartial(e)) || [];
     return message;

@@ -1,7 +1,7 @@
-import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, Long, DeepPartial } from "../../../helpers";
+import { Long, isSet, fromJsonTimestamp, fromTimestamp, isObject } from "../../../helpers";
 /** Action is used as an enum to denote specific actions or tasks. */
 
 export enum Action {
@@ -246,7 +246,7 @@ export function statusToJSON(object: Status): string {
 
 export interface ZoneDrop {
   chainId: string;
-  startTime?: Date;
+  startTime?: Timestamp;
   duration?: Duration;
   decay?: Duration;
   allocation: Long;
@@ -257,7 +257,7 @@ export interface ZoneDrop {
 
 export interface ZoneDropSDKType {
   chain_id: string;
-  start_time?: Date;
+  start_time?: TimestampSDKType;
   duration?: DurationSDKType;
   decay?: DurationSDKType;
   allocation: Long;
@@ -307,13 +307,13 @@ export interface ClaimRecordSDKType {
 /** CompletedAction represents a claim action completed by the user. */
 
 export interface CompletedAction {
-  completeTime?: Date;
+  completeTime?: Timestamp;
   claimAmount: Long;
 }
 /** CompletedAction represents a claim action completed by the user. */
 
 export interface CompletedActionSDKType {
-  complete_time?: Date;
+  complete_time?: TimestampSDKType;
   claim_amount: Long;
 }
 
@@ -336,7 +336,7 @@ export const ZoneDrop = {
     }
 
     if (message.startTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.startTime), writer.uint32(18).fork()).ldelim();
+      Timestamp.encode(message.startTime, writer.uint32(18).fork()).ldelim();
     }
 
     if (message.duration !== undefined) {
@@ -376,7 +376,7 @@ export const ZoneDrop = {
           break;
 
         case 2:
-          message.startTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.startTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         case 3:
@@ -408,10 +408,40 @@ export const ZoneDrop = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ZoneDrop>): ZoneDrop {
+  fromJSON(object: any): ZoneDrop {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      startTime: isSet(object.startTime) ? fromJsonTimestamp(object.startTime) : undefined,
+      duration: isSet(object.duration) ? Duration.fromJSON(object.duration) : undefined,
+      decay: isSet(object.decay) ? Duration.fromJSON(object.decay) : undefined,
+      allocation: isSet(object.allocation) ? Long.fromValue(object.allocation) : Long.UZERO,
+      actions: Array.isArray(object?.actions) ? object.actions.map((e: any) => String(e)) : [],
+      isConcluded: isSet(object.isConcluded) ? Boolean(object.isConcluded) : false
+    };
+  },
+
+  toJSON(message: ZoneDrop): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.startTime !== undefined && (obj.startTime = fromTimestamp(message.startTime).toISOString());
+    message.duration !== undefined && (obj.duration = message.duration ? Duration.toJSON(message.duration) : undefined);
+    message.decay !== undefined && (obj.decay = message.decay ? Duration.toJSON(message.decay) : undefined);
+    message.allocation !== undefined && (obj.allocation = (message.allocation || Long.UZERO).toString());
+
+    if (message.actions) {
+      obj.actions = message.actions.map(e => e);
+    } else {
+      obj.actions = [];
+    }
+
+    message.isConcluded !== undefined && (obj.isConcluded = message.isConcluded);
+    return obj;
+  },
+
+  fromPartial(object: Partial<ZoneDrop>): ZoneDrop {
     const message = createBaseZoneDrop();
     message.chainId = object.chainId ?? "";
-    message.startTime = object.startTime ?? undefined;
+    message.startTime = object.startTime !== undefined && object.startTime !== null ? Timestamp.fromPartial(object.startTime) : undefined;
     message.duration = object.duration !== undefined && object.duration !== null ? Duration.fromPartial(object.duration) : undefined;
     message.decay = object.decay !== undefined && object.decay !== null ? Duration.fromPartial(object.decay) : undefined;
     message.allocation = object.allocation !== undefined && object.allocation !== null ? Long.fromValue(object.allocation) : Long.UZERO;
@@ -468,7 +498,21 @@ export const ClaimRecord_ActionsCompletedEntry = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ClaimRecord_ActionsCompletedEntry>): ClaimRecord_ActionsCompletedEntry {
+  fromJSON(object: any): ClaimRecord_ActionsCompletedEntry {
+    return {
+      key: isSet(object.key) ? Number(object.key) : 0,
+      value: isSet(object.value) ? CompletedAction.fromJSON(object.value) : undefined
+    };
+  },
+
+  toJSON(message: ClaimRecord_ActionsCompletedEntry): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = Math.round(message.key));
+    message.value !== undefined && (obj.value = message.value ? CompletedAction.toJSON(message.value) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<ClaimRecord_ActionsCompletedEntry>): ClaimRecord_ActionsCompletedEntry {
     const message = createBaseClaimRecord_ActionsCompletedEntry();
     message.key = object.key ?? 0;
     message.value = object.value !== undefined && object.value !== null ? CompletedAction.fromPartial(object.value) : undefined;
@@ -558,7 +602,39 @@ export const ClaimRecord = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ClaimRecord>): ClaimRecord {
+  fromJSON(object: any): ClaimRecord {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      address: isSet(object.address) ? String(object.address) : "",
+      actionsCompleted: isObject(object.actionsCompleted) ? Object.entries(object.actionsCompleted).reduce<{
+        [key: number]: CompletedAction;
+      }>((acc, [key, value]) => {
+        acc[Number(key)] = CompletedAction.fromJSON(value);
+        return acc;
+      }, {}) : {},
+      maxAllocation: isSet(object.maxAllocation) ? Long.fromValue(object.maxAllocation) : Long.UZERO,
+      baseValue: isSet(object.baseValue) ? Long.fromValue(object.baseValue) : Long.UZERO
+    };
+  },
+
+  toJSON(message: ClaimRecord): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.address !== undefined && (obj.address = message.address);
+    obj.actionsCompleted = {};
+
+    if (message.actionsCompleted) {
+      Object.entries(message.actionsCompleted).forEach(([k, v]) => {
+        obj.actionsCompleted[k] = CompletedAction.toJSON(v);
+      });
+    }
+
+    message.maxAllocation !== undefined && (obj.maxAllocation = (message.maxAllocation || Long.UZERO).toString());
+    message.baseValue !== undefined && (obj.baseValue = (message.baseValue || Long.UZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<ClaimRecord>): ClaimRecord {
     const message = createBaseClaimRecord();
     message.chainId = object.chainId ?? "";
     message.address = object.address ?? "";
@@ -588,7 +664,7 @@ function createBaseCompletedAction(): CompletedAction {
 export const CompletedAction = {
   encode(message: CompletedAction, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.completeTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completeTime), writer.uint32(10).fork()).ldelim();
+      Timestamp.encode(message.completeTime, writer.uint32(10).fork()).ldelim();
     }
 
     if (!message.claimAmount.isZero()) {
@@ -608,7 +684,7 @@ export const CompletedAction = {
 
       switch (tag >>> 3) {
         case 1:
-          message.completeTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completeTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         case 2:
@@ -624,9 +700,23 @@ export const CompletedAction = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<CompletedAction>): CompletedAction {
+  fromJSON(object: any): CompletedAction {
+    return {
+      completeTime: isSet(object.completeTime) ? fromJsonTimestamp(object.completeTime) : undefined,
+      claimAmount: isSet(object.claimAmount) ? Long.fromValue(object.claimAmount) : Long.UZERO
+    };
+  },
+
+  toJSON(message: CompletedAction): unknown {
+    const obj: any = {};
+    message.completeTime !== undefined && (obj.completeTime = fromTimestamp(message.completeTime).toISOString());
+    message.claimAmount !== undefined && (obj.claimAmount = (message.claimAmount || Long.UZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<CompletedAction>): CompletedAction {
     const message = createBaseCompletedAction();
-    message.completeTime = object.completeTime ?? undefined;
+    message.completeTime = object.completeTime !== undefined && object.completeTime !== null ? Timestamp.fromPartial(object.completeTime) : undefined;
     message.claimAmount = object.claimAmount !== undefined && object.claimAmount !== null ? Long.fromValue(object.claimAmount) : Long.UZERO;
     return message;
   }

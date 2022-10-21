@@ -1,6 +1,6 @@
 import { ProofOps, ProofOpsSDKType } from "../../../tendermint/crypto/proof";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface MsgClaim {
   chainId: string;
   action: Long;
@@ -96,7 +96,31 @@ export const MsgClaim = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgClaim>): MsgClaim {
+  fromJSON(object: any): MsgClaim {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      action: isSet(object.action) ? Long.fromValue(object.action) : Long.ZERO,
+      address: isSet(object.address) ? String(object.address) : "",
+      proofs: Array.isArray(object?.proofs) ? object.proofs.map((e: any) => Proof.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: MsgClaim): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.action !== undefined && (obj.action = (message.action || Long.ZERO).toString());
+    message.address !== undefined && (obj.address = message.address);
+
+    if (message.proofs) {
+      obj.proofs = message.proofs.map(e => e ? Proof.toJSON(e) : undefined);
+    } else {
+      obj.proofs = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgClaim>): MsgClaim {
     const message = createBaseMsgClaim();
     message.chainId = object.chainId ?? "";
     message.action = object.action !== undefined && object.action !== null ? Long.fromValue(object.action) : Long.ZERO;
@@ -144,7 +168,19 @@ export const MsgClaimResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgClaimResponse>): MsgClaimResponse {
+  fromJSON(object: any): MsgClaimResponse {
+    return {
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
+    };
+  },
+
+  toJSON(message: MsgClaimResponse): unknown {
+    const obj: any = {};
+    message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgClaimResponse>): MsgClaimResponse {
     const message = createBaseMsgClaimResponse();
     message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.UZERO;
     return message;
@@ -216,7 +252,25 @@ export const Proof = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Proof>): Proof {
+  fromJSON(object: any): Proof {
+    return {
+      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
+      proofOps: isSet(object.proofOps) ? ProofOps.fromJSON(object.proofOps) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
+    };
+  },
+
+  toJSON(message: Proof): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
+    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+    message.proofOps !== undefined && (obj.proofOps = message.proofOps ? ProofOps.toJSON(message.proofOps) : undefined);
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Proof>): Proof {
     const message = createBaseProof();
     message.key = object.key ?? new Uint8Array();
     message.data = object.data ?? new Uint8Array();

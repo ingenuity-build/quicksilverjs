@@ -34,7 +34,7 @@ export const AminoConverter = {
       return {
         value: {
           denom: value.denom,
-          amount: Long.fromNumber(value.amount).toString()
+          amount: Long.fromValue(value.amount).toString()
         },
         destination_address: destinationAddress,
         from_address: fromAddress

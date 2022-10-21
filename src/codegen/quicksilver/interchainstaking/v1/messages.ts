@@ -1,7 +1,7 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { ValidatorIntent, ValidatorIntentSDKType } from "./interchainstaking";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /**
  * MsgRequestRedemption represents a message type to request a burn of qAssets
  * for native assets.
@@ -110,7 +110,23 @@ export const MsgRequestRedemption = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgRequestRedemption>): MsgRequestRedemption {
+  fromJSON(object: any): MsgRequestRedemption {
+    return {
+      value: isSet(object.value) ? Coin.fromJSON(object.value) : undefined,
+      destinationAddress: isSet(object.destinationAddress) ? String(object.destinationAddress) : "",
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : ""
+    };
+  },
+
+  toJSON(message: MsgRequestRedemption): unknown {
+    const obj: any = {};
+    message.value !== undefined && (obj.value = message.value ? Coin.toJSON(message.value) : undefined);
+    message.destinationAddress !== undefined && (obj.destinationAddress = message.destinationAddress);
+    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgRequestRedemption>): MsgRequestRedemption {
     const message = createBaseMsgRequestRedemption();
     message.value = object.value !== undefined && object.value !== null ? Coin.fromPartial(object.value) : undefined;
     message.destinationAddress = object.destinationAddress ?? "";
@@ -175,7 +191,29 @@ export const MsgSignalIntent = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgSignalIntent>): MsgSignalIntent {
+  fromJSON(object: any): MsgSignalIntent {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      intents: Array.isArray(object?.intents) ? object.intents.map((e: any) => ValidatorIntent.fromJSON(e)) : [],
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : ""
+    };
+  },
+
+  toJSON(message: MsgSignalIntent): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+
+    if (message.intents) {
+      obj.intents = message.intents.map(e => e ? ValidatorIntent.toJSON(e) : undefined);
+    } else {
+      obj.intents = [];
+    }
+
+    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgSignalIntent>): MsgSignalIntent {
     const message = createBaseMsgSignalIntent();
     message.chainId = object.chainId ?? "";
     message.intents = object.intents?.map(e => ValidatorIntent.fromPartial(e)) || [];
@@ -212,7 +250,16 @@ export const MsgRequestRedemptionResponse = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<MsgRequestRedemptionResponse>): MsgRequestRedemptionResponse {
+  fromJSON(_: any): MsgRequestRedemptionResponse {
+    return {};
+  },
+
+  toJSON(_: MsgRequestRedemptionResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<MsgRequestRedemptionResponse>): MsgRequestRedemptionResponse {
     const message = createBaseMsgRequestRedemptionResponse();
     return message;
   }
@@ -246,7 +293,16 @@ export const MsgSignalIntentResponse = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<MsgSignalIntentResponse>): MsgSignalIntentResponse {
+  fromJSON(_: any): MsgSignalIntentResponse {
+    return {};
+  },
+
+  toJSON(_: MsgSignalIntentResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<MsgSignalIntentResponse>): MsgSignalIntentResponse {
     const message = createBaseMsgSignalIntentResponse();
     return message;
   }

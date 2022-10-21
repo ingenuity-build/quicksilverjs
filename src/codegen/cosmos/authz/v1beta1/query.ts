@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantSDKType } from "./authz";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryGrantsRequest is the request type for the Query/Grants RPC method. */
 
 export interface QueryGrantsRequest {
@@ -109,7 +109,25 @@ export const QueryGrantsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryGrantsRequest>): QueryGrantsRequest {
+  fromJSON(object: any): QueryGrantsRequest {
+    return {
+      granter: isSet(object.granter) ? String(object.granter) : "",
+      grantee: isSet(object.grantee) ? String(object.grantee) : "",
+      msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryGrantsRequest): unknown {
+    const obj: any = {};
+    message.granter !== undefined && (obj.granter = message.granter);
+    message.grantee !== undefined && (obj.grantee = message.grantee);
+    message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryGrantsRequest>): QueryGrantsRequest {
     const message = createBaseQueryGrantsRequest();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
@@ -166,7 +184,27 @@ export const QueryGrantsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryGrantsResponse>): QueryGrantsResponse {
+  fromJSON(object: any): QueryGrantsResponse {
+    return {
+      grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => Grant.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryGrantsResponse): unknown {
+    const obj: any = {};
+
+    if (message.grants) {
+      obj.grants = message.grants.map(e => e ? Grant.toJSON(e) : undefined);
+    } else {
+      obj.grants = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryGrantsResponse>): QueryGrantsResponse {
     const message = createBaseQueryGrantsResponse();
     message.grants = object.grants?.map(e => Grant.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;

@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../../helpers";
+import { isSet, Long, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /** SnapshotItem is an item contained in a rootmulti.Store snapshot. */
 
 export interface SnapshotItem {
@@ -85,7 +85,21 @@ export const SnapshotItem = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<SnapshotItem>): SnapshotItem {
+  fromJSON(object: any): SnapshotItem {
+    return {
+      store: isSet(object.store) ? SnapshotStoreItem.fromJSON(object.store) : undefined,
+      iavl: isSet(object.iavl) ? SnapshotIAVLItem.fromJSON(object.iavl) : undefined
+    };
+  },
+
+  toJSON(message: SnapshotItem): unknown {
+    const obj: any = {};
+    message.store !== undefined && (obj.store = message.store ? SnapshotStoreItem.toJSON(message.store) : undefined);
+    message.iavl !== undefined && (obj.iavl = message.iavl ? SnapshotIAVLItem.toJSON(message.iavl) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<SnapshotItem>): SnapshotItem {
     const message = createBaseSnapshotItem();
     message.store = object.store !== undefined && object.store !== null ? SnapshotStoreItem.fromPartial(object.store) : undefined;
     message.iavl = object.iavl !== undefined && object.iavl !== null ? SnapshotIAVLItem.fromPartial(object.iavl) : undefined;
@@ -131,7 +145,19 @@ export const SnapshotStoreItem = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<SnapshotStoreItem>): SnapshotStoreItem {
+  fromJSON(object: any): SnapshotStoreItem {
+    return {
+      name: isSet(object.name) ? String(object.name) : ""
+    };
+  },
+
+  toJSON(message: SnapshotStoreItem): unknown {
+    const obj: any = {};
+    message.name !== undefined && (obj.name = message.name);
+    return obj;
+  },
+
+  fromPartial(object: Partial<SnapshotStoreItem>): SnapshotStoreItem {
     const message = createBaseSnapshotStoreItem();
     message.name = object.name ?? "";
     return message;
@@ -203,7 +229,25 @@ export const SnapshotIAVLItem = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<SnapshotIAVLItem>): SnapshotIAVLItem {
+  fromJSON(object: any): SnapshotIAVLItem {
+    return {
+      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
+      value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array(),
+      version: isSet(object.version) ? Long.fromValue(object.version) : Long.ZERO,
+      height: isSet(object.height) ? Number(object.height) : 0
+    };
+  },
+
+  toJSON(message: SnapshotIAVLItem): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
+    message.value !== undefined && (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+    message.version !== undefined && (obj.version = (message.version || Long.ZERO).toString());
+    message.height !== undefined && (obj.height = Math.round(message.height));
+    return obj;
+  },
+
+  fromPartial(object: Partial<SnapshotIAVLItem>): SnapshotIAVLItem {
     const message = createBaseSnapshotIAVLItem();
     message.key = object.key ?? new Uint8Array();
     message.value = object.value ?? new Uint8Array();

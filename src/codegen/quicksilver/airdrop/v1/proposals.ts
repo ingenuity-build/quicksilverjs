@@ -1,6 +1,6 @@
 import { ZoneDrop, ZoneDropSDKType } from "./airdrop";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface RegisterZoneDropProposal {
   title: string;
   description: string;
@@ -78,7 +78,25 @@ export const RegisterZoneDropProposal = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<RegisterZoneDropProposal>): RegisterZoneDropProposal {
+  fromJSON(object: any): RegisterZoneDropProposal {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      zoneDrop: isSet(object.zoneDrop) ? ZoneDrop.fromJSON(object.zoneDrop) : undefined,
+      claimRecords: isSet(object.claimRecords) ? bytesFromBase64(object.claimRecords) : new Uint8Array()
+    };
+  },
+
+  toJSON(message: RegisterZoneDropProposal): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.zoneDrop !== undefined && (obj.zoneDrop = message.zoneDrop ? ZoneDrop.toJSON(message.zoneDrop) : undefined);
+    message.claimRecords !== undefined && (obj.claimRecords = base64FromBytes(message.claimRecords !== undefined ? message.claimRecords : new Uint8Array()));
+    return obj;
+  },
+
+  fromPartial(object: Partial<RegisterZoneDropProposal>): RegisterZoneDropProposal {
     const message = createBaseRegisterZoneDropProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";

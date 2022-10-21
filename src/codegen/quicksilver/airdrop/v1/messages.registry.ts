@@ -25,6 +25,24 @@ export const MessageComposer = {
     }
 
   },
+  toJSON: {
+    claim(value: MsgClaim) {
+      return {
+        typeUrl: "/quicksilver.airdrop.v1.MsgClaim",
+        value: MsgClaim.toJSON(value)
+      };
+    }
+
+  },
+  fromJSON: {
+    claim(value: any) {
+      return {
+        typeUrl: "/quicksilver.airdrop.v1.MsgClaim",
+        value: MsgClaim.fromJSON(value)
+      };
+    }
+
+  },
   fromPartial: {
     claim(value: MsgClaim) {
       return {

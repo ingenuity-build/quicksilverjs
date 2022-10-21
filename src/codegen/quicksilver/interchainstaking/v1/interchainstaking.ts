@@ -1,7 +1,7 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 export interface Zone {
   connectionId: string;
   chainId: string;
@@ -89,7 +89,7 @@ export interface WithdrawalRecord {
   burnAmount?: Coin;
   txhash: string;
   status: number;
-  completionTime?: Date;
+  completionTime?: Timestamp;
 }
 export interface WithdrawalRecordSDKType {
   chain_id: string;
@@ -100,7 +100,7 @@ export interface WithdrawalRecordSDKType {
   burn_amount?: CoinSDKType;
   txhash: string;
   status: number;
-  completion_time?: Date;
+  completion_time?: TimestampSDKType;
 }
 export interface UnbondingRecord {
   chainId: string;
@@ -120,7 +120,7 @@ export interface RedelegationRecord {
   delegator: string;
   validator: string;
   amount: Long;
-  completionTime?: Date;
+  completionTime?: Timestamp;
 }
 export interface RedelegationRecordSDKType {
   chain_id: string;
@@ -128,7 +128,7 @@ export interface RedelegationRecordSDKType {
   delegator: string;
   validator: string;
   amount: Long;
-  completion_time?: Date;
+  completion_time?: TimestampSDKType;
 }
 export interface TransferRecord {
   sender: string;
@@ -431,7 +431,72 @@ export const Zone = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Zone>): Zone {
+  fromJSON(object: any): Zone {
+    return {
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      depositAddress: isSet(object.depositAddress) ? ICAAccount.fromJSON(object.depositAddress) : undefined,
+      withdrawalAddress: isSet(object.withdrawalAddress) ? ICAAccount.fromJSON(object.withdrawalAddress) : undefined,
+      performanceAddress: isSet(object.performanceAddress) ? ICAAccount.fromJSON(object.performanceAddress) : undefined,
+      delegationAddress: isSet(object.delegationAddress) ? ICAAccount.fromJSON(object.delegationAddress) : undefined,
+      accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
+      localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
+      baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
+      redemptionRate: isSet(object.redemptionRate) ? String(object.redemptionRate) : "",
+      lastRedemptionRate: isSet(object.lastRedemptionRate) ? String(object.lastRedemptionRate) : "",
+      validators: Array.isArray(object?.validators) ? object.validators.map((e: any) => Validator.fromJSON(e)) : [],
+      aggregateIntent: Array.isArray(object?.aggregateIntent) ? object.aggregateIntent.map((e: any) => ValidatorIntent.fromJSON(e)) : [],
+      multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
+      liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
+      withdrawalWaitgroup: isSet(object.withdrawalWaitgroup) ? Number(object.withdrawalWaitgroup) : 0,
+      ibcNextValidatorsHash: isSet(object.ibcNextValidatorsHash) ? bytesFromBase64(object.ibcNextValidatorsHash) : new Uint8Array(),
+      validatorSelectionAllocation: isSet(object.validatorSelectionAllocation) ? Long.fromValue(object.validatorSelectionAllocation) : Long.UZERO,
+      holdingsAllocation: isSet(object.holdingsAllocation) ? Long.fromValue(object.holdingsAllocation) : Long.UZERO,
+      lastEpochHeight: isSet(object.lastEpochHeight) ? Long.fromValue(object.lastEpochHeight) : Long.ZERO,
+      tvl: isSet(object.tvl) ? String(object.tvl) : "",
+      unbondingPeriod: isSet(object.unbondingPeriod) ? Long.fromValue(object.unbondingPeriod) : Long.ZERO
+    };
+  },
+
+  toJSON(message: Zone): unknown {
+    const obj: any = {};
+    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.depositAddress !== undefined && (obj.depositAddress = message.depositAddress ? ICAAccount.toJSON(message.depositAddress) : undefined);
+    message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress ? ICAAccount.toJSON(message.withdrawalAddress) : undefined);
+    message.performanceAddress !== undefined && (obj.performanceAddress = message.performanceAddress ? ICAAccount.toJSON(message.performanceAddress) : undefined);
+    message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress ? ICAAccount.toJSON(message.delegationAddress) : undefined);
+    message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
+    message.localDenom !== undefined && (obj.localDenom = message.localDenom);
+    message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
+    message.redemptionRate !== undefined && (obj.redemptionRate = message.redemptionRate);
+    message.lastRedemptionRate !== undefined && (obj.lastRedemptionRate = message.lastRedemptionRate);
+
+    if (message.validators) {
+      obj.validators = message.validators.map(e => e ? Validator.toJSON(e) : undefined);
+    } else {
+      obj.validators = [];
+    }
+
+    if (message.aggregateIntent) {
+      obj.aggregateIntent = message.aggregateIntent.map(e => e ? ValidatorIntent.toJSON(e) : undefined);
+    } else {
+      obj.aggregateIntent = [];
+    }
+
+    message.multiSend !== undefined && (obj.multiSend = message.multiSend);
+    message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
+    message.withdrawalWaitgroup !== undefined && (obj.withdrawalWaitgroup = Math.round(message.withdrawalWaitgroup));
+    message.ibcNextValidatorsHash !== undefined && (obj.ibcNextValidatorsHash = base64FromBytes(message.ibcNextValidatorsHash !== undefined ? message.ibcNextValidatorsHash : new Uint8Array()));
+    message.validatorSelectionAllocation !== undefined && (obj.validatorSelectionAllocation = (message.validatorSelectionAllocation || Long.UZERO).toString());
+    message.holdingsAllocation !== undefined && (obj.holdingsAllocation = (message.holdingsAllocation || Long.UZERO).toString());
+    message.lastEpochHeight !== undefined && (obj.lastEpochHeight = (message.lastEpochHeight || Long.ZERO).toString());
+    message.tvl !== undefined && (obj.tvl = message.tvl);
+    message.unbondingPeriod !== undefined && (obj.unbondingPeriod = (message.unbondingPeriod || Long.ZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Zone>): Zone {
     const message = createBaseZone();
     message.connectionId = object.connectionId ?? "";
     message.chainId = object.chainId ?? "";
@@ -533,7 +598,33 @@ export const ICAAccount = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ICAAccount>): ICAAccount {
+  fromJSON(object: any): ICAAccount {
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      balance: Array.isArray(object?.balance) ? object.balance.map((e: any) => Coin.fromJSON(e)) : [],
+      portName: isSet(object.portName) ? String(object.portName) : "",
+      withdrawalAddress: isSet(object.withdrawalAddress) ? String(object.withdrawalAddress) : "",
+      balanceWaitgroup: isSet(object.balanceWaitgroup) ? Number(object.balanceWaitgroup) : 0
+    };
+  },
+
+  toJSON(message: ICAAccount): unknown {
+    const obj: any = {};
+    message.address !== undefined && (obj.address = message.address);
+
+    if (message.balance) {
+      obj.balance = message.balance.map(e => e ? Coin.toJSON(e) : undefined);
+    } else {
+      obj.balance = [];
+    }
+
+    message.portName !== undefined && (obj.portName = message.portName);
+    message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress);
+    message.balanceWaitgroup !== undefined && (obj.balanceWaitgroup = Math.round(message.balanceWaitgroup));
+    return obj;
+  },
+
+  fromPartial(object: Partial<ICAAccount>): ICAAccount {
     const message = createBaseICAAccount();
     message.address = object.address ?? "";
     message.balance = object.balance?.map(e => Coin.fromPartial(e)) || [];
@@ -591,7 +682,21 @@ export const Distribution = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Distribution>): Distribution {
+  fromJSON(object: any): Distribution {
+    return {
+      valoper: isSet(object.valoper) ? String(object.valoper) : "",
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
+    };
+  },
+
+  toJSON(message: Distribution): unknown {
+    const obj: any = {};
+    message.valoper !== undefined && (obj.valoper = message.valoper);
+    message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Distribution>): Distribution {
     const message = createBaseDistribution();
     message.valoper = object.valoper ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.UZERO;
@@ -649,7 +754,7 @@ export const WithdrawalRecord = {
     }
 
     if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(74).fork()).ldelim();
+      Timestamp.encode(message.completionTime, writer.uint32(74).fork()).ldelim();
     }
 
     return writer;
@@ -697,7 +802,7 @@ export const WithdrawalRecord = {
           break;
 
         case 9:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completionTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         default:
@@ -709,7 +814,47 @@ export const WithdrawalRecord = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<WithdrawalRecord>): WithdrawalRecord {
+  fromJSON(object: any): WithdrawalRecord {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      delegator: isSet(object.delegator) ? String(object.delegator) : "",
+      distribution: Array.isArray(object?.distribution) ? object.distribution.map((e: any) => Distribution.fromJSON(e)) : [],
+      recipient: isSet(object.recipient) ? String(object.recipient) : "",
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : [],
+      burnAmount: isSet(object.burnAmount) ? Coin.fromJSON(object.burnAmount) : undefined,
+      txhash: isSet(object.txhash) ? String(object.txhash) : "",
+      status: isSet(object.status) ? Number(object.status) : 0,
+      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined
+    };
+  },
+
+  toJSON(message: WithdrawalRecord): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.delegator !== undefined && (obj.delegator = message.delegator);
+
+    if (message.distribution) {
+      obj.distribution = message.distribution.map(e => e ? Distribution.toJSON(e) : undefined);
+    } else {
+      obj.distribution = [];
+    }
+
+    message.recipient !== undefined && (obj.recipient = message.recipient);
+
+    if (message.amount) {
+      obj.amount = message.amount.map(e => e ? Coin.toJSON(e) : undefined);
+    } else {
+      obj.amount = [];
+    }
+
+    message.burnAmount !== undefined && (obj.burnAmount = message.burnAmount ? Coin.toJSON(message.burnAmount) : undefined);
+    message.txhash !== undefined && (obj.txhash = message.txhash);
+    message.status !== undefined && (obj.status = Math.round(message.status));
+    message.completionTime !== undefined && (obj.completionTime = fromTimestamp(message.completionTime).toISOString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<WithdrawalRecord>): WithdrawalRecord {
     const message = createBaseWithdrawalRecord();
     message.chainId = object.chainId ?? "";
     message.delegator = object.delegator ?? "";
@@ -719,7 +864,7 @@ export const WithdrawalRecord = {
     message.burnAmount = object.burnAmount !== undefined && object.burnAmount !== null ? Coin.fromPartial(object.burnAmount) : undefined;
     message.txhash = object.txhash ?? "";
     message.status = object.status ?? 0;
-    message.completionTime = object.completionTime ?? undefined;
+    message.completionTime = object.completionTime !== undefined && object.completionTime !== null ? Timestamp.fromPartial(object.completionTime) : undefined;
     return message;
   }
 
@@ -789,7 +934,31 @@ export const UnbondingRecord = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<UnbondingRecord>): UnbondingRecord {
+  fromJSON(object: any): UnbondingRecord {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      epochNumber: isSet(object.epochNumber) ? Long.fromValue(object.epochNumber) : Long.ZERO,
+      validator: isSet(object.validator) ? String(object.validator) : "",
+      relatedTxhash: Array.isArray(object?.relatedTxhash) ? object.relatedTxhash.map((e: any) => String(e)) : []
+    };
+  },
+
+  toJSON(message: UnbondingRecord): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || Long.ZERO).toString());
+    message.validator !== undefined && (obj.validator = message.validator);
+
+    if (message.relatedTxhash) {
+      obj.relatedTxhash = message.relatedTxhash.map(e => e);
+    } else {
+      obj.relatedTxhash = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<UnbondingRecord>): UnbondingRecord {
     const message = createBaseUnbondingRecord();
     message.chainId = object.chainId ?? "";
     message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? Long.fromValue(object.epochNumber) : Long.ZERO;
@@ -834,7 +1003,7 @@ export const RedelegationRecord = {
     }
 
     if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(50).fork()).ldelim();
+      Timestamp.encode(message.completionTime, writer.uint32(50).fork()).ldelim();
     }
 
     return writer;
@@ -870,7 +1039,7 @@ export const RedelegationRecord = {
           break;
 
         case 6:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completionTime = Timestamp.decode(reader, reader.uint32());
           break;
 
         default:
@@ -882,14 +1051,36 @@ export const RedelegationRecord = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<RedelegationRecord>): RedelegationRecord {
+  fromJSON(object: any): RedelegationRecord {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      epochNumber: isSet(object.epochNumber) ? Long.fromValue(object.epochNumber) : Long.ZERO,
+      delegator: isSet(object.delegator) ? String(object.delegator) : "",
+      validator: isSet(object.validator) ? String(object.validator) : "",
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.ZERO,
+      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined
+    };
+  },
+
+  toJSON(message: RedelegationRecord): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || Long.ZERO).toString());
+    message.delegator !== undefined && (obj.delegator = message.delegator);
+    message.validator !== undefined && (obj.validator = message.validator);
+    message.amount !== undefined && (obj.amount = (message.amount || Long.ZERO).toString());
+    message.completionTime !== undefined && (obj.completionTime = fromTimestamp(message.completionTime).toISOString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<RedelegationRecord>): RedelegationRecord {
     const message = createBaseRedelegationRecord();
     message.chainId = object.chainId ?? "";
     message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? Long.fromValue(object.epochNumber) : Long.ZERO;
     message.delegator = object.delegator ?? "";
     message.validator = object.validator ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.ZERO;
-    message.completionTime = object.completionTime ?? undefined;
+    message.completionTime = object.completionTime !== undefined && object.completionTime !== null ? Timestamp.fromPartial(object.completionTime) : undefined;
     return message;
   }
 
@@ -950,7 +1141,23 @@ export const TransferRecord = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<TransferRecord>): TransferRecord {
+  fromJSON(object: any): TransferRecord {
+    return {
+      sender: isSet(object.sender) ? String(object.sender) : "",
+      recipient: isSet(object.recipient) ? String(object.recipient) : "",
+      amount: isSet(object.amount) ? Coin.fromJSON(object.amount) : undefined
+    };
+  },
+
+  toJSON(message: TransferRecord): unknown {
+    const obj: any = {};
+    message.sender !== undefined && (obj.sender = message.sender);
+    message.recipient !== undefined && (obj.recipient = message.recipient);
+    message.amount !== undefined && (obj.amount = message.amount ? Coin.toJSON(message.amount) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<TransferRecord>): TransferRecord {
     const message = createBaseTransferRecord();
     message.sender = object.sender ?? "";
     message.recipient = object.recipient ?? "";
@@ -1033,7 +1240,27 @@ export const Validator = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Validator>): Validator {
+  fromJSON(object: any): Validator {
+    return {
+      valoperAddress: isSet(object.valoperAddress) ? String(object.valoperAddress) : "",
+      commissionRate: isSet(object.commissionRate) ? String(object.commissionRate) : "",
+      delegatorShares: isSet(object.delegatorShares) ? String(object.delegatorShares) : "",
+      votingPower: isSet(object.votingPower) ? String(object.votingPower) : "",
+      score: isSet(object.score) ? String(object.score) : ""
+    };
+  },
+
+  toJSON(message: Validator): unknown {
+    const obj: any = {};
+    message.valoperAddress !== undefined && (obj.valoperAddress = message.valoperAddress);
+    message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
+    message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares);
+    message.votingPower !== undefined && (obj.votingPower = message.votingPower);
+    message.score !== undefined && (obj.score = message.score);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Validator>): Validator {
     const message = createBaseValidator();
     message.valoperAddress = object.valoperAddress ?? "";
     message.commissionRate = object.commissionRate ?? "";
@@ -1091,7 +1318,27 @@ export const DelegatorIntent = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DelegatorIntent>): DelegatorIntent {
+  fromJSON(object: any): DelegatorIntent {
+    return {
+      delegator: isSet(object.delegator) ? String(object.delegator) : "",
+      intents: Array.isArray(object?.intents) ? object.intents.map((e: any) => ValidatorIntent.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: DelegatorIntent): unknown {
+    const obj: any = {};
+    message.delegator !== undefined && (obj.delegator = message.delegator);
+
+    if (message.intents) {
+      obj.intents = message.intents.map(e => e ? ValidatorIntent.toJSON(e) : undefined);
+    } else {
+      obj.intents = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<DelegatorIntent>): DelegatorIntent {
     const message = createBaseDelegatorIntent();
     message.delegator = object.delegator ?? "";
     message.intents = object.intents?.map(e => ValidatorIntent.fromPartial(e)) || [];
@@ -1146,7 +1393,21 @@ export const ValidatorIntent = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ValidatorIntent>): ValidatorIntent {
+  fromJSON(object: any): ValidatorIntent {
+    return {
+      valoperAddress: isSet(object.valoperAddress) ? String(object.valoperAddress) : "",
+      weight: isSet(object.weight) ? String(object.weight) : ""
+    };
+  },
+
+  toJSON(message: ValidatorIntent): unknown {
+    const obj: any = {};
+    message.valoperAddress !== undefined && (obj.valoperAddress = message.valoperAddress);
+    message.weight !== undefined && (obj.weight = message.weight);
+    return obj;
+  },
+
+  fromPartial(object: Partial<ValidatorIntent>): ValidatorIntent {
     const message = createBaseValidatorIntent();
     message.valoperAddress = object.valoperAddress ?? "";
     message.weight = object.weight ?? "";
@@ -1228,7 +1489,27 @@ export const Delegation = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Delegation>): Delegation {
+  fromJSON(object: any): Delegation {
+    return {
+      delegationAddress: isSet(object.delegationAddress) ? String(object.delegationAddress) : "",
+      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+      amount: isSet(object.amount) ? Coin.fromJSON(object.amount) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      redelegationEnd: isSet(object.redelegationEnd) ? Long.fromValue(object.redelegationEnd) : Long.ZERO
+    };
+  },
+
+  toJSON(message: Delegation): unknown {
+    const obj: any = {};
+    message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress);
+    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.amount !== undefined && (obj.amount = message.amount ? Coin.toJSON(message.amount) : undefined);
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.redelegationEnd !== undefined && (obj.redelegationEnd = (message.redelegationEnd || Long.ZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Delegation>): Delegation {
     const message = createBaseDelegation();
     message.delegationAddress = object.delegationAddress ?? "";
     message.validatorAddress = object.validatorAddress ?? "";
@@ -1286,7 +1567,21 @@ export const PortConnectionTuple = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<PortConnectionTuple>): PortConnectionTuple {
+  fromJSON(object: any): PortConnectionTuple {
+    return {
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      portId: isSet(object.portId) ? String(object.portId) : ""
+    };
+  },
+
+  toJSON(message: PortConnectionTuple): unknown {
+    const obj: any = {};
+    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+    message.portId !== undefined && (obj.portId = message.portId);
+    return obj;
+  },
+
+  fromPartial(object: Partial<PortConnectionTuple>): PortConnectionTuple {
     const message = createBasePortConnectionTuple();
     message.connectionId = object.connectionId ?? "";
     message.portId = object.portId ?? "";
@@ -1359,7 +1654,31 @@ export const Receipt = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Receipt>): Receipt {
+  fromJSON(object: any): Receipt {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      sender: isSet(object.sender) ? String(object.sender) : "",
+      txhash: isSet(object.txhash) ? String(object.txhash) : "",
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: Receipt): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.sender !== undefined && (obj.sender = message.sender);
+    message.txhash !== undefined && (obj.txhash = message.txhash);
+
+    if (message.amount) {
+      obj.amount = message.amount.map(e => e ? Coin.toJSON(e) : undefined);
+    } else {
+      obj.amount = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<Receipt>): Receipt {
     const message = createBaseReceipt();
     message.chainId = object.chainId ?? "";
     message.sender = object.sender ?? "";

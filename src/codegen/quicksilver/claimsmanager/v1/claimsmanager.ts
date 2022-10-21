@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
+import { Long, isSet } from "../../../helpers";
 export enum ClaimType {
   /** ClaimTypeUndefined - Undefined action (per protobuf spec) */
   ClaimTypeUndefined = 0,
@@ -120,7 +120,16 @@ export const Params = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<Params>): Params {
+  fromJSON(_: any): Params {
+    return {};
+  },
+
+  toJSON(_: Params): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<Params>): Params {
     const message = createBaseParams();
     return message;
   }
@@ -200,7 +209,27 @@ export const Claim = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Claim>): Claim {
+  fromJSON(object: any): Claim {
+    return {
+      userAddress: isSet(object.userAddress) ? String(object.userAddress) : "",
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      module: isSet(object.module) ? claimTypeFromJSON(object.module) : 0,
+      sourceChainId: isSet(object.sourceChainId) ? String(object.sourceChainId) : "",
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
+    };
+  },
+
+  toJSON(message: Claim): unknown {
+    const obj: any = {};
+    message.userAddress !== undefined && (obj.userAddress = message.userAddress);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.module !== undefined && (obj.module = claimTypeToJSON(message.module));
+    message.sourceChainId !== undefined && (obj.sourceChainId = message.sourceChainId);
+    message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Claim>): Claim {
     const message = createBaseClaim();
     message.userAddress = object.userAddress ?? "";
     message.chainId = object.chainId ?? "";

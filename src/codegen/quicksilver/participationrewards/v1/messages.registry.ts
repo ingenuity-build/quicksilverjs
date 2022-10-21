@@ -25,6 +25,24 @@ export const MessageComposer = {
     }
 
   },
+  toJSON: {
+    submitClaim(value: MsgSubmitClaim) {
+      return {
+        typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
+        value: MsgSubmitClaim.toJSON(value)
+      };
+    }
+
+  },
+  fromJSON: {
+    submitClaim(value: any) {
+      return {
+        typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
+        value: MsgSubmitClaim.fromJSON(value)
+      };
+    }
+
+  },
   fromPartial: {
     submitClaim(value: MsgSubmitClaim) {
       return {

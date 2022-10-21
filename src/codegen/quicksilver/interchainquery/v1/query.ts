@@ -5,7 +5,7 @@ import { TxResponse, TxResponseSDKType } from "../../../cosmos/base/abci/v1beta1
 import { TxProof, TxProofSDKType } from "../../../tendermint/types/types";
 import { Header, HeaderSDKType } from "../../../ibc/lightclients/tendermint/v1/tendermint";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryRequestsRequest {
@@ -109,7 +109,21 @@ export const QueryRequestsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryRequestsRequest>): QueryRequestsRequest {
+  fromJSON(object: any): QueryRequestsRequest {
+    return {
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
+      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+    };
+  },
+
+  toJSON(message: QueryRequestsRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryRequestsRequest>): QueryRequestsRequest {
     const message = createBaseQueryRequestsRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     message.chainId = object.chainId ?? "";
@@ -164,7 +178,27 @@ export const QueryRequestsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryRequestsResponse>): QueryRequestsResponse {
+  fromJSON(object: any): QueryRequestsResponse {
+    return {
+      queries: Array.isArray(object?.queries) ? object.queries.map((e: any) => Query.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryRequestsResponse): unknown {
+    const obj: any = {};
+
+    if (message.queries) {
+      obj.queries = message.queries.map(e => e ? Query.toJSON(e) : undefined);
+    } else {
+      obj.queries = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryRequestsResponse>): QueryRequestsResponse {
     const message = createBaseQueryRequestsResponse();
     message.queries = object.queries?.map(e => Query.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -237,7 +271,25 @@ export const GetTxWithProofResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GetTxWithProofResponse>): GetTxWithProofResponse {
+  fromJSON(object: any): GetTxWithProofResponse {
+    return {
+      tx: isSet(object.tx) ? Tx.fromJSON(object.tx) : undefined,
+      txResponse: isSet(object.txResponse) ? TxResponse.fromJSON(object.txResponse) : undefined,
+      proof: isSet(object.proof) ? TxProof.fromJSON(object.proof) : undefined,
+      header: isSet(object.header) ? Header.fromJSON(object.header) : undefined
+    };
+  },
+
+  toJSON(message: GetTxWithProofResponse): unknown {
+    const obj: any = {};
+    message.tx !== undefined && (obj.tx = message.tx ? Tx.toJSON(message.tx) : undefined);
+    message.txResponse !== undefined && (obj.txResponse = message.txResponse ? TxResponse.toJSON(message.txResponse) : undefined);
+    message.proof !== undefined && (obj.proof = message.proof ? TxProof.toJSON(message.proof) : undefined);
+    message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<GetTxWithProofResponse>): GetTxWithProofResponse {
     const message = createBaseGetTxWithProofResponse();
     message.tx = object.tx !== undefined && object.tx !== null ? Tx.fromPartial(object.tx) : undefined;
     message.txResponse = object.txResponse !== undefined && object.txResponse !== null ? TxResponse.fromPartial(object.txResponse) : undefined;

@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Params, ParamsSDKType } from "./auth";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryAccountsRequest is the request type for the Query/Accounts RPC method. */
 
 export interface QueryAccountsRequest {
@@ -113,7 +113,19 @@ export const QueryAccountsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountsRequest>): QueryAccountsRequest {
+  fromJSON(object: any): QueryAccountsRequest {
+    return {
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryAccountsRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountsRequest>): QueryAccountsRequest {
     const message = createBaseQueryAccountsRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
@@ -167,7 +179,27 @@ export const QueryAccountsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountsResponse>): QueryAccountsResponse {
+  fromJSON(object: any): QueryAccountsResponse {
+    return {
+      accounts: Array.isArray(object?.accounts) ? object.accounts.map((e: any) => Any.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryAccountsResponse): unknown {
+    const obj: any = {};
+
+    if (message.accounts) {
+      obj.accounts = message.accounts.map(e => e ? Any.toJSON(e) : undefined);
+    } else {
+      obj.accounts = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountsResponse>): QueryAccountsResponse {
     const message = createBaseQueryAccountsResponse();
     message.accounts = object.accounts?.map(e => Any.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -213,7 +245,19 @@ export const QueryAccountRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountRequest>): QueryAccountRequest {
+  fromJSON(object: any): QueryAccountRequest {
+    return {
+      address: isSet(object.address) ? String(object.address) : ""
+    };
+  },
+
+  toJSON(message: QueryAccountRequest): unknown {
+    const obj: any = {};
+    message.address !== undefined && (obj.address = message.address);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountRequest>): QueryAccountRequest {
     const message = createBaseQueryAccountRequest();
     message.address = object.address ?? "";
     return message;
@@ -258,7 +302,19 @@ export const QueryAccountResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountResponse>): QueryAccountResponse {
+  fromJSON(object: any): QueryAccountResponse {
+    return {
+      account: isSet(object.account) ? Any.fromJSON(object.account) : undefined
+    };
+  },
+
+  toJSON(message: QueryAccountResponse): unknown {
+    const obj: any = {};
+    message.account !== undefined && (obj.account = message.account ? Any.toJSON(message.account) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountResponse>): QueryAccountResponse {
     const message = createBaseQueryAccountResponse();
     message.account = object.account !== undefined && object.account !== null ? Any.fromPartial(object.account) : undefined;
     return message;
@@ -293,7 +349,16 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
+  fromJSON(_: any): QueryParamsRequest {
+    return {};
+  },
+
+  toJSON(_: QueryParamsRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     return message;
   }
@@ -337,7 +402,19 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+  fromJSON(object: any): QueryParamsResponse {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
+    };
+  },
+
+  toJSON(message: QueryParamsResponse): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;

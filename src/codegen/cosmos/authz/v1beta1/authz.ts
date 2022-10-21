@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * GenericAuthorization gives the grantee unrestricted permissions to execute
  * the provided method on behalf of the granter's account.
@@ -27,7 +27,7 @@ export interface GenericAuthorizationSDKType {
 
 export interface Grant {
   authorization?: Any;
-  expiration?: Date;
+  expiration?: Timestamp;
 }
 /**
  * Grant gives permissions to execute
@@ -36,7 +36,7 @@ export interface Grant {
 
 export interface GrantSDKType {
   authorization?: AnySDKType;
-  expiration?: Date;
+  expiration?: TimestampSDKType;
 }
 
 function createBaseGenericAuthorization(): GenericAuthorization {
@@ -76,7 +76,19 @@ export const GenericAuthorization = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenericAuthorization>): GenericAuthorization {
+  fromJSON(object: any): GenericAuthorization {
+    return {
+      msg: isSet(object.msg) ? String(object.msg) : ""
+    };
+  },
+
+  toJSON(message: GenericAuthorization): unknown {
+    const obj: any = {};
+    message.msg !== undefined && (obj.msg = message.msg);
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenericAuthorization>): GenericAuthorization {
     const message = createBaseGenericAuthorization();
     message.msg = object.msg ?? "";
     return message;
@@ -98,7 +110,7 @@ export const Grant = {
     }
 
     if (message.expiration !== undefined) {
-      Timestamp.encode(toTimestamp(message.expiration), writer.uint32(18).fork()).ldelim();
+      Timestamp.encode(message.expiration, writer.uint32(18).fork()).ldelim();
     }
 
     return writer;
@@ -118,7 +130,7 @@ export const Grant = {
           break;
 
         case 2:
-          message.expiration = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.expiration = Timestamp.decode(reader, reader.uint32());
           break;
 
         default:
@@ -130,10 +142,24 @@ export const Grant = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Grant>): Grant {
+  fromJSON(object: any): Grant {
+    return {
+      authorization: isSet(object.authorization) ? Any.fromJSON(object.authorization) : undefined,
+      expiration: isSet(object.expiration) ? fromJsonTimestamp(object.expiration) : undefined
+    };
+  },
+
+  toJSON(message: Grant): unknown {
+    const obj: any = {};
+    message.authorization !== undefined && (obj.authorization = message.authorization ? Any.toJSON(message.authorization) : undefined);
+    message.expiration !== undefined && (obj.expiration = fromTimestamp(message.expiration).toISOString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Grant>): Grant {
     const message = createBaseGrant();
     message.authorization = object.authorization !== undefined && object.authorization !== null ? Any.fromPartial(object.authorization) : undefined;
-    message.expiration = object.expiration ?? undefined;
+    message.expiration = object.expiration !== undefined && object.expiration !== null ? Timestamp.fromPartial(object.expiration) : undefined;
     return message;
   }
 

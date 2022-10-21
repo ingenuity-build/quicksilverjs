@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
+import { isSet, Long } from "../../../helpers";
 /** Minter represents the minting state. */
 
 export interface Minter {
@@ -148,7 +148,19 @@ export const Minter = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Minter>): Minter {
+  fromJSON(object: any): Minter {
+    return {
+      epochProvisions: isSet(object.epochProvisions) ? String(object.epochProvisions) : ""
+    };
+  },
+
+  toJSON(message: Minter): unknown {
+    const obj: any = {};
+    message.epochProvisions !== undefined && (obj.epochProvisions = message.epochProvisions);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Minter>): Minter {
     const message = createBaseMinter();
     message.epochProvisions = object.epochProvisions ?? "";
     return message;
@@ -220,7 +232,25 @@ export const DistributionProportions = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DistributionProportions>): DistributionProportions {
+  fromJSON(object: any): DistributionProportions {
+    return {
+      staking: isSet(object.staking) ? String(object.staking) : "",
+      poolIncentives: isSet(object.poolIncentives) ? String(object.poolIncentives) : "",
+      participationRewards: isSet(object.participationRewards) ? String(object.participationRewards) : "",
+      communityPool: isSet(object.communityPool) ? String(object.communityPool) : ""
+    };
+  },
+
+  toJSON(message: DistributionProportions): unknown {
+    const obj: any = {};
+    message.staking !== undefined && (obj.staking = message.staking);
+    message.poolIncentives !== undefined && (obj.poolIncentives = message.poolIncentives);
+    message.participationRewards !== undefined && (obj.participationRewards = message.participationRewards);
+    message.communityPool !== undefined && (obj.communityPool = message.communityPool);
+    return obj;
+  },
+
+  fromPartial(object: Partial<DistributionProportions>): DistributionProportions {
     const message = createBaseDistributionProportions();
     message.staking = object.staking ?? "";
     message.poolIncentives = object.poolIncentives ?? "";
@@ -322,7 +352,31 @@ export const Params = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
+  fromJSON(object: any): Params {
+    return {
+      mintDenom: isSet(object.mintDenom) ? String(object.mintDenom) : "",
+      genesisEpochProvisions: isSet(object.genesisEpochProvisions) ? String(object.genesisEpochProvisions) : "",
+      epochIdentifier: isSet(object.epochIdentifier) ? String(object.epochIdentifier) : "",
+      reductionPeriodInEpochs: isSet(object.reductionPeriodInEpochs) ? Long.fromValue(object.reductionPeriodInEpochs) : Long.ZERO,
+      reductionFactor: isSet(object.reductionFactor) ? String(object.reductionFactor) : "",
+      distributionProportions: isSet(object.distributionProportions) ? DistributionProportions.fromJSON(object.distributionProportions) : undefined,
+      mintingRewardsDistributionStartEpoch: isSet(object.mintingRewardsDistributionStartEpoch) ? Long.fromValue(object.mintingRewardsDistributionStartEpoch) : Long.ZERO
+    };
+  },
+
+  toJSON(message: Params): unknown {
+    const obj: any = {};
+    message.mintDenom !== undefined && (obj.mintDenom = message.mintDenom);
+    message.genesisEpochProvisions !== undefined && (obj.genesisEpochProvisions = message.genesisEpochProvisions);
+    message.epochIdentifier !== undefined && (obj.epochIdentifier = message.epochIdentifier);
+    message.reductionPeriodInEpochs !== undefined && (obj.reductionPeriodInEpochs = (message.reductionPeriodInEpochs || Long.ZERO).toString());
+    message.reductionFactor !== undefined && (obj.reductionFactor = message.reductionFactor);
+    message.distributionProportions !== undefined && (obj.distributionProportions = message.distributionProportions ? DistributionProportions.toJSON(message.distributionProportions) : undefined);
+    message.mintingRewardsDistributionStartEpoch !== undefined && (obj.mintingRewardsDistributionStartEpoch = (message.mintingRewardsDistributionStartEpoch || Long.ZERO).toString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
     message.mintDenom = object.mintDenom ?? "";
     message.genesisEpochProvisions = object.genesisEpochProvisions ?? "";

@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType } from "./participationrewards";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {}
@@ -71,7 +71,16 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
+  fromJSON(_: any): QueryParamsRequest {
+    return {};
+  },
+
+  toJSON(_: QueryParamsRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     return message;
   }
@@ -115,7 +124,19 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+  fromJSON(object: any): QueryParamsResponse {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
+    };
+  },
+
+  toJSON(message: QueryParamsResponse): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
@@ -169,7 +190,21 @@ export const QueryProtocolDataRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryProtocolDataRequest>): QueryProtocolDataRequest {
+  fromJSON(object: any): QueryProtocolDataRequest {
+    return {
+      type: isSet(object.type) ? String(object.type) : "",
+      key: isSet(object.key) ? String(object.key) : ""
+    };
+  },
+
+  toJSON(message: QueryProtocolDataRequest): unknown {
+    const obj: any = {};
+    message.type !== undefined && (obj.type = message.type);
+    message.key !== undefined && (obj.key = message.key);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryProtocolDataRequest>): QueryProtocolDataRequest {
     const message = createBaseQueryProtocolDataRequest();
     message.type = object.type ?? "";
     message.key = object.key ?? "";
@@ -215,7 +250,25 @@ export const QueryProtocolDataResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryProtocolDataResponse>): QueryProtocolDataResponse {
+  fromJSON(object: any): QueryProtocolDataResponse {
+    return {
+      data: Array.isArray(object?.data) ? object.data.map((e: any) => bytesFromBase64(e)) : []
+    };
+  },
+
+  toJSON(message: QueryProtocolDataResponse): unknown {
+    const obj: any = {};
+
+    if (message.data) {
+      obj.data = message.data.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
+    } else {
+      obj.data = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryProtocolDataResponse>): QueryProtocolDataResponse {
     const message = createBaseQueryProtocolDataResponse();
     message.data = object.data?.map(e => e) || [];
     return message;
