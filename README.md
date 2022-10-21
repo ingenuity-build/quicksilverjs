@@ -25,8 +25,7 @@ npm install quicksilverjs
             - [Interchain Query](#interchain-query-messages)
             - [Participation Rewards](#participation-rewards-messages)
             - [Tokenfactory](#tokenfactory-messages)
-        - Cosmos, CosmWasm, and IBC
-            - [CosmWasm](#cosmwasm-messages)
+        - Cosmos and IBC
             - [IBC](#ibc-messages)
             - [Cosmos](#cosmos-messages)
 - [Wallets and Signers](#connecting-with-wallets-and-signing-messages)
@@ -111,21 +110,6 @@ const {
     mint,
     setDenomMetadata
 } = quicksilver.tokenfactory.v1beta1.MessageComposer.withTypeUrl;
-```
-
-#### CosmWasm Messages
-
-```js
-import { cosmwasm } from "quicksilverjs";
-
-const {
-    clearAdmin,
-    executeContract,
-    instantiateContract,
-    migrateContract,
-    storeCode,
-    updateAdmin
-} = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages
@@ -264,8 +248,6 @@ import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { 
     cosmosAminoConverters,
     cosmosProtoRegistry,
-    cosmwasmAminoConverters,
-    cosmwasmProtoRegistry,
     ibcProtoRegistry,
     ibcAminoConverters,
     quicksilverAminoConverters,
@@ -277,14 +259,12 @@ const rpcEndpint = 'https://rpc.cosmos.directory/quicksilver'; // or another URL
 
 const protoRegistry: ReadonlyArray<[string, GeneratedType]> = [
     ...cosmosProtoRegistry,
-    ...cosmwasmProtoRegistry,
     ...ibcProtoRegistry,
     ...quicksilverProtoRegistry
 ];
 
 const aminoConverters = {
     ...cosmosAminoConverters,
-    ...cosmwasmAminoConverters,
     ...ibcAminoConverters,
     ...quicksilverAminoConverters
 };
@@ -329,7 +309,6 @@ yarn publish
 
 Code built with the help of these related projects:
 
-* [@cosmwasm/ts-codegen](https://github.com/CosmWasm/ts-codegen) for generated CosmWasm contract Typescript classes
 * [@osmonauts/telescope](https://github.com/osmosis-labs/telescope) a "babel for the Cosmos", Telescope is a TypeScript Transpiler for Cosmos Protobufs.
 * [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit) A wallet connector for the Cosmos ⚛️
 
