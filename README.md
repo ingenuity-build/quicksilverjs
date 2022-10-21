@@ -163,12 +163,12 @@ Here are the docs on [creating signers](https://github.com/cosmology-tech/cosmos
 
 ### Initializing the Stargate Client
 
-Use `getSigningquicksilverClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
+Use `getSigningQuicksilverClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningquicksilverClient } from 'quicksilverjs';
+import { getSigningQuicksilverClient } from 'quicksilverjs';
 
-const stargateClient = await getSigningquicksilverClient({
+const stargateClient = await getSigningQuicksilverClient({
   rpcEndpoint,
   signer // OfflineSigner
 });
