@@ -1,7 +1,7 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgSubmitClaim } from "./messages";
 export interface AminoMsgSubmitClaim extends AminoMsg {
-    type: "/quicksilver.participationrewards.v1.MsgSubmitClaim";
+    type: "quicksilver/MsgSubmitClaim";
     value: {
         user_address: string;
         zone: string;

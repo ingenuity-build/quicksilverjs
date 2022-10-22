@@ -3,7 +3,7 @@ import { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
 import { MsgClaim } from "./messages";
 export interface AminoMsgClaim extends AminoMsg {
-  type: "/quicksilver.airdrop.v1.MsgClaim";
+  type: "quicksilver/MsgClaim";
   value: {
     chain_id: string;
     action: string;
@@ -24,7 +24,7 @@ export interface AminoMsgClaim extends AminoMsg {
 }
 export const AminoConverter = {
   "/quicksilver.airdrop.v1.MsgClaim": {
-    aminoType: "/quicksilver.airdrop.v1.MsgClaim",
+    aminoType: "quicksilver/MsgClaim",
     toAmino: ({
       chainId,
       action,

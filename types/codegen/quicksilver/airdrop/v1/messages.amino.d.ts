@@ -1,7 +1,7 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgClaim } from "./messages";
 export interface AminoMsgClaim extends AminoMsg {
-    type: "/quicksilver.airdrop.v1.MsgClaim";
+    type: "quicksilver/MsgClaim";
     value: {
         chain_id: string;
         action: string;

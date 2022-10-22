@@ -1,5 +1,17 @@
 export const AMINO_MAP = {
   // PUT YOUR AMINO names here...
+  '/quicksilver.participationrewards.v1.MsgSubmitClaim': {
+    aminoType: 'quicksilver/MsgSubmitClaim'
+  },
+  '/quicksilver.airdrop.v1.MsgClaim': {
+    aminoType: 'quicksilver/MsgClaim'
+  },
+  '/quicksilver.interchainstaking.v1.MsgRequestRedemption': {
+    aminoType: 'quicksilver/MsgRequestRedemption'
+  },
+  '/quicksilver.interchainstaking.v1.MsgSignalIntent': {
+    aminoType: 'quicksilver/MsgSignalIntent'
+  },
 
   // Staking
   '/cosmos.staking.v1beta1.MsgCreateValidator': {

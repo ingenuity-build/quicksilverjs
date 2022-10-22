@@ -1,7 +1,7 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgRequestRedemption, MsgSignalIntent } from "./messages";
 export interface AminoMsgRequestRedemption extends AminoMsg {
-    type: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
+    type: "quicksilver/MsgRequestRedemption";
     value: {
         value: {
             denom: string;
@@ -12,7 +12,7 @@ export interface AminoMsgRequestRedemption extends AminoMsg {
     };
 }
 export interface AminoMsgSignalIntent extends AminoMsg {
-    type: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
+    type: "quicksilver/MsgSignalIntent";
     value: {
         chain_id: string;
         intents: {
