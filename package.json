@@ -1,6 +1,6 @@
 {
   "name": "quicksilverjs",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "description": "Typescript bindings for Quicksilver",
   "author": "Joe Bowman <joe@ingenuity.build>",
   "homepage": "https://github.com/ingenuity-build/quicksilverjs#readme",
@@ -9,12 +9,10 @@
   "module": "module/index.js",
   "typings": "types/index.d.ts",
   "directories": {
-    "lib": "src",
     "test": "__tests__"
   },
   "files": [
     "types",
-    "src",
     "main",
     "module"
   ],
