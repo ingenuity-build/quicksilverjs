@@ -9,12 +9,10 @@
   "module": "module/index.js",
   "typings": "types/index.d.ts",
   "directories": {
-    "lib": "src",
     "test": "__tests__"
   },
   "files": [
     "types",
-    "src",
     "main",
     "module"
   ],
