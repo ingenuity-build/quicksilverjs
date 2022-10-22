@@ -25,6 +25,24 @@ export const MessageComposer = {
     }
 
   },
+  toJSON: {
+    submitQueryResponse(value: MsgSubmitQueryResponse) {
+      return {
+        typeUrl: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponse",
+        value: MsgSubmitQueryResponse.toJSON(value)
+      };
+    }
+
+  },
+  fromJSON: {
+    submitQueryResponse(value: any) {
+      return {
+        typeUrl: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponse",
+        value: MsgSubmitQueryResponse.fromJSON(value)
+      };
+    }
+
+  },
   fromPartial: {
     submitQueryResponse(value: MsgSubmitQueryResponse) {
       return {

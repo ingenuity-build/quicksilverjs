@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType, KeyedProtocolData, KeyedProtocolDataSDKType } from "./participationrewards";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** GenesisState defines the participationrewards module's genesis state. */
 
 export interface GenesisState {
@@ -60,7 +60,27 @@ export const GenesisState = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
+  fromJSON(object: any): GenesisState {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+      protocolData: Array.isArray(object?.protocolData) ? object.protocolData.map((e: any) => KeyedProtocolData.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: GenesisState): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+
+    if (message.protocolData) {
+      obj.protocolData = message.protocolData.map(e => e ? KeyedProtocolData.toJSON(e) : undefined);
+    } else {
+      obj.protocolData = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.protocolData = object.protocolData?.map(e => KeyedProtocolData.fromPartial(e)) || [];

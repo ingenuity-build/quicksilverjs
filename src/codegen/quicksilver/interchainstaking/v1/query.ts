@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Zone, ZoneSDKType, DelegatorIntent, DelegatorIntentSDKType, Delegation, DelegationSDKType, Receipt, ReceiptSDKType, WithdrawalRecord, WithdrawalRecordSDKType, UnbondingRecord, UnbondingRecordSDKType, RedelegationRecord, RedelegationRecordSDKType } from "./interchainstaking";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
+import { isSet, Long } from "../../../helpers";
 export interface QueryZonesInfoRequest {
   pagination?: PageRequest;
 }
@@ -184,7 +184,19 @@ export const QueryZonesInfoRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZonesInfoRequest>): QueryZonesInfoRequest {
+  fromJSON(object: any): QueryZonesInfoRequest {
+    return {
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryZonesInfoRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZonesInfoRequest>): QueryZonesInfoRequest {
     const message = createBaseQueryZonesInfoRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
@@ -238,7 +250,27 @@ export const QueryZonesInfoResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZonesInfoResponse>): QueryZonesInfoResponse {
+  fromJSON(object: any): QueryZonesInfoResponse {
+    return {
+      zones: Array.isArray(object?.zones) ? object.zones.map((e: any) => Zone.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryZonesInfoResponse): unknown {
+    const obj: any = {};
+
+    if (message.zones) {
+      obj.zones = message.zones.map(e => e ? Zone.toJSON(e) : undefined);
+    } else {
+      obj.zones = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZonesInfoResponse>): QueryZonesInfoResponse {
     const message = createBaseQueryZonesInfoResponse();
     message.zones = object.zones?.map(e => Zone.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -284,7 +316,19 @@ export const QueryDepositAccountForChainRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositAccountForChainRequest>): QueryDepositAccountForChainRequest {
+  fromJSON(object: any): QueryDepositAccountForChainRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+    };
+  },
+
+  toJSON(message: QueryDepositAccountForChainRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDepositAccountForChainRequest>): QueryDepositAccountForChainRequest {
     const message = createBaseQueryDepositAccountForChainRequest();
     message.chainId = object.chainId ?? "";
     return message;
@@ -329,7 +373,19 @@ export const QueryDepositAccountForChainResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositAccountForChainResponse>): QueryDepositAccountForChainResponse {
+  fromJSON(object: any): QueryDepositAccountForChainResponse {
+    return {
+      depositAccountAddress: isSet(object.depositAccountAddress) ? String(object.depositAccountAddress) : ""
+    };
+  },
+
+  toJSON(message: QueryDepositAccountForChainResponse): unknown {
+    const obj: any = {};
+    message.depositAccountAddress !== undefined && (obj.depositAccountAddress = message.depositAccountAddress);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDepositAccountForChainResponse>): QueryDepositAccountForChainResponse {
     const message = createBaseQueryDepositAccountForChainResponse();
     message.depositAccountAddress = object.depositAccountAddress ?? "";
     return message;
@@ -383,7 +439,21 @@ export const QueryDelegatorIntentRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDelegatorIntentRequest>): QueryDelegatorIntentRequest {
+  fromJSON(object: any): QueryDelegatorIntentRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+    };
+  },
+
+  toJSON(message: QueryDelegatorIntentRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDelegatorIntentRequest>): QueryDelegatorIntentRequest {
     const message = createBaseQueryDelegatorIntentRequest();
     message.chainId = object.chainId ?? "";
     message.delegatorAddress = object.delegatorAddress ?? "";
@@ -429,7 +499,19 @@ export const QueryDelegatorIntentResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDelegatorIntentResponse>): QueryDelegatorIntentResponse {
+  fromJSON(object: any): QueryDelegatorIntentResponse {
+    return {
+      intent: isSet(object.intent) ? DelegatorIntent.fromJSON(object.intent) : undefined
+    };
+  },
+
+  toJSON(message: QueryDelegatorIntentResponse): unknown {
+    const obj: any = {};
+    message.intent !== undefined && (obj.intent = message.intent ? DelegatorIntent.toJSON(message.intent) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDelegatorIntentResponse>): QueryDelegatorIntentResponse {
     const message = createBaseQueryDelegatorIntentResponse();
     message.intent = object.intent !== undefined && object.intent !== null ? DelegatorIntent.fromPartial(object.intent) : undefined;
     return message;
@@ -483,7 +565,21 @@ export const QueryDelegationsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDelegationsRequest>): QueryDelegationsRequest {
+  fromJSON(object: any): QueryDelegationsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryDelegationsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDelegationsRequest>): QueryDelegationsRequest {
     const message = createBaseQueryDelegationsRequest();
     message.chainId = object.chainId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -547,7 +643,29 @@ export const QueryDelegationsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryDelegationsResponse>): QueryDelegationsResponse {
+  fromJSON(object: any): QueryDelegationsResponse {
+    return {
+      delegations: Array.isArray(object?.delegations) ? object.delegations.map((e: any) => Delegation.fromJSON(e)) : [],
+      tvl: isSet(object.tvl) ? Long.fromValue(object.tvl) : Long.ZERO,
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryDelegationsResponse): unknown {
+    const obj: any = {};
+
+    if (message.delegations) {
+      obj.delegations = message.delegations.map(e => e ? Delegation.toJSON(e) : undefined);
+    } else {
+      obj.delegations = [];
+    }
+
+    message.tvl !== undefined && (obj.tvl = (message.tvl || Long.ZERO).toString());
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryDelegationsResponse>): QueryDelegationsResponse {
     const message = createBaseQueryDelegationsResponse();
     message.delegations = object.delegations?.map(e => Delegation.fromPartial(e)) || [];
     message.tvl = object.tvl !== undefined && object.tvl !== null ? Long.fromValue(object.tvl) : Long.ZERO;
@@ -603,7 +721,21 @@ export const QueryReceiptsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryReceiptsRequest>): QueryReceiptsRequest {
+  fromJSON(object: any): QueryReceiptsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryReceiptsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryReceiptsRequest>): QueryReceiptsRequest {
     const message = createBaseQueryReceiptsRequest();
     message.chainId = object.chainId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -658,7 +790,27 @@ export const QueryReceiptsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryReceiptsResponse>): QueryReceiptsResponse {
+  fromJSON(object: any): QueryReceiptsResponse {
+    return {
+      receipts: Array.isArray(object?.receipts) ? object.receipts.map((e: any) => Receipt.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryReceiptsResponse): unknown {
+    const obj: any = {};
+
+    if (message.receipts) {
+      obj.receipts = message.receipts.map(e => e ? Receipt.toJSON(e) : undefined);
+    } else {
+      obj.receipts = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryReceiptsResponse>): QueryReceiptsResponse {
     const message = createBaseQueryReceiptsResponse();
     message.receipts = object.receipts?.map(e => Receipt.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -722,7 +874,23 @@ export const QueryWithdrawalRecordsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryWithdrawalRecordsRequest>): QueryWithdrawalRecordsRequest {
+  fromJSON(object: any): QueryWithdrawalRecordsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryWithdrawalRecordsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryWithdrawalRecordsRequest>): QueryWithdrawalRecordsRequest {
     const message = createBaseQueryWithdrawalRecordsRequest();
     message.chainId = object.chainId ?? "";
     message.delegatorAddress = object.delegatorAddress ?? "";
@@ -778,7 +946,27 @@ export const QueryWithdrawalRecordsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryWithdrawalRecordsResponse>): QueryWithdrawalRecordsResponse {
+  fromJSON(object: any): QueryWithdrawalRecordsResponse {
+    return {
+      withdrawals: Array.isArray(object?.withdrawals) ? object.withdrawals.map((e: any) => WithdrawalRecord.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryWithdrawalRecordsResponse): unknown {
+    const obj: any = {};
+
+    if (message.withdrawals) {
+      obj.withdrawals = message.withdrawals.map(e => e ? WithdrawalRecord.toJSON(e) : undefined);
+    } else {
+      obj.withdrawals = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryWithdrawalRecordsResponse>): QueryWithdrawalRecordsResponse {
     const message = createBaseQueryWithdrawalRecordsResponse();
     message.withdrawals = object.withdrawals?.map(e => WithdrawalRecord.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -833,7 +1021,21 @@ export const QueryUnbondingRecordsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryUnbondingRecordsRequest>): QueryUnbondingRecordsRequest {
+  fromJSON(object: any): QueryUnbondingRecordsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryUnbondingRecordsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryUnbondingRecordsRequest>): QueryUnbondingRecordsRequest {
     const message = createBaseQueryUnbondingRecordsRequest();
     message.chainId = object.chainId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -888,7 +1090,27 @@ export const QueryUnbondingRecordsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryUnbondingRecordsResponse>): QueryUnbondingRecordsResponse {
+  fromJSON(object: any): QueryUnbondingRecordsResponse {
+    return {
+      Unbondings: Array.isArray(object?.Unbondings) ? object.Unbondings.map((e: any) => UnbondingRecord.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryUnbondingRecordsResponse): unknown {
+    const obj: any = {};
+
+    if (message.Unbondings) {
+      obj.Unbondings = message.Unbondings.map(e => e ? UnbondingRecord.toJSON(e) : undefined);
+    } else {
+      obj.Unbondings = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryUnbondingRecordsResponse>): QueryUnbondingRecordsResponse {
     const message = createBaseQueryUnbondingRecordsResponse();
     message.Unbondings = object.Unbondings?.map(e => UnbondingRecord.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -943,7 +1165,21 @@ export const QueryRedelegationRecordsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryRedelegationRecordsRequest>): QueryRedelegationRecordsRequest {
+  fromJSON(object: any): QueryRedelegationRecordsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryRedelegationRecordsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryRedelegationRecordsRequest>): QueryRedelegationRecordsRequest {
     const message = createBaseQueryRedelegationRecordsRequest();
     message.chainId = object.chainId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -998,7 +1234,27 @@ export const QueryRedelegationRecordsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryRedelegationRecordsResponse>): QueryRedelegationRecordsResponse {
+  fromJSON(object: any): QueryRedelegationRecordsResponse {
+    return {
+      Redelegations: Array.isArray(object?.Redelegations) ? object.Redelegations.map((e: any) => RedelegationRecord.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryRedelegationRecordsResponse): unknown {
+    const obj: any = {};
+
+    if (message.Redelegations) {
+      obj.Redelegations = message.Redelegations.map(e => e ? RedelegationRecord.toJSON(e) : undefined);
+    } else {
+      obj.Redelegations = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryRedelegationRecordsResponse>): QueryRedelegationRecordsResponse {
     const message = createBaseQueryRedelegationRecordsResponse();
     message.Redelegations = object.Redelegations?.map(e => RedelegationRecord.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;

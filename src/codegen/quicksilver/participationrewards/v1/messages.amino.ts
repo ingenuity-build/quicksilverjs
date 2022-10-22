@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { claimTypeFromJSON } from "../../claimsmanager/v1/claimsmanager";
 import { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";

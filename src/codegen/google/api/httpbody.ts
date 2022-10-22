@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../helpers";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
 /**
  * Message that represents an arbitrary HTTP body. It should only be used for
  * payload formats that can't be represented as JSON, such as raw binary or
@@ -167,7 +167,29 @@ export const HttpBody = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<HttpBody>): HttpBody {
+  fromJSON(object: any): HttpBody {
+    return {
+      contentType: isSet(object.contentType) ? String(object.contentType) : "",
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
+      extensions: Array.isArray(object?.extensions) ? object.extensions.map((e: any) => Any.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: HttpBody): unknown {
+    const obj: any = {};
+    message.contentType !== undefined && (obj.contentType = message.contentType);
+    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+
+    if (message.extensions) {
+      obj.extensions = message.extensions.map(e => e ? Any.toJSON(e) : undefined);
+    } else {
+      obj.extensions = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<HttpBody>): HttpBody {
     const message = createBaseHttpBody();
     message.contentType = object.contentType ?? "";
     message.data = object.data ?? new Uint8Array();

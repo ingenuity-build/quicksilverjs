@@ -1,9 +1,9 @@
-import { Status, StatusSDKType, ZoneDrop, ZoneDropSDKType, ClaimRecord, ClaimRecordSDKType } from "./airdrop";
+import { Status, StatusSDKType, ZoneDrop, ZoneDropSDKType, ClaimRecord, ClaimRecordSDKType, statusFromJSON, statusToJSON } from "./airdrop";
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Params, ParamsSDKType } from "./params";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {}
@@ -206,7 +206,16 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
+  fromJSON(_: any): QueryParamsRequest {
+    return {};
+  },
+
+  toJSON(_: QueryParamsRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     return message;
   }
@@ -250,7 +259,19 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+  fromJSON(object: any): QueryParamsResponse {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
+    };
+  },
+
+  toJSON(message: QueryParamsResponse): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
@@ -295,7 +316,19 @@ export const QueryZoneDropRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZoneDropRequest>): QueryZoneDropRequest {
+  fromJSON(object: any): QueryZoneDropRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+    };
+  },
+
+  toJSON(message: QueryZoneDropRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZoneDropRequest>): QueryZoneDropRequest {
     const message = createBaseQueryZoneDropRequest();
     message.chainId = object.chainId ?? "";
     return message;
@@ -340,7 +373,19 @@ export const QueryZoneDropResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZoneDropResponse>): QueryZoneDropResponse {
+  fromJSON(object: any): QueryZoneDropResponse {
+    return {
+      zoneDrop: isSet(object.zoneDrop) ? ZoneDrop.fromJSON(object.zoneDrop) : undefined
+    };
+  },
+
+  toJSON(message: QueryZoneDropResponse): unknown {
+    const obj: any = {};
+    message.zoneDrop !== undefined && (obj.zoneDrop = message.zoneDrop ? ZoneDrop.toJSON(message.zoneDrop) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZoneDropResponse>): QueryZoneDropResponse {
     const message = createBaseQueryZoneDropResponse();
     message.zoneDrop = object.zoneDrop !== undefined && object.zoneDrop !== null ? ZoneDrop.fromPartial(object.zoneDrop) : undefined;
     return message;
@@ -385,7 +430,19 @@ export const QueryAccountBalanceRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountBalanceRequest>): QueryAccountBalanceRequest {
+  fromJSON(object: any): QueryAccountBalanceRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+    };
+  },
+
+  toJSON(message: QueryAccountBalanceRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountBalanceRequest>): QueryAccountBalanceRequest {
     const message = createBaseQueryAccountBalanceRequest();
     message.chainId = object.chainId ?? "";
     return message;
@@ -430,7 +487,19 @@ export const QueryAccountBalanceResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryAccountBalanceResponse>): QueryAccountBalanceResponse {
+  fromJSON(object: any): QueryAccountBalanceResponse {
+    return {
+      accountBalance: isSet(object.accountBalance) ? Coin.fromJSON(object.accountBalance) : undefined
+    };
+  },
+
+  toJSON(message: QueryAccountBalanceResponse): unknown {
+    const obj: any = {};
+    message.accountBalance !== undefined && (obj.accountBalance = message.accountBalance ? Coin.toJSON(message.accountBalance) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryAccountBalanceResponse>): QueryAccountBalanceResponse {
     const message = createBaseQueryAccountBalanceResponse();
     message.accountBalance = object.accountBalance !== undefined && object.accountBalance !== null ? Coin.fromPartial(object.accountBalance) : undefined;
     return message;
@@ -484,7 +553,21 @@ export const QueryZoneDropsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZoneDropsRequest>): QueryZoneDropsRequest {
+  fromJSON(object: any): QueryZoneDropsRequest {
+    return {
+      status: isSet(object.status) ? statusFromJSON(object.status) : 0,
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryZoneDropsRequest): unknown {
+    const obj: any = {};
+    message.status !== undefined && (obj.status = statusToJSON(message.status));
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZoneDropsRequest>): QueryZoneDropsRequest {
     const message = createBaseQueryZoneDropsRequest();
     message.status = object.status ?? 0;
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -539,7 +622,27 @@ export const QueryZoneDropsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryZoneDropsResponse>): QueryZoneDropsResponse {
+  fromJSON(object: any): QueryZoneDropsResponse {
+    return {
+      zoneDrops: Array.isArray(object?.zoneDrops) ? object.zoneDrops.map((e: any) => ZoneDrop.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryZoneDropsResponse): unknown {
+    const obj: any = {};
+
+    if (message.zoneDrops) {
+      obj.zoneDrops = message.zoneDrops.map(e => e ? ZoneDrop.toJSON(e) : undefined);
+    } else {
+      obj.zoneDrops = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryZoneDropsResponse>): QueryZoneDropsResponse {
     const message = createBaseQueryZoneDropsResponse();
     message.zoneDrops = object.zoneDrops?.map(e => ZoneDrop.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -594,7 +697,21 @@ export const QueryClaimRecordRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimRecordRequest>): QueryClaimRecordRequest {
+  fromJSON(object: any): QueryClaimRecordRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      address: isSet(object.address) ? String(object.address) : ""
+    };
+  },
+
+  toJSON(message: QueryClaimRecordRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.address !== undefined && (obj.address = message.address);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimRecordRequest>): QueryClaimRecordRequest {
     const message = createBaseQueryClaimRecordRequest();
     message.chainId = object.chainId ?? "";
     message.address = object.address ?? "";
@@ -640,7 +757,19 @@ export const QueryClaimRecordResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimRecordResponse>): QueryClaimRecordResponse {
+  fromJSON(object: any): QueryClaimRecordResponse {
+    return {
+      claimRecord: isSet(object.claimRecord) ? ClaimRecord.fromJSON(object.claimRecord) : undefined
+    };
+  },
+
+  toJSON(message: QueryClaimRecordResponse): unknown {
+    const obj: any = {};
+    message.claimRecord !== undefined && (obj.claimRecord = message.claimRecord ? ClaimRecord.toJSON(message.claimRecord) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimRecordResponse>): QueryClaimRecordResponse {
     const message = createBaseQueryClaimRecordResponse();
     message.claimRecord = object.claimRecord !== undefined && object.claimRecord !== null ? ClaimRecord.fromPartial(object.claimRecord) : undefined;
     return message;
@@ -694,7 +823,21 @@ export const QueryClaimRecordsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimRecordsRequest>): QueryClaimRecordsRequest {
+  fromJSON(object: any): QueryClaimRecordsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryClaimRecordsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimRecordsRequest>): QueryClaimRecordsRequest {
     const message = createBaseQueryClaimRecordsRequest();
     message.chainId = object.chainId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -749,7 +892,27 @@ export const QueryClaimRecordsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimRecordsResponse>): QueryClaimRecordsResponse {
+  fromJSON(object: any): QueryClaimRecordsResponse {
+    return {
+      claimRecords: Array.isArray(object?.claimRecords) ? object.claimRecords.map((e: any) => ClaimRecord.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryClaimRecordsResponse): unknown {
+    const obj: any = {};
+
+    if (message.claimRecords) {
+      obj.claimRecords = message.claimRecords.map(e => e ? ClaimRecord.toJSON(e) : undefined);
+    } else {
+      obj.claimRecords = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimRecordsResponse>): QueryClaimRecordsResponse {
     const message = createBaseQueryClaimRecordsResponse();
     message.claimRecords = object.claimRecords?.map(e => ClaimRecord.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;

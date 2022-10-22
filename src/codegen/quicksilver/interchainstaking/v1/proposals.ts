@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 export interface RegisterZoneProposal {
   title: string;
   description: string;
@@ -187,7 +187,33 @@ export const RegisterZoneProposal = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<RegisterZoneProposal>): RegisterZoneProposal {
+  fromJSON(object: any): RegisterZoneProposal {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
+      localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
+      accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
+      multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
+      liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false
+    };
+  },
+
+  toJSON(message: RegisterZoneProposal): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+    message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
+    message.localDenom !== undefined && (obj.localDenom = message.localDenom);
+    message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
+    message.multiSend !== undefined && (obj.multiSend = message.multiSend);
+    message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
+    return obj;
+  },
+
+  fromPartial(object: Partial<RegisterZoneProposal>): RegisterZoneProposal {
     const message = createBaseRegisterZoneProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
@@ -311,7 +337,35 @@ export const RegisterZoneProposalWithDeposit = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<RegisterZoneProposalWithDeposit>): RegisterZoneProposalWithDeposit {
+  fromJSON(object: any): RegisterZoneProposalWithDeposit {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
+      localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
+      accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
+      multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
+      liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
+      deposit: isSet(object.deposit) ? String(object.deposit) : ""
+    };
+  },
+
+  toJSON(message: RegisterZoneProposalWithDeposit): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+    message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
+    message.localDenom !== undefined && (obj.localDenom = message.localDenom);
+    message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
+    message.multiSend !== undefined && (obj.multiSend = message.multiSend);
+    message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
+    message.deposit !== undefined && (obj.deposit = message.deposit);
+    return obj;
+  },
+
+  fromPartial(object: Partial<RegisterZoneProposalWithDeposit>): RegisterZoneProposalWithDeposit {
     const message = createBaseRegisterZoneProposalWithDeposit();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
@@ -391,7 +445,31 @@ export const UpdateZoneProposal = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<UpdateZoneProposal>): UpdateZoneProposal {
+  fromJSON(object: any): UpdateZoneProposal {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      changes: Array.isArray(object?.changes) ? object.changes.map((e: any) => UpdateZoneValue.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: UpdateZoneProposal): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+
+    if (message.changes) {
+      obj.changes = message.changes.map(e => e ? UpdateZoneValue.toJSON(e) : undefined);
+    } else {
+      obj.changes = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<UpdateZoneProposal>): UpdateZoneProposal {
     const message = createBaseUpdateZoneProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
@@ -475,7 +553,33 @@ export const UpdateZoneProposalWithDeposit = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<UpdateZoneProposalWithDeposit>): UpdateZoneProposalWithDeposit {
+  fromJSON(object: any): UpdateZoneProposalWithDeposit {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      changes: Array.isArray(object?.changes) ? object.changes.map((e: any) => UpdateZoneValue.fromJSON(e)) : [],
+      deposit: isSet(object.deposit) ? String(object.deposit) : ""
+    };
+  },
+
+  toJSON(message: UpdateZoneProposalWithDeposit): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+
+    if (message.changes) {
+      obj.changes = message.changes.map(e => e ? UpdateZoneValue.toJSON(e) : undefined);
+    } else {
+      obj.changes = [];
+    }
+
+    message.deposit !== undefined && (obj.deposit = message.deposit);
+    return obj;
+  },
+
+  fromPartial(object: Partial<UpdateZoneProposalWithDeposit>): UpdateZoneProposalWithDeposit {
     const message = createBaseUpdateZoneProposalWithDeposit();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
@@ -533,7 +637,21 @@ export const UpdateZoneValue = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<UpdateZoneValue>): UpdateZoneValue {
+  fromJSON(object: any): UpdateZoneValue {
+    return {
+      key: isSet(object.key) ? String(object.key) : "",
+      value: isSet(object.value) ? String(object.value) : ""
+    };
+  },
+
+  toJSON(message: UpdateZoneValue): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = message.key);
+    message.value !== undefined && (obj.value = message.value);
+    return obj;
+  },
+
+  fromPartial(object: Partial<UpdateZoneValue>): UpdateZoneValue {
     const message = createBaseUpdateZoneValue();
     message.key = object.key ?? "";
     message.value = object.value ?? "";

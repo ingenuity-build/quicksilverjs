@@ -1,7 +1,7 @@
-import { ClaimType, ClaimTypeSDKType } from "../../claimsmanager/v1/claimsmanager";
+import { ClaimType, ClaimTypeSDKType, claimTypeFromJSON, claimTypeToJSON } from "../../claimsmanager/v1/claimsmanager";
 import { ProofOps, ProofOpsSDKType } from "../../../tendermint/crypto/proof";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
+import { isSet, Long, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * MsgSubmitClaim represents a message type for submitting a participation
  * claim regarding the given zone (chain).
@@ -124,7 +124,33 @@ export const MsgSubmitClaim = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgSubmitClaim>): MsgSubmitClaim {
+  fromJSON(object: any): MsgSubmitClaim {
+    return {
+      userAddress: isSet(object.user_address) ? String(object.user_address) : "",
+      zone: isSet(object.zone) ? String(object.zone) : "",
+      srcZone: isSet(object.src_zone) ? String(object.src_zone) : "",
+      claimType: isSet(object.claim_type) ? claimTypeFromJSON(object.claim_type) : 0,
+      proofs: Array.isArray(object?.proofs) ? object.proofs.map((e: any) => Proof.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: MsgSubmitClaim): unknown {
+    const obj: any = {};
+    message.userAddress !== undefined && (obj.user_address = message.userAddress);
+    message.zone !== undefined && (obj.zone = message.zone);
+    message.srcZone !== undefined && (obj.src_zone = message.srcZone);
+    message.claimType !== undefined && (obj.claim_type = claimTypeToJSON(message.claimType));
+
+    if (message.proofs) {
+      obj.proofs = message.proofs.map(e => e ? Proof.toJSON(e) : undefined);
+    } else {
+      obj.proofs = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgSubmitClaim>): MsgSubmitClaim {
     const message = createBaseMsgSubmitClaim();
     message.userAddress = object.userAddress ?? "";
     message.zone = object.zone ?? "";
@@ -163,7 +189,16 @@ export const MsgSubmitClaimResponse = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<MsgSubmitClaimResponse>): MsgSubmitClaimResponse {
+  fromJSON(_: any): MsgSubmitClaimResponse {
+    return {};
+  },
+
+  toJSON(_: MsgSubmitClaimResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<MsgSubmitClaimResponse>): MsgSubmitClaimResponse {
     const message = createBaseMsgSubmitClaimResponse();
     return message;
   }
@@ -243,7 +278,27 @@ export const Proof = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Proof>): Proof {
+  fromJSON(object: any): Proof {
+    return {
+      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
+      proofOps: isSet(object.proof_ops) ? ProofOps.fromJSON(object.proof_ops) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      proofType: isSet(object.proof_type) ? String(object.proof_type) : ""
+    };
+  },
+
+  toJSON(message: Proof): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
+    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+    message.proofOps !== undefined && (obj.proof_ops = message.proofOps ? ProofOps.toJSON(message.proofOps) : undefined);
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.proofType !== undefined && (obj.proof_type = message.proofType);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Proof>): Proof {
     const message = createBaseProof();
     message.key = object.key ?? new Uint8Array();
     message.data = object.data ?? new Uint8Array();

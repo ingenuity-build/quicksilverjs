@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
 import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata } from "./tx";
@@ -86,7 +87,7 @@ export const AminoConverter = {
         sender,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
+          amount: Long.fromValue(amount.amount).toString()
         }
       };
     },
@@ -113,7 +114,7 @@ export const AminoConverter = {
         sender,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
+          amount: Long.fromValue(amount.amount).toString()
         }
       };
     },

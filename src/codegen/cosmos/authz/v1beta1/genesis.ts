@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, toTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 /** GenesisState defines the authz module's genesis state. */
 
 export interface GenesisState {
@@ -18,7 +18,7 @@ export interface GrantAuthorization {
   granter: string;
   grantee: string;
   authorization?: Any;
-  expiration?: Date;
+  expiration?: Timestamp;
 }
 /** GrantAuthorization defines the GenesisState/GrantAuthorization type. */
 
@@ -26,7 +26,7 @@ export interface GrantAuthorizationSDKType {
   granter: string;
   grantee: string;
   authorization?: AnySDKType;
-  expiration?: Date;
+  expiration?: TimestampSDKType;
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -66,7 +66,25 @@ export const GenesisState = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
+  fromJSON(object: any): GenesisState {
+    return {
+      authorization: Array.isArray(object?.authorization) ? object.authorization.map((e: any) => GrantAuthorization.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: GenesisState): unknown {
+    const obj: any = {};
+
+    if (message.authorization) {
+      obj.authorization = message.authorization.map(e => e ? GrantAuthorization.toJSON(e) : undefined);
+    } else {
+      obj.authorization = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.authorization = object.authorization?.map(e => GrantAuthorization.fromPartial(e)) || [];
     return message;
@@ -98,7 +116,7 @@ export const GrantAuthorization = {
     }
 
     if (message.expiration !== undefined) {
-      Timestamp.encode(toTimestamp(message.expiration), writer.uint32(34).fork()).ldelim();
+      Timestamp.encode(message.expiration, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
@@ -126,7 +144,7 @@ export const GrantAuthorization = {
           break;
 
         case 4:
-          message.expiration = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.expiration = Timestamp.decode(reader, reader.uint32());
           break;
 
         default:
@@ -138,12 +156,30 @@ export const GrantAuthorization = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GrantAuthorization>): GrantAuthorization {
+  fromJSON(object: any): GrantAuthorization {
+    return {
+      granter: isSet(object.granter) ? String(object.granter) : "",
+      grantee: isSet(object.grantee) ? String(object.grantee) : "",
+      authorization: isSet(object.authorization) ? Any.fromJSON(object.authorization) : undefined,
+      expiration: isSet(object.expiration) ? fromJsonTimestamp(object.expiration) : undefined
+    };
+  },
+
+  toJSON(message: GrantAuthorization): unknown {
+    const obj: any = {};
+    message.granter !== undefined && (obj.granter = message.granter);
+    message.grantee !== undefined && (obj.grantee = message.grantee);
+    message.authorization !== undefined && (obj.authorization = message.authorization ? Any.toJSON(message.authorization) : undefined);
+    message.expiration !== undefined && (obj.expiration = fromTimestamp(message.expiration).toISOString());
+    return obj;
+  },
+
+  fromPartial(object: Partial<GrantAuthorization>): GrantAuthorization {
     const message = createBaseGrantAuthorization();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
     message.authorization = object.authorization !== undefined && object.authorization !== null ? Any.fromPartial(object.authorization) : undefined;
-    message.expiration = object.expiration ?? undefined;
+    message.expiration = object.expiration !== undefined && object.expiration !== null ? Timestamp.fromPartial(object.expiration) : undefined;
     return message;
   }
 

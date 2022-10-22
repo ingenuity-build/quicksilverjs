@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
 /** Params holds parameters for the airdrop module. */
 
 export interface Params {}
@@ -34,7 +33,16 @@ export const Params = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<Params>): Params {
+  fromJSON(_: any): Params {
+    return {};
+  },
+
+  toJSON(_: Params): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<Params>): Params {
     const message = createBaseParams();
     return message;
   }

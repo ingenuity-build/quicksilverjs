@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface Query {
   id: string;
   connectionId: string;
@@ -163,7 +163,37 @@ export const Query = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Query>): Query {
+  fromJSON(object: any): Query {
+    return {
+      id: isSet(object.id) ? String(object.id) : "",
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      queryType: isSet(object.queryType) ? String(object.queryType) : "",
+      request: isSet(object.request) ? bytesFromBase64(object.request) : new Uint8Array(),
+      period: isSet(object.period) ? String(object.period) : "",
+      lastHeight: isSet(object.lastHeight) ? String(object.lastHeight) : "",
+      callbackId: isSet(object.callbackId) ? String(object.callbackId) : "",
+      ttl: isSet(object.ttl) ? Long.fromValue(object.ttl) : Long.UZERO,
+      lastEmission: isSet(object.lastEmission) ? String(object.lastEmission) : ""
+    };
+  },
+
+  toJSON(message: Query): unknown {
+    const obj: any = {};
+    message.id !== undefined && (obj.id = message.id);
+    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.queryType !== undefined && (obj.queryType = message.queryType);
+    message.request !== undefined && (obj.request = base64FromBytes(message.request !== undefined ? message.request : new Uint8Array()));
+    message.period !== undefined && (obj.period = message.period);
+    message.lastHeight !== undefined && (obj.lastHeight = message.lastHeight);
+    message.callbackId !== undefined && (obj.callbackId = message.callbackId);
+    message.ttl !== undefined && (obj.ttl = (message.ttl || Long.UZERO).toString());
+    message.lastEmission !== undefined && (obj.lastEmission = message.lastEmission);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Query>): Query {
     const message = createBaseQuery();
     message.id = object.id ?? "";
     message.connectionId = object.connectionId ?? "";
@@ -244,7 +274,25 @@ export const DataPoint = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DataPoint>): DataPoint {
+  fromJSON(object: any): DataPoint {
+    return {
+      id: isSet(object.id) ? String(object.id) : "",
+      remoteHeight: isSet(object.remoteHeight) ? String(object.remoteHeight) : "",
+      localHeight: isSet(object.localHeight) ? String(object.localHeight) : "",
+      value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array()
+    };
+  },
+
+  toJSON(message: DataPoint): unknown {
+    const obj: any = {};
+    message.id !== undefined && (obj.id = message.id);
+    message.remoteHeight !== undefined && (obj.remoteHeight = message.remoteHeight);
+    message.localHeight !== undefined && (obj.localHeight = message.localHeight);
+    message.value !== undefined && (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+    return obj;
+  },
+
+  fromPartial(object: Partial<DataPoint>): DataPoint {
     const message = createBaseDataPoint();
     message.id = object.id ?? "";
     message.remoteHeight = object.remoteHeight ?? "";

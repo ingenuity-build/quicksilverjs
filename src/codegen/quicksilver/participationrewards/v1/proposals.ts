@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface AddProtocolDataProposal {
   title: string;
   description: string;
@@ -106,7 +106,27 @@ export const AddProtocolDataProposal = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<AddProtocolDataProposal>): AddProtocolDataProposal {
+  fromJSON(object: any): AddProtocolDataProposal {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      type: isSet(object.type) ? String(object.type) : "",
+      data: isSet(object.data) ? String(object.data) : "",
+      key: isSet(object.key) ? String(object.key) : ""
+    };
+  },
+
+  toJSON(message: AddProtocolDataProposal): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.type !== undefined && (obj.type = message.type);
+    message.data !== undefined && (obj.data = message.data);
+    message.key !== undefined && (obj.key = message.key);
+    return obj;
+  },
+
+  fromPartial(object: Partial<AddProtocolDataProposal>): AddProtocolDataProposal {
     const message = createBaseAddProtocolDataProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
@@ -209,7 +229,31 @@ export const AddProtocolDataProposalWithDeposit = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<AddProtocolDataProposalWithDeposit>): AddProtocolDataProposalWithDeposit {
+  fromJSON(object: any): AddProtocolDataProposalWithDeposit {
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      protocol: isSet(object.protocol) ? String(object.protocol) : "",
+      type: isSet(object.type) ? String(object.type) : "",
+      key: isSet(object.key) ? String(object.key) : "",
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
+      deposit: isSet(object.deposit) ? String(object.deposit) : ""
+    };
+  },
+
+  toJSON(message: AddProtocolDataProposalWithDeposit): unknown {
+    const obj: any = {};
+    message.title !== undefined && (obj.title = message.title);
+    message.description !== undefined && (obj.description = message.description);
+    message.protocol !== undefined && (obj.protocol = message.protocol);
+    message.type !== undefined && (obj.type = message.type);
+    message.key !== undefined && (obj.key = message.key);
+    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+    message.deposit !== undefined && (obj.deposit = message.deposit);
+    return obj;
+  },
+
+  fromPartial(object: Partial<AddProtocolDataProposalWithDeposit>): AddProtocolDataProposalWithDeposit {
     const message = createBaseAddProtocolDataProposalWithDeposit();
     message.title = object.title ?? "";
     message.description = object.description ?? "";

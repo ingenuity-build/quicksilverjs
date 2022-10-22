@@ -39,6 +39,38 @@ export const MessageComposer = {
     }
 
   },
+  toJSON: {
+    requestRedemption(value: MsgRequestRedemption) {
+      return {
+        typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
+        value: MsgRequestRedemption.toJSON(value)
+      };
+    },
+
+    signalIntent(value: MsgSignalIntent) {
+      return {
+        typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
+        value: MsgSignalIntent.toJSON(value)
+      };
+    }
+
+  },
+  fromJSON: {
+    requestRedemption(value: any) {
+      return {
+        typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
+        value: MsgRequestRedemption.fromJSON(value)
+      };
+    },
+
+    signalIntent(value: any) {
+      return {
+        typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
+        value: MsgSignalIntent.fromJSON(value)
+      };
+    }
+
+  },
   fromPartial: {
     requestRedemption(value: MsgRequestRedemption) {
       return {

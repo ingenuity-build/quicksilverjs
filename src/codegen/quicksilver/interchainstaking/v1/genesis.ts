@@ -1,6 +1,6 @@
 import { Delegation, DelegationSDKType, DelegatorIntent, DelegatorIntentSDKType, Zone, ZoneSDKType, Receipt, ReceiptSDKType, PortConnectionTuple, PortConnectionTupleSDKType, WithdrawalRecord, WithdrawalRecordSDKType } from "./interchainstaking";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "../../../helpers";
+import { Long, isSet } from "../../../helpers";
 export interface Params {
   depositInterval: Long;
   validatorsetInterval: Long;
@@ -107,7 +107,23 @@ export const Params = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
+  fromJSON(object: any): Params {
+    return {
+      depositInterval: isSet(object.depositInterval) ? Long.fromValue(object.depositInterval) : Long.UZERO,
+      validatorsetInterval: isSet(object.validatorsetInterval) ? Long.fromValue(object.validatorsetInterval) : Long.UZERO,
+      commissionRate: isSet(object.commissionRate) ? String(object.commissionRate) : ""
+    };
+  },
+
+  toJSON(message: Params): unknown {
+    const obj: any = {};
+    message.depositInterval !== undefined && (obj.depositInterval = (message.depositInterval || Long.UZERO).toString());
+    message.validatorsetInterval !== undefined && (obj.validatorsetInterval = (message.validatorsetInterval || Long.UZERO).toString());
+    message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
     message.depositInterval = object.depositInterval !== undefined && object.depositInterval !== null ? Long.fromValue(object.depositInterval) : Long.UZERO;
     message.validatorsetInterval = object.validatorsetInterval !== undefined && object.validatorsetInterval !== null ? Long.fromValue(object.validatorsetInterval) : Long.UZERO;
@@ -163,7 +179,27 @@ export const DelegationsForZone = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DelegationsForZone>): DelegationsForZone {
+  fromJSON(object: any): DelegationsForZone {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      delegations: Array.isArray(object?.delegations) ? object.delegations.map((e: any) => Delegation.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: DelegationsForZone): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+
+    if (message.delegations) {
+      obj.delegations = message.delegations.map(e => e ? Delegation.toJSON(e) : undefined);
+    } else {
+      obj.delegations = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<DelegationsForZone>): DelegationsForZone {
     const message = createBaseDelegationsForZone();
     message.chainId = object.chainId ?? "";
     message.delegations = object.delegations?.map(e => Delegation.fromPartial(e)) || [];
@@ -227,7 +263,29 @@ export const DelegatorIntentsForZone = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DelegatorIntentsForZone>): DelegatorIntentsForZone {
+  fromJSON(object: any): DelegatorIntentsForZone {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      delegationIntent: Array.isArray(object?.delegationIntent) ? object.delegationIntent.map((e: any) => DelegatorIntent.fromJSON(e)) : [],
+      snapshot: isSet(object.snapshot) ? Boolean(object.snapshot) : false
+    };
+  },
+
+  toJSON(message: DelegatorIntentsForZone): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+
+    if (message.delegationIntent) {
+      obj.delegationIntent = message.delegationIntent.map(e => e ? DelegatorIntent.toJSON(e) : undefined);
+    } else {
+      obj.delegationIntent = [];
+    }
+
+    message.snapshot !== undefined && (obj.snapshot = message.snapshot);
+    return obj;
+  },
+
+  fromPartial(object: Partial<DelegatorIntentsForZone>): DelegatorIntentsForZone {
     const message = createBaseDelegatorIntentsForZone();
     message.chainId = object.chainId ?? "";
     message.delegationIntent = object.delegationIntent?.map(e => DelegatorIntent.fromPartial(e)) || [];
@@ -328,7 +386,62 @@ export const GenesisState = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
+  fromJSON(object: any): GenesisState {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+      zones: Array.isArray(object?.zones) ? object.zones.map((e: any) => Zone.fromJSON(e)) : [],
+      receipts: Array.isArray(object?.receipts) ? object.receipts.map((e: any) => Receipt.fromJSON(e)) : [],
+      delegations: Array.isArray(object?.delegations) ? object.delegations.map((e: any) => DelegationsForZone.fromJSON(e)) : [],
+      delegatorIntents: Array.isArray(object?.delegatorIntents) ? object.delegatorIntents.map((e: any) => DelegatorIntentsForZone.fromJSON(e)) : [],
+      portConnections: Array.isArray(object?.portConnections) ? object.portConnections.map((e: any) => PortConnectionTuple.fromJSON(e)) : [],
+      withdrawalRecords: Array.isArray(object?.withdrawalRecords) ? object.withdrawalRecords.map((e: any) => WithdrawalRecord.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: GenesisState): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+
+    if (message.zones) {
+      obj.zones = message.zones.map(e => e ? Zone.toJSON(e) : undefined);
+    } else {
+      obj.zones = [];
+    }
+
+    if (message.receipts) {
+      obj.receipts = message.receipts.map(e => e ? Receipt.toJSON(e) : undefined);
+    } else {
+      obj.receipts = [];
+    }
+
+    if (message.delegations) {
+      obj.delegations = message.delegations.map(e => e ? DelegationsForZone.toJSON(e) : undefined);
+    } else {
+      obj.delegations = [];
+    }
+
+    if (message.delegatorIntents) {
+      obj.delegatorIntents = message.delegatorIntents.map(e => e ? DelegatorIntentsForZone.toJSON(e) : undefined);
+    } else {
+      obj.delegatorIntents = [];
+    }
+
+    if (message.portConnections) {
+      obj.portConnections = message.portConnections.map(e => e ? PortConnectionTuple.toJSON(e) : undefined);
+    } else {
+      obj.portConnections = [];
+    }
+
+    if (message.withdrawalRecords) {
+      obj.withdrawalRecords = message.withdrawalRecords.map(e => e ? WithdrawalRecord.toJSON(e) : undefined);
+    } else {
+      obj.withdrawalRecords = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.zones = object.zones?.map(e => Zone.fromPartial(e)) || [];

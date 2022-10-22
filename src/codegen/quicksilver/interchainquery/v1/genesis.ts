@@ -1,6 +1,5 @@
 import { Query, QuerySDKType } from "./interchainquery";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the epochs module's genesis state. */
 
 export interface GenesisState {
@@ -49,7 +48,25 @@ export const GenesisState = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
+  fromJSON(object: any): GenesisState {
+    return {
+      queries: Array.isArray(object?.queries) ? object.queries.map((e: any) => Query.fromJSON(e)) : []
+    };
+  },
+
+  toJSON(message: GenesisState): unknown {
+    const obj: any = {};
+
+    if (message.queries) {
+      obj.queries = message.queries.map(e => e ? Query.toJSON(e) : undefined);
+    } else {
+      obj.queries = [];
+    }
+
+    return obj;
+  },
+
+  fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.queries = object.queries?.map(e => Query.fromPartial(e)) || [];
     return message;

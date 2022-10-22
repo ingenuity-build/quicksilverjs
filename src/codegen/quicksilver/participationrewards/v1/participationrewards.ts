@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export enum ProtocolDataType {
   /** ProtocolDataTypeUndefined - Undefined action (per protobuf spec) */
   ProtocolDataTypeUndefined = 0,
@@ -206,7 +206,23 @@ export const DistributionProportions = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<DistributionProportions>): DistributionProportions {
+  fromJSON(object: any): DistributionProportions {
+    return {
+      validatorSelectionAllocation: isSet(object.validatorSelectionAllocation) ? String(object.validatorSelectionAllocation) : "",
+      holdingsAllocation: isSet(object.holdingsAllocation) ? String(object.holdingsAllocation) : "",
+      lockupAllocation: isSet(object.lockupAllocation) ? String(object.lockupAllocation) : ""
+    };
+  },
+
+  toJSON(message: DistributionProportions): unknown {
+    const obj: any = {};
+    message.validatorSelectionAllocation !== undefined && (obj.validatorSelectionAllocation = message.validatorSelectionAllocation);
+    message.holdingsAllocation !== undefined && (obj.holdingsAllocation = message.holdingsAllocation);
+    message.lockupAllocation !== undefined && (obj.lockupAllocation = message.lockupAllocation);
+    return obj;
+  },
+
+  fromPartial(object: Partial<DistributionProportions>): DistributionProportions {
     const message = createBaseDistributionProportions();
     message.validatorSelectionAllocation = object.validatorSelectionAllocation ?? "";
     message.holdingsAllocation = object.holdingsAllocation ?? "";
@@ -253,7 +269,19 @@ export const Params = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
+  fromJSON(object: any): Params {
+    return {
+      distributionProportions: isSet(object.distributionProportions) ? DistributionProportions.fromJSON(object.distributionProportions) : undefined
+    };
+  },
+
+  toJSON(message: Params): unknown {
+    const obj: any = {};
+    message.distributionProportions !== undefined && (obj.distributionProportions = message.distributionProportions ? DistributionProportions.toJSON(message.distributionProportions) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
     message.distributionProportions = object.distributionProportions !== undefined && object.distributionProportions !== null ? DistributionProportions.fromPartial(object.distributionProportions) : undefined;
     return message;
@@ -307,7 +335,21 @@ export const KeyedProtocolData = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<KeyedProtocolData>): KeyedProtocolData {
+  fromJSON(object: any): KeyedProtocolData {
+    return {
+      key: isSet(object.key) ? String(object.key) : "",
+      protocolData: isSet(object.protocolData) ? ProtocolData.fromJSON(object.protocolData) : undefined
+    };
+  },
+
+  toJSON(message: KeyedProtocolData): unknown {
+    const obj: any = {};
+    message.key !== undefined && (obj.key = message.key);
+    message.protocolData !== undefined && (obj.protocolData = message.protocolData ? ProtocolData.toJSON(message.protocolData) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<KeyedProtocolData>): KeyedProtocolData {
     const message = createBaseKeyedProtocolData();
     message.key = object.key ?? "";
     message.protocolData = object.protocolData !== undefined && object.protocolData !== null ? ProtocolData.fromPartial(object.protocolData) : undefined;
@@ -362,7 +404,21 @@ export const ProtocolData = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<ProtocolData>): ProtocolData {
+  fromJSON(object: any): ProtocolData {
+    return {
+      type: isSet(object.type) ? String(object.type) : "",
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array()
+    };
+  },
+
+  toJSON(message: ProtocolData): unknown {
+    const obj: any = {};
+    message.type !== undefined && (obj.type = message.type);
+    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+    return obj;
+  },
+
+  fromPartial(object: Partial<ProtocolData>): ProtocolData {
     const message = createBaseProtocolData();
     message.type = object.type ?? "";
     message.data = object.data ?? new Uint8Array();

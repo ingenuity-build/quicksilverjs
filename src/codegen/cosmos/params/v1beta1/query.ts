@@ -1,6 +1,6 @@
 import { ParamChange, ParamChangeSDKType } from "./params";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {
@@ -78,7 +78,21 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
+  fromJSON(object: any): QueryParamsRequest {
+    return {
+      subspace: isSet(object.subspace) ? String(object.subspace) : "",
+      key: isSet(object.key) ? String(object.key) : ""
+    };
+  },
+
+  toJSON(message: QueryParamsRequest): unknown {
+    const obj: any = {};
+    message.subspace !== undefined && (obj.subspace = message.subspace);
+    message.key !== undefined && (obj.key = message.key);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     message.subspace = object.subspace ?? "";
     message.key = object.key ?? "";
@@ -124,7 +138,19 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+  fromJSON(object: any): QueryParamsResponse {
+    return {
+      param: isSet(object.param) ? ParamChange.fromJSON(object.param) : undefined
+    };
+  },
+
+  toJSON(message: QueryParamsResponse): unknown {
+    const obj: any = {};
+    message.param !== undefined && (obj.param = message.param ? ParamChange.toJSON(message.param) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.param = object.param !== undefined && object.param !== null ? ParamChange.fromPartial(object.param) : undefined;
     return message;

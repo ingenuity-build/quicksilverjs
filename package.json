@@ -1,9 +1,9 @@
 {
-  "name": "@joe-bowman/quicksilverjs",
-  "version": "0.0.1",
+  "name": "quicksilverjs",
+  "version": "0.4.0",
   "description": "Typescript bindings for Quicksilver",
   "author": "Joe Bowman <joe@ingenuity.build>",
-  "homepage": "https://github.com/joe-bowman/quicksilverjs#readme",
+  "homepage": "https://github.com/ingenuity-build/quicksilverjs#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "main/index.js",
   "module": "module/index.js",
@@ -38,11 +38,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joe-bowman/quicksilverjs"
+    "url": "https://github.com/ingenuity-build/quicksilverjs"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/joe-bowman/quicksilverjs/issues"
+    "url": "https://github.com/ingenuity-build/quicksilverjs/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",
@@ -58,7 +58,7 @@
     "@babel/plugin-transform-runtime": "7.19.1",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-typescript": "^7.18.6",
-    "@osmonauts/telescope": "^0.69.0",
+    "@osmonauts/telescope": "^0.70.0",
     "@types/jest": "^29.1.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "29.1.2",

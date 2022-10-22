@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Params, ParamsSDKType, Claim, ClaimSDKType } from "./claimsmanager";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "../../../helpers";
+import { isSet } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {}
@@ -66,7 +66,16 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
+  fromJSON(_: any): QueryParamsRequest {
+    return {};
+  },
+
+  toJSON(_: QueryParamsRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     return message;
   }
@@ -110,7 +119,19 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+  fromJSON(object: any): QueryParamsResponse {
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
+    };
+  },
+
+  toJSON(message: QueryParamsResponse): unknown {
+    const obj: any = {};
+    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
@@ -173,7 +194,23 @@ export const QueryClaimsRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimsRequest>): QueryClaimsRequest {
+  fromJSON(object: any): QueryClaimsRequest {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      address: isSet(object.address) ? String(object.address) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryClaimsRequest): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.address !== undefined && (obj.address = message.address);
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimsRequest>): QueryClaimsRequest {
     const message = createBaseQueryClaimsRequest();
     message.chainId = object.chainId ?? "";
     message.address = object.address ?? "";
@@ -229,7 +266,27 @@ export const QueryClaimsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryClaimsResponse>): QueryClaimsResponse {
+  fromJSON(object: any): QueryClaimsResponse {
+    return {
+      claims: Array.isArray(object?.claims) ? object.claims.map((e: any) => Claim.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
+    };
+  },
+
+  toJSON(message: QueryClaimsResponse): unknown {
+    const obj: any = {};
+
+    if (message.claims) {
+      obj.claims = message.claims.map(e => e ? Claim.toJSON(e) : undefined);
+    } else {
+      obj.claims = [];
+    }
+
+    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: Partial<QueryClaimsResponse>): QueryClaimsResponse {
     const message = createBaseQueryClaimsResponse();
     message.claims = object.claims?.map(e => Claim.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;

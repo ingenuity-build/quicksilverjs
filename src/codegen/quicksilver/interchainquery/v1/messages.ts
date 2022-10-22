@@ -1,6 +1,6 @@
 import { ProofOps, ProofOpsSDKType } from "../../../tendermint/crypto/proof";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** MsgSubmitQueryResponse represents a message type to fulfil a query request. */
 
 export interface MsgSubmitQueryResponse {
@@ -116,7 +116,29 @@ export const MsgSubmitQueryResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgSubmitQueryResponse>): MsgSubmitQueryResponse {
+  fromJSON(object: any): MsgSubmitQueryResponse {
+    return {
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      queryId: isSet(object.queryId) ? String(object.queryId) : "",
+      result: isSet(object.result) ? bytesFromBase64(object.result) : new Uint8Array(),
+      proofOps: isSet(object.proofOps) ? ProofOps.fromJSON(object.proofOps) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : ""
+    };
+  },
+
+  toJSON(message: MsgSubmitQueryResponse): unknown {
+    const obj: any = {};
+    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.queryId !== undefined && (obj.queryId = message.queryId);
+    message.result !== undefined && (obj.result = base64FromBytes(message.result !== undefined ? message.result : new Uint8Array()));
+    message.proofOps !== undefined && (obj.proofOps = message.proofOps ? ProofOps.toJSON(message.proofOps) : undefined);
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    return obj;
+  },
+
+  fromPartial(object: Partial<MsgSubmitQueryResponse>): MsgSubmitQueryResponse {
     const message = createBaseMsgSubmitQueryResponse();
     message.chainId = object.chainId ?? "";
     message.queryId = object.queryId ?? "";
@@ -156,7 +178,16 @@ export const MsgSubmitQueryResponseResponse = {
     return message;
   },
 
-  fromPartial(_: DeepPartial<MsgSubmitQueryResponseResponse>): MsgSubmitQueryResponseResponse {
+  fromJSON(_: any): MsgSubmitQueryResponseResponse {
+    return {};
+  },
+
+  toJSON(_: MsgSubmitQueryResponseResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: Partial<MsgSubmitQueryResponseResponse>): MsgSubmitQueryResponseResponse {
     const message = createBaseMsgSubmitQueryResponseResponse();
     return message;
   }
