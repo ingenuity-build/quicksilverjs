@@ -12,10 +12,7 @@ telescope({
   outPath,
   options: {
     tsDisable: {
-      files: [
-        'cosmos/authz/v1beta1/tx.amino.ts',
-        'cosmos/staking/v1beta1/tx.amino.ts'
-      ]
+      patterns: ['**/*.amino.ts']
     },
     prototypes: {
       includePackageVar: false,
