@@ -1,6 +1,6 @@
 {
   "name": "quicksilverjs",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Typescript bindings for Quicksilver",
   "author": "Joe Bowman <joe@ingenuity.build>",
   "homepage": "https://github.com/ingenuity-build/quicksilverjs#readme",
