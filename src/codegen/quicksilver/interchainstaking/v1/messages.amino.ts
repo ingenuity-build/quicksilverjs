@@ -3,7 +3,7 @@ import { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
 import { MsgRequestRedemption, MsgSignalIntent } from "./messages";
 export interface AminoMsgRequestRedemption extends AminoMsg {
-  type: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
+  type: "quicksilver/MsgRequestRedemption";
   value: {
     value: {
       denom: string;
@@ -14,7 +14,7 @@ export interface AminoMsgRequestRedemption extends AminoMsg {
   };
 }
 export interface AminoMsgSignalIntent extends AminoMsg {
-  type: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
+  type: "quicksilver/MsgSignalIntent";
   value: {
     chain_id: string;
     intents: {
@@ -26,7 +26,7 @@ export interface AminoMsgSignalIntent extends AminoMsg {
 }
 export const AminoConverter = {
   "/quicksilver.interchainstaking.v1.MsgRequestRedemption": {
-    aminoType: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
+    aminoType: "quicksilver/MsgRequestRedemption",
     toAmino: ({
       value,
       destinationAddress,
@@ -57,7 +57,7 @@ export const AminoConverter = {
     }
   },
   "/quicksilver.interchainstaking.v1.MsgSignalIntent": {
-    aminoType: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
+    aminoType: "quicksilver/MsgSignalIntent",
     toAmino: ({
       chainId,
       intents,
