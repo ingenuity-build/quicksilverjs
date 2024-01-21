@@ -5,20 +5,18 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "quicksilver/participationrewards/v1/participationrewards.proto";
 
-option go_package = "github.com/ingenuity-build/quicksilver/x/participationrewards/types";
+option go_package = "github.com/quicksilver-zone/quicksilver/x/participationrewards/types";
 
 // Query provides defines the gRPC querier service.
 service Query {
   // Params returns the total set of participation rewards parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get =
-        "/quicksilver/participationrewards/v1/params";
+    option (google.api.http).get = "/quicksilver/participationrewards/v1/params";
   }
 
-  rpc ProtocolData(QueryProtocolDataRequest)
-      returns (QueryProtocolDataResponse) {
-    option (google.api.http).get =
-        "/quicksilver/participationrewards/v1/protocoldata/{type}/{key}";
+  // ProtocolData returns the requested protocol data.
+  rpc ProtocolData(QueryProtocolDataRequest) returns (QueryProtocolDataResponse) {
+    option (google.api.http).get = "/quicksilver/participationrewards/v1/protocoldata/{type}/{key}";
   }
 }
 
@@ -28,7 +26,7 @@ message QueryParamsRequest {}
 // QueryParamsResponse is the response type for the Query/Params RPC method.
 message QueryParamsResponse {
   // params defines the parameters of the module.
-  Params params = 1 [ (gogoproto.nullable) = false ];
+  Params params = 1 [(gogoproto.nullable) = false];
 }
 
 // QueryProtocolDataRequest is the request type for querying Protocol Data.

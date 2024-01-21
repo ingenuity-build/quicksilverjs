@@ -1,28 +1,16 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgUnjail, MsgUnjailResponse } from "./tx";
-/** Msg defines the slashing Msg service. */
-
-export interface Msg {
+export class Msg {
   /**
    * Unjail defines a method for unjailing a jailed validator, thus returning
    * them into the bonded validator set, so they can begin receiving provisions
    * and rewards again.
    */
-  unjail(request: MsgUnjail): Promise<MsgUnjailResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.unjail = this.unjail.bind(this);
+  static unjail(request: MsgUnjail, initRequest?: fm.InitReq): Promise<MsgUnjailResponse> {
+    return fm.fetchReq(`/cosmos.slashing.v1beta1/unjail`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  unjail(request: MsgUnjail): Promise<MsgUnjailResponse> {
-    const data = MsgUnjail.encode(request).finish();
-    const promise = this.rpc.request("cosmos.slashing.v1beta1.Msg", "Unjail", data);
-    return promise.then(data => MsgUnjailResponse.decode(new _m0.Reader(data)));
-  }
-
 }

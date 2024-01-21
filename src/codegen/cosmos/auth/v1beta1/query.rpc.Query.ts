@@ -1,65 +1,130 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
-/** Query defines the gRPC querier service. */
-
-export interface Query {
-  /** Accounts returns all the existing accounts */
-  accounts(request?: QueryAccountsRequest): Promise<QueryAccountsResponse>;
+import * as fm from "../../../grpc-gateway";
+import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryParamsRequest, QueryParamsResponse, QueryModuleAccountsRequest, QueryModuleAccountsResponse, Bech32PrefixRequest, Bech32PrefixResponse, AddressBytesToStringRequest, AddressBytesToStringResponse, AddressStringToBytesRequest, AddressStringToBytesResponse } from "./query";
+export class Query {
+  /**
+   * Accounts returns all the existing accounts
+   * 
+   * Since: cosmos-sdk 0.43
+   */
+  static accounts(request: QueryAccountsRequest, initRequest?: fm.InitReq): Promise<QueryAccountsResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/accounts?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Account returns account details based on address. */
-
-  account(request: QueryAccountRequest): Promise<QueryAccountResponse>;
+  static account(request: QueryAccountRequest, initRequest?: fm.InitReq): Promise<QueryAccountResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/accounts/${request["address"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Params queries all parameters. */
-
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** ModuleAccounts returns all the existing module accounts. */
+  static moduleAccounts(request: QueryModuleAccountsRequest, initRequest?: fm.InitReq): Promise<QueryModuleAccountsResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/module_accounts?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** Bech32 queries bech32Prefix */
+  static bech32Prefix(request: Bech32PrefixRequest, initRequest?: fm.InitReq): Promise<Bech32PrefixResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/bech32?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** AddressBytesToString converts Account Address bytes to string */
+  static addressBytesToString(request: AddressBytesToStringRequest, initRequest?: fm.InitReq): Promise<AddressBytesToStringResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/bech32/${request["address_bytes"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["address_bytes"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** AddressStringToBytes converts Address string to bytes */
+  static addressStringToBytes(request: AddressStringToBytesRequest, initRequest?: fm.InitReq): Promise<AddressStringToBytesResponse> {
+    return fm.fetchReq(`/cosmos/auth/v1beta1/bech32/${request["address_string"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["address_string"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.accounts = this.accounts.bind(this);
-    this.account = this.account.bind(this);
-    this.params = this.params.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  accounts(request: QueryAccountsRequest = {
-    pagination: undefined
-  }): Promise<QueryAccountsResponse> {
-    const data = QueryAccountsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.auth.v1beta1.Query", "Accounts", data);
-    return promise.then(data => QueryAccountsResponse.decode(new _m0.Reader(data)));
+  /**
+   * Accounts returns all the existing accounts
+   * 
+   * Since: cosmos-sdk 0.43
+   */
+  async accounts(req: QueryAccountsRequest, headers?: HeadersInit): Promise<QueryAccountsResponse> {
+    return Query.accounts(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  account(request: QueryAccountRequest): Promise<QueryAccountResponse> {
-    const data = QueryAccountRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.auth.v1beta1.Query", "Account", data);
-    return promise.then(data => QueryAccountResponse.decode(new _m0.Reader(data)));
+  /** Account returns account details based on address. */
+  async account(req: QueryAccountRequest, headers?: HeadersInit): Promise<QueryAccountResponse> {
+    return Query.account(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.auth.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params queries all parameters. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
+  /** ModuleAccounts returns all the existing module accounts. */
+  async moduleAccounts(req: QueryModuleAccountsRequest, headers?: HeadersInit): Promise<QueryModuleAccountsResponse> {
+    return Query.moduleAccounts(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+  /** Bech32 queries bech32Prefix */
+  async bech32Prefix(req: Bech32PrefixRequest, headers?: HeadersInit): Promise<Bech32PrefixResponse> {
+    return Query.bech32Prefix(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+  /** AddressBytesToString converts Account Address bytes to string */
+  async addressBytesToString(req: AddressBytesToStringRequest, headers?: HeadersInit): Promise<AddressBytesToStringResponse> {
+    return Query.addressBytesToString(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+  /** AddressStringToBytes converts Address string to bytes */
+  async addressStringToBytes(req: AddressStringToBytesRequest, headers?: HeadersInit): Promise<AddressStringToBytesResponse> {
+    return Query.addressStringToBytes(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    accounts(request?: QueryAccountsRequest): Promise<QueryAccountsResponse> {
-      return queryService.accounts(request);
-    },
-
-    account(request: QueryAccountRequest): Promise<QueryAccountResponse> {
-      return queryService.account(request);
-    },
-
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    }
-
-  };
-};

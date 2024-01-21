@@ -1,0 +1,1 @@
+{"version":3,"file":"messages.amino.js","sourceRoot":"","sources":["../../../../../src/codegen/quicksilver/interchainquery/v1/messages.amino.ts"],"names":[],"mappings":";;;AAAA,aAAa;AACb,yCAAoD;AACvC,QAAA,cAAc,GAAG;IAC5B,wDAAwD,EAAE;QACxD,SAAS,EAAE,wDAAwD;QACnE,OAAO,EAAE,iCAAsB,CAAC,OAAO;QACvC,SAAS,EAAE,iCAAsB,CAAC,SAAS;KAC5C;CACF,CAAC"}

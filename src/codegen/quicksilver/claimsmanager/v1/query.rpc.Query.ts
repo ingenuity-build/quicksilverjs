@@ -1,83 +1,74 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryClaimsRequest, QueryClaimsResponse } from "./query";
-/** Query provides defines the gRPC querier service. */
-
-export interface Query {
-  /** Params returns the total set of participation rewards parameters. */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  claims(request: QueryClaimsRequest): Promise<QueryClaimsResponse>;
-  lastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse>;
-  userClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse>;
-  userLastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse>;
+import * as fm from "../../../grpc-gateway";
+import { QueryClaimsRequest, QueryClaimsResponse } from "./query";
+export class Query {
+  /** Claims returns all zone claims from the current epoch. */
+  static claims(request: QueryClaimsRequest, initRequest?: fm.InitReq): Promise<QueryClaimsResponse> {
+    return fm.fetchReq(`/quicksilver/claimsmanager/v1/claims/${request["chain_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** LastEpochClaims returns all zone claims from the last epoch. */
+  static lastEpochClaims(request: QueryClaimsRequest, initRequest?: fm.InitReq): Promise<QueryClaimsResponse> {
+    return fm.fetchReq(`/quicksilver/claimsmanager/v1/previous_epoch_claims/${request["chain_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** UserClaims returns all zone claims for a given address from the current epoch. */
+  static userClaims(request: QueryClaimsRequest, initRequest?: fm.InitReq): Promise<QueryClaimsResponse> {
+    return fm.fetchReq(`/quicksilver/claimsmanager/v1/user/${request["address"]}/claims?${fm.renderURLSearchParams({
+      ...request
+    }, ["address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** UserLastEpochClaims returns all zone claims for a given address from the last epoch. */
+  static userLastEpochClaims(request: QueryClaimsRequest, initRequest?: fm.InitReq): Promise<QueryClaimsResponse> {
+    return fm.fetchReq(`/quicksilver/claimsmanager/v1/user/${request["address"]}/previous_epoch_claims?${fm.renderURLSearchParams({
+      ...request
+    }, ["address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.claims = this.claims.bind(this);
-    this.lastEpochClaims = this.lastEpochClaims.bind(this);
-    this.userClaims = this.userClaims.bind(this);
-    this.userLastEpochClaims = this.userLastEpochClaims.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.claimsmanager.v1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Claims returns all zone claims from the current epoch. */
+  async claims(req: QueryClaimsRequest, headers?: HeadersInit): Promise<QueryClaimsResponse> {
+    return Query.claims(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  claims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-    const data = QueryClaimsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.claimsmanager.v1.Query", "Claims", data);
-    return promise.then(data => QueryClaimsResponse.decode(new _m0.Reader(data)));
+  /** LastEpochClaims returns all zone claims from the last epoch. */
+  async lastEpochClaims(req: QueryClaimsRequest, headers?: HeadersInit): Promise<QueryClaimsResponse> {
+    return Query.lastEpochClaims(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  lastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-    const data = QueryClaimsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.claimsmanager.v1.Query", "LastEpochClaims", data);
-    return promise.then(data => QueryClaimsResponse.decode(new _m0.Reader(data)));
+  /** UserClaims returns all zone claims for a given address from the current epoch. */
+  async userClaims(req: QueryClaimsRequest, headers?: HeadersInit): Promise<QueryClaimsResponse> {
+    return Query.userClaims(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  userClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-    const data = QueryClaimsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.claimsmanager.v1.Query", "UserClaims", data);
-    return promise.then(data => QueryClaimsResponse.decode(new _m0.Reader(data)));
+  /** UserLastEpochClaims returns all zone claims for a given address from the last epoch. */
+  async userLastEpochClaims(req: QueryClaimsRequest, headers?: HeadersInit): Promise<QueryClaimsResponse> {
+    return Query.userLastEpochClaims(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  userLastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-    const data = QueryClaimsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.claimsmanager.v1.Query", "UserLastEpochClaims", data);
-    return promise.then(data => QueryClaimsResponse.decode(new _m0.Reader(data)));
-  }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    claims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-      return queryService.claims(request);
-    },
-
-    lastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-      return queryService.lastEpochClaims(request);
-    },
-
-    userClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-      return queryService.userClaims(request);
-    },
-
-    userLastEpochClaims(request: QueryClaimsRequest): Promise<QueryClaimsResponse> {
-      return queryService.userLastEpochClaims(request);
-    }
-
-  };
-};

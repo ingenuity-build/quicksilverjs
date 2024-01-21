@@ -1,133 +1,138 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryProposalRequest, QueryProposalResponse, QueryProposalsRequest, QueryProposalsResponse, QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse, QueryParamsRequest, QueryParamsResponse, QueryDepositRequest, QueryDepositResponse, QueryDepositsRequest, QueryDepositsResponse, QueryTallyResultRequest, QueryTallyResultResponse } from "./query";
-/** Query defines the gRPC querier service for gov module */
-
-export interface Query {
+export class Query {
   /** Proposal queries proposal details based on ProposalID. */
-  proposal(request: QueryProposalRequest): Promise<QueryProposalResponse>;
+  static proposal(request: QueryProposalRequest, initRequest?: fm.InitReq): Promise<QueryProposalResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Proposals queries all proposals based on given status. */
-
-  proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse>;
+  static proposals(request: QueryProposalsRequest, initRequest?: fm.InitReq): Promise<QueryProposalsResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Vote queries voted information based on proposalID, voterAddr. */
-
-  vote(request: QueryVoteRequest): Promise<QueryVoteResponse>;
+  static vote(request: QueryVoteRequest, initRequest?: fm.InitReq): Promise<QueryVoteResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}/votes/${request["voter"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id", "voter"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Votes queries votes of a given proposal. */
-
-  votes(request: QueryVotesRequest): Promise<QueryVotesResponse>;
+  static votes(request: QueryVotesRequest, initRequest?: fm.InitReq): Promise<QueryVotesResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}/votes?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Params queries all parameters of the gov module. */
-
-  params(request: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/params/${request["params_type"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["params_type"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Deposit queries single deposit information based proposalID, depositAddr. */
-
-  deposit(request: QueryDepositRequest): Promise<QueryDepositResponse>;
+  static deposit(request: QueryDepositRequest, initRequest?: fm.InitReq): Promise<QueryDepositResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}/deposits/${request["depositor"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id", "depositor"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Deposits queries all deposits of a single proposal. */
-
-  deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse>;
+  static deposits(request: QueryDepositsRequest, initRequest?: fm.InitReq): Promise<QueryDepositsResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}/deposits?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** TallyResult queries the tally of a proposal vote. */
-
-  tallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse>;
+  static tallyResult(request: QueryTallyResultRequest, initRequest?: fm.InitReq): Promise<QueryTallyResultResponse> {
+    return fm.fetchReq(`/cosmos/gov/v1beta1/proposals/${request["proposal_id"]}/tally?${fm.renderURLSearchParams({
+      ...request
+    }, ["proposal_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.proposal = this.proposal.bind(this);
-    this.proposals = this.proposals.bind(this);
-    this.vote = this.vote.bind(this);
-    this.votes = this.votes.bind(this);
-    this.params = this.params.bind(this);
-    this.deposit = this.deposit.bind(this);
-    this.deposits = this.deposits.bind(this);
-    this.tallyResult = this.tallyResult.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
-    const data = QueryProposalRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Proposal", data);
-    return promise.then(data => QueryProposalResponse.decode(new _m0.Reader(data)));
+  /** Proposal queries proposal details based on ProposalID. */
+  async proposal(req: QueryProposalRequest, headers?: HeadersInit): Promise<QueryProposalResponse> {
+    return Query.proposal(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse> {
-    const data = QueryProposalsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Proposals", data);
-    return promise.then(data => QueryProposalsResponse.decode(new _m0.Reader(data)));
+  /** Proposals queries all proposals based on given status. */
+  async proposals(req: QueryProposalsRequest, headers?: HeadersInit): Promise<QueryProposalsResponse> {
+    return Query.proposals(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  vote(request: QueryVoteRequest): Promise<QueryVoteResponse> {
-    const data = QueryVoteRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Vote", data);
-    return promise.then(data => QueryVoteResponse.decode(new _m0.Reader(data)));
+  /** Vote queries voted information based on proposalID, voterAddr. */
+  async vote(req: QueryVoteRequest, headers?: HeadersInit): Promise<QueryVoteResponse> {
+    return Query.vote(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  votes(request: QueryVotesRequest): Promise<QueryVotesResponse> {
-    const data = QueryVotesRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Votes", data);
-    return promise.then(data => QueryVotesResponse.decode(new _m0.Reader(data)));
+  /** Votes queries votes of a given proposal. */
+  async votes(req: QueryVotesRequest, headers?: HeadersInit): Promise<QueryVotesResponse> {
+    return Query.votes(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params queries all parameters of the gov module. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  deposit(request: QueryDepositRequest): Promise<QueryDepositResponse> {
-    const data = QueryDepositRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Deposit", data);
-    return promise.then(data => QueryDepositResponse.decode(new _m0.Reader(data)));
+  /** Deposit queries single deposit information based proposalID, depositAddr. */
+  async deposit(req: QueryDepositRequest, headers?: HeadersInit): Promise<QueryDepositResponse> {
+    return Query.deposit(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse> {
-    const data = QueryDepositsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Deposits", data);
-    return promise.then(data => QueryDepositsResponse.decode(new _m0.Reader(data)));
+  /** Deposits queries all deposits of a single proposal. */
+  async deposits(req: QueryDepositsRequest, headers?: HeadersInit): Promise<QueryDepositsResponse> {
+    return Query.deposits(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  tallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
-    const data = QueryTallyResultRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "TallyResult", data);
-    return promise.then(data => QueryTallyResultResponse.decode(new _m0.Reader(data)));
+  /** TallyResult queries the tally of a proposal vote. */
+  async tallyResult(req: QueryTallyResultRequest, headers?: HeadersInit): Promise<QueryTallyResultResponse> {
+    return Query.tallyResult(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
-      return queryService.proposal(request);
-    },
-
-    proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse> {
-      return queryService.proposals(request);
-    },
-
-    vote(request: QueryVoteRequest): Promise<QueryVoteResponse> {
-      return queryService.vote(request);
-    },
-
-    votes(request: QueryVotesRequest): Promise<QueryVotesResponse> {
-      return queryService.votes(request);
-    },
-
-    params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    deposit(request: QueryDepositRequest): Promise<QueryDepositResponse> {
-      return queryService.deposit(request);
-    },
-
-    deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse> {
-      return queryService.deposits(request);
-    },
-
-    tallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
-      return queryService.tallyResult(request);
-    }
-
-  };
-};

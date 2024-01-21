@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgSubmitQueryResponse } from "./messages";
 export const registry: ReadonlyArray<[string, GeneratedType]> = [["/quicksilver.interchainquery.v1.MsgSubmitQueryResponse", MsgSubmitQueryResponse]];
@@ -14,7 +15,6 @@ export const MessageComposer = {
         value: MsgSubmitQueryResponse.encode(value).finish()
       };
     }
-
   },
   withTypeUrl: {
     submitQueryResponse(value: MsgSubmitQueryResponse) {
@@ -23,7 +23,6 @@ export const MessageComposer = {
         value
       };
     }
-
   },
   toJSON: {
     submitQueryResponse(value: MsgSubmitQueryResponse) {
@@ -32,7 +31,6 @@ export const MessageComposer = {
         value: MsgSubmitQueryResponse.toJSON(value)
       };
     }
-
   },
   fromJSON: {
     submitQueryResponse(value: any) {
@@ -41,7 +39,6 @@ export const MessageComposer = {
         value: MsgSubmitQueryResponse.fromJSON(value)
       };
     }
-
   },
   fromPartial: {
     submitQueryResponse(value: MsgSubmitQueryResponse) {
@@ -50,6 +47,5 @@ export const MessageComposer = {
         value: MsgSubmitQueryResponse.fromPartial(value)
       };
     }
-
   }
 };

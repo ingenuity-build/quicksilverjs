@@ -1,5 +1,6 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as quicksilverAirdropV1MessagesRegistry from "./airdrop/v1/messages.registry";
 import * as quicksilverInterchainqueryV1MessagesRegistry from "./interchainquery/v1/messages.registry";
 import * as quicksilverInterchainstakingV1MessagesRegistry from "./interchainstaking/v1/messages.registry";
@@ -10,7 +11,8 @@ import * as quicksilverInterchainqueryV1MessagesAmino from "./interchainquery/v1
 import * as quicksilverInterchainstakingV1MessagesAmino from "./interchainstaking/v1/messages.amino";
 import * as quicksilverParticipationrewardsV1MessagesAmino from "./participationrewards/v1/messages.amino";
 import * as quicksilverTokenfactoryV1beta1TxAmino from "./tokenfactory/v1beta1/tx.amino";
-export const quicksilverAminoConverters = { ...quicksilverAirdropV1MessagesAmino.AminoConverter,
+export const quicksilverAminoConverters = {
+  ...quicksilverAirdropV1MessagesAmino.AminoConverter,
   ...quicksilverInterchainqueryV1MessagesAmino.AminoConverter,
   ...quicksilverInterchainstakingV1MessagesAmino.AminoConverter,
   ...quicksilverParticipationrewardsV1MessagesAmino.AminoConverter,
@@ -26,7 +28,8 @@ export const getSigningQuicksilverClientOptions = ({
   aminoTypes: AminoTypes;
 } => {
   const registry = new Registry([...defaultTypes, ...quicksilverProtoRegistry]);
-  const aminoTypes = new AminoTypes({ ...quicksilverAminoConverters
+  const aminoTypes = new AminoTypes({
+    ...quicksilverAminoConverters
   });
   return {
     registry,
@@ -38,7 +41,7 @@ export const getSigningQuicksilverClient = async ({
   signer,
   defaultTypes = defaultRegistryTypes
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
   signer: OfflineSigner;
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {
@@ -49,7 +52,7 @@ export const getSigningQuicksilverClient = async ({
     defaultTypes
   });
   const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, signer, {
-    registry,
+    registry: (registry as any),
     aminoTypes
   });
   return client;

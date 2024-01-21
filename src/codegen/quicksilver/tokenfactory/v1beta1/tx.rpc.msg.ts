@@ -1,55 +1,39 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgCreateDenom, MsgCreateDenomResponse, MsgMint, MsgMintResponse, MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse } from "./tx";
-/** Msg defines the tokefactory module's gRPC message service. */
-
-export interface Msg {
-  createDenom(request: MsgCreateDenom): Promise<MsgCreateDenomResponse>;
-  mint(request: MsgMint): Promise<MsgMintResponse>;
-  burn(request: MsgBurn): Promise<MsgBurnResponse>;
-  changeAdmin(request: MsgChangeAdmin): Promise<MsgChangeAdminResponse>;
-  setDenomMetadata(request: MsgSetDenomMetadata): Promise<MsgSetDenomMetadataResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.createDenom = this.createDenom.bind(this);
-    this.mint = this.mint.bind(this);
-    this.burn = this.burn.bind(this);
-    this.changeAdmin = this.changeAdmin.bind(this);
-    this.setDenomMetadata = this.setDenomMetadata.bind(this);
+export class Msg {
+  static createDenom(request: MsgCreateDenom, initRequest?: fm.InitReq): Promise<MsgCreateDenomResponse> {
+    return fm.fetchReq(`/quicksilver.tokenfactory.v1beta1/createDenom`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  createDenom(request: MsgCreateDenom): Promise<MsgCreateDenomResponse> {
-    const data = MsgCreateDenom.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Msg", "CreateDenom", data);
-    return promise.then(data => MsgCreateDenomResponse.decode(new _m0.Reader(data)));
+  static mint(request: MsgMint, initRequest?: fm.InitReq): Promise<MsgMintResponse> {
+    return fm.fetchReq(`/quicksilver.tokenfactory.v1beta1/mint`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  mint(request: MsgMint): Promise<MsgMintResponse> {
-    const data = MsgMint.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Msg", "Mint", data);
-    return promise.then(data => MsgMintResponse.decode(new _m0.Reader(data)));
+  static burn(request: MsgBurn, initRequest?: fm.InitReq): Promise<MsgBurnResponse> {
+    return fm.fetchReq(`/quicksilver.tokenfactory.v1beta1/burn`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  burn(request: MsgBurn): Promise<MsgBurnResponse> {
-    const data = MsgBurn.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Msg", "Burn", data);
-    return promise.then(data => MsgBurnResponse.decode(new _m0.Reader(data)));
+  static changeAdmin(request: MsgChangeAdmin, initRequest?: fm.InitReq): Promise<MsgChangeAdminResponse> {
+    return fm.fetchReq(`/quicksilver.tokenfactory.v1beta1/changeAdmin`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  changeAdmin(request: MsgChangeAdmin): Promise<MsgChangeAdminResponse> {
-    const data = MsgChangeAdmin.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Msg", "ChangeAdmin", data);
-    return promise.then(data => MsgChangeAdminResponse.decode(new _m0.Reader(data)));
+  static setDenomMetadata(request: MsgSetDenomMetadata, initRequest?: fm.InitReq): Promise<MsgSetDenomMetadataResponse> {
+    return fm.fetchReq(`/quicksilver.tokenfactory.v1beta1/setDenomMetadata`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  setDenomMetadata(request: MsgSetDenomMetadata): Promise<MsgSetDenomMetadataResponse> {
-    const data = MsgSetDenomMetadata.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Msg", "SetDenomMetadata", data);
-    return promise.then(data => MsgSetDenomMetadataResponse.decode(new _m0.Reader(data)));
-  }
-
 }

@@ -1,108 +1,112 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QueryZoneDropRequest, QueryZoneDropResponse, QueryAccountBalanceRequest, QueryAccountBalanceResponse, QueryZoneDropsRequest, QueryZoneDropsResponse, QueryClaimRecordRequest, QueryClaimRecordResponse, QueryClaimRecordsRequest, QueryClaimRecordsResponse } from "./query";
-/** Query provides defines the gRPC querier service. */
-
-export interface Query {
+export class Query {
   /** Params returns the total set of airdrop parameters. */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ZoneDrop returns the details of the specified zone airdrop. */
-
-  zoneDrop(request: QueryZoneDropRequest): Promise<QueryZoneDropResponse>;
+  static zoneDrop(request: QueryZoneDropRequest, initRequest?: fm.InitReq): Promise<QueryZoneDropResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/zonedrop/${request["chain_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** AccountBalance returns the module account balance of the specified zone. */
-
-  accountBalance(request: QueryAccountBalanceRequest): Promise<QueryAccountBalanceResponse>;
+  static accountBalance(request: QueryAccountBalanceRequest, initRequest?: fm.InitReq): Promise<QueryAccountBalanceResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/accountbalance/${request["chain_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ZoneDrops returns all zone airdrops of the specified status. */
-
-  zoneDrops(request: QueryZoneDropsRequest): Promise<QueryZoneDropsResponse>;
+  static zoneDrops(request: QueryZoneDropsRequest, initRequest?: fm.InitReq): Promise<QueryZoneDropsResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/zonedrops/${request["status"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["status"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * ClaimRecord returns the claim record that corresponds to the given zone and
    * address.
    */
-
-  claimRecord(request: QueryClaimRecordRequest): Promise<QueryClaimRecordResponse>;
+  static claimRecord(request: QueryClaimRecordRequest, initRequest?: fm.InitReq): Promise<QueryClaimRecordResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/claimrecord/${request["chain_id"]}/${request["address"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id", "address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ClaimRecords returns all the claim records of the given zone. */
-
-  claimRecords(request: QueryClaimRecordsRequest): Promise<QueryClaimRecordsResponse>;
+  static claimRecords(request: QueryClaimRecordsRequest, initRequest?: fm.InitReq): Promise<QueryClaimRecordsResponse> {
+    return fm.fetchReq(`/quicksilver/airdrop/v1/claimrecords/${request["chain_id"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["chain_id"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.zoneDrop = this.zoneDrop.bind(this);
-    this.accountBalance = this.accountBalance.bind(this);
-    this.zoneDrops = this.zoneDrops.bind(this);
-    this.claimRecord = this.claimRecord.bind(this);
-    this.claimRecords = this.claimRecords.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params returns the total set of airdrop parameters. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  zoneDrop(request: QueryZoneDropRequest): Promise<QueryZoneDropResponse> {
-    const data = QueryZoneDropRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "ZoneDrop", data);
-    return promise.then(data => QueryZoneDropResponse.decode(new _m0.Reader(data)));
+  /** ZoneDrop returns the details of the specified zone airdrop. */
+  async zoneDrop(req: QueryZoneDropRequest, headers?: HeadersInit): Promise<QueryZoneDropResponse> {
+    return Query.zoneDrop(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  accountBalance(request: QueryAccountBalanceRequest): Promise<QueryAccountBalanceResponse> {
-    const data = QueryAccountBalanceRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "AccountBalance", data);
-    return promise.then(data => QueryAccountBalanceResponse.decode(new _m0.Reader(data)));
+  /** AccountBalance returns the module account balance of the specified zone. */
+  async accountBalance(req: QueryAccountBalanceRequest, headers?: HeadersInit): Promise<QueryAccountBalanceResponse> {
+    return Query.accountBalance(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  zoneDrops(request: QueryZoneDropsRequest): Promise<QueryZoneDropsResponse> {
-    const data = QueryZoneDropsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "ZoneDrops", data);
-    return promise.then(data => QueryZoneDropsResponse.decode(new _m0.Reader(data)));
+  /** ZoneDrops returns all zone airdrops of the specified status. */
+  async zoneDrops(req: QueryZoneDropsRequest, headers?: HeadersInit): Promise<QueryZoneDropsResponse> {
+    return Query.zoneDrops(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  claimRecord(request: QueryClaimRecordRequest): Promise<QueryClaimRecordResponse> {
-    const data = QueryClaimRecordRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "ClaimRecord", data);
-    return promise.then(data => QueryClaimRecordResponse.decode(new _m0.Reader(data)));
+  /**
+   * ClaimRecord returns the claim record that corresponds to the given zone and
+   * address.
+   */
+  async claimRecord(req: QueryClaimRecordRequest, headers?: HeadersInit): Promise<QueryClaimRecordResponse> {
+    return Query.claimRecord(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  claimRecords(request: QueryClaimRecordsRequest): Promise<QueryClaimRecordsResponse> {
-    const data = QueryClaimRecordsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.airdrop.v1.Query", "ClaimRecords", data);
-    return promise.then(data => QueryClaimRecordsResponse.decode(new _m0.Reader(data)));
+  /** ClaimRecords returns all the claim records of the given zone. */
+  async claimRecords(req: QueryClaimRecordsRequest, headers?: HeadersInit): Promise<QueryClaimRecordsResponse> {
+    return Query.claimRecords(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    zoneDrop(request: QueryZoneDropRequest): Promise<QueryZoneDropResponse> {
-      return queryService.zoneDrop(request);
-    },
-
-    accountBalance(request: QueryAccountBalanceRequest): Promise<QueryAccountBalanceResponse> {
-      return queryService.accountBalance(request);
-    },
-
-    zoneDrops(request: QueryZoneDropsRequest): Promise<QueryZoneDropsResponse> {
-      return queryService.zoneDrops(request);
-    },
-
-    claimRecord(request: QueryClaimRecordRequest): Promise<QueryClaimRecordResponse> {
-      return queryService.claimRecord(request);
-    },
-
-    claimRecords(request: QueryClaimRecordsRequest): Promise<QueryClaimRecordsResponse> {
-      return queryService.claimRecords(request);
-    }
-
-  };
-};

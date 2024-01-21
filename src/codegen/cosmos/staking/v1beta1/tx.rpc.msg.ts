@@ -1,73 +1,68 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgCreateValidator, MsgCreateValidatorResponse, MsgEditValidator, MsgEditValidatorResponse, MsgDelegate, MsgDelegateResponse, MsgBeginRedelegate, MsgBeginRedelegateResponse, MsgUndelegate, MsgUndelegateResponse } from "./tx";
-/** Msg defines the staking Msg service. */
-
-export interface Msg {
+import { MsgTokenizeShares, MsgTokenizeSharesResponse, MsgRedeemTokensForShares, MsgRedeemTokensForSharesResponse } from "./lsm";
+export class Msg {
   /** CreateValidator defines a method for creating a new validator. */
-  createValidator(request: MsgCreateValidator): Promise<MsgCreateValidatorResponse>;
+  static createValidator(request: MsgCreateValidator, initRequest?: fm.InitReq): Promise<MsgCreateValidatorResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/createValidator`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** EditValidator defines a method for editing an existing validator. */
-
-  editValidator(request: MsgEditValidator): Promise<MsgEditValidatorResponse>;
+  static editValidator(request: MsgEditValidator, initRequest?: fm.InitReq): Promise<MsgEditValidatorResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/editValidator`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /**
    * Delegate defines a method for performing a delegation of coins
    * from a delegator to a validator.
    */
-
-  delegate(request: MsgDelegate): Promise<MsgDelegateResponse>;
+  static delegate(request: MsgDelegate, initRequest?: fm.InitReq): Promise<MsgDelegateResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/delegate`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /**
    * BeginRedelegate defines a method for performing a redelegation
    * of coins from a delegator and source validator to a destination validator.
    */
-
-  beginRedelegate(request: MsgBeginRedelegate): Promise<MsgBeginRedelegateResponse>;
+  static beginRedelegate(request: MsgBeginRedelegate, initRequest?: fm.InitReq): Promise<MsgBeginRedelegateResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/beginRedelegate`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /**
    * Undelegate defines a method for performing an undelegation from a
    * delegate and a validator.
    */
-
-  undelegate(request: MsgUndelegate): Promise<MsgUndelegateResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.createValidator = this.createValidator.bind(this);
-    this.editValidator = this.editValidator.bind(this);
-    this.delegate = this.delegate.bind(this);
-    this.beginRedelegate = this.beginRedelegate.bind(this);
-    this.undelegate = this.undelegate.bind(this);
+  static undelegate(request: MsgUndelegate, initRequest?: fm.InitReq): Promise<MsgUndelegateResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/undelegate`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  createValidator(request: MsgCreateValidator): Promise<MsgCreateValidatorResponse> {
-    const data = MsgCreateValidator.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Msg", "CreateValidator", data);
-    return promise.then(data => MsgCreateValidatorResponse.decode(new _m0.Reader(data)));
+  static tokenizeShares(request: MsgTokenizeShares, initRequest?: fm.InitReq): Promise<MsgTokenizeSharesResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/tokenizeShares`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  editValidator(request: MsgEditValidator): Promise<MsgEditValidatorResponse> {
-    const data = MsgEditValidator.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Msg", "EditValidator", data);
-    return promise.then(data => MsgEditValidatorResponse.decode(new _m0.Reader(data)));
+  static redeemTokensForShares(request: MsgRedeemTokensForShares, initRequest?: fm.InitReq): Promise<MsgRedeemTokensForSharesResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/redeemTokensForShares`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  delegate(request: MsgDelegate): Promise<MsgDelegateResponse> {
-    const data = MsgDelegate.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Msg", "Delegate", data);
-    return promise.then(data => MsgDelegateResponse.decode(new _m0.Reader(data)));
-  }
-
-  beginRedelegate(request: MsgBeginRedelegate): Promise<MsgBeginRedelegateResponse> {
-    const data = MsgBeginRedelegate.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Msg", "BeginRedelegate", data);
-    return promise.then(data => MsgBeginRedelegateResponse.decode(new _m0.Reader(data)));
-  }
-
-  undelegate(request: MsgUndelegate): Promise<MsgUndelegateResponse> {
-    const data = MsgUndelegate.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Msg", "Undelegate", data);
-    return promise.then(data => MsgUndelegateResponse.decode(new _m0.Reader(data)));
-  }
-
 }

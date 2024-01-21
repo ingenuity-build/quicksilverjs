@@ -1,11 +1,26 @@
-import { ProofOps, ProofOpsSDKType } from "../../../tendermint/crypto/proof";
+import { Proof, ProofAmino, ProofSDKType } from "../../claimsmanager/v1/claimsmanager";
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Long, isSet, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface MsgClaim {
   chainId: string;
   action: Long;
   address: string;
   proofs: Proof[];
+}
+export interface MsgClaimProtoMsg {
+  typeUrl: "/quicksilver.airdrop.v1.MsgClaim";
+  value: Uint8Array;
+}
+export interface MsgClaimAmino {
+  chain_id: string;
+  action: string;
+  address: string;
+  proofs: ProofAmino[];
+}
+export interface MsgClaimAminoMsg {
+  type: "/quicksilver.airdrop.v1.MsgClaim";
+  value: MsgClaimAmino;
 }
 export interface MsgClaimSDKType {
   chain_id: string;
@@ -16,22 +31,60 @@ export interface MsgClaimSDKType {
 export interface MsgClaimResponse {
   amount: Long;
 }
+export interface MsgClaimResponseProtoMsg {
+  typeUrl: "/quicksilver.airdrop.v1.MsgClaimResponse";
+  value: Uint8Array;
+}
+export interface MsgClaimResponseAmino {
+  amount: string;
+}
+export interface MsgClaimResponseAminoMsg {
+  type: "/quicksilver.airdrop.v1.MsgClaimResponse";
+  value: MsgClaimResponseAmino;
+}
 export interface MsgClaimResponseSDKType {
   amount: Long;
 }
-export interface Proof {
-  key: Uint8Array;
-  data: Uint8Array;
-  proofOps?: ProofOps;
-  height: Long;
+/** MsgIncentivePoolSpend represents a message to send coins from one account to another. */
+export interface MsgIncentivePoolSpend {
+  authority: string;
+  toAddress: string;
+  amount: Coin[];
 }
-export interface ProofSDKType {
-  key: Uint8Array;
-  data: Uint8Array;
-  proof_ops?: ProofOpsSDKType;
-  height: Long;
+export interface MsgIncentivePoolSpendProtoMsg {
+  typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend";
+  value: Uint8Array;
 }
-
+/** MsgIncentivePoolSpend represents a message to send coins from one account to another. */
+export interface MsgIncentivePoolSpendAmino {
+  authority: string;
+  to_address: string;
+  amount: CoinAmino[];
+}
+export interface MsgIncentivePoolSpendAminoMsg {
+  type: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend";
+  value: MsgIncentivePoolSpendAmino;
+}
+/** MsgIncentivePoolSpend represents a message to send coins from one account to another. */
+export interface MsgIncentivePoolSpendSDKType {
+  authority: string;
+  to_address: string;
+  amount: CoinSDKType[];
+}
+/** MsgIncentivePoolSpendResponse defines the MsgIncentivePoolSpend response type. */
+export interface MsgIncentivePoolSpendResponse {}
+export interface MsgIncentivePoolSpendResponseProtoMsg {
+  typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse";
+  value: Uint8Array;
+}
+/** MsgIncentivePoolSpendResponse defines the MsgIncentivePoolSpend response type. */
+export interface MsgIncentivePoolSpendResponseAmino {}
+export interface MsgIncentivePoolSpendResponseAminoMsg {
+  type: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse";
+  value: MsgIncentivePoolSpendResponseAmino;
+}
+/** MsgIncentivePoolSpendResponse defines the MsgIncentivePoolSpend response type. */
+export interface MsgIncentivePoolSpendResponseSDKType {}
 function createBaseMsgClaim(): MsgClaim {
   return {
     chainId: "",
@@ -40,62 +93,49 @@ function createBaseMsgClaim(): MsgClaim {
     proofs: []
   };
 }
-
 export const MsgClaim = {
+  typeUrl: "/quicksilver.airdrop.v1.MsgClaim",
   encode(message: MsgClaim, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
     }
-
     if (!message.action.isZero()) {
       writer.uint32(16).int64(message.action);
     }
-
     if (message.address !== "") {
       writer.uint32(26).string(message.address);
     }
-
     for (const v of message.proofs) {
       Proof.encode(v!, writer.uint32(34).fork()).ldelim();
     }
-
     return writer;
   },
-
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgClaim {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgClaim();
-
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
           message.chainId = reader.string();
           break;
-
         case 2:
           message.action = (reader.int64() as Long);
           break;
-
         case 3:
           message.address = reader.string();
           break;
-
         case 4:
           message.proofs.push(Proof.decode(reader, reader.uint32()));
           break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
   fromJSON(object: any): MsgClaim {
     return {
       chainId: isSet(object.chainId) ? String(object.chainId) : "",
@@ -104,179 +144,289 @@ export const MsgClaim = {
       proofs: Array.isArray(object?.proofs) ? object.proofs.map((e: any) => Proof.fromJSON(e)) : []
     };
   },
-
   toJSON(message: MsgClaim): unknown {
     const obj: any = {};
     message.chainId !== undefined && (obj.chainId = message.chainId);
     message.action !== undefined && (obj.action = (message.action || Long.ZERO).toString());
     message.address !== undefined && (obj.address = message.address);
-
     if (message.proofs) {
       obj.proofs = message.proofs.map(e => e ? Proof.toJSON(e) : undefined);
     } else {
       obj.proofs = [];
     }
-
     return obj;
   },
-
-  fromPartial(object: Partial<MsgClaim>): MsgClaim {
+  fromPartial(object: DeepPartial<MsgClaim>): MsgClaim {
     const message = createBaseMsgClaim();
     message.chainId = object.chainId ?? "";
     message.action = object.action !== undefined && object.action !== null ? Long.fromValue(object.action) : Long.ZERO;
     message.address = object.address ?? "";
     message.proofs = object.proofs?.map(e => Proof.fromPartial(e)) || [];
     return message;
+  },
+  fromAmino(object: MsgClaimAmino): MsgClaim {
+    return {
+      chainId: object.chain_id,
+      action: Long.fromString(object.action),
+      address: object.address,
+      proofs: Array.isArray(object?.proofs) ? object.proofs.map((e: any) => Proof.fromAmino(e)) : []
+    };
+  },
+  toAmino(message: MsgClaim): MsgClaimAmino {
+    const obj: any = {};
+    obj.chain_id = message.chainId;
+    obj.action = message.action ? message.action.toString() : undefined;
+    obj.address = message.address;
+    if (message.proofs) {
+      obj.proofs = message.proofs.map(e => e ? Proof.toAmino(e) : undefined);
+    } else {
+      obj.proofs = [];
+    }
+    return obj;
+  },
+  fromAminoMsg(object: MsgClaimAminoMsg): MsgClaim {
+    return MsgClaim.fromAmino(object.value);
+  },
+  fromProtoMsg(message: MsgClaimProtoMsg): MsgClaim {
+    return MsgClaim.decode(message.value);
+  },
+  toProto(message: MsgClaim): Uint8Array {
+    return MsgClaim.encode(message).finish();
+  },
+  toProtoMsg(message: MsgClaim): MsgClaimProtoMsg {
+    return {
+      typeUrl: "/quicksilver.airdrop.v1.MsgClaim",
+      value: MsgClaim.encode(message).finish()
+    };
   }
-
 };
-
 function createBaseMsgClaimResponse(): MsgClaimResponse {
   return {
     amount: Long.UZERO
   };
 }
-
 export const MsgClaimResponse = {
+  typeUrl: "/quicksilver.airdrop.v1.MsgClaimResponse",
   encode(message: MsgClaimResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (!message.amount.isZero()) {
       writer.uint32(8).uint64(message.amount);
     }
-
     return writer;
   },
-
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgClaimResponse {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgClaimResponse();
-
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
           message.amount = (reader.uint64() as Long);
           break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
   fromJSON(object: any): MsgClaimResponse {
     return {
       amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
     };
   },
-
   toJSON(message: MsgClaimResponse): unknown {
     const obj: any = {};
     message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
     return obj;
   },
-
-  fromPartial(object: Partial<MsgClaimResponse>): MsgClaimResponse {
+  fromPartial(object: DeepPartial<MsgClaimResponse>): MsgClaimResponse {
     const message = createBaseMsgClaimResponse();
     message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.UZERO;
     return message;
+  },
+  fromAmino(object: MsgClaimResponseAmino): MsgClaimResponse {
+    return {
+      amount: Long.fromString(object.amount)
+    };
+  },
+  toAmino(message: MsgClaimResponse): MsgClaimResponseAmino {
+    const obj: any = {};
+    obj.amount = message.amount ? message.amount.toString() : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: MsgClaimResponseAminoMsg): MsgClaimResponse {
+    return MsgClaimResponse.fromAmino(object.value);
+  },
+  fromProtoMsg(message: MsgClaimResponseProtoMsg): MsgClaimResponse {
+    return MsgClaimResponse.decode(message.value);
+  },
+  toProto(message: MsgClaimResponse): Uint8Array {
+    return MsgClaimResponse.encode(message).finish();
+  },
+  toProtoMsg(message: MsgClaimResponse): MsgClaimResponseProtoMsg {
+    return {
+      typeUrl: "/quicksilver.airdrop.v1.MsgClaimResponse",
+      value: MsgClaimResponse.encode(message).finish()
+    };
   }
-
 };
-
-function createBaseProof(): Proof {
+function createBaseMsgIncentivePoolSpend(): MsgIncentivePoolSpend {
   return {
-    key: new Uint8Array(),
-    data: new Uint8Array(),
-    proofOps: undefined,
-    height: Long.ZERO
+    authority: "",
+    toAddress: "",
+    amount: []
   };
 }
-
-export const Proof = {
-  encode(message: Proof, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.key.length !== 0) {
-      writer.uint32(10).bytes(message.key);
+export const MsgIncentivePoolSpend = {
+  typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend",
+  encode(message: MsgIncentivePoolSpend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.authority !== "") {
+      writer.uint32(10).string(message.authority);
     }
-
-    if (message.data.length !== 0) {
-      writer.uint32(18).bytes(message.data);
+    if (message.toAddress !== "") {
+      writer.uint32(18).string(message.toAddress);
     }
-
-    if (message.proofOps !== undefined) {
-      ProofOps.encode(message.proofOps, writer.uint32(26).fork()).ldelim();
+    for (const v of message.amount) {
+      Coin.encode(v!, writer.uint32(26).fork()).ldelim();
     }
-
-    if (!message.height.isZero()) {
-      writer.uint32(32).int64(message.height);
-    }
-
     return writer;
   },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): Proof {
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgIncentivePoolSpend {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseProof();
-
+    const message = createBaseMsgIncentivePoolSpend();
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
-          message.key = reader.bytes();
+          message.authority = reader.string();
           break;
-
         case 2:
-          message.data = reader.bytes();
+          message.toAddress = reader.string();
           break;
-
         case 3:
-          message.proofOps = ProofOps.decode(reader, reader.uint32());
+          message.amount.push(Coin.decode(reader, reader.uint32()));
           break;
-
-        case 4:
-          message.height = (reader.int64() as Long);
-          break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
-  fromJSON(object: any): Proof {
+  fromJSON(object: any): MsgIncentivePoolSpend {
     return {
-      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
-      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
-      proofOps: isSet(object.proofOps) ? ProofOps.fromJSON(object.proofOps) : undefined,
-      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
+      authority: isSet(object.authority) ? String(object.authority) : "",
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : []
     };
   },
-
-  toJSON(message: Proof): unknown {
+  toJSON(message: MsgIncentivePoolSpend): unknown {
     const obj: any = {};
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
-    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
-    message.proofOps !== undefined && (obj.proofOps = message.proofOps ? ProofOps.toJSON(message.proofOps) : undefined);
-    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.authority !== undefined && (obj.authority = message.authority);
+    message.toAddress !== undefined && (obj.toAddress = message.toAddress);
+    if (message.amount) {
+      obj.amount = message.amount.map(e => e ? Coin.toJSON(e) : undefined);
+    } else {
+      obj.amount = [];
+    }
     return obj;
   },
-
-  fromPartial(object: Partial<Proof>): Proof {
-    const message = createBaseProof();
-    message.key = object.key ?? new Uint8Array();
-    message.data = object.data ?? new Uint8Array();
-    message.proofOps = object.proofOps !== undefined && object.proofOps !== null ? ProofOps.fromPartial(object.proofOps) : undefined;
-    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+  fromPartial(object: DeepPartial<MsgIncentivePoolSpend>): MsgIncentivePoolSpend {
+    const message = createBaseMsgIncentivePoolSpend();
+    message.authority = object.authority ?? "";
+    message.toAddress = object.toAddress ?? "";
+    message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
     return message;
+  },
+  fromAmino(object: MsgIncentivePoolSpendAmino): MsgIncentivePoolSpend {
+    return {
+      authority: object.authority,
+      toAddress: object.to_address,
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromAmino(e)) : []
+    };
+  },
+  toAmino(message: MsgIncentivePoolSpend): MsgIncentivePoolSpendAmino {
+    const obj: any = {};
+    obj.authority = message.authority;
+    obj.to_address = message.toAddress;
+    if (message.amount) {
+      obj.amount = message.amount.map(e => e ? Coin.toAmino(e) : undefined);
+    } else {
+      obj.amount = [];
+    }
+    return obj;
+  },
+  fromAminoMsg(object: MsgIncentivePoolSpendAminoMsg): MsgIncentivePoolSpend {
+    return MsgIncentivePoolSpend.fromAmino(object.value);
+  },
+  fromProtoMsg(message: MsgIncentivePoolSpendProtoMsg): MsgIncentivePoolSpend {
+    return MsgIncentivePoolSpend.decode(message.value);
+  },
+  toProto(message: MsgIncentivePoolSpend): Uint8Array {
+    return MsgIncentivePoolSpend.encode(message).finish();
+  },
+  toProtoMsg(message: MsgIncentivePoolSpend): MsgIncentivePoolSpendProtoMsg {
+    return {
+      typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend",
+      value: MsgIncentivePoolSpend.encode(message).finish()
+    };
   }
-
+};
+function createBaseMsgIncentivePoolSpendResponse(): MsgIncentivePoolSpendResponse {
+  return {};
+}
+export const MsgIncentivePoolSpendResponse = {
+  typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse",
+  encode(_: MsgIncentivePoolSpendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgIncentivePoolSpendResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgIncentivePoolSpendResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromJSON(_: any): MsgIncentivePoolSpendResponse {
+    return {};
+  },
+  toJSON(_: MsgIncentivePoolSpendResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+  fromPartial(_: DeepPartial<MsgIncentivePoolSpendResponse>): MsgIncentivePoolSpendResponse {
+    const message = createBaseMsgIncentivePoolSpendResponse();
+    return message;
+  },
+  fromAmino(_: MsgIncentivePoolSpendResponseAmino): MsgIncentivePoolSpendResponse {
+    return {};
+  },
+  toAmino(_: MsgIncentivePoolSpendResponse): MsgIncentivePoolSpendResponseAmino {
+    const obj: any = {};
+    return obj;
+  },
+  fromAminoMsg(object: MsgIncentivePoolSpendResponseAminoMsg): MsgIncentivePoolSpendResponse {
+    return MsgIncentivePoolSpendResponse.fromAmino(object.value);
+  },
+  fromProtoMsg(message: MsgIncentivePoolSpendResponseProtoMsg): MsgIncentivePoolSpendResponse {
+    return MsgIncentivePoolSpendResponse.decode(message.value);
+  },
+  toProto(message: MsgIncentivePoolSpendResponse): Uint8Array {
+    return MsgIncentivePoolSpendResponse.encode(message).finish();
+  },
+  toProtoMsg(message: MsgIncentivePoolSpendResponse): MsgIncentivePoolSpendResponseProtoMsg {
+    return {
+      typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse",
+      value: MsgIncentivePoolSpendResponse.encode(message).finish()
+    };
+  }
 };

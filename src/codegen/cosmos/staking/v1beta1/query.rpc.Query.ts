@@ -1,229 +1,258 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryValidatorsRequest, QueryValidatorsResponse, QueryValidatorRequest, QueryValidatorResponse, QueryValidatorDelegationsRequest, QueryValidatorDelegationsResponse, QueryValidatorUnbondingDelegationsRequest, QueryValidatorUnbondingDelegationsResponse, QueryDelegationRequest, QueryDelegationResponse, QueryUnbondingDelegationRequest, QueryUnbondingDelegationResponse, QueryDelegatorDelegationsRequest, QueryDelegatorDelegationsResponse, QueryDelegatorUnbondingDelegationsRequest, QueryDelegatorUnbondingDelegationsResponse, QueryRedelegationsRequest, QueryRedelegationsResponse, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse, QueryDelegatorValidatorRequest, QueryDelegatorValidatorResponse, QueryHistoricalInfoRequest, QueryHistoricalInfoResponse, QueryPoolRequest, QueryPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
-/** Query defines the gRPC querier service. */
-
-export interface Query {
+export class Query {
   /** Validators queries all validators that match the given status. */
-  validators(request: QueryValidatorsRequest): Promise<QueryValidatorsResponse>;
+  static validators(request: QueryValidatorsRequest, initRequest?: fm.InitReq): Promise<QueryValidatorsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Validator queries validator info for given validator address. */
-
-  validator(request: QueryValidatorRequest): Promise<QueryValidatorResponse>;
+  static validator(request: QueryValidatorRequest, initRequest?: fm.InitReq): Promise<QueryValidatorResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators/${request["validator_addr"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ValidatorDelegations queries delegate info for given validator. */
-
-  validatorDelegations(request: QueryValidatorDelegationsRequest): Promise<QueryValidatorDelegationsResponse>;
+  static validatorDelegations(request: QueryValidatorDelegationsRequest, initRequest?: fm.InitReq): Promise<QueryValidatorDelegationsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators/${request["validator_addr"]}/delegations?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ValidatorUnbondingDelegations queries unbonding delegations of a validator. */
-
-  validatorUnbondingDelegations(request: QueryValidatorUnbondingDelegationsRequest): Promise<QueryValidatorUnbondingDelegationsResponse>;
+  static validatorUnbondingDelegations(request: QueryValidatorUnbondingDelegationsRequest, initRequest?: fm.InitReq): Promise<QueryValidatorUnbondingDelegationsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators/${request["validator_addr"]}/unbonding_delegations?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Delegation queries delegate info for given validator delegator pair. */
-
-  delegation(request: QueryDelegationRequest): Promise<QueryDelegationResponse>;
+  static delegation(request: QueryDelegationRequest, initRequest?: fm.InitReq): Promise<QueryDelegationResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators/${request["validator_addr"]}/delegations/${request["delegator_addr"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_addr", "delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * UnbondingDelegation queries unbonding info for given validator delegator
    * pair.
    */
-
-  unbondingDelegation(request: QueryUnbondingDelegationRequest): Promise<QueryUnbondingDelegationResponse>;
+  static unbondingDelegation(request: QueryUnbondingDelegationRequest, initRequest?: fm.InitReq): Promise<QueryUnbondingDelegationResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/validators/${request["validator_addr"]}/delegations/${request["delegator_addr"]}/unbonding_delegation?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_addr", "delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** DelegatorDelegations queries all delegations of a given delegator address. */
-
-  delegatorDelegations(request: QueryDelegatorDelegationsRequest): Promise<QueryDelegatorDelegationsResponse>;
+  static delegatorDelegations(request: QueryDelegatorDelegationsRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorDelegationsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/delegations/${request["delegator_addr"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DelegatorUnbondingDelegations queries all unbonding delegations of a given
    * delegator address.
    */
-
-  delegatorUnbondingDelegations(request: QueryDelegatorUnbondingDelegationsRequest): Promise<QueryDelegatorUnbondingDelegationsResponse>;
+  static delegatorUnbondingDelegations(request: QueryDelegatorUnbondingDelegationsRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorUnbondingDelegationsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/delegators/${request["delegator_addr"]}/unbonding_delegations?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Redelegations queries redelegations of given address. */
-
-  redelegations(request: QueryRedelegationsRequest): Promise<QueryRedelegationsResponse>;
+  static redelegations(request: QueryRedelegationsRequest, initRequest?: fm.InitReq): Promise<QueryRedelegationsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/delegators/${request["delegator_addr"]}/redelegations?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DelegatorValidators queries all validators info for given delegator
    * address.
    */
-
-  delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse>;
+  static delegatorValidators(request: QueryDelegatorValidatorsRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorValidatorsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/delegators/${request["delegator_addr"]}/validators?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DelegatorValidator queries validator info for given delegator validator
    * pair.
    */
-
-  delegatorValidator(request: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse>;
+  static delegatorValidator(request: QueryDelegatorValidatorRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorValidatorResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/delegators/${request["delegator_addr"]}/validators/${request["validator_addr"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_addr", "validator_addr"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** HistoricalInfo queries the historical info for given height. */
-
-  historicalInfo(request: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse>;
+  static historicalInfo(request: QueryHistoricalInfoRequest, initRequest?: fm.InitReq): Promise<QueryHistoricalInfoResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/historical_info/${request["height"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["height"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Pool queries the pool info. */
-
-  pool(request?: QueryPoolRequest): Promise<QueryPoolResponse>;
+  static pool(request: QueryPoolRequest, initRequest?: fm.InitReq): Promise<QueryPoolResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/pool?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** Parameters queries the staking parameters. */
-
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/cosmos/staking/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.validators = this.validators.bind(this);
-    this.validator = this.validator.bind(this);
-    this.validatorDelegations = this.validatorDelegations.bind(this);
-    this.validatorUnbondingDelegations = this.validatorUnbondingDelegations.bind(this);
-    this.delegation = this.delegation.bind(this);
-    this.unbondingDelegation = this.unbondingDelegation.bind(this);
-    this.delegatorDelegations = this.delegatorDelegations.bind(this);
-    this.delegatorUnbondingDelegations = this.delegatorUnbondingDelegations.bind(this);
-    this.redelegations = this.redelegations.bind(this);
-    this.delegatorValidators = this.delegatorValidators.bind(this);
-    this.delegatorValidator = this.delegatorValidator.bind(this);
-    this.historicalInfo = this.historicalInfo.bind(this);
-    this.pool = this.pool.bind(this);
-    this.params = this.params.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  validators(request: QueryValidatorsRequest): Promise<QueryValidatorsResponse> {
-    const data = QueryValidatorsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Validators", data);
-    return promise.then(data => QueryValidatorsResponse.decode(new _m0.Reader(data)));
+  /** Validators queries all validators that match the given status. */
+  async validators(req: QueryValidatorsRequest, headers?: HeadersInit): Promise<QueryValidatorsResponse> {
+    return Query.validators(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validator(request: QueryValidatorRequest): Promise<QueryValidatorResponse> {
-    const data = QueryValidatorRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Validator", data);
-    return promise.then(data => QueryValidatorResponse.decode(new _m0.Reader(data)));
+  /** Validator queries validator info for given validator address. */
+  async validator(req: QueryValidatorRequest, headers?: HeadersInit): Promise<QueryValidatorResponse> {
+    return Query.validator(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validatorDelegations(request: QueryValidatorDelegationsRequest): Promise<QueryValidatorDelegationsResponse> {
-    const data = QueryValidatorDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "ValidatorDelegations", data);
-    return promise.then(data => QueryValidatorDelegationsResponse.decode(new _m0.Reader(data)));
+  /** ValidatorDelegations queries delegate info for given validator. */
+  async validatorDelegations(req: QueryValidatorDelegationsRequest, headers?: HeadersInit): Promise<QueryValidatorDelegationsResponse> {
+    return Query.validatorDelegations(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validatorUnbondingDelegations(request: QueryValidatorUnbondingDelegationsRequest): Promise<QueryValidatorUnbondingDelegationsResponse> {
-    const data = QueryValidatorUnbondingDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "ValidatorUnbondingDelegations", data);
-    return promise.then(data => QueryValidatorUnbondingDelegationsResponse.decode(new _m0.Reader(data)));
+  /** ValidatorUnbondingDelegations queries unbonding delegations of a validator. */
+  async validatorUnbondingDelegations(req: QueryValidatorUnbondingDelegationsRequest, headers?: HeadersInit): Promise<QueryValidatorUnbondingDelegationsResponse> {
+    return Query.validatorUnbondingDelegations(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegation(request: QueryDelegationRequest): Promise<QueryDelegationResponse> {
-    const data = QueryDelegationRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Delegation", data);
-    return promise.then(data => QueryDelegationResponse.decode(new _m0.Reader(data)));
+  /** Delegation queries delegate info for given validator delegator pair. */
+  async delegation(req: QueryDelegationRequest, headers?: HeadersInit): Promise<QueryDelegationResponse> {
+    return Query.delegation(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  unbondingDelegation(request: QueryUnbondingDelegationRequest): Promise<QueryUnbondingDelegationResponse> {
-    const data = QueryUnbondingDelegationRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "UnbondingDelegation", data);
-    return promise.then(data => QueryUnbondingDelegationResponse.decode(new _m0.Reader(data)));
+  /**
+   * UnbondingDelegation queries unbonding info for given validator delegator
+   * pair.
+   */
+  async unbondingDelegation(req: QueryUnbondingDelegationRequest, headers?: HeadersInit): Promise<QueryUnbondingDelegationResponse> {
+    return Query.unbondingDelegation(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorDelegations(request: QueryDelegatorDelegationsRequest): Promise<QueryDelegatorDelegationsResponse> {
-    const data = QueryDelegatorDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorDelegations", data);
-    return promise.then(data => QueryDelegatorDelegationsResponse.decode(new _m0.Reader(data)));
+  /** DelegatorDelegations queries all delegations of a given delegator address. */
+  async delegatorDelegations(req: QueryDelegatorDelegationsRequest, headers?: HeadersInit): Promise<QueryDelegatorDelegationsResponse> {
+    return Query.delegatorDelegations(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorUnbondingDelegations(request: QueryDelegatorUnbondingDelegationsRequest): Promise<QueryDelegatorUnbondingDelegationsResponse> {
-    const data = QueryDelegatorUnbondingDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorUnbondingDelegations", data);
-    return promise.then(data => QueryDelegatorUnbondingDelegationsResponse.decode(new _m0.Reader(data)));
+  /**
+   * DelegatorUnbondingDelegations queries all unbonding delegations of a given
+   * delegator address.
+   */
+  async delegatorUnbondingDelegations(req: QueryDelegatorUnbondingDelegationsRequest, headers?: HeadersInit): Promise<QueryDelegatorUnbondingDelegationsResponse> {
+    return Query.delegatorUnbondingDelegations(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  redelegations(request: QueryRedelegationsRequest): Promise<QueryRedelegationsResponse> {
-    const data = QueryRedelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Redelegations", data);
-    return promise.then(data => QueryRedelegationsResponse.decode(new _m0.Reader(data)));
+  /** Redelegations queries redelegations of given address. */
+  async redelegations(req: QueryRedelegationsRequest, headers?: HeadersInit): Promise<QueryRedelegationsResponse> {
+    return Query.redelegations(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
-    const data = QueryDelegatorValidatorsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorValidators", data);
-    return promise.then(data => QueryDelegatorValidatorsResponse.decode(new _m0.Reader(data)));
+  /**
+   * DelegatorValidators queries all validators info for given delegator
+   * address.
+   */
+  async delegatorValidators(req: QueryDelegatorValidatorsRequest, headers?: HeadersInit): Promise<QueryDelegatorValidatorsResponse> {
+    return Query.delegatorValidators(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorValidator(request: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse> {
-    const data = QueryDelegatorValidatorRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorValidator", data);
-    return promise.then(data => QueryDelegatorValidatorResponse.decode(new _m0.Reader(data)));
+  /**
+   * DelegatorValidator queries validator info for given delegator validator
+   * pair.
+   */
+  async delegatorValidator(req: QueryDelegatorValidatorRequest, headers?: HeadersInit): Promise<QueryDelegatorValidatorResponse> {
+    return Query.delegatorValidator(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  historicalInfo(request: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse> {
-    const data = QueryHistoricalInfoRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "HistoricalInfo", data);
-    return promise.then(data => QueryHistoricalInfoResponse.decode(new _m0.Reader(data)));
+  /** HistoricalInfo queries the historical info for given height. */
+  async historicalInfo(req: QueryHistoricalInfoRequest, headers?: HeadersInit): Promise<QueryHistoricalInfoResponse> {
+    return Query.historicalInfo(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  pool(request: QueryPoolRequest = {}): Promise<QueryPoolResponse> {
-    const data = QueryPoolRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Pool", data);
-    return promise.then(data => QueryPoolResponse.decode(new _m0.Reader(data)));
+  /** Pool queries the pool info. */
+  async pool(req: QueryPoolRequest, headers?: HeadersInit): Promise<QueryPoolResponse> {
+    return Query.pool(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Parameters queries the staking parameters. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    validators(request: QueryValidatorsRequest): Promise<QueryValidatorsResponse> {
-      return queryService.validators(request);
-    },
-
-    validator(request: QueryValidatorRequest): Promise<QueryValidatorResponse> {
-      return queryService.validator(request);
-    },
-
-    validatorDelegations(request: QueryValidatorDelegationsRequest): Promise<QueryValidatorDelegationsResponse> {
-      return queryService.validatorDelegations(request);
-    },
-
-    validatorUnbondingDelegations(request: QueryValidatorUnbondingDelegationsRequest): Promise<QueryValidatorUnbondingDelegationsResponse> {
-      return queryService.validatorUnbondingDelegations(request);
-    },
-
-    delegation(request: QueryDelegationRequest): Promise<QueryDelegationResponse> {
-      return queryService.delegation(request);
-    },
-
-    unbondingDelegation(request: QueryUnbondingDelegationRequest): Promise<QueryUnbondingDelegationResponse> {
-      return queryService.unbondingDelegation(request);
-    },
-
-    delegatorDelegations(request: QueryDelegatorDelegationsRequest): Promise<QueryDelegatorDelegationsResponse> {
-      return queryService.delegatorDelegations(request);
-    },
-
-    delegatorUnbondingDelegations(request: QueryDelegatorUnbondingDelegationsRequest): Promise<QueryDelegatorUnbondingDelegationsResponse> {
-      return queryService.delegatorUnbondingDelegations(request);
-    },
-
-    redelegations(request: QueryRedelegationsRequest): Promise<QueryRedelegationsResponse> {
-      return queryService.redelegations(request);
-    },
-
-    delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
-      return queryService.delegatorValidators(request);
-    },
-
-    delegatorValidator(request: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse> {
-      return queryService.delegatorValidator(request);
-    },
-
-    historicalInfo(request: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse> {
-      return queryService.historicalInfo(request);
-    },
-
-    pool(request?: QueryPoolRequest): Promise<QueryPoolResponse> {
-      return queryService.pool(request);
-    },
-
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    }
-
-  };
-};

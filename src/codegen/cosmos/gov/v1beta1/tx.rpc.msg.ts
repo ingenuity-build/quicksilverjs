@@ -1,54 +1,40 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgSubmitProposal, MsgSubmitProposalResponse, MsgVote, MsgVoteResponse, MsgVoteWeighted, MsgVoteWeightedResponse, MsgDeposit, MsgDepositResponse } from "./tx";
-/** Msg defines the bank Msg service. */
-
-export interface Msg {
+export class Msg {
   /** SubmitProposal defines a method to create new proposal given a content. */
-  submitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse>;
+  static submitProposal(request: MsgSubmitProposal, initRequest?: fm.InitReq): Promise<MsgSubmitProposalResponse> {
+    return fm.fetchReq(`/cosmos.gov.v1beta1/submitProposal`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** Vote defines a method to add a vote on a specific proposal. */
-
-  vote(request: MsgVote): Promise<MsgVoteResponse>;
-  /** VoteWeighted defines a method to add a weighted vote on a specific proposal. */
-
-  voteWeighted(request: MsgVoteWeighted): Promise<MsgVoteWeightedResponse>;
+  static vote(request: MsgVote, initRequest?: fm.InitReq): Promise<MsgVoteResponse> {
+    return fm.fetchReq(`/cosmos.gov.v1beta1/vote`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
+  /**
+   * VoteWeighted defines a method to add a weighted vote on a specific proposal.
+   * 
+   * Since: cosmos-sdk 0.43
+   */
+  static voteWeighted(request: MsgVoteWeighted, initRequest?: fm.InitReq): Promise<MsgVoteWeightedResponse> {
+    return fm.fetchReq(`/cosmos.gov.v1beta1/voteWeighted`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** Deposit defines a method to add deposit on a specific proposal. */
-
-  deposit(request: MsgDeposit): Promise<MsgDepositResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.submitProposal = this.submitProposal.bind(this);
-    this.vote = this.vote.bind(this);
-    this.voteWeighted = this.voteWeighted.bind(this);
-    this.deposit = this.deposit.bind(this);
+  static deposit(request: MsgDeposit, initRequest?: fm.InitReq): Promise<MsgDepositResponse> {
+    return fm.fetchReq(`/cosmos.gov.v1beta1/deposit`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  submitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse> {
-    const data = MsgSubmitProposal.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Msg", "SubmitProposal", data);
-    return promise.then(data => MsgSubmitProposalResponse.decode(new _m0.Reader(data)));
-  }
-
-  vote(request: MsgVote): Promise<MsgVoteResponse> {
-    const data = MsgVote.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Msg", "Vote", data);
-    return promise.then(data => MsgVoteResponse.decode(new _m0.Reader(data)));
-  }
-
-  voteWeighted(request: MsgVoteWeighted): Promise<MsgVoteWeightedResponse> {
-    const data = MsgVoteWeighted.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Msg", "VoteWeighted", data);
-    return promise.then(data => MsgVoteWeightedResponse.decode(new _m0.Reader(data)));
-  }
-
-  deposit(request: MsgDeposit): Promise<MsgDepositResponse> {
-    const data = MsgDeposit.encode(request).finish();
-    const promise = this.rpc.request("cosmos.gov.v1beta1.Msg", "Deposit", data);
-    return promise.then(data => MsgDepositResponse.decode(new _m0.Reader(data)));
-  }
-
 }

@@ -1,35 +1,74 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryGrantsRequest, QueryGrantsResponse } from "./query";
-/** Query defines the gRPC querier service. */
-
-export interface Query {
+import * as fm from "../../../grpc-gateway";
+import { QueryGrantsRequest, QueryGrantsResponse, QueryGranterGrantsRequest, QueryGranterGrantsResponse, QueryGranteeGrantsRequest, QueryGranteeGrantsResponse } from "./query";
+export class Query {
   /** Returns list of `Authorization`, granted to the grantee by the granter. */
-  grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse>;
-}
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.grants = this.grants.bind(this);
+  static grants(request: QueryGrantsRequest, initRequest?: fm.InitReq): Promise<QueryGrantsResponse> {
+    return fm.fetchReq(`/cosmos/authz/v1beta1/grants?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
   }
-
-  grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse> {
-    const data = QueryGrantsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.authz.v1beta1.Query", "Grants", data);
-    return promise.then(data => QueryGrantsResponse.decode(new _m0.Reader(data)));
+  /**
+   * GranterGrants returns list of `GrantAuthorization`, granted by granter.
+   * 
+   * Since: cosmos-sdk 0.46
+   */
+  static granterGrants(request: QueryGranterGrantsRequest, initRequest?: fm.InitReq): Promise<QueryGranterGrantsResponse> {
+    return fm.fetchReq(`/cosmos/authz/v1beta1/grants/granter/${request["granter"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["granter"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
   }
-
+  /**
+   * GranteeGrants returns a list of `GrantAuthorization` by grantee.
+   * 
+   * Since: cosmos-sdk 0.46
+   */
+  static granteeGrants(request: QueryGranteeGrantsRequest, initRequest?: fm.InitReq): Promise<QueryGranteeGrantsResponse> {
+    return fm.fetchReq(`/cosmos/authz/v1beta1/grants/grantee/${request["grantee"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["grantee"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse> {
-      return queryService.grants(request);
-    }
-
-  };
-};
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
+  }
+  /** Returns list of `Authorization`, granted to the grantee by the granter. */
+  async grants(req: QueryGrantsRequest, headers?: HeadersInit): Promise<QueryGrantsResponse> {
+    return Query.grants(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+  /**
+   * GranterGrants returns list of `GrantAuthorization`, granted by granter.
+   * 
+   * Since: cosmos-sdk 0.46
+   */
+  async granterGrants(req: QueryGranterGrantsRequest, headers?: HeadersInit): Promise<QueryGranterGrantsResponse> {
+    return Query.granterGrants(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+  /**
+   * GranteeGrants returns a list of `GrantAuthorization` by grantee.
+   * 
+   * Since: cosmos-sdk 0.46
+   */
+  async granteeGrants(req: QueryGranteeGrantsRequest, headers?: HeadersInit): Promise<QueryGranteeGrantsResponse> {
+    return Query.granteeGrants(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
+}

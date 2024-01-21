@@ -1,5 +1,5 @@
+import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface Query {
   id: string;
   connectionId: string;
@@ -7,12 +7,32 @@ export interface Query {
   queryType: string;
   request: Uint8Array;
   /** change these to uint64 in v0.5.0 */
-
   period: string;
   lastHeight: string;
   callbackId: string;
   ttl: Long;
   lastEmission: string;
+}
+export interface QueryProtoMsg {
+  typeUrl: "/quicksilver.interchainquery.v1.Query";
+  value: Uint8Array;
+}
+export interface QueryAmino {
+  id: string;
+  connection_id: string;
+  chain_id: string;
+  query_type: string;
+  request: Uint8Array;
+  /** change these to uint64 in v0.5.0 */
+  period: string;
+  last_height: string;
+  callback_id: string;
+  ttl: string;
+  last_emission: string;
+}
+export interface QueryAminoMsg {
+  type: "/quicksilver.interchainquery.v1.Query";
+  value: QueryAmino;
 }
 export interface QuerySDKType {
   id: string;
@@ -20,8 +40,6 @@ export interface QuerySDKType {
   chain_id: string;
   query_type: string;
   request: Uint8Array;
-  /** change these to uint64 in v0.5.0 */
-
   period: string;
   last_height: string;
   callback_id: string;
@@ -31,20 +49,31 @@ export interface QuerySDKType {
 export interface DataPoint {
   id: string;
   /** change these to uint64 in v0.5.0 */
-
   remoteHeight: string;
   localHeight: string;
   value: Uint8Array;
 }
-export interface DataPointSDKType {
+export interface DataPointProtoMsg {
+  typeUrl: "/quicksilver.interchainquery.v1.DataPoint";
+  value: Uint8Array;
+}
+export interface DataPointAmino {
   id: string;
   /** change these to uint64 in v0.5.0 */
-
   remote_height: string;
   local_height: string;
   value: Uint8Array;
 }
-
+export interface DataPointAminoMsg {
+  type: "/quicksilver.interchainquery.v1.DataPoint";
+  value: DataPointAmino;
+}
+export interface DataPointSDKType {
+  id: string;
+  remote_height: string;
+  local_height: string;
+  value: Uint8Array;
+}
 function createBaseQuery(): Query {
   return {
     id: "",
@@ -59,110 +88,85 @@ function createBaseQuery(): Query {
     lastEmission: ""
   };
 }
-
 export const Query = {
+  typeUrl: "/quicksilver.interchainquery.v1.Query",
   encode(message: Query, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-
     if (message.connectionId !== "") {
       writer.uint32(18).string(message.connectionId);
     }
-
     if (message.chainId !== "") {
       writer.uint32(26).string(message.chainId);
     }
-
     if (message.queryType !== "") {
       writer.uint32(34).string(message.queryType);
     }
-
     if (message.request.length !== 0) {
       writer.uint32(42).bytes(message.request);
     }
-
     if (message.period !== "") {
       writer.uint32(50).string(message.period);
     }
-
     if (message.lastHeight !== "") {
       writer.uint32(58).string(message.lastHeight);
     }
-
     if (message.callbackId !== "") {
       writer.uint32(66).string(message.callbackId);
     }
-
     if (!message.ttl.isZero()) {
       writer.uint32(72).uint64(message.ttl);
     }
-
     if (message.lastEmission !== "") {
       writer.uint32(82).string(message.lastEmission);
     }
-
     return writer;
   },
-
   decode(input: _m0.Reader | Uint8Array, length?: number): Query {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuery();
-
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
           message.id = reader.string();
           break;
-
         case 2:
           message.connectionId = reader.string();
           break;
-
         case 3:
           message.chainId = reader.string();
           break;
-
         case 4:
           message.queryType = reader.string();
           break;
-
         case 5:
           message.request = reader.bytes();
           break;
-
         case 6:
           message.period = reader.string();
           break;
-
         case 7:
           message.lastHeight = reader.string();
           break;
-
         case 8:
           message.callbackId = reader.string();
           break;
-
         case 9:
           message.ttl = (reader.uint64() as Long);
           break;
-
         case 10:
           message.lastEmission = reader.string();
           break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
   fromJSON(object: any): Query {
     return {
       id: isSet(object.id) ? String(object.id) : "",
@@ -177,7 +181,6 @@ export const Query = {
       lastEmission: isSet(object.lastEmission) ? String(object.lastEmission) : ""
     };
   },
-
   toJSON(message: Query): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
@@ -192,8 +195,7 @@ export const Query = {
     message.lastEmission !== undefined && (obj.lastEmission = message.lastEmission);
     return obj;
   },
-
-  fromPartial(object: Partial<Query>): Query {
+  fromPartial(object: DeepPartial<Query>): Query {
     const message = createBaseQuery();
     message.id = object.id ?? "";
     message.connectionId = object.connectionId ?? "";
@@ -206,10 +208,51 @@ export const Query = {
     message.ttl = object.ttl !== undefined && object.ttl !== null ? Long.fromValue(object.ttl) : Long.UZERO;
     message.lastEmission = object.lastEmission ?? "";
     return message;
+  },
+  fromAmino(object: QueryAmino): Query {
+    return {
+      id: object.id,
+      connectionId: object.connection_id,
+      chainId: object.chain_id,
+      queryType: object.query_type,
+      request: object.request,
+      period: object.period,
+      lastHeight: object.last_height,
+      callbackId: object.callback_id,
+      ttl: Long.fromString(object.ttl),
+      lastEmission: object.last_emission
+    };
+  },
+  toAmino(message: Query): QueryAmino {
+    const obj: any = {};
+    obj.id = message.id;
+    obj.connection_id = message.connectionId;
+    obj.chain_id = message.chainId;
+    obj.query_type = message.queryType;
+    obj.request = message.request;
+    obj.period = message.period;
+    obj.last_height = message.lastHeight;
+    obj.callback_id = message.callbackId;
+    obj.ttl = message.ttl ? message.ttl.toString() : undefined;
+    obj.last_emission = message.lastEmission;
+    return obj;
+  },
+  fromAminoMsg(object: QueryAminoMsg): Query {
+    return Query.fromAmino(object.value);
+  },
+  fromProtoMsg(message: QueryProtoMsg): Query {
+    return Query.decode(message.value);
+  },
+  toProto(message: Query): Uint8Array {
+    return Query.encode(message).finish();
+  },
+  toProtoMsg(message: Query): QueryProtoMsg {
+    return {
+      typeUrl: "/quicksilver.interchainquery.v1.Query",
+      value: Query.encode(message).finish()
+    };
   }
-
 };
-
 function createBaseDataPoint(): DataPoint {
   return {
     id: "",
@@ -218,62 +261,49 @@ function createBaseDataPoint(): DataPoint {
     value: new Uint8Array()
   };
 }
-
 export const DataPoint = {
+  typeUrl: "/quicksilver.interchainquery.v1.DataPoint",
   encode(message: DataPoint, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-
     if (message.remoteHeight !== "") {
       writer.uint32(18).string(message.remoteHeight);
     }
-
     if (message.localHeight !== "") {
       writer.uint32(26).string(message.localHeight);
     }
-
     if (message.value.length !== 0) {
       writer.uint32(34).bytes(message.value);
     }
-
     return writer;
   },
-
   decode(input: _m0.Reader | Uint8Array, length?: number): DataPoint {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDataPoint();
-
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
           message.id = reader.string();
           break;
-
         case 2:
           message.remoteHeight = reader.string();
           break;
-
         case 3:
           message.localHeight = reader.string();
           break;
-
         case 4:
           message.value = reader.bytes();
           break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
   fromJSON(object: any): DataPoint {
     return {
       id: isSet(object.id) ? String(object.id) : "",
@@ -282,7 +312,6 @@ export const DataPoint = {
       value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array()
     };
   },
-
   toJSON(message: DataPoint): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
@@ -291,14 +320,43 @@ export const DataPoint = {
     message.value !== undefined && (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
     return obj;
   },
-
-  fromPartial(object: Partial<DataPoint>): DataPoint {
+  fromPartial(object: DeepPartial<DataPoint>): DataPoint {
     const message = createBaseDataPoint();
     message.id = object.id ?? "";
     message.remoteHeight = object.remoteHeight ?? "";
     message.localHeight = object.localHeight ?? "";
     message.value = object.value ?? new Uint8Array();
     return message;
+  },
+  fromAmino(object: DataPointAmino): DataPoint {
+    return {
+      id: object.id,
+      remoteHeight: object.remote_height,
+      localHeight: object.local_height,
+      value: object.value
+    };
+  },
+  toAmino(message: DataPoint): DataPointAmino {
+    const obj: any = {};
+    obj.id = message.id;
+    obj.remote_height = message.remoteHeight;
+    obj.local_height = message.localHeight;
+    obj.value = message.value;
+    return obj;
+  },
+  fromAminoMsg(object: DataPointAminoMsg): DataPoint {
+    return DataPoint.fromAmino(object.value);
+  },
+  fromProtoMsg(message: DataPointProtoMsg): DataPoint {
+    return DataPoint.decode(message.value);
+  },
+  toProto(message: DataPoint): Uint8Array {
+    return DataPoint.encode(message).finish();
+  },
+  toProtoMsg(message: DataPoint): DataPointProtoMsg {
+    return {
+      typeUrl: "/quicksilver.interchainquery.v1.DataPoint",
+      value: DataPoint.encode(message).finish()
+    };
   }
-
 };

@@ -1,47 +1,42 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QueryProtocolDataRequest, QueryProtocolDataResponse } from "./query";
-/** Query provides defines the gRPC querier service. */
-
-export interface Query {
+export class Query {
   /** Params returns the total set of participation rewards parameters. */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  protocolData(request: QueryProtocolDataRequest): Promise<QueryProtocolDataResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/quicksilver/participationrewards/v1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /** ProtocolData returns the requested protocol data. */
+  static protocolData(request: QueryProtocolDataRequest, initRequest?: fm.InitReq): Promise<QueryProtocolDataResponse> {
+    return fm.fetchReq(`/quicksilver/participationrewards/v1/protocoldata/${request["type"]}/${request["key"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["type", "key"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.protocolData = this.protocolData.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.participationrewards.v1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params returns the total set of participation rewards parameters. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  protocolData(request: QueryProtocolDataRequest): Promise<QueryProtocolDataResponse> {
-    const data = QueryProtocolDataRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.participationrewards.v1.Query", "ProtocolData", data);
-    return promise.then(data => QueryProtocolDataResponse.decode(new _m0.Reader(data)));
+  /** ProtocolData returns the requested protocol data. */
+  async protocolData(req: QueryProtocolDataRequest, headers?: HeadersInit): Promise<QueryProtocolDataResponse> {
+    return Query.protocolData(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    protocolData(request: QueryProtocolDataRequest): Promise<QueryProtocolDataResponse> {
-      return queryService.protocolData(request);
-    }
-
-  };
-};

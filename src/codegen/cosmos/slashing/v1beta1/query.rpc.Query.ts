@@ -1,65 +1,58 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QuerySigningInfoRequest, QuerySigningInfoResponse, QuerySigningInfosRequest, QuerySigningInfosResponse } from "./query";
-/** Query provides defines the gRPC querier service */
-
-export interface Query {
+export class Query {
   /** Params queries the parameters of slashing module */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/cosmos/slashing/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** SigningInfo queries the signing info of given cons address */
-
-  signingInfo(request: QuerySigningInfoRequest): Promise<QuerySigningInfoResponse>;
+  static signingInfo(request: QuerySigningInfoRequest, initRequest?: fm.InitReq): Promise<QuerySigningInfoResponse> {
+    return fm.fetchReq(`/cosmos/slashing/v1beta1/signing_infos/${request["cons_address"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["cons_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** SigningInfos queries signing info of all validators */
-
-  signingInfos(request?: QuerySigningInfosRequest): Promise<QuerySigningInfosResponse>;
+  static signingInfos(request: QuerySigningInfosRequest, initRequest?: fm.InitReq): Promise<QuerySigningInfosResponse> {
+    return fm.fetchReq(`/cosmos/slashing/v1beta1/signing_infos?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.signingInfo = this.signingInfo.bind(this);
-    this.signingInfos = this.signingInfos.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.slashing.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params queries the parameters of slashing module */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  signingInfo(request: QuerySigningInfoRequest): Promise<QuerySigningInfoResponse> {
-    const data = QuerySigningInfoRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.slashing.v1beta1.Query", "SigningInfo", data);
-    return promise.then(data => QuerySigningInfoResponse.decode(new _m0.Reader(data)));
+  /** SigningInfo queries the signing info of given cons address */
+  async signingInfo(req: QuerySigningInfoRequest, headers?: HeadersInit): Promise<QuerySigningInfoResponse> {
+    return Query.signingInfo(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  signingInfos(request: QuerySigningInfosRequest = {
-    pagination: undefined
-  }): Promise<QuerySigningInfosResponse> {
-    const data = QuerySigningInfosRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.slashing.v1beta1.Query", "SigningInfos", data);
-    return promise.then(data => QuerySigningInfosResponse.decode(new _m0.Reader(data)));
+  /** SigningInfos queries signing info of all validators */
+  async signingInfos(req: QuerySigningInfosRequest, headers?: HeadersInit): Promise<QuerySigningInfosResponse> {
+    return Query.signingInfos(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    signingInfo(request: QuerySigningInfoRequest): Promise<QuerySigningInfoResponse> {
-      return queryService.signingInfo(request);
-    },
-
-    signingInfos(request?: QuerySigningInfosRequest): Promise<QuerySigningInfosResponse> {
-      return queryService.signingInfos(request);
-    }
-
-  };
-};

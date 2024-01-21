@@ -1,0 +1,1 @@
+{"version":3,"file":"tx.amino.js","sourceRoot":"","sources":["../../../../../src/codegen/cosmos/slashing/v1beta1/tx.amino.ts"],"names":[],"mappings":"AAAA,aAAa;AACb,OAAO,EAAE,SAAS,EAAE,MAAM,MAAM,CAAC;AACjC,MAAM,CAAC,MAAM,cAAc,GAAG;IAC5B,oCAAoC,EAAE;QACpC,SAAS,EAAE,sBAAsB;QACjC,OAAO,EAAE,SAAS,CAAC,OAAO;QAC1B,SAAS,EAAE,SAAS,CAAC,SAAS;KAC/B;CACF,CAAC"}

@@ -1,34 +1,20 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgSend, MsgSendResponse, MsgMultiSend, MsgMultiSendResponse } from "./tx";
-/** Msg defines the bank Msg service. */
-
-export interface Msg {
+export class Msg {
   /** Send defines a method for sending coins from one account to another account. */
-  send(request: MsgSend): Promise<MsgSendResponse>;
+  static send(request: MsgSend, initRequest?: fm.InitReq): Promise<MsgSendResponse> {
+    return fm.fetchReq(`/cosmos.bank.v1beta1/send`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** MultiSend defines a method for sending coins from some accounts to other accounts. */
-
-  multiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.send = this.send.bind(this);
-    this.multiSend = this.multiSend.bind(this);
+  static multiSend(request: MsgMultiSend, initRequest?: fm.InitReq): Promise<MsgMultiSendResponse> {
+    return fm.fetchReq(`/cosmos.bank.v1beta1/multiSend`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  send(request: MsgSend): Promise<MsgSendResponse> {
-    const data = MsgSend.encode(request).finish();
-    const promise = this.rpc.request("cosmos.bank.v1beta1.Msg", "Send", data);
-    return promise.then(data => MsgSendResponse.decode(new _m0.Reader(data)));
-  }
-
-  multiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse> {
-    const data = MsgMultiSend.encode(request).finish();
-    const promise = this.rpc.request("cosmos.bank.v1beta1.Msg", "MultiSend", data);
-    return promise.then(data => MsgMultiSendResponse.decode(new _m0.Reader(data)));
-  }
-
 }

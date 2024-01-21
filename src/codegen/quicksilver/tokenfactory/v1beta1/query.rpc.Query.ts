@@ -1,72 +1,76 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataResponse, QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorResponse } from "./query";
-/** Query defines the gRPC querier service. */
-
-export interface Query {
+export class Query {
   /**
    * Params defines a gRPC query method that returns the tokenfactory module's
    * parameters.
    */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/quicksilver/tokenfactory/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DenomAuthorityMetadata defines a gRPC query method for fetching
    * DenomAuthorityMetadata for a particular denom.
    */
-
-  denomAuthorityMetadata(request: QueryDenomAuthorityMetadataRequest): Promise<QueryDenomAuthorityMetadataResponse>;
+  static denomAuthorityMetadata(request: QueryDenomAuthorityMetadataRequest, initRequest?: fm.InitReq): Promise<QueryDenomAuthorityMetadataResponse> {
+    return fm.fetchReq(`/quicksilver/tokenfactory/v1beta1/denoms/${request["denom"]}/authority_metadata?${fm.renderURLSearchParams({
+      ...request
+    }, ["denom"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DenomsFromCreator defines a gRPC query method for fetching all
    * denominations created by a specific admin/creator.
    */
-
-  denomsFromCreator(request: QueryDenomsFromCreatorRequest): Promise<QueryDenomsFromCreatorResponse>;
+  static denomsFromCreator(request: QueryDenomsFromCreatorRequest, initRequest?: fm.InitReq): Promise<QueryDenomsFromCreatorResponse> {
+    return fm.fetchReq(`/quicksilver/tokenfactory/v1beta1/denoms_from_creator/${request["creator"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["creator"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.denomAuthorityMetadata = this.denomAuthorityMetadata.bind(this);
-    this.denomsFromCreator = this.denomsFromCreator.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /**
+   * Params defines a gRPC query method that returns the tokenfactory module's
+   * parameters.
+   */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  denomAuthorityMetadata(request: QueryDenomAuthorityMetadataRequest): Promise<QueryDenomAuthorityMetadataResponse> {
-    const data = QueryDenomAuthorityMetadataRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Query", "DenomAuthorityMetadata", data);
-    return promise.then(data => QueryDenomAuthorityMetadataResponse.decode(new _m0.Reader(data)));
+  /**
+   * DenomAuthorityMetadata defines a gRPC query method for fetching
+   * DenomAuthorityMetadata for a particular denom.
+   */
+  async denomAuthorityMetadata(req: QueryDenomAuthorityMetadataRequest, headers?: HeadersInit): Promise<QueryDenomAuthorityMetadataResponse> {
+    return Query.denomAuthorityMetadata(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  denomsFromCreator(request: QueryDenomsFromCreatorRequest): Promise<QueryDenomsFromCreatorResponse> {
-    const data = QueryDenomsFromCreatorRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.tokenfactory.v1beta1.Query", "DenomsFromCreator", data);
-    return promise.then(data => QueryDenomsFromCreatorResponse.decode(new _m0.Reader(data)));
+  /**
+   * DenomsFromCreator defines a gRPC query method for fetching all
+   * denominations created by a specific admin/creator.
+   */
+  async denomsFromCreator(req: QueryDenomsFromCreatorRequest, headers?: HeadersInit): Promise<QueryDenomsFromCreatorResponse> {
+    return Query.denomsFromCreator(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    denomAuthorityMetadata(request: QueryDenomAuthorityMetadataRequest): Promise<QueryDenomAuthorityMetadataResponse> {
-      return queryService.denomAuthorityMetadata(request);
-    },
-
-    denomsFromCreator(request: QueryDenomsFromCreatorRequest): Promise<QueryDenomsFromCreatorResponse> {
-      return queryService.denomsFromCreator(request);
-    }
-
-  };
-};

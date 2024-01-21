@@ -1,23 +1,23 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgSubmitClaim, MsgSubmitClaimResponse } from "./messages";
-/** Msg defines the participationrewards Msg service. */
-
-export interface Msg {
-  submitClaim(request: MsgSubmitClaim): Promise<MsgSubmitClaimResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.submitClaim = this.submitClaim.bind(this);
+import { MsgGovRemoveProtocolData, MsgGovRemoveProtocolDataResponse } from "./proposals";
+export class Msg {
+  static submitClaim(request: MsgSubmitClaim, initRequest?: fm.InitReq): Promise<MsgSubmitClaimResponse> {
+    return fm.fetchReq(`/quicksilver.participationrewards.v1/submitClaim`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  submitClaim(request: MsgSubmitClaim): Promise<MsgSubmitClaimResponse> {
-    const data = MsgSubmitClaim.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.participationrewards.v1.Msg", "SubmitClaim", data);
-    return promise.then(data => MsgSubmitClaimResponse.decode(new _m0.Reader(data)));
+  /**
+   * SignalIntent defines a method for signalling voting intent for one or more
+   * validators.
+   */
+  static govRemoveProtocolData(request: MsgGovRemoveProtocolData, initRequest?: fm.InitReq): Promise<MsgGovRemoveProtocolDataResponse> {
+    return fm.fetchReq(`/quicksilver.participationrewards.v1/govRemoveProtocolData`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
 }

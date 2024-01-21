@@ -1,150 +1,160 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QueryValidatorOutstandingRewardsRequest, QueryValidatorOutstandingRewardsResponse, QueryValidatorCommissionRequest, QueryValidatorCommissionResponse, QueryValidatorSlashesRequest, QueryValidatorSlashesResponse, QueryDelegationRewardsRequest, QueryDelegationRewardsResponse, QueryDelegationTotalRewardsRequest, QueryDelegationTotalRewardsResponse, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse, QueryDelegatorWithdrawAddressRequest, QueryDelegatorWithdrawAddressResponse, QueryCommunityPoolRequest, QueryCommunityPoolResponse } from "./query";
-/** Query defines the gRPC querier service for distribution module. */
-
-export interface Query {
+export class Query {
   /** Params queries params of the distribution module. */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ValidatorOutstandingRewards queries rewards of a validator address. */
-
-  validatorOutstandingRewards(request: QueryValidatorOutstandingRewardsRequest): Promise<QueryValidatorOutstandingRewardsResponse>;
+  static validatorOutstandingRewards(request: QueryValidatorOutstandingRewardsRequest, initRequest?: fm.InitReq): Promise<QueryValidatorOutstandingRewardsResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/validators/${request["validator_address"]}/outstanding_rewards?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ValidatorCommission queries accumulated commission for a validator. */
-
-  validatorCommission(request: QueryValidatorCommissionRequest): Promise<QueryValidatorCommissionResponse>;
+  static validatorCommission(request: QueryValidatorCommissionRequest, initRequest?: fm.InitReq): Promise<QueryValidatorCommissionResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/validators/${request["validator_address"]}/commission?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** ValidatorSlashes queries slash events of a validator. */
-
-  validatorSlashes(request: QueryValidatorSlashesRequest): Promise<QueryValidatorSlashesResponse>;
+  static validatorSlashes(request: QueryValidatorSlashesRequest, initRequest?: fm.InitReq): Promise<QueryValidatorSlashesResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/validators/${request["validator_address"]}/slashes?${fm.renderURLSearchParams({
+      ...request
+    }, ["validator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** DelegationRewards queries the total rewards accrued by a delegation. */
-
-  delegationRewards(request: QueryDelegationRewardsRequest): Promise<QueryDelegationRewardsResponse>;
+  static delegationRewards(request: QueryDelegationRewardsRequest, initRequest?: fm.InitReq): Promise<QueryDelegationRewardsResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/delegators/${request["delegator_address"]}/rewards/${request["validator_address"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_address", "validator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /**
    * DelegationTotalRewards queries the total rewards accrued by a each
    * validator.
    */
-
-  delegationTotalRewards(request: QueryDelegationTotalRewardsRequest): Promise<QueryDelegationTotalRewardsResponse>;
+  static delegationTotalRewards(request: QueryDelegationTotalRewardsRequest, initRequest?: fm.InitReq): Promise<QueryDelegationTotalRewardsResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/delegators/${request["delegator_address"]}/rewards?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** DelegatorValidators queries the validators of a delegator. */
-
-  delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse>;
+  static delegatorValidators(request: QueryDelegatorValidatorsRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorValidatorsResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/delegators/${request["delegator_address"]}/validators?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** DelegatorWithdrawAddress queries withdraw address of a delegator. */
-
-  delegatorWithdrawAddress(request: QueryDelegatorWithdrawAddressRequest): Promise<QueryDelegatorWithdrawAddressResponse>;
+  static delegatorWithdrawAddress(request: QueryDelegatorWithdrawAddressRequest, initRequest?: fm.InitReq): Promise<QueryDelegatorWithdrawAddressResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/delegators/${request["delegator_address"]}/withdraw_address?${fm.renderURLSearchParams({
+      ...request
+    }, ["delegator_address"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** CommunityPool queries the community pool coins. */
-
-  communityPool(request?: QueryCommunityPoolRequest): Promise<QueryCommunityPoolResponse>;
+  static communityPool(request: QueryCommunityPoolRequest, initRequest?: fm.InitReq): Promise<QueryCommunityPoolResponse> {
+    return fm.fetchReq(`/cosmos/distribution/v1beta1/community_pool?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.validatorOutstandingRewards = this.validatorOutstandingRewards.bind(this);
-    this.validatorCommission = this.validatorCommission.bind(this);
-    this.validatorSlashes = this.validatorSlashes.bind(this);
-    this.delegationRewards = this.delegationRewards.bind(this);
-    this.delegationTotalRewards = this.delegationTotalRewards.bind(this);
-    this.delegatorValidators = this.delegatorValidators.bind(this);
-    this.delegatorWithdrawAddress = this.delegatorWithdrawAddress.bind(this);
-    this.communityPool = this.communityPool.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params queries params of the distribution module. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validatorOutstandingRewards(request: QueryValidatorOutstandingRewardsRequest): Promise<QueryValidatorOutstandingRewardsResponse> {
-    const data = QueryValidatorOutstandingRewardsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "ValidatorOutstandingRewards", data);
-    return promise.then(data => QueryValidatorOutstandingRewardsResponse.decode(new _m0.Reader(data)));
+  /** ValidatorOutstandingRewards queries rewards of a validator address. */
+  async validatorOutstandingRewards(req: QueryValidatorOutstandingRewardsRequest, headers?: HeadersInit): Promise<QueryValidatorOutstandingRewardsResponse> {
+    return Query.validatorOutstandingRewards(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validatorCommission(request: QueryValidatorCommissionRequest): Promise<QueryValidatorCommissionResponse> {
-    const data = QueryValidatorCommissionRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "ValidatorCommission", data);
-    return promise.then(data => QueryValidatorCommissionResponse.decode(new _m0.Reader(data)));
+  /** ValidatorCommission queries accumulated commission for a validator. */
+  async validatorCommission(req: QueryValidatorCommissionRequest, headers?: HeadersInit): Promise<QueryValidatorCommissionResponse> {
+    return Query.validatorCommission(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  validatorSlashes(request: QueryValidatorSlashesRequest): Promise<QueryValidatorSlashesResponse> {
-    const data = QueryValidatorSlashesRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "ValidatorSlashes", data);
-    return promise.then(data => QueryValidatorSlashesResponse.decode(new _m0.Reader(data)));
+  /** ValidatorSlashes queries slash events of a validator. */
+  async validatorSlashes(req: QueryValidatorSlashesRequest, headers?: HeadersInit): Promise<QueryValidatorSlashesResponse> {
+    return Query.validatorSlashes(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegationRewards(request: QueryDelegationRewardsRequest): Promise<QueryDelegationRewardsResponse> {
-    const data = QueryDelegationRewardsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "DelegationRewards", data);
-    return promise.then(data => QueryDelegationRewardsResponse.decode(new _m0.Reader(data)));
+  /** DelegationRewards queries the total rewards accrued by a delegation. */
+  async delegationRewards(req: QueryDelegationRewardsRequest, headers?: HeadersInit): Promise<QueryDelegationRewardsResponse> {
+    return Query.delegationRewards(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegationTotalRewards(request: QueryDelegationTotalRewardsRequest): Promise<QueryDelegationTotalRewardsResponse> {
-    const data = QueryDelegationTotalRewardsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "DelegationTotalRewards", data);
-    return promise.then(data => QueryDelegationTotalRewardsResponse.decode(new _m0.Reader(data)));
+  /**
+   * DelegationTotalRewards queries the total rewards accrued by a each
+   * validator.
+   */
+  async delegationTotalRewards(req: QueryDelegationTotalRewardsRequest, headers?: HeadersInit): Promise<QueryDelegationTotalRewardsResponse> {
+    return Query.delegationTotalRewards(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
-    const data = QueryDelegatorValidatorsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "DelegatorValidators", data);
-    return promise.then(data => QueryDelegatorValidatorsResponse.decode(new _m0.Reader(data)));
+  /** DelegatorValidators queries the validators of a delegator. */
+  async delegatorValidators(req: QueryDelegatorValidatorsRequest, headers?: HeadersInit): Promise<QueryDelegatorValidatorsResponse> {
+    return Query.delegatorValidators(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  delegatorWithdrawAddress(request: QueryDelegatorWithdrawAddressRequest): Promise<QueryDelegatorWithdrawAddressResponse> {
-    const data = QueryDelegatorWithdrawAddressRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "DelegatorWithdrawAddress", data);
-    return promise.then(data => QueryDelegatorWithdrawAddressResponse.decode(new _m0.Reader(data)));
+  /** DelegatorWithdrawAddress queries withdraw address of a delegator. */
+  async delegatorWithdrawAddress(req: QueryDelegatorWithdrawAddressRequest, headers?: HeadersInit): Promise<QueryDelegatorWithdrawAddressResponse> {
+    return Query.delegatorWithdrawAddress(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  communityPool(request: QueryCommunityPoolRequest = {}): Promise<QueryCommunityPoolResponse> {
-    const data = QueryCommunityPoolRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.distribution.v1beta1.Query", "CommunityPool", data);
-    return promise.then(data => QueryCommunityPoolResponse.decode(new _m0.Reader(data)));
+  /** CommunityPool queries the community pool coins. */
+  async communityPool(req: QueryCommunityPoolRequest, headers?: HeadersInit): Promise<QueryCommunityPoolResponse> {
+    return Query.communityPool(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    validatorOutstandingRewards(request: QueryValidatorOutstandingRewardsRequest): Promise<QueryValidatorOutstandingRewardsResponse> {
-      return queryService.validatorOutstandingRewards(request);
-    },
-
-    validatorCommission(request: QueryValidatorCommissionRequest): Promise<QueryValidatorCommissionResponse> {
-      return queryService.validatorCommission(request);
-    },
-
-    validatorSlashes(request: QueryValidatorSlashesRequest): Promise<QueryValidatorSlashesResponse> {
-      return queryService.validatorSlashes(request);
-    },
-
-    delegationRewards(request: QueryDelegationRewardsRequest): Promise<QueryDelegationRewardsResponse> {
-      return queryService.delegationRewards(request);
-    },
-
-    delegationTotalRewards(request: QueryDelegationTotalRewardsRequest): Promise<QueryDelegationTotalRewardsResponse> {
-      return queryService.delegationTotalRewards(request);
-    },
-
-    delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
-      return queryService.delegatorValidators(request);
-    },
-
-    delegatorWithdrawAddress(request: QueryDelegatorWithdrawAddressRequest): Promise<QueryDelegatorWithdrawAddressResponse> {
-      return queryService.delegatorWithdrawAddress(request);
-    },
-
-    communityPool(request?: QueryCommunityPoolRequest): Promise<QueryCommunityPoolResponse> {
-      return queryService.communityPool(request);
-    }
-
-  };
-};

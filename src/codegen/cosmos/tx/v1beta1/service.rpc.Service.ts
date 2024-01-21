@@ -1,77 +1,96 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse } from "./service";
-/** Service defines a gRPC service for interacting with transactions. */
-
-export interface Service {
+import * as fm from "../../../grpc-gateway";
+import { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse, GetBlockWithTxsRequest, GetBlockWithTxsResponse } from "./service";
+export class Service {
   /** Simulate simulates executing a transaction for estimating gas usage. */
-  simulate(request: SimulateRequest): Promise<SimulateResponse>;
+  static simulate(request: SimulateRequest, initRequest?: fm.InitReq): Promise<SimulateResponse> {
+    return fm.fetchReq(`/cosmos/tx/v1beta1/simulate`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** GetTx fetches a tx by hash. */
-
-  getTx(request: GetTxRequest): Promise<GetTxResponse>;
+  static getTx(request: GetTxRequest, initRequest?: fm.InitReq): Promise<GetTxResponse> {
+    return fm.fetchReq(`/cosmos/tx/v1beta1/txs/${request["hash"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["hash"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** BroadcastTx broadcast transaction. */
-
-  broadcastTx(request: BroadcastTxRequest): Promise<BroadcastTxResponse>;
+  static broadcastTx(request: BroadcastTxRequest, initRequest?: fm.InitReq): Promise<BroadcastTxResponse> {
+    return fm.fetchReq(`/cosmos/tx/v1beta1/txs`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /** GetTxsEvent fetches txs by event. */
-
-  getTxsEvent(request: GetTxsEventRequest): Promise<GetTxsEventResponse>;
+  static getTxsEvent(request: GetTxsEventRequest, initRequest?: fm.InitReq): Promise<GetTxsEventResponse> {
+    return fm.fetchReq(`/cosmos/tx/v1beta1/txs?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
+  /**
+   * GetBlockWithTxs fetches a block with decoded txs.
+   * 
+   * Since: cosmos-sdk 0.45.2
+   */
+  static getBlockWithTxs(request: GetBlockWithTxsRequest, initRequest?: fm.InitReq): Promise<GetBlockWithTxsResponse> {
+    return fm.fetchReq(`/cosmos/tx/v1beta1/txs/block/${request["height"]}?${fm.renderURLSearchParams({
+      ...request
+    }, ["height"])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class ServiceClientImpl implements Service {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.simulate = this.simulate.bind(this);
-    this.getTx = this.getTx.bind(this);
-    this.broadcastTx = this.broadcastTx.bind(this);
-    this.getTxsEvent = this.getTxsEvent.bind(this);
+export class ServiceClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  simulate(request: SimulateRequest): Promise<SimulateResponse> {
-    const data = SimulateRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "Simulate", data);
-    return promise.then(data => SimulateResponse.decode(new _m0.Reader(data)));
+  /** Simulate simulates executing a transaction for estimating gas usage. */
+  async simulate(req: SimulateRequest, headers?: HeadersInit): Promise<SimulateResponse> {
+    return Service.simulate(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  getTx(request: GetTxRequest): Promise<GetTxResponse> {
-    const data = GetTxRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "GetTx", data);
-    return promise.then(data => GetTxResponse.decode(new _m0.Reader(data)));
+  /** GetTx fetches a tx by hash. */
+  async getTx(req: GetTxRequest, headers?: HeadersInit): Promise<GetTxResponse> {
+    return Service.getTx(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  broadcastTx(request: BroadcastTxRequest): Promise<BroadcastTxResponse> {
-    const data = BroadcastTxRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "BroadcastTx", data);
-    return promise.then(data => BroadcastTxResponse.decode(new _m0.Reader(data)));
+  /** BroadcastTx broadcast transaction. */
+  async broadcastTx(req: BroadcastTxRequest, headers?: HeadersInit): Promise<BroadcastTxResponse> {
+    return Service.broadcastTx(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  getTxsEvent(request: GetTxsEventRequest): Promise<GetTxsEventResponse> {
-    const data = GetTxsEventRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "GetTxsEvent", data);
-    return promise.then(data => GetTxsEventResponse.decode(new _m0.Reader(data)));
+  /** GetTxsEvent fetches txs by event. */
+  async getTxsEvent(req: GetTxsEventRequest, headers?: HeadersInit): Promise<GetTxsEventResponse> {
+    return Service.getTxsEvent(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
+  /**
+   * GetBlockWithTxs fetches a block with decoded txs.
+   * 
+   * Since: cosmos-sdk 0.45.2
+   */
+  async getBlockWithTxs(req: GetBlockWithTxsRequest, headers?: HeadersInit): Promise<GetBlockWithTxsResponse> {
+    return Service.getBlockWithTxs(req, {
+      headers,
+      pathPrefix: this.url
+    });
+  }
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new ServiceClientImpl(rpc);
-  return {
-    simulate(request: SimulateRequest): Promise<SimulateResponse> {
-      return queryService.simulate(request);
-    },
-
-    getTx(request: GetTxRequest): Promise<GetTxResponse> {
-      return queryService.getTx(request);
-    },
-
-    broadcastTx(request: BroadcastTxRequest): Promise<BroadcastTxResponse> {
-      return queryService.broadcastTx(request);
-    },
-
-    getTxsEvent(request: GetTxsEventRequest): Promise<GetTxsEventResponse> {
-      return queryService.getTxsEvent(request);
-    }
-
-  };
-};

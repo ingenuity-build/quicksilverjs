@@ -1,49 +1,42 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import * as fm from "../../../grpc-gateway";
 import { QueryParamsRequest, QueryParamsResponse, QueryEpochProvisionsRequest, QueryEpochProvisionsResponse } from "./query";
-/** Query provides defines the gRPC querier service. */
-
-export interface Query {
+export class Query {
   /** Params returns the total set of minting parameters. */
-  params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+  static params(request: QueryParamsRequest, initRequest?: fm.InitReq): Promise<QueryParamsResponse> {
+    return fm.fetchReq(`/quicksilver/mint/v1beta1/params?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
   /** EpochProvisions current minting epoch provisions value. */
-
-  epochProvisions(request?: QueryEpochProvisionsRequest): Promise<QueryEpochProvisionsResponse>;
+  static epochProvisions(request: QueryEpochProvisionsRequest, initRequest?: fm.InitReq): Promise<QueryEpochProvisionsResponse> {
+    return fm.fetchReq(`/quicksilver/mint/v1beta1/epoch_provisions?${fm.renderURLSearchParams({
+      ...request
+    }, [])}`, {
+      ...initRequest,
+      method: "GET"
+    });
+  }
 }
-export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.epochProvisions = this.epochProvisions.bind(this);
+export class QueryClientImpl {
+  private readonly url: string;
+  constructor(url: string) {
+    this.url = url;
   }
-
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.mint.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
+  /** Params returns the total set of minting parameters. */
+  async params(req: QueryParamsRequest, headers?: HeadersInit): Promise<QueryParamsResponse> {
+    return Query.params(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
-  epochProvisions(request: QueryEpochProvisionsRequest = {}): Promise<QueryEpochProvisionsResponse> {
-    const data = QueryEpochProvisionsRequest.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.mint.v1beta1.Query", "EpochProvisions", data);
-    return promise.then(data => QueryEpochProvisionsResponse.decode(new _m0.Reader(data)));
+  /** EpochProvisions current minting epoch provisions value. */
+  async epochProvisions(req: QueryEpochProvisionsRequest, headers?: HeadersInit): Promise<QueryEpochProvisionsResponse> {
+    return Query.epochProvisions(req, {
+      headers,
+      pathPrefix: this.url
+    });
   }
-
 }
-export const createRpcQueryExtension = (base: QueryClient) => {
-  const rpc = createProtobufRpcClient(base);
-  const queryService = new QueryClientImpl(rpc);
-  return {
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
-      return queryService.params(request);
-    },
-
-    epochProvisions(request?: QueryEpochProvisionsRequest): Promise<QueryEpochProvisionsResponse> {
-      return queryService.epochProvisions(request);
-    }
-
-  };
-};

@@ -1,40 +1,52 @@
-import { Rpc } from "../../../helpers";
-import * as _m0 from "protobufjs/minimal";
+import * as fm from "../../../grpc-gateway";
 import { MsgRequestRedemption, MsgRequestRedemptionResponse, MsgSignalIntent, MsgSignalIntentResponse } from "./messages";
-/** Msg defines the interchainstaking Msg service. */
-
-export interface Msg {
+import { MsgGovCloseChannel, MsgGovCloseChannelResponse, MsgGovReopenChannel, MsgGovReopenChannelResponse, MsgGovSetLsmCaps, MsgGovSetLsmCapsResponse } from "./proposals";
+export class Msg {
   /**
    * RequestRedemption defines a method for requesting burning of qAssets for
    * native assets.
    */
-  requestRedemption(request: MsgRequestRedemption): Promise<MsgRequestRedemptionResponse>;
+  static requestRedemption(request: MsgRequestRedemption, initRequest?: fm.InitReq): Promise<MsgRequestRedemptionResponse> {
+    return fm.fetchReq(`/quicksilver.interchainstaking.v1/requestRedemption`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
   /**
    * SignalIntent defines a method for signalling voting intent for one or more
    * validators.
    */
-
-  signalIntent(request: MsgSignalIntent): Promise<MsgSignalIntentResponse>;
-}
-export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-
-  constructor(rpc: Rpc) {
-    this.rpc = rpc;
-    this.requestRedemption = this.requestRedemption.bind(this);
-    this.signalIntent = this.signalIntent.bind(this);
+  static signalIntent(request: MsgSignalIntent, initRequest?: fm.InitReq): Promise<MsgSignalIntentResponse> {
+    return fm.fetchReq(`/quicksilver.interchainstaking.v1/signalIntent`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  requestRedemption(request: MsgRequestRedemption): Promise<MsgRequestRedemptionResponse> {
-    const data = MsgRequestRedemption.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.interchainstaking.v1.Msg", "RequestRedemption", data);
-    return promise.then(data => MsgRequestRedemptionResponse.decode(new _m0.Reader(data)));
+  /**
+   * SignalIntent defines a method for signalling voting intent for one or more
+   * validators.
+   */
+  static govCloseChannel(request: MsgGovCloseChannel, initRequest?: fm.InitReq): Promise<MsgGovCloseChannelResponse> {
+    return fm.fetchReq(`/quicksilver.interchainstaking.v1/govCloseChannel`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
-  signalIntent(request: MsgSignalIntent): Promise<MsgSignalIntentResponse> {
-    const data = MsgSignalIntent.encode(request).finish();
-    const promise = this.rpc.request("quicksilver.interchainstaking.v1.Msg", "SignalIntent", data);
-    return promise.then(data => MsgSignalIntentResponse.decode(new _m0.Reader(data)));
+  static govReopenChannel(request: MsgGovReopenChannel, initRequest?: fm.InitReq): Promise<MsgGovReopenChannelResponse> {
+    return fm.fetchReq(`/quicksilver.interchainstaking.v1/govReopenChannel`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
   }
-
+  static govSetLsmCaps(request: MsgGovSetLsmCaps, initRequest?: fm.InitReq): Promise<MsgGovSetLsmCapsResponse> {
+    return fm.fetchReq(`/quicksilver.interchainstaking.v1/govSetLsmCaps`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
 }
