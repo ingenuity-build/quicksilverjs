@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { LsmCaps, LsmCapsAmino, LsmCapsSDKType } from "./interchainstaking";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";

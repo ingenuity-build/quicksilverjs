@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import * as _63 from "./applications/transfer/v1/genesis";
 import * as _64 from "./applications/transfer/v1/query";
 import * as _65 from "./applications/transfer/v1/transfer";
@@ -99,10 +98,10 @@ export declare namespace ibc {
                         sender?: string;
                         receiver?: string;
                         timeoutHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
-                        timeoutTimestamp?: string | number | import("long").Long;
+                        timeoutTimestamp?: string | number | import("long").default;
                     }): _66.MsgTransfer;
                     fromAmino(object: _66.MsgTransferAmino): _66.MsgTransfer;
                     toAmino(message: _66.MsgTransfer): _66.MsgTransferAmino;
@@ -215,8 +214,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -243,7 +242,7 @@ export declare namespace ibc {
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                     }): _64.QueryDenomTracesResponse;
                     fromAmino(object: _64.QueryDenomTracesResponseAmino): _64.QueryDenomTracesResponse;
@@ -684,8 +683,8 @@ export declare namespace ibc {
                         counterpartyVersion?: string;
                         proofInit?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgChannelOpenTry;
@@ -727,8 +726,8 @@ export declare namespace ibc {
                         counterpartyVersion?: string;
                         proofTry?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgChannelOpenAck;
@@ -768,8 +767,8 @@ export declare namespace ibc {
                         channelId?: string;
                         proofAck?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgChannelOpenConfirm;
@@ -845,8 +844,8 @@ export declare namespace ibc {
                         channelId?: string;
                         proofInit?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgChannelCloseConfirm;
@@ -883,22 +882,22 @@ export declare namespace ibc {
                     toJSON(message: _71.MsgRecvPacket): unknown;
                     fromPartial(object: {
                         packet?: {
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             sourcePort?: string;
                             sourceChannel?: string;
                             destinationPort?: string;
                             destinationChannel?: string;
                             data?: Uint8Array;
                             timeoutHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
-                            timeoutTimestamp?: string | number | import("long").Long;
+                            timeoutTimestamp?: string | number | import("long").default;
                         };
                         proofCommitment?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgRecvPacket;
@@ -935,24 +934,24 @@ export declare namespace ibc {
                     toJSON(message: _71.MsgTimeout): unknown;
                     fromPartial(object: {
                         packet?: {
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             sourcePort?: string;
                             sourceChannel?: string;
                             destinationPort?: string;
                             destinationChannel?: string;
                             data?: Uint8Array;
                             timeoutHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
-                            timeoutTimestamp?: string | number | import("long").Long;
+                            timeoutTimestamp?: string | number | import("long").default;
                         };
                         proofUnreceived?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
-                        nextSequenceRecv?: string | number | import("long").Long;
+                        nextSequenceRecv?: string | number | import("long").default;
                         signer?: string;
                     }): _71.MsgTimeout;
                     fromAmino(object: _71.MsgTimeoutAmino): _71.MsgTimeout;
@@ -988,25 +987,25 @@ export declare namespace ibc {
                     toJSON(message: _71.MsgTimeoutOnClose): unknown;
                     fromPartial(object: {
                         packet?: {
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             sourcePort?: string;
                             sourceChannel?: string;
                             destinationPort?: string;
                             destinationChannel?: string;
                             data?: Uint8Array;
                             timeoutHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
-                            timeoutTimestamp?: string | number | import("long").Long;
+                            timeoutTimestamp?: string | number | import("long").default;
                         };
                         proofUnreceived?: Uint8Array;
                         proofClose?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
-                        nextSequenceRecv?: string | number | import("long").Long;
+                        nextSequenceRecv?: string | number | import("long").default;
                         signer?: string;
                     }): _71.MsgTimeoutOnClose;
                     fromAmino(object: _71.MsgTimeoutOnCloseAmino): _71.MsgTimeoutOnClose;
@@ -1042,23 +1041,23 @@ export declare namespace ibc {
                     toJSON(message: _71.MsgAcknowledgement): unknown;
                     fromPartial(object: {
                         packet?: {
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             sourcePort?: string;
                             sourceChannel?: string;
                             destinationPort?: string;
                             destinationChannel?: string;
                             data?: Uint8Array;
                             timeoutHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
-                            timeoutTimestamp?: string | number | import("long").Long;
+                            timeoutTimestamp?: string | number | import("long").default;
                         };
                         acknowledgement?: Uint8Array;
                         proofAcked?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _71.MsgAcknowledgement;
@@ -1125,8 +1124,8 @@ export declare namespace ibc {
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryChannelResponse;
                     fromAmino(object: _70.QueryChannelResponseAmino): _70.QueryChannelResponse;
@@ -1147,8 +1146,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -1183,11 +1182,11 @@ export declare namespace ibc {
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryChannelsResponse;
                     fromAmino(object: _70.QueryChannelsResponseAmino): _70.QueryChannelsResponse;
@@ -1209,8 +1208,8 @@ export declare namespace ibc {
                         connection?: string;
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -1245,11 +1244,11 @@ export declare namespace ibc {
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryConnectionChannelsResponse;
                     fromAmino(object: _70.QueryConnectionChannelsResponseAmino): _70.QueryConnectionChannelsResponse;
@@ -1297,8 +1296,8 @@ export declare namespace ibc {
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryChannelClientStateResponse;
                     fromAmino(object: _70.QueryChannelClientStateResponseAmino): _70.QueryChannelClientStateResponse;
@@ -1319,8 +1318,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        revisionNumber?: string | number | import("long").Long;
-                        revisionHeight?: string | number | import("long").Long;
+                        revisionNumber?: string | number | import("long").default;
+                        revisionHeight?: string | number | import("long").default;
                     }): _70.QueryChannelConsensusStateRequest;
                     fromAmino(object: _70.QueryChannelConsensusStateRequestAmino): _70.QueryChannelConsensusStateRequest;
                     toAmino(message: _70.QueryChannelConsensusStateRequest): _70.QueryChannelConsensusStateRequestAmino;
@@ -1346,8 +1345,8 @@ export declare namespace ibc {
                         clientId?: string;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryChannelConsensusStateResponse;
                     fromAmino(object: _70.QueryChannelConsensusStateResponseAmino): _70.QueryChannelConsensusStateResponse;
@@ -1368,7 +1367,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                     }): _70.QueryPacketCommitmentRequest;
                     fromAmino(object: _70.QueryPacketCommitmentRequestAmino): _70.QueryPacketCommitmentRequest;
                     toAmino(message: _70.QueryPacketCommitmentRequest): _70.QueryPacketCommitmentRequestAmino;
@@ -1389,8 +1388,8 @@ export declare namespace ibc {
                         commitment?: Uint8Array;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryPacketCommitmentResponse;
                     fromAmino(object: _70.QueryPacketCommitmentResponseAmino): _70.QueryPacketCommitmentResponse;
@@ -1413,8 +1412,8 @@ export declare namespace ibc {
                         channelId?: string;
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -1438,16 +1437,16 @@ export declare namespace ibc {
                         commitments?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             data?: Uint8Array;
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryPacketCommitmentsResponse;
                     fromAmino(object: _70.QueryPacketCommitmentsResponseAmino): _70.QueryPacketCommitmentsResponse;
@@ -1468,7 +1467,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                     }): _70.QueryPacketReceiptRequest;
                     fromAmino(object: _70.QueryPacketReceiptRequestAmino): _70.QueryPacketReceiptRequest;
                     toAmino(message: _70.QueryPacketReceiptRequest): _70.QueryPacketReceiptRequestAmino;
@@ -1489,8 +1488,8 @@ export declare namespace ibc {
                         received?: boolean;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryPacketReceiptResponse;
                     fromAmino(object: _70.QueryPacketReceiptResponseAmino): _70.QueryPacketReceiptResponse;
@@ -1511,7 +1510,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                     }): _70.QueryPacketAcknowledgementRequest;
                     fromAmino(object: _70.QueryPacketAcknowledgementRequestAmino): _70.QueryPacketAcknowledgementRequest;
                     toAmino(message: _70.QueryPacketAcknowledgementRequest): _70.QueryPacketAcknowledgementRequestAmino;
@@ -1532,8 +1531,8 @@ export declare namespace ibc {
                         acknowledgement?: Uint8Array;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryPacketAcknowledgementResponse;
                     fromAmino(object: _70.QueryPacketAcknowledgementResponseAmino): _70.QueryPacketAcknowledgementResponse;
@@ -1556,12 +1555,12 @@ export declare namespace ibc {
                         channelId?: string;
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
-                        packetCommitmentSequences?: (string | number | import("long").Long)[];
+                        packetCommitmentSequences?: (string | number | import("long").default)[];
                     }): _70.QueryPacketAcknowledgementsRequest;
                     fromAmino(object: _70.QueryPacketAcknowledgementsRequestAmino): _70.QueryPacketAcknowledgementsRequest;
                     toAmino(message: _70.QueryPacketAcknowledgementsRequest): _70.QueryPacketAcknowledgementsRequestAmino;
@@ -1582,16 +1581,16 @@ export declare namespace ibc {
                         acknowledgements?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             data?: Uint8Array;
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryPacketAcknowledgementsResponse;
                     fromAmino(object: _70.QueryPacketAcknowledgementsResponseAmino): _70.QueryPacketAcknowledgementsResponse;
@@ -1612,7 +1611,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        packetCommitmentSequences?: (string | number | import("long").Long)[];
+                        packetCommitmentSequences?: (string | number | import("long").default)[];
                     }): _70.QueryUnreceivedPacketsRequest;
                     fromAmino(object: _70.QueryUnreceivedPacketsRequestAmino): _70.QueryUnreceivedPacketsRequest;
                     toAmino(message: _70.QueryUnreceivedPacketsRequest): _70.QueryUnreceivedPacketsRequestAmino;
@@ -1630,10 +1629,10 @@ export declare namespace ibc {
                     fromJSON(object: any): _70.QueryUnreceivedPacketsResponse;
                     toJSON(message: _70.QueryUnreceivedPacketsResponse): unknown;
                     fromPartial(object: {
-                        sequences?: (string | number | import("long").Long)[];
+                        sequences?: (string | number | import("long").default)[];
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryUnreceivedPacketsResponse;
                     fromAmino(object: _70.QueryUnreceivedPacketsResponseAmino): _70.QueryUnreceivedPacketsResponse;
@@ -1654,7 +1653,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        packetAckSequences?: (string | number | import("long").Long)[];
+                        packetAckSequences?: (string | number | import("long").default)[];
                     }): _70.QueryUnreceivedAcksRequest;
                     fromAmino(object: _70.QueryUnreceivedAcksRequestAmino): _70.QueryUnreceivedAcksRequest;
                     toAmino(message: _70.QueryUnreceivedAcksRequest): _70.QueryUnreceivedAcksRequestAmino;
@@ -1672,10 +1671,10 @@ export declare namespace ibc {
                     fromJSON(object: any): _70.QueryUnreceivedAcksResponse;
                     toJSON(message: _70.QueryUnreceivedAcksResponse): unknown;
                     fromPartial(object: {
-                        sequences?: (string | number | import("long").Long)[];
+                        sequences?: (string | number | import("long").default)[];
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryUnreceivedAcksResponse;
                     fromAmino(object: _70.QueryUnreceivedAcksResponseAmino): _70.QueryUnreceivedAcksResponse;
@@ -1713,11 +1712,11 @@ export declare namespace ibc {
                     fromJSON(object: any): _70.QueryNextSequenceReceiveResponse;
                     toJSON(message: _70.QueryNextSequenceReceiveResponse): unknown;
                     fromPartial(object: {
-                        nextSequenceReceive?: string | number | import("long").Long;
+                        nextSequenceReceive?: string | number | import("long").default;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _70.QueryNextSequenceReceiveResponse;
                     fromAmino(object: _70.QueryNextSequenceReceiveResponseAmino): _70.QueryNextSequenceReceiveResponse;
@@ -1751,37 +1750,37 @@ export declare namespace ibc {
                         acknowledgements?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             data?: Uint8Array;
                         }[];
                         commitments?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             data?: Uint8Array;
                         }[];
                         receipts?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                             data?: Uint8Array;
                         }[];
                         sendSequences?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                         }[];
                         recvSequences?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                         }[];
                         ackSequences?: {
                             portId?: string;
                             channelId?: string;
-                            sequence?: string | number | import("long").Long;
+                            sequence?: string | number | import("long").default;
                         }[];
-                        nextChannelSequence?: string | number | import("long").Long;
+                        nextChannelSequence?: string | number | import("long").default;
                     }): _69.GenesisState;
                     fromAmino(object: _69.GenesisStateAmino): _69.GenesisState;
                     toAmino(message: _69.GenesisState): _69.GenesisStateAmino;
@@ -1801,7 +1800,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                     }): _69.PacketSequence;
                     fromAmino(object: _69.PacketSequenceAmino): _69.PacketSequence;
                     toAmino(message: _69.PacketSequence): _69.PacketSequenceAmino;
@@ -1900,17 +1899,17 @@ export declare namespace ibc {
                     fromJSON(object: any): _68.Packet;
                     toJSON(message: _68.Packet): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                         sourcePort?: string;
                         sourceChannel?: string;
                         destinationPort?: string;
                         destinationChannel?: string;
                         data?: Uint8Array;
                         timeoutHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
-                        timeoutTimestamp?: string | number | import("long").Long;
+                        timeoutTimestamp?: string | number | import("long").default;
                     }): _68.Packet;
                     fromAmino(object: _68.PacketAmino): _68.Packet;
                     toAmino(message: _68.Packet): _68.PacketAmino;
@@ -1930,7 +1929,7 @@ export declare namespace ibc {
                     fromPartial(object: {
                         portId?: string;
                         channelId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                         data?: Uint8Array;
                     }): _68.PacketState;
                     fromAmino(object: _68.PacketStateAmino): _68.PacketState;
@@ -2288,8 +2287,8 @@ export declare namespace ibc {
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _74.QueryClientStateResponse;
                     fromAmino(object: _74.QueryClientStateResponseAmino): _74.QueryClientStateResponse;
@@ -2310,8 +2309,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -2342,7 +2341,7 @@ export declare namespace ibc {
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                     }): _74.QueryClientStatesResponse;
                     fromAmino(object: _74.QueryClientStatesResponseAmino): _74.QueryClientStatesResponse;
@@ -2362,8 +2361,8 @@ export declare namespace ibc {
                     toJSON(message: _74.QueryConsensusStateRequest): unknown;
                     fromPartial(object: {
                         clientId?: string;
-                        revisionNumber?: string | number | import("long").Long;
-                        revisionHeight?: string | number | import("long").Long;
+                        revisionNumber?: string | number | import("long").default;
+                        revisionHeight?: string | number | import("long").default;
                         latestHeight?: boolean;
                     }): _74.QueryConsensusStateRequest;
                     fromAmino(object: _74.QueryConsensusStateRequestAmino): _74.QueryConsensusStateRequest;
@@ -2389,8 +2388,8 @@ export declare namespace ibc {
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _74.QueryConsensusStateResponse;
                     fromAmino(object: _74.QueryConsensusStateResponseAmino): _74.QueryConsensusStateResponse;
@@ -2412,8 +2411,8 @@ export declare namespace ibc {
                         clientId?: string;
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -2436,8 +2435,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         consensusStates?: {
                             height?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
                             consensusState?: {
                                 $typeUrl?: string;
@@ -2447,7 +2446,7 @@ export declare namespace ibc {
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                     }): _74.QueryConsensusStatesResponse;
                     fromAmino(object: _74.QueryConsensusStatesResponseAmino): _74.QueryConsensusStatesResponse;
@@ -2626,8 +2625,8 @@ export declare namespace ibc {
                             clientId?: string;
                             consensusStates?: {
                                 height?: {
-                                    revisionNumber?: string | number | import("long").Long;
-                                    revisionHeight?: string | number | import("long").Long;
+                                    revisionNumber?: string | number | import("long").default;
+                                    revisionHeight?: string | number | import("long").default;
                                 };
                                 consensusState?: {
                                     $typeUrl?: string;
@@ -2647,7 +2646,7 @@ export declare namespace ibc {
                             allowedClients?: string[];
                         };
                         createLocalhost?: boolean;
-                        nextClientSequence?: string | number | import("long").Long;
+                        nextClientSequence?: string | number | import("long").default;
                     }): _73.GenesisState;
                     fromAmino(object: _73.GenesisStateAmino): _73.GenesisState;
                     toAmino(message: _73.GenesisState): _73.GenesisStateAmino;
@@ -2730,8 +2729,8 @@ export declare namespace ibc {
                     toJSON(message: _72.ConsensusStateWithHeight): unknown;
                     fromPartial(object: {
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         consensusState?: {
                             $typeUrl?: string;
@@ -2758,8 +2757,8 @@ export declare namespace ibc {
                         clientId?: string;
                         consensusStates?: {
                             height?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
                             consensusState?: {
                                 $typeUrl?: string;
@@ -2812,7 +2811,7 @@ export declare namespace ibc {
                         plan?: {
                             name?: string;
                             time?: Date;
-                            height?: string | number | import("long").Long;
+                            height?: string | number | import("long").default;
                             info?: string;
                             upgradedClientState?: {
                                 $typeUrl?: string;
@@ -2842,8 +2841,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _72.Height;
                     toJSON(message: _72.Height): unknown;
                     fromPartial(object: {
-                        revisionNumber?: string | number | import("long").Long;
-                        revisionHeight?: string | number | import("long").Long;
+                        revisionNumber?: string | number | import("long").default;
+                        revisionHeight?: string | number | import("long").default;
                     }): _72.Height;
                     fromAmino(object: _72.HeightAmino): _72.Height;
                     toAmino(message: _72.Height): _72.HeightAmino;
@@ -3246,7 +3245,7 @@ export declare namespace ibc {
                             identifier?: string;
                             features?: string[];
                         };
-                        delayPeriod?: string | number | import("long").Long;
+                        delayPeriod?: string | number | import("long").default;
                         signer?: string;
                     }): _80.MsgConnectionOpenInit;
                     fromAmino(object: _80.MsgConnectionOpenInitAmino): _80.MsgConnectionOpenInit;
@@ -3295,21 +3294,21 @@ export declare namespace ibc {
                                 keyPrefix?: Uint8Array;
                             };
                         };
-                        delayPeriod?: string | number | import("long").Long;
+                        delayPeriod?: string | number | import("long").default;
                         counterpartyVersions?: {
                             identifier?: string;
                             features?: string[];
                         }[];
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         proofInit?: Uint8Array;
                         proofClient?: Uint8Array;
                         proofConsensus?: Uint8Array;
                         consensusHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _80.MsgConnectionOpenTry;
@@ -3357,15 +3356,15 @@ export declare namespace ibc {
                             value?: Uint8Array;
                         };
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         proofTry?: Uint8Array;
                         proofClient?: Uint8Array;
                         proofConsensus?: Uint8Array;
                         consensusHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _80.MsgConnectionOpenAck;
@@ -3404,8 +3403,8 @@ export declare namespace ibc {
                         connectionId?: string;
                         proofAck?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         signer?: string;
                     }): _80.MsgConnectionOpenConfirm;
@@ -3473,12 +3472,12 @@ export declare namespace ibc {
                                     keyPrefix?: Uint8Array;
                                 };
                             };
-                            delayPeriod?: string | number | import("long").Long;
+                            delayPeriod?: string | number | import("long").default;
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _79.QueryConnectionResponse;
                     fromAmino(object: _79.QueryConnectionResponseAmino): _79.QueryConnectionResponse;
@@ -3499,8 +3498,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         pagination?: {
                             key?: Uint8Array;
-                            offset?: string | number | import("long").Long;
-                            limit?: string | number | import("long").Long;
+                            offset?: string | number | import("long").default;
+                            limit?: string | number | import("long").default;
                             countTotal?: boolean;
                             reverse?: boolean;
                         };
@@ -3536,15 +3535,15 @@ export declare namespace ibc {
                                     keyPrefix?: Uint8Array;
                                 };
                             };
-                            delayPeriod?: string | number | import("long").Long;
+                            delayPeriod?: string | number | import("long").default;
                         }[];
                         pagination?: {
                             nextKey?: Uint8Array;
-                            total?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
                         };
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _79.QueryConnectionsResponse;
                     fromAmino(object: _79.QueryConnectionsResponseAmino): _79.QueryConnectionsResponse;
@@ -3584,8 +3583,8 @@ export declare namespace ibc {
                         connectionPaths?: string[];
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _79.QueryClientConnectionsResponse;
                     fromAmino(object: _79.QueryClientConnectionsResponseAmino): _79.QueryClientConnectionsResponse;
@@ -3632,8 +3631,8 @@ export declare namespace ibc {
                         };
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _79.QueryConnectionClientStateResponse;
                     fromAmino(object: _79.QueryConnectionClientStateResponseAmino): _79.QueryConnectionClientStateResponse;
@@ -3653,8 +3652,8 @@ export declare namespace ibc {
                     toJSON(message: _79.QueryConnectionConsensusStateRequest): unknown;
                     fromPartial(object: {
                         connectionId?: string;
-                        revisionNumber?: string | number | import("long").Long;
-                        revisionHeight?: string | number | import("long").Long;
+                        revisionNumber?: string | number | import("long").default;
+                        revisionHeight?: string | number | import("long").default;
                     }): _79.QueryConnectionConsensusStateRequest;
                     fromAmino(object: _79.QueryConnectionConsensusStateRequestAmino): _79.QueryConnectionConsensusStateRequest;
                     toAmino(message: _79.QueryConnectionConsensusStateRequest): _79.QueryConnectionConsensusStateRequestAmino;
@@ -3680,8 +3679,8 @@ export declare namespace ibc {
                         clientId?: string;
                         proof?: Uint8Array;
                         proofHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _79.QueryConnectionConsensusStateResponse;
                     fromAmino(object: _79.QueryConnectionConsensusStateResponseAmino): _79.QueryConnectionConsensusStateResponse;
@@ -3715,15 +3714,15 @@ export declare namespace ibc {
                                     keyPrefix?: Uint8Array;
                                 };
                             };
-                            delayPeriod?: string | number | import("long").Long;
+                            delayPeriod?: string | number | import("long").default;
                         }[];
                         clientConnectionPaths?: {
                             clientId?: string;
                             paths?: string[];
                         }[];
-                        nextConnectionSequence?: string | number | import("long").Long;
+                        nextConnectionSequence?: string | number | import("long").default;
                         params?: {
-                            maxExpectedTimePerBlock?: string | number | import("long").Long;
+                            maxExpectedTimePerBlock?: string | number | import("long").default;
                         };
                     }): _78.GenesisState;
                     fromAmino(object: _78.GenesisStateAmino): _78.GenesisState;
@@ -3760,7 +3759,7 @@ export declare namespace ibc {
                                 keyPrefix?: Uint8Array;
                             };
                         };
-                        delayPeriod?: string | number | import("long").Long;
+                        delayPeriod?: string | number | import("long").default;
                     }): _77.ConnectionEnd;
                     fromAmino(object: _77.ConnectionEndAmino): _77.ConnectionEnd;
                     toAmino(message: _77.ConnectionEnd): _77.ConnectionEndAmino;
@@ -3792,7 +3791,7 @@ export declare namespace ibc {
                                 keyPrefix?: Uint8Array;
                             };
                         };
-                        delayPeriod?: string | number | import("long").Long;
+                        delayPeriod?: string | number | import("long").default;
                     }): _77.IdentifiedConnection;
                     fromAmino(object: _77.IdentifiedConnectionAmino): _77.IdentifiedConnection;
                     toAmino(message: _77.IdentifiedConnection): _77.IdentifiedConnectionAmino;
@@ -3888,7 +3887,7 @@ export declare namespace ibc {
                     fromJSON(object: any): _77.Params;
                     toJSON(message: _77.Params): unknown;
                     fromPartial(object: {
-                        maxExpectedTimePerBlock?: string | number | import("long").Long;
+                        maxExpectedTimePerBlock?: string | number | import("long").default;
                     }): _77.Params;
                     fromAmino(object: _77.ParamsAmino): _77.Params;
                     toAmino(message: _77.Params): _77.ParamsAmino;
@@ -3914,8 +3913,8 @@ export declare namespace ibc {
                     fromPartial(object: {
                         chainId?: string;
                         height?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                     }): _81.ClientState;
                     fromAmino(object: _81.ClientStateAmino): _81.ClientState;
@@ -3943,8 +3942,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _82.ClientState;
                     toJSON(message: _82.ClientState): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
-                        frozenSequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
+                        frozenSequence?: string | number | import("long").default;
                         consensusState?: {
                             publicKey?: {
                                 $typeUrl?: string;
@@ -3952,7 +3951,7 @@ export declare namespace ibc {
                                 value?: Uint8Array;
                             };
                             diversifier?: string;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                         allowUpdateAfterProposal?: boolean;
                     }): _82.ClientState;
@@ -3978,7 +3977,7 @@ export declare namespace ibc {
                             value?: Uint8Array;
                         };
                         diversifier?: string;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _82.ConsensusState;
                     fromAmino(object: _82.ConsensusStateAmino): _82.ConsensusState;
                     toAmino(message: _82.ConsensusState): _82.ConsensusStateAmino;
@@ -3996,8 +3995,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _82.Header;
                     toJSON(message: _82.Header): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
-                        timestamp?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
+                        timestamp?: string | number | import("long").default;
                         signature?: Uint8Array;
                         newPublicKey?: {
                             $typeUrl?: string;
@@ -4023,18 +4022,18 @@ export declare namespace ibc {
                     toJSON(message: _82.Misbehaviour): unknown;
                     fromPartial(object: {
                         clientId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                         signatureOne?: {
                             signature?: Uint8Array;
                             dataType?: _82.DataType;
                             data?: Uint8Array;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                         signatureTwo?: {
                             signature?: Uint8Array;
                             dataType?: _82.DataType;
                             data?: Uint8Array;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                     }): _82.Misbehaviour;
                     fromAmino(object: _82.MisbehaviourAmino): _82.Misbehaviour;
@@ -4056,7 +4055,7 @@ export declare namespace ibc {
                         signature?: Uint8Array;
                         dataType?: _82.DataType;
                         data?: Uint8Array;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _82.SignatureAndData;
                     fromAmino(object: _82.SignatureAndDataAmino): _82.SignatureAndData;
                     toAmino(message: _82.SignatureAndData): _82.SignatureAndDataAmino;
@@ -4075,7 +4074,7 @@ export declare namespace ibc {
                     toJSON(message: _82.TimestampedSignatureData): unknown;
                     fromPartial(object: {
                         signatureData?: Uint8Array;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _82.TimestampedSignatureData;
                     fromAmino(object: _82.TimestampedSignatureDataAmino): _82.TimestampedSignatureData;
                     toAmino(message: _82.TimestampedSignatureData): _82.TimestampedSignatureDataAmino;
@@ -4093,8 +4092,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _82.SignBytes;
                     toJSON(message: _82.SignBytes): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
-                        timestamp?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
+                        timestamp?: string | number | import("long").default;
                         diversifier?: string;
                         dataType?: _82.DataType;
                         data?: Uint8Array;
@@ -4199,7 +4198,7 @@ export declare namespace ibc {
                                     keyPrefix?: Uint8Array;
                                 };
                             };
-                            delayPeriod?: string | number | import("long").Long;
+                            delayPeriod?: string | number | import("long").default;
                         };
                     }): _82.ConnectionStateData;
                     fromAmino(object: _82.ConnectionStateDataAmino): _82.ConnectionStateData;
@@ -4303,7 +4302,7 @@ export declare namespace ibc {
                     toJSON(message: _82.NextSequenceRecvData): unknown;
                     fromPartial(object: {
                         path?: Uint8Array;
-                        nextSeqRecv?: string | number | import("long").Long;
+                        nextSeqRecv?: string | number | import("long").default;
                     }): _82.NextSequenceRecvData;
                     fromAmino(object: _82.NextSequenceRecvDataAmino): _82.NextSequenceRecvData;
                     toAmino(message: _82.NextSequenceRecvData): _82.NextSequenceRecvDataAmino;
@@ -4328,7 +4327,7 @@ export declare namespace ibc {
                     fromJSON(object: any): _83.ClientState;
                     toJSON(message: _83.ClientState): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                         isFrozen?: boolean;
                         consensusState?: {
                             publicKey?: {
@@ -4337,7 +4336,7 @@ export declare namespace ibc {
                                 value?: Uint8Array;
                             };
                             diversifier?: string;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                         allowUpdateAfterProposal?: boolean;
                     }): _83.ClientState;
@@ -4363,7 +4362,7 @@ export declare namespace ibc {
                             value?: Uint8Array;
                         };
                         diversifier?: string;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _83.ConsensusState;
                     fromAmino(object: _83.ConsensusStateAmino): _83.ConsensusState;
                     toAmino(message: _83.ConsensusState): _83.ConsensusStateAmino;
@@ -4381,8 +4380,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _83.Header;
                     toJSON(message: _83.Header): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
-                        timestamp?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
+                        timestamp?: string | number | import("long").default;
                         signature?: Uint8Array;
                         newPublicKey?: {
                             $typeUrl?: string;
@@ -4408,18 +4407,18 @@ export declare namespace ibc {
                     toJSON(message: _83.Misbehaviour): unknown;
                     fromPartial(object: {
                         clientId?: string;
-                        sequence?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
                         signatureOne?: {
                             signature?: Uint8Array;
                             dataType?: _83.DataType;
                             data?: Uint8Array;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                         signatureTwo?: {
                             signature?: Uint8Array;
                             dataType?: _83.DataType;
                             data?: Uint8Array;
-                            timestamp?: string | number | import("long").Long;
+                            timestamp?: string | number | import("long").default;
                         };
                     }): _83.Misbehaviour;
                     fromAmino(object: _83.MisbehaviourAmino): _83.Misbehaviour;
@@ -4441,7 +4440,7 @@ export declare namespace ibc {
                         signature?: Uint8Array;
                         dataType?: _83.DataType;
                         data?: Uint8Array;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _83.SignatureAndData;
                     fromAmino(object: _83.SignatureAndDataAmino): _83.SignatureAndData;
                     toAmino(message: _83.SignatureAndData): _83.SignatureAndDataAmino;
@@ -4460,7 +4459,7 @@ export declare namespace ibc {
                     toJSON(message: _83.TimestampedSignatureData): unknown;
                     fromPartial(object: {
                         signatureData?: Uint8Array;
-                        timestamp?: string | number | import("long").Long;
+                        timestamp?: string | number | import("long").default;
                     }): _83.TimestampedSignatureData;
                     fromAmino(object: _83.TimestampedSignatureDataAmino): _83.TimestampedSignatureData;
                     toAmino(message: _83.TimestampedSignatureData): _83.TimestampedSignatureDataAmino;
@@ -4478,8 +4477,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _83.SignBytes;
                     toJSON(message: _83.SignBytes): unknown;
                     fromPartial(object: {
-                        sequence?: string | number | import("long").Long;
-                        timestamp?: string | number | import("long").Long;
+                        sequence?: string | number | import("long").default;
+                        timestamp?: string | number | import("long").default;
                         diversifier?: string;
                         dataType?: _83.DataType;
                         data?: Uint8Array;
@@ -4584,7 +4583,7 @@ export declare namespace ibc {
                                     keyPrefix?: Uint8Array;
                                 };
                             };
-                            delayPeriod?: string | number | import("long").Long;
+                            delayPeriod?: string | number | import("long").default;
                         };
                     }): _83.ConnectionStateData;
                     fromAmino(object: _83.ConnectionStateDataAmino): _83.ConnectionStateData;
@@ -4688,7 +4687,7 @@ export declare namespace ibc {
                     toJSON(message: _83.NextSequenceRecvData): unknown;
                     fromPartial(object: {
                         path?: Uint8Array;
-                        nextSeqRecv?: string | number | import("long").Long;
+                        nextSeqRecv?: string | number | import("long").default;
                     }): _83.NextSequenceRecvData;
                     fromAmino(object: _83.NextSequenceRecvDataAmino): _83.NextSequenceRecvData;
                     toAmino(message: _83.NextSequenceRecvData): _83.NextSequenceRecvDataAmino;
@@ -4712,28 +4711,28 @@ export declare namespace ibc {
                     fromPartial(object: {
                         chainId?: string;
                         trustLevel?: {
-                            numerator?: string | number | import("long").Long;
-                            denominator?: string | number | import("long").Long;
+                            numerator?: string | number | import("long").default;
+                            denominator?: string | number | import("long").default;
                         };
                         trustingPeriod?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         unbondingPeriod?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         maxClockDrift?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         frozenHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         latestHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         proofSpecs?: {
                             leafSpec?: {
@@ -4801,11 +4800,11 @@ export declare namespace ibc {
                             signedHeader?: {
                                 header?: {
                                     version?: {
-                                        block?: string | number | import("long").Long;
-                                        app?: string | number | import("long").Long;
+                                        block?: string | number | import("long").default;
+                                        app?: string | number | import("long").default;
                                     };
                                     chainId?: string;
-                                    height?: string | number | import("long").Long;
+                                    height?: string | number | import("long").default;
                                     time?: Date;
                                     lastBlockId?: {
                                         hash?: Uint8Array;
@@ -4825,7 +4824,7 @@ export declare namespace ibc {
                                     proposerAddress?: Uint8Array;
                                 };
                                 commit?: {
-                                    height?: string | number | import("long").Long;
+                                    height?: string | number | import("long").default;
                                     round?: number;
                                     blockId?: {
                                         hash?: Uint8Array;
@@ -4849,8 +4848,8 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
@@ -4858,14 +4857,14 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 };
-                                totalVotingPower?: string | number | import("long").Long;
+                                totalVotingPower?: string | number | import("long").default;
                             };
                             trustedHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
                             trustedValidators?: {
                                 validators?: {
@@ -4874,8 +4873,8 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
@@ -4883,21 +4882,21 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 };
-                                totalVotingPower?: string | number | import("long").Long;
+                                totalVotingPower?: string | number | import("long").default;
                             };
                         };
                         header2?: {
                             signedHeader?: {
                                 header?: {
                                     version?: {
-                                        block?: string | number | import("long").Long;
-                                        app?: string | number | import("long").Long;
+                                        block?: string | number | import("long").default;
+                                        app?: string | number | import("long").default;
                                     };
                                     chainId?: string;
-                                    height?: string | number | import("long").Long;
+                                    height?: string | number | import("long").default;
                                     time?: Date;
                                     lastBlockId?: {
                                         hash?: Uint8Array;
@@ -4917,7 +4916,7 @@ export declare namespace ibc {
                                     proposerAddress?: Uint8Array;
                                 };
                                 commit?: {
-                                    height?: string | number | import("long").Long;
+                                    height?: string | number | import("long").default;
                                     round?: number;
                                     blockId?: {
                                         hash?: Uint8Array;
@@ -4941,8 +4940,8 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
@@ -4950,14 +4949,14 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 };
-                                totalVotingPower?: string | number | import("long").Long;
+                                totalVotingPower?: string | number | import("long").default;
                             };
                             trustedHeight?: {
-                                revisionNumber?: string | number | import("long").Long;
-                                revisionHeight?: string | number | import("long").Long;
+                                revisionNumber?: string | number | import("long").default;
+                                revisionHeight?: string | number | import("long").default;
                             };
                             trustedValidators?: {
                                 validators?: {
@@ -4966,8 +4965,8 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
@@ -4975,10 +4974,10 @@ export declare namespace ibc {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").Long;
-                                    proposerPriority?: string | number | import("long").Long;
+                                    votingPower?: string | number | import("long").default;
+                                    proposerPriority?: string | number | import("long").default;
                                 };
-                                totalVotingPower?: string | number | import("long").Long;
+                                totalVotingPower?: string | number | import("long").default;
                             };
                         };
                     }): _84.Misbehaviour;
@@ -5001,11 +5000,11 @@ export declare namespace ibc {
                         signedHeader?: {
                             header?: {
                                 version?: {
-                                    block?: string | number | import("long").Long;
-                                    app?: string | number | import("long").Long;
+                                    block?: string | number | import("long").default;
+                                    app?: string | number | import("long").default;
                                 };
                                 chainId?: string;
-                                height?: string | number | import("long").Long;
+                                height?: string | number | import("long").default;
                                 time?: Date;
                                 lastBlockId?: {
                                     hash?: Uint8Array;
@@ -5025,7 +5024,7 @@ export declare namespace ibc {
                                 proposerAddress?: Uint8Array;
                             };
                             commit?: {
-                                height?: string | number | import("long").Long;
+                                height?: string | number | import("long").default;
                                 round?: number;
                                 blockId?: {
                                     hash?: Uint8Array;
@@ -5049,8 +5048,8 @@ export declare namespace ibc {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
@@ -5058,14 +5057,14 @@ export declare namespace ibc {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").Long;
+                            totalVotingPower?: string | number | import("long").default;
                         };
                         trustedHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         trustedValidators?: {
                             validators?: {
@@ -5074,8 +5073,8 @@ export declare namespace ibc {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
@@ -5083,10 +5082,10 @@ export declare namespace ibc {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").Long;
+                            totalVotingPower?: string | number | import("long").default;
                         };
                     }): _84.Header;
                     fromAmino(object: _84.HeaderAmino): _84.Header;
@@ -5105,8 +5104,8 @@ export declare namespace ibc {
                     fromJSON(object: any): _84.Fraction;
                     toJSON(message: _84.Fraction): unknown;
                     fromPartial(object: {
-                        numerator?: string | number | import("long").Long;
-                        denominator?: string | number | import("long").Long;
+                        numerator?: string | number | import("long").default;
+                        denominator?: string | number | import("long").default;
                     }): _84.Fraction;
                     fromAmino(object: _84.FractionAmino): _84.Fraction;
                     toAmino(message: _84.Fraction): _84.FractionAmino;

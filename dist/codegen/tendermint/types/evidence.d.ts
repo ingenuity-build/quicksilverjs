@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { Vote, VoteAmino, VoteSDKType, LightBlock, LightBlockAmino, LightBlockSDKType } from "./types";
 import { Validator, ValidatorAmino, ValidatorSDKType } from "./validator";
 import { Long, DeepPartial } from "../../helpers";

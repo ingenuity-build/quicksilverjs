@@ -6,7 +6,7 @@ const messages_1 = require("./messages");
 const proposals_1 = require("./proposals");
 exports.AminoConverter = {
     "/quicksilver.participationrewards.v1.MsgSubmitClaim": {
-        aminoType: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
+        aminoType: "quicksilver/MsgSubmitClaim",
         toAmino: messages_1.MsgSubmitClaim.toAmino,
         fromAmino: messages_1.MsgSubmitClaim.fromAmino
     },

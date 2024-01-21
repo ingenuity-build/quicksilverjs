@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import * as _85 from "./airdrop/v1/airdrop";
 import * as _86 from "./airdrop/v1/genesis";
 import * as _87 from "./airdrop/v1/messages";
@@ -184,14 +183,14 @@ export declare namespace quicksilver {
                         chainId?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         decay?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        allocation?: string | number | import("long").Long;
+                        allocation?: string | number | import("long").default;
                         actions?: string[];
                         isConcluded?: boolean;
                     };
@@ -248,8 +247,8 @@ export declare namespace quicksilver {
                     status?: _85.Status;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -272,20 +271,20 @@ export declare namespace quicksilver {
                         chainId?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         decay?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        allocation?: string | number | import("long").Long;
+                        allocation?: string | number | import("long").default;
                         actions?: string[];
                         isConcluded?: boolean;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _90.QueryZoneDropsResponse;
                 fromAmino(object: _90.QueryZoneDropsResponseAmino): _90.QueryZoneDropsResponse;
@@ -325,11 +324,11 @@ export declare namespace quicksilver {
                         actionsCompleted?: {
                             [x: number]: {
                                 completeTime?: Date;
-                                claimAmount?: string | number | import("long").Long;
+                                claimAmount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").Long;
-                        baseValue?: string | number | import("long").Long;
+                        maxAllocation?: string | number | import("long").default;
+                        baseValue?: string | number | import("long").default;
                     };
                 }): _90.QueryClaimRecordResponse;
                 fromAmino(object: _90.QueryClaimRecordResponseAmino): _90.QueryClaimRecordResponse;
@@ -349,8 +348,8 @@ export declare namespace quicksilver {
                     chainId?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -375,15 +374,15 @@ export declare namespace quicksilver {
                         actionsCompleted?: {
                             [x: number]: {
                                 completeTime?: Date;
-                                claimAmount?: string | number | import("long").Long;
+                                claimAmount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").Long;
-                        baseValue?: string | number | import("long").Long;
+                        maxAllocation?: string | number | import("long").default;
+                        baseValue?: string | number | import("long").default;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _90.QueryClaimRecordsResponse;
                 fromAmino(object: _90.QueryClaimRecordsResponseAmino): _90.QueryClaimRecordsResponse;
@@ -406,14 +405,14 @@ export declare namespace quicksilver {
                         chainId?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         decay?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        allocation?: string | number | import("long").Long;
+                        allocation?: string | number | import("long").default;
                         actions?: string[];
                         isConcluded?: boolean;
                     };
@@ -448,7 +447,7 @@ export declare namespace quicksilver {
                 toJSON(message: _87.MsgClaim): unknown;
                 fromPartial(object: {
                     chainId?: string;
-                    action?: string | number | import("long").Long;
+                    action?: string | number | import("long").default;
                     address?: string;
                     proofs?: {
                         key?: Uint8Array;
@@ -460,7 +459,7 @@ export declare namespace quicksilver {
                                 data?: Uint8Array;
                             }[];
                         };
-                        height?: string | number | import("long").Long;
+                        height?: string | number | import("long").default;
                         proofType?: string;
                     }[];
                 }): _87.MsgClaim;
@@ -478,7 +477,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _87.MsgClaimResponse;
                 toJSON(message: _87.MsgClaimResponse): unknown;
                 fromPartial(object: {
-                    amount?: string | number | import("long").Long;
+                    amount?: string | number | import("long").default;
                 }): _87.MsgClaimResponse;
                 fromAmino(object: _87.MsgClaimResponseAmino): _87.MsgClaimResponse;
                 toAmino(message: _87.MsgClaimResponse): _87.MsgClaimResponseAmino;
@@ -534,14 +533,14 @@ export declare namespace quicksilver {
                         chainId?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
                         decay?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        allocation?: string | number | import("long").Long;
+                        allocation?: string | number | import("long").default;
                         actions?: string[];
                         isConcluded?: boolean;
                     }[];
@@ -551,11 +550,11 @@ export declare namespace quicksilver {
                         actionsCompleted?: {
                             [x: number]: {
                                 completeTime?: Date;
-                                claimAmount?: string | number | import("long").Long;
+                                claimAmount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").Long;
-                        baseValue?: string | number | import("long").Long;
+                        maxAllocation?: string | number | import("long").default;
+                        baseValue?: string | number | import("long").default;
                     }[];
                 }): _86.GenesisState;
                 fromAmino(object: _86.GenesisStateAmino): _86.GenesisState;
@@ -585,14 +584,14 @@ export declare namespace quicksilver {
                     chainId?: string;
                     startTime?: Date;
                     duration?: {
-                        seconds?: string | number | import("long").Long;
+                        seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
                     decay?: {
-                        seconds?: string | number | import("long").Long;
+                        seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
-                    allocation?: string | number | import("long").Long;
+                    allocation?: string | number | import("long").default;
                     actions?: string[];
                     isConcluded?: boolean;
                 }): _85.ZoneDrop;
@@ -612,7 +611,7 @@ export declare namespace quicksilver {
                     key?: number;
                     value?: {
                         completeTime?: Date;
-                        claimAmount?: string | number | import("long").Long;
+                        claimAmount?: string | number | import("long").default;
                     };
                 }): _85.ClaimRecord_ActionsCompletedEntry;
                 fromAmino(object: _85.ClaimRecord_ActionsCompletedEntryAmino): _85.ClaimRecord_ActionsCompletedEntry;
@@ -633,11 +632,11 @@ export declare namespace quicksilver {
                     actionsCompleted?: {
                         [x: number]: {
                             completeTime?: Date;
-                            claimAmount?: string | number | import("long").Long;
+                            claimAmount?: string | number | import("long").default;
                         };
                     };
-                    maxAllocation?: string | number | import("long").Long;
-                    baseValue?: string | number | import("long").Long;
+                    maxAllocation?: string | number | import("long").default;
+                    baseValue?: string | number | import("long").default;
                 }): _85.ClaimRecord;
                 fromAmino(object: _85.ClaimRecordAmino): _85.ClaimRecord;
                 toAmino(message: _85.ClaimRecord): _85.ClaimRecordAmino;
@@ -654,7 +653,7 @@ export declare namespace quicksilver {
                 toJSON(message: _85.CompletedAction): unknown;
                 fromPartial(object: {
                     completeTime?: Date;
-                    claimAmount?: string | number | import("long").Long;
+                    claimAmount?: string | number | import("long").default;
                 }): _85.CompletedAction;
                 fromAmino(object: _85.CompletedActionAmino): _85.CompletedAction;
                 toAmino(message: _85.CompletedAction): _85.CompletedActionAmino;
@@ -681,8 +680,8 @@ export declare namespace quicksilver {
                     address?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -706,11 +705,11 @@ export declare namespace quicksilver {
                         chainId?: string;
                         module?: _91.ClaimType;
                         sourceChainId?: string;
-                        amount?: string | number | import("long").Long;
+                        amount?: string | number | import("long").default;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _94.QueryClaimsResponse;
                 fromAmino(object: _94.QueryClaimsResponseAmino): _94.QueryClaimsResponse;
@@ -733,7 +732,7 @@ export declare namespace quicksilver {
                         chainId?: string;
                         module?: _91.ClaimType;
                         sourceChainId?: string;
-                        amount?: string | number | import("long").Long;
+                        amount?: string | number | import("long").default;
                     }[];
                 }): _92.GenesisState;
                 fromAmino(object: _92.GenesisStateAmino): _92.GenesisState;
@@ -773,7 +772,7 @@ export declare namespace quicksilver {
                     chainId?: string;
                     module?: _91.ClaimType;
                     sourceChainId?: string;
-                    amount?: string | number | import("long").Long;
+                    amount?: string | number | import("long").default;
                 }): _91.Claim;
                 fromAmino(object: _91.ClaimAmino): _91.Claim;
                 toAmino(message: _91.Claim): _91.ClaimAmino;
@@ -798,7 +797,7 @@ export declare namespace quicksilver {
                             data?: Uint8Array;
                         }[];
                     };
-                    height?: string | number | import("long").Long;
+                    height?: string | number | import("long").default;
                     proofType?: string;
                 }): _91.Proof;
                 fromAmino(object: _91.ProofAmino): _91.Proof;
@@ -824,8 +823,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -848,17 +847,17 @@ export declare namespace quicksilver {
                         identifier?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        currentEpoch?: string | number | import("long").Long;
+                        currentEpoch?: string | number | import("long").default;
                         currentEpochStartTime?: Date;
                         epochCountingStarted?: boolean;
-                        currentEpochStartHeight?: string | number | import("long").Long;
+                        currentEpochStartHeight?: string | number | import("long").default;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _96.QueryEpochsInfoResponse;
                 fromAmino(object: _96.QueryEpochsInfoResponseAmino): _96.QueryEpochsInfoResponse;
@@ -891,7 +890,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _96.QueryCurrentEpochResponse;
                 toJSON(message: _96.QueryCurrentEpochResponse): unknown;
                 fromPartial(object: {
-                    currentEpoch?: string | number | import("long").Long;
+                    currentEpoch?: string | number | import("long").default;
                 }): _96.QueryCurrentEpochResponse;
                 fromAmino(object: _96.QueryCurrentEpochResponseAmino): _96.QueryCurrentEpochResponse;
                 toAmino(message: _96.QueryCurrentEpochResponse): _96.QueryCurrentEpochResponseAmino;
@@ -910,13 +909,13 @@ export declare namespace quicksilver {
                     identifier?: string;
                     startTime?: Date;
                     duration?: {
-                        seconds?: string | number | import("long").Long;
+                        seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
-                    currentEpoch?: string | number | import("long").Long;
+                    currentEpoch?: string | number | import("long").default;
                     currentEpochStartTime?: Date;
                     epochCountingStarted?: boolean;
-                    currentEpochStartHeight?: string | number | import("long").Long;
+                    currentEpochStartHeight?: string | number | import("long").default;
                 }): _95.EpochInfo;
                 fromAmino(object: _95.EpochInfoAmino): _95.EpochInfo;
                 toAmino(message: _95.EpochInfo): _95.EpochInfoAmino;
@@ -936,13 +935,13 @@ export declare namespace quicksilver {
                         identifier?: string;
                         startTime?: Date;
                         duration?: {
-                            seconds?: string | number | import("long").Long;
+                            seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        currentEpoch?: string | number | import("long").Long;
+                        currentEpoch?: string | number | import("long").default;
                         currentEpochStartTime?: Date;
                         epochCountingStarted?: boolean;
-                        currentEpochStartHeight?: string | number | import("long").Long;
+                        currentEpochStartHeight?: string | number | import("long").default;
                     }[];
                 }): _95.GenesisState;
                 fromAmino(object: _95.GenesisStateAmino): _95.GenesisState;
@@ -1007,8 +1006,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -1037,12 +1036,12 @@ export declare namespace quicksilver {
                         period?: string;
                         lastHeight?: string;
                         callbackId?: string;
-                        ttl?: string | number | import("long").Long;
+                        ttl?: string | number | import("long").default;
                         lastEmission?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _100.QueryRequestsResponse;
                 fromAmino(object: _100.QueryRequestsResponseAmino): _100.QueryRequestsResponse;
@@ -1067,7 +1066,7 @@ export declare namespace quicksilver {
                                 value?: Uint8Array;
                             }[];
                             memo?: string;
-                            timeoutHeight?: string | number | import("long").Long;
+                            timeoutHeight?: string | number | import("long").default;
                             extensionOptions?: {
                                 $typeUrl?: string;
                                 typeUrl?: string;
@@ -1098,14 +1097,14 @@ export declare namespace quicksilver {
                                         modeInfos?: any[];
                                     };
                                 };
-                                sequence?: string | number | import("long").Long;
+                                sequence?: string | number | import("long").default;
                             }[];
                             fee?: {
                                 amount?: {
                                     denom?: string;
                                     amount?: string;
                                 }[];
-                                gasLimit?: string | number | import("long").Long;
+                                gasLimit?: string | number | import("long").default;
                                 payer?: string;
                                 granter?: string;
                             };
@@ -1120,7 +1119,7 @@ export declare namespace quicksilver {
                         signatures?: Uint8Array[];
                     };
                     txResponse?: {
-                        height?: string | number | import("long").Long;
+                        height?: string | number | import("long").default;
                         txhash?: string;
                         codespace?: string;
                         code?: number;
@@ -1138,8 +1137,8 @@ export declare namespace quicksilver {
                             }[];
                         }[];
                         info?: string;
-                        gasWanted?: string | number | import("long").Long;
-                        gasUsed?: string | number | import("long").Long;
+                        gasWanted?: string | number | import("long").default;
+                        gasUsed?: string | number | import("long").default;
                         tx?: {
                             $typeUrl?: string;
                             typeUrl?: string;
@@ -1159,8 +1158,8 @@ export declare namespace quicksilver {
                         rootHash?: Uint8Array;
                         data?: Uint8Array;
                         proof?: {
-                            total?: string | number | import("long").Long;
-                            index?: string | number | import("long").Long;
+                            total?: string | number | import("long").default;
+                            index?: string | number | import("long").default;
                             leafHash?: Uint8Array;
                             aunts?: Uint8Array[];
                         };
@@ -1169,11 +1168,11 @@ export declare namespace quicksilver {
                         signedHeader?: {
                             header?: {
                                 version?: {
-                                    block?: string | number | import("long").Long;
-                                    app?: string | number | import("long").Long;
+                                    block?: string | number | import("long").default;
+                                    app?: string | number | import("long").default;
                                 };
                                 chainId?: string;
-                                height?: string | number | import("long").Long;
+                                height?: string | number | import("long").default;
                                 time?: Date;
                                 lastBlockId?: {
                                     hash?: Uint8Array;
@@ -1193,7 +1192,7 @@ export declare namespace quicksilver {
                                 proposerAddress?: Uint8Array;
                             };
                             commit?: {
-                                height?: string | number | import("long").Long;
+                                height?: string | number | import("long").default;
                                 round?: number;
                                 blockId?: {
                                     hash?: Uint8Array;
@@ -1217,8 +1216,8 @@ export declare namespace quicksilver {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
@@ -1226,14 +1225,14 @@ export declare namespace quicksilver {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").Long;
+                            totalVotingPower?: string | number | import("long").default;
                         };
                         trustedHeight?: {
-                            revisionNumber?: string | number | import("long").Long;
-                            revisionHeight?: string | number | import("long").Long;
+                            revisionNumber?: string | number | import("long").default;
+                            revisionHeight?: string | number | import("long").default;
                         };
                         trustedValidators?: {
                             validators?: {
@@ -1242,8 +1241,8 @@ export declare namespace quicksilver {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
@@ -1251,10 +1250,10 @@ export declare namespace quicksilver {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").Long;
-                                proposerPriority?: string | number | import("long").Long;
+                                votingPower?: string | number | import("long").default;
+                                proposerPriority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").Long;
+                            totalVotingPower?: string | number | import("long").default;
                         };
                     };
                     txBytes?: Uint8Array;
@@ -1283,7 +1282,7 @@ export declare namespace quicksilver {
                             data?: Uint8Array;
                         }[];
                     };
-                    height?: string | number | import("long").Long;
+                    height?: string | number | import("long").default;
                     fromAddress?: string;
                 }): _99.MsgSubmitQueryResponse;
                 fromAmino(object: _99.MsgSubmitQueryResponseAmino): _99.MsgSubmitQueryResponse;
@@ -1322,7 +1321,7 @@ export declare namespace quicksilver {
                     period?: string;
                     lastHeight?: string;
                     callbackId?: string;
-                    ttl?: string | number | import("long").Long;
+                    ttl?: string | number | import("long").default;
                     lastEmission?: string;
                 }): _98.Query;
                 fromAmino(object: _98.QueryAmino): _98.Query;
@@ -1367,7 +1366,7 @@ export declare namespace quicksilver {
                         period?: string;
                         lastHeight?: string;
                         callbackId?: string;
-                        ttl?: string | number | import("long").Long;
+                        ttl?: string | number | import("long").default;
                         lastEmission?: string;
                     }[];
                 }): _97.GenesisState;
@@ -1535,11 +1534,11 @@ export declare namespace quicksilver {
                 toJSON(message: _105.Statistics): unknown;
                 fromPartial(object: {
                     chainId?: string;
-                    deposited?: string | number | import("long").Long;
-                    deposits?: string | number | import("long").Long;
-                    depositors?: string | number | import("long").Long;
-                    delegated?: string | number | import("long").Long;
-                    supply?: string | number | import("long").Long;
+                    deposited?: string | number | import("long").default;
+                    deposits?: string | number | import("long").default;
+                    depositors?: string | number | import("long").default;
+                    delegated?: string | number | import("long").default;
+                    supply?: string | number | import("long").default;
                     distanceToTarget?: string;
                 }): _105.Statistics;
                 fromAmino(object: _105.StatisticsAmino): _105.Statistics;
@@ -1558,8 +1557,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -1647,13 +1646,13 @@ export declare namespace quicksilver {
                         liquidityModule?: boolean;
                         withdrawalWaitgroup?: number;
                         ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").Long;
-                        holdingsAllocation?: string | number | import("long").Long;
-                        lastEpochHeight?: string | number | import("long").Long;
+                        validatorSelectionAllocation?: string | number | import("long").default;
+                        holdingsAllocation?: string | number | import("long").default;
+                        lastEpochHeight?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").Long;
-                        messagesPerTx?: string | number | import("long").Long;
-                        decimals?: string | number | import("long").Long;
+                        unbondingPeriod?: string | number | import("long").default;
+                        messagesPerTx?: string | number | import("long").default;
+                        decimals?: string | number | import("long").default;
                         unbondingEnabled?: boolean;
                         depositsEnabled?: boolean;
                         returnToSender?: boolean;
@@ -1665,16 +1664,16 @@ export declare namespace quicksilver {
                     }[];
                     stats?: {
                         chainId?: string;
-                        deposited?: string | number | import("long").Long;
-                        deposits?: string | number | import("long").Long;
-                        depositors?: string | number | import("long").Long;
-                        delegated?: string | number | import("long").Long;
-                        supply?: string | number | import("long").Long;
+                        deposited?: string | number | import("long").default;
+                        deposits?: string | number | import("long").default;
+                        depositors?: string | number | import("long").default;
+                        delegated?: string | number | import("long").default;
+                        supply?: string | number | import("long").default;
                         distanceToTarget?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryZonesResponse;
                 fromAmino(object: _105.QueryZonesResponseAmino): _105.QueryZonesResponse;
@@ -1776,13 +1775,13 @@ export declare namespace quicksilver {
                         liquidityModule?: boolean;
                         withdrawalWaitgroup?: number;
                         ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").Long;
-                        holdingsAllocation?: string | number | import("long").Long;
-                        lastEpochHeight?: string | number | import("long").Long;
+                        validatorSelectionAllocation?: string | number | import("long").default;
+                        holdingsAllocation?: string | number | import("long").default;
+                        lastEpochHeight?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").Long;
-                        messagesPerTx?: string | number | import("long").Long;
-                        decimals?: string | number | import("long").Long;
+                        unbondingPeriod?: string | number | import("long").default;
+                        messagesPerTx?: string | number | import("long").default;
+                        decimals?: string | number | import("long").default;
                         unbondingEnabled?: boolean;
                         depositsEnabled?: boolean;
                         returnToSender?: boolean;
@@ -1794,11 +1793,11 @@ export declare namespace quicksilver {
                     };
                     stats?: {
                         chainId?: string;
-                        deposited?: string | number | import("long").Long;
-                        deposits?: string | number | import("long").Long;
-                        depositors?: string | number | import("long").Long;
-                        delegated?: string | number | import("long").Long;
-                        supply?: string | number | import("long").Long;
+                        deposited?: string | number | import("long").default;
+                        deposits?: string | number | import("long").default;
+                        depositors?: string | number | import("long").default;
+                        delegated?: string | number | import("long").default;
+                        supply?: string | number | import("long").default;
                         distanceToTarget?: string;
                     };
                 }): _105.QueryZoneResponse;
@@ -1820,8 +1819,8 @@ export declare namespace quicksilver {
                     status?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -1855,7 +1854,7 @@ export declare namespace quicksilver {
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryZoneValidatorsResponse;
                 fromAmino(object: _105.QueryZoneValidatorsResponseAmino): _105.QueryZoneValidatorsResponse;
@@ -2010,8 +2009,8 @@ export declare namespace quicksilver {
                     chainId?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2037,13 +2036,13 @@ export declare namespace quicksilver {
                             denom?: string;
                             amount?: string;
                         };
-                        height?: string | number | import("long").Long;
-                        redelegationEnd?: string | number | import("long").Long;
+                        height?: string | number | import("long").default;
+                        redelegationEnd?: string | number | import("long").default;
                     }[];
-                    tvl?: string | number | import("long").Long;
+                    tvl?: string | number | import("long").default;
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryDelegationsResponse;
                 fromAmino(object: _105.QueryDelegationsResponseAmino): _105.QueryDelegationsResponse;
@@ -2063,8 +2062,8 @@ export declare namespace quicksilver {
                     chainId?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2096,7 +2095,7 @@ export declare namespace quicksilver {
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryReceiptsResponse;
                 fromAmino(object: _105.QueryReceiptsResponseAmino): _105.QueryReceiptsResponse;
@@ -2160,8 +2159,8 @@ export declare namespace quicksilver {
                     delegatorAddress?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2185,7 +2184,7 @@ export declare namespace quicksilver {
                         delegator?: string;
                         distribution?: {
                             valoper?: string;
-                            amount?: string | number | import("long").Long;
+                            amount?: string | number | import("long").default;
                         }[];
                         recipient?: string;
                         amount?: {
@@ -2201,11 +2200,11 @@ export declare namespace quicksilver {
                         completionTime?: Date;
                         requeued?: boolean;
                         acknowledged?: boolean;
-                        epochNumber?: string | number | import("long").Long;
+                        epochNumber?: string | number | import("long").default;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryWithdrawalRecordsResponse;
                 fromAmino(object: _105.QueryWithdrawalRecordsResponseAmino): _105.QueryWithdrawalRecordsResponse;
@@ -2225,8 +2224,8 @@ export declare namespace quicksilver {
                     userAddress?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2248,8 +2247,8 @@ export declare namespace quicksilver {
                     chainId?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2270,13 +2269,13 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     unbondings?: {
                         chainId?: string;
-                        epochNumber?: string | number | import("long").Long;
+                        epochNumber?: string | number | import("long").default;
                         validator?: string;
                         relatedTxhash?: string[];
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryUnbondingRecordsResponse;
                 fromAmino(object: _105.QueryUnbondingRecordsResponseAmino): _105.QueryUnbondingRecordsResponse;
@@ -2296,8 +2295,8 @@ export declare namespace quicksilver {
                     chainId?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2318,15 +2317,15 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     redelegations?: {
                         chainId?: string;
-                        epochNumber?: string | number | import("long").Long;
+                        epochNumber?: string | number | import("long").default;
                         source?: string;
                         destination?: string;
-                        amount?: string | number | import("long").Long;
+                        amount?: string | number | import("long").default;
                         completionTime?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryRedelegationRecordsResponse;
                 fromAmino(object: _105.QueryRedelegationRecordsResponseAmino): _105.QueryRedelegationRecordsResponse;
@@ -2346,8 +2345,8 @@ export declare namespace quicksilver {
                     address?: string;
                     pagination?: {
                         key?: Uint8Array;
-                        offset?: string | number | import("long").Long;
-                        limit?: string | number | import("long").Long;
+                        offset?: string | number | import("long").default;
+                        limit?: string | number | import("long").default;
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
@@ -2386,7 +2385,7 @@ export declare namespace quicksilver {
                     };
                     pagination?: {
                         nextKey?: Uint8Array;
-                        total?: string | number | import("long").Long;
+                        total?: string | number | import("long").default;
                     };
                 }): _105.QueryMappedAccountsResponse;
                 fromAmino(object: _105.QueryMappedAccountsResponseAmino): _105.QueryMappedAccountsResponse;
@@ -2411,11 +2410,11 @@ export declare namespace quicksilver {
                     accountPrefix?: string;
                     multiSend?: boolean;
                     liquidityModule?: boolean;
-                    messagesPerTx?: string | number | import("long").Long;
+                    messagesPerTx?: string | number | import("long").default;
                     returnToSender?: boolean;
                     depositsEnabled?: boolean;
                     unbondingEnabled?: boolean;
-                    decimals?: string | number | import("long").Long;
+                    decimals?: string | number | import("long").default;
                     is118?: boolean;
                 }): _104.RegisterZoneProposal;
                 fromAmino(object: _104.RegisterZoneProposalAmino): _104.RegisterZoneProposal;
@@ -2441,11 +2440,11 @@ export declare namespace quicksilver {
                     multiSend?: boolean;
                     liquidityModule?: boolean;
                     deposit?: string;
-                    messagesPerTx?: string | number | import("long").Long;
+                    messagesPerTx?: string | number | import("long").default;
                     returnToSender?: boolean;
                     depositsEnabled?: boolean;
                     unbondingEnabled?: boolean;
-                    decimals?: string | number | import("long").Long;
+                    decimals?: string | number | import("long").default;
                     is118?: boolean;
                 }): _104.RegisterZoneProposalWithDeposit;
                 fromAmino(object: _104.RegisterZoneProposalWithDepositAmino): _104.RegisterZoneProposalWithDeposit;
@@ -2625,6 +2624,7 @@ export declare namespace quicksilver {
             };
             MsgRequestRedemption: {
                 typeUrl: string;
+                aminoType: string;
                 encode(message: _103.MsgRequestRedemption, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _103.MsgRequestRedemption;
                 fromJSON(object: any): _103.MsgRequestRedemption;
@@ -2640,6 +2640,7 @@ export declare namespace quicksilver {
                 fromAmino(object: _103.MsgRequestRedemptionAmino): _103.MsgRequestRedemption;
                 toAmino(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionAmino;
                 fromAminoMsg(object: _103.MsgRequestRedemptionAminoMsg): _103.MsgRequestRedemption;
+                toAminoMsg(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionAminoMsg;
                 fromProtoMsg(message: _103.MsgRequestRedemptionProtoMsg): _103.MsgRequestRedemption;
                 toProto(message: _103.MsgRequestRedemption): Uint8Array;
                 toProtoMsg(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionProtoMsg;
@@ -2660,6 +2661,7 @@ export declare namespace quicksilver {
             };
             MsgSignalIntent: {
                 typeUrl: string;
+                aminoType: string;
                 encode(message: _103.MsgSignalIntent, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _103.MsgSignalIntent;
                 fromJSON(object: any): _103.MsgSignalIntent;
@@ -2672,6 +2674,7 @@ export declare namespace quicksilver {
                 fromAmino(object: _103.MsgSignalIntentAmino): _103.MsgSignalIntent;
                 toAmino(message: _103.MsgSignalIntent): _103.MsgSignalIntentAmino;
                 fromAminoMsg(object: _103.MsgSignalIntentAminoMsg): _103.MsgSignalIntent;
+                toAminoMsg(message: _103.MsgSignalIntent): _103.MsgSignalIntentAminoMsg;
                 fromProtoMsg(message: _103.MsgSignalIntentProtoMsg): _103.MsgSignalIntent;
                 toProto(message: _103.MsgSignalIntent): Uint8Array;
                 toProtoMsg(message: _103.MsgSignalIntent): _103.MsgSignalIntentProtoMsg;
@@ -2765,13 +2768,13 @@ export declare namespace quicksilver {
                     liquidityModule?: boolean;
                     withdrawalWaitgroup?: number;
                     ibcNextValidatorsHash?: Uint8Array;
-                    validatorSelectionAllocation?: string | number | import("long").Long;
-                    holdingsAllocation?: string | number | import("long").Long;
-                    lastEpochHeight?: string | number | import("long").Long;
+                    validatorSelectionAllocation?: string | number | import("long").default;
+                    holdingsAllocation?: string | number | import("long").default;
+                    lastEpochHeight?: string | number | import("long").default;
                     tvl?: string;
-                    unbondingPeriod?: string | number | import("long").Long;
-                    messagesPerTx?: string | number | import("long").Long;
-                    decimals?: string | number | import("long").Long;
+                    unbondingPeriod?: string | number | import("long").default;
+                    messagesPerTx?: string | number | import("long").default;
+                    decimals?: string | number | import("long").default;
                     unbondingEnabled?: boolean;
                     depositsEnabled?: boolean;
                     returnToSender?: boolean;
@@ -2854,7 +2857,7 @@ export declare namespace quicksilver {
                 toJSON(message: _102.Distribution): unknown;
                 fromPartial(object: {
                     valoper?: string;
-                    amount?: string | number | import("long").Long;
+                    amount?: string | number | import("long").default;
                 }): _102.Distribution;
                 fromAmino(object: _102.DistributionAmino): _102.Distribution;
                 toAmino(message: _102.Distribution): _102.DistributionAmino;
@@ -2874,7 +2877,7 @@ export declare namespace quicksilver {
                     delegator?: string;
                     distribution?: {
                         valoper?: string;
-                        amount?: string | number | import("long").Long;
+                        amount?: string | number | import("long").default;
                     }[];
                     recipient?: string;
                     amount?: {
@@ -2890,7 +2893,7 @@ export declare namespace quicksilver {
                     completionTime?: Date;
                     requeued?: boolean;
                     acknowledged?: boolean;
-                    epochNumber?: string | number | import("long").Long;
+                    epochNumber?: string | number | import("long").default;
                 }): _102.WithdrawalRecord;
                 fromAmino(object: _102.WithdrawalRecordAmino): _102.WithdrawalRecord;
                 toAmino(message: _102.WithdrawalRecord): _102.WithdrawalRecordAmino;
@@ -2907,7 +2910,7 @@ export declare namespace quicksilver {
                 toJSON(message: _102.UnbondingRecord): unknown;
                 fromPartial(object: {
                     chainId?: string;
-                    epochNumber?: string | number | import("long").Long;
+                    epochNumber?: string | number | import("long").default;
                     validator?: string;
                     relatedTxhash?: string[];
                 }): _102.UnbondingRecord;
@@ -2926,10 +2929,10 @@ export declare namespace quicksilver {
                 toJSON(message: _102.RedelegationRecord): unknown;
                 fromPartial(object: {
                     chainId?: string;
-                    epochNumber?: string | number | import("long").Long;
+                    epochNumber?: string | number | import("long").default;
                     source?: string;
                     destination?: string;
-                    amount?: string | number | import("long").Long;
+                    amount?: string | number | import("long").default;
                     completionTime?: Date;
                 }): _102.RedelegationRecord;
                 fromAmino(object: _102.RedelegationRecordAmino): _102.RedelegationRecord;
@@ -3036,8 +3039,8 @@ export declare namespace quicksilver {
                         denom?: string;
                         amount?: string;
                     };
-                    height?: string | number | import("long").Long;
-                    redelegationEnd?: string | number | import("long").Long;
+                    height?: string | number | import("long").default;
+                    redelegationEnd?: string | number | import("long").default;
                 }): _102.Delegation;
                 fromAmino(object: _102.DelegationAmino): _102.Delegation;
                 toAmino(message: _102.Delegation): _102.DelegationAmino;
@@ -3094,8 +3097,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.Params_v1;
                 toJSON(message: _101.Params_v1): unknown;
                 fromPartial(object: {
-                    depositInterval?: string | number | import("long").Long;
-                    validatorsetInterval?: string | number | import("long").Long;
+                    depositInterval?: string | number | import("long").default;
+                    validatorsetInterval?: string | number | import("long").default;
                     commissionRate?: string;
                 }): _101.Params_v1;
                 fromAmino(object: _101.Params_v1Amino): _101.Params_v1;
@@ -3112,8 +3115,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.Params;
                 toJSON(message: _101.Params): unknown;
                 fromPartial(object: {
-                    depositInterval?: string | number | import("long").Long;
-                    validatorsetInterval?: string | number | import("long").Long;
+                    depositInterval?: string | number | import("long").default;
+                    validatorsetInterval?: string | number | import("long").default;
                     commissionRate?: string;
                     unbondingEnabled?: boolean;
                 }): _101.Params;
@@ -3139,8 +3142,8 @@ export declare namespace quicksilver {
                             denom?: string;
                             amount?: string;
                         };
-                        height?: string | number | import("long").Long;
-                        redelegationEnd?: string | number | import("long").Long;
+                        height?: string | number | import("long").default;
+                        redelegationEnd?: string | number | import("long").default;
                     }[];
                 }): _101.DelegationsForZone;
                 fromAmino(object: _101.DelegationsForZoneAmino): _101.DelegationsForZone;
@@ -3182,8 +3185,8 @@ export declare namespace quicksilver {
                 toJSON(message: _101.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
-                        depositInterval?: string | number | import("long").Long;
-                        validatorsetInterval?: string | number | import("long").Long;
+                        depositInterval?: string | number | import("long").default;
+                        validatorsetInterval?: string | number | import("long").default;
                         commissionRate?: string;
                         unbondingEnabled?: boolean;
                     };
@@ -3256,13 +3259,13 @@ export declare namespace quicksilver {
                         liquidityModule?: boolean;
                         withdrawalWaitgroup?: number;
                         ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").Long;
-                        holdingsAllocation?: string | number | import("long").Long;
-                        lastEpochHeight?: string | number | import("long").Long;
+                        validatorSelectionAllocation?: string | number | import("long").default;
+                        holdingsAllocation?: string | number | import("long").default;
+                        lastEpochHeight?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").Long;
-                        messagesPerTx?: string | number | import("long").Long;
-                        decimals?: string | number | import("long").Long;
+                        unbondingPeriod?: string | number | import("long").default;
+                        messagesPerTx?: string | number | import("long").default;
+                        decimals?: string | number | import("long").default;
                         unbondingEnabled?: boolean;
                         depositsEnabled?: boolean;
                         returnToSender?: boolean;
@@ -3292,8 +3295,8 @@ export declare namespace quicksilver {
                                 denom?: string;
                                 amount?: string;
                             };
-                            height?: string | number | import("long").Long;
-                            redelegationEnd?: string | number | import("long").Long;
+                            height?: string | number | import("long").default;
+                            redelegationEnd?: string | number | import("long").default;
                         }[];
                     }[];
                     performanceDelegations?: {
@@ -3305,8 +3308,8 @@ export declare namespace quicksilver {
                                 denom?: string;
                                 amount?: string;
                             };
-                            height?: string | number | import("long").Long;
-                            redelegationEnd?: string | number | import("long").Long;
+                            height?: string | number | import("long").default;
+                            redelegationEnd?: string | number | import("long").default;
                         }[];
                     }[];
                     delegatorIntents?: {
@@ -3329,7 +3332,7 @@ export declare namespace quicksilver {
                         delegator?: string;
                         distribution?: {
                             valoper?: string;
-                            amount?: string | number | import("long").Long;
+                            amount?: string | number | import("long").default;
                         }[];
                         recipient?: string;
                         amount?: {
@@ -3345,7 +3348,7 @@ export declare namespace quicksilver {
                         completionTime?: Date;
                         requeued?: boolean;
                         acknowledged?: boolean;
-                        epochNumber?: string | number | import("long").Long;
+                        epochNumber?: string | number | import("long").default;
                     }[];
                 }): _101.GenesisState;
                 fromAmino(object: _101.GenesisStateAmino): _101.GenesisState;
@@ -3387,7 +3390,7 @@ export declare namespace quicksilver {
                         mintDenom?: string;
                         genesisEpochProvisions?: string;
                         epochIdentifier?: string;
-                        reductionPeriodInEpochs?: string | number | import("long").Long;
+                        reductionPeriodInEpochs?: string | number | import("long").default;
                         reductionFactor?: string;
                         distributionProportions?: {
                             staking?: string;
@@ -3395,7 +3398,7 @@ export declare namespace quicksilver {
                             participationRewards?: string;
                             communityPool?: string;
                         };
-                        mintingRewardsDistributionStartEpoch?: string | number | import("long").Long;
+                        mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
                     };
                 }): _108.QueryParamsResponse;
                 fromAmino(object: _108.QueryParamsResponseAmino): _108.QueryParamsResponse;
@@ -3480,7 +3483,7 @@ export declare namespace quicksilver {
                     mintDenom?: string;
                     genesisEpochProvisions?: string;
                     epochIdentifier?: string;
-                    reductionPeriodInEpochs?: string | number | import("long").Long;
+                    reductionPeriodInEpochs?: string | number | import("long").default;
                     reductionFactor?: string;
                     distributionProportions?: {
                         staking?: string;
@@ -3488,7 +3491,7 @@ export declare namespace quicksilver {
                         participationRewards?: string;
                         communityPool?: string;
                     };
-                    mintingRewardsDistributionStartEpoch?: string | number | import("long").Long;
+                    mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
                 }): _107.Params;
                 fromAmino(object: _107.ParamsAmino): _107.Params;
                 toAmino(message: _107.Params): _107.ParamsAmino;
@@ -3511,7 +3514,7 @@ export declare namespace quicksilver {
                         mintDenom?: string;
                         genesisEpochProvisions?: string;
                         epochIdentifier?: string;
-                        reductionPeriodInEpochs?: string | number | import("long").Long;
+                        reductionPeriodInEpochs?: string | number | import("long").default;
                         reductionFactor?: string;
                         distributionProportions?: {
                             staking?: string;
@@ -3519,9 +3522,9 @@ export declare namespace quicksilver {
                             participationRewards?: string;
                             communityPool?: string;
                         };
-                        mintingRewardsDistributionStartEpoch?: string | number | import("long").Long;
+                        mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
                     };
-                    reductionStartedEpoch?: string | number | import("long").Long;
+                    reductionStartedEpoch?: string | number | import("long").default;
                 }): _106.GenesisState;
                 fromAmino(object: _106.GenesisStateAmino): _106.GenesisState;
                 toAmino(message: _106.GenesisState): _106.GenesisStateAmino;
@@ -3832,6 +3835,7 @@ export declare namespace quicksilver {
             };
             MsgSubmitClaim: {
                 typeUrl: string;
+                aminoType: string;
                 encode(message: _110.MsgSubmitClaim, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _110.MsgSubmitClaim;
                 fromJSON(object: any): _110.MsgSubmitClaim;
@@ -3851,13 +3855,14 @@ export declare namespace quicksilver {
                                 data?: Uint8Array;
                             }[];
                         };
-                        height?: string | number | import("long").Long;
+                        height?: string | number | import("long").default;
                         proofType?: string;
                     }[];
                 }): _110.MsgSubmitClaim;
                 fromAmino(object: _110.MsgSubmitClaimAmino): _110.MsgSubmitClaim;
                 toAmino(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimAmino;
                 fromAminoMsg(object: _110.MsgSubmitClaimAminoMsg): _110.MsgSubmitClaim;
+                toAminoMsg(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimAminoMsg;
                 fromProtoMsg(message: _110.MsgSubmitClaimProtoMsg): _110.MsgSubmitClaim;
                 toProto(message: _110.MsgSubmitClaim): Uint8Array;
                 toProtoMsg(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimProtoMsg;
@@ -3934,8 +3939,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _114.QuerySupplyResponse;
                 toJSON(message: _114.QuerySupplyResponse): unknown;
                 fromPartial(object: {
-                    supply?: string | number | import("long").Long;
-                    circulatingSupply?: string | number | import("long").Long;
+                    supply?: string | number | import("long").default;
+                    circulatingSupply?: string | number | import("long").default;
                 }): _114.QuerySupplyResponse;
                 fromAmino(object: _114.QuerySupplyResponseAmino): _114.QuerySupplyResponse;
                 toAmino(message: _114.QuerySupplyResponse): _114.QuerySupplyResponseAmino;

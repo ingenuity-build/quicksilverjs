@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { Proof, ProofAmino, ProofSDKType } from "../crypto/proof";
 import { Consensus, ConsensusAmino, ConsensusSDKType } from "../version/types";
 import { ValidatorSet, ValidatorSetAmino, ValidatorSetSDKType } from "./validator";

@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
 import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";

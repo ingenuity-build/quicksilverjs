@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { EpochInfo, EpochInfoAmino, EpochInfoSDKType } from "./genesis";
 import { Long, DeepPartial } from "../../../helpers";

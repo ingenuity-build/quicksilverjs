@@ -1,4 +1,3 @@
-/// <reference types="long" />
 import { IdentifiedConnection, IdentifiedConnectionAmino, IdentifiedConnectionSDKType, ConnectionPaths, ConnectionPathsAmino, ConnectionPathsSDKType, Params, ParamsAmino, ParamsSDKType } from "./connection";
 import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
