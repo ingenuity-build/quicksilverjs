@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";

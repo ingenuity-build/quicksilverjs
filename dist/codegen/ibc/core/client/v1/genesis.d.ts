@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, ClientConsensusStates, ClientConsensusStatesAmino, ClientConsensusStatesSDKType, Params, ParamsAmino, ParamsSDKType } from "./client";
 import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";

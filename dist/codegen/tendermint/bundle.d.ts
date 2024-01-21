@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import * as _120 from "./abci/types";
 import * as _121 from "./crypto/keys";
 import * as _122 from "./crypto/proof";
@@ -44,8 +45,8 @@ export declare namespace tendermint {
                 flush?: {};
                 info?: {
                     version?: string;
-                    blockVersion?: string | number | import("long").default;
-                    p2pVersion?: string | number | import("long").default;
+                    blockVersion?: string | number | import("long").Long;
+                    p2pVersion?: string | number | import("long").Long;
                 };
                 setOption?: {
                     key?: string;
@@ -56,22 +57,22 @@ export declare namespace tendermint {
                     chainId?: string;
                     consensusParams?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
+                            maxGas?: string | number | import("long").Long;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
+                            maxAgeNumBlocks?: string | number | import("long").Long;
                             maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
+                                seconds?: string | number | import("long").Long;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
                         };
                         validator?: {
                             pubKeyTypes?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            appVersion?: string | number | import("long").Long;
                         };
                     };
                     validators?: {
@@ -79,26 +80,26 @@ export declare namespace tendermint {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        power?: string | number | import("long").default;
+                        power?: string | number | import("long").Long;
                     }[];
                     appStateBytes?: Uint8Array;
-                    initialHeight?: string | number | import("long").default;
+                    initialHeight?: string | number | import("long").Long;
                 };
                 query?: {
                     data?: Uint8Array;
                     path?: string;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     prove?: boolean;
                 };
                 beginBlock?: {
                     hash?: Uint8Array;
                     header?: {
                         version?: {
-                            block?: string | number | import("long").default;
-                            app?: string | number | import("long").default;
+                            block?: string | number | import("long").Long;
+                            app?: string | number | import("long").Long;
                         };
                         chainId?: string;
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         time?: Date;
                         lastBlockId?: {
                             hash?: Uint8Array;
@@ -122,7 +123,7 @@ export declare namespace tendermint {
                         votes?: {
                             validator?: {
                                 address?: Uint8Array;
-                                power?: string | number | import("long").default;
+                                power?: string | number | import("long").Long;
                             };
                             signedLastBlock?: boolean;
                         }[];
@@ -131,11 +132,11 @@ export declare namespace tendermint {
                         type?: _120.EvidenceType;
                         validator?: {
                             address?: Uint8Array;
-                            power?: string | number | import("long").default;
+                            power?: string | number | import("long").Long;
                         };
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         time?: Date;
-                        totalVotingPower?: string | number | import("long").default;
+                        totalVotingPower?: string | number | import("long").Long;
                     }[];
                 };
                 checkTx?: {
@@ -146,13 +147,13 @@ export declare namespace tendermint {
                     tx?: Uint8Array;
                 };
                 endBlock?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                 };
                 commit?: {};
                 listSnapshots?: {};
                 offerSnapshot?: {
                     snapshot?: {
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         format?: number;
                         chunks?: number;
                         hash?: Uint8Array;
@@ -161,7 +162,7 @@ export declare namespace tendermint {
                     appHash?: Uint8Array;
                 };
                 loadSnapshotChunk?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     format?: number;
                     chunk?: number;
                 };
@@ -216,8 +217,8 @@ export declare namespace tendermint {
             toJSON(message: _120.RequestInfo): unknown;
             fromPartial(object: {
                 version?: string;
-                blockVersion?: string | number | import("long").default;
-                p2pVersion?: string | number | import("long").default;
+                blockVersion?: string | number | import("long").Long;
+                p2pVersion?: string | number | import("long").Long;
             }): _120.RequestInfo;
             fromAmino(object: _120.RequestInfoAmino): _120.RequestInfo;
             toAmino(message: _120.RequestInfo): _120.RequestInfoAmino;
@@ -254,22 +255,22 @@ export declare namespace tendermint {
                 chainId?: string;
                 consensusParams?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
+                        maxGas?: string | number | import("long").Long;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
+                        maxAgeNumBlocks?: string | number | import("long").Long;
                         maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
+                            seconds?: string | number | import("long").Long;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
                     };
                     validator?: {
                         pubKeyTypes?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        appVersion?: string | number | import("long").Long;
                     };
                 };
                 validators?: {
@@ -277,10 +278,10 @@ export declare namespace tendermint {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    power?: string | number | import("long").default;
+                    power?: string | number | import("long").Long;
                 }[];
                 appStateBytes?: Uint8Array;
-                initialHeight?: string | number | import("long").default;
+                initialHeight?: string | number | import("long").Long;
             }): _120.RequestInitChain;
             fromAmino(object: _120.RequestInitChainAmino): _120.RequestInitChain;
             toAmino(message: _120.RequestInitChain): _120.RequestInitChainAmino;
@@ -298,7 +299,7 @@ export declare namespace tendermint {
             fromPartial(object: {
                 data?: Uint8Array;
                 path?: string;
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 prove?: boolean;
             }): _120.RequestQuery;
             fromAmino(object: _120.RequestQueryAmino): _120.RequestQuery;
@@ -318,11 +319,11 @@ export declare namespace tendermint {
                 hash?: Uint8Array;
                 header?: {
                     version?: {
-                        block?: string | number | import("long").default;
-                        app?: string | number | import("long").default;
+                        block?: string | number | import("long").Long;
+                        app?: string | number | import("long").Long;
                     };
                     chainId?: string;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     time?: Date;
                     lastBlockId?: {
                         hash?: Uint8Array;
@@ -346,7 +347,7 @@ export declare namespace tendermint {
                     votes?: {
                         validator?: {
                             address?: Uint8Array;
-                            power?: string | number | import("long").default;
+                            power?: string | number | import("long").Long;
                         };
                         signedLastBlock?: boolean;
                     }[];
@@ -355,11 +356,11 @@ export declare namespace tendermint {
                     type?: _120.EvidenceType;
                     validator?: {
                         address?: Uint8Array;
-                        power?: string | number | import("long").default;
+                        power?: string | number | import("long").Long;
                     };
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     time?: Date;
-                    totalVotingPower?: string | number | import("long").default;
+                    totalVotingPower?: string | number | import("long").Long;
                 }[];
             }): _120.RequestBeginBlock;
             fromAmino(object: _120.RequestBeginBlockAmino): _120.RequestBeginBlock;
@@ -409,7 +410,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.RequestEndBlock;
             toJSON(message: _120.RequestEndBlock): unknown;
             fromPartial(object: {
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
             }): _120.RequestEndBlock;
             fromAmino(object: _120.RequestEndBlockAmino): _120.RequestEndBlock;
             toAmino(message: _120.RequestEndBlock): _120.RequestEndBlockAmino;
@@ -454,7 +455,7 @@ export declare namespace tendermint {
             toJSON(message: _120.RequestOfferSnapshot): unknown;
             fromPartial(object: {
                 snapshot?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     format?: number;
                     chunks?: number;
                     hash?: Uint8Array;
@@ -476,7 +477,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.RequestLoadSnapshotChunk;
             toJSON(message: _120.RequestLoadSnapshotChunk): unknown;
             fromPartial(object: {
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 format?: number;
                 chunk?: number;
             }): _120.RequestLoadSnapshotChunk;
@@ -522,8 +523,8 @@ export declare namespace tendermint {
                 info?: {
                     data?: string;
                     version?: string;
-                    appVersion?: string | number | import("long").default;
-                    lastBlockHeight?: string | number | import("long").default;
+                    appVersion?: string | number | import("long").Long;
+                    lastBlockHeight?: string | number | import("long").Long;
                     lastBlockAppHash?: Uint8Array;
                 };
                 setOption?: {
@@ -534,22 +535,22 @@ export declare namespace tendermint {
                 initChain?: {
                     consensusParams?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
+                            maxGas?: string | number | import("long").Long;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
+                            maxAgeNumBlocks?: string | number | import("long").Long;
                             maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
+                                seconds?: string | number | import("long").Long;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
                         };
                         validator?: {
                             pubKeyTypes?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            appVersion?: string | number | import("long").Long;
                         };
                     };
                     validators?: {
@@ -557,7 +558,7 @@ export declare namespace tendermint {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        power?: string | number | import("long").default;
+                        power?: string | number | import("long").Long;
                     }[];
                     appHash?: Uint8Array;
                 };
@@ -565,7 +566,7 @@ export declare namespace tendermint {
                     code?: number;
                     log?: string;
                     info?: string;
-                    index?: string | number | import("long").default;
+                    index?: string | number | import("long").Long;
                     key?: Uint8Array;
                     value?: Uint8Array;
                     proofOps?: {
@@ -575,7 +576,7 @@ export declare namespace tendermint {
                             data?: Uint8Array;
                         }[];
                     };
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     codespace?: string;
                 };
                 beginBlock?: {
@@ -593,8 +594,8 @@ export declare namespace tendermint {
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gasWanted?: string | number | import("long").Long;
+                    gasUsed?: string | number | import("long").Long;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -610,8 +611,8 @@ export declare namespace tendermint {
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gasWanted?: string | number | import("long").Long;
+                    gasUsed?: string | number | import("long").Long;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -628,26 +629,26 @@ export declare namespace tendermint {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        power?: string | number | import("long").default;
+                        power?: string | number | import("long").Long;
                     }[];
                     consensusParamUpdates?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
+                            maxGas?: string | number | import("long").Long;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
+                            maxAgeNumBlocks?: string | number | import("long").Long;
                             maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
+                                seconds?: string | number | import("long").Long;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            maxBytes?: string | number | import("long").Long;
                         };
                         validator?: {
                             pubKeyTypes?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            appVersion?: string | number | import("long").Long;
                         };
                     };
                     events?: {
@@ -661,11 +662,11 @@ export declare namespace tendermint {
                 };
                 commit?: {
                     data?: Uint8Array;
-                    retainHeight?: string | number | import("long").default;
+                    retainHeight?: string | number | import("long").Long;
                 };
                 listSnapshots?: {
                     snapshots?: {
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         format?: number;
                         chunks?: number;
                         hash?: Uint8Array;
@@ -746,8 +747,8 @@ export declare namespace tendermint {
             fromPartial(object: {
                 data?: string;
                 version?: string;
-                appVersion?: string | number | import("long").default;
-                lastBlockHeight?: string | number | import("long").default;
+                appVersion?: string | number | import("long").Long;
+                lastBlockHeight?: string | number | import("long").Long;
                 lastBlockAppHash?: Uint8Array;
             }): _120.ResponseInfo;
             fromAmino(object: _120.ResponseInfoAmino): _120.ResponseInfo;
@@ -784,22 +785,22 @@ export declare namespace tendermint {
             fromPartial(object: {
                 consensusParams?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
+                        maxGas?: string | number | import("long").Long;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
+                        maxAgeNumBlocks?: string | number | import("long").Long;
                         maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
+                            seconds?: string | number | import("long").Long;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
                     };
                     validator?: {
                         pubKeyTypes?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        appVersion?: string | number | import("long").Long;
                     };
                 };
                 validators?: {
@@ -807,7 +808,7 @@ export declare namespace tendermint {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    power?: string | number | import("long").default;
+                    power?: string | number | import("long").Long;
                 }[];
                 appHash?: Uint8Array;
             }): _120.ResponseInitChain;
@@ -828,7 +829,7 @@ export declare namespace tendermint {
                 code?: number;
                 log?: string;
                 info?: string;
-                index?: string | number | import("long").default;
+                index?: string | number | import("long").Long;
                 key?: Uint8Array;
                 value?: Uint8Array;
                 proofOps?: {
@@ -838,7 +839,7 @@ export declare namespace tendermint {
                         data?: Uint8Array;
                     }[];
                 };
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 codespace?: string;
             }): _120.ResponseQuery;
             fromAmino(object: _120.ResponseQueryAmino): _120.ResponseQuery;
@@ -882,8 +883,8 @@ export declare namespace tendermint {
                 data?: Uint8Array;
                 log?: string;
                 info?: string;
-                gasWanted?: string | number | import("long").default;
-                gasUsed?: string | number | import("long").default;
+                gasWanted?: string | number | import("long").Long;
+                gasUsed?: string | number | import("long").Long;
                 events?: {
                     type?: string;
                     attributes?: {
@@ -912,8 +913,8 @@ export declare namespace tendermint {
                 data?: Uint8Array;
                 log?: string;
                 info?: string;
-                gasWanted?: string | number | import("long").default;
-                gasUsed?: string | number | import("long").default;
+                gasWanted?: string | number | import("long").Long;
+                gasUsed?: string | number | import("long").Long;
                 events?: {
                     type?: string;
                     attributes?: {
@@ -943,26 +944,26 @@ export declare namespace tendermint {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    power?: string | number | import("long").default;
+                    power?: string | number | import("long").Long;
                 }[];
                 consensusParamUpdates?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
+                        maxGas?: string | number | import("long").Long;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
+                        maxAgeNumBlocks?: string | number | import("long").Long;
                         maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
+                            seconds?: string | number | import("long").Long;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        maxBytes?: string | number | import("long").Long;
                     };
                     validator?: {
                         pubKeyTypes?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        appVersion?: string | number | import("long").Long;
                     };
                 };
                 events?: {
@@ -989,7 +990,7 @@ export declare namespace tendermint {
             toJSON(message: _120.ResponseCommit): unknown;
             fromPartial(object: {
                 data?: Uint8Array;
-                retainHeight?: string | number | import("long").default;
+                retainHeight?: string | number | import("long").Long;
             }): _120.ResponseCommit;
             fromAmino(object: _120.ResponseCommitAmino): _120.ResponseCommit;
             toAmino(message: _120.ResponseCommit): _120.ResponseCommitAmino;
@@ -1006,7 +1007,7 @@ export declare namespace tendermint {
             toJSON(message: _120.ResponseListSnapshots): unknown;
             fromPartial(object: {
                 snapshots?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     format?: number;
                     chunks?: number;
                     hash?: Uint8Array;
@@ -1078,22 +1079,22 @@ export declare namespace tendermint {
             toJSON(message: _120.ConsensusParams): unknown;
             fromPartial(object: {
                 block?: {
-                    maxBytes?: string | number | import("long").default;
-                    maxGas?: string | number | import("long").default;
+                    maxBytes?: string | number | import("long").Long;
+                    maxGas?: string | number | import("long").Long;
                 };
                 evidence?: {
-                    maxAgeNumBlocks?: string | number | import("long").default;
+                    maxAgeNumBlocks?: string | number | import("long").Long;
                     maxAgeDuration?: {
-                        seconds?: string | number | import("long").default;
+                        seconds?: string | number | import("long").Long;
                         nanos?: number;
                     };
-                    maxBytes?: string | number | import("long").default;
+                    maxBytes?: string | number | import("long").Long;
                 };
                 validator?: {
                     pubKeyTypes?: string[];
                 };
                 version?: {
-                    appVersion?: string | number | import("long").default;
+                    appVersion?: string | number | import("long").Long;
                 };
             }): _120.ConsensusParams;
             fromAmino(object: _120.ConsensusParamsAmino): _120.ConsensusParams;
@@ -1110,8 +1111,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.BlockParams;
             toJSON(message: _120.BlockParams): unknown;
             fromPartial(object: {
-                maxBytes?: string | number | import("long").default;
-                maxGas?: string | number | import("long").default;
+                maxBytes?: string | number | import("long").Long;
+                maxGas?: string | number | import("long").Long;
             }): _120.BlockParams;
             fromAmino(object: _120.BlockParamsAmino): _120.BlockParams;
             toAmino(message: _120.BlockParams): _120.BlockParamsAmino;
@@ -1131,7 +1132,7 @@ export declare namespace tendermint {
                 votes?: {
                     validator?: {
                         address?: Uint8Array;
-                        power?: string | number | import("long").default;
+                        power?: string | number | import("long").Long;
                     };
                     signedLastBlock?: boolean;
                 }[];
@@ -1189,7 +1190,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.TxResult;
             toJSON(message: _120.TxResult): unknown;
             fromPartial(object: {
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 index?: number;
                 tx?: Uint8Array;
                 result?: {
@@ -1197,8 +1198,8 @@ export declare namespace tendermint {
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gasWanted?: string | number | import("long").Long;
+                    gasUsed?: string | number | import("long").Long;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -1225,7 +1226,7 @@ export declare namespace tendermint {
             toJSON(message: _120.Validator): unknown;
             fromPartial(object: {
                 address?: Uint8Array;
-                power?: string | number | import("long").default;
+                power?: string | number | import("long").Long;
             }): _120.Validator;
             fromAmino(object: _120.ValidatorAmino): _120.Validator;
             toAmino(message: _120.Validator): _120.ValidatorAmino;
@@ -1245,7 +1246,7 @@ export declare namespace tendermint {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
-                power?: string | number | import("long").default;
+                power?: string | number | import("long").Long;
             }): _120.ValidatorUpdate;
             fromAmino(object: _120.ValidatorUpdateAmino): _120.ValidatorUpdate;
             toAmino(message: _120.ValidatorUpdate): _120.ValidatorUpdateAmino;
@@ -1263,7 +1264,7 @@ export declare namespace tendermint {
             fromPartial(object: {
                 validator?: {
                     address?: Uint8Array;
-                    power?: string | number | import("long").default;
+                    power?: string | number | import("long").Long;
                 };
                 signedLastBlock?: boolean;
             }): _120.VoteInfo;
@@ -1284,11 +1285,11 @@ export declare namespace tendermint {
                 type?: _120.EvidenceType;
                 validator?: {
                     address?: Uint8Array;
-                    power?: string | number | import("long").default;
+                    power?: string | number | import("long").Long;
                 };
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 time?: Date;
-                totalVotingPower?: string | number | import("long").default;
+                totalVotingPower?: string | number | import("long").Long;
             }): _120.Evidence;
             fromAmino(object: _120.EvidenceAmino): _120.Evidence;
             toAmino(message: _120.Evidence): _120.EvidenceAmino;
@@ -1304,7 +1305,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.Snapshot;
             toJSON(message: _120.Snapshot): unknown;
             fromPartial(object: {
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 format?: number;
                 chunks?: number;
                 hash?: Uint8Array;
@@ -1326,8 +1327,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _122.Proof;
             toJSON(message: _122.Proof): unknown;
             fromPartial(object: {
-                total?: string | number | import("long").default;
-                index?: string | number | import("long").default;
+                total?: string | number | import("long").Long;
+                index?: string | number | import("long").Long;
                 leafHash?: Uint8Array;
                 aunts?: Uint8Array[];
             }): _122.Proof;
@@ -1347,8 +1348,8 @@ export declare namespace tendermint {
             fromPartial(object: {
                 key?: Uint8Array;
                 proof?: {
-                    total?: string | number | import("long").default;
-                    index?: string | number | import("long").default;
+                    total?: string | number | import("long").Long;
+                    index?: string | number | import("long").Long;
                     leafHash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
@@ -1443,8 +1444,8 @@ export declare namespace tendermint {
                 fromJSON(object: any): _123.BitArray;
                 toJSON(message: _123.BitArray): unknown;
                 fromPartial(object: {
-                    bits?: string | number | import("long").default;
-                    elems?: (string | number | import("long").default)[];
+                    bits?: string | number | import("long").Long;
+                    elems?: (string | number | import("long").Long)[];
                 }): _123.BitArray;
                 fromAmino(object: _123.BitArrayAmino): _123.BitArray;
                 toAmino(message: _123.BitArray): _123.BitArrayAmino;
@@ -1463,9 +1464,9 @@ export declare namespace tendermint {
             fromJSON(object: any): _124.ProtocolVersion;
             toJSON(message: _124.ProtocolVersion): unknown;
             fromPartial(object: {
-                p2p?: string | number | import("long").default;
-                block?: string | number | import("long").default;
-                app?: string | number | import("long").default;
+                p2p?: string | number | import("long").Long;
+                block?: string | number | import("long").Long;
+                app?: string | number | import("long").Long;
             }): _124.ProtocolVersion;
             fromAmino(object: _124.ProtocolVersionAmino): _124.ProtocolVersion;
             toAmino(message: _124.ProtocolVersion): _124.ProtocolVersionAmino;
@@ -1482,9 +1483,9 @@ export declare namespace tendermint {
             toJSON(message: _124.NodeInfo): unknown;
             fromPartial(object: {
                 protocolVersion?: {
-                    p2p?: string | number | import("long").default;
-                    block?: string | number | import("long").default;
-                    app?: string | number | import("long").default;
+                    p2p?: string | number | import("long").Long;
+                    block?: string | number | import("long").Long;
+                    app?: string | number | import("long").Long;
                 };
                 nodeId?: string;
                 listenAddr?: string;
@@ -1578,8 +1579,8 @@ export declare namespace tendermint {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    votingPower?: string | number | import("long").Long;
+                    proposerPriority?: string | number | import("long").Long;
                 }[];
                 proposer?: {
                     address?: Uint8Array;
@@ -1587,10 +1588,10 @@ export declare namespace tendermint {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    votingPower?: string | number | import("long").Long;
+                    proposerPriority?: string | number | import("long").Long;
                 };
-                totalVotingPower?: string | number | import("long").default;
+                totalVotingPower?: string | number | import("long").Long;
             }): _129.ValidatorSet;
             fromAmino(object: _129.ValidatorSetAmino): _129.ValidatorSet;
             toAmino(message: _129.ValidatorSet): _129.ValidatorSetAmino;
@@ -1611,8 +1612,8 @@ export declare namespace tendermint {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
-                votingPower?: string | number | import("long").default;
-                proposerPriority?: string | number | import("long").default;
+                votingPower?: string | number | import("long").Long;
+                proposerPriority?: string | number | import("long").Long;
             }): _129.Validator;
             fromAmino(object: _129.ValidatorAmino): _129.Validator;
             toAmino(message: _129.Validator): _129.ValidatorAmino;
@@ -1632,7 +1633,7 @@ export declare namespace tendermint {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
-                votingPower?: string | number | import("long").default;
+                votingPower?: string | number | import("long").Long;
             }): _129.SimpleValidator;
             fromAmino(object: _129.SimpleValidatorAmino): _129.SimpleValidator;
             toAmino(message: _129.SimpleValidator): _129.SimpleValidatorAmino;
@@ -1678,8 +1679,8 @@ export declare namespace tendermint {
                 index?: number;
                 bytes?: Uint8Array;
                 proof?: {
-                    total?: string | number | import("long").default;
-                    index?: string | number | import("long").default;
+                    total?: string | number | import("long").Long;
+                    index?: string | number | import("long").Long;
                     leafHash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
@@ -1719,11 +1720,11 @@ export declare namespace tendermint {
             toJSON(message: _128.Header): unknown;
             fromPartial(object: {
                 version?: {
-                    block?: string | number | import("long").default;
-                    app?: string | number | import("long").default;
+                    block?: string | number | import("long").Long;
+                    app?: string | number | import("long").Long;
                 };
                 chainId?: string;
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 time?: Date;
                 lastBlockId?: {
                     hash?: Uint8Array;
@@ -1773,7 +1774,7 @@ export declare namespace tendermint {
             toJSON(message: _128.Vote): unknown;
             fromPartial(object: {
                 type?: _128.SignedMsgType;
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 round?: number;
                 blockId?: {
                     hash?: Uint8Array;
@@ -1801,7 +1802,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _128.Commit;
             toJSON(message: _128.Commit): unknown;
             fromPartial(object: {
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 round?: number;
                 blockId?: {
                     hash?: Uint8Array;
@@ -1851,7 +1852,7 @@ export declare namespace tendermint {
             toJSON(message: _128.Proposal): unknown;
             fromPartial(object: {
                 type?: _128.SignedMsgType;
-                height?: string | number | import("long").default;
+                height?: string | number | import("long").Long;
                 round?: number;
                 polRound?: number;
                 blockId?: {
@@ -1880,11 +1881,11 @@ export declare namespace tendermint {
             fromPartial(object: {
                 header?: {
                     version?: {
-                        block?: string | number | import("long").default;
-                        app?: string | number | import("long").default;
+                        block?: string | number | import("long").Long;
+                        app?: string | number | import("long").Long;
                     };
                     chainId?: string;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     time?: Date;
                     lastBlockId?: {
                         hash?: Uint8Array;
@@ -1904,7 +1905,7 @@ export declare namespace tendermint {
                     proposerAddress?: Uint8Array;
                 };
                 commit?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     round?: number;
                     blockId?: {
                         hash?: Uint8Array;
@@ -1938,11 +1939,11 @@ export declare namespace tendermint {
                 signedHeader?: {
                     header?: {
                         version?: {
-                            block?: string | number | import("long").default;
-                            app?: string | number | import("long").default;
+                            block?: string | number | import("long").Long;
+                            app?: string | number | import("long").Long;
                         };
                         chainId?: string;
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         time?: Date;
                         lastBlockId?: {
                             hash?: Uint8Array;
@@ -1962,7 +1963,7 @@ export declare namespace tendermint {
                         proposerAddress?: Uint8Array;
                     };
                     commit?: {
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         round?: number;
                         blockId?: {
                             hash?: Uint8Array;
@@ -1986,8 +1987,8 @@ export declare namespace tendermint {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        votingPower?: string | number | import("long").Long;
+                        proposerPriority?: string | number | import("long").Long;
                     }[];
                     proposer?: {
                         address?: Uint8Array;
@@ -1995,10 +1996,10 @@ export declare namespace tendermint {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        votingPower?: string | number | import("long").Long;
+                        proposerPriority?: string | number | import("long").Long;
                     };
-                    totalVotingPower?: string | number | import("long").default;
+                    totalVotingPower?: string | number | import("long").Long;
                 };
             }): _128.LightBlock;
             fromAmino(object: _128.LightBlockAmino): _128.LightBlock;
@@ -2022,14 +2023,14 @@ export declare namespace tendermint {
                         hash?: Uint8Array;
                     };
                 };
-                blockSize?: string | number | import("long").default;
+                blockSize?: string | number | import("long").Long;
                 header?: {
                     version?: {
-                        block?: string | number | import("long").default;
-                        app?: string | number | import("long").default;
+                        block?: string | number | import("long").Long;
+                        app?: string | number | import("long").Long;
                     };
                     chainId?: string;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     time?: Date;
                     lastBlockId?: {
                         hash?: Uint8Array;
@@ -2048,7 +2049,7 @@ export declare namespace tendermint {
                     evidenceHash?: Uint8Array;
                     proposerAddress?: Uint8Array;
                 };
-                numTxs?: string | number | import("long").default;
+                numTxs?: string | number | import("long").Long;
             }): _128.BlockMeta;
             fromAmino(object: _128.BlockMetaAmino): _128.BlockMeta;
             toAmino(message: _128.BlockMeta): _128.BlockMetaAmino;
@@ -2067,8 +2068,8 @@ export declare namespace tendermint {
                 rootHash?: Uint8Array;
                 data?: Uint8Array;
                 proof?: {
-                    total?: string | number | import("long").default;
-                    index?: string | number | import("long").default;
+                    total?: string | number | import("long").Long;
+                    index?: string | number | import("long").Long;
                     leafHash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
@@ -2088,23 +2089,23 @@ export declare namespace tendermint {
             toJSON(message: _127.ConsensusParams): unknown;
             fromPartial(object: {
                 block?: {
-                    maxBytes?: string | number | import("long").default;
-                    maxGas?: string | number | import("long").default;
-                    timeIotaMs?: string | number | import("long").default;
+                    maxBytes?: string | number | import("long").Long;
+                    maxGas?: string | number | import("long").Long;
+                    timeIotaMs?: string | number | import("long").Long;
                 };
                 evidence?: {
-                    maxAgeNumBlocks?: string | number | import("long").default;
+                    maxAgeNumBlocks?: string | number | import("long").Long;
                     maxAgeDuration?: {
-                        seconds?: string | number | import("long").default;
+                        seconds?: string | number | import("long").Long;
                         nanos?: number;
                     };
-                    maxBytes?: string | number | import("long").default;
+                    maxBytes?: string | number | import("long").Long;
                 };
                 validator?: {
                     pubKeyTypes?: string[];
                 };
                 version?: {
-                    appVersion?: string | number | import("long").default;
+                    appVersion?: string | number | import("long").Long;
                 };
             }): _127.ConsensusParams;
             fromAmino(object: _127.ConsensusParamsAmino): _127.ConsensusParams;
@@ -2121,9 +2122,9 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.BlockParams;
             toJSON(message: _127.BlockParams): unknown;
             fromPartial(object: {
-                maxBytes?: string | number | import("long").default;
-                maxGas?: string | number | import("long").default;
-                timeIotaMs?: string | number | import("long").default;
+                maxBytes?: string | number | import("long").Long;
+                maxGas?: string | number | import("long").Long;
+                timeIotaMs?: string | number | import("long").Long;
             }): _127.BlockParams;
             fromAmino(object: _127.BlockParamsAmino): _127.BlockParams;
             toAmino(message: _127.BlockParams): _127.BlockParamsAmino;
@@ -2139,12 +2140,12 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.EvidenceParams;
             toJSON(message: _127.EvidenceParams): unknown;
             fromPartial(object: {
-                maxAgeNumBlocks?: string | number | import("long").default;
+                maxAgeNumBlocks?: string | number | import("long").Long;
                 maxAgeDuration?: {
-                    seconds?: string | number | import("long").default;
+                    seconds?: string | number | import("long").Long;
                     nanos?: number;
                 };
-                maxBytes?: string | number | import("long").default;
+                maxBytes?: string | number | import("long").Long;
             }): _127.EvidenceParams;
             fromAmino(object: _127.EvidenceParamsAmino): _127.EvidenceParams;
             toAmino(message: _127.EvidenceParams): _127.EvidenceParamsAmino;
@@ -2176,7 +2177,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.VersionParams;
             toJSON(message: _127.VersionParams): unknown;
             fromPartial(object: {
-                appVersion?: string | number | import("long").default;
+                appVersion?: string | number | import("long").Long;
             }): _127.VersionParams;
             fromAmino(object: _127.VersionParamsAmino): _127.VersionParams;
             toAmino(message: _127.VersionParams): _127.VersionParamsAmino;
@@ -2192,8 +2193,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.HashedParams;
             toJSON(message: _127.HashedParams): unknown;
             fromPartial(object: {
-                blockMaxBytes?: string | number | import("long").default;
-                blockMaxGas?: string | number | import("long").default;
+                blockMaxBytes?: string | number | import("long").Long;
+                blockMaxGas?: string | number | import("long").Long;
             }): _127.HashedParams;
             fromAmino(object: _127.HashedParamsAmino): _127.HashedParams;
             toAmino(message: _127.HashedParams): _127.HashedParamsAmino;
@@ -2212,7 +2213,7 @@ export declare namespace tendermint {
                 duplicateVoteEvidence?: {
                     voteA?: {
                         type?: _128.SignedMsgType;
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         round?: number;
                         blockId?: {
                             hash?: Uint8Array;
@@ -2228,7 +2229,7 @@ export declare namespace tendermint {
                     };
                     voteB?: {
                         type?: _128.SignedMsgType;
-                        height?: string | number | import("long").default;
+                        height?: string | number | import("long").Long;
                         round?: number;
                         blockId?: {
                             hash?: Uint8Array;
@@ -2242,8 +2243,8 @@ export declare namespace tendermint {
                         validatorIndex?: number;
                         signature?: Uint8Array;
                     };
-                    totalVotingPower?: string | number | import("long").default;
-                    validatorPower?: string | number | import("long").default;
+                    totalVotingPower?: string | number | import("long").Long;
+                    validatorPower?: string | number | import("long").Long;
                     timestamp?: Date;
                 };
                 lightClientAttackEvidence?: {
@@ -2251,11 +2252,11 @@ export declare namespace tendermint {
                         signedHeader?: {
                             header?: {
                                 version?: {
-                                    block?: string | number | import("long").default;
-                                    app?: string | number | import("long").default;
+                                    block?: string | number | import("long").Long;
+                                    app?: string | number | import("long").Long;
                                 };
                                 chainId?: string;
-                                height?: string | number | import("long").default;
+                                height?: string | number | import("long").Long;
                                 time?: Date;
                                 lastBlockId?: {
                                     hash?: Uint8Array;
@@ -2275,7 +2276,7 @@ export declare namespace tendermint {
                                 proposerAddress?: Uint8Array;
                             };
                             commit?: {
-                                height?: string | number | import("long").default;
+                                height?: string | number | import("long").Long;
                                 round?: number;
                                 blockId?: {
                                     hash?: Uint8Array;
@@ -2299,8 +2300,8 @@ export declare namespace tendermint {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                votingPower?: string | number | import("long").Long;
+                                proposerPriority?: string | number | import("long").Long;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
@@ -2308,23 +2309,23 @@ export declare namespace tendermint {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                votingPower?: string | number | import("long").Long;
+                                proposerPriority?: string | number | import("long").Long;
                             };
-                            totalVotingPower?: string | number | import("long").default;
+                            totalVotingPower?: string | number | import("long").Long;
                         };
                     };
-                    commonHeight?: string | number | import("long").default;
+                    commonHeight?: string | number | import("long").Long;
                     byzantineValidators?: {
                         address?: Uint8Array;
                         pubKey?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        votingPower?: string | number | import("long").Long;
+                        proposerPriority?: string | number | import("long").Long;
                     }[];
-                    totalVotingPower?: string | number | import("long").default;
+                    totalVotingPower?: string | number | import("long").Long;
                     timestamp?: Date;
                 };
             }): _126.Evidence;
@@ -2344,7 +2345,7 @@ export declare namespace tendermint {
             fromPartial(object: {
                 voteA?: {
                     type?: _128.SignedMsgType;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     round?: number;
                     blockId?: {
                         hash?: Uint8Array;
@@ -2360,7 +2361,7 @@ export declare namespace tendermint {
                 };
                 voteB?: {
                     type?: _128.SignedMsgType;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     round?: number;
                     blockId?: {
                         hash?: Uint8Array;
@@ -2374,8 +2375,8 @@ export declare namespace tendermint {
                     validatorIndex?: number;
                     signature?: Uint8Array;
                 };
-                totalVotingPower?: string | number | import("long").default;
-                validatorPower?: string | number | import("long").default;
+                totalVotingPower?: string | number | import("long").Long;
+                validatorPower?: string | number | import("long").Long;
                 timestamp?: Date;
             }): _126.DuplicateVoteEvidence;
             fromAmino(object: _126.DuplicateVoteEvidenceAmino): _126.DuplicateVoteEvidence;
@@ -2396,11 +2397,11 @@ export declare namespace tendermint {
                     signedHeader?: {
                         header?: {
                             version?: {
-                                block?: string | number | import("long").default;
-                                app?: string | number | import("long").default;
+                                block?: string | number | import("long").Long;
+                                app?: string | number | import("long").Long;
                             };
                             chainId?: string;
-                            height?: string | number | import("long").default;
+                            height?: string | number | import("long").Long;
                             time?: Date;
                             lastBlockId?: {
                                 hash?: Uint8Array;
@@ -2420,7 +2421,7 @@ export declare namespace tendermint {
                             proposerAddress?: Uint8Array;
                         };
                         commit?: {
-                            height?: string | number | import("long").default;
+                            height?: string | number | import("long").Long;
                             round?: number;
                             blockId?: {
                                 hash?: Uint8Array;
@@ -2444,8 +2445,8 @@ export declare namespace tendermint {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            votingPower?: string | number | import("long").Long;
+                            proposerPriority?: string | number | import("long").Long;
                         }[];
                         proposer?: {
                             address?: Uint8Array;
@@ -2453,23 +2454,23 @@ export declare namespace tendermint {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            votingPower?: string | number | import("long").Long;
+                            proposerPriority?: string | number | import("long").Long;
                         };
-                        totalVotingPower?: string | number | import("long").default;
+                        totalVotingPower?: string | number | import("long").Long;
                     };
                 };
-                commonHeight?: string | number | import("long").default;
+                commonHeight?: string | number | import("long").Long;
                 byzantineValidators?: {
                     address?: Uint8Array;
                     pubKey?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    votingPower?: string | number | import("long").Long;
+                    proposerPriority?: string | number | import("long").Long;
                 }[];
-                totalVotingPower?: string | number | import("long").default;
+                totalVotingPower?: string | number | import("long").Long;
                 timestamp?: Date;
             }): _126.LightClientAttackEvidence;
             fromAmino(object: _126.LightClientAttackEvidenceAmino): _126.LightClientAttackEvidence;
@@ -2490,7 +2491,7 @@ export declare namespace tendermint {
                     duplicateVoteEvidence?: {
                         voteA?: {
                             type?: _128.SignedMsgType;
-                            height?: string | number | import("long").default;
+                            height?: string | number | import("long").Long;
                             round?: number;
                             blockId?: {
                                 hash?: Uint8Array;
@@ -2506,7 +2507,7 @@ export declare namespace tendermint {
                         };
                         voteB?: {
                             type?: _128.SignedMsgType;
-                            height?: string | number | import("long").default;
+                            height?: string | number | import("long").Long;
                             round?: number;
                             blockId?: {
                                 hash?: Uint8Array;
@@ -2520,8 +2521,8 @@ export declare namespace tendermint {
                             validatorIndex?: number;
                             signature?: Uint8Array;
                         };
-                        totalVotingPower?: string | number | import("long").default;
-                        validatorPower?: string | number | import("long").default;
+                        totalVotingPower?: string | number | import("long").Long;
+                        validatorPower?: string | number | import("long").Long;
                         timestamp?: Date;
                     };
                     lightClientAttackEvidence?: {
@@ -2529,11 +2530,11 @@ export declare namespace tendermint {
                             signedHeader?: {
                                 header?: {
                                     version?: {
-                                        block?: string | number | import("long").default;
-                                        app?: string | number | import("long").default;
+                                        block?: string | number | import("long").Long;
+                                        app?: string | number | import("long").Long;
                                     };
                                     chainId?: string;
-                                    height?: string | number | import("long").default;
+                                    height?: string | number | import("long").Long;
                                     time?: Date;
                                     lastBlockId?: {
                                         hash?: Uint8Array;
@@ -2553,7 +2554,7 @@ export declare namespace tendermint {
                                     proposerAddress?: Uint8Array;
                                 };
                                 commit?: {
-                                    height?: string | number | import("long").default;
+                                    height?: string | number | import("long").Long;
                                     round?: number;
                                     blockId?: {
                                         hash?: Uint8Array;
@@ -2577,8 +2578,8 @@ export declare namespace tendermint {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").default;
-                                    proposerPriority?: string | number | import("long").default;
+                                    votingPower?: string | number | import("long").Long;
+                                    proposerPriority?: string | number | import("long").Long;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
@@ -2586,23 +2587,23 @@ export declare namespace tendermint {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").default;
-                                    proposerPriority?: string | number | import("long").default;
+                                    votingPower?: string | number | import("long").Long;
+                                    proposerPriority?: string | number | import("long").Long;
                                 };
-                                totalVotingPower?: string | number | import("long").default;
+                                totalVotingPower?: string | number | import("long").Long;
                             };
                         };
-                        commonHeight?: string | number | import("long").default;
+                        commonHeight?: string | number | import("long").Long;
                         byzantineValidators?: {
                             address?: Uint8Array;
                             pubKey?: {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            votingPower?: string | number | import("long").Long;
+                            proposerPriority?: string | number | import("long").Long;
                         }[];
-                        totalVotingPower?: string | number | import("long").default;
+                        totalVotingPower?: string | number | import("long").Long;
                         timestamp?: Date;
                     };
                 }[];
@@ -2623,11 +2624,11 @@ export declare namespace tendermint {
             fromPartial(object: {
                 header?: {
                     version?: {
-                        block?: string | number | import("long").default;
-                        app?: string | number | import("long").default;
+                        block?: string | number | import("long").Long;
+                        app?: string | number | import("long").Long;
                     };
                     chainId?: string;
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     time?: Date;
                     lastBlockId?: {
                         hash?: Uint8Array;
@@ -2654,7 +2655,7 @@ export declare namespace tendermint {
                         duplicateVoteEvidence?: {
                             voteA?: {
                                 type?: _128.SignedMsgType;
-                                height?: string | number | import("long").default;
+                                height?: string | number | import("long").Long;
                                 round?: number;
                                 blockId?: {
                                     hash?: Uint8Array;
@@ -2670,7 +2671,7 @@ export declare namespace tendermint {
                             };
                             voteB?: {
                                 type?: _128.SignedMsgType;
-                                height?: string | number | import("long").default;
+                                height?: string | number | import("long").Long;
                                 round?: number;
                                 blockId?: {
                                     hash?: Uint8Array;
@@ -2684,8 +2685,8 @@ export declare namespace tendermint {
                                 validatorIndex?: number;
                                 signature?: Uint8Array;
                             };
-                            totalVotingPower?: string | number | import("long").default;
-                            validatorPower?: string | number | import("long").default;
+                            totalVotingPower?: string | number | import("long").Long;
+                            validatorPower?: string | number | import("long").Long;
                             timestamp?: Date;
                         };
                         lightClientAttackEvidence?: {
@@ -2693,11 +2694,11 @@ export declare namespace tendermint {
                                 signedHeader?: {
                                     header?: {
                                         version?: {
-                                            block?: string | number | import("long").default;
-                                            app?: string | number | import("long").default;
+                                            block?: string | number | import("long").Long;
+                                            app?: string | number | import("long").Long;
                                         };
                                         chainId?: string;
-                                        height?: string | number | import("long").default;
+                                        height?: string | number | import("long").Long;
                                         time?: Date;
                                         lastBlockId?: {
                                             hash?: Uint8Array;
@@ -2717,7 +2718,7 @@ export declare namespace tendermint {
                                         proposerAddress?: Uint8Array;
                                     };
                                     commit?: {
-                                        height?: string | number | import("long").default;
+                                        height?: string | number | import("long").Long;
                                         round?: number;
                                         blockId?: {
                                             hash?: Uint8Array;
@@ -2741,8 +2742,8 @@ export declare namespace tendermint {
                                             ed25519?: Uint8Array;
                                             secp256k1?: Uint8Array;
                                         };
-                                        votingPower?: string | number | import("long").default;
-                                        proposerPriority?: string | number | import("long").default;
+                                        votingPower?: string | number | import("long").Long;
+                                        proposerPriority?: string | number | import("long").Long;
                                     }[];
                                     proposer?: {
                                         address?: Uint8Array;
@@ -2750,29 +2751,29 @@ export declare namespace tendermint {
                                             ed25519?: Uint8Array;
                                             secp256k1?: Uint8Array;
                                         };
-                                        votingPower?: string | number | import("long").default;
-                                        proposerPriority?: string | number | import("long").default;
+                                        votingPower?: string | number | import("long").Long;
+                                        proposerPriority?: string | number | import("long").Long;
                                     };
-                                    totalVotingPower?: string | number | import("long").default;
+                                    totalVotingPower?: string | number | import("long").Long;
                                 };
                             };
-                            commonHeight?: string | number | import("long").default;
+                            commonHeight?: string | number | import("long").Long;
                             byzantineValidators?: {
                                 address?: Uint8Array;
                                 pubKey?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                votingPower?: string | number | import("long").Long;
+                                proposerPriority?: string | number | import("long").Long;
                             }[];
-                            totalVotingPower?: string | number | import("long").default;
+                            totalVotingPower?: string | number | import("long").Long;
                             timestamp?: Date;
                         };
                     }[];
                 };
                 lastCommit?: {
-                    height?: string | number | import("long").default;
+                    height?: string | number | import("long").Long;
                     round?: number;
                     blockId?: {
                         hash?: Uint8Array;
@@ -2805,7 +2806,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _130.App;
             toJSON(message: _130.App): unknown;
             fromPartial(object: {
-                protocol?: string | number | import("long").default;
+                protocol?: string | number | import("long").Long;
                 software?: string;
             }): _130.App;
             fromAmino(object: _130.AppAmino): _130.App;
@@ -2822,8 +2823,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _130.Consensus;
             toJSON(message: _130.Consensus): unknown;
             fromPartial(object: {
-                block?: string | number | import("long").default;
-                app?: string | number | import("long").default;
+                block?: string | number | import("long").Long;
+                app?: string | number | import("long").Long;
             }): _130.Consensus;
             fromAmino(object: _130.ConsensusAmino): _130.Consensus;
             toAmino(message: _130.Consensus): _130.ConsensusAmino;

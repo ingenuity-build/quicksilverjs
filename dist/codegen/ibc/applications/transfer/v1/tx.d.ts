@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
 import { Long, DeepPartial } from "../../../../helpers";

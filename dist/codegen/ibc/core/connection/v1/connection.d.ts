@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { MerklePrefix, MerklePrefixAmino, MerklePrefixSDKType } from "../../commitment/v1/commitment";
 import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";

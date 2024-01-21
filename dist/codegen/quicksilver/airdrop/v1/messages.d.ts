@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Proof, ProofAmino, ProofSDKType } from "../../claimsmanager/v1/claimsmanager";
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Long, DeepPartial } from "../../../helpers";

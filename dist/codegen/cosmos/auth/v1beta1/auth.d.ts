@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";

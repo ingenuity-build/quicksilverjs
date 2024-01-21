@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Header, HeaderAmino, HeaderSDKType } from "../../../tendermint/types/types";
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";

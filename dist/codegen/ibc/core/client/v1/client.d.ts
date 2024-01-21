@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Plan, PlanAmino, PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade";
 import { Long, DeepPartial } from "../../../../helpers";

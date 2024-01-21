@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Channel, ChannelAmino, ChannelSDKType, Packet, PacketAmino, PacketSDKType } from "./channel";
 import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
 import { Long, DeepPartial } from "../../../../helpers";

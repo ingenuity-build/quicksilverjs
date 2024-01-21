@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
 import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
