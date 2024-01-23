@@ -71,7 +71,7 @@ telescope({
         toProto: true
       },
       parser: {
-        keepCase: false
+        keepCase: true
       }
     },
     typingsFormat: {
