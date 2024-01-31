@@ -8,12 +8,12 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface IdentifiedClientState {
     /** client identifier */
-    clientId: string;
+    client_id: string;
     /** client state */
-    clientState: Any;
+    client_state: Any;
 }
 export interface IdentifiedClientStateProtoMsg {
-    typeUrl: "/ibc.core.client.v1.IdentifiedClientState";
+    type_url: "/ibc.core.client.v1.IdentifiedClientState";
     value: Uint8Array;
 }
 /**
@@ -46,10 +46,10 @@ export interface ConsensusStateWithHeight {
     /** consensus state height */
     height: Height;
     /** consensus state */
-    consensusState: Any;
+    consensus_state: Any;
 }
 export interface ConsensusStateWithHeightProtoMsg {
-    typeUrl: "/ibc.core.client.v1.ConsensusStateWithHeight";
+    type_url: "/ibc.core.client.v1.ConsensusStateWithHeight";
     value: Uint8Array;
 }
 /**
@@ -80,12 +80,12 @@ export interface ConsensusStateWithHeightSDKType {
  */
 export interface ClientConsensusStates {
     /** client identifier */
-    clientId: string;
+    client_id: string;
     /** consensus states and their heights associated with the client */
-    consensusStates: ConsensusStateWithHeight[];
+    consensus_states: ConsensusStateWithHeight[];
 }
 export interface ClientConsensusStatesProtoMsg {
-    typeUrl: "/ibc.core.client.v1.ClientConsensusStates";
+    type_url: "/ibc.core.client.v1.ClientConsensusStates";
     value: Uint8Array;
 }
 /**
@@ -123,15 +123,15 @@ export interface ClientUpdateProposal {
     /** the description of the proposal */
     description: string;
     /** the client identifier for the client to be updated if the proposal passes */
-    subjectClientId: string;
+    subject_client_id: string;
     /**
      * the substitute client identifier for the client standing in for the subject
      * client
      */
-    substituteClientId: string;
+    substitute_client_id: string;
 }
 export interface ClientUpdateProposalProtoMsg {
-    typeUrl: "/ibc.core.client.v1.ClientUpdateProposal";
+    type_url: "/ibc.core.client.v1.ClientUpdateProposal";
     value: Uint8Array;
 }
 /**
@@ -187,10 +187,10 @@ export interface UpgradeProposal {
      * of the chain. This will allow IBC connections to persist smoothly across
      * planned chain upgrades
      */
-    upgradedClientState: Any;
+    upgraded_client_state: Any;
 }
 export interface UpgradeProposalProtoMsg {
-    typeUrl: "/ibc.core.client.v1.UpgradeProposal";
+    type_url: "/ibc.core.client.v1.UpgradeProposal";
     value: Uint8Array;
 }
 /**
@@ -240,12 +240,12 @@ export interface UpgradeProposalSDKType {
  */
 export interface Height {
     /** the revision that the client is currently on */
-    revisionNumber: Long;
+    revision_number: Long;
     /** the height within the given revision */
-    revisionHeight: Long;
+    revision_height: Long;
 }
 export interface HeightProtoMsg {
-    typeUrl: "/ibc.core.client.v1.Height";
+    type_url: "/ibc.core.client.v1.Height";
     value: Uint8Array;
 }
 /**
@@ -289,10 +289,10 @@ export interface HeightSDKType {
 /** Params defines the set of IBC light client parameters. */
 export interface Params {
     /** allowed_clients defines the list of allowed client state types. */
-    allowedClients: string[];
+    allowed_clients: string[];
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/ibc.core.client.v1.Params";
+    type_url: "/ibc.core.client.v1.Params";
     value: Uint8Array;
 }
 /** Params defines the set of IBC light client parameters. */

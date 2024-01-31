@@ -6,7 +6,7 @@ export interface GenesisState {
     queries: Query[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.GenesisState";
+    type_url: "/quicksilver.interchainquery.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the epochs module's genesis state. */

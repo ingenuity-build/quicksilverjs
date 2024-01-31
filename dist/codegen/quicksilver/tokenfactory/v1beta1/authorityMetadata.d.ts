@@ -10,7 +10,7 @@ export interface DenomAuthorityMetadata {
     admin: string;
 }
 export interface DenomAuthorityMetadataProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.DenomAuthorityMetadata";
+    type_url: "/quicksilver.tokenfactory.v1beta1.DenomAuthorityMetadata";
     value: Uint8Array;
 }
 /**

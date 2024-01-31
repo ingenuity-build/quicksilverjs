@@ -145,27 +145,27 @@ exports.Params = {
 };
 function createBaseClaim() {
     return {
-        userAddress: "",
-        chainId: "",
+        user_address: "",
+        chain_id: "",
         module: 0,
-        sourceChainId: "",
+        source_chain_id: "",
         amount: helpers_1.Long.UZERO
     };
 }
 exports.Claim = {
     typeUrl: "/quicksilver.claimsmanager.v1.Claim",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.userAddress !== "") {
-            writer.uint32(10).string(message.userAddress);
+        if (message.user_address !== "") {
+            writer.uint32(10).string(message.user_address);
         }
-        if (message.chainId !== "") {
-            writer.uint32(18).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(18).string(message.chain_id);
         }
         if (message.module !== 0) {
             writer.uint32(24).int32(message.module);
         }
-        if (message.sourceChainId !== "") {
-            writer.uint32(34).string(message.sourceChainId);
+        if (message.source_chain_id !== "") {
+            writer.uint32(34).string(message.source_chain_id);
         }
         if (!message.amount.isZero()) {
             writer.uint32(40).uint64(message.amount);
@@ -180,16 +180,16 @@ exports.Claim = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.userAddress = reader.string();
+                    message.user_address = reader.string();
                     break;
                 case 2:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 3:
                     message.module = reader.int32();
                     break;
                 case 4:
-                    message.sourceChainId = reader.string();
+                    message.source_chain_id = reader.string();
                     break;
                 case 5:
                     message.amount = reader.uint64();
@@ -203,46 +203,46 @@ exports.Claim = {
     },
     fromJSON(object) {
         return {
-            userAddress: (0, helpers_1.isSet)(object.userAddress) ? String(object.userAddress) : "",
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            user_address: (0, helpers_1.isSet)(object.user_address) ? String(object.user_address) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             module: (0, helpers_1.isSet)(object.module) ? claimTypeFromJSON(object.module) : -1,
-            sourceChainId: (0, helpers_1.isSet)(object.sourceChainId) ? String(object.sourceChainId) : "",
+            source_chain_id: (0, helpers_1.isSet)(object.source_chain_id) ? String(object.source_chain_id) : "",
             amount: (0, helpers_1.isSet)(object.amount) ? helpers_1.Long.fromValue(object.amount) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.userAddress !== undefined && (obj.userAddress = message.userAddress);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.user_address !== undefined && (obj.user_address = message.user_address);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.module !== undefined && (obj.module = claimTypeToJSON(message.module));
-        message.sourceChainId !== undefined && (obj.sourceChainId = message.sourceChainId);
+        message.source_chain_id !== undefined && (obj.source_chain_id = message.source_chain_id);
         message.amount !== undefined && (obj.amount = (message.amount || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseClaim();
-        message.userAddress = object.userAddress ?? "";
-        message.chainId = object.chainId ?? "";
+        message.user_address = object.user_address ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.module = object.module ?? 0;
-        message.sourceChainId = object.sourceChainId ?? "";
+        message.source_chain_id = object.source_chain_id ?? "";
         message.amount = object.amount !== undefined && object.amount !== null ? helpers_1.Long.fromValue(object.amount) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            userAddress: object.user_address,
-            chainId: object.chain_id,
+            user_address: object.user_address,
+            chain_id: object.chain_id,
             module: (0, helpers_1.isSet)(object.module) ? claimTypeFromJSON(object.module) : -1,
-            sourceChainId: object.source_chain_id,
+            source_chain_id: object.source_chain_id,
             amount: helpers_1.Long.fromString(object.amount)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.user_address = message.userAddress;
-        obj.chain_id = message.chainId;
+        obj.user_address = message.user_address;
+        obj.chain_id = message.chain_id;
         obj.module = message.module;
-        obj.source_chain_id = message.sourceChainId;
+        obj.source_chain_id = message.source_chain_id;
         obj.amount = message.amount ? message.amount.toString() : undefined;
         return obj;
     },
@@ -266,9 +266,9 @@ function createBaseProof() {
     return {
         key: new Uint8Array(),
         data: new Uint8Array(),
-        proofOps: proof_1.ProofOps.fromPartial({}),
+        proof_ops: proof_1.ProofOps.fromPartial({}),
         height: helpers_1.Long.ZERO,
-        proofType: ""
+        proof_type: ""
     };
 }
 exports.Proof = {
@@ -280,14 +280,14 @@ exports.Proof = {
         if (message.data.length !== 0) {
             writer.uint32(18).bytes(message.data);
         }
-        if (message.proofOps !== undefined) {
-            proof_1.ProofOps.encode(message.proofOps, writer.uint32(26).fork()).ldelim();
+        if (message.proof_ops !== undefined) {
+            proof_1.ProofOps.encode(message.proof_ops, writer.uint32(26).fork()).ldelim();
         }
         if (!message.height.isZero()) {
             writer.uint32(32).int64(message.height);
         }
-        if (message.proofType !== "") {
-            writer.uint32(42).string(message.proofType);
+        if (message.proof_type !== "") {
+            writer.uint32(42).string(message.proof_type);
         }
         return writer;
     },
@@ -305,13 +305,13 @@ exports.Proof = {
                     message.data = reader.bytes();
                     break;
                 case 3:
-                    message.proofOps = proof_1.ProofOps.decode(reader, reader.uint32());
+                    message.proof_ops = proof_1.ProofOps.decode(reader, reader.uint32());
                     break;
                 case 4:
                     message.height = reader.int64();
                     break;
                 case 5:
-                    message.proofType = reader.string();
+                    message.proof_type = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -324,45 +324,45 @@ exports.Proof = {
         return {
             key: (0, helpers_1.isSet)(object.key) ? (0, helpers_1.bytesFromBase64)(object.key) : new Uint8Array(),
             data: (0, helpers_1.isSet)(object.data) ? (0, helpers_1.bytesFromBase64)(object.data) : new Uint8Array(),
-            proofOps: (0, helpers_1.isSet)(object.proof_ops) ? proof_1.ProofOps.fromJSON(object.proof_ops) : undefined,
+            proof_ops: (0, helpers_1.isSet)(object.proof_ops) ? proof_1.ProofOps.fromJSON(object.proof_ops) : undefined,
             height: (0, helpers_1.isSet)(object.height) ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO,
-            proofType: (0, helpers_1.isSet)(object.proof_type) ? String(object.proof_type) : ""
+            proof_type: (0, helpers_1.isSet)(object.proof_type) ? String(object.proof_type) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.key !== undefined && (obj.key = (0, helpers_1.base64FromBytes)(message.key !== undefined ? message.key : new Uint8Array()));
         message.data !== undefined && (obj.data = (0, helpers_1.base64FromBytes)(message.data !== undefined ? message.data : new Uint8Array()));
-        message.proofOps !== undefined && (obj.proof_ops = message.proofOps ? proof_1.ProofOps.toJSON(message.proofOps) : undefined);
+        message.proof_ops !== undefined && (obj.proof_ops = message.proof_ops ? proof_1.ProofOps.toJSON(message.proof_ops) : undefined);
         message.height !== undefined && (obj.height = (message.height || helpers_1.Long.ZERO).toString());
-        message.proofType !== undefined && (obj.proof_type = message.proofType);
+        message.proof_type !== undefined && (obj.proof_type = message.proof_type);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseProof();
         message.key = object.key ?? new Uint8Array();
         message.data = object.data ?? new Uint8Array();
-        message.proofOps = object.proofOps !== undefined && object.proofOps !== null ? proof_1.ProofOps.fromPartial(object.proofOps) : undefined;
+        message.proof_ops = object.proof_ops !== undefined && object.proof_ops !== null ? proof_1.ProofOps.fromPartial(object.proof_ops) : undefined;
         message.height = object.height !== undefined && object.height !== null ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO;
-        message.proofType = object.proofType ?? "";
+        message.proof_type = object.proof_type ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             key: object.key,
             data: object.data,
-            proofOps: object?.proof_ops ? proof_1.ProofOps.fromAmino(object.proof_ops) : undefined,
+            proof_ops: object?.proof_ops ? proof_1.ProofOps.fromAmino(object.proof_ops) : undefined,
             height: helpers_1.Long.fromString(object.height),
-            proofType: object.proof_type
+            proof_type: object.proof_type
         };
     },
     toAmino(message) {
         const obj = {};
         obj.key = message.key;
         obj.data = message.data;
-        obj.proof_ops = message.proofOps ? proof_1.ProofOps.toAmino(message.proofOps) : undefined;
+        obj.proof_ops = message.proof_ops ? proof_1.ProofOps.toAmino(message.proof_ops) : undefined;
         obj.height = message.height ? message.height.toString() : undefined;
-        obj.proof_type = message.proofType;
+        obj.proof_type = message.proof_type;
         return obj;
     },
     fromAminoMsg(object) {

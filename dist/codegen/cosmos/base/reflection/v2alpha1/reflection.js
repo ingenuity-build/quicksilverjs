@@ -32,7 +32,7 @@ function createBaseAppDescriptor() {
         chain: exports.ChainDescriptor.fromPartial({}),
         codec: exports.CodecDescriptor.fromPartial({}),
         configuration: exports.ConfigurationDescriptor.fromPartial({}),
-        queryServices: exports.QueryServicesDescriptor.fromPartial({}),
+        query_services: exports.QueryServicesDescriptor.fromPartial({}),
         tx: exports.TxDescriptor.fromPartial({})
     };
 }
@@ -52,8 +52,8 @@ exports.AppDescriptor = {
         if (message.configuration !== undefined) {
             exports.ConfigurationDescriptor.encode(message.configuration, writer.uint32(34).fork()).ldelim();
         }
-        if (message.queryServices !== undefined) {
-            exports.QueryServicesDescriptor.encode(message.queryServices, writer.uint32(42).fork()).ldelim();
+        if (message.query_services !== undefined) {
+            exports.QueryServicesDescriptor.encode(message.query_services, writer.uint32(42).fork()).ldelim();
         }
         if (message.tx !== undefined) {
             exports.TxDescriptor.encode(message.tx, writer.uint32(50).fork()).ldelim();
@@ -80,7 +80,7 @@ exports.AppDescriptor = {
                     message.configuration = exports.ConfigurationDescriptor.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.queryServices = exports.QueryServicesDescriptor.decode(reader, reader.uint32());
+                    message.query_services = exports.QueryServicesDescriptor.decode(reader, reader.uint32());
                     break;
                 case 6:
                     message.tx = exports.TxDescriptor.decode(reader, reader.uint32());
@@ -98,7 +98,7 @@ exports.AppDescriptor = {
             chain: (0, helpers_1.isSet)(object.chain) ? exports.ChainDescriptor.fromJSON(object.chain) : undefined,
             codec: (0, helpers_1.isSet)(object.codec) ? exports.CodecDescriptor.fromJSON(object.codec) : undefined,
             configuration: (0, helpers_1.isSet)(object.configuration) ? exports.ConfigurationDescriptor.fromJSON(object.configuration) : undefined,
-            queryServices: (0, helpers_1.isSet)(object.queryServices) ? exports.QueryServicesDescriptor.fromJSON(object.queryServices) : undefined,
+            query_services: (0, helpers_1.isSet)(object.query_services) ? exports.QueryServicesDescriptor.fromJSON(object.query_services) : undefined,
             tx: (0, helpers_1.isSet)(object.tx) ? exports.TxDescriptor.fromJSON(object.tx) : undefined
         };
     },
@@ -108,7 +108,7 @@ exports.AppDescriptor = {
         message.chain !== undefined && (obj.chain = message.chain ? exports.ChainDescriptor.toJSON(message.chain) : undefined);
         message.codec !== undefined && (obj.codec = message.codec ? exports.CodecDescriptor.toJSON(message.codec) : undefined);
         message.configuration !== undefined && (obj.configuration = message.configuration ? exports.ConfigurationDescriptor.toJSON(message.configuration) : undefined);
-        message.queryServices !== undefined && (obj.queryServices = message.queryServices ? exports.QueryServicesDescriptor.toJSON(message.queryServices) : undefined);
+        message.query_services !== undefined && (obj.query_services = message.query_services ? exports.QueryServicesDescriptor.toJSON(message.query_services) : undefined);
         message.tx !== undefined && (obj.tx = message.tx ? exports.TxDescriptor.toJSON(message.tx) : undefined);
         return obj;
     },
@@ -118,7 +118,7 @@ exports.AppDescriptor = {
         message.chain = object.chain !== undefined && object.chain !== null ? exports.ChainDescriptor.fromPartial(object.chain) : undefined;
         message.codec = object.codec !== undefined && object.codec !== null ? exports.CodecDescriptor.fromPartial(object.codec) : undefined;
         message.configuration = object.configuration !== undefined && object.configuration !== null ? exports.ConfigurationDescriptor.fromPartial(object.configuration) : undefined;
-        message.queryServices = object.queryServices !== undefined && object.queryServices !== null ? exports.QueryServicesDescriptor.fromPartial(object.queryServices) : undefined;
+        message.query_services = object.query_services !== undefined && object.query_services !== null ? exports.QueryServicesDescriptor.fromPartial(object.query_services) : undefined;
         message.tx = object.tx !== undefined && object.tx !== null ? exports.TxDescriptor.fromPartial(object.tx) : undefined;
         return message;
     },
@@ -128,7 +128,7 @@ exports.AppDescriptor = {
             chain: object?.chain ? exports.ChainDescriptor.fromAmino(object.chain) : undefined,
             codec: object?.codec ? exports.CodecDescriptor.fromAmino(object.codec) : undefined,
             configuration: object?.configuration ? exports.ConfigurationDescriptor.fromAmino(object.configuration) : undefined,
-            queryServices: object?.query_services ? exports.QueryServicesDescriptor.fromAmino(object.query_services) : undefined,
+            query_services: object?.query_services ? exports.QueryServicesDescriptor.fromAmino(object.query_services) : undefined,
             tx: object?.tx ? exports.TxDescriptor.fromAmino(object.tx) : undefined
         };
     },
@@ -138,7 +138,7 @@ exports.AppDescriptor = {
         obj.chain = message.chain ? exports.ChainDescriptor.toAmino(message.chain) : undefined;
         obj.codec = message.codec ? exports.CodecDescriptor.toAmino(message.codec) : undefined;
         obj.configuration = message.configuration ? exports.ConfigurationDescriptor.toAmino(message.configuration) : undefined;
-        obj.query_services = message.queryServices ? exports.QueryServicesDescriptor.toAmino(message.queryServices) : undefined;
+        obj.query_services = message.query_services ? exports.QueryServicesDescriptor.toAmino(message.query_services) : undefined;
         obj.tx = message.tx ? exports.TxDescriptor.toAmino(message.tx) : undefined;
         return obj;
     },
@@ -266,14 +266,14 @@ exports.TxDescriptor = {
 };
 function createBaseAuthnDescriptor() {
     return {
-        signModes: []
+        sign_modes: []
     };
 }
 exports.AuthnDescriptor = {
     typeUrl: "/cosmos.base.reflection.v2alpha1.AuthnDescriptor",
     aminoType: "cosmos-sdk/AuthnDescriptor",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.signModes) {
+        for (const v of message.sign_modes) {
             exports.SigningModeDescriptor.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
@@ -286,7 +286,7 @@ exports.AuthnDescriptor = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.signModes.push(exports.SigningModeDescriptor.decode(reader, reader.uint32()));
+                    message.sign_modes.push(exports.SigningModeDescriptor.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -297,33 +297,33 @@ exports.AuthnDescriptor = {
     },
     fromJSON(object) {
         return {
-            signModes: Array.isArray(object?.signModes) ? object.signModes.map((e) => exports.SigningModeDescriptor.fromJSON(e)) : []
+            sign_modes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e) => exports.SigningModeDescriptor.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.signModes) {
-            obj.signModes = message.signModes.map(e => e ? exports.SigningModeDescriptor.toJSON(e) : undefined);
+        if (message.sign_modes) {
+            obj.sign_modes = message.sign_modes.map(e => e ? exports.SigningModeDescriptor.toJSON(e) : undefined);
         }
         else {
-            obj.signModes = [];
+            obj.sign_modes = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAuthnDescriptor();
-        message.signModes = object.signModes?.map(e => exports.SigningModeDescriptor.fromPartial(e)) || [];
+        message.sign_modes = object.sign_modes?.map(e => exports.SigningModeDescriptor.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            signModes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e) => exports.SigningModeDescriptor.fromAmino(e)) : []
+            sign_modes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e) => exports.SigningModeDescriptor.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.signModes) {
-            obj.sign_modes = message.signModes.map(e => e ? exports.SigningModeDescriptor.toAmino(e) : undefined);
+        if (message.sign_modes) {
+            obj.sign_modes = message.sign_modes.map(e => e ? exports.SigningModeDescriptor.toAmino(e) : undefined);
         }
         else {
             obj.sign_modes = [];
@@ -356,7 +356,7 @@ function createBaseSigningModeDescriptor() {
     return {
         name: "",
         number: 0,
-        authnInfoProviderMethodFullname: ""
+        authn_info_provider_method_fullname: ""
     };
 }
 exports.SigningModeDescriptor = {
@@ -369,8 +369,8 @@ exports.SigningModeDescriptor = {
         if (message.number !== 0) {
             writer.uint32(16).int32(message.number);
         }
-        if (message.authnInfoProviderMethodFullname !== "") {
-            writer.uint32(26).string(message.authnInfoProviderMethodFullname);
+        if (message.authn_info_provider_method_fullname !== "") {
+            writer.uint32(26).string(message.authn_info_provider_method_fullname);
         }
         return writer;
     },
@@ -388,7 +388,7 @@ exports.SigningModeDescriptor = {
                     message.number = reader.int32();
                     break;
                 case 3:
-                    message.authnInfoProviderMethodFullname = reader.string();
+                    message.authn_info_provider_method_fullname = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -401,35 +401,35 @@ exports.SigningModeDescriptor = {
         return {
             name: (0, helpers_1.isSet)(object.name) ? String(object.name) : "",
             number: (0, helpers_1.isSet)(object.number) ? Number(object.number) : 0,
-            authnInfoProviderMethodFullname: (0, helpers_1.isSet)(object.authnInfoProviderMethodFullname) ? String(object.authnInfoProviderMethodFullname) : ""
+            authn_info_provider_method_fullname: (0, helpers_1.isSet)(object.authn_info_provider_method_fullname) ? String(object.authn_info_provider_method_fullname) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.name !== undefined && (obj.name = message.name);
         message.number !== undefined && (obj.number = Math.round(message.number));
-        message.authnInfoProviderMethodFullname !== undefined && (obj.authnInfoProviderMethodFullname = message.authnInfoProviderMethodFullname);
+        message.authn_info_provider_method_fullname !== undefined && (obj.authn_info_provider_method_fullname = message.authn_info_provider_method_fullname);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseSigningModeDescriptor();
         message.name = object.name ?? "";
         message.number = object.number ?? 0;
-        message.authnInfoProviderMethodFullname = object.authnInfoProviderMethodFullname ?? "";
+        message.authn_info_provider_method_fullname = object.authn_info_provider_method_fullname ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             name: object.name,
             number: object.number,
-            authnInfoProviderMethodFullname: object.authn_info_provider_method_fullname
+            authn_info_provider_method_fullname: object.authn_info_provider_method_fullname
         };
     },
     toAmino(message) {
         const obj = {};
         obj.name = message.name;
         obj.number = message.number;
-        obj.authn_info_provider_method_fullname = message.authnInfoProviderMethodFullname;
+        obj.authn_info_provider_method_fullname = message.authn_info_provider_method_fullname;
         return obj;
     },
     fromAminoMsg(object) {
@@ -623,8 +623,8 @@ exports.CodecDescriptor = {
 function createBaseInterfaceDescriptor() {
     return {
         fullname: "",
-        interfaceAcceptingMessages: [],
-        interfaceImplementers: []
+        interface_accepting_messages: [],
+        interface_implementers: []
     };
 }
 exports.InterfaceDescriptor = {
@@ -634,10 +634,10 @@ exports.InterfaceDescriptor = {
         if (message.fullname !== "") {
             writer.uint32(10).string(message.fullname);
         }
-        for (const v of message.interfaceAcceptingMessages) {
+        for (const v of message.interface_accepting_messages) {
             exports.InterfaceAcceptingMessageDescriptor.encode(v, writer.uint32(18).fork()).ldelim();
         }
-        for (const v of message.interfaceImplementers) {
+        for (const v of message.interface_implementers) {
             exports.InterfaceImplementerDescriptor.encode(v, writer.uint32(26).fork()).ldelim();
         }
         return writer;
@@ -653,10 +653,10 @@ exports.InterfaceDescriptor = {
                     message.fullname = reader.string();
                     break;
                 case 2:
-                    message.interfaceAcceptingMessages.push(exports.InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()));
+                    message.interface_accepting_messages.push(exports.InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()));
                     break;
                 case 3:
-                    message.interfaceImplementers.push(exports.InterfaceImplementerDescriptor.decode(reader, reader.uint32()));
+                    message.interface_implementers.push(exports.InterfaceImplementerDescriptor.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -668,52 +668,52 @@ exports.InterfaceDescriptor = {
     fromJSON(object) {
         return {
             fullname: (0, helpers_1.isSet)(object.fullname) ? String(object.fullname) : "",
-            interfaceAcceptingMessages: Array.isArray(object?.interfaceAcceptingMessages) ? object.interfaceAcceptingMessages.map((e) => exports.InterfaceAcceptingMessageDescriptor.fromJSON(e)) : [],
-            interfaceImplementers: Array.isArray(object?.interfaceImplementers) ? object.interfaceImplementers.map((e) => exports.InterfaceImplementerDescriptor.fromJSON(e)) : []
+            interface_accepting_messages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e) => exports.InterfaceAcceptingMessageDescriptor.fromJSON(e)) : [],
+            interface_implementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e) => exports.InterfaceImplementerDescriptor.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.fullname !== undefined && (obj.fullname = message.fullname);
-        if (message.interfaceAcceptingMessages) {
-            obj.interfaceAcceptingMessages = message.interfaceAcceptingMessages.map(e => e ? exports.InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined);
+        if (message.interface_accepting_messages) {
+            obj.interface_accepting_messages = message.interface_accepting_messages.map(e => e ? exports.InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined);
         }
         else {
-            obj.interfaceAcceptingMessages = [];
+            obj.interface_accepting_messages = [];
         }
-        if (message.interfaceImplementers) {
-            obj.interfaceImplementers = message.interfaceImplementers.map(e => e ? exports.InterfaceImplementerDescriptor.toJSON(e) : undefined);
+        if (message.interface_implementers) {
+            obj.interface_implementers = message.interface_implementers.map(e => e ? exports.InterfaceImplementerDescriptor.toJSON(e) : undefined);
         }
         else {
-            obj.interfaceImplementers = [];
+            obj.interface_implementers = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseInterfaceDescriptor();
         message.fullname = object.fullname ?? "";
-        message.interfaceAcceptingMessages = object.interfaceAcceptingMessages?.map(e => exports.InterfaceAcceptingMessageDescriptor.fromPartial(e)) || [];
-        message.interfaceImplementers = object.interfaceImplementers?.map(e => exports.InterfaceImplementerDescriptor.fromPartial(e)) || [];
+        message.interface_accepting_messages = object.interface_accepting_messages?.map(e => exports.InterfaceAcceptingMessageDescriptor.fromPartial(e)) || [];
+        message.interface_implementers = object.interface_implementers?.map(e => exports.InterfaceImplementerDescriptor.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             fullname: object.fullname,
-            interfaceAcceptingMessages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e) => exports.InterfaceAcceptingMessageDescriptor.fromAmino(e)) : [],
-            interfaceImplementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e) => exports.InterfaceImplementerDescriptor.fromAmino(e)) : []
+            interface_accepting_messages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e) => exports.InterfaceAcceptingMessageDescriptor.fromAmino(e)) : [],
+            interface_implementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e) => exports.InterfaceImplementerDescriptor.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.fullname = message.fullname;
-        if (message.interfaceAcceptingMessages) {
-            obj.interface_accepting_messages = message.interfaceAcceptingMessages.map(e => e ? exports.InterfaceAcceptingMessageDescriptor.toAmino(e) : undefined);
+        if (message.interface_accepting_messages) {
+            obj.interface_accepting_messages = message.interface_accepting_messages.map(e => e ? exports.InterfaceAcceptingMessageDescriptor.toAmino(e) : undefined);
         }
         else {
             obj.interface_accepting_messages = [];
         }
-        if (message.interfaceImplementers) {
-            obj.interface_implementers = message.interfaceImplementers.map(e => e ? exports.InterfaceImplementerDescriptor.toAmino(e) : undefined);
+        if (message.interface_implementers) {
+            obj.interface_implementers = message.interface_implementers.map(e => e ? exports.InterfaceImplementerDescriptor.toAmino(e) : undefined);
         }
         else {
             obj.interface_implementers = [];
@@ -745,7 +745,7 @@ exports.InterfaceDescriptor = {
 function createBaseInterfaceImplementerDescriptor() {
     return {
         fullname: "",
-        typeUrl: ""
+        type_url: ""
     };
 }
 exports.InterfaceImplementerDescriptor = {
@@ -755,8 +755,8 @@ exports.InterfaceImplementerDescriptor = {
         if (message.fullname !== "") {
             writer.uint32(10).string(message.fullname);
         }
-        if (message.typeUrl !== "") {
-            writer.uint32(18).string(message.typeUrl);
+        if (message.type_url !== "") {
+            writer.uint32(18).string(message.type_url);
         }
         return writer;
     },
@@ -771,7 +771,7 @@ exports.InterfaceImplementerDescriptor = {
                     message.fullname = reader.string();
                     break;
                 case 2:
-                    message.typeUrl = reader.string();
+                    message.type_url = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -783,31 +783,31 @@ exports.InterfaceImplementerDescriptor = {
     fromJSON(object) {
         return {
             fullname: (0, helpers_1.isSet)(object.fullname) ? String(object.fullname) : "",
-            typeUrl: (0, helpers_1.isSet)(object.typeUrl) ? String(object.typeUrl) : ""
+            type_url: (0, helpers_1.isSet)(object.type_url) ? String(object.type_url) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.fullname !== undefined && (obj.fullname = message.fullname);
-        message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
+        message.type_url !== undefined && (obj.type_url = message.type_url);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseInterfaceImplementerDescriptor();
         message.fullname = object.fullname ?? "";
-        message.typeUrl = object.typeUrl ?? "";
+        message.type_url = object.type_url ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             fullname: object.fullname,
-            typeUrl: object.type_url
+            type_url: object.type_url
         };
     },
     toAmino(message) {
         const obj = {};
         obj.fullname = message.fullname;
-        obj.type_url = message.typeUrl;
+        obj.type_url = message.type_url;
         return obj;
     },
     fromAminoMsg(object) {
@@ -835,7 +835,7 @@ exports.InterfaceImplementerDescriptor = {
 function createBaseInterfaceAcceptingMessageDescriptor() {
     return {
         fullname: "",
-        fieldDescriptorNames: []
+        field_descriptor_names: []
     };
 }
 exports.InterfaceAcceptingMessageDescriptor = {
@@ -845,7 +845,7 @@ exports.InterfaceAcceptingMessageDescriptor = {
         if (message.fullname !== "") {
             writer.uint32(10).string(message.fullname);
         }
-        for (const v of message.fieldDescriptorNames) {
+        for (const v of message.field_descriptor_names) {
             writer.uint32(18).string(v);
         }
         return writer;
@@ -861,7 +861,7 @@ exports.InterfaceAcceptingMessageDescriptor = {
                     message.fullname = reader.string();
                     break;
                 case 2:
-                    message.fieldDescriptorNames.push(reader.string());
+                    message.field_descriptor_names.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -873,37 +873,37 @@ exports.InterfaceAcceptingMessageDescriptor = {
     fromJSON(object) {
         return {
             fullname: (0, helpers_1.isSet)(object.fullname) ? String(object.fullname) : "",
-            fieldDescriptorNames: Array.isArray(object?.fieldDescriptorNames) ? object.fieldDescriptorNames.map((e) => String(e)) : []
+            field_descriptor_names: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e) => String(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.fullname !== undefined && (obj.fullname = message.fullname);
-        if (message.fieldDescriptorNames) {
-            obj.fieldDescriptorNames = message.fieldDescriptorNames.map(e => e);
+        if (message.field_descriptor_names) {
+            obj.field_descriptor_names = message.field_descriptor_names.map(e => e);
         }
         else {
-            obj.fieldDescriptorNames = [];
+            obj.field_descriptor_names = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseInterfaceAcceptingMessageDescriptor();
         message.fullname = object.fullname ?? "";
-        message.fieldDescriptorNames = object.fieldDescriptorNames?.map(e => e) || [];
+        message.field_descriptor_names = object.field_descriptor_names?.map(e => e) || [];
         return message;
     },
     fromAmino(object) {
         return {
             fullname: object.fullname,
-            fieldDescriptorNames: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e) => e) : []
+            field_descriptor_names: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.fullname = message.fullname;
-        if (message.fieldDescriptorNames) {
-            obj.field_descriptor_names = message.fieldDescriptorNames.map(e => e);
+        if (message.field_descriptor_names) {
+            obj.field_descriptor_names = message.field_descriptor_names.map(e => e);
         }
         else {
             obj.field_descriptor_names = [];
@@ -934,15 +934,15 @@ exports.InterfaceAcceptingMessageDescriptor = {
 };
 function createBaseConfigurationDescriptor() {
     return {
-        bech32AccountAddressPrefix: ""
+        bech32_account_address_prefix: ""
     };
 }
 exports.ConfigurationDescriptor = {
     typeUrl: "/cosmos.base.reflection.v2alpha1.ConfigurationDescriptor",
     aminoType: "cosmos-sdk/ConfigurationDescriptor",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.bech32AccountAddressPrefix !== "") {
-            writer.uint32(10).string(message.bech32AccountAddressPrefix);
+        if (message.bech32_account_address_prefix !== "") {
+            writer.uint32(10).string(message.bech32_account_address_prefix);
         }
         return writer;
     },
@@ -954,7 +954,7 @@ exports.ConfigurationDescriptor = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bech32AccountAddressPrefix = reader.string();
+                    message.bech32_account_address_prefix = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -965,27 +965,27 @@ exports.ConfigurationDescriptor = {
     },
     fromJSON(object) {
         return {
-            bech32AccountAddressPrefix: (0, helpers_1.isSet)(object.bech32AccountAddressPrefix) ? String(object.bech32AccountAddressPrefix) : ""
+            bech32_account_address_prefix: (0, helpers_1.isSet)(object.bech32_account_address_prefix) ? String(object.bech32_account_address_prefix) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.bech32AccountAddressPrefix !== undefined && (obj.bech32AccountAddressPrefix = message.bech32AccountAddressPrefix);
+        message.bech32_account_address_prefix !== undefined && (obj.bech32_account_address_prefix = message.bech32_account_address_prefix);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseConfigurationDescriptor();
-        message.bech32AccountAddressPrefix = object.bech32AccountAddressPrefix ?? "";
+        message.bech32_account_address_prefix = object.bech32_account_address_prefix ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            bech32AccountAddressPrefix: object.bech32_account_address_prefix
+            bech32_account_address_prefix: object.bech32_account_address_prefix
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.bech32_account_address_prefix = message.bech32AccountAddressPrefix;
+        obj.bech32_account_address_prefix = message.bech32_account_address_prefix;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1012,15 +1012,15 @@ exports.ConfigurationDescriptor = {
 };
 function createBaseMsgDescriptor() {
     return {
-        msgTypeUrl: ""
+        msg_type_url: ""
     };
 }
 exports.MsgDescriptor = {
     typeUrl: "/cosmos.base.reflection.v2alpha1.MsgDescriptor",
     aminoType: "cosmos-sdk/MsgDescriptor",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.msgTypeUrl !== "") {
-            writer.uint32(10).string(message.msgTypeUrl);
+        if (message.msg_type_url !== "") {
+            writer.uint32(10).string(message.msg_type_url);
         }
         return writer;
     },
@@ -1032,7 +1032,7 @@ exports.MsgDescriptor = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.msgTypeUrl = reader.string();
+                    message.msg_type_url = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1043,27 +1043,27 @@ exports.MsgDescriptor = {
     },
     fromJSON(object) {
         return {
-            msgTypeUrl: (0, helpers_1.isSet)(object.msgTypeUrl) ? String(object.msgTypeUrl) : ""
+            msg_type_url: (0, helpers_1.isSet)(object.msg_type_url) ? String(object.msg_type_url) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+        message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgDescriptor();
-        message.msgTypeUrl = object.msgTypeUrl ?? "";
+        message.msg_type_url = object.msg_type_url ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            msgTypeUrl: object.msg_type_url
+            msg_type_url: object.msg_type_url
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.msg_type_url = message.msgTypeUrl;
+        obj.msg_type_url = message.msg_type_url;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1936,14 +1936,14 @@ exports.GetTxDescriptorResponse = {
 };
 function createBaseQueryServicesDescriptor() {
     return {
-        queryServices: []
+        query_services: []
     };
 }
 exports.QueryServicesDescriptor = {
     typeUrl: "/cosmos.base.reflection.v2alpha1.QueryServicesDescriptor",
     aminoType: "cosmos-sdk/QueryServicesDescriptor",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.queryServices) {
+        for (const v of message.query_services) {
             exports.QueryServiceDescriptor.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
@@ -1956,7 +1956,7 @@ exports.QueryServicesDescriptor = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.queryServices.push(exports.QueryServiceDescriptor.decode(reader, reader.uint32()));
+                    message.query_services.push(exports.QueryServiceDescriptor.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1967,33 +1967,33 @@ exports.QueryServicesDescriptor = {
     },
     fromJSON(object) {
         return {
-            queryServices: Array.isArray(object?.queryServices) ? object.queryServices.map((e) => exports.QueryServiceDescriptor.fromJSON(e)) : []
+            query_services: Array.isArray(object?.query_services) ? object.query_services.map((e) => exports.QueryServiceDescriptor.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.queryServices) {
-            obj.queryServices = message.queryServices.map(e => e ? exports.QueryServiceDescriptor.toJSON(e) : undefined);
+        if (message.query_services) {
+            obj.query_services = message.query_services.map(e => e ? exports.QueryServiceDescriptor.toJSON(e) : undefined);
         }
         else {
-            obj.queryServices = [];
+            obj.query_services = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryServicesDescriptor();
-        message.queryServices = object.queryServices?.map(e => exports.QueryServiceDescriptor.fromPartial(e)) || [];
+        message.query_services = object.query_services?.map(e => exports.QueryServiceDescriptor.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            queryServices: Array.isArray(object?.query_services) ? object.query_services.map((e) => exports.QueryServiceDescriptor.fromAmino(e)) : []
+            query_services: Array.isArray(object?.query_services) ? object.query_services.map((e) => exports.QueryServiceDescriptor.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.queryServices) {
-            obj.query_services = message.queryServices.map(e => e ? exports.QueryServiceDescriptor.toAmino(e) : undefined);
+        if (message.query_services) {
+            obj.query_services = message.query_services.map(e => e ? exports.QueryServiceDescriptor.toAmino(e) : undefined);
         }
         else {
             obj.query_services = [];
@@ -2025,7 +2025,7 @@ exports.QueryServicesDescriptor = {
 function createBaseQueryServiceDescriptor() {
     return {
         fullname: "",
-        isModule: false,
+        is_module: false,
         methods: []
     };
 }
@@ -2036,8 +2036,8 @@ exports.QueryServiceDescriptor = {
         if (message.fullname !== "") {
             writer.uint32(10).string(message.fullname);
         }
-        if (message.isModule === true) {
-            writer.uint32(16).bool(message.isModule);
+        if (message.is_module === true) {
+            writer.uint32(16).bool(message.is_module);
         }
         for (const v of message.methods) {
             exports.QueryMethodDescriptor.encode(v, writer.uint32(26).fork()).ldelim();
@@ -2055,7 +2055,7 @@ exports.QueryServiceDescriptor = {
                     message.fullname = reader.string();
                     break;
                 case 2:
-                    message.isModule = reader.bool();
+                    message.is_module = reader.bool();
                     break;
                 case 3:
                     message.methods.push(exports.QueryMethodDescriptor.decode(reader, reader.uint32()));
@@ -2070,14 +2070,14 @@ exports.QueryServiceDescriptor = {
     fromJSON(object) {
         return {
             fullname: (0, helpers_1.isSet)(object.fullname) ? String(object.fullname) : "",
-            isModule: (0, helpers_1.isSet)(object.isModule) ? Boolean(object.isModule) : false,
+            is_module: (0, helpers_1.isSet)(object.is_module) ? Boolean(object.is_module) : false,
             methods: Array.isArray(object?.methods) ? object.methods.map((e) => exports.QueryMethodDescriptor.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.fullname !== undefined && (obj.fullname = message.fullname);
-        message.isModule !== undefined && (obj.isModule = message.isModule);
+        message.is_module !== undefined && (obj.is_module = message.is_module);
         if (message.methods) {
             obj.methods = message.methods.map(e => e ? exports.QueryMethodDescriptor.toJSON(e) : undefined);
         }
@@ -2089,21 +2089,21 @@ exports.QueryServiceDescriptor = {
     fromPartial(object) {
         const message = createBaseQueryServiceDescriptor();
         message.fullname = object.fullname ?? "";
-        message.isModule = object.isModule ?? false;
+        message.is_module = object.is_module ?? false;
         message.methods = object.methods?.map(e => exports.QueryMethodDescriptor.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             fullname: object.fullname,
-            isModule: object.is_module,
+            is_module: object.is_module,
             methods: Array.isArray(object?.methods) ? object.methods.map((e) => exports.QueryMethodDescriptor.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.fullname = message.fullname;
-        obj.is_module = message.isModule;
+        obj.is_module = message.is_module;
         if (message.methods) {
             obj.methods = message.methods.map(e => e ? exports.QueryMethodDescriptor.toAmino(e) : undefined);
         }
@@ -2137,7 +2137,7 @@ exports.QueryServiceDescriptor = {
 function createBaseQueryMethodDescriptor() {
     return {
         name: "",
-        fullQueryPath: ""
+        full_query_path: ""
     };
 }
 exports.QueryMethodDescriptor = {
@@ -2147,8 +2147,8 @@ exports.QueryMethodDescriptor = {
         if (message.name !== "") {
             writer.uint32(10).string(message.name);
         }
-        if (message.fullQueryPath !== "") {
-            writer.uint32(18).string(message.fullQueryPath);
+        if (message.full_query_path !== "") {
+            writer.uint32(18).string(message.full_query_path);
         }
         return writer;
     },
@@ -2163,7 +2163,7 @@ exports.QueryMethodDescriptor = {
                     message.name = reader.string();
                     break;
                 case 2:
-                    message.fullQueryPath = reader.string();
+                    message.full_query_path = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2175,31 +2175,31 @@ exports.QueryMethodDescriptor = {
     fromJSON(object) {
         return {
             name: (0, helpers_1.isSet)(object.name) ? String(object.name) : "",
-            fullQueryPath: (0, helpers_1.isSet)(object.fullQueryPath) ? String(object.fullQueryPath) : ""
+            full_query_path: (0, helpers_1.isSet)(object.full_query_path) ? String(object.full_query_path) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.name !== undefined && (obj.name = message.name);
-        message.fullQueryPath !== undefined && (obj.fullQueryPath = message.fullQueryPath);
+        message.full_query_path !== undefined && (obj.full_query_path = message.full_query_path);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryMethodDescriptor();
         message.name = object.name ?? "";
-        message.fullQueryPath = object.fullQueryPath ?? "";
+        message.full_query_path = object.full_query_path ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             name: object.name,
-            fullQueryPath: object.full_query_path
+            full_query_path: object.full_query_path
         };
     },
     toAmino(message) {
         const obj = {};
         obj.name = message.name;
-        obj.full_query_path = message.fullQueryPath;
+        obj.full_query_path = message.full_query_path;
         return obj;
     },
     fromAminoMsg(object) {

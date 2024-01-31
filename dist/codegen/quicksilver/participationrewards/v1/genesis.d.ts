@@ -4,10 +4,10 @@ import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the participationrewards module's genesis state. */
 export interface GenesisState {
     params: Params;
-    protocolData: KeyedProtocolData[];
+    protocol_data: KeyedProtocolData[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.GenesisState";
+    type_url: "/quicksilver.participationrewards.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the participationrewards module's genesis state. */

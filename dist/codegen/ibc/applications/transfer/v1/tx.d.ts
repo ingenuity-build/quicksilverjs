@@ -9,9 +9,9 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface MsgTransfer {
     /** the port on which the packet will be sent */
-    sourcePort: string;
+    source_port: string;
     /** the channel by which the packet will be sent */
-    sourceChannel: string;
+    source_channel: string;
     /** the tokens to be transferred */
     token: Coin;
     /** the sender address */
@@ -22,15 +22,15 @@ export interface MsgTransfer {
      * Timeout height relative to the current block height.
      * The timeout is disabled when set to 0.
      */
-    timeoutHeight: Height;
+    timeout_height: Height;
     /**
      * Timeout timestamp (in nanoseconds) relative to the current block timestamp.
      * The timeout is disabled when set to 0.
      */
-    timeoutTimestamp: Long;
+    timeout_timestamp: Long;
 }
 export interface MsgTransferProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.MsgTransfer";
+    type_url: "/ibc.applications.transfer.v1.MsgTransfer";
     value: Uint8Array;
 }
 /**
@@ -82,7 +82,7 @@ export interface MsgTransferSDKType {
 export interface MsgTransferResponse {
 }
 export interface MsgTransferResponseProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse";
+    type_url: "/ibc.applications.transfer.v1.MsgTransferResponse";
     value: Uint8Array;
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */

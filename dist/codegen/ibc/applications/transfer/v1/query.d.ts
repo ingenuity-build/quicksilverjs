@@ -11,7 +11,7 @@ export interface QueryDenomTraceRequest {
     hash: string;
 }
 export interface QueryDenomTraceRequestProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryDenomTraceRequest";
+    type_url: "/ibc.applications.transfer.v1.QueryDenomTraceRequest";
     value: Uint8Array;
 }
 /**
@@ -39,10 +39,10 @@ export interface QueryDenomTraceRequestSDKType {
  */
 export interface QueryDenomTraceResponse {
     /** denom_trace returns the requested denomination trace information. */
-    denomTrace: DenomTrace;
+    denom_trace: DenomTrace;
 }
 export interface QueryDenomTraceResponseProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryDenomTraceResponse";
+    type_url: "/ibc.applications.transfer.v1.QueryDenomTraceResponse";
     value: Uint8Array;
 }
 /**
@@ -73,7 +73,7 @@ export interface QueryDenomTracesRequest {
     pagination: PageRequest;
 }
 export interface QueryDenomTracesRequestProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryDenomTracesRequest";
+    type_url: "/ibc.applications.transfer.v1.QueryDenomTracesRequest";
     value: Uint8Array;
 }
 /**
@@ -101,12 +101,12 @@ export interface QueryDenomTracesRequestSDKType {
  */
 export interface QueryDenomTracesResponse {
     /** denom_traces returns all denominations trace information. */
-    denomTraces: DenomTrace[];
+    denom_traces: DenomTrace[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryDenomTracesResponseProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryDenomTracesResponse";
+    type_url: "/ibc.applications.transfer.v1.QueryDenomTracesResponse";
     value: Uint8Array;
 }
 /**
@@ -135,7 +135,7 @@ export interface QueryDenomTracesResponseSDKType {
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryParamsRequest";
+    type_url: "/ibc.applications.transfer.v1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -154,7 +154,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.QueryParamsResponse";
+    type_url: "/ibc.applications.transfer.v1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */

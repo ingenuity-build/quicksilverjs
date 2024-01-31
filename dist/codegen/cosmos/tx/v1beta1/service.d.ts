@@ -53,10 +53,10 @@ export interface GetTxsEventRequest {
     events: string[];
     /** pagination defines a pagination for the request. */
     pagination: PageRequest;
-    orderBy: OrderBy;
+    order_by: OrderBy;
 }
 export interface GetTxsEventRequestProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetTxsEventRequest";
+    type_url: "/cosmos.tx.v1beta1.GetTxsEventRequest";
     value: Uint8Array;
 }
 /**
@@ -91,12 +91,12 @@ export interface GetTxsEventResponse {
     /** txs is the list of queried transactions. */
     txs: Tx[];
     /** tx_responses is the list of queried TxResponses. */
-    txResponses: TxResponse[];
+    tx_responses: TxResponse[];
     /** pagination defines a pagination for the response. */
     pagination: PageResponse;
 }
 export interface GetTxsEventResponseProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetTxsEventResponse";
+    type_url: "/cosmos.tx.v1beta1.GetTxsEventResponse";
     value: Uint8Array;
 }
 /**
@@ -130,11 +130,11 @@ export interface GetTxsEventResponseSDKType {
  */
 export interface BroadcastTxRequest {
     /** tx_bytes is the raw transaction. */
-    txBytes: Uint8Array;
+    tx_bytes: Uint8Array;
     mode: BroadcastMode;
 }
 export interface BroadcastTxRequestProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.BroadcastTxRequest";
+    type_url: "/cosmos.tx.v1beta1.BroadcastTxRequest";
     value: Uint8Array;
 }
 /**
@@ -164,10 +164,10 @@ export interface BroadcastTxRequestSDKType {
  */
 export interface BroadcastTxResponse {
     /** tx_response is the queried TxResponses. */
-    txResponse: TxResponse;
+    tx_response: TxResponse;
 }
 export interface BroadcastTxResponseProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.BroadcastTxResponse";
+    type_url: "/cosmos.tx.v1beta1.BroadcastTxResponse";
     value: Uint8Array;
 }
 /**
@@ -205,10 +205,10 @@ export interface SimulateRequest {
      *
      * Since: cosmos-sdk 0.43
      */
-    txBytes: Uint8Array;
+    tx_bytes: Uint8Array;
 }
 export interface SimulateRequestProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.SimulateRequest";
+    type_url: "/cosmos.tx.v1beta1.SimulateRequest";
     value: Uint8Array;
 }
 /**
@@ -248,12 +248,12 @@ export interface SimulateRequestSDKType {
  */
 export interface SimulateResponse {
     /** gas_info is the information about gas used in the simulation. */
-    gasInfo: GasInfo;
+    gas_info: GasInfo;
     /** result is the result of the simulation. */
     result: Result;
 }
 export interface SimulateResponseProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.SimulateResponse";
+    type_url: "/cosmos.tx.v1beta1.SimulateResponse";
     value: Uint8Array;
 }
 /**
@@ -287,7 +287,7 @@ export interface GetTxRequest {
     hash: string;
 }
 export interface GetTxRequestProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetTxRequest";
+    type_url: "/cosmos.tx.v1beta1.GetTxRequest";
     value: Uint8Array;
 }
 /**
@@ -314,10 +314,10 @@ export interface GetTxResponse {
     /** tx is the queried transaction. */
     tx: Tx;
     /** tx_response is the queried TxResponses. */
-    txResponse: TxResponse;
+    tx_response: TxResponse;
 }
 export interface GetTxResponseProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetTxResponse";
+    type_url: "/cosmos.tx.v1beta1.GetTxResponse";
     value: Uint8Array;
 }
 /** GetTxResponse is the response type for the Service.GetTx method. */
@@ -349,7 +349,7 @@ export interface GetBlockWithTxsRequest {
     pagination: PageRequest;
 }
 export interface GetBlockWithTxsRequestProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetBlockWithTxsRequest";
+    type_url: "/cosmos.tx.v1beta1.GetBlockWithTxsRequest";
     value: Uint8Array;
 }
 /**
@@ -386,13 +386,13 @@ export interface GetBlockWithTxsRequestSDKType {
 export interface GetBlockWithTxsResponse {
     /** txs are the transactions in the block. */
     txs: Tx[];
-    blockId: BlockID;
+    block_id: BlockID;
     block: Block;
     /** pagination defines a pagination for the response. */
     pagination: PageResponse;
 }
 export interface GetBlockWithTxsResponseProtoMsg {
-    typeUrl: "/cosmos.tx.v1beta1.GetBlockWithTxsResponse";
+    type_url: "/cosmos.tx.v1beta1.GetBlockWithTxsResponse";
     value: Uint8Array;
 }
 /**

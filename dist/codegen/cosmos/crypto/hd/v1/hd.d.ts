@@ -5,7 +5,7 @@ export interface BIP44Params {
     /** purpose is a constant set to 44' (or 0x8000002C) following the BIP43 recommendation */
     purpose: number;
     /** coin_type is a constant that improves privacy */
-    coinType: number;
+    coin_type: number;
     /** account splits the key space into independent user identities */
     account: number;
     /**
@@ -14,10 +14,10 @@ export interface BIP44Params {
      */
     change: boolean;
     /** address_index is used as child index in BIP32 derivation */
-    addressIndex: number;
+    address_index: number;
 }
 export interface BIP44ParamsProtoMsg {
-    typeUrl: "/cosmos.crypto.hd.v1.BIP44Params";
+    type_url: "/cosmos.crypto.hd.v1.BIP44Params";
     value: Uint8Array;
 }
 /** BIP44Params is used as path field in ledger item in Record. */

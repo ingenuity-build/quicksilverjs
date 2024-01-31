@@ -17,7 +17,7 @@ class LCDQueryClient {
     }
     /* ClientState queries an IBC light client. */
     async clientState(params) {
-        const endpoint = `ibc/core/client/v1/client_states/${params.clientId}`;
+        const endpoint = `ibc/core/client/v1/client_states/${params.client_id}`;
         return await this.req.get(endpoint);
     }
     /* ClientStates queries all the IBC light clients of a chain. */
@@ -39,10 +39,10 @@ class LCDQueryClient {
         const options = {
             params: {}
         };
-        if (typeof params?.latestHeight !== "undefined") {
-            options.params.latest_height = params.latestHeight;
+        if (typeof params?.latest_height !== "undefined") {
+            options.params.latest_height = params.latest_height;
         }
-        const endpoint = `ibc/core/client/v1/consensus_states/${params.clientId}/revision/${params.revisionNumber}/height/${params.revisionHeight}`;
+        const endpoint = `ibc/core/client/v1/consensus_states/${params.client_id}/revision/${params.revision_number}/height/${params.revision_height}`;
         return await this.req.get(endpoint, options);
     }
     /* ConsensusStates queries all the consensus state associated with a given
@@ -54,12 +54,12 @@ class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);
         }
-        const endpoint = `ibc/core/client/v1/consensus_states/${params.clientId}`;
+        const endpoint = `ibc/core/client/v1/consensus_states/${params.client_id}`;
         return await this.req.get(endpoint, options);
     }
     /* Status queries the status of an IBC client. */
     async clientStatus(params) {
-        const endpoint = `ibc/core/client/v1/client_status/${params.clientId}`;
+        const endpoint = `ibc/core/client/v1/client_status/${params.client_id}`;
         return await this.req.get(endpoint);
     }
     /* ClientParams queries all parameters of the ibc client. */

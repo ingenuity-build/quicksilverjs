@@ -14,10 +14,10 @@ export interface GenesisState {
      */
     supply: Coin[];
     /** denom_metadata defines the metadata of the differents coins. */
-    denomMetadata: Metadata[];
+    denom_metadata: Metadata[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.GenesisState";
+    type_url: "/cosmos.bank.v1beta1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the bank module's genesis state. */
@@ -56,7 +56,7 @@ export interface Balance {
     coins: Coin[];
 }
 export interface BalanceProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Balance";
+    type_url: "/cosmos.bank.v1beta1.Balance";
     value: Uint8Array;
 }
 /**

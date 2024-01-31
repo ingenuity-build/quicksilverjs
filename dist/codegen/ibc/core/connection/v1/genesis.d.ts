@@ -4,13 +4,13 @@ import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc connection submodule's genesis state. */
 export interface GenesisState {
     connections: IdentifiedConnection[];
-    clientConnectionPaths: ConnectionPaths[];
+    client_connection_paths: ConnectionPaths[];
     /** the sequence for the next generated connection identifier */
-    nextConnectionSequence: Long;
+    next_connection_sequence: Long;
     params: Params;
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.GenesisState";
+    type_url: "/ibc.core.connection.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the ibc connection submodule's genesis state. */

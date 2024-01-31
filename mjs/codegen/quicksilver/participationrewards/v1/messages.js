@@ -3,10 +3,10 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 function createBaseMsgSubmitClaim() {
     return {
-        userAddress: "",
+        user_address: "",
         zone: "",
-        srcZone: "",
-        claimType: 0,
+        src_zone: "",
+        claim_type: 0,
         proofs: []
     };
 }
@@ -14,17 +14,17 @@ export const MsgSubmitClaim = {
     typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
     aminoType: "quicksilver/MsgSubmitClaim",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.userAddress !== "") {
-            writer.uint32(10).string(message.userAddress);
+        if (message.user_address !== "") {
+            writer.uint32(10).string(message.user_address);
         }
         if (message.zone !== "") {
             writer.uint32(18).string(message.zone);
         }
-        if (message.srcZone !== "") {
-            writer.uint32(26).string(message.srcZone);
+        if (message.src_zone !== "") {
+            writer.uint32(26).string(message.src_zone);
         }
-        if (message.claimType !== 0) {
-            writer.uint32(32).int32(message.claimType);
+        if (message.claim_type !== 0) {
+            writer.uint32(32).int32(message.claim_type);
         }
         for (const v of message.proofs) {
             Proof.encode(v, writer.uint32(42).fork()).ldelim();
@@ -39,16 +39,16 @@ export const MsgSubmitClaim = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.userAddress = reader.string();
+                    message.user_address = reader.string();
                     break;
                 case 2:
                     message.zone = reader.string();
                     break;
                 case 3:
-                    message.srcZone = reader.string();
+                    message.src_zone = reader.string();
                     break;
                 case 4:
-                    message.claimType = reader.int32();
+                    message.claim_type = reader.int32();
                     break;
                 case 5:
                     message.proofs.push(Proof.decode(reader, reader.uint32()));
@@ -62,19 +62,19 @@ export const MsgSubmitClaim = {
     },
     fromJSON(object) {
         return {
-            userAddress: isSet(object.user_address) ? String(object.user_address) : "",
+            user_address: isSet(object.user_address) ? String(object.user_address) : "",
             zone: isSet(object.zone) ? String(object.zone) : "",
-            srcZone: isSet(object.src_zone) ? String(object.src_zone) : "",
-            claimType: isSet(object.claim_type) ? claimTypeFromJSON(object.claim_type) : -1,
+            src_zone: isSet(object.src_zone) ? String(object.src_zone) : "",
+            claim_type: isSet(object.claim_type) ? claimTypeFromJSON(object.claim_type) : -1,
             proofs: Array.isArray(object?.proofs) ? object.proofs.map((e) => Proof.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.userAddress !== undefined && (obj.user_address = message.userAddress);
+        message.user_address !== undefined && (obj.user_address = message.user_address);
         message.zone !== undefined && (obj.zone = message.zone);
-        message.srcZone !== undefined && (obj.src_zone = message.srcZone);
-        message.claimType !== undefined && (obj.claim_type = claimTypeToJSON(message.claimType));
+        message.src_zone !== undefined && (obj.src_zone = message.src_zone);
+        message.claim_type !== undefined && (obj.claim_type = claimTypeToJSON(message.claim_type));
         if (message.proofs) {
             obj.proofs = message.proofs.map(e => e ? Proof.toJSON(e) : undefined);
         }
@@ -85,28 +85,28 @@ export const MsgSubmitClaim = {
     },
     fromPartial(object) {
         const message = createBaseMsgSubmitClaim();
-        message.userAddress = object.userAddress ?? "";
+        message.user_address = object.user_address ?? "";
         message.zone = object.zone ?? "";
-        message.srcZone = object.srcZone ?? "";
-        message.claimType = object.claimType ?? 0;
+        message.src_zone = object.src_zone ?? "";
+        message.claim_type = object.claim_type ?? 0;
         message.proofs = object.proofs?.map(e => Proof.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            userAddress: object.user_address,
+            user_address: object.user_address,
             zone: object.zone,
-            srcZone: object.src_zone,
-            claimType: isSet(object.claim_type) ? claimTypeFromJSON(object.claim_type) : -1,
+            src_zone: object.src_zone,
+            claim_type: isSet(object.claim_type) ? claimTypeFromJSON(object.claim_type) : -1,
             proofs: Array.isArray(object?.proofs) ? object.proofs.map((e) => Proof.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.user_address = message.userAddress;
+        obj.user_address = message.user_address;
         obj.zone = message.zone;
-        obj.src_zone = message.srcZone;
-        obj.claim_type = message.claimType;
+        obj.src_zone = message.src_zone;
+        obj.claim_type = message.claim_type;
         if (message.proofs) {
             obj.proofs = message.proofs.map(e => e ? Proof.toAmino(e) : undefined);
         }

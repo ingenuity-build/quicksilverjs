@@ -11,7 +11,7 @@ export interface PubKey {
     key: Uint8Array;
 }
 export interface PubKeyProtoMsg {
-    typeUrl: "/cosmos.crypto.ed25519.PubKey";
+    type_url: "/cosmos.crypto.ed25519.PubKey";
     value: Uint8Array;
 }
 /**
@@ -46,7 +46,7 @@ export interface PrivKey {
     key: Uint8Array;
 }
 export interface PrivKeyProtoMsg {
-    typeUrl: "/cosmos.crypto.ed25519.PrivKey";
+    type_url: "/cosmos.crypto.ed25519.PrivKey";
     value: Uint8Array;
 }
 /**

@@ -30,7 +30,7 @@ function createBaseProof() {
     return {
         total: helpers_1.Long.ZERO,
         index: helpers_1.Long.ZERO,
-        leafHash: new Uint8Array(),
+        leaf_hash: new Uint8Array(),
         aunts: []
     };
 }
@@ -43,8 +43,8 @@ exports.Proof = {
         if (!message.index.isZero()) {
             writer.uint32(16).int64(message.index);
         }
-        if (message.leafHash.length !== 0) {
-            writer.uint32(26).bytes(message.leafHash);
+        if (message.leaf_hash.length !== 0) {
+            writer.uint32(26).bytes(message.leaf_hash);
         }
         for (const v of message.aunts) {
             writer.uint32(34).bytes(v);
@@ -65,7 +65,7 @@ exports.Proof = {
                     message.index = reader.int64();
                     break;
                 case 3:
-                    message.leafHash = reader.bytes();
+                    message.leaf_hash = reader.bytes();
                     break;
                 case 4:
                     message.aunts.push(reader.bytes());
@@ -81,7 +81,7 @@ exports.Proof = {
         return {
             total: (0, helpers_1.isSet)(object.total) ? helpers_1.Long.fromValue(object.total) : helpers_1.Long.ZERO,
             index: (0, helpers_1.isSet)(object.index) ? helpers_1.Long.fromValue(object.index) : helpers_1.Long.ZERO,
-            leafHash: (0, helpers_1.isSet)(object.leafHash) ? (0, helpers_1.bytesFromBase64)(object.leafHash) : new Uint8Array(),
+            leaf_hash: (0, helpers_1.isSet)(object.leaf_hash) ? (0, helpers_1.bytesFromBase64)(object.leaf_hash) : new Uint8Array(),
             aunts: Array.isArray(object?.aunts) ? object.aunts.map((e) => (0, helpers_1.bytesFromBase64)(e)) : []
         };
     },
@@ -89,7 +89,7 @@ exports.Proof = {
         const obj = {};
         message.total !== undefined && (obj.total = (message.total || helpers_1.Long.ZERO).toString());
         message.index !== undefined && (obj.index = (message.index || helpers_1.Long.ZERO).toString());
-        message.leafHash !== undefined && (obj.leafHash = (0, helpers_1.base64FromBytes)(message.leafHash !== undefined ? message.leafHash : new Uint8Array()));
+        message.leaf_hash !== undefined && (obj.leaf_hash = (0, helpers_1.base64FromBytes)(message.leaf_hash !== undefined ? message.leaf_hash : new Uint8Array()));
         if (message.aunts) {
             obj.aunts = message.aunts.map(e => (0, helpers_1.base64FromBytes)(e !== undefined ? e : new Uint8Array()));
         }
@@ -102,7 +102,7 @@ exports.Proof = {
         const message = createBaseProof();
         message.total = object.total !== undefined && object.total !== null ? helpers_1.Long.fromValue(object.total) : helpers_1.Long.ZERO;
         message.index = object.index !== undefined && object.index !== null ? helpers_1.Long.fromValue(object.index) : helpers_1.Long.ZERO;
-        message.leafHash = object.leafHash ?? new Uint8Array();
+        message.leaf_hash = object.leaf_hash ?? new Uint8Array();
         message.aunts = object.aunts?.map(e => e) || [];
         return message;
     },
@@ -110,7 +110,7 @@ exports.Proof = {
         return {
             total: helpers_1.Long.fromString(object.total),
             index: helpers_1.Long.fromString(object.index),
-            leafHash: object.leaf_hash,
+            leaf_hash: object.leaf_hash,
             aunts: Array.isArray(object?.aunts) ? object.aunts.map((e) => e) : []
         };
     },
@@ -118,7 +118,7 @@ exports.Proof = {
         const obj = {};
         obj.total = message.total ? message.total.toString() : undefined;
         obj.index = message.index ? message.index.toString() : undefined;
-        obj.leaf_hash = message.leafHash;
+        obj.leaf_hash = message.leaf_hash;
         if (message.aunts) {
             obj.aunts = message.aunts.map(e => e);
         }

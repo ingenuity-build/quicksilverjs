@@ -9,7 +9,7 @@ export interface MultiSignature {
     signatures: Uint8Array[];
 }
 export interface MultiSignatureProtoMsg {
-    typeUrl: "/cosmos.crypto.multisig.v1beta1.MultiSignature";
+    type_url: "/cosmos.crypto.multisig.v1beta1.MultiSignature";
     value: Uint8Array;
 }
 /**
@@ -39,11 +39,11 @@ export interface MultiSignatureSDKType {
  * This is not thread safe, and is not intended for concurrent usage.
  */
 export interface CompactBitArray {
-    extraBitsStored: number;
+    extra_bits_stored: number;
     elems: Uint8Array;
 }
 export interface CompactBitArrayProtoMsg {
-    typeUrl: "/cosmos.crypto.multisig.v1beta1.CompactBitArray";
+    type_url: "/cosmos.crypto.multisig.v1beta1.CompactBitArray";
     value: Uint8Array;
 }
 /**

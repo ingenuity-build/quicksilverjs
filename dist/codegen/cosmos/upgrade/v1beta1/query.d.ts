@@ -8,7 +8,7 @@ import * as _m0 from "protobufjs/minimal";
 export interface QueryCurrentPlanRequest {
 }
 export interface QueryCurrentPlanRequestProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryCurrentPlanRequest";
+    type_url: "/cosmos.upgrade.v1beta1.QueryCurrentPlanRequest";
     value: Uint8Array;
 }
 /**
@@ -36,7 +36,7 @@ export interface QueryCurrentPlanResponse {
     plan: Plan;
 }
 export interface QueryCurrentPlanResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryCurrentPlanResponse";
+    type_url: "/cosmos.upgrade.v1beta1.QueryCurrentPlanResponse";
     value: Uint8Array;
 }
 /**
@@ -67,7 +67,7 @@ export interface QueryAppliedPlanRequest {
     name: string;
 }
 export interface QueryAppliedPlanRequestProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryAppliedPlanRequest";
+    type_url: "/cosmos.upgrade.v1beta1.QueryAppliedPlanRequest";
     value: Uint8Array;
 }
 /**
@@ -98,7 +98,7 @@ export interface QueryAppliedPlanResponse {
     height: Long;
 }
 export interface QueryAppliedPlanResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryAppliedPlanResponse";
+    type_url: "/cosmos.upgrade.v1beta1.QueryAppliedPlanResponse";
     value: Uint8Array;
 }
 /**
@@ -130,10 +130,10 @@ export interface QueryUpgradedConsensusStateRequest {
      * last height of the current chain must be sent in request
      * as this is the height under which next consensus state is stored
      */
-    lastHeight: Long;
+    last_height: Long;
 }
 export interface QueryUpgradedConsensusStateRequestProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest";
+    type_url: "/cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest";
     value: Uint8Array;
 }
 /**
@@ -167,10 +167,10 @@ export interface QueryUpgradedConsensusStateRequestSDKType {
 /** @deprecated */
 export interface QueryUpgradedConsensusStateResponse {
     /** Since: cosmos-sdk 0.43 */
-    upgradedConsensusState: Uint8Array;
+    upgraded_consensus_state: Uint8Array;
 }
 export interface QueryUpgradedConsensusStateResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse";
+    type_url: "/cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse";
     value: Uint8Array;
 }
 /**
@@ -206,10 +206,10 @@ export interface QueryModuleVersionsRequest {
      * consensus version from state. Leaving this empty will
      * fetch the full list of module versions from state
      */
-    moduleName: string;
+    module_name: string;
 }
 export interface QueryModuleVersionsRequestProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryModuleVersionsRequest";
+    type_url: "/cosmos.upgrade.v1beta1.QueryModuleVersionsRequest";
     value: Uint8Array;
 }
 /**
@@ -247,10 +247,10 @@ export interface QueryModuleVersionsRequestSDKType {
  */
 export interface QueryModuleVersionsResponse {
     /** module_versions is a list of module names with their consensus versions. */
-    moduleVersions: ModuleVersion[];
+    module_versions: ModuleVersion[];
 }
 export interface QueryModuleVersionsResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryModuleVersionsResponse";
+    type_url: "/cosmos.upgrade.v1beta1.QueryModuleVersionsResponse";
     value: Uint8Array;
 }
 /**
@@ -284,7 +284,7 @@ export interface QueryModuleVersionsResponseSDKType {
 export interface QueryAuthorityRequest {
 }
 export interface QueryAuthorityRequestProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryAuthorityRequest";
+    type_url: "/cosmos.upgrade.v1beta1.QueryAuthorityRequest";
     value: Uint8Array;
 }
 /**
@@ -314,7 +314,7 @@ export interface QueryAuthorityResponse {
     address: string;
 }
 export interface QueryAuthorityResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.QueryAuthorityResponse";
+    type_url: "/cosmos.upgrade.v1beta1.QueryAuthorityResponse";
     value: Uint8Array;
 }
 /**

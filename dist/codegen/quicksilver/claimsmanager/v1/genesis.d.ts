@@ -7,7 +7,7 @@ export interface GenesisState {
     claims: Claim[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.GenesisState";
+    type_url: "/quicksilver.claimsmanager.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the claimsmanager module's genesis state. */

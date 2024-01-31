@@ -3,16 +3,16 @@ import { Zone, ZoneAmino, ZoneSDKType, Validator, ValidatorAmino, ValidatorSDKTy
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Statistics {
-    chainId: string;
+    chain_id: string;
     deposited: Long;
     deposits: Long;
     depositors: Long;
     delegated: Long;
     supply: Long;
-    distanceToTarget: string;
+    distance_to_target: string;
 }
 export interface StatisticsProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Statistics";
+    type_url: "/quicksilver.interchainstaking.v1.Statistics";
     value: Uint8Array;
 }
 export interface StatisticsAmino {
@@ -41,7 +41,7 @@ export interface QueryZonesRequest {
     pagination: PageRequest;
 }
 export interface QueryZonesRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZonesRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZonesRequest";
     value: Uint8Array;
 }
 export interface QueryZonesRequestAmino {
@@ -60,7 +60,7 @@ export interface QueryZonesResponse {
     pagination: PageResponse;
 }
 export interface QueryZonesResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZonesResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZonesResponse";
     value: Uint8Array;
 }
 export interface QueryZonesResponseAmino {
@@ -78,10 +78,10 @@ export interface QueryZonesResponseSDKType {
     pagination: PageResponseSDKType;
 }
 export interface QueryZoneRequest {
-    chainId: string;
+    chain_id: string;
 }
 export interface QueryZoneRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZoneRequest";
     value: Uint8Array;
 }
 export interface QueryZoneRequestAmino {
@@ -99,7 +99,7 @@ export interface QueryZoneResponse {
     stats: Statistics;
 }
 export interface QueryZoneResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZoneResponse";
     value: Uint8Array;
 }
 export interface QueryZoneResponseAmino {
@@ -115,12 +115,12 @@ export interface QueryZoneResponseSDKType {
     stats: StatisticsSDKType;
 }
 export interface QueryZoneValidatorsRequest {
-    chainId: string;
+    chain_id: string;
     status: string;
     pagination: PageRequest;
 }
 export interface QueryZoneValidatorsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsRequest";
     value: Uint8Array;
 }
 export interface QueryZoneValidatorsRequestAmino {
@@ -142,7 +142,7 @@ export interface QueryZoneValidatorsResponse {
     pagination: PageResponse;
 }
 export interface QueryZoneValidatorsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsResponse";
     value: Uint8Array;
 }
 export interface QueryZoneValidatorsResponseAmino {
@@ -162,10 +162,10 @@ export interface QueryZoneValidatorsResponseSDKType {
  * Query/InterchainAccountAddress RPC
  */
 export interface QueryDepositAccountForChainRequest {
-    chainId: string;
+    chain_id: string;
 }
 export interface QueryDepositAccountForChainRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainRequest";
     value: Uint8Array;
 }
 /**
@@ -191,10 +191,10 @@ export interface QueryDepositAccountForChainRequestSDKType {
  * Query/InterchainAccountAddress RPC
  */
 export interface QueryDepositAccountForChainResponse {
-    depositAccountAddress: string;
+    deposit_account_address: string;
 }
 export interface QueryDepositAccountForChainResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainResponse";
     value: Uint8Array;
 }
 /**
@@ -216,11 +216,11 @@ export interface QueryDepositAccountForChainResponseSDKType {
     deposit_account_address: string;
 }
 export interface QueryDelegatorIntentRequest {
-    chainId: string;
-    delegatorAddress: string;
+    chain_id: string;
+    delegator_address: string;
 }
 export interface QueryDelegatorIntentRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentRequest";
     value: Uint8Array;
 }
 export interface QueryDelegatorIntentRequestAmino {
@@ -239,7 +239,7 @@ export interface QueryDelegatorIntentResponse {
     intent: DelegatorIntent;
 }
 export interface QueryDelegatorIntentResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentResponse";
     value: Uint8Array;
 }
 export interface QueryDelegatorIntentResponseAmino {
@@ -253,10 +253,10 @@ export interface QueryDelegatorIntentResponseSDKType {
     intent: DelegatorIntentSDKType;
 }
 export interface QueryDelegatorIntentsRequest {
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface QueryDelegatorIntentsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsRequest";
     value: Uint8Array;
 }
 export interface QueryDelegatorIntentsRequestAmino {
@@ -270,11 +270,11 @@ export interface QueryDelegatorIntentsRequestSDKType {
     delegator_address: string;
 }
 export interface DelegatorIntentsResponse {
-    chainId: string;
+    chain_id: string;
     intent: DelegatorIntent;
 }
 export interface DelegatorIntentsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntentsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.DelegatorIntentsResponse";
     value: Uint8Array;
 }
 export interface DelegatorIntentsResponseAmino {
@@ -293,7 +293,7 @@ export interface QueryDelegatorIntentsResponse {
     intents: DelegatorIntentsResponse[];
 }
 export interface QueryDelegatorIntentsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsResponse";
     value: Uint8Array;
 }
 export interface QueryDelegatorIntentsResponseAmino {
@@ -307,11 +307,11 @@ export interface QueryDelegatorIntentsResponseSDKType {
     intents: DelegatorIntentsResponseSDKType[];
 }
 export interface QueryDelegationsRequest {
-    chainId: string;
+    chain_id: string;
     pagination: PageRequest;
 }
 export interface QueryDelegationsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegationsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegationsRequest";
     value: Uint8Array;
 }
 export interface QueryDelegationsRequestAmino {
@@ -332,7 +332,7 @@ export interface QueryDelegationsResponse {
     pagination: PageResponse;
 }
 export interface QueryDelegationsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegationsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryDelegationsResponse";
     value: Uint8Array;
 }
 export interface QueryDelegationsResponseAmino {
@@ -350,11 +350,11 @@ export interface QueryDelegationsResponseSDKType {
     pagination: PageResponseSDKType;
 }
 export interface QueryReceiptsRequest {
-    chainId: string;
+    chain_id: string;
     pagination: PageRequest;
 }
 export interface QueryReceiptsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryReceiptsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryReceiptsRequest";
     value: Uint8Array;
 }
 export interface QueryReceiptsRequestAmino {
@@ -374,7 +374,7 @@ export interface QueryReceiptsResponse {
     pagination: PageResponse;
 }
 export interface QueryReceiptsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryReceiptsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryReceiptsResponse";
     value: Uint8Array;
 }
 export interface QueryReceiptsResponseAmino {
@@ -390,11 +390,11 @@ export interface QueryReceiptsResponseSDKType {
     pagination: PageResponseSDKType;
 }
 export interface QueryTxStatusRequest {
-    chainId: string;
-    txHash: string;
+    chain_id: string;
+    tx_hash: string;
 }
 export interface QueryTxStatusRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryTxStatusRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryTxStatusRequest";
     value: Uint8Array;
 }
 export interface QueryTxStatusRequestAmino {
@@ -413,7 +413,7 @@ export interface QueryTxStatusResponse {
     receipt: Receipt;
 }
 export interface QueryTxStatusResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryTxStatusResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryTxStatusResponse";
     value: Uint8Array;
 }
 export interface QueryTxStatusResponseAmino {
@@ -427,12 +427,12 @@ export interface QueryTxStatusResponseSDKType {
     receipt: ReceiptSDKType;
 }
 export interface QueryWithdrawalRecordsRequest {
-    chainId: string;
-    delegatorAddress: string;
+    chain_id: string;
+    delegator_address: string;
     pagination: PageRequest;
 }
 export interface QueryWithdrawalRecordsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsRequest";
     value: Uint8Array;
 }
 export interface QueryWithdrawalRecordsRequestAmino {
@@ -454,7 +454,7 @@ export interface QueryWithdrawalRecordsResponse {
     pagination: PageResponse;
 }
 export interface QueryWithdrawalRecordsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsResponse";
     value: Uint8Array;
 }
 export interface QueryWithdrawalRecordsResponseAmino {
@@ -470,11 +470,11 @@ export interface QueryWithdrawalRecordsResponseSDKType {
     pagination: PageResponseSDKType;
 }
 export interface QueryUserWithdrawalRecordsRequest {
-    userAddress: string;
+    user_address: string;
     pagination: PageRequest;
 }
 export interface QueryUserWithdrawalRecordsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryUserWithdrawalRecordsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryUserWithdrawalRecordsRequest";
     value: Uint8Array;
 }
 export interface QueryUserWithdrawalRecordsRequestAmino {
@@ -490,11 +490,11 @@ export interface QueryUserWithdrawalRecordsRequestSDKType {
     pagination: PageRequestSDKType;
 }
 export interface QueryUnbondingRecordsRequest {
-    chainId: string;
+    chain_id: string;
     pagination: PageRequest;
 }
 export interface QueryUnbondingRecordsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsRequest";
     value: Uint8Array;
 }
 export interface QueryUnbondingRecordsRequestAmino {
@@ -514,7 +514,7 @@ export interface QueryUnbondingRecordsResponse {
     pagination: PageResponse;
 }
 export interface QueryUnbondingRecordsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsResponse";
     value: Uint8Array;
 }
 export interface QueryUnbondingRecordsResponseAmino {
@@ -530,11 +530,11 @@ export interface QueryUnbondingRecordsResponseSDKType {
     pagination: PageResponseSDKType;
 }
 export interface QueryRedelegationRecordsRequest {
-    chainId: string;
+    chain_id: string;
     pagination: PageRequest;
 }
 export interface QueryRedelegationRecordsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsRequest";
     value: Uint8Array;
 }
 export interface QueryRedelegationRecordsRequestAmino {
@@ -554,7 +554,7 @@ export interface QueryRedelegationRecordsResponse {
     pagination: PageResponse;
 }
 export interface QueryRedelegationRecordsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsResponse";
     value: Uint8Array;
 }
 export interface QueryRedelegationRecordsResponseAmino {
@@ -574,7 +574,7 @@ export interface QueryMappedAccountsRequest {
     pagination: PageRequest;
 }
 export interface QueryMappedAccountsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryMappedAccountsRequest";
+    type_url: "/quicksilver.interchainstaking.v1.QueryMappedAccountsRequest";
     value: Uint8Array;
 }
 export interface QueryMappedAccountsRequestAmino {
@@ -594,7 +594,7 @@ export interface QueryMappedAccountsResponse_RemoteAddressMapEntry {
     value: Uint8Array;
 }
 export interface QueryMappedAccountsResponse_RemoteAddressMapEntryProtoMsg {
-    typeUrl: string;
+    type_url: string;
     value: Uint8Array;
 }
 export interface QueryMappedAccountsResponse_RemoteAddressMapEntryAmino {
@@ -616,7 +616,7 @@ export interface QueryMappedAccountsResponse {
     pagination: PageResponse;
 }
 export interface QueryMappedAccountsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.QueryMappedAccountsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.QueryMappedAccountsResponse";
     value: Uint8Array;
 }
 export interface QueryMappedAccountsResponseAmino {

@@ -30,11 +30,11 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseGenesisState() {
     return {
         clients: [],
-        clientsConsensus: [],
-        clientsMetadata: [],
+        clients_consensus: [],
+        clients_metadata: [],
         params: client_1.Params.fromPartial({}),
-        createLocalhost: false,
-        nextClientSequence: helpers_1.Long.UZERO
+        create_localhost: false,
+        next_client_sequence: helpers_1.Long.UZERO
     };
 }
 exports.GenesisState = {
@@ -44,20 +44,20 @@ exports.GenesisState = {
         for (const v of message.clients) {
             client_1.IdentifiedClientState.encode(v, writer.uint32(10).fork()).ldelim();
         }
-        for (const v of message.clientsConsensus) {
+        for (const v of message.clients_consensus) {
             client_1.ClientConsensusStates.encode(v, writer.uint32(18).fork()).ldelim();
         }
-        for (const v of message.clientsMetadata) {
+        for (const v of message.clients_metadata) {
             exports.IdentifiedGenesisMetadata.encode(v, writer.uint32(26).fork()).ldelim();
         }
         if (message.params !== undefined) {
             client_1.Params.encode(message.params, writer.uint32(34).fork()).ldelim();
         }
-        if (message.createLocalhost === true) {
-            writer.uint32(40).bool(message.createLocalhost);
+        if (message.create_localhost === true) {
+            writer.uint32(40).bool(message.create_localhost);
         }
-        if (!message.nextClientSequence.isZero()) {
-            writer.uint32(48).uint64(message.nextClientSequence);
+        if (!message.next_client_sequence.isZero()) {
+            writer.uint32(48).uint64(message.next_client_sequence);
         }
         return writer;
     },
@@ -72,19 +72,19 @@ exports.GenesisState = {
                     message.clients.push(client_1.IdentifiedClientState.decode(reader, reader.uint32()));
                     break;
                 case 2:
-                    message.clientsConsensus.push(client_1.ClientConsensusStates.decode(reader, reader.uint32()));
+                    message.clients_consensus.push(client_1.ClientConsensusStates.decode(reader, reader.uint32()));
                     break;
                 case 3:
-                    message.clientsMetadata.push(exports.IdentifiedGenesisMetadata.decode(reader, reader.uint32()));
+                    message.clients_metadata.push(exports.IdentifiedGenesisMetadata.decode(reader, reader.uint32()));
                     break;
                 case 4:
                     message.params = client_1.Params.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.createLocalhost = reader.bool();
+                    message.create_localhost = reader.bool();
                     break;
                 case 6:
-                    message.nextClientSequence = reader.uint64();
+                    message.next_client_sequence = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -96,11 +96,11 @@ exports.GenesisState = {
     fromJSON(object) {
         return {
             clients: Array.isArray(object?.clients) ? object.clients.map((e) => client_1.IdentifiedClientState.fromJSON(e)) : [],
-            clientsConsensus: Array.isArray(object?.clientsConsensus) ? object.clientsConsensus.map((e) => client_1.ClientConsensusStates.fromJSON(e)) : [],
-            clientsMetadata: Array.isArray(object?.clientsMetadata) ? object.clientsMetadata.map((e) => exports.IdentifiedGenesisMetadata.fromJSON(e)) : [],
+            clients_consensus: Array.isArray(object?.clients_consensus) ? object.clients_consensus.map((e) => client_1.ClientConsensusStates.fromJSON(e)) : [],
+            clients_metadata: Array.isArray(object?.clients_metadata) ? object.clients_metadata.map((e) => exports.IdentifiedGenesisMetadata.fromJSON(e)) : [],
             params: (0, helpers_1.isSet)(object.params) ? client_1.Params.fromJSON(object.params) : undefined,
-            createLocalhost: (0, helpers_1.isSet)(object.createLocalhost) ? Boolean(object.createLocalhost) : false,
-            nextClientSequence: (0, helpers_1.isSet)(object.nextClientSequence) ? helpers_1.Long.fromValue(object.nextClientSequence) : helpers_1.Long.UZERO
+            create_localhost: (0, helpers_1.isSet)(object.create_localhost) ? Boolean(object.create_localhost) : false,
+            next_client_sequence: (0, helpers_1.isSet)(object.next_client_sequence) ? helpers_1.Long.fromValue(object.next_client_sequence) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
@@ -111,41 +111,41 @@ exports.GenesisState = {
         else {
             obj.clients = [];
         }
-        if (message.clientsConsensus) {
-            obj.clientsConsensus = message.clientsConsensus.map(e => e ? client_1.ClientConsensusStates.toJSON(e) : undefined);
+        if (message.clients_consensus) {
+            obj.clients_consensus = message.clients_consensus.map(e => e ? client_1.ClientConsensusStates.toJSON(e) : undefined);
         }
         else {
-            obj.clientsConsensus = [];
+            obj.clients_consensus = [];
         }
-        if (message.clientsMetadata) {
-            obj.clientsMetadata = message.clientsMetadata.map(e => e ? exports.IdentifiedGenesisMetadata.toJSON(e) : undefined);
+        if (message.clients_metadata) {
+            obj.clients_metadata = message.clients_metadata.map(e => e ? exports.IdentifiedGenesisMetadata.toJSON(e) : undefined);
         }
         else {
-            obj.clientsMetadata = [];
+            obj.clients_metadata = [];
         }
         message.params !== undefined && (obj.params = message.params ? client_1.Params.toJSON(message.params) : undefined);
-        message.createLocalhost !== undefined && (obj.createLocalhost = message.createLocalhost);
-        message.nextClientSequence !== undefined && (obj.nextClientSequence = (message.nextClientSequence || helpers_1.Long.UZERO).toString());
+        message.create_localhost !== undefined && (obj.create_localhost = message.create_localhost);
+        message.next_client_sequence !== undefined && (obj.next_client_sequence = (message.next_client_sequence || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGenesisState();
         message.clients = object.clients?.map(e => client_1.IdentifiedClientState.fromPartial(e)) || [];
-        message.clientsConsensus = object.clientsConsensus?.map(e => client_1.ClientConsensusStates.fromPartial(e)) || [];
-        message.clientsMetadata = object.clientsMetadata?.map(e => exports.IdentifiedGenesisMetadata.fromPartial(e)) || [];
+        message.clients_consensus = object.clients_consensus?.map(e => client_1.ClientConsensusStates.fromPartial(e)) || [];
+        message.clients_metadata = object.clients_metadata?.map(e => exports.IdentifiedGenesisMetadata.fromPartial(e)) || [];
         message.params = object.params !== undefined && object.params !== null ? client_1.Params.fromPartial(object.params) : undefined;
-        message.createLocalhost = object.createLocalhost ?? false;
-        message.nextClientSequence = object.nextClientSequence !== undefined && object.nextClientSequence !== null ? helpers_1.Long.fromValue(object.nextClientSequence) : helpers_1.Long.UZERO;
+        message.create_localhost = object.create_localhost ?? false;
+        message.next_client_sequence = object.next_client_sequence !== undefined && object.next_client_sequence !== null ? helpers_1.Long.fromValue(object.next_client_sequence) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
             clients: Array.isArray(object?.clients) ? object.clients.map((e) => client_1.IdentifiedClientState.fromAmino(e)) : [],
-            clientsConsensus: Array.isArray(object?.clients_consensus) ? object.clients_consensus.map((e) => client_1.ClientConsensusStates.fromAmino(e)) : [],
-            clientsMetadata: Array.isArray(object?.clients_metadata) ? object.clients_metadata.map((e) => exports.IdentifiedGenesisMetadata.fromAmino(e)) : [],
+            clients_consensus: Array.isArray(object?.clients_consensus) ? object.clients_consensus.map((e) => client_1.ClientConsensusStates.fromAmino(e)) : [],
+            clients_metadata: Array.isArray(object?.clients_metadata) ? object.clients_metadata.map((e) => exports.IdentifiedGenesisMetadata.fromAmino(e)) : [],
             params: object?.params ? client_1.Params.fromAmino(object.params) : undefined,
-            createLocalhost: object.create_localhost,
-            nextClientSequence: helpers_1.Long.fromString(object.next_client_sequence)
+            create_localhost: object.create_localhost,
+            next_client_sequence: helpers_1.Long.fromString(object.next_client_sequence)
         };
     },
     toAmino(message) {
@@ -156,21 +156,21 @@ exports.GenesisState = {
         else {
             obj.clients = [];
         }
-        if (message.clientsConsensus) {
-            obj.clients_consensus = message.clientsConsensus.map(e => e ? client_1.ClientConsensusStates.toAmino(e) : undefined);
+        if (message.clients_consensus) {
+            obj.clients_consensus = message.clients_consensus.map(e => e ? client_1.ClientConsensusStates.toAmino(e) : undefined);
         }
         else {
             obj.clients_consensus = [];
         }
-        if (message.clientsMetadata) {
-            obj.clients_metadata = message.clientsMetadata.map(e => e ? exports.IdentifiedGenesisMetadata.toAmino(e) : undefined);
+        if (message.clients_metadata) {
+            obj.clients_metadata = message.clients_metadata.map(e => e ? exports.IdentifiedGenesisMetadata.toAmino(e) : undefined);
         }
         else {
             obj.clients_metadata = [];
         }
         obj.params = message.params ? client_1.Params.toAmino(message.params) : undefined;
-        obj.create_localhost = message.createLocalhost;
-        obj.next_client_sequence = message.nextClientSequence ? message.nextClientSequence.toString() : undefined;
+        obj.create_localhost = message.create_localhost;
+        obj.next_client_sequence = message.next_client_sequence ? message.next_client_sequence.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -287,18 +287,18 @@ exports.GenesisMetadata = {
 };
 function createBaseIdentifiedGenesisMetadata() {
     return {
-        clientId: "",
-        clientMetadata: []
+        client_id: "",
+        client_metadata: []
     };
 }
 exports.IdentifiedGenesisMetadata = {
     typeUrl: "/ibc.core.client.v1.IdentifiedGenesisMetadata",
     aminoType: "cosmos-sdk/IdentifiedGenesisMetadata",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
-        for (const v of message.clientMetadata) {
+        for (const v of message.client_metadata) {
             exports.GenesisMetadata.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
@@ -311,10 +311,10 @@ exports.IdentifiedGenesisMetadata = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 2:
-                    message.clientMetadata.push(exports.GenesisMetadata.decode(reader, reader.uint32()));
+                    message.client_metadata.push(exports.GenesisMetadata.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -325,38 +325,38 @@ exports.IdentifiedGenesisMetadata = {
     },
     fromJSON(object) {
         return {
-            clientId: (0, helpers_1.isSet)(object.clientId) ? String(object.clientId) : "",
-            clientMetadata: Array.isArray(object?.clientMetadata) ? object.clientMetadata.map((e) => exports.GenesisMetadata.fromJSON(e)) : []
+            client_id: (0, helpers_1.isSet)(object.client_id) ? String(object.client_id) : "",
+            client_metadata: Array.isArray(object?.client_metadata) ? object.client_metadata.map((e) => exports.GenesisMetadata.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
-        if (message.clientMetadata) {
-            obj.clientMetadata = message.clientMetadata.map(e => e ? exports.GenesisMetadata.toJSON(e) : undefined);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
+        if (message.client_metadata) {
+            obj.client_metadata = message.client_metadata.map(e => e ? exports.GenesisMetadata.toJSON(e) : undefined);
         }
         else {
-            obj.clientMetadata = [];
+            obj.client_metadata = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseIdentifiedGenesisMetadata();
-        message.clientId = object.clientId ?? "";
-        message.clientMetadata = object.clientMetadata?.map(e => exports.GenesisMetadata.fromPartial(e)) || [];
+        message.client_id = object.client_id ?? "";
+        message.client_metadata = object.client_metadata?.map(e => exports.GenesisMetadata.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id,
-            clientMetadata: Array.isArray(object?.client_metadata) ? object.client_metadata.map((e) => exports.GenesisMetadata.fromAmino(e)) : []
+            client_id: object.client_id,
+            client_metadata: Array.isArray(object?.client_metadata) ? object.client_metadata.map((e) => exports.GenesisMetadata.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
-        if (message.clientMetadata) {
-            obj.client_metadata = message.clientMetadata.map(e => e ? exports.GenesisMetadata.toAmino(e) : undefined);
+        obj.client_id = message.client_id;
+        if (message.client_metadata) {
+            obj.client_metadata = message.client_metadata.map(e => e ? exports.GenesisMetadata.toAmino(e) : undefined);
         }
         else {
             obj.client_metadata = [];

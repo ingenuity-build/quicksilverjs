@@ -5,16 +5,16 @@ function createBaseRegisterZoneProposal() {
     return {
         title: "",
         description: "",
-        connectionId: "",
-        baseDenom: "",
-        localDenom: "",
-        accountPrefix: "",
-        multiSend: false,
-        liquidityModule: false,
-        messagesPerTx: Long.ZERO,
-        returnToSender: false,
-        depositsEnabled: false,
-        unbondingEnabled: false,
+        connection_id: "",
+        base_denom: "",
+        local_denom: "",
+        account_prefix: "",
+        multi_send: false,
+        liquidity_module: false,
+        messages_per_tx: Long.ZERO,
+        return_to_sender: false,
+        deposits_enabled: false,
+        unbonding_enabled: false,
         decimals: Long.ZERO,
         is118: false
     };
@@ -28,35 +28,35 @@ export const RegisterZoneProposal = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.connectionId !== "") {
-            writer.uint32(26).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(26).string(message.connection_id);
         }
-        if (message.baseDenom !== "") {
-            writer.uint32(34).string(message.baseDenom);
+        if (message.base_denom !== "") {
+            writer.uint32(34).string(message.base_denom);
         }
-        if (message.localDenom !== "") {
-            writer.uint32(42).string(message.localDenom);
+        if (message.local_denom !== "") {
+            writer.uint32(42).string(message.local_denom);
         }
-        if (message.accountPrefix !== "") {
-            writer.uint32(50).string(message.accountPrefix);
+        if (message.account_prefix !== "") {
+            writer.uint32(50).string(message.account_prefix);
         }
-        if (message.multiSend === true) {
-            writer.uint32(56).bool(message.multiSend);
+        if (message.multi_send === true) {
+            writer.uint32(56).bool(message.multi_send);
         }
-        if (message.liquidityModule === true) {
-            writer.uint32(64).bool(message.liquidityModule);
+        if (message.liquidity_module === true) {
+            writer.uint32(64).bool(message.liquidity_module);
         }
-        if (!message.messagesPerTx.isZero()) {
-            writer.uint32(72).int64(message.messagesPerTx);
+        if (!message.messages_per_tx.isZero()) {
+            writer.uint32(72).int64(message.messages_per_tx);
         }
-        if (message.returnToSender === true) {
-            writer.uint32(80).bool(message.returnToSender);
+        if (message.return_to_sender === true) {
+            writer.uint32(80).bool(message.return_to_sender);
         }
-        if (message.depositsEnabled === true) {
-            writer.uint32(88).bool(message.depositsEnabled);
+        if (message.deposits_enabled === true) {
+            writer.uint32(88).bool(message.deposits_enabled);
         }
-        if (message.unbondingEnabled === true) {
-            writer.uint32(96).bool(message.unbondingEnabled);
+        if (message.unbonding_enabled === true) {
+            writer.uint32(96).bool(message.unbonding_enabled);
         }
         if (!message.decimals.isZero()) {
             writer.uint32(104).int64(message.decimals);
@@ -80,34 +80,34 @@ export const RegisterZoneProposal = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 4:
-                    message.baseDenom = reader.string();
+                    message.base_denom = reader.string();
                     break;
                 case 5:
-                    message.localDenom = reader.string();
+                    message.local_denom = reader.string();
                     break;
                 case 6:
-                    message.accountPrefix = reader.string();
+                    message.account_prefix = reader.string();
                     break;
                 case 7:
-                    message.multiSend = reader.bool();
+                    message.multi_send = reader.bool();
                     break;
                 case 8:
-                    message.liquidityModule = reader.bool();
+                    message.liquidity_module = reader.bool();
                     break;
                 case 9:
-                    message.messagesPerTx = reader.int64();
+                    message.messages_per_tx = reader.int64();
                     break;
                 case 10:
-                    message.returnToSender = reader.bool();
+                    message.return_to_sender = reader.bool();
                     break;
                 case 11:
-                    message.depositsEnabled = reader.bool();
+                    message.deposits_enabled = reader.bool();
                     break;
                 case 12:
-                    message.unbondingEnabled = reader.bool();
+                    message.unbonding_enabled = reader.bool();
                     break;
                 case 13:
                     message.decimals = reader.int64();
@@ -126,16 +126,16 @@ export const RegisterZoneProposal = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-            baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
-            localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
-            accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
-            multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
-            liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
-            messagesPerTx: isSet(object.messagesPerTx) ? Long.fromValue(object.messagesPerTx) : Long.ZERO,
-            returnToSender: isSet(object.returnToSender) ? Boolean(object.returnToSender) : false,
-            depositsEnabled: isSet(object.depositsEnabled) ? Boolean(object.depositsEnabled) : false,
-            unbondingEnabled: isSet(object.unbondingEnabled) ? Boolean(object.unbondingEnabled) : false,
+            connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+            base_denom: isSet(object.base_denom) ? String(object.base_denom) : "",
+            local_denom: isSet(object.local_denom) ? String(object.local_denom) : "",
+            account_prefix: isSet(object.account_prefix) ? String(object.account_prefix) : "",
+            multi_send: isSet(object.multi_send) ? Boolean(object.multi_send) : false,
+            liquidity_module: isSet(object.liquidity_module) ? Boolean(object.liquidity_module) : false,
+            messages_per_tx: isSet(object.messages_per_tx) ? Long.fromValue(object.messages_per_tx) : Long.ZERO,
+            return_to_sender: isSet(object.return_to_sender) ? Boolean(object.return_to_sender) : false,
+            deposits_enabled: isSet(object.deposits_enabled) ? Boolean(object.deposits_enabled) : false,
+            unbonding_enabled: isSet(object.unbonding_enabled) ? Boolean(object.unbonding_enabled) : false,
             decimals: isSet(object.decimals) ? Long.fromValue(object.decimals) : Long.ZERO,
             is118: isSet(object.is118) ? Boolean(object.is118) : false
         };
@@ -144,16 +144,16 @@ export const RegisterZoneProposal = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
-        message.localDenom !== undefined && (obj.localDenom = message.localDenom);
-        message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
-        message.multiSend !== undefined && (obj.multiSend = message.multiSend);
-        message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
-        message.messagesPerTx !== undefined && (obj.messagesPerTx = (message.messagesPerTx || Long.ZERO).toString());
-        message.returnToSender !== undefined && (obj.returnToSender = message.returnToSender);
-        message.depositsEnabled !== undefined && (obj.depositsEnabled = message.depositsEnabled);
-        message.unbondingEnabled !== undefined && (obj.unbondingEnabled = message.unbondingEnabled);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.base_denom !== undefined && (obj.base_denom = message.base_denom);
+        message.local_denom !== undefined && (obj.local_denom = message.local_denom);
+        message.account_prefix !== undefined && (obj.account_prefix = message.account_prefix);
+        message.multi_send !== undefined && (obj.multi_send = message.multi_send);
+        message.liquidity_module !== undefined && (obj.liquidity_module = message.liquidity_module);
+        message.messages_per_tx !== undefined && (obj.messages_per_tx = (message.messages_per_tx || Long.ZERO).toString());
+        message.return_to_sender !== undefined && (obj.return_to_sender = message.return_to_sender);
+        message.deposits_enabled !== undefined && (obj.deposits_enabled = message.deposits_enabled);
+        message.unbonding_enabled !== undefined && (obj.unbonding_enabled = message.unbonding_enabled);
         message.decimals !== undefined && (obj.decimals = (message.decimals || Long.ZERO).toString());
         message.is118 !== undefined && (obj.is118 = message.is118);
         return obj;
@@ -162,16 +162,16 @@ export const RegisterZoneProposal = {
         const message = createBaseRegisterZoneProposal();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.connectionId = object.connectionId ?? "";
-        message.baseDenom = object.baseDenom ?? "";
-        message.localDenom = object.localDenom ?? "";
-        message.accountPrefix = object.accountPrefix ?? "";
-        message.multiSend = object.multiSend ?? false;
-        message.liquidityModule = object.liquidityModule ?? false;
-        message.messagesPerTx = object.messagesPerTx !== undefined && object.messagesPerTx !== null ? Long.fromValue(object.messagesPerTx) : Long.ZERO;
-        message.returnToSender = object.returnToSender ?? false;
-        message.depositsEnabled = object.depositsEnabled ?? false;
-        message.unbondingEnabled = object.unbondingEnabled ?? false;
+        message.connection_id = object.connection_id ?? "";
+        message.base_denom = object.base_denom ?? "";
+        message.local_denom = object.local_denom ?? "";
+        message.account_prefix = object.account_prefix ?? "";
+        message.multi_send = object.multi_send ?? false;
+        message.liquidity_module = object.liquidity_module ?? false;
+        message.messages_per_tx = object.messages_per_tx !== undefined && object.messages_per_tx !== null ? Long.fromValue(object.messages_per_tx) : Long.ZERO;
+        message.return_to_sender = object.return_to_sender ?? false;
+        message.deposits_enabled = object.deposits_enabled ?? false;
+        message.unbonding_enabled = object.unbonding_enabled ?? false;
         message.decimals = object.decimals !== undefined && object.decimals !== null ? Long.fromValue(object.decimals) : Long.ZERO;
         message.is118 = object.is118 ?? false;
         return message;
@@ -180,36 +180,36 @@ export const RegisterZoneProposal = {
         return {
             title: object.title,
             description: object.description,
-            connectionId: object.connection_id,
-            baseDenom: object.base_denom,
-            localDenom: object.local_denom,
-            accountPrefix: object.account_prefix,
-            multiSend: object.multi_send,
-            liquidityModule: object.liquidity_module,
-            messagesPerTx: Long.fromString(object.messages_per_tx),
-            returnToSender: object.return_to_sender,
-            depositsEnabled: object.deposits_enabled,
-            unbondingEnabled: object.unbonding_enabled,
+            connection_id: object.connection_id,
+            base_denom: object.base_denom,
+            local_denom: object.local_denom,
+            account_prefix: object.account_prefix,
+            multi_send: object.multi_send,
+            liquidity_module: object.liquidity_module,
+            messages_per_tx: Long.fromString(object.messages_per_tx),
+            return_to_sender: object.return_to_sender,
+            deposits_enabled: object.deposits_enabled,
+            unbonding_enabled: object.unbonding_enabled,
             decimals: Long.fromString(object.decimals),
-            is118: object.is_118
+            is_118: object.is_118
         };
     },
     toAmino(message) {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.connection_id = message.connectionId;
-        obj.base_denom = message.baseDenom;
-        obj.local_denom = message.localDenom;
-        obj.account_prefix = message.accountPrefix;
-        obj.multi_send = message.multiSend;
-        obj.liquidity_module = message.liquidityModule;
-        obj.messages_per_tx = message.messagesPerTx ? message.messagesPerTx.toString() : undefined;
-        obj.return_to_sender = message.returnToSender;
-        obj.deposits_enabled = message.depositsEnabled;
-        obj.unbonding_enabled = message.unbondingEnabled;
+        obj.connection_id = message.connection_id;
+        obj.base_denom = message.base_denom;
+        obj.local_denom = message.local_denom;
+        obj.account_prefix = message.account_prefix;
+        obj.multi_send = message.multi_send;
+        obj.liquidity_module = message.liquidity_module;
+        obj.messages_per_tx = message.messages_per_tx ? message.messages_per_tx.toString() : undefined;
+        obj.return_to_sender = message.return_to_sender;
+        obj.deposits_enabled = message.deposits_enabled;
+        obj.unbonding_enabled = message.unbonding_enabled;
         obj.decimals = message.decimals ? message.decimals.toString() : undefined;
-        obj.is_118 = message.is118;
+        obj.is_118 = message.is_118;
         return obj;
     },
     fromAminoMsg(object) {
@@ -232,17 +232,17 @@ function createBaseRegisterZoneProposalWithDeposit() {
     return {
         title: "",
         description: "",
-        connectionId: "",
-        baseDenom: "",
-        localDenom: "",
-        accountPrefix: "",
-        multiSend: false,
-        liquidityModule: false,
+        connection_id: "",
+        base_denom: "",
+        local_denom: "",
+        account_prefix: "",
+        multi_send: false,
+        liquidity_module: false,
         deposit: "",
-        messagesPerTx: Long.ZERO,
-        returnToSender: false,
-        depositsEnabled: false,
-        unbondingEnabled: false,
+        messages_per_tx: Long.ZERO,
+        return_to_sender: false,
+        deposits_enabled: false,
+        unbonding_enabled: false,
         decimals: Long.ZERO,
         is118: false
     };
@@ -256,38 +256,38 @@ export const RegisterZoneProposalWithDeposit = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.connectionId !== "") {
-            writer.uint32(26).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(26).string(message.connection_id);
         }
-        if (message.baseDenom !== "") {
-            writer.uint32(34).string(message.baseDenom);
+        if (message.base_denom !== "") {
+            writer.uint32(34).string(message.base_denom);
         }
-        if (message.localDenom !== "") {
-            writer.uint32(42).string(message.localDenom);
+        if (message.local_denom !== "") {
+            writer.uint32(42).string(message.local_denom);
         }
-        if (message.accountPrefix !== "") {
-            writer.uint32(50).string(message.accountPrefix);
+        if (message.account_prefix !== "") {
+            writer.uint32(50).string(message.account_prefix);
         }
-        if (message.multiSend === true) {
-            writer.uint32(56).bool(message.multiSend);
+        if (message.multi_send === true) {
+            writer.uint32(56).bool(message.multi_send);
         }
-        if (message.liquidityModule === true) {
-            writer.uint32(64).bool(message.liquidityModule);
+        if (message.liquidity_module === true) {
+            writer.uint32(64).bool(message.liquidity_module);
         }
         if (message.deposit !== "") {
             writer.uint32(74).string(message.deposit);
         }
-        if (!message.messagesPerTx.isZero()) {
-            writer.uint32(80).int64(message.messagesPerTx);
+        if (!message.messages_per_tx.isZero()) {
+            writer.uint32(80).int64(message.messages_per_tx);
         }
-        if (message.returnToSender === true) {
-            writer.uint32(88).bool(message.returnToSender);
+        if (message.return_to_sender === true) {
+            writer.uint32(88).bool(message.return_to_sender);
         }
-        if (message.depositsEnabled === true) {
-            writer.uint32(96).bool(message.depositsEnabled);
+        if (message.deposits_enabled === true) {
+            writer.uint32(96).bool(message.deposits_enabled);
         }
-        if (message.unbondingEnabled === true) {
-            writer.uint32(104).bool(message.unbondingEnabled);
+        if (message.unbonding_enabled === true) {
+            writer.uint32(104).bool(message.unbonding_enabled);
         }
         if (!message.decimals.isZero()) {
             writer.uint32(112).int64(message.decimals);
@@ -311,37 +311,37 @@ export const RegisterZoneProposalWithDeposit = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 4:
-                    message.baseDenom = reader.string();
+                    message.base_denom = reader.string();
                     break;
                 case 5:
-                    message.localDenom = reader.string();
+                    message.local_denom = reader.string();
                     break;
                 case 6:
-                    message.accountPrefix = reader.string();
+                    message.account_prefix = reader.string();
                     break;
                 case 7:
-                    message.multiSend = reader.bool();
+                    message.multi_send = reader.bool();
                     break;
                 case 8:
-                    message.liquidityModule = reader.bool();
+                    message.liquidity_module = reader.bool();
                     break;
                 case 9:
                     message.deposit = reader.string();
                     break;
                 case 10:
-                    message.messagesPerTx = reader.int64();
+                    message.messages_per_tx = reader.int64();
                     break;
                 case 11:
-                    message.returnToSender = reader.bool();
+                    message.return_to_sender = reader.bool();
                     break;
                 case 12:
-                    message.depositsEnabled = reader.bool();
+                    message.deposits_enabled = reader.bool();
                     break;
                 case 13:
-                    message.unbondingEnabled = reader.bool();
+                    message.unbonding_enabled = reader.bool();
                     break;
                 case 14:
                     message.decimals = reader.int64();
@@ -360,17 +360,17 @@ export const RegisterZoneProposalWithDeposit = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-            baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
-            localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
-            accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
-            multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
-            liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
+            connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+            base_denom: isSet(object.base_denom) ? String(object.base_denom) : "",
+            local_denom: isSet(object.local_denom) ? String(object.local_denom) : "",
+            account_prefix: isSet(object.account_prefix) ? String(object.account_prefix) : "",
+            multi_send: isSet(object.multi_send) ? Boolean(object.multi_send) : false,
+            liquidity_module: isSet(object.liquidity_module) ? Boolean(object.liquidity_module) : false,
             deposit: isSet(object.deposit) ? String(object.deposit) : "",
-            messagesPerTx: isSet(object.messagesPerTx) ? Long.fromValue(object.messagesPerTx) : Long.ZERO,
-            returnToSender: isSet(object.returnToSender) ? Boolean(object.returnToSender) : false,
-            depositsEnabled: isSet(object.depositsEnabled) ? Boolean(object.depositsEnabled) : false,
-            unbondingEnabled: isSet(object.unbondingEnabled) ? Boolean(object.unbondingEnabled) : false,
+            messages_per_tx: isSet(object.messages_per_tx) ? Long.fromValue(object.messages_per_tx) : Long.ZERO,
+            return_to_sender: isSet(object.return_to_sender) ? Boolean(object.return_to_sender) : false,
+            deposits_enabled: isSet(object.deposits_enabled) ? Boolean(object.deposits_enabled) : false,
+            unbonding_enabled: isSet(object.unbonding_enabled) ? Boolean(object.unbonding_enabled) : false,
             decimals: isSet(object.decimals) ? Long.fromValue(object.decimals) : Long.ZERO,
             is118: isSet(object.is118) ? Boolean(object.is118) : false
         };
@@ -379,17 +379,17 @@ export const RegisterZoneProposalWithDeposit = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
-        message.localDenom !== undefined && (obj.localDenom = message.localDenom);
-        message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
-        message.multiSend !== undefined && (obj.multiSend = message.multiSend);
-        message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.base_denom !== undefined && (obj.base_denom = message.base_denom);
+        message.local_denom !== undefined && (obj.local_denom = message.local_denom);
+        message.account_prefix !== undefined && (obj.account_prefix = message.account_prefix);
+        message.multi_send !== undefined && (obj.multi_send = message.multi_send);
+        message.liquidity_module !== undefined && (obj.liquidity_module = message.liquidity_module);
         message.deposit !== undefined && (obj.deposit = message.deposit);
-        message.messagesPerTx !== undefined && (obj.messagesPerTx = (message.messagesPerTx || Long.ZERO).toString());
-        message.returnToSender !== undefined && (obj.returnToSender = message.returnToSender);
-        message.depositsEnabled !== undefined && (obj.depositsEnabled = message.depositsEnabled);
-        message.unbondingEnabled !== undefined && (obj.unbondingEnabled = message.unbondingEnabled);
+        message.messages_per_tx !== undefined && (obj.messages_per_tx = (message.messages_per_tx || Long.ZERO).toString());
+        message.return_to_sender !== undefined && (obj.return_to_sender = message.return_to_sender);
+        message.deposits_enabled !== undefined && (obj.deposits_enabled = message.deposits_enabled);
+        message.unbonding_enabled !== undefined && (obj.unbonding_enabled = message.unbonding_enabled);
         message.decimals !== undefined && (obj.decimals = (message.decimals || Long.ZERO).toString());
         message.is118 !== undefined && (obj.is118 = message.is118);
         return obj;
@@ -398,17 +398,17 @@ export const RegisterZoneProposalWithDeposit = {
         const message = createBaseRegisterZoneProposalWithDeposit();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.connectionId = object.connectionId ?? "";
-        message.baseDenom = object.baseDenom ?? "";
-        message.localDenom = object.localDenom ?? "";
-        message.accountPrefix = object.accountPrefix ?? "";
-        message.multiSend = object.multiSend ?? false;
-        message.liquidityModule = object.liquidityModule ?? false;
+        message.connection_id = object.connection_id ?? "";
+        message.base_denom = object.base_denom ?? "";
+        message.local_denom = object.local_denom ?? "";
+        message.account_prefix = object.account_prefix ?? "";
+        message.multi_send = object.multi_send ?? false;
+        message.liquidity_module = object.liquidity_module ?? false;
         message.deposit = object.deposit ?? "";
-        message.messagesPerTx = object.messagesPerTx !== undefined && object.messagesPerTx !== null ? Long.fromValue(object.messagesPerTx) : Long.ZERO;
-        message.returnToSender = object.returnToSender ?? false;
-        message.depositsEnabled = object.depositsEnabled ?? false;
-        message.unbondingEnabled = object.unbondingEnabled ?? false;
+        message.messages_per_tx = object.messages_per_tx !== undefined && object.messages_per_tx !== null ? Long.fromValue(object.messages_per_tx) : Long.ZERO;
+        message.return_to_sender = object.return_to_sender ?? false;
+        message.deposits_enabled = object.deposits_enabled ?? false;
+        message.unbonding_enabled = object.unbonding_enabled ?? false;
         message.decimals = object.decimals !== undefined && object.decimals !== null ? Long.fromValue(object.decimals) : Long.ZERO;
         message.is118 = object.is118 ?? false;
         return message;
@@ -417,38 +417,38 @@ export const RegisterZoneProposalWithDeposit = {
         return {
             title: object.title,
             description: object.description,
-            connectionId: object.connection_id,
-            baseDenom: object.base_denom,
-            localDenom: object.local_denom,
-            accountPrefix: object.account_prefix,
-            multiSend: object.multi_send,
-            liquidityModule: object.liquidity_module,
+            connection_id: object.connection_id,
+            base_denom: object.base_denom,
+            local_denom: object.local_denom,
+            account_prefix: object.account_prefix,
+            multi_send: object.multi_send,
+            liquidity_module: object.liquidity_module,
             deposit: object.deposit,
-            messagesPerTx: Long.fromString(object.messages_per_tx),
-            returnToSender: object.return_to_sender,
-            depositsEnabled: object.deposits_enabled,
-            unbondingEnabled: object.unbonding_enabled,
+            messages_per_tx: Long.fromString(object.messages_per_tx),
+            return_to_sender: object.return_to_sender,
+            deposits_enabled: object.deposits_enabled,
+            unbonding_enabled: object.unbonding_enabled,
             decimals: Long.fromString(object.decimals),
-            is118: object.is_118
+            is_118: object.is_118
         };
     },
     toAmino(message) {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.connection_id = message.connectionId;
-        obj.base_denom = message.baseDenom;
-        obj.local_denom = message.localDenom;
-        obj.account_prefix = message.accountPrefix;
-        obj.multi_send = message.multiSend;
-        obj.liquidity_module = message.liquidityModule;
+        obj.connection_id = message.connection_id;
+        obj.base_denom = message.base_denom;
+        obj.local_denom = message.local_denom;
+        obj.account_prefix = message.account_prefix;
+        obj.multi_send = message.multi_send;
+        obj.liquidity_module = message.liquidity_module;
         obj.deposit = message.deposit;
-        obj.messages_per_tx = message.messagesPerTx ? message.messagesPerTx.toString() : undefined;
-        obj.return_to_sender = message.returnToSender;
-        obj.deposits_enabled = message.depositsEnabled;
-        obj.unbonding_enabled = message.unbondingEnabled;
+        obj.messages_per_tx = message.messages_per_tx ? message.messages_per_tx.toString() : undefined;
+        obj.return_to_sender = message.return_to_sender;
+        obj.deposits_enabled = message.deposits_enabled;
+        obj.unbonding_enabled = message.unbonding_enabled;
         obj.decimals = message.decimals ? message.decimals.toString() : undefined;
-        obj.is_118 = message.is118;
+        obj.is_118 = message.is_118;
         return obj;
     },
     fromAminoMsg(object) {
@@ -471,7 +471,7 @@ function createBaseUpdateZoneProposal() {
     return {
         title: "",
         description: "",
-        chainId: "",
+        chain_id: "",
         changes: []
     };
 }
@@ -484,8 +484,8 @@ export const UpdateZoneProposal = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.chainId !== "") {
-            writer.uint32(26).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(26).string(message.chain_id);
         }
         for (const v of message.changes) {
             UpdateZoneValue.encode(v, writer.uint32(34).fork()).ldelim();
@@ -506,7 +506,7 @@ export const UpdateZoneProposal = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 4:
                     message.changes.push(UpdateZoneValue.decode(reader, reader.uint32()));
@@ -522,7 +522,7 @@ export const UpdateZoneProposal = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             changes: Array.isArray(object?.changes) ? object.changes.map((e) => UpdateZoneValue.fromJSON(e)) : []
         };
     },
@@ -530,7 +530,7 @@ export const UpdateZoneProposal = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         if (message.changes) {
             obj.changes = message.changes.map(e => e ? UpdateZoneValue.toJSON(e) : undefined);
         }
@@ -543,7 +543,7 @@ export const UpdateZoneProposal = {
         const message = createBaseUpdateZoneProposal();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.changes = object.changes?.map(e => UpdateZoneValue.fromPartial(e)) || [];
         return message;
     },
@@ -551,7 +551,7 @@ export const UpdateZoneProposal = {
         return {
             title: object.title,
             description: object.description,
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             changes: Array.isArray(object?.changes) ? object.changes.map((e) => UpdateZoneValue.fromAmino(e)) : []
         };
     },
@@ -559,7 +559,7 @@ export const UpdateZoneProposal = {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         if (message.changes) {
             obj.changes = message.changes.map(e => e ? UpdateZoneValue.toAmino(e) : undefined);
         }
@@ -588,7 +588,7 @@ function createBaseUpdateZoneProposalWithDeposit() {
     return {
         title: "",
         description: "",
-        chainId: "",
+        chain_id: "",
         changes: [],
         deposit: ""
     };
@@ -602,8 +602,8 @@ export const UpdateZoneProposalWithDeposit = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.chainId !== "") {
-            writer.uint32(26).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(26).string(message.chain_id);
         }
         for (const v of message.changes) {
             UpdateZoneValue.encode(v, writer.uint32(34).fork()).ldelim();
@@ -627,7 +627,7 @@ export const UpdateZoneProposalWithDeposit = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 4:
                     message.changes.push(UpdateZoneValue.decode(reader, reader.uint32()));
@@ -646,7 +646,7 @@ export const UpdateZoneProposalWithDeposit = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             changes: Array.isArray(object?.changes) ? object.changes.map((e) => UpdateZoneValue.fromJSON(e)) : [],
             deposit: isSet(object.deposit) ? String(object.deposit) : ""
         };
@@ -655,7 +655,7 @@ export const UpdateZoneProposalWithDeposit = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         if (message.changes) {
             obj.changes = message.changes.map(e => e ? UpdateZoneValue.toJSON(e) : undefined);
         }
@@ -669,7 +669,7 @@ export const UpdateZoneProposalWithDeposit = {
         const message = createBaseUpdateZoneProposalWithDeposit();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.changes = object.changes?.map(e => UpdateZoneValue.fromPartial(e)) || [];
         message.deposit = object.deposit ?? "";
         return message;
@@ -678,7 +678,7 @@ export const UpdateZoneProposalWithDeposit = {
         return {
             title: object.title,
             description: object.description,
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             changes: Array.isArray(object?.changes) ? object.changes.map((e) => UpdateZoneValue.fromAmino(e)) : [],
             deposit: object.deposit
         };
@@ -687,7 +687,7 @@ export const UpdateZoneProposalWithDeposit = {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         if (message.changes) {
             obj.changes = message.changes.map(e => e ? UpdateZoneValue.toAmino(e) : undefined);
         }
@@ -800,8 +800,8 @@ function createBaseMsgGovReopenChannel() {
     return {
         title: "",
         description: "",
-        connectionId: "",
-        portId: "",
+        connection_id: "",
+        port_id: "",
         authority: ""
     };
 }
@@ -814,11 +814,11 @@ export const MsgGovReopenChannel = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.connectionId !== "") {
-            writer.uint32(26).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(26).string(message.connection_id);
         }
-        if (message.portId !== "") {
-            writer.uint32(34).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(34).string(message.port_id);
         }
         if (message.authority !== "") {
             writer.uint32(42).string(message.authority);
@@ -839,10 +839,10 @@ export const MsgGovReopenChannel = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 4:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 5:
                     message.authority = reader.string();
@@ -858,8 +858,8 @@ export const MsgGovReopenChannel = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-            portId: isSet(object.portId) ? String(object.portId) : "",
+            connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
             authority: isSet(object.authority) ? String(object.authority) : ""
         };
     },
@@ -867,8 +867,8 @@ export const MsgGovReopenChannel = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.portId !== undefined && (obj.portId = message.portId);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
         message.authority !== undefined && (obj.authority = message.authority);
         return obj;
     },
@@ -876,8 +876,8 @@ export const MsgGovReopenChannel = {
         const message = createBaseMsgGovReopenChannel();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.connectionId = object.connectionId ?? "";
-        message.portId = object.portId ?? "";
+        message.connection_id = object.connection_id ?? "";
+        message.port_id = object.port_id ?? "";
         message.authority = object.authority ?? "";
         return message;
     },
@@ -885,8 +885,8 @@ export const MsgGovReopenChannel = {
         return {
             title: object.title,
             description: object.description,
-            connectionId: object.connection_id,
-            portId: object.port_id,
+            connection_id: object.connection_id,
+            port_id: object.port_id,
             authority: object.authority
         };
     },
@@ -894,8 +894,8 @@ export const MsgGovReopenChannel = {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.connection_id = message.connectionId;
-        obj.port_id = message.portId;
+        obj.connection_id = message.connection_id;
+        obj.port_id = message.port_id;
         obj.authority = message.authority;
         return obj;
     },
@@ -975,8 +975,8 @@ function createBaseMsgGovCloseChannel() {
     return {
         title: "",
         description: "",
-        channelId: "",
-        portId: "",
+        channel_id: "",
+        port_id: "",
         authority: ""
     };
 }
@@ -989,11 +989,11 @@ export const MsgGovCloseChannel = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.channelId !== "") {
-            writer.uint32(26).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(26).string(message.channel_id);
         }
-        if (message.portId !== "") {
-            writer.uint32(34).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(34).string(message.port_id);
         }
         if (message.authority !== "") {
             writer.uint32(42).string(message.authority);
@@ -1014,10 +1014,10 @@ export const MsgGovCloseChannel = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 4:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 5:
                     message.authority = reader.string();
@@ -1033,8 +1033,8 @@ export const MsgGovCloseChannel = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
-            portId: isSet(object.portId) ? String(object.portId) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
             authority: isSet(object.authority) ? String(object.authority) : ""
         };
     },
@@ -1042,8 +1042,8 @@ export const MsgGovCloseChannel = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
-        message.portId !== undefined && (obj.portId = message.portId);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
         message.authority !== undefined && (obj.authority = message.authority);
         return obj;
     },
@@ -1051,8 +1051,8 @@ export const MsgGovCloseChannel = {
         const message = createBaseMsgGovCloseChannel();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.channelId = object.channelId ?? "";
-        message.portId = object.portId ?? "";
+        message.channel_id = object.channel_id ?? "";
+        message.port_id = object.port_id ?? "";
         message.authority = object.authority ?? "";
         return message;
     },
@@ -1060,8 +1060,8 @@ export const MsgGovCloseChannel = {
         return {
             title: object.title,
             description: object.description,
-            channelId: object.channel_id,
-            portId: object.port_id,
+            channel_id: object.channel_id,
+            port_id: object.port_id,
             authority: object.authority
         };
     },
@@ -1069,8 +1069,8 @@ export const MsgGovCloseChannel = {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.channel_id = message.channelId;
-        obj.port_id = message.portId;
+        obj.channel_id = message.channel_id;
+        obj.port_id = message.port_id;
         obj.authority = message.authority;
         return obj;
     },
@@ -1150,7 +1150,7 @@ function createBaseMsgGovSetLsmCaps() {
     return {
         title: "",
         description: "",
-        chainId: "",
+        chain_id: "",
         caps: LsmCaps.fromPartial({}),
         authority: ""
     };
@@ -1164,8 +1164,8 @@ export const MsgGovSetLsmCaps = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.chainId !== "") {
-            writer.uint32(26).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(26).string(message.chain_id);
         }
         if (message.caps !== undefined) {
             LsmCaps.encode(message.caps, writer.uint32(34).fork()).ldelim();
@@ -1189,7 +1189,7 @@ export const MsgGovSetLsmCaps = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 4:
                     message.caps = LsmCaps.decode(reader, reader.uint32());
@@ -1208,7 +1208,7 @@ export const MsgGovSetLsmCaps = {
         return {
             title: isSet(object.title) ? String(object.title) : "",
             description: isSet(object.description) ? String(object.description) : "",
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             caps: isSet(object.caps) ? LsmCaps.fromJSON(object.caps) : undefined,
             authority: isSet(object.authority) ? String(object.authority) : ""
         };
@@ -1217,7 +1217,7 @@ export const MsgGovSetLsmCaps = {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.caps !== undefined && (obj.caps = message.caps ? LsmCaps.toJSON(message.caps) : undefined);
         message.authority !== undefined && (obj.authority = message.authority);
         return obj;
@@ -1226,7 +1226,7 @@ export const MsgGovSetLsmCaps = {
         const message = createBaseMsgGovSetLsmCaps();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.caps = object.caps !== undefined && object.caps !== null ? LsmCaps.fromPartial(object.caps) : undefined;
         message.authority = object.authority ?? "";
         return message;
@@ -1235,7 +1235,7 @@ export const MsgGovSetLsmCaps = {
         return {
             title: object.title,
             description: object.description,
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             caps: object?.caps ? LsmCaps.fromAmino(object.caps) : undefined,
             authority: object.authority
         };
@@ -1244,7 +1244,7 @@ export const MsgGovSetLsmCaps = {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.caps = message.caps ? LsmCaps.toAmino(message.caps) : undefined;
         obj.authority = message.authority;
         return obj;

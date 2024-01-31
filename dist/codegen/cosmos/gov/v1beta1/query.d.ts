@@ -5,10 +5,10 @@ import * as _m0 from "protobufjs/minimal";
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
 }
 export interface QueryProposalRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryProposalRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryProposalRequest";
     value: Uint8Array;
 }
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
@@ -29,7 +29,7 @@ export interface QueryProposalResponse {
     proposal: Proposal;
 }
 export interface QueryProposalResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryProposalResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryProposalResponse";
     value: Uint8Array;
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
@@ -47,7 +47,7 @@ export interface QueryProposalResponseSDKType {
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
 export interface QueryProposalsRequest {
     /** proposal_status defines the status of the proposals. */
-    proposalStatus: ProposalStatus;
+    proposal_status: ProposalStatus;
     /** voter defines the voter address for the proposals. */
     voter: string;
     /** depositor defines the deposit addresses from the proposals. */
@@ -56,7 +56,7 @@ export interface QueryProposalsRequest {
     pagination: PageRequest;
 }
 export interface QueryProposalsRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryProposalsRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryProposalsRequest";
     value: Uint8Array;
 }
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
@@ -91,7 +91,7 @@ export interface QueryProposalsResponse {
     pagination: PageResponse;
 }
 export interface QueryProposalsResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryProposalsResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryProposalsResponse";
     value: Uint8Array;
 }
 /**
@@ -118,12 +118,12 @@ export interface QueryProposalsResponseSDKType {
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
     /** voter defines the oter address for the proposals. */
     voter: string;
 }
 export interface QueryVoteRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryVoteRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryVoteRequest";
     value: Uint8Array;
 }
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
@@ -148,7 +148,7 @@ export interface QueryVoteResponse {
     vote: Vote;
 }
 export interface QueryVoteResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryVoteResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryVoteResponse";
     value: Uint8Array;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
@@ -167,12 +167,12 @@ export interface QueryVoteResponseSDKType {
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryVotesRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryVotesRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryVotesRequest";
     value: Uint8Array;
 }
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
@@ -199,7 +199,7 @@ export interface QueryVotesResponse {
     pagination: PageResponse;
 }
 export interface QueryVotesResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryVotesResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryVotesResponse";
     value: Uint8Array;
 }
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
@@ -224,10 +224,10 @@ export interface QueryParamsRequest {
      * params_type defines which parameters to query for, can be one of "voting",
      * "tallying" or "deposit".
      */
-    paramsType: string;
+    params_type: string;
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryParamsRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -249,14 +249,14 @@ export interface QueryParamsRequestSDKType {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** voting_params defines the parameters related to voting. */
-    votingParams: VotingParams;
+    voting_params: VotingParams;
     /** deposit_params defines the parameters related to deposit. */
-    depositParams: DepositParams;
+    deposit_params: DepositParams;
     /** tally_params defines the parameters related to tally. */
-    tallyParams: TallyParams;
+    tally_params: TallyParams;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryParamsResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -281,12 +281,12 @@ export interface QueryParamsResponseSDKType {
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
 }
 export interface QueryDepositRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryDepositRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryDepositRequest";
     value: Uint8Array;
 }
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
@@ -311,7 +311,7 @@ export interface QueryDepositResponse {
     deposit: Deposit;
 }
 export interface QueryDepositResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryDepositResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryDepositResponse";
     value: Uint8Array;
 }
 /** QueryDepositResponse is the response type for the Query/Deposit RPC method. */
@@ -330,12 +330,12 @@ export interface QueryDepositResponseSDKType {
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryDepositsRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryDepositsRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryDepositsRequest";
     value: Uint8Array;
 }
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
@@ -361,7 +361,7 @@ export interface QueryDepositsResponse {
     pagination: PageResponse;
 }
 export interface QueryDepositsResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryDepositsResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryDepositsResponse";
     value: Uint8Array;
 }
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
@@ -382,10 +382,10 @@ export interface QueryDepositsResponseSDKType {
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: Long;
+    proposal_id: Long;
 }
 export interface QueryTallyResultRequestProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryTallyResultRequest";
+    type_url: "/cosmos.gov.v1beta1.QueryTallyResultRequest";
     value: Uint8Array;
 }
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
@@ -407,7 +407,7 @@ export interface QueryTallyResultResponse {
     tally: TallyResult;
 }
 export interface QueryTallyResultResponseProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.QueryTallyResultResponse";
+    type_url: "/cosmos.gov.v1beta1.QueryTallyResultResponse";
     value: Uint8Array;
 }
 /** QueryTallyResultResponse is the response type for the Query/Tally RPC method. */

@@ -55,7 +55,7 @@ export interface SignatureDescriptors {
     signatures: SignatureDescriptor[];
 }
 export interface SignatureDescriptorsProtoMsg {
-    typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors";
+    type_url: "/cosmos.tx.signing.v1beta1.SignatureDescriptors";
     value: Uint8Array;
 }
 /** SignatureDescriptors wraps multiple SignatureDescriptor's. */
@@ -79,7 +79,7 @@ export interface SignatureDescriptorsSDKType {
  */
 export interface SignatureDescriptor {
     /** public_key is the public key of the signer */
-    publicKey: Any;
+    public_key: Any;
     data: SignatureDescriptor_Data;
     /**
      * sequence is the sequence of the account, which describes the
@@ -89,7 +89,7 @@ export interface SignatureDescriptor {
     sequence: Long;
 }
 export interface SignatureDescriptorProtoMsg {
-    typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor";
+    type_url: "/cosmos.tx.signing.v1beta1.SignatureDescriptor";
     value: Uint8Array;
 }
 /**
@@ -132,7 +132,7 @@ export interface SignatureDescriptor_Data {
     multi?: SignatureDescriptor_Data_Multi;
 }
 export interface SignatureDescriptor_DataProtoMsg {
-    typeUrl: "/cosmos.tx.signing.v1beta1.Data";
+    type_url: "/cosmos.tx.signing.v1beta1.Data";
     value: Uint8Array;
 }
 /** Data represents signature data */
@@ -159,7 +159,7 @@ export interface SignatureDescriptor_Data_Single {
     signature: Uint8Array;
 }
 export interface SignatureDescriptor_Data_SingleProtoMsg {
-    typeUrl: "/cosmos.tx.signing.v1beta1.Single";
+    type_url: "/cosmos.tx.signing.v1beta1.Single";
     value: Uint8Array;
 }
 /** Single is the signature data for a single signer */
@@ -186,7 +186,7 @@ export interface SignatureDescriptor_Data_Multi {
     signatures: SignatureDescriptor_Data[];
 }
 export interface SignatureDescriptor_Data_MultiProtoMsg {
-    typeUrl: "/cosmos.tx.signing.v1beta1.Multi";
+    type_url: "/cosmos.tx.signing.v1beta1.Multi";
     value: Uint8Array;
 }
 /** Multi is the signature data for a multisig public key */

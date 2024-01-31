@@ -29,19 +29,19 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 const helpers_1 = require("../../../helpers");
 function createBaseMsgSetWithdrawAddress() {
     return {
-        delegatorAddress: "",
-        withdrawAddress: ""
+        delegator_address: "",
+        withdraw_address: ""
     };
 }
 exports.MsgSetWithdrawAddress = {
     typeUrl: "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress",
     aminoType: "cosmos-sdk/MsgModifyWithdrawAddress",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
-        if (message.withdrawAddress !== "") {
-            writer.uint32(18).string(message.withdrawAddress);
+        if (message.withdraw_address !== "") {
+            writer.uint32(18).string(message.withdraw_address);
         }
         return writer;
     },
@@ -53,10 +53,10 @@ exports.MsgSetWithdrawAddress = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 case 2:
-                    message.withdrawAddress = reader.string();
+                    message.withdraw_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -67,32 +67,32 @@ exports.MsgSetWithdrawAddress = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-            withdrawAddress: (0, helpers_1.isSet)(object.withdrawAddress) ? String(object.withdrawAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : "",
+            withdraw_address: (0, helpers_1.isSet)(object.withdraw_address) ? String(object.withdraw_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-        message.withdrawAddress !== undefined && (obj.withdrawAddress = message.withdrawAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+        message.withdraw_address !== undefined && (obj.withdraw_address = message.withdraw_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgSetWithdrawAddress();
-        message.delegatorAddress = object.delegatorAddress ?? "";
-        message.withdrawAddress = object.withdrawAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
+        message.withdraw_address = object.withdraw_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address,
-            withdrawAddress: object.withdraw_address
+            delegator_address: object.delegator_address,
+            withdraw_address: object.withdraw_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
-        obj.withdraw_address = message.withdrawAddress;
+        obj.delegator_address = message.delegator_address;
+        obj.withdraw_address = message.withdraw_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -182,19 +182,19 @@ exports.MsgSetWithdrawAddressResponse = {
 };
 function createBaseMsgWithdrawDelegatorReward() {
     return {
-        delegatorAddress: "",
-        validatorAddress: ""
+        delegator_address: "",
+        validator_address: ""
     };
 }
 exports.MsgWithdrawDelegatorReward = {
     typeUrl: "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
     aminoType: "cosmos-sdk/MsgWithdrawDelegationReward",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
-        if (message.validatorAddress !== "") {
-            writer.uint32(18).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(18).string(message.validator_address);
         }
         return writer;
     },
@@ -206,10 +206,10 @@ exports.MsgWithdrawDelegatorReward = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 case 2:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -220,32 +220,32 @@ exports.MsgWithdrawDelegatorReward = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : "",
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgWithdrawDelegatorReward();
-        message.delegatorAddress = object.delegatorAddress ?? "";
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
+        message.validator_address = object.validator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address,
-            validatorAddress: object.validator_address
+            delegator_address: object.delegator_address,
+            validator_address: object.validator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
-        obj.validator_address = message.validatorAddress;
+        obj.delegator_address = message.delegator_address;
+        obj.validator_address = message.validator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -360,15 +360,15 @@ exports.MsgWithdrawDelegatorRewardResponse = {
 };
 function createBaseMsgWithdrawValidatorCommission() {
     return {
-        validatorAddress: ""
+        validator_address: ""
     };
 }
 exports.MsgWithdrawValidatorCommission = {
     typeUrl: "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
     aminoType: "cosmos-sdk/MsgWithdrawValidatorCommission",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorAddress !== "") {
-            writer.uint32(10).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(10).string(message.validator_address);
         }
         return writer;
     },
@@ -380,7 +380,7 @@ exports.MsgWithdrawValidatorCommission = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -391,27 +391,27 @@ exports.MsgWithdrawValidatorCommission = {
     },
     fromJSON(object) {
         return {
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : ""
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgWithdrawValidatorCommission();
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.validator_address = object.validator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorAddress: object.validator_address
+            validator_address: object.validator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_address = message.validatorAddress;
+        obj.validator_address = message.validator_address;
         return obj;
     },
     fromAminoMsg(object) {

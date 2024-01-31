@@ -30,8 +30,8 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 const helpers_1 = require("../../../helpers");
 function createBaseMsgSend() {
     return {
-        fromAddress: "",
-        toAddress: "",
+        from_address: "",
+        to_address: "",
         amount: []
     };
 }
@@ -39,11 +39,11 @@ exports.MsgSend = {
     typeUrl: "/cosmos.bank.v1beta1.MsgSend",
     aminoType: "cosmos-sdk/MsgSend",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.fromAddress !== "") {
-            writer.uint32(10).string(message.fromAddress);
+        if (message.from_address !== "") {
+            writer.uint32(10).string(message.from_address);
         }
-        if (message.toAddress !== "") {
-            writer.uint32(18).string(message.toAddress);
+        if (message.to_address !== "") {
+            writer.uint32(18).string(message.to_address);
         }
         for (const v of message.amount) {
             coin_1.Coin.encode(v, writer.uint32(26).fork()).ldelim();
@@ -58,10 +58,10 @@ exports.MsgSend = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.fromAddress = reader.string();
+                    message.from_address = reader.string();
                     break;
                 case 2:
-                    message.toAddress = reader.string();
+                    message.to_address = reader.string();
                     break;
                 case 3:
                     message.amount.push(coin_1.Coin.decode(reader, reader.uint32()));
@@ -75,15 +75,15 @@ exports.MsgSend = {
     },
     fromJSON(object) {
         return {
-            fromAddress: (0, helpers_1.isSet)(object.fromAddress) ? String(object.fromAddress) : "",
-            toAddress: (0, helpers_1.isSet)(object.toAddress) ? String(object.toAddress) : "",
+            from_address: (0, helpers_1.isSet)(object.from_address) ? String(object.from_address) : "",
+            to_address: (0, helpers_1.isSet)(object.to_address) ? String(object.to_address) : "",
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
-        message.toAddress !== undefined && (obj.toAddress = message.toAddress);
+        message.from_address !== undefined && (obj.from_address = message.from_address);
+        message.to_address !== undefined && (obj.to_address = message.to_address);
         if (message.amount) {
             obj.amount = message.amount.map(e => e ? coin_1.Coin.toJSON(e) : undefined);
         }
@@ -94,22 +94,22 @@ exports.MsgSend = {
     },
     fromPartial(object) {
         const message = createBaseMsgSend();
-        message.fromAddress = object.fromAddress ?? "";
-        message.toAddress = object.toAddress ?? "";
+        message.from_address = object.from_address ?? "";
+        message.to_address = object.to_address ?? "";
         message.amount = object.amount?.map(e => coin_1.Coin.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            fromAddress: object.from_address,
-            toAddress: object.to_address,
+            from_address: object.from_address,
+            to_address: object.to_address,
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.from_address = message.fromAddress;
-        obj.to_address = message.toAddress;
+        obj.from_address = message.from_address;
+        obj.to_address = message.to_address;
         if (message.amount) {
             obj.amount = message.amount.map(e => e ? coin_1.Coin.toAmino(e) : undefined);
         }

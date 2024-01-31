@@ -59,19 +59,19 @@ export function stateToJSON(object) {
 }
 function createBaseConnectionEnd() {
     return {
-        clientId: "",
+        client_id: "",
         versions: [],
         state: 0,
         counterparty: Counterparty.fromPartial({}),
-        delayPeriod: Long.UZERO
+        delay_period: Long.UZERO
     };
 }
 export const ConnectionEnd = {
     typeUrl: "/ibc.core.connection.v1.ConnectionEnd",
     aminoType: "cosmos-sdk/ConnectionEnd",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
         for (const v of message.versions) {
             Version.encode(v, writer.uint32(18).fork()).ldelim();
@@ -82,8 +82,8 @@ export const ConnectionEnd = {
         if (message.counterparty !== undefined) {
             Counterparty.encode(message.counterparty, writer.uint32(34).fork()).ldelim();
         }
-        if (!message.delayPeriod.isZero()) {
-            writer.uint32(40).uint64(message.delayPeriod);
+        if (!message.delay_period.isZero()) {
+            writer.uint32(40).uint64(message.delay_period);
         }
         return writer;
     },
@@ -95,7 +95,7 @@ export const ConnectionEnd = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 2:
                     message.versions.push(Version.decode(reader, reader.uint32()));
@@ -107,7 +107,7 @@ export const ConnectionEnd = {
                     message.counterparty = Counterparty.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.delayPeriod = reader.uint64();
+                    message.delay_period = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -118,16 +118,16 @@ export const ConnectionEnd = {
     },
     fromJSON(object) {
         return {
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
             versions: Array.isArray(object?.versions) ? object.versions.map((e) => Version.fromJSON(e)) : [],
             state: isSet(object.state) ? stateFromJSON(object.state) : -1,
             counterparty: isSet(object.counterparty) ? Counterparty.fromJSON(object.counterparty) : undefined,
-            delayPeriod: isSet(object.delayPeriod) ? Long.fromValue(object.delayPeriod) : Long.UZERO
+            delay_period: isSet(object.delay_period) ? Long.fromValue(object.delay_period) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         if (message.versions) {
             obj.versions = message.versions.map(e => e ? Version.toJSON(e) : undefined);
         }
@@ -136,30 +136,30 @@ export const ConnectionEnd = {
         }
         message.state !== undefined && (obj.state = stateToJSON(message.state));
         message.counterparty !== undefined && (obj.counterparty = message.counterparty ? Counterparty.toJSON(message.counterparty) : undefined);
-        message.delayPeriod !== undefined && (obj.delayPeriod = (message.delayPeriod || Long.UZERO).toString());
+        message.delay_period !== undefined && (obj.delay_period = (message.delay_period || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseConnectionEnd();
-        message.clientId = object.clientId ?? "";
+        message.client_id = object.client_id ?? "";
         message.versions = object.versions?.map(e => Version.fromPartial(e)) || [];
         message.state = object.state ?? 0;
         message.counterparty = object.counterparty !== undefined && object.counterparty !== null ? Counterparty.fromPartial(object.counterparty) : undefined;
-        message.delayPeriod = object.delayPeriod !== undefined && object.delayPeriod !== null ? Long.fromValue(object.delayPeriod) : Long.UZERO;
+        message.delay_period = object.delay_period !== undefined && object.delay_period !== null ? Long.fromValue(object.delay_period) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id,
+            client_id: object.client_id,
             versions: Array.isArray(object?.versions) ? object.versions.map((e) => Version.fromAmino(e)) : [],
             state: isSet(object.state) ? stateFromJSON(object.state) : -1,
             counterparty: object?.counterparty ? Counterparty.fromAmino(object.counterparty) : undefined,
-            delayPeriod: Long.fromString(object.delay_period)
+            delay_period: Long.fromString(object.delay_period)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
+        obj.client_id = message.client_id;
         if (message.versions) {
             obj.versions = message.versions.map(e => e ? Version.toAmino(e) : undefined);
         }
@@ -168,7 +168,7 @@ export const ConnectionEnd = {
         }
         obj.state = message.state;
         obj.counterparty = message.counterparty ? Counterparty.toAmino(message.counterparty) : undefined;
-        obj.delay_period = message.delayPeriod ? message.delayPeriod.toString() : undefined;
+        obj.delay_period = message.delay_period ? message.delay_period.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -196,11 +196,11 @@ export const ConnectionEnd = {
 function createBaseIdentifiedConnection() {
     return {
         id: "",
-        clientId: "",
+        client_id: "",
         versions: [],
         state: 0,
         counterparty: Counterparty.fromPartial({}),
-        delayPeriod: Long.UZERO
+        delay_period: Long.UZERO
     };
 }
 export const IdentifiedConnection = {
@@ -210,8 +210,8 @@ export const IdentifiedConnection = {
         if (message.id !== "") {
             writer.uint32(10).string(message.id);
         }
-        if (message.clientId !== "") {
-            writer.uint32(18).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(18).string(message.client_id);
         }
         for (const v of message.versions) {
             Version.encode(v, writer.uint32(26).fork()).ldelim();
@@ -222,8 +222,8 @@ export const IdentifiedConnection = {
         if (message.counterparty !== undefined) {
             Counterparty.encode(message.counterparty, writer.uint32(42).fork()).ldelim();
         }
-        if (!message.delayPeriod.isZero()) {
-            writer.uint32(48).uint64(message.delayPeriod);
+        if (!message.delay_period.isZero()) {
+            writer.uint32(48).uint64(message.delay_period);
         }
         return writer;
     },
@@ -238,7 +238,7 @@ export const IdentifiedConnection = {
                     message.id = reader.string();
                     break;
                 case 2:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 3:
                     message.versions.push(Version.decode(reader, reader.uint32()));
@@ -250,7 +250,7 @@ export const IdentifiedConnection = {
                     message.counterparty = Counterparty.decode(reader, reader.uint32());
                     break;
                 case 6:
-                    message.delayPeriod = reader.uint64();
+                    message.delay_period = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -262,17 +262,17 @@ export const IdentifiedConnection = {
     fromJSON(object) {
         return {
             id: isSet(object.id) ? String(object.id) : "",
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
             versions: Array.isArray(object?.versions) ? object.versions.map((e) => Version.fromJSON(e)) : [],
             state: isSet(object.state) ? stateFromJSON(object.state) : -1,
             counterparty: isSet(object.counterparty) ? Counterparty.fromJSON(object.counterparty) : undefined,
-            delayPeriod: isSet(object.delayPeriod) ? Long.fromValue(object.delayPeriod) : Long.UZERO
+            delay_period: isSet(object.delay_period) ? Long.fromValue(object.delay_period) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
         message.id !== undefined && (obj.id = message.id);
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         if (message.versions) {
             obj.versions = message.versions.map(e => e ? Version.toJSON(e) : undefined);
         }
@@ -281,33 +281,33 @@ export const IdentifiedConnection = {
         }
         message.state !== undefined && (obj.state = stateToJSON(message.state));
         message.counterparty !== undefined && (obj.counterparty = message.counterparty ? Counterparty.toJSON(message.counterparty) : undefined);
-        message.delayPeriod !== undefined && (obj.delayPeriod = (message.delayPeriod || Long.UZERO).toString());
+        message.delay_period !== undefined && (obj.delay_period = (message.delay_period || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseIdentifiedConnection();
         message.id = object.id ?? "";
-        message.clientId = object.clientId ?? "";
+        message.client_id = object.client_id ?? "";
         message.versions = object.versions?.map(e => Version.fromPartial(e)) || [];
         message.state = object.state ?? 0;
         message.counterparty = object.counterparty !== undefined && object.counterparty !== null ? Counterparty.fromPartial(object.counterparty) : undefined;
-        message.delayPeriod = object.delayPeriod !== undefined && object.delayPeriod !== null ? Long.fromValue(object.delayPeriod) : Long.UZERO;
+        message.delay_period = object.delay_period !== undefined && object.delay_period !== null ? Long.fromValue(object.delay_period) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
             id: object.id,
-            clientId: object.client_id,
+            client_id: object.client_id,
             versions: Array.isArray(object?.versions) ? object.versions.map((e) => Version.fromAmino(e)) : [],
             state: isSet(object.state) ? stateFromJSON(object.state) : -1,
             counterparty: object?.counterparty ? Counterparty.fromAmino(object.counterparty) : undefined,
-            delayPeriod: Long.fromString(object.delay_period)
+            delay_period: Long.fromString(object.delay_period)
         };
     },
     toAmino(message) {
         const obj = {};
         obj.id = message.id;
-        obj.client_id = message.clientId;
+        obj.client_id = message.client_id;
         if (message.versions) {
             obj.versions = message.versions.map(e => e ? Version.toAmino(e) : undefined);
         }
@@ -316,7 +316,7 @@ export const IdentifiedConnection = {
         }
         obj.state = message.state;
         obj.counterparty = message.counterparty ? Counterparty.toAmino(message.counterparty) : undefined;
-        obj.delay_period = message.delayPeriod ? message.delayPeriod.toString() : undefined;
+        obj.delay_period = message.delay_period ? message.delay_period.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -343,8 +343,8 @@ export const IdentifiedConnection = {
 };
 function createBaseCounterparty() {
     return {
-        clientId: "",
-        connectionId: "",
+        client_id: "",
+        connection_id: "",
         prefix: MerklePrefix.fromPartial({})
     };
 }
@@ -352,11 +352,11 @@ export const Counterparty = {
     typeUrl: "/ibc.core.connection.v1.Counterparty",
     aminoType: "cosmos-sdk/Counterparty",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
-        if (message.connectionId !== "") {
-            writer.uint32(18).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(18).string(message.connection_id);
         }
         if (message.prefix !== undefined) {
             MerklePrefix.encode(message.prefix, writer.uint32(26).fork()).ldelim();
@@ -371,10 +371,10 @@ export const Counterparty = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 2:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 3:
                     message.prefix = MerklePrefix.decode(reader, reader.uint32());
@@ -388,36 +388,36 @@ export const Counterparty = {
     },
     fromJSON(object) {
         return {
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
-            connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
+            connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
             prefix: isSet(object.prefix) ? MerklePrefix.fromJSON(object.prefix) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
         message.prefix !== undefined && (obj.prefix = message.prefix ? MerklePrefix.toJSON(message.prefix) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseCounterparty();
-        message.clientId = object.clientId ?? "";
-        message.connectionId = object.connectionId ?? "";
+        message.client_id = object.client_id ?? "";
+        message.connection_id = object.connection_id ?? "";
         message.prefix = object.prefix !== undefined && object.prefix !== null ? MerklePrefix.fromPartial(object.prefix) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id,
-            connectionId: object.connection_id,
+            client_id: object.client_id,
+            connection_id: object.connection_id,
             prefix: object?.prefix ? MerklePrefix.fromAmino(object.prefix) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
-        obj.connection_id = message.connectionId;
+        obj.client_id = message.client_id;
+        obj.connection_id = message.connection_id;
         obj.prefix = message.prefix ? MerklePrefix.toAmino(message.prefix) : undefined;
         return obj;
     },
@@ -533,7 +533,7 @@ export const ClientPaths = {
 };
 function createBaseConnectionPaths() {
     return {
-        clientId: "",
+        client_id: "",
         paths: []
     };
 }
@@ -541,8 +541,8 @@ export const ConnectionPaths = {
     typeUrl: "/ibc.core.connection.v1.ConnectionPaths",
     aminoType: "cosmos-sdk/ConnectionPaths",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
         for (const v of message.paths) {
             writer.uint32(18).string(v);
@@ -557,7 +557,7 @@ export const ConnectionPaths = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 2:
                     message.paths.push(reader.string());
@@ -571,13 +571,13 @@ export const ConnectionPaths = {
     },
     fromJSON(object) {
         return {
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
             paths: Array.isArray(object?.paths) ? object.paths.map((e) => String(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         if (message.paths) {
             obj.paths = message.paths.map(e => e);
         }
@@ -588,19 +588,19 @@ export const ConnectionPaths = {
     },
     fromPartial(object) {
         const message = createBaseConnectionPaths();
-        message.clientId = object.clientId ?? "";
+        message.client_id = object.client_id ?? "";
         message.paths = object.paths?.map(e => e) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id,
+            client_id: object.client_id,
             paths: Array.isArray(object?.paths) ? object.paths.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
+        obj.client_id = message.client_id;
         if (message.paths) {
             obj.paths = message.paths.map(e => e);
         }
@@ -733,15 +733,15 @@ export const Version = {
 };
 function createBaseParams() {
     return {
-        maxExpectedTimePerBlock: Long.UZERO
+        max_expected_time_per_block: Long.UZERO
     };
 }
 export const Params = {
     typeUrl: "/ibc.core.connection.v1.Params",
     aminoType: "cosmos-sdk/Params",
     encode(message, writer = _m0.Writer.create()) {
-        if (!message.maxExpectedTimePerBlock.isZero()) {
-            writer.uint32(8).uint64(message.maxExpectedTimePerBlock);
+        if (!message.max_expected_time_per_block.isZero()) {
+            writer.uint32(8).uint64(message.max_expected_time_per_block);
         }
         return writer;
     },
@@ -753,7 +753,7 @@ export const Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.maxExpectedTimePerBlock = reader.uint64();
+                    message.max_expected_time_per_block = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -764,27 +764,27 @@ export const Params = {
     },
     fromJSON(object) {
         return {
-            maxExpectedTimePerBlock: isSet(object.maxExpectedTimePerBlock) ? Long.fromValue(object.maxExpectedTimePerBlock) : Long.UZERO
+            max_expected_time_per_block: isSet(object.max_expected_time_per_block) ? Long.fromValue(object.max_expected_time_per_block) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.maxExpectedTimePerBlock !== undefined && (obj.maxExpectedTimePerBlock = (message.maxExpectedTimePerBlock || Long.UZERO).toString());
+        message.max_expected_time_per_block !== undefined && (obj.max_expected_time_per_block = (message.max_expected_time_per_block || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams();
-        message.maxExpectedTimePerBlock = object.maxExpectedTimePerBlock !== undefined && object.maxExpectedTimePerBlock !== null ? Long.fromValue(object.maxExpectedTimePerBlock) : Long.UZERO;
+        message.max_expected_time_per_block = object.max_expected_time_per_block !== undefined && object.max_expected_time_per_block !== null ? Long.fromValue(object.max_expected_time_per_block) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            maxExpectedTimePerBlock: Long.fromString(object.max_expected_time_per_block)
+            max_expected_time_per_block: Long.fromString(object.max_expected_time_per_block)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.max_expected_time_per_block = message.maxExpectedTimePerBlock ? message.maxExpectedTimePerBlock.toString() : undefined;
+        obj.max_expected_time_per_block = message.max_expected_time_per_block ? message.max_expected_time_per_block.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

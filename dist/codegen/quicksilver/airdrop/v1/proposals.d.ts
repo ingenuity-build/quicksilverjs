@@ -4,11 +4,11 @@ import { DeepPartial } from "../../../helpers";
 export interface RegisterZoneDropProposal {
     title: string;
     description: string;
-    zoneDrop: ZoneDrop;
-    claimRecords: Uint8Array;
+    zone_drop: ZoneDrop;
+    claim_records: Uint8Array;
 }
 export interface RegisterZoneDropProposalProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.RegisterZoneDropProposal";
+    type_url: "/quicksilver.airdrop.v1.RegisterZoneDropProposal";
     value: Uint8Array;
 }
 export interface RegisterZoneDropProposalAmino {

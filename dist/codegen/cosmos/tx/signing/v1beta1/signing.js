@@ -206,7 +206,7 @@ exports.SignatureDescriptors = {
 };
 function createBaseSignatureDescriptor() {
     return {
-        publicKey: any_1.Any.fromPartial({}),
+        public_key: any_1.Any.fromPartial({}),
         data: Data.fromPartial({}),
         sequence: helpers_1.Long.UZERO
     };
@@ -215,8 +215,8 @@ exports.SignatureDescriptor = {
     typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
     aminoType: "cosmos-sdk/SignatureDescriptor",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.publicKey !== undefined) {
-            any_1.Any.encode(message.publicKey, writer.uint32(10).fork()).ldelim();
+        if (message.public_key !== undefined) {
+            any_1.Any.encode(message.public_key, writer.uint32(10).fork()).ldelim();
         }
         if (message.data !== undefined) {
             exports.SignatureDescriptor_Data.encode(message.data, writer.uint32(18).fork()).ldelim();
@@ -234,7 +234,7 @@ exports.SignatureDescriptor = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.publicKey = any_1.Any.decode(reader, reader.uint32());
+                    message.public_key = any_1.Any.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.data = exports.SignatureDescriptor_Data.decode(reader, reader.uint32());
@@ -251,35 +251,35 @@ exports.SignatureDescriptor = {
     },
     fromJSON(object) {
         return {
-            publicKey: (0, helpers_1.isSet)(object.publicKey) ? any_1.Any.fromJSON(object.publicKey) : undefined,
+            public_key: (0, helpers_1.isSet)(object.public_key) ? any_1.Any.fromJSON(object.public_key) : undefined,
             data: (0, helpers_1.isSet)(object.data) ? exports.SignatureDescriptor_Data.fromJSON(object.data) : undefined,
             sequence: (0, helpers_1.isSet)(object.sequence) ? helpers_1.Long.fromValue(object.sequence) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.publicKey !== undefined && (obj.publicKey = message.publicKey ? any_1.Any.toJSON(message.publicKey) : undefined);
+        message.public_key !== undefined && (obj.public_key = message.public_key ? any_1.Any.toJSON(message.public_key) : undefined);
         message.data !== undefined && (obj.data = message.data ? exports.SignatureDescriptor_Data.toJSON(message.data) : undefined);
         message.sequence !== undefined && (obj.sequence = (message.sequence || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseSignatureDescriptor();
-        message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? any_1.Any.fromPartial(object.publicKey) : undefined;
+        message.public_key = object.public_key !== undefined && object.public_key !== null ? any_1.Any.fromPartial(object.public_key) : undefined;
         message.data = object.data !== undefined && object.data !== null ? exports.SignatureDescriptor_Data.fromPartial(object.data) : undefined;
         message.sequence = object.sequence !== undefined && object.sequence !== null ? helpers_1.Long.fromValue(object.sequence) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            publicKey: object?.public_key ? any_1.Any.fromAmino(object.public_key) : undefined,
+            public_key: object?.public_key ? any_1.Any.fromAmino(object.public_key) : undefined,
             data: object?.data ? exports.SignatureDescriptor_Data.fromAmino(object.data) : undefined,
             sequence: helpers_1.Long.fromString(object.sequence)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.public_key = message.publicKey ? any_1.Any.toAmino(message.publicKey) : undefined;
+        obj.public_key = message.public_key ? any_1.Any.toAmino(message.public_key) : undefined;
         obj.data = message.data ? exports.SignatureDescriptor_Data.toAmino(message.data) : undefined;
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         return obj;

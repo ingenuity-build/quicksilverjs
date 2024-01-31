@@ -30,33 +30,33 @@ const helpers_1 = require("../../../helpers");
 const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseZone() {
     return {
-        connectionId: "",
-        chainId: "",
-        depositAddress: exports.ICAAccount.fromPartial({}),
-        withdrawalAddress: exports.ICAAccount.fromPartial({}),
-        performanceAddress: exports.ICAAccount.fromPartial({}),
-        delegationAddress: exports.ICAAccount.fromPartial({}),
-        accountPrefix: "",
-        localDenom: "",
-        baseDenom: "",
-        redemptionRate: "",
-        lastRedemptionRate: "",
+        connection_id: "",
+        chain_id: "",
+        deposit_address: exports.ICAAccount.fromPartial({}),
+        withdrawal_address: exports.ICAAccount.fromPartial({}),
+        performance_address: exports.ICAAccount.fromPartial({}),
+        delegation_address: exports.ICAAccount.fromPartial({}),
+        account_prefix: "",
+        local_denom: "",
+        base_denom: "",
+        redemption_rate: "",
+        last_redemption_rate: "",
         validators: [],
-        aggregateIntent: [],
-        multiSend: false,
-        liquidityModule: false,
-        withdrawalWaitgroup: 0,
-        ibcNextValidatorsHash: new Uint8Array(),
-        validatorSelectionAllocation: helpers_1.Long.UZERO,
-        holdingsAllocation: helpers_1.Long.UZERO,
-        lastEpochHeight: helpers_1.Long.ZERO,
+        aggregate_intent: [],
+        multi_send: false,
+        liquidity_module: false,
+        withdrawal_waitgroup: 0,
+        ibc_next_validators_hash: new Uint8Array(),
+        validator_selection_allocation: helpers_1.Long.UZERO,
+        holdings_allocation: helpers_1.Long.UZERO,
+        last_epoch_height: helpers_1.Long.ZERO,
         tvl: "",
-        unbondingPeriod: helpers_1.Long.ZERO,
-        messagesPerTx: helpers_1.Long.ZERO,
+        unbonding_period: helpers_1.Long.ZERO,
+        messages_per_tx: helpers_1.Long.ZERO,
         decimals: helpers_1.Long.ZERO,
-        unbondingEnabled: false,
-        depositsEnabled: false,
-        returnToSender: false,
+        unbonding_enabled: false,
+        deposits_enabled: false,
+        return_to_sender: false,
         is118: false,
         subzoneInfo: exports.SubzoneInfo.fromPartial({})
     };
@@ -64,86 +64,86 @@ function createBaseZone() {
 exports.Zone = {
     typeUrl: "/quicksilver.interchainstaking.v1.Zone",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.connectionId !== "") {
-            writer.uint32(10).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(10).string(message.connection_id);
         }
-        if (message.chainId !== "") {
-            writer.uint32(18).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(18).string(message.chain_id);
         }
-        if (message.depositAddress !== undefined) {
-            exports.ICAAccount.encode(message.depositAddress, writer.uint32(26).fork()).ldelim();
+        if (message.deposit_address !== undefined) {
+            exports.ICAAccount.encode(message.deposit_address, writer.uint32(26).fork()).ldelim();
         }
-        if (message.withdrawalAddress !== undefined) {
-            exports.ICAAccount.encode(message.withdrawalAddress, writer.uint32(34).fork()).ldelim();
+        if (message.withdrawal_address !== undefined) {
+            exports.ICAAccount.encode(message.withdrawal_address, writer.uint32(34).fork()).ldelim();
         }
-        if (message.performanceAddress !== undefined) {
-            exports.ICAAccount.encode(message.performanceAddress, writer.uint32(42).fork()).ldelim();
+        if (message.performance_address !== undefined) {
+            exports.ICAAccount.encode(message.performance_address, writer.uint32(42).fork()).ldelim();
         }
-        if (message.delegationAddress !== undefined) {
-            exports.ICAAccount.encode(message.delegationAddress, writer.uint32(50).fork()).ldelim();
+        if (message.delegation_address !== undefined) {
+            exports.ICAAccount.encode(message.delegation_address, writer.uint32(50).fork()).ldelim();
         }
-        if (message.accountPrefix !== "") {
-            writer.uint32(58).string(message.accountPrefix);
+        if (message.account_prefix !== "") {
+            writer.uint32(58).string(message.account_prefix);
         }
-        if (message.localDenom !== "") {
-            writer.uint32(66).string(message.localDenom);
+        if (message.local_denom !== "") {
+            writer.uint32(66).string(message.local_denom);
         }
-        if (message.baseDenom !== "") {
-            writer.uint32(74).string(message.baseDenom);
+        if (message.base_denom !== "") {
+            writer.uint32(74).string(message.base_denom);
         }
-        if (message.redemptionRate !== "") {
-            writer.uint32(82).string(message.redemptionRate);
+        if (message.redemption_rate !== "") {
+            writer.uint32(82).string(message.redemption_rate);
         }
-        if (message.lastRedemptionRate !== "") {
-            writer.uint32(90).string(message.lastRedemptionRate);
+        if (message.last_redemption_rate !== "") {
+            writer.uint32(90).string(message.last_redemption_rate);
         }
         for (const v of message.validators) {
             exports.Validator.encode(v, writer.uint32(98).fork()).ldelim();
         }
-        for (const v of message.aggregateIntent) {
+        for (const v of message.aggregate_intent) {
             exports.ValidatorIntent.encode(v, writer.uint32(106).fork()).ldelim();
         }
-        if (message.multiSend === true) {
-            writer.uint32(112).bool(message.multiSend);
+        if (message.multi_send === true) {
+            writer.uint32(112).bool(message.multi_send);
         }
-        if (message.liquidityModule === true) {
-            writer.uint32(120).bool(message.liquidityModule);
+        if (message.liquidity_module === true) {
+            writer.uint32(120).bool(message.liquidity_module);
         }
-        if (message.withdrawalWaitgroup !== 0) {
-            writer.uint32(128).uint32(message.withdrawalWaitgroup);
+        if (message.withdrawal_waitgroup !== 0) {
+            writer.uint32(128).uint32(message.withdrawal_waitgroup);
         }
-        if (message.ibcNextValidatorsHash.length !== 0) {
-            writer.uint32(138).bytes(message.ibcNextValidatorsHash);
+        if (message.ibc_next_validators_hash.length !== 0) {
+            writer.uint32(138).bytes(message.ibc_next_validators_hash);
         }
-        if (!message.validatorSelectionAllocation.isZero()) {
-            writer.uint32(144).uint64(message.validatorSelectionAllocation);
+        if (!message.validator_selection_allocation.isZero()) {
+            writer.uint32(144).uint64(message.validator_selection_allocation);
         }
-        if (!message.holdingsAllocation.isZero()) {
-            writer.uint32(152).uint64(message.holdingsAllocation);
+        if (!message.holdings_allocation.isZero()) {
+            writer.uint32(152).uint64(message.holdings_allocation);
         }
-        if (!message.lastEpochHeight.isZero()) {
-            writer.uint32(160).int64(message.lastEpochHeight);
+        if (!message.last_epoch_height.isZero()) {
+            writer.uint32(160).int64(message.last_epoch_height);
         }
         if (message.tvl !== "") {
             writer.uint32(170).string(message.tvl);
         }
-        if (!message.unbondingPeriod.isZero()) {
-            writer.uint32(176).int64(message.unbondingPeriod);
+        if (!message.unbonding_period.isZero()) {
+            writer.uint32(176).int64(message.unbonding_period);
         }
-        if (!message.messagesPerTx.isZero()) {
-            writer.uint32(184).int64(message.messagesPerTx);
+        if (!message.messages_per_tx.isZero()) {
+            writer.uint32(184).int64(message.messages_per_tx);
         }
         if (!message.decimals.isZero()) {
             writer.uint32(192).int64(message.decimals);
         }
-        if (message.unbondingEnabled === true) {
-            writer.uint32(200).bool(message.unbondingEnabled);
+        if (message.unbonding_enabled === true) {
+            writer.uint32(200).bool(message.unbonding_enabled);
         }
-        if (message.depositsEnabled === true) {
-            writer.uint32(208).bool(message.depositsEnabled);
+        if (message.deposits_enabled === true) {
+            writer.uint32(208).bool(message.deposits_enabled);
         }
-        if (message.returnToSender === true) {
-            writer.uint32(216).bool(message.returnToSender);
+        if (message.return_to_sender === true) {
+            writer.uint32(216).bool(message.return_to_sender);
         }
         if (message.is118 === true) {
             writer.uint32(224).bool(message.is118);
@@ -161,85 +161,85 @@ exports.Zone = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 2:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 3:
-                    message.depositAddress = exports.ICAAccount.decode(reader, reader.uint32());
+                    message.deposit_address = exports.ICAAccount.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.withdrawalAddress = exports.ICAAccount.decode(reader, reader.uint32());
+                    message.withdrawal_address = exports.ICAAccount.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.performanceAddress = exports.ICAAccount.decode(reader, reader.uint32());
+                    message.performance_address = exports.ICAAccount.decode(reader, reader.uint32());
                     break;
                 case 6:
-                    message.delegationAddress = exports.ICAAccount.decode(reader, reader.uint32());
+                    message.delegation_address = exports.ICAAccount.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.accountPrefix = reader.string();
+                    message.account_prefix = reader.string();
                     break;
                 case 8:
-                    message.localDenom = reader.string();
+                    message.local_denom = reader.string();
                     break;
                 case 9:
-                    message.baseDenom = reader.string();
+                    message.base_denom = reader.string();
                     break;
                 case 10:
-                    message.redemptionRate = reader.string();
+                    message.redemption_rate = reader.string();
                     break;
                 case 11:
-                    message.lastRedemptionRate = reader.string();
+                    message.last_redemption_rate = reader.string();
                     break;
                 case 12:
                     message.validators.push(exports.Validator.decode(reader, reader.uint32()));
                     break;
                 case 13:
-                    message.aggregateIntent.push(exports.ValidatorIntent.decode(reader, reader.uint32()));
+                    message.aggregate_intent.push(exports.ValidatorIntent.decode(reader, reader.uint32()));
                     break;
                 case 14:
-                    message.multiSend = reader.bool();
+                    message.multi_send = reader.bool();
                     break;
                 case 15:
-                    message.liquidityModule = reader.bool();
+                    message.liquidity_module = reader.bool();
                     break;
                 case 16:
-                    message.withdrawalWaitgroup = reader.uint32();
+                    message.withdrawal_waitgroup = reader.uint32();
                     break;
                 case 17:
-                    message.ibcNextValidatorsHash = reader.bytes();
+                    message.ibc_next_validators_hash = reader.bytes();
                     break;
                 case 18:
-                    message.validatorSelectionAllocation = reader.uint64();
+                    message.validator_selection_allocation = reader.uint64();
                     break;
                 case 19:
-                    message.holdingsAllocation = reader.uint64();
+                    message.holdings_allocation = reader.uint64();
                     break;
                 case 20:
-                    message.lastEpochHeight = reader.int64();
+                    message.last_epoch_height = reader.int64();
                     break;
                 case 21:
                     message.tvl = reader.string();
                     break;
                 case 22:
-                    message.unbondingPeriod = reader.int64();
+                    message.unbonding_period = reader.int64();
                     break;
                 case 23:
-                    message.messagesPerTx = reader.int64();
+                    message.messages_per_tx = reader.int64();
                     break;
                 case 24:
                     message.decimals = reader.int64();
                     break;
                 case 25:
-                    message.unbondingEnabled = reader.bool();
+                    message.unbonding_enabled = reader.bool();
                     break;
                 case 26:
-                    message.depositsEnabled = reader.bool();
+                    message.deposits_enabled = reader.bool();
                     break;
                 case 27:
-                    message.returnToSender = reader.bool();
+                    message.return_to_sender = reader.bool();
                     break;
                 case 28:
                     message.is118 = reader.bool();
@@ -256,186 +256,186 @@ exports.Zone = {
     },
     fromJSON(object) {
         return {
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : "",
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
-            depositAddress: (0, helpers_1.isSet)(object.depositAddress) ? exports.ICAAccount.fromJSON(object.depositAddress) : undefined,
-            withdrawalAddress: (0, helpers_1.isSet)(object.withdrawalAddress) ? exports.ICAAccount.fromJSON(object.withdrawalAddress) : undefined,
-            performanceAddress: (0, helpers_1.isSet)(object.performanceAddress) ? exports.ICAAccount.fromJSON(object.performanceAddress) : undefined,
-            delegationAddress: (0, helpers_1.isSet)(object.delegationAddress) ? exports.ICAAccount.fromJSON(object.delegationAddress) : undefined,
-            accountPrefix: (0, helpers_1.isSet)(object.accountPrefix) ? String(object.accountPrefix) : "",
-            localDenom: (0, helpers_1.isSet)(object.localDenom) ? String(object.localDenom) : "",
-            baseDenom: (0, helpers_1.isSet)(object.baseDenom) ? String(object.baseDenom) : "",
-            redemptionRate: (0, helpers_1.isSet)(object.redemptionRate) ? String(object.redemptionRate) : "",
-            lastRedemptionRate: (0, helpers_1.isSet)(object.lastRedemptionRate) ? String(object.lastRedemptionRate) : "",
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
+            deposit_address: (0, helpers_1.isSet)(object.deposit_address) ? exports.ICAAccount.fromJSON(object.deposit_address) : undefined,
+            withdrawal_address: (0, helpers_1.isSet)(object.withdrawal_address) ? exports.ICAAccount.fromJSON(object.withdrawal_address) : undefined,
+            performance_address: (0, helpers_1.isSet)(object.performance_address) ? exports.ICAAccount.fromJSON(object.performance_address) : undefined,
+            delegation_address: (0, helpers_1.isSet)(object.delegation_address) ? exports.ICAAccount.fromJSON(object.delegation_address) : undefined,
+            account_prefix: (0, helpers_1.isSet)(object.account_prefix) ? String(object.account_prefix) : "",
+            local_denom: (0, helpers_1.isSet)(object.local_denom) ? String(object.local_denom) : "",
+            base_denom: (0, helpers_1.isSet)(object.base_denom) ? String(object.base_denom) : "",
+            redemption_rate: (0, helpers_1.isSet)(object.redemption_rate) ? String(object.redemption_rate) : "",
+            last_redemption_rate: (0, helpers_1.isSet)(object.last_redemption_rate) ? String(object.last_redemption_rate) : "",
             validators: Array.isArray(object?.validators) ? object.validators.map((e) => exports.Validator.fromJSON(e)) : [],
-            aggregateIntent: Array.isArray(object?.aggregateIntent) ? object.aggregateIntent.map((e) => exports.ValidatorIntent.fromJSON(e)) : [],
-            multiSend: (0, helpers_1.isSet)(object.multiSend) ? Boolean(object.multiSend) : false,
-            liquidityModule: (0, helpers_1.isSet)(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
-            withdrawalWaitgroup: (0, helpers_1.isSet)(object.withdrawalWaitgroup) ? Number(object.withdrawalWaitgroup) : 0,
-            ibcNextValidatorsHash: (0, helpers_1.isSet)(object.ibcNextValidatorsHash) ? (0, helpers_1.bytesFromBase64)(object.ibcNextValidatorsHash) : new Uint8Array(),
-            validatorSelectionAllocation: (0, helpers_1.isSet)(object.validatorSelectionAllocation) ? helpers_1.Long.fromValue(object.validatorSelectionAllocation) : helpers_1.Long.UZERO,
-            holdingsAllocation: (0, helpers_1.isSet)(object.holdingsAllocation) ? helpers_1.Long.fromValue(object.holdingsAllocation) : helpers_1.Long.UZERO,
-            lastEpochHeight: (0, helpers_1.isSet)(object.lastEpochHeight) ? helpers_1.Long.fromValue(object.lastEpochHeight) : helpers_1.Long.ZERO,
+            aggregate_intent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e) => exports.ValidatorIntent.fromJSON(e)) : [],
+            multi_send: (0, helpers_1.isSet)(object.multi_send) ? Boolean(object.multi_send) : false,
+            liquidity_module: (0, helpers_1.isSet)(object.liquidity_module) ? Boolean(object.liquidity_module) : false,
+            withdrawal_waitgroup: (0, helpers_1.isSet)(object.withdrawal_waitgroup) ? Number(object.withdrawal_waitgroup) : 0,
+            ibc_next_validators_hash: (0, helpers_1.isSet)(object.ibc_next_validators_hash) ? (0, helpers_1.bytesFromBase64)(object.ibc_next_validators_hash) : new Uint8Array(),
+            validator_selection_allocation: (0, helpers_1.isSet)(object.validator_selection_allocation) ? helpers_1.Long.fromValue(object.validator_selection_allocation) : helpers_1.Long.UZERO,
+            holdings_allocation: (0, helpers_1.isSet)(object.holdings_allocation) ? helpers_1.Long.fromValue(object.holdings_allocation) : helpers_1.Long.UZERO,
+            last_epoch_height: (0, helpers_1.isSet)(object.last_epoch_height) ? helpers_1.Long.fromValue(object.last_epoch_height) : helpers_1.Long.ZERO,
             tvl: (0, helpers_1.isSet)(object.tvl) ? String(object.tvl) : "",
-            unbondingPeriod: (0, helpers_1.isSet)(object.unbondingPeriod) ? helpers_1.Long.fromValue(object.unbondingPeriod) : helpers_1.Long.ZERO,
-            messagesPerTx: (0, helpers_1.isSet)(object.messagesPerTx) ? helpers_1.Long.fromValue(object.messagesPerTx) : helpers_1.Long.ZERO,
+            unbonding_period: (0, helpers_1.isSet)(object.unbonding_period) ? helpers_1.Long.fromValue(object.unbonding_period) : helpers_1.Long.ZERO,
+            messages_per_tx: (0, helpers_1.isSet)(object.messages_per_tx) ? helpers_1.Long.fromValue(object.messages_per_tx) : helpers_1.Long.ZERO,
             decimals: (0, helpers_1.isSet)(object.decimals) ? helpers_1.Long.fromValue(object.decimals) : helpers_1.Long.ZERO,
-            unbondingEnabled: (0, helpers_1.isSet)(object.unbondingEnabled) ? Boolean(object.unbondingEnabled) : false,
-            depositsEnabled: (0, helpers_1.isSet)(object.depositsEnabled) ? Boolean(object.depositsEnabled) : false,
-            returnToSender: (0, helpers_1.isSet)(object.returnToSender) ? Boolean(object.returnToSender) : false,
+            unbonding_enabled: (0, helpers_1.isSet)(object.unbonding_enabled) ? Boolean(object.unbonding_enabled) : false,
+            deposits_enabled: (0, helpers_1.isSet)(object.deposits_enabled) ? Boolean(object.deposits_enabled) : false,
+            return_to_sender: (0, helpers_1.isSet)(object.return_to_sender) ? Boolean(object.return_to_sender) : false,
             is118: (0, helpers_1.isSet)(object.is118) ? Boolean(object.is118) : false,
             subzoneInfo: (0, helpers_1.isSet)(object.subzoneInfo) ? exports.SubzoneInfo.fromJSON(object.subzoneInfo) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        message.depositAddress !== undefined && (obj.depositAddress = message.depositAddress ? exports.ICAAccount.toJSON(message.depositAddress) : undefined);
-        message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress ? exports.ICAAccount.toJSON(message.withdrawalAddress) : undefined);
-        message.performanceAddress !== undefined && (obj.performanceAddress = message.performanceAddress ? exports.ICAAccount.toJSON(message.performanceAddress) : undefined);
-        message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress ? exports.ICAAccount.toJSON(message.delegationAddress) : undefined);
-        message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
-        message.localDenom !== undefined && (obj.localDenom = message.localDenom);
-        message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
-        message.redemptionRate !== undefined && (obj.redemptionRate = message.redemptionRate);
-        message.lastRedemptionRate !== undefined && (obj.lastRedemptionRate = message.lastRedemptionRate);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        message.deposit_address !== undefined && (obj.deposit_address = message.deposit_address ? exports.ICAAccount.toJSON(message.deposit_address) : undefined);
+        message.withdrawal_address !== undefined && (obj.withdrawal_address = message.withdrawal_address ? exports.ICAAccount.toJSON(message.withdrawal_address) : undefined);
+        message.performance_address !== undefined && (obj.performance_address = message.performance_address ? exports.ICAAccount.toJSON(message.performance_address) : undefined);
+        message.delegation_address !== undefined && (obj.delegation_address = message.delegation_address ? exports.ICAAccount.toJSON(message.delegation_address) : undefined);
+        message.account_prefix !== undefined && (obj.account_prefix = message.account_prefix);
+        message.local_denom !== undefined && (obj.local_denom = message.local_denom);
+        message.base_denom !== undefined && (obj.base_denom = message.base_denom);
+        message.redemption_rate !== undefined && (obj.redemption_rate = message.redemption_rate);
+        message.last_redemption_rate !== undefined && (obj.last_redemption_rate = message.last_redemption_rate);
         if (message.validators) {
             obj.validators = message.validators.map(e => e ? exports.Validator.toJSON(e) : undefined);
         }
         else {
             obj.validators = [];
         }
-        if (message.aggregateIntent) {
-            obj.aggregateIntent = message.aggregateIntent.map(e => e ? exports.ValidatorIntent.toJSON(e) : undefined);
+        if (message.aggregate_intent) {
+            obj.aggregate_intent = message.aggregate_intent.map(e => e ? exports.ValidatorIntent.toJSON(e) : undefined);
         }
         else {
-            obj.aggregateIntent = [];
+            obj.aggregate_intent = [];
         }
-        message.multiSend !== undefined && (obj.multiSend = message.multiSend);
-        message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
-        message.withdrawalWaitgroup !== undefined && (obj.withdrawalWaitgroup = Math.round(message.withdrawalWaitgroup));
-        message.ibcNextValidatorsHash !== undefined && (obj.ibcNextValidatorsHash = (0, helpers_1.base64FromBytes)(message.ibcNextValidatorsHash !== undefined ? message.ibcNextValidatorsHash : new Uint8Array()));
-        message.validatorSelectionAllocation !== undefined && (obj.validatorSelectionAllocation = (message.validatorSelectionAllocation || helpers_1.Long.UZERO).toString());
-        message.holdingsAllocation !== undefined && (obj.holdingsAllocation = (message.holdingsAllocation || helpers_1.Long.UZERO).toString());
-        message.lastEpochHeight !== undefined && (obj.lastEpochHeight = (message.lastEpochHeight || helpers_1.Long.ZERO).toString());
+        message.multi_send !== undefined && (obj.multi_send = message.multi_send);
+        message.liquidity_module !== undefined && (obj.liquidity_module = message.liquidity_module);
+        message.withdrawal_waitgroup !== undefined && (obj.withdrawal_waitgroup = Math.round(message.withdrawal_waitgroup));
+        message.ibc_next_validators_hash !== undefined && (obj.ibc_next_validators_hash = (0, helpers_1.base64FromBytes)(message.ibc_next_validators_hash !== undefined ? message.ibc_next_validators_hash : new Uint8Array()));
+        message.validator_selection_allocation !== undefined && (obj.validator_selection_allocation = (message.validator_selection_allocation || helpers_1.Long.UZERO).toString());
+        message.holdings_allocation !== undefined && (obj.holdings_allocation = (message.holdings_allocation || helpers_1.Long.UZERO).toString());
+        message.last_epoch_height !== undefined && (obj.last_epoch_height = (message.last_epoch_height || helpers_1.Long.ZERO).toString());
         message.tvl !== undefined && (obj.tvl = message.tvl);
-        message.unbondingPeriod !== undefined && (obj.unbondingPeriod = (message.unbondingPeriod || helpers_1.Long.ZERO).toString());
-        message.messagesPerTx !== undefined && (obj.messagesPerTx = (message.messagesPerTx || helpers_1.Long.ZERO).toString());
+        message.unbonding_period !== undefined && (obj.unbonding_period = (message.unbonding_period || helpers_1.Long.ZERO).toString());
+        message.messages_per_tx !== undefined && (obj.messages_per_tx = (message.messages_per_tx || helpers_1.Long.ZERO).toString());
         message.decimals !== undefined && (obj.decimals = (message.decimals || helpers_1.Long.ZERO).toString());
-        message.unbondingEnabled !== undefined && (obj.unbondingEnabled = message.unbondingEnabled);
-        message.depositsEnabled !== undefined && (obj.depositsEnabled = message.depositsEnabled);
-        message.returnToSender !== undefined && (obj.returnToSender = message.returnToSender);
+        message.unbonding_enabled !== undefined && (obj.unbonding_enabled = message.unbonding_enabled);
+        message.deposits_enabled !== undefined && (obj.deposits_enabled = message.deposits_enabled);
+        message.return_to_sender !== undefined && (obj.return_to_sender = message.return_to_sender);
         message.is118 !== undefined && (obj.is118 = message.is118);
         message.subzoneInfo !== undefined && (obj.subzoneInfo = message.subzoneInfo ? exports.SubzoneInfo.toJSON(message.subzoneInfo) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseZone();
-        message.connectionId = object.connectionId ?? "";
-        message.chainId = object.chainId ?? "";
-        message.depositAddress = object.depositAddress !== undefined && object.depositAddress !== null ? exports.ICAAccount.fromPartial(object.depositAddress) : undefined;
-        message.withdrawalAddress = object.withdrawalAddress !== undefined && object.withdrawalAddress !== null ? exports.ICAAccount.fromPartial(object.withdrawalAddress) : undefined;
-        message.performanceAddress = object.performanceAddress !== undefined && object.performanceAddress !== null ? exports.ICAAccount.fromPartial(object.performanceAddress) : undefined;
-        message.delegationAddress = object.delegationAddress !== undefined && object.delegationAddress !== null ? exports.ICAAccount.fromPartial(object.delegationAddress) : undefined;
-        message.accountPrefix = object.accountPrefix ?? "";
-        message.localDenom = object.localDenom ?? "";
-        message.baseDenom = object.baseDenom ?? "";
-        message.redemptionRate = object.redemptionRate ?? "";
-        message.lastRedemptionRate = object.lastRedemptionRate ?? "";
+        message.connection_id = object.connection_id ?? "";
+        message.chain_id = object.chain_id ?? "";
+        message.deposit_address = object.deposit_address !== undefined && object.deposit_address !== null ? exports.ICAAccount.fromPartial(object.deposit_address) : undefined;
+        message.withdrawal_address = object.withdrawal_address !== undefined && object.withdrawal_address !== null ? exports.ICAAccount.fromPartial(object.withdrawal_address) : undefined;
+        message.performance_address = object.performance_address !== undefined && object.performance_address !== null ? exports.ICAAccount.fromPartial(object.performance_address) : undefined;
+        message.delegation_address = object.delegation_address !== undefined && object.delegation_address !== null ? exports.ICAAccount.fromPartial(object.delegation_address) : undefined;
+        message.account_prefix = object.account_prefix ?? "";
+        message.local_denom = object.local_denom ?? "";
+        message.base_denom = object.base_denom ?? "";
+        message.redemption_rate = object.redemption_rate ?? "";
+        message.last_redemption_rate = object.last_redemption_rate ?? "";
         message.validators = object.validators?.map(e => exports.Validator.fromPartial(e)) || [];
-        message.aggregateIntent = object.aggregateIntent?.map(e => exports.ValidatorIntent.fromPartial(e)) || [];
-        message.multiSend = object.multiSend ?? false;
-        message.liquidityModule = object.liquidityModule ?? false;
-        message.withdrawalWaitgroup = object.withdrawalWaitgroup ?? 0;
-        message.ibcNextValidatorsHash = object.ibcNextValidatorsHash ?? new Uint8Array();
-        message.validatorSelectionAllocation = object.validatorSelectionAllocation !== undefined && object.validatorSelectionAllocation !== null ? helpers_1.Long.fromValue(object.validatorSelectionAllocation) : helpers_1.Long.UZERO;
-        message.holdingsAllocation = object.holdingsAllocation !== undefined && object.holdingsAllocation !== null ? helpers_1.Long.fromValue(object.holdingsAllocation) : helpers_1.Long.UZERO;
-        message.lastEpochHeight = object.lastEpochHeight !== undefined && object.lastEpochHeight !== null ? helpers_1.Long.fromValue(object.lastEpochHeight) : helpers_1.Long.ZERO;
+        message.aggregate_intent = object.aggregate_intent?.map(e => exports.ValidatorIntent.fromPartial(e)) || [];
+        message.multi_send = object.multi_send ?? false;
+        message.liquidity_module = object.liquidity_module ?? false;
+        message.withdrawal_waitgroup = object.withdrawal_waitgroup ?? 0;
+        message.ibc_next_validators_hash = object.ibc_next_validators_hash ?? new Uint8Array();
+        message.validator_selection_allocation = object.validator_selection_allocation !== undefined && object.validator_selection_allocation !== null ? helpers_1.Long.fromValue(object.validator_selection_allocation) : helpers_1.Long.UZERO;
+        message.holdings_allocation = object.holdings_allocation !== undefined && object.holdings_allocation !== null ? helpers_1.Long.fromValue(object.holdings_allocation) : helpers_1.Long.UZERO;
+        message.last_epoch_height = object.last_epoch_height !== undefined && object.last_epoch_height !== null ? helpers_1.Long.fromValue(object.last_epoch_height) : helpers_1.Long.ZERO;
         message.tvl = object.tvl ?? "";
-        message.unbondingPeriod = object.unbondingPeriod !== undefined && object.unbondingPeriod !== null ? helpers_1.Long.fromValue(object.unbondingPeriod) : helpers_1.Long.ZERO;
-        message.messagesPerTx = object.messagesPerTx !== undefined && object.messagesPerTx !== null ? helpers_1.Long.fromValue(object.messagesPerTx) : helpers_1.Long.ZERO;
+        message.unbonding_period = object.unbonding_period !== undefined && object.unbonding_period !== null ? helpers_1.Long.fromValue(object.unbonding_period) : helpers_1.Long.ZERO;
+        message.messages_per_tx = object.messages_per_tx !== undefined && object.messages_per_tx !== null ? helpers_1.Long.fromValue(object.messages_per_tx) : helpers_1.Long.ZERO;
         message.decimals = object.decimals !== undefined && object.decimals !== null ? helpers_1.Long.fromValue(object.decimals) : helpers_1.Long.ZERO;
-        message.unbondingEnabled = object.unbondingEnabled ?? false;
-        message.depositsEnabled = object.depositsEnabled ?? false;
-        message.returnToSender = object.returnToSender ?? false;
+        message.unbonding_enabled = object.unbonding_enabled ?? false;
+        message.deposits_enabled = object.deposits_enabled ?? false;
+        message.return_to_sender = object.return_to_sender ?? false;
         message.is118 = object.is118 ?? false;
         message.subzoneInfo = object.subzoneInfo !== undefined && object.subzoneInfo !== null ? exports.SubzoneInfo.fromPartial(object.subzoneInfo) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            connectionId: object.connection_id,
-            chainId: object.chain_id,
-            depositAddress: object?.deposit_address ? exports.ICAAccount.fromAmino(object.deposit_address) : undefined,
-            withdrawalAddress: object?.withdrawal_address ? exports.ICAAccount.fromAmino(object.withdrawal_address) : undefined,
-            performanceAddress: object?.performance_address ? exports.ICAAccount.fromAmino(object.performance_address) : undefined,
-            delegationAddress: object?.delegation_address ? exports.ICAAccount.fromAmino(object.delegation_address) : undefined,
-            accountPrefix: object.account_prefix,
-            localDenom: object.local_denom,
-            baseDenom: object.base_denom,
-            redemptionRate: object.redemption_rate,
-            lastRedemptionRate: object.last_redemption_rate,
+            connection_id: object.connection_id,
+            chain_id: object.chain_id,
+            deposit_address: object?.deposit_address ? exports.ICAAccount.fromAmino(object.deposit_address) : undefined,
+            withdrawal_address: object?.withdrawal_address ? exports.ICAAccount.fromAmino(object.withdrawal_address) : undefined,
+            performance_address: object?.performance_address ? exports.ICAAccount.fromAmino(object.performance_address) : undefined,
+            delegation_address: object?.delegation_address ? exports.ICAAccount.fromAmino(object.delegation_address) : undefined,
+            account_prefix: object.account_prefix,
+            local_denom: object.local_denom,
+            base_denom: object.base_denom,
+            redemption_rate: object.redemption_rate,
+            last_redemption_rate: object.last_redemption_rate,
             validators: Array.isArray(object?.validators) ? object.validators.map((e) => exports.Validator.fromAmino(e)) : [],
-            aggregateIntent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e) => exports.ValidatorIntent.fromAmino(e)) : [],
-            multiSend: object.multi_send,
-            liquidityModule: object.liquidity_module,
-            withdrawalWaitgroup: object.withdrawal_waitgroup,
-            ibcNextValidatorsHash: object.ibc_next_validators_hash,
-            validatorSelectionAllocation: helpers_1.Long.fromString(object.validator_selection_allocation),
-            holdingsAllocation: helpers_1.Long.fromString(object.holdings_allocation),
-            lastEpochHeight: helpers_1.Long.fromString(object.last_epoch_height),
+            aggregate_intent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e) => exports.ValidatorIntent.fromAmino(e)) : [],
+            multi_send: object.multi_send,
+            liquidity_module: object.liquidity_module,
+            withdrawal_waitgroup: object.withdrawal_waitgroup,
+            ibc_next_validators_hash: object.ibc_next_validators_hash,
+            validator_selection_allocation: helpers_1.Long.fromString(object.validator_selection_allocation),
+            holdings_allocation: helpers_1.Long.fromString(object.holdings_allocation),
+            last_epoch_height: helpers_1.Long.fromString(object.last_epoch_height),
             tvl: object.tvl,
-            unbondingPeriod: helpers_1.Long.fromString(object.unbonding_period),
-            messagesPerTx: helpers_1.Long.fromString(object.messages_per_tx),
+            unbonding_period: helpers_1.Long.fromString(object.unbonding_period),
+            messages_per_tx: helpers_1.Long.fromString(object.messages_per_tx),
             decimals: helpers_1.Long.fromString(object.decimals),
-            unbondingEnabled: object.unbonding_enabled,
-            depositsEnabled: object.deposits_enabled,
-            returnToSender: object.return_to_sender,
-            is118: object.is_118,
+            unbonding_enabled: object.unbonding_enabled,
+            deposits_enabled: object.deposits_enabled,
+            return_to_sender: object.return_to_sender,
+            is_118: object.is_118,
             subzoneInfo: object?.subzoneInfo ? exports.SubzoneInfo.fromAmino(object.subzoneInfo) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.connection_id = message.connectionId;
-        obj.chain_id = message.chainId;
-        obj.deposit_address = message.depositAddress ? exports.ICAAccount.toAmino(message.depositAddress) : undefined;
-        obj.withdrawal_address = message.withdrawalAddress ? exports.ICAAccount.toAmino(message.withdrawalAddress) : undefined;
-        obj.performance_address = message.performanceAddress ? exports.ICAAccount.toAmino(message.performanceAddress) : undefined;
-        obj.delegation_address = message.delegationAddress ? exports.ICAAccount.toAmino(message.delegationAddress) : undefined;
-        obj.account_prefix = message.accountPrefix;
-        obj.local_denom = message.localDenom;
-        obj.base_denom = message.baseDenom;
-        obj.redemption_rate = message.redemptionRate;
-        obj.last_redemption_rate = message.lastRedemptionRate;
+        obj.connection_id = message.connection_id;
+        obj.chain_id = message.chain_id;
+        obj.deposit_address = message.deposit_address ? exports.ICAAccount.toAmino(message.deposit_address) : undefined;
+        obj.withdrawal_address = message.withdrawal_address ? exports.ICAAccount.toAmino(message.withdrawal_address) : undefined;
+        obj.performance_address = message.performance_address ? exports.ICAAccount.toAmino(message.performance_address) : undefined;
+        obj.delegation_address = message.delegation_address ? exports.ICAAccount.toAmino(message.delegation_address) : undefined;
+        obj.account_prefix = message.account_prefix;
+        obj.local_denom = message.local_denom;
+        obj.base_denom = message.base_denom;
+        obj.redemption_rate = message.redemption_rate;
+        obj.last_redemption_rate = message.last_redemption_rate;
         if (message.validators) {
             obj.validators = message.validators.map(e => e ? exports.Validator.toAmino(e) : undefined);
         }
         else {
             obj.validators = [];
         }
-        if (message.aggregateIntent) {
-            obj.aggregate_intent = message.aggregateIntent.map(e => e ? exports.ValidatorIntent.toAmino(e) : undefined);
+        if (message.aggregate_intent) {
+            obj.aggregate_intent = message.aggregate_intent.map(e => e ? exports.ValidatorIntent.toAmino(e) : undefined);
         }
         else {
             obj.aggregate_intent = [];
         }
-        obj.multi_send = message.multiSend;
-        obj.liquidity_module = message.liquidityModule;
-        obj.withdrawal_waitgroup = message.withdrawalWaitgroup;
-        obj.ibc_next_validators_hash = message.ibcNextValidatorsHash;
-        obj.validator_selection_allocation = message.validatorSelectionAllocation ? message.validatorSelectionAllocation.toString() : undefined;
-        obj.holdings_allocation = message.holdingsAllocation ? message.holdingsAllocation.toString() : undefined;
-        obj.last_epoch_height = message.lastEpochHeight ? message.lastEpochHeight.toString() : undefined;
+        obj.multi_send = message.multi_send;
+        obj.liquidity_module = message.liquidity_module;
+        obj.withdrawal_waitgroup = message.withdrawal_waitgroup;
+        obj.ibc_next_validators_hash = message.ibc_next_validators_hash;
+        obj.validator_selection_allocation = message.validator_selection_allocation ? message.validator_selection_allocation.toString() : undefined;
+        obj.holdings_allocation = message.holdings_allocation ? message.holdings_allocation.toString() : undefined;
+        obj.last_epoch_height = message.last_epoch_height ? message.last_epoch_height.toString() : undefined;
         obj.tvl = message.tvl;
-        obj.unbonding_period = message.unbondingPeriod ? message.unbondingPeriod.toString() : undefined;
-        obj.messages_per_tx = message.messagesPerTx ? message.messagesPerTx.toString() : undefined;
+        obj.unbonding_period = message.unbonding_period ? message.unbonding_period.toString() : undefined;
+        obj.messages_per_tx = message.messages_per_tx ? message.messages_per_tx.toString() : undefined;
         obj.decimals = message.decimals ? message.decimals.toString() : undefined;
-        obj.unbonding_enabled = message.unbondingEnabled;
-        obj.deposits_enabled = message.depositsEnabled;
-        obj.return_to_sender = message.returnToSender;
-        obj.is_118 = message.is118;
+        obj.unbonding_enabled = message.unbonding_enabled;
+        obj.deposits_enabled = message.deposits_enabled;
+        obj.return_to_sender = message.return_to_sender;
+        obj.is_118 = message.is_118;
         obj.subzoneInfo = message.subzoneInfo ? exports.SubzoneInfo.toAmino(message.subzoneInfo) : undefined;
         return obj;
     },
@@ -458,7 +458,7 @@ exports.Zone = {
 function createBaseSubzoneInfo() {
     return {
         authority: "",
-        baseChainID: ""
+        base_chainID: ""
     };
 }
 exports.SubzoneInfo = {
@@ -467,8 +467,8 @@ exports.SubzoneInfo = {
         if (message.authority !== "") {
             writer.uint32(10).string(message.authority);
         }
-        if (message.baseChainID !== "") {
-            writer.uint32(18).string(message.baseChainID);
+        if (message.base_chainID !== "") {
+            writer.uint32(18).string(message.base_chainID);
         }
         return writer;
     },
@@ -483,7 +483,7 @@ exports.SubzoneInfo = {
                     message.authority = reader.string();
                     break;
                 case 2:
-                    message.baseChainID = reader.string();
+                    message.base_chainID = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -495,31 +495,31 @@ exports.SubzoneInfo = {
     fromJSON(object) {
         return {
             authority: (0, helpers_1.isSet)(object.authority) ? String(object.authority) : "",
-            baseChainID: (0, helpers_1.isSet)(object.baseChainID) ? String(object.baseChainID) : ""
+            base_chainID: (0, helpers_1.isSet)(object.base_chainID) ? String(object.base_chainID) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.authority !== undefined && (obj.authority = message.authority);
-        message.baseChainID !== undefined && (obj.baseChainID = message.baseChainID);
+        message.base_chainID !== undefined && (obj.base_chainID = message.base_chainID);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseSubzoneInfo();
         message.authority = object.authority ?? "";
-        message.baseChainID = object.baseChainID ?? "";
+        message.base_chainID = object.base_chainID ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             authority: object.authority,
-            baseChainID: object.base_chainID
+            base_chainID: object.base_chainID
         };
     },
     toAmino(message) {
         const obj = {};
         obj.authority = message.authority;
-        obj.base_chainID = message.baseChainID;
+        obj.base_chainID = message.base_chainID;
         return obj;
     },
     fromAminoMsg(object) {
@@ -540,22 +540,22 @@ exports.SubzoneInfo = {
 };
 function createBaseLsmCaps() {
     return {
-        validatorCap: "",
-        validatorBondCap: "",
-        globalCap: ""
+        validator_cap: "",
+        validator_bond_cap: "",
+        global_cap: ""
     };
 }
 exports.LsmCaps = {
     typeUrl: "/quicksilver.interchainstaking.v1.LsmCaps",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorCap !== "") {
-            writer.uint32(10).string(message.validatorCap);
+        if (message.validator_cap !== "") {
+            writer.uint32(10).string(message.validator_cap);
         }
-        if (message.validatorBondCap !== "") {
-            writer.uint32(18).string(message.validatorBondCap);
+        if (message.validator_bond_cap !== "") {
+            writer.uint32(18).string(message.validator_bond_cap);
         }
-        if (message.globalCap !== "") {
-            writer.uint32(26).string(message.globalCap);
+        if (message.global_cap !== "") {
+            writer.uint32(26).string(message.global_cap);
         }
         return writer;
     },
@@ -567,13 +567,13 @@ exports.LsmCaps = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorCap = reader.string();
+                    message.validator_cap = reader.string();
                     break;
                 case 2:
-                    message.validatorBondCap = reader.string();
+                    message.validator_bond_cap = reader.string();
                     break;
                 case 3:
-                    message.globalCap = reader.string();
+                    message.global_cap = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -584,37 +584,37 @@ exports.LsmCaps = {
     },
     fromJSON(object) {
         return {
-            validatorCap: (0, helpers_1.isSet)(object.validatorCap) ? String(object.validatorCap) : "",
-            validatorBondCap: (0, helpers_1.isSet)(object.validatorBondCap) ? String(object.validatorBondCap) : "",
-            globalCap: (0, helpers_1.isSet)(object.globalCap) ? String(object.globalCap) : ""
+            validator_cap: (0, helpers_1.isSet)(object.validator_cap) ? String(object.validator_cap) : "",
+            validator_bond_cap: (0, helpers_1.isSet)(object.validator_bond_cap) ? String(object.validator_bond_cap) : "",
+            global_cap: (0, helpers_1.isSet)(object.global_cap) ? String(object.global_cap) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorCap !== undefined && (obj.validatorCap = message.validatorCap);
-        message.validatorBondCap !== undefined && (obj.validatorBondCap = message.validatorBondCap);
-        message.globalCap !== undefined && (obj.globalCap = message.globalCap);
+        message.validator_cap !== undefined && (obj.validator_cap = message.validator_cap);
+        message.validator_bond_cap !== undefined && (obj.validator_bond_cap = message.validator_bond_cap);
+        message.global_cap !== undefined && (obj.global_cap = message.global_cap);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseLsmCaps();
-        message.validatorCap = object.validatorCap ?? "";
-        message.validatorBondCap = object.validatorBondCap ?? "";
-        message.globalCap = object.globalCap ?? "";
+        message.validator_cap = object.validator_cap ?? "";
+        message.validator_bond_cap = object.validator_bond_cap ?? "";
+        message.global_cap = object.global_cap ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorCap: object.validator_cap,
-            validatorBondCap: object.validator_bond_cap,
-            globalCap: object.global_cap
+            validator_cap: object.validator_cap,
+            validator_bond_cap: object.validator_bond_cap,
+            global_cap: object.global_cap
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_cap = message.validatorCap;
-        obj.validator_bond_cap = message.validatorBondCap;
-        obj.global_cap = message.globalCap;
+        obj.validator_cap = message.validator_cap;
+        obj.validator_bond_cap = message.validator_bond_cap;
+        obj.global_cap = message.global_cap;
         return obj;
     },
     fromAminoMsg(object) {
@@ -637,9 +637,9 @@ function createBaseICAAccount() {
     return {
         address: "",
         balance: [],
-        portName: "",
-        withdrawalAddress: "",
-        balanceWaitgroup: 0
+        port_name: "",
+        withdrawal_address: "",
+        balance_waitgroup: 0
     };
 }
 exports.ICAAccount = {
@@ -651,14 +651,14 @@ exports.ICAAccount = {
         for (const v of message.balance) {
             coin_1.Coin.encode(v, writer.uint32(18).fork()).ldelim();
         }
-        if (message.portName !== "") {
-            writer.uint32(26).string(message.portName);
+        if (message.port_name !== "") {
+            writer.uint32(26).string(message.port_name);
         }
-        if (message.withdrawalAddress !== "") {
-            writer.uint32(34).string(message.withdrawalAddress);
+        if (message.withdrawal_address !== "") {
+            writer.uint32(34).string(message.withdrawal_address);
         }
-        if (message.balanceWaitgroup !== 0) {
-            writer.uint32(40).uint32(message.balanceWaitgroup);
+        if (message.balance_waitgroup !== 0) {
+            writer.uint32(40).uint32(message.balance_waitgroup);
         }
         return writer;
     },
@@ -676,13 +676,13 @@ exports.ICAAccount = {
                     message.balance.push(coin_1.Coin.decode(reader, reader.uint32()));
                     break;
                 case 3:
-                    message.portName = reader.string();
+                    message.port_name = reader.string();
                     break;
                 case 4:
-                    message.withdrawalAddress = reader.string();
+                    message.withdrawal_address = reader.string();
                     break;
                 case 5:
-                    message.balanceWaitgroup = reader.uint32();
+                    message.balance_waitgroup = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -695,9 +695,9 @@ exports.ICAAccount = {
         return {
             address: (0, helpers_1.isSet)(object.address) ? String(object.address) : "",
             balance: Array.isArray(object?.balance) ? object.balance.map((e) => coin_1.Coin.fromJSON(e)) : [],
-            portName: (0, helpers_1.isSet)(object.portName) ? String(object.portName) : "",
-            withdrawalAddress: (0, helpers_1.isSet)(object.withdrawalAddress) ? String(object.withdrawalAddress) : "",
-            balanceWaitgroup: (0, helpers_1.isSet)(object.balanceWaitgroup) ? Number(object.balanceWaitgroup) : 0
+            port_name: (0, helpers_1.isSet)(object.port_name) ? String(object.port_name) : "",
+            withdrawal_address: (0, helpers_1.isSet)(object.withdrawal_address) ? String(object.withdrawal_address) : "",
+            balance_waitgroup: (0, helpers_1.isSet)(object.balance_waitgroup) ? Number(object.balance_waitgroup) : 0
         };
     },
     toJSON(message) {
@@ -709,27 +709,27 @@ exports.ICAAccount = {
         else {
             obj.balance = [];
         }
-        message.portName !== undefined && (obj.portName = message.portName);
-        message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress);
-        message.balanceWaitgroup !== undefined && (obj.balanceWaitgroup = Math.round(message.balanceWaitgroup));
+        message.port_name !== undefined && (obj.port_name = message.port_name);
+        message.withdrawal_address !== undefined && (obj.withdrawal_address = message.withdrawal_address);
+        message.balance_waitgroup !== undefined && (obj.balance_waitgroup = Math.round(message.balance_waitgroup));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseICAAccount();
         message.address = object.address ?? "";
         message.balance = object.balance?.map(e => coin_1.Coin.fromPartial(e)) || [];
-        message.portName = object.portName ?? "";
-        message.withdrawalAddress = object.withdrawalAddress ?? "";
-        message.balanceWaitgroup = object.balanceWaitgroup ?? 0;
+        message.port_name = object.port_name ?? "";
+        message.withdrawal_address = object.withdrawal_address ?? "";
+        message.balance_waitgroup = object.balance_waitgroup ?? 0;
         return message;
     },
     fromAmino(object) {
         return {
             address: object.address,
             balance: Array.isArray(object?.balance) ? object.balance.map((e) => coin_1.Coin.fromAmino(e)) : [],
-            portName: object.port_name,
-            withdrawalAddress: object.withdrawal_address,
-            balanceWaitgroup: object.balance_waitgroup
+            port_name: object.port_name,
+            withdrawal_address: object.withdrawal_address,
+            balance_waitgroup: object.balance_waitgroup
         };
     },
     toAmino(message) {
@@ -741,9 +741,9 @@ exports.ICAAccount = {
         else {
             obj.balance = [];
         }
-        obj.port_name = message.portName;
-        obj.withdrawal_address = message.withdrawalAddress;
-        obj.balance_waitgroup = message.balanceWaitgroup;
+        obj.port_name = message.port_name;
+        obj.withdrawal_address = message.withdrawal_address;
+        obj.balance_waitgroup = message.balance_waitgroup;
         return obj;
     },
     fromAminoMsg(object) {
@@ -847,25 +847,25 @@ exports.Distribution = {
 };
 function createBaseWithdrawalRecord() {
     return {
-        chainId: "",
+        chain_id: "",
         delegator: "",
         distribution: [],
         recipient: "",
         amount: [],
-        burnAmount: coin_1.Coin.fromPartial({}),
+        burn_amount: coin_1.Coin.fromPartial({}),
         txhash: "",
         status: 0,
-        completionTime: new Date(),
+        completion_time: new Date(),
         requeued: false,
         acknowledged: false,
-        epochNumber: helpers_1.Long.ZERO
+        epoch_number: helpers_1.Long.ZERO
     };
 }
 exports.WithdrawalRecord = {
     typeUrl: "/quicksilver.interchainstaking.v1.WithdrawalRecord",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.delegator !== "") {
             writer.uint32(18).string(message.delegator);
@@ -879,8 +879,8 @@ exports.WithdrawalRecord = {
         for (const v of message.amount) {
             coin_1.Coin.encode(v, writer.uint32(42).fork()).ldelim();
         }
-        if (message.burnAmount !== undefined) {
-            coin_1.Coin.encode(message.burnAmount, writer.uint32(50).fork()).ldelim();
+        if (message.burn_amount !== undefined) {
+            coin_1.Coin.encode(message.burn_amount, writer.uint32(50).fork()).ldelim();
         }
         if (message.txhash !== "") {
             writer.uint32(58).string(message.txhash);
@@ -888,8 +888,8 @@ exports.WithdrawalRecord = {
         if (message.status !== 0) {
             writer.uint32(64).int32(message.status);
         }
-        if (message.completionTime !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completionTime), writer.uint32(74).fork()).ldelim();
+        if (message.completion_time !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completion_time), writer.uint32(74).fork()).ldelim();
         }
         if (message.requeued === true) {
             writer.uint32(80).bool(message.requeued);
@@ -897,8 +897,8 @@ exports.WithdrawalRecord = {
         if (message.acknowledged === true) {
             writer.uint32(88).bool(message.acknowledged);
         }
-        if (!message.epochNumber.isZero()) {
-            writer.uint32(96).int64(message.epochNumber);
+        if (!message.epoch_number.isZero()) {
+            writer.uint32(96).int64(message.epoch_number);
         }
         return writer;
     },
@@ -910,7 +910,7 @@ exports.WithdrawalRecord = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.delegator = reader.string();
@@ -925,7 +925,7 @@ exports.WithdrawalRecord = {
                     message.amount.push(coin_1.Coin.decode(reader, reader.uint32()));
                     break;
                 case 6:
-                    message.burnAmount = coin_1.Coin.decode(reader, reader.uint32());
+                    message.burn_amount = coin_1.Coin.decode(reader, reader.uint32());
                     break;
                 case 7:
                     message.txhash = reader.string();
@@ -934,7 +934,7 @@ exports.WithdrawalRecord = {
                     message.status = reader.int32();
                     break;
                 case 9:
-                    message.completionTime = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.completion_time = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 10:
                     message.requeued = reader.bool();
@@ -943,7 +943,7 @@ exports.WithdrawalRecord = {
                     message.acknowledged = reader.bool();
                     break;
                 case 12:
-                    message.epochNumber = reader.int64();
+                    message.epoch_number = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -954,23 +954,23 @@ exports.WithdrawalRecord = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             delegator: (0, helpers_1.isSet)(object.delegator) ? String(object.delegator) : "",
             distribution: Array.isArray(object?.distribution) ? object.distribution.map((e) => exports.Distribution.fromJSON(e)) : [],
             recipient: (0, helpers_1.isSet)(object.recipient) ? String(object.recipient) : "",
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromJSON(e)) : [],
-            burnAmount: (0, helpers_1.isSet)(object.burnAmount) ? coin_1.Coin.fromJSON(object.burnAmount) : undefined,
+            burn_amount: (0, helpers_1.isSet)(object.burn_amount) ? coin_1.Coin.fromJSON(object.burn_amount) : undefined,
             txhash: (0, helpers_1.isSet)(object.txhash) ? String(object.txhash) : "",
             status: (0, helpers_1.isSet)(object.status) ? Number(object.status) : 0,
-            completionTime: (0, helpers_1.isSet)(object.completionTime) ? (0, helpers_1.fromJsonTimestamp)(object.completionTime) : undefined,
+            completion_time: (0, helpers_1.isSet)(object.completion_time) ? (0, helpers_1.fromJsonTimestamp)(object.completion_time) : undefined,
             requeued: (0, helpers_1.isSet)(object.requeued) ? Boolean(object.requeued) : false,
             acknowledged: (0, helpers_1.isSet)(object.acknowledged) ? Boolean(object.acknowledged) : false,
-            epochNumber: (0, helpers_1.isSet)(object.epochNumber) ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO
+            epoch_number: (0, helpers_1.isSet)(object.epoch_number) ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         if (message.distribution) {
             obj.distribution = message.distribution.map(e => e ? exports.Distribution.toJSON(e) : undefined);
@@ -985,50 +985,50 @@ exports.WithdrawalRecord = {
         else {
             obj.amount = [];
         }
-        message.burnAmount !== undefined && (obj.burnAmount = message.burnAmount ? coin_1.Coin.toJSON(message.burnAmount) : undefined);
+        message.burn_amount !== undefined && (obj.burn_amount = message.burn_amount ? coin_1.Coin.toJSON(message.burn_amount) : undefined);
         message.txhash !== undefined && (obj.txhash = message.txhash);
         message.status !== undefined && (obj.status = Math.round(message.status));
-        message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
+        message.completion_time !== undefined && (obj.completion_time = message.completion_time.toISOString());
         message.requeued !== undefined && (obj.requeued = message.requeued);
         message.acknowledged !== undefined && (obj.acknowledged = message.acknowledged);
-        message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || helpers_1.Long.ZERO).toString());
+        message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || helpers_1.Long.ZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseWithdrawalRecord();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.delegator = object.delegator ?? "";
         message.distribution = object.distribution?.map(e => exports.Distribution.fromPartial(e)) || [];
         message.recipient = object.recipient ?? "";
         message.amount = object.amount?.map(e => coin_1.Coin.fromPartial(e)) || [];
-        message.burnAmount = object.burnAmount !== undefined && object.burnAmount !== null ? coin_1.Coin.fromPartial(object.burnAmount) : undefined;
+        message.burn_amount = object.burn_amount !== undefined && object.burn_amount !== null ? coin_1.Coin.fromPartial(object.burn_amount) : undefined;
         message.txhash = object.txhash ?? "";
         message.status = object.status ?? 0;
-        message.completionTime = object.completionTime ?? undefined;
+        message.completion_time = object.completion_time ?? undefined;
         message.requeued = object.requeued ?? false;
         message.acknowledged = object.acknowledged ?? false;
-        message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO;
+        message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             delegator: object.delegator,
             distribution: Array.isArray(object?.distribution) ? object.distribution.map((e) => exports.Distribution.fromAmino(e)) : [],
             recipient: object.recipient,
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromAmino(e)) : [],
-            burnAmount: object?.burn_amount ? coin_1.Coin.fromAmino(object.burn_amount) : undefined,
+            burn_amount: object?.burn_amount ? coin_1.Coin.fromAmino(object.burn_amount) : undefined,
             txhash: object.txhash,
             status: object.status,
-            completionTime: object.completion_time,
+            completion_time: object.completion_time,
             requeued: object.requeued,
             acknowledged: object.acknowledged,
-            epochNumber: helpers_1.Long.fromString(object.epoch_number)
+            epoch_number: helpers_1.Long.fromString(object.epoch_number)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.delegator = message.delegator;
         if (message.distribution) {
             obj.distribution = message.distribution.map(e => e ? exports.Distribution.toAmino(e) : undefined);
@@ -1043,13 +1043,13 @@ exports.WithdrawalRecord = {
         else {
             obj.amount = [];
         }
-        obj.burn_amount = message.burnAmount ? coin_1.Coin.toAmino(message.burnAmount) : undefined;
+        obj.burn_amount = message.burn_amount ? coin_1.Coin.toAmino(message.burn_amount) : undefined;
         obj.txhash = message.txhash;
         obj.status = message.status;
-        obj.completion_time = message.completionTime;
+        obj.completion_time = message.completion_time;
         obj.requeued = message.requeued;
         obj.acknowledged = message.acknowledged;
-        obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+        obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1070,25 +1070,25 @@ exports.WithdrawalRecord = {
 };
 function createBaseUnbondingRecord() {
     return {
-        chainId: "",
-        epochNumber: helpers_1.Long.ZERO,
+        chain_id: "",
+        epoch_number: helpers_1.Long.ZERO,
         validator: "",
-        relatedTxhash: []
+        related_txhash: []
     };
 }
 exports.UnbondingRecord = {
     typeUrl: "/quicksilver.interchainstaking.v1.UnbondingRecord",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
-        if (!message.epochNumber.isZero()) {
-            writer.uint32(16).int64(message.epochNumber);
+        if (!message.epoch_number.isZero()) {
+            writer.uint32(16).int64(message.epoch_number);
         }
         if (message.validator !== "") {
             writer.uint32(26).string(message.validator);
         }
-        for (const v of message.relatedTxhash) {
+        for (const v of message.related_txhash) {
             writer.uint32(34).string(v);
         }
         return writer;
@@ -1101,16 +1101,16 @@ exports.UnbondingRecord = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
-                    message.epochNumber = reader.int64();
+                    message.epoch_number = reader.int64();
                     break;
                 case 3:
                     message.validator = reader.string();
                     break;
                 case 4:
-                    message.relatedTxhash.push(reader.string());
+                    message.related_txhash.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1121,48 +1121,48 @@ exports.UnbondingRecord = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
-            epochNumber: (0, helpers_1.isSet)(object.epochNumber) ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO,
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
+            epoch_number: (0, helpers_1.isSet)(object.epoch_number) ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO,
             validator: (0, helpers_1.isSet)(object.validator) ? String(object.validator) : "",
-            relatedTxhash: Array.isArray(object?.relatedTxhash) ? object.relatedTxhash.map((e) => String(e)) : []
+            related_txhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e) => String(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || helpers_1.Long.ZERO).toString());
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || helpers_1.Long.ZERO).toString());
         message.validator !== undefined && (obj.validator = message.validator);
-        if (message.relatedTxhash) {
-            obj.relatedTxhash = message.relatedTxhash.map(e => e);
+        if (message.related_txhash) {
+            obj.related_txhash = message.related_txhash.map(e => e);
         }
         else {
-            obj.relatedTxhash = [];
+            obj.related_txhash = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseUnbondingRecord();
-        message.chainId = object.chainId ?? "";
-        message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO;
+        message.chain_id = object.chain_id ?? "";
+        message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO;
         message.validator = object.validator ?? "";
-        message.relatedTxhash = object.relatedTxhash?.map(e => e) || [];
+        message.related_txhash = object.related_txhash?.map(e => e) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
-            epochNumber: helpers_1.Long.fromString(object.epoch_number),
+            chain_id: object.chain_id,
+            epoch_number: helpers_1.Long.fromString(object.epoch_number),
             validator: object.validator,
-            relatedTxhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e) => e) : []
+            related_txhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
-        obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+        obj.chain_id = message.chain_id;
+        obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
         obj.validator = message.validator;
-        if (message.relatedTxhash) {
-            obj.related_txhash = message.relatedTxhash.map(e => e);
+        if (message.related_txhash) {
+            obj.related_txhash = message.related_txhash.map(e => e);
         }
         else {
             obj.related_txhash = [];
@@ -1187,22 +1187,22 @@ exports.UnbondingRecord = {
 };
 function createBaseRedelegationRecord() {
     return {
-        chainId: "",
-        epochNumber: helpers_1.Long.ZERO,
+        chain_id: "",
+        epoch_number: helpers_1.Long.ZERO,
         source: "",
         destination: "",
         amount: helpers_1.Long.ZERO,
-        completionTime: new Date()
+        completion_time: new Date()
     };
 }
 exports.RedelegationRecord = {
     typeUrl: "/quicksilver.interchainstaking.v1.RedelegationRecord",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
-        if (!message.epochNumber.isZero()) {
-            writer.uint32(16).int64(message.epochNumber);
+        if (!message.epoch_number.isZero()) {
+            writer.uint32(16).int64(message.epoch_number);
         }
         if (message.source !== "") {
             writer.uint32(26).string(message.source);
@@ -1213,8 +1213,8 @@ exports.RedelegationRecord = {
         if (!message.amount.isZero()) {
             writer.uint32(40).int64(message.amount);
         }
-        if (message.completionTime !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completionTime), writer.uint32(50).fork()).ldelim();
+        if (message.completion_time !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completion_time), writer.uint32(50).fork()).ldelim();
         }
         return writer;
     },
@@ -1226,10 +1226,10 @@ exports.RedelegationRecord = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
-                    message.epochNumber = reader.int64();
+                    message.epoch_number = reader.int64();
                     break;
                 case 3:
                     message.source = reader.string();
@@ -1241,7 +1241,7 @@ exports.RedelegationRecord = {
                     message.amount = reader.int64();
                     break;
                 case 6:
-                    message.completionTime = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.completion_time = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1252,52 +1252,52 @@ exports.RedelegationRecord = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
-            epochNumber: (0, helpers_1.isSet)(object.epochNumber) ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO,
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
+            epoch_number: (0, helpers_1.isSet)(object.epoch_number) ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO,
             source: (0, helpers_1.isSet)(object.source) ? String(object.source) : "",
             destination: (0, helpers_1.isSet)(object.destination) ? String(object.destination) : "",
             amount: (0, helpers_1.isSet)(object.amount) ? helpers_1.Long.fromValue(object.amount) : helpers_1.Long.ZERO,
-            completionTime: (0, helpers_1.isSet)(object.completionTime) ? (0, helpers_1.fromJsonTimestamp)(object.completionTime) : undefined
+            completion_time: (0, helpers_1.isSet)(object.completion_time) ? (0, helpers_1.fromJsonTimestamp)(object.completion_time) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || helpers_1.Long.ZERO).toString());
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || helpers_1.Long.ZERO).toString());
         message.source !== undefined && (obj.source = message.source);
         message.destination !== undefined && (obj.destination = message.destination);
         message.amount !== undefined && (obj.amount = (message.amount || helpers_1.Long.ZERO).toString());
-        message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
+        message.completion_time !== undefined && (obj.completion_time = message.completion_time.toISOString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseRedelegationRecord();
-        message.chainId = object.chainId ?? "";
-        message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? helpers_1.Long.fromValue(object.epochNumber) : helpers_1.Long.ZERO;
+        message.chain_id = object.chain_id ?? "";
+        message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? helpers_1.Long.fromValue(object.epoch_number) : helpers_1.Long.ZERO;
         message.source = object.source ?? "";
         message.destination = object.destination ?? "";
         message.amount = object.amount !== undefined && object.amount !== null ? helpers_1.Long.fromValue(object.amount) : helpers_1.Long.ZERO;
-        message.completionTime = object.completionTime ?? undefined;
+        message.completion_time = object.completion_time ?? undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
-            epochNumber: helpers_1.Long.fromString(object.epoch_number),
+            chain_id: object.chain_id,
+            epoch_number: helpers_1.Long.fromString(object.epoch_number),
             source: object.source,
             destination: object.destination,
             amount: helpers_1.Long.fromString(object.amount),
-            completionTime: object.completion_time
+            completion_time: object.completion_time
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
-        obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+        obj.chain_id = message.chain_id;
+        obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
         obj.source = message.source;
         obj.destination = message.destination;
         obj.amount = message.amount ? message.amount.toString() : undefined;
-        obj.completion_time = message.completionTime;
+        obj.completion_time = message.completion_time;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1413,33 +1413,33 @@ exports.TransferRecord = {
 };
 function createBaseValidator() {
     return {
-        valoperAddress: "",
-        commissionRate: "",
-        delegatorShares: "",
-        votingPower: "",
+        valoper_address: "",
+        commission_rate: "",
+        delegator_shares: "",
+        voting_power: "",
         score: "",
         status: "",
         jailed: false,
         tombstoned: false,
-        jailedSince: new Date(),
-        validatorBondShares: "",
-        liquidShares: ""
+        jailed_since: new Date(),
+        validator_bond_shares: "",
+        liquid_shares: ""
     };
 }
 exports.Validator = {
     typeUrl: "/quicksilver.interchainstaking.v1.Validator",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.valoperAddress !== "") {
-            writer.uint32(10).string(message.valoperAddress);
+        if (message.valoper_address !== "") {
+            writer.uint32(10).string(message.valoper_address);
         }
-        if (message.commissionRate !== "") {
-            writer.uint32(18).string(message.commissionRate);
+        if (message.commission_rate !== "") {
+            writer.uint32(18).string(message.commission_rate);
         }
-        if (message.delegatorShares !== "") {
-            writer.uint32(26).string(message.delegatorShares);
+        if (message.delegator_shares !== "") {
+            writer.uint32(26).string(message.delegator_shares);
         }
-        if (message.votingPower !== "") {
-            writer.uint32(34).string(message.votingPower);
+        if (message.voting_power !== "") {
+            writer.uint32(34).string(message.voting_power);
         }
         if (message.score !== "") {
             writer.uint32(42).string(message.score);
@@ -1453,14 +1453,14 @@ exports.Validator = {
         if (message.tombstoned === true) {
             writer.uint32(64).bool(message.tombstoned);
         }
-        if (message.jailedSince !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.jailedSince), writer.uint32(74).fork()).ldelim();
+        if (message.jailed_since !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.jailed_since), writer.uint32(74).fork()).ldelim();
         }
-        if (message.validatorBondShares !== "") {
-            writer.uint32(82).string(message.validatorBondShares);
+        if (message.validator_bond_shares !== "") {
+            writer.uint32(82).string(message.validator_bond_shares);
         }
-        if (message.liquidShares !== "") {
-            writer.uint32(90).string(message.liquidShares);
+        if (message.liquid_shares !== "") {
+            writer.uint32(90).string(message.liquid_shares);
         }
         return writer;
     },
@@ -1472,16 +1472,16 @@ exports.Validator = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.valoperAddress = reader.string();
+                    message.valoper_address = reader.string();
                     break;
                 case 2:
-                    message.commissionRate = reader.string();
+                    message.commission_rate = reader.string();
                     break;
                 case 3:
-                    message.delegatorShares = reader.string();
+                    message.delegator_shares = reader.string();
                     break;
                 case 4:
-                    message.votingPower = reader.string();
+                    message.voting_power = reader.string();
                     break;
                 case 5:
                     message.score = reader.string();
@@ -1496,13 +1496,13 @@ exports.Validator = {
                     message.tombstoned = reader.bool();
                     break;
                 case 9:
-                    message.jailedSince = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.jailed_since = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 10:
-                    message.validatorBondShares = reader.string();
+                    message.validator_bond_shares = reader.string();
                     break;
                 case 11:
-                    message.liquidShares = reader.string();
+                    message.liquid_shares = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1513,77 +1513,77 @@ exports.Validator = {
     },
     fromJSON(object) {
         return {
-            valoperAddress: (0, helpers_1.isSet)(object.valoperAddress) ? String(object.valoperAddress) : "",
-            commissionRate: (0, helpers_1.isSet)(object.commissionRate) ? String(object.commissionRate) : "",
-            delegatorShares: (0, helpers_1.isSet)(object.delegatorShares) ? String(object.delegatorShares) : "",
-            votingPower: (0, helpers_1.isSet)(object.votingPower) ? String(object.votingPower) : "",
+            valoper_address: (0, helpers_1.isSet)(object.valoper_address) ? String(object.valoper_address) : "",
+            commission_rate: (0, helpers_1.isSet)(object.commission_rate) ? String(object.commission_rate) : "",
+            delegator_shares: (0, helpers_1.isSet)(object.delegator_shares) ? String(object.delegator_shares) : "",
+            voting_power: (0, helpers_1.isSet)(object.voting_power) ? String(object.voting_power) : "",
             score: (0, helpers_1.isSet)(object.score) ? String(object.score) : "",
             status: (0, helpers_1.isSet)(object.status) ? String(object.status) : "",
             jailed: (0, helpers_1.isSet)(object.jailed) ? Boolean(object.jailed) : false,
             tombstoned: (0, helpers_1.isSet)(object.tombstoned) ? Boolean(object.tombstoned) : false,
-            jailedSince: (0, helpers_1.isSet)(object.jailedSince) ? (0, helpers_1.fromJsonTimestamp)(object.jailedSince) : undefined,
-            validatorBondShares: (0, helpers_1.isSet)(object.validatorBondShares) ? String(object.validatorBondShares) : "",
-            liquidShares: (0, helpers_1.isSet)(object.liquidShares) ? String(object.liquidShares) : ""
+            jailed_since: (0, helpers_1.isSet)(object.jailed_since) ? (0, helpers_1.fromJsonTimestamp)(object.jailed_since) : undefined,
+            validator_bond_shares: (0, helpers_1.isSet)(object.validator_bond_shares) ? String(object.validator_bond_shares) : "",
+            liquid_shares: (0, helpers_1.isSet)(object.liquid_shares) ? String(object.liquid_shares) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.valoperAddress !== undefined && (obj.valoperAddress = message.valoperAddress);
-        message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
-        message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares);
-        message.votingPower !== undefined && (obj.votingPower = message.votingPower);
+        message.valoper_address !== undefined && (obj.valoper_address = message.valoper_address);
+        message.commission_rate !== undefined && (obj.commission_rate = message.commission_rate);
+        message.delegator_shares !== undefined && (obj.delegator_shares = message.delegator_shares);
+        message.voting_power !== undefined && (obj.voting_power = message.voting_power);
         message.score !== undefined && (obj.score = message.score);
         message.status !== undefined && (obj.status = message.status);
         message.jailed !== undefined && (obj.jailed = message.jailed);
         message.tombstoned !== undefined && (obj.tombstoned = message.tombstoned);
-        message.jailedSince !== undefined && (obj.jailedSince = message.jailedSince.toISOString());
-        message.validatorBondShares !== undefined && (obj.validatorBondShares = message.validatorBondShares);
-        message.liquidShares !== undefined && (obj.liquidShares = message.liquidShares);
+        message.jailed_since !== undefined && (obj.jailed_since = message.jailed_since.toISOString());
+        message.validator_bond_shares !== undefined && (obj.validator_bond_shares = message.validator_bond_shares);
+        message.liquid_shares !== undefined && (obj.liquid_shares = message.liquid_shares);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseValidator();
-        message.valoperAddress = object.valoperAddress ?? "";
-        message.commissionRate = object.commissionRate ?? "";
-        message.delegatorShares = object.delegatorShares ?? "";
-        message.votingPower = object.votingPower ?? "";
+        message.valoper_address = object.valoper_address ?? "";
+        message.commission_rate = object.commission_rate ?? "";
+        message.delegator_shares = object.delegator_shares ?? "";
+        message.voting_power = object.voting_power ?? "";
         message.score = object.score ?? "";
         message.status = object.status ?? "";
         message.jailed = object.jailed ?? false;
         message.tombstoned = object.tombstoned ?? false;
-        message.jailedSince = object.jailedSince ?? undefined;
-        message.validatorBondShares = object.validatorBondShares ?? "";
-        message.liquidShares = object.liquidShares ?? "";
+        message.jailed_since = object.jailed_since ?? undefined;
+        message.validator_bond_shares = object.validator_bond_shares ?? "";
+        message.liquid_shares = object.liquid_shares ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            valoperAddress: object.valoper_address,
-            commissionRate: object.commission_rate,
-            delegatorShares: object.delegator_shares,
-            votingPower: object.voting_power,
+            valoper_address: object.valoper_address,
+            commission_rate: object.commission_rate,
+            delegator_shares: object.delegator_shares,
+            voting_power: object.voting_power,
             score: object.score,
             status: object.status,
             jailed: object.jailed,
             tombstoned: object.tombstoned,
-            jailedSince: object.jailed_since,
-            validatorBondShares: object.validator_bond_shares,
-            liquidShares: object.liquid_shares
+            jailed_since: object.jailed_since,
+            validator_bond_shares: object.validator_bond_shares,
+            liquid_shares: object.liquid_shares
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.valoper_address = message.valoperAddress;
-        obj.commission_rate = message.commissionRate;
-        obj.delegator_shares = message.delegatorShares;
-        obj.voting_power = message.votingPower;
+        obj.valoper_address = message.valoper_address;
+        obj.commission_rate = message.commission_rate;
+        obj.delegator_shares = message.delegator_shares;
+        obj.voting_power = message.voting_power;
         obj.score = message.score;
         obj.status = message.status;
         obj.jailed = message.jailed;
         obj.tombstoned = message.tombstoned;
-        obj.jailed_since = message.jailedSince;
-        obj.validator_bond_shares = message.validatorBondShares;
-        obj.liquid_shares = message.liquidShares;
+        obj.jailed_since = message.jailed_since;
+        obj.validator_bond_shares = message.validator_bond_shares;
+        obj.liquid_shares = message.liquid_shares;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1697,15 +1697,15 @@ exports.DelegatorIntent = {
 };
 function createBaseValidatorIntent() {
     return {
-        valoperAddress: "",
+        valoper_address: "",
         weight: ""
     };
 }
 exports.ValidatorIntent = {
     typeUrl: "/quicksilver.interchainstaking.v1.ValidatorIntent",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.valoperAddress !== "") {
-            writer.uint32(10).string(message.valoperAddress);
+        if (message.valoper_address !== "") {
+            writer.uint32(10).string(message.valoper_address);
         }
         if (message.weight !== "") {
             writer.uint32(18).string(message.weight);
@@ -1720,7 +1720,7 @@ exports.ValidatorIntent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.valoperAddress = reader.string();
+                    message.valoper_address = reader.string();
                     break;
                 case 2:
                     message.weight = reader.string();
@@ -1734,31 +1734,31 @@ exports.ValidatorIntent = {
     },
     fromJSON(object) {
         return {
-            valoperAddress: (0, helpers_1.isSet)(object.valoper_address) ? String(object.valoper_address) : "",
+            valoper_address: (0, helpers_1.isSet)(object.valoper_address) ? String(object.valoper_address) : "",
             weight: (0, helpers_1.isSet)(object.weight) ? String(object.weight) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.valoperAddress !== undefined && (obj.valoper_address = message.valoperAddress);
+        message.valoper_address !== undefined && (obj.valoper_address = message.valoper_address);
         message.weight !== undefined && (obj.weight = message.weight);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseValidatorIntent();
-        message.valoperAddress = object.valoperAddress ?? "";
+        message.valoper_address = object.valoper_address ?? "";
         message.weight = object.weight ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            valoperAddress: object.valoper_address,
+            valoper_address: object.valoper_address,
             weight: object.weight
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.valoper_address = message.valoperAddress;
+        obj.valoper_address = message.valoper_address;
         obj.weight = message.weight;
         return obj;
     },
@@ -1780,21 +1780,21 @@ exports.ValidatorIntent = {
 };
 function createBaseDelegation() {
     return {
-        delegationAddress: "",
-        validatorAddress: "",
+        delegation_address: "",
+        validator_address: "",
         amount: coin_1.Coin.fromPartial({}),
         height: helpers_1.Long.ZERO,
-        redelegationEnd: helpers_1.Long.ZERO
+        redelegation_end: helpers_1.Long.ZERO
     };
 }
 exports.Delegation = {
     typeUrl: "/quicksilver.interchainstaking.v1.Delegation",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegationAddress !== "") {
-            writer.uint32(10).string(message.delegationAddress);
+        if (message.delegation_address !== "") {
+            writer.uint32(10).string(message.delegation_address);
         }
-        if (message.validatorAddress !== "") {
-            writer.uint32(18).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(18).string(message.validator_address);
         }
         if (message.amount !== undefined) {
             coin_1.Coin.encode(message.amount, writer.uint32(26).fork()).ldelim();
@@ -1802,8 +1802,8 @@ exports.Delegation = {
         if (!message.height.isZero()) {
             writer.uint32(32).int64(message.height);
         }
-        if (!message.redelegationEnd.isZero()) {
-            writer.uint32(40).int64(message.redelegationEnd);
+        if (!message.redelegation_end.isZero()) {
+            writer.uint32(40).int64(message.redelegation_end);
         }
         return writer;
     },
@@ -1815,10 +1815,10 @@ exports.Delegation = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegationAddress = reader.string();
+                    message.delegation_address = reader.string();
                     break;
                 case 2:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 case 3:
                     message.amount = coin_1.Coin.decode(reader, reader.uint32());
@@ -1827,7 +1827,7 @@ exports.Delegation = {
                     message.height = reader.int64();
                     break;
                 case 5:
-                    message.redelegationEnd = reader.int64();
+                    message.redelegation_end = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1838,47 +1838,47 @@ exports.Delegation = {
     },
     fromJSON(object) {
         return {
-            delegationAddress: (0, helpers_1.isSet)(object.delegationAddress) ? String(object.delegationAddress) : "",
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : "",
+            delegation_address: (0, helpers_1.isSet)(object.delegation_address) ? String(object.delegation_address) : "",
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : "",
             amount: (0, helpers_1.isSet)(object.amount) ? coin_1.Coin.fromJSON(object.amount) : undefined,
             height: (0, helpers_1.isSet)(object.height) ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO,
-            redelegationEnd: (0, helpers_1.isSet)(object.redelegationEnd) ? helpers_1.Long.fromValue(object.redelegationEnd) : helpers_1.Long.ZERO
+            redelegation_end: (0, helpers_1.isSet)(object.redelegation_end) ? helpers_1.Long.fromValue(object.redelegation_end) : helpers_1.Long.ZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress);
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.delegation_address !== undefined && (obj.delegation_address = message.delegation_address);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         message.amount !== undefined && (obj.amount = message.amount ? coin_1.Coin.toJSON(message.amount) : undefined);
         message.height !== undefined && (obj.height = (message.height || helpers_1.Long.ZERO).toString());
-        message.redelegationEnd !== undefined && (obj.redelegationEnd = (message.redelegationEnd || helpers_1.Long.ZERO).toString());
+        message.redelegation_end !== undefined && (obj.redelegation_end = (message.redelegation_end || helpers_1.Long.ZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseDelegation();
-        message.delegationAddress = object.delegationAddress ?? "";
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.delegation_address = object.delegation_address ?? "";
+        message.validator_address = object.validator_address ?? "";
         message.amount = object.amount !== undefined && object.amount !== null ? coin_1.Coin.fromPartial(object.amount) : undefined;
         message.height = object.height !== undefined && object.height !== null ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO;
-        message.redelegationEnd = object.redelegationEnd !== undefined && object.redelegationEnd !== null ? helpers_1.Long.fromValue(object.redelegationEnd) : helpers_1.Long.ZERO;
+        message.redelegation_end = object.redelegation_end !== undefined && object.redelegation_end !== null ? helpers_1.Long.fromValue(object.redelegation_end) : helpers_1.Long.ZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            delegationAddress: object.delegation_address,
-            validatorAddress: object.validator_address,
+            delegation_address: object.delegation_address,
+            validator_address: object.validator_address,
             amount: object?.amount ? coin_1.Coin.fromAmino(object.amount) : undefined,
             height: helpers_1.Long.fromString(object.height),
-            redelegationEnd: helpers_1.Long.fromString(object.redelegation_end)
+            redelegation_end: helpers_1.Long.fromString(object.redelegation_end)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegation_address = message.delegationAddress;
-        obj.validator_address = message.validatorAddress;
+        obj.delegation_address = message.delegation_address;
+        obj.validator_address = message.validator_address;
         obj.amount = message.amount ? coin_1.Coin.toAmino(message.amount) : undefined;
         obj.height = message.height ? message.height.toString() : undefined;
-        obj.redelegation_end = message.redelegationEnd ? message.redelegationEnd.toString() : undefined;
+        obj.redelegation_end = message.redelegation_end ? message.redelegation_end.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1899,18 +1899,18 @@ exports.Delegation = {
 };
 function createBasePortConnectionTuple() {
     return {
-        connectionId: "",
-        portId: ""
+        connection_id: "",
+        port_id: ""
     };
 }
 exports.PortConnectionTuple = {
     typeUrl: "/quicksilver.interchainstaking.v1.PortConnectionTuple",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.connectionId !== "") {
-            writer.uint32(10).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(10).string(message.connection_id);
         }
-        if (message.portId !== "") {
-            writer.uint32(18).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(18).string(message.port_id);
         }
         return writer;
     },
@@ -1922,10 +1922,10 @@ exports.PortConnectionTuple = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 2:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1936,32 +1936,32 @@ exports.PortConnectionTuple = {
     },
     fromJSON(object) {
         return {
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : "",
-            portId: (0, helpers_1.isSet)(object.portId) ? String(object.portId) : ""
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : "",
+            port_id: (0, helpers_1.isSet)(object.port_id) ? String(object.port_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.portId !== undefined && (obj.portId = message.portId);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBasePortConnectionTuple();
-        message.connectionId = object.connectionId ?? "";
-        message.portId = object.portId ?? "";
+        message.connection_id = object.connection_id ?? "";
+        message.port_id = object.port_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            connectionId: object.connection_id,
-            portId: object.port_id
+            connection_id: object.connection_id,
+            port_id: object.port_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.connection_id = message.connectionId;
-        obj.port_id = message.portId;
+        obj.connection_id = message.connection_id;
+        obj.port_id = message.port_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1982,19 +1982,19 @@ exports.PortConnectionTuple = {
 };
 function createBaseReceipt() {
     return {
-        chainId: "",
+        chain_id: "",
         sender: "",
         txhash: "",
         amount: [],
-        firstSeen: undefined,
+        first_seen: undefined,
         completed: undefined
     };
 }
 exports.Receipt = {
     typeUrl: "/quicksilver.interchainstaking.v1.Receipt",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.sender !== "") {
             writer.uint32(18).string(message.sender);
@@ -2005,8 +2005,8 @@ exports.Receipt = {
         for (const v of message.amount) {
             coin_1.Coin.encode(v, writer.uint32(34).fork()).ldelim();
         }
-        if (message.firstSeen !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.firstSeen), writer.uint32(42).fork()).ldelim();
+        if (message.first_seen !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.first_seen), writer.uint32(42).fork()).ldelim();
         }
         if (message.completed !== undefined) {
             timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completed), writer.uint32(50).fork()).ldelim();
@@ -2021,7 +2021,7 @@ exports.Receipt = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.sender = reader.string();
@@ -2033,7 +2033,7 @@ exports.Receipt = {
                     message.amount.push(coin_1.Coin.decode(reader, reader.uint32()));
                     break;
                 case 5:
-                    message.firstSeen = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.first_seen = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 6:
                     message.completed = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
@@ -2047,17 +2047,17 @@ exports.Receipt = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             sender: (0, helpers_1.isSet)(object.sender) ? String(object.sender) : "",
             txhash: (0, helpers_1.isSet)(object.txhash) ? String(object.txhash) : "",
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromJSON(e)) : [],
-            firstSeen: (0, helpers_1.isSet)(object.firstSeen) ? (0, helpers_1.fromJsonTimestamp)(object.firstSeen) : undefined,
+            first_seen: (0, helpers_1.isSet)(object.first_seen) ? (0, helpers_1.fromJsonTimestamp)(object.first_seen) : undefined,
             completed: (0, helpers_1.isSet)(object.completed) ? (0, helpers_1.fromJsonTimestamp)(object.completed) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.sender !== undefined && (obj.sender = message.sender);
         message.txhash !== undefined && (obj.txhash = message.txhash);
         if (message.amount) {
@@ -2066,33 +2066,33 @@ exports.Receipt = {
         else {
             obj.amount = [];
         }
-        message.firstSeen !== undefined && (obj.firstSeen = message.firstSeen.toISOString());
+        message.first_seen !== undefined && (obj.first_seen = message.first_seen.toISOString());
         message.completed !== undefined && (obj.completed = message.completed.toISOString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseReceipt();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.sender = object.sender ?? "";
         message.txhash = object.txhash ?? "";
         message.amount = object.amount?.map(e => coin_1.Coin.fromPartial(e)) || [];
-        message.firstSeen = object.firstSeen ?? undefined;
+        message.first_seen = object.first_seen ?? undefined;
         message.completed = object.completed ?? undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             sender: object.sender,
             txhash: object.txhash,
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => coin_1.Coin.fromAmino(e)) : [],
-            firstSeen: object?.first_seen,
+            first_seen: object?.first_seen,
             completed: object?.completed
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.sender = message.sender;
         obj.txhash = message.txhash;
         if (message.amount) {
@@ -2101,7 +2101,7 @@ exports.Receipt = {
         else {
             obj.amount = [];
         }
-        obj.first_seen = message.firstSeen;
+        obj.first_seen = message.first_seen;
         obj.completed = message.completed;
         return obj;
     },

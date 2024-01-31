@@ -29,12 +29,12 @@ export declare function protocolDataTypeToJSON(object: ProtocolDataType): string
  * allocated as participation rewards.
  */
 export interface DistributionProportions {
-    validatorSelectionAllocation: string;
-    holdingsAllocation: string;
-    lockupAllocation: string;
+    validator_selection_allocation: string;
+    holdings_allocation: string;
+    lockup_allocation: string;
 }
 export interface DistributionProportionsProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.DistributionProportions";
+    type_url: "/quicksilver.participationrewards.v1.DistributionProportions";
     value: Uint8Array;
 }
 /**
@@ -65,11 +65,11 @@ export interface Params {
      * distribution_proportions defines the proportions of the minted
      * participation rewards;
      */
-    distributionProportions: DistributionProportions;
-    claimsEnabled: boolean;
+    distribution_proportions: DistributionProportions;
+    claims_enabled: boolean;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.Params";
+    type_url: "/quicksilver.participationrewards.v1.Params";
     value: Uint8Array;
 }
 /** Params holds parameters for the participationrewards module. */
@@ -92,10 +92,10 @@ export interface ParamsSDKType {
 }
 export interface KeyedProtocolData {
     key: string;
-    protocolData: ProtocolData;
+    protocol_data: ProtocolData;
 }
 export interface KeyedProtocolDataProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.KeyedProtocolData";
+    type_url: "/quicksilver.participationrewards.v1.KeyedProtocolData";
     value: Uint8Array;
 }
 export interface KeyedProtocolDataAmino {
@@ -119,7 +119,7 @@ export interface ProtocolData {
     data: Uint8Array;
 }
 export interface ProtocolDataProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.ProtocolData";
+    type_url: "/quicksilver.participationrewards.v1.ProtocolData";
     value: Uint8Array;
 }
 /**

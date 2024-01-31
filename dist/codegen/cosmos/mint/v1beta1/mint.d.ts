@@ -5,10 +5,10 @@ export interface Minter {
     /** current annual inflation rate */
     inflation: string;
     /** current annual expected provisions */
-    annualProvisions: string;
+    annual_provisions: string;
 }
 export interface MinterProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.Minter";
+    type_url: "/cosmos.mint.v1beta1.Minter";
     value: Uint8Array;
 }
 /** Minter represents the minting state. */
@@ -30,20 +30,20 @@ export interface MinterSDKType {
 /** Params holds parameters for the mint module. */
 export interface Params {
     /** type of coin to mint */
-    mintDenom: string;
+    mint_denom: string;
     /** maximum annual change in inflation rate */
-    inflationRateChange: string;
+    inflation_rate_change: string;
     /** maximum inflation rate */
-    inflationMax: string;
+    inflation_max: string;
     /** minimum inflation rate */
-    inflationMin: string;
+    inflation_min: string;
     /** goal of percent bonded atoms */
-    goalBonded: string;
+    goal_bonded: string;
     /** expected blocks per year */
-    blocksPerYear: Long;
+    blocks_per_year: Long;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.Params";
+    type_url: "/cosmos.mint.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params holds parameters for the mint module. */

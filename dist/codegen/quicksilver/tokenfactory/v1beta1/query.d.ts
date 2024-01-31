@@ -6,7 +6,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryParamsRequest";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -25,7 +25,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryParamsResponse";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -49,7 +49,7 @@ export interface QueryDenomAuthorityMetadataRequest {
     denom: string;
 }
 export interface QueryDenomAuthorityMetadataRequestProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest";
     value: Uint8Array;
 }
 /**
@@ -75,10 +75,10 @@ export interface QueryDenomAuthorityMetadataRequestSDKType {
  * DenomAuthorityMetadata gRPC query.
  */
 export interface QueryDenomAuthorityMetadataResponse {
-    authorityMetadata: DenomAuthorityMetadata;
+    authority_metadata: DenomAuthorityMetadata;
 }
 export interface QueryDenomAuthorityMetadataResponseProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse";
     value: Uint8Array;
 }
 /**
@@ -107,7 +107,7 @@ export interface QueryDenomsFromCreatorRequest {
     creator: string;
 }
 export interface QueryDenomsFromCreatorRequestProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest";
     value: Uint8Array;
 }
 /**
@@ -136,7 +136,7 @@ export interface QueryDenomsFromCreatorResponse {
     denoms: string[];
 }
 export interface QueryDenomsFromCreatorResponseProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse";
+    type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse";
     value: Uint8Array;
 }
 /**

@@ -32,15 +32,15 @@ const helpers_1 = require("../../../../helpers");
 const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseQueryConnectionRequest() {
     return {
-        connectionId: ""
+        connection_id: ""
     };
 }
 exports.QueryConnectionRequest = {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionRequest",
     aminoType: "cosmos-sdk/QueryConnectionRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.connectionId !== "") {
-            writer.uint32(10).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(10).string(message.connection_id);
         }
         return writer;
     },
@@ -52,7 +52,7 @@ exports.QueryConnectionRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -63,27 +63,27 @@ exports.QueryConnectionRequest = {
     },
     fromJSON(object) {
         return {
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : ""
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionRequest();
-        message.connectionId = object.connectionId ?? "";
+        message.connection_id = object.connection_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            connectionId: object.connection_id
+            connection_id: object.connection_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.connection_id = message.connectionId;
+        obj.connection_id = message.connection_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -112,7 +112,7 @@ function createBaseQueryConnectionResponse() {
     return {
         connection: connection_1.ConnectionEnd.fromPartial({}),
         proof: new Uint8Array(),
-        proofHeight: client_1.Height.fromPartial({})
+        proof_height: client_1.Height.fromPartial({})
     };
 }
 exports.QueryConnectionResponse = {
@@ -125,8 +125,8 @@ exports.QueryConnectionResponse = {
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            client_1.Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            client_1.Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -144,7 +144,7 @@ exports.QueryConnectionResponse = {
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = client_1.Height.decode(reader, reader.uint32());
+                    message.proof_height = client_1.Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -157,35 +157,35 @@ exports.QueryConnectionResponse = {
         return {
             connection: (0, helpers_1.isSet)(object.connection) ? connection_1.ConnectionEnd.fromJSON(object.connection) : undefined,
             proof: (0, helpers_1.isSet)(object.proof) ? (0, helpers_1.bytesFromBase64)(object.proof) : new Uint8Array(),
-            proofHeight: (0, helpers_1.isSet)(object.proofHeight) ? client_1.Height.fromJSON(object.proofHeight) : undefined
+            proof_height: (0, helpers_1.isSet)(object.proof_height) ? client_1.Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.connection !== undefined && (obj.connection = message.connection ? connection_1.ConnectionEnd.toJSON(message.connection) : undefined);
         message.proof !== undefined && (obj.proof = (0, helpers_1.base64FromBytes)(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? client_1.Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? client_1.Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionResponse();
         message.connection = object.connection !== undefined && object.connection !== null ? connection_1.ConnectionEnd.fromPartial(object.connection) : undefined;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? client_1.Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? client_1.Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             connection: object?.connection ? connection_1.ConnectionEnd.fromAmino(object.connection) : undefined,
             proof: object.proof,
-            proofHeight: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.connection = message.connection ? connection_1.ConnectionEnd.toAmino(message.connection) : undefined;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? client_1.Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? client_1.Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -402,15 +402,15 @@ exports.QueryConnectionsResponse = {
 };
 function createBaseQueryClientConnectionsRequest() {
     return {
-        clientId: ""
+        client_id: ""
     };
 }
 exports.QueryClientConnectionsRequest = {
     typeUrl: "/ibc.core.connection.v1.QueryClientConnectionsRequest",
     aminoType: "cosmos-sdk/QueryClientConnectionsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
         return writer;
     },
@@ -422,7 +422,7 @@ exports.QueryClientConnectionsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -433,27 +433,27 @@ exports.QueryClientConnectionsRequest = {
     },
     fromJSON(object) {
         return {
-            clientId: (0, helpers_1.isSet)(object.clientId) ? String(object.clientId) : ""
+            client_id: (0, helpers_1.isSet)(object.client_id) ? String(object.client_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClientConnectionsRequest();
-        message.clientId = object.clientId ?? "";
+        message.client_id = object.client_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id
+            client_id: object.client_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
+        obj.client_id = message.client_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -480,23 +480,23 @@ exports.QueryClientConnectionsRequest = {
 };
 function createBaseQueryClientConnectionsResponse() {
     return {
-        connectionPaths: [],
+        connection_paths: [],
         proof: new Uint8Array(),
-        proofHeight: client_1.Height.fromPartial({})
+        proof_height: client_1.Height.fromPartial({})
     };
 }
 exports.QueryClientConnectionsResponse = {
     typeUrl: "/ibc.core.connection.v1.QueryClientConnectionsResponse",
     aminoType: "cosmos-sdk/QueryClientConnectionsResponse",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.connectionPaths) {
+        for (const v of message.connection_paths) {
             writer.uint32(10).string(v);
         }
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            client_1.Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            client_1.Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -508,13 +508,13 @@ exports.QueryClientConnectionsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionPaths.push(reader.string());
+                    message.connection_paths.push(reader.string());
                     break;
                 case 2:
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = client_1.Height.decode(reader, reader.uint32());
+                    message.proof_height = client_1.Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -525,47 +525,47 @@ exports.QueryClientConnectionsResponse = {
     },
     fromJSON(object) {
         return {
-            connectionPaths: Array.isArray(object?.connectionPaths) ? object.connectionPaths.map((e) => String(e)) : [],
+            connection_paths: Array.isArray(object?.connection_paths) ? object.connection_paths.map((e) => String(e)) : [],
             proof: (0, helpers_1.isSet)(object.proof) ? (0, helpers_1.bytesFromBase64)(object.proof) : new Uint8Array(),
-            proofHeight: (0, helpers_1.isSet)(object.proofHeight) ? client_1.Height.fromJSON(object.proofHeight) : undefined
+            proof_height: (0, helpers_1.isSet)(object.proof_height) ? client_1.Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.connectionPaths) {
-            obj.connectionPaths = message.connectionPaths.map(e => e);
+        if (message.connection_paths) {
+            obj.connection_paths = message.connection_paths.map(e => e);
         }
         else {
-            obj.connectionPaths = [];
+            obj.connection_paths = [];
         }
         message.proof !== undefined && (obj.proof = (0, helpers_1.base64FromBytes)(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? client_1.Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? client_1.Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClientConnectionsResponse();
-        message.connectionPaths = object.connectionPaths?.map(e => e) || [];
+        message.connection_paths = object.connection_paths?.map(e => e) || [];
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? client_1.Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? client_1.Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            connectionPaths: Array.isArray(object?.connection_paths) ? object.connection_paths.map((e) => e) : [],
+            connection_paths: Array.isArray(object?.connection_paths) ? object.connection_paths.map((e) => e) : [],
             proof: object.proof,
-            proofHeight: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.connectionPaths) {
-            obj.connection_paths = message.connectionPaths.map(e => e);
+        if (message.connection_paths) {
+            obj.connection_paths = message.connection_paths.map(e => e);
         }
         else {
             obj.connection_paths = [];
         }
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? client_1.Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? client_1.Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -592,15 +592,15 @@ exports.QueryClientConnectionsResponse = {
 };
 function createBaseQueryConnectionClientStateRequest() {
     return {
-        connectionId: ""
+        connection_id: ""
     };
 }
 exports.QueryConnectionClientStateRequest = {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionClientStateRequest",
     aminoType: "cosmos-sdk/QueryConnectionClientStateRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.connectionId !== "") {
-            writer.uint32(10).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(10).string(message.connection_id);
         }
         return writer;
     },
@@ -612,7 +612,7 @@ exports.QueryConnectionClientStateRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -623,27 +623,27 @@ exports.QueryConnectionClientStateRequest = {
     },
     fromJSON(object) {
         return {
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : ""
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionClientStateRequest();
-        message.connectionId = object.connectionId ?? "";
+        message.connection_id = object.connection_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            connectionId: object.connection_id
+            connection_id: object.connection_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.connection_id = message.connectionId;
+        obj.connection_id = message.connection_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -670,23 +670,23 @@ exports.QueryConnectionClientStateRequest = {
 };
 function createBaseQueryConnectionClientStateResponse() {
     return {
-        identifiedClientState: client_1.IdentifiedClientState.fromPartial({}),
+        identified_client_state: client_1.IdentifiedClientState.fromPartial({}),
         proof: new Uint8Array(),
-        proofHeight: client_1.Height.fromPartial({})
+        proof_height: client_1.Height.fromPartial({})
     };
 }
 exports.QueryConnectionClientStateResponse = {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionClientStateResponse",
     aminoType: "cosmos-sdk/QueryConnectionClientStateResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.identifiedClientState !== undefined) {
-            client_1.IdentifiedClientState.encode(message.identifiedClientState, writer.uint32(10).fork()).ldelim();
+        if (message.identified_client_state !== undefined) {
+            client_1.IdentifiedClientState.encode(message.identified_client_state, writer.uint32(10).fork()).ldelim();
         }
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            client_1.Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            client_1.Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -698,13 +698,13 @@ exports.QueryConnectionClientStateResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.identifiedClientState = client_1.IdentifiedClientState.decode(reader, reader.uint32());
+                    message.identified_client_state = client_1.IdentifiedClientState.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = client_1.Height.decode(reader, reader.uint32());
+                    message.proof_height = client_1.Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -715,37 +715,37 @@ exports.QueryConnectionClientStateResponse = {
     },
     fromJSON(object) {
         return {
-            identifiedClientState: (0, helpers_1.isSet)(object.identifiedClientState) ? client_1.IdentifiedClientState.fromJSON(object.identifiedClientState) : undefined,
+            identified_client_state: (0, helpers_1.isSet)(object.identified_client_state) ? client_1.IdentifiedClientState.fromJSON(object.identified_client_state) : undefined,
             proof: (0, helpers_1.isSet)(object.proof) ? (0, helpers_1.bytesFromBase64)(object.proof) : new Uint8Array(),
-            proofHeight: (0, helpers_1.isSet)(object.proofHeight) ? client_1.Height.fromJSON(object.proofHeight) : undefined
+            proof_height: (0, helpers_1.isSet)(object.proof_height) ? client_1.Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.identifiedClientState !== undefined && (obj.identifiedClientState = message.identifiedClientState ? client_1.IdentifiedClientState.toJSON(message.identifiedClientState) : undefined);
+        message.identified_client_state !== undefined && (obj.identified_client_state = message.identified_client_state ? client_1.IdentifiedClientState.toJSON(message.identified_client_state) : undefined);
         message.proof !== undefined && (obj.proof = (0, helpers_1.base64FromBytes)(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? client_1.Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? client_1.Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionClientStateResponse();
-        message.identifiedClientState = object.identifiedClientState !== undefined && object.identifiedClientState !== null ? client_1.IdentifiedClientState.fromPartial(object.identifiedClientState) : undefined;
+        message.identified_client_state = object.identified_client_state !== undefined && object.identified_client_state !== null ? client_1.IdentifiedClientState.fromPartial(object.identified_client_state) : undefined;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? client_1.Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? client_1.Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            identifiedClientState: object?.identified_client_state ? client_1.IdentifiedClientState.fromAmino(object.identified_client_state) : undefined,
+            identified_client_state: object?.identified_client_state ? client_1.IdentifiedClientState.fromAmino(object.identified_client_state) : undefined,
             proof: object.proof,
-            proofHeight: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.identified_client_state = message.identifiedClientState ? client_1.IdentifiedClientState.toAmino(message.identifiedClientState) : undefined;
+        obj.identified_client_state = message.identified_client_state ? client_1.IdentifiedClientState.toAmino(message.identified_client_state) : undefined;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? client_1.Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? client_1.Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -772,23 +772,23 @@ exports.QueryConnectionClientStateResponse = {
 };
 function createBaseQueryConnectionConsensusStateRequest() {
     return {
-        connectionId: "",
-        revisionNumber: helpers_1.Long.UZERO,
-        revisionHeight: helpers_1.Long.UZERO
+        connection_id: "",
+        revision_number: helpers_1.Long.UZERO,
+        revision_height: helpers_1.Long.UZERO
     };
 }
 exports.QueryConnectionConsensusStateRequest = {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionConsensusStateRequest",
     aminoType: "cosmos-sdk/QueryConnectionConsensusStateRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.connectionId !== "") {
-            writer.uint32(10).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(10).string(message.connection_id);
         }
-        if (!message.revisionNumber.isZero()) {
-            writer.uint32(16).uint64(message.revisionNumber);
+        if (!message.revision_number.isZero()) {
+            writer.uint32(16).uint64(message.revision_number);
         }
-        if (!message.revisionHeight.isZero()) {
-            writer.uint32(24).uint64(message.revisionHeight);
+        if (!message.revision_height.isZero()) {
+            writer.uint32(24).uint64(message.revision_height);
         }
         return writer;
     },
@@ -800,13 +800,13 @@ exports.QueryConnectionConsensusStateRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 2:
-                    message.revisionNumber = reader.uint64();
+                    message.revision_number = reader.uint64();
                     break;
                 case 3:
-                    message.revisionHeight = reader.uint64();
+                    message.revision_height = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -817,37 +817,37 @@ exports.QueryConnectionConsensusStateRequest = {
     },
     fromJSON(object) {
         return {
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : "",
-            revisionNumber: (0, helpers_1.isSet)(object.revisionNumber) ? helpers_1.Long.fromValue(object.revisionNumber) : helpers_1.Long.UZERO,
-            revisionHeight: (0, helpers_1.isSet)(object.revisionHeight) ? helpers_1.Long.fromValue(object.revisionHeight) : helpers_1.Long.UZERO
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : "",
+            revision_number: (0, helpers_1.isSet)(object.revision_number) ? helpers_1.Long.fromValue(object.revision_number) : helpers_1.Long.UZERO,
+            revision_height: (0, helpers_1.isSet)(object.revision_height) ? helpers_1.Long.fromValue(object.revision_height) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.revisionNumber !== undefined && (obj.revisionNumber = (message.revisionNumber || helpers_1.Long.UZERO).toString());
-        message.revisionHeight !== undefined && (obj.revisionHeight = (message.revisionHeight || helpers_1.Long.UZERO).toString());
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.revision_number !== undefined && (obj.revision_number = (message.revision_number || helpers_1.Long.UZERO).toString());
+        message.revision_height !== undefined && (obj.revision_height = (message.revision_height || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionConsensusStateRequest();
-        message.connectionId = object.connectionId ?? "";
-        message.revisionNumber = object.revisionNumber !== undefined && object.revisionNumber !== null ? helpers_1.Long.fromValue(object.revisionNumber) : helpers_1.Long.UZERO;
-        message.revisionHeight = object.revisionHeight !== undefined && object.revisionHeight !== null ? helpers_1.Long.fromValue(object.revisionHeight) : helpers_1.Long.UZERO;
+        message.connection_id = object.connection_id ?? "";
+        message.revision_number = object.revision_number !== undefined && object.revision_number !== null ? helpers_1.Long.fromValue(object.revision_number) : helpers_1.Long.UZERO;
+        message.revision_height = object.revision_height !== undefined && object.revision_height !== null ? helpers_1.Long.fromValue(object.revision_height) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            connectionId: object.connection_id,
-            revisionNumber: helpers_1.Long.fromString(object.revision_number),
-            revisionHeight: helpers_1.Long.fromString(object.revision_height)
+            connection_id: object.connection_id,
+            revision_number: helpers_1.Long.fromString(object.revision_number),
+            revision_height: helpers_1.Long.fromString(object.revision_height)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.connection_id = message.connectionId;
-        obj.revision_number = message.revisionNumber ? message.revisionNumber.toString() : undefined;
-        obj.revision_height = message.revisionHeight ? message.revisionHeight.toString() : undefined;
+        obj.connection_id = message.connection_id;
+        obj.revision_number = message.revision_number ? message.revision_number.toString() : undefined;
+        obj.revision_height = message.revision_height ? message.revision_height.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -874,27 +874,27 @@ exports.QueryConnectionConsensusStateRequest = {
 };
 function createBaseQueryConnectionConsensusStateResponse() {
     return {
-        consensusState: any_1.Any.fromPartial({}),
-        clientId: "",
+        consensus_state: any_1.Any.fromPartial({}),
+        client_id: "",
         proof: new Uint8Array(),
-        proofHeight: client_1.Height.fromPartial({})
+        proof_height: client_1.Height.fromPartial({})
     };
 }
 exports.QueryConnectionConsensusStateResponse = {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionConsensusStateResponse",
     aminoType: "cosmos-sdk/QueryConnectionConsensusStateResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.consensusState !== undefined) {
-            any_1.Any.encode(message.consensusState, writer.uint32(10).fork()).ldelim();
+        if (message.consensus_state !== undefined) {
+            any_1.Any.encode(message.consensus_state, writer.uint32(10).fork()).ldelim();
         }
-        if (message.clientId !== "") {
-            writer.uint32(18).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(18).string(message.client_id);
         }
         if (message.proof.length !== 0) {
             writer.uint32(26).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            client_1.Height.encode(message.proofHeight, writer.uint32(34).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            client_1.Height.encode(message.proof_height, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -906,16 +906,16 @@ exports.QueryConnectionConsensusStateResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.consensusState = any_1.Any.decode(reader, reader.uint32());
+                    message.consensus_state = any_1.Any.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 3:
                     message.proof = reader.bytes();
                     break;
                 case 4:
-                    message.proofHeight = client_1.Height.decode(reader, reader.uint32());
+                    message.proof_height = client_1.Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -926,42 +926,42 @@ exports.QueryConnectionConsensusStateResponse = {
     },
     fromJSON(object) {
         return {
-            consensusState: (0, helpers_1.isSet)(object.consensusState) ? any_1.Any.fromJSON(object.consensusState) : undefined,
-            clientId: (0, helpers_1.isSet)(object.clientId) ? String(object.clientId) : "",
+            consensus_state: (0, helpers_1.isSet)(object.consensus_state) ? any_1.Any.fromJSON(object.consensus_state) : undefined,
+            client_id: (0, helpers_1.isSet)(object.client_id) ? String(object.client_id) : "",
             proof: (0, helpers_1.isSet)(object.proof) ? (0, helpers_1.bytesFromBase64)(object.proof) : new Uint8Array(),
-            proofHeight: (0, helpers_1.isSet)(object.proofHeight) ? client_1.Height.fromJSON(object.proofHeight) : undefined
+            proof_height: (0, helpers_1.isSet)(object.proof_height) ? client_1.Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.consensusState !== undefined && (obj.consensusState = message.consensusState ? any_1.Any.toJSON(message.consensusState) : undefined);
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.consensus_state !== undefined && (obj.consensus_state = message.consensus_state ? any_1.Any.toJSON(message.consensus_state) : undefined);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         message.proof !== undefined && (obj.proof = (0, helpers_1.base64FromBytes)(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? client_1.Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? client_1.Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryConnectionConsensusStateResponse();
-        message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? any_1.Any.fromPartial(object.consensusState) : undefined;
-        message.clientId = object.clientId ?? "";
+        message.consensus_state = object.consensus_state !== undefined && object.consensus_state !== null ? any_1.Any.fromPartial(object.consensus_state) : undefined;
+        message.client_id = object.client_id ?? "";
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? client_1.Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? client_1.Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            consensusState: object?.consensus_state ? any_1.Any.fromAmino(object.consensus_state) : undefined,
-            clientId: object.client_id,
+            consensus_state: object?.consensus_state ? any_1.Any.fromAmino(object.consensus_state) : undefined,
+            client_id: object.client_id,
             proof: object.proof,
-            proofHeight: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? client_1.Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.consensus_state = message.consensusState ? any_1.Any.toAmino(message.consensusState) : undefined;
-        obj.client_id = message.clientId;
+        obj.consensus_state = message.consensus_state ? any_1.Any.toAmino(message.consensus_state) : undefined;
+        obj.client_id = message.client_id;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? client_1.Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? client_1.Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {

@@ -18,12 +18,12 @@ export interface Validator {
      * operator_address defines the address of the validator's operator; bech
      * encoded in JSON.
      */
-    operatorAddress: string;
+    operator_address: string;
     /**
      * consensus_pubkey is the consensus public key of the validator, as a
      * Protobuf Any.
      */
-    consensusPubkey: Any | undefined;
+    consensus_pubkey: Any | undefined;
     /**
      * jailed defined whether the validator has been jailed from bonded status or
      * not.
@@ -34,19 +34,19 @@ export interface Validator {
     /** tokens define the delegated tokens (incl. self-delegation). */
     tokens: string;
     /** delegator_shares defines total shares issued to a validator's delegators. */
-    delegatorShares: string;
+    delegator_shares: string;
     /** description defines the description terms for the validator. */
     description: Description;
     /**
      * unbonding_height defines, if unbonding, the height at which this validator
      * has begun unbonding.
      */
-    unbondingHeight: Long;
+    unbonding_height: Long;
     /**
      * unbonding_time defines, if unbonding, the min time for the validator to
      * complete unbonding.
      */
-    unbondingTime: Date;
+    unbonding_time: Date;
     /** commission defines the commission parameters. */
     commission: Commission;
     /**
@@ -54,32 +54,32 @@ export interface Validator {
      * validator bond
      */
     /** @deprecated */
-    minSelfDelegation: string;
+    min_self_delegation: string;
     /**
      * strictly positive if this validator's unbonding has been stopped by
      * external modules
      */
-    unbondingOnHoldRefCount: Long;
+    unbonding_on_hold_ref_count: Long;
     /**
      * list of unbonding ids, each uniquely identifing an unbonding of this
      * validator
      */
-    unbondingIds: Long[];
+    unbonding_ids: Long[];
     /** Number of shares self bonded from the validator */
-    validatorBondShares: string;
+    validator_bond_shares: string;
     /** Number of shares either tokenized or owned by a liquid staking provider */
-    liquidShares: string;
+    liquid_shares: string;
 }
 export interface ValidatorProtoMsg {
-    typeUrl: "/cosmos.lsmstaking.v1beta1.Validator";
+    type_url: "/cosmos.lsmstaking.v1beta1.Validator";
     value: Uint8Array;
 }
-export type ValidatorEncoded = Omit<Validator, "consensusPubkey"> & {
+export type ValidatorEncoded = Omit<Validator, "consensus_pubkey"> & {
     /**
      * consensus_pubkey is the consensus public key of the validator, as a
      * Protobuf Any.
      */
-    consensusPubkey?: AnyProtoMsg | undefined;
+    consensus_pubkey?: AnyProtoMsg | undefined;
 };
 /**
  * Validator defines a validator, together with the total amount of the
@@ -187,7 +187,7 @@ export interface QueryValidatorsResponse {
     pagination: PageResponse;
 }
 export interface QueryValidatorsResponseProtoMsg {
-    typeUrl: "/cosmos.lsmstaking.v1beta1.QueryValidatorsResponse";
+    type_url: "/cosmos.lsmstaking.v1beta1.QueryValidatorsResponse";
     value: Uint8Array;
 }
 export interface QueryValidatorsResponseAmino {

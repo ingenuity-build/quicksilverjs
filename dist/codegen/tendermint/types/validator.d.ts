@@ -4,10 +4,10 @@ import * as _m0 from "protobufjs/minimal";
 export interface ValidatorSet {
     validators: Validator[];
     proposer: Validator;
-    totalVotingPower: Long;
+    total_voting_power: Long;
 }
 export interface ValidatorSetProtoMsg {
-    typeUrl: "/tendermint.types.ValidatorSet";
+    type_url: "/tendermint.types.ValidatorSet";
     value: Uint8Array;
 }
 export interface ValidatorSetAmino {
@@ -26,12 +26,12 @@ export interface ValidatorSetSDKType {
 }
 export interface Validator {
     address: Uint8Array;
-    pubKey: PublicKey;
-    votingPower: Long;
-    proposerPriority: Long;
+    pub_key: PublicKey;
+    voting_power: Long;
+    proposer_priority: Long;
 }
 export interface ValidatorProtoMsg {
-    typeUrl: "/tendermint.types.Validator";
+    type_url: "/tendermint.types.Validator";
     value: Uint8Array;
 }
 export interface ValidatorAmino {
@@ -51,11 +51,11 @@ export interface ValidatorSDKType {
     proposer_priority: Long;
 }
 export interface SimpleValidator {
-    pubKey: PublicKey;
-    votingPower: Long;
+    pub_key: PublicKey;
+    voting_power: Long;
 }
 export interface SimpleValidatorProtoMsg {
-    typeUrl: "/tendermint.types.SimpleValidator";
+    type_url: "/tendermint.types.SimpleValidator";
     value: Uint8Array;
 }
 export interface SimpleValidatorAmino {

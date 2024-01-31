@@ -720,15 +720,15 @@ exports.Bech32PrefixRequest = {
 };
 function createBaseBech32PrefixResponse() {
     return {
-        bech32Prefix: ""
+        bech32_prefix: ""
     };
 }
 exports.Bech32PrefixResponse = {
     typeUrl: "/cosmos.auth.v1beta1.Bech32PrefixResponse",
     aminoType: "cosmos-sdk/Bech32PrefixResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.bech32Prefix !== "") {
-            writer.uint32(10).string(message.bech32Prefix);
+        if (message.bech32_prefix !== "") {
+            writer.uint32(10).string(message.bech32_prefix);
         }
         return writer;
     },
@@ -740,7 +740,7 @@ exports.Bech32PrefixResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bech32Prefix = reader.string();
+                    message.bech32_prefix = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -751,27 +751,27 @@ exports.Bech32PrefixResponse = {
     },
     fromJSON(object) {
         return {
-            bech32Prefix: (0, helpers_1.isSet)(object.bech32Prefix) ? String(object.bech32Prefix) : ""
+            bech32_prefix: (0, helpers_1.isSet)(object.bech32_prefix) ? String(object.bech32_prefix) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.bech32Prefix !== undefined && (obj.bech32Prefix = message.bech32Prefix);
+        message.bech32_prefix !== undefined && (obj.bech32_prefix = message.bech32_prefix);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseBech32PrefixResponse();
-        message.bech32Prefix = object.bech32Prefix ?? "";
+        message.bech32_prefix = object.bech32_prefix ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            bech32Prefix: object.bech32_prefix
+            bech32_prefix: object.bech32_prefix
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.bech32_prefix = message.bech32Prefix;
+        obj.bech32_prefix = message.bech32_prefix;
         return obj;
     },
     fromAminoMsg(object) {
@@ -798,15 +798,15 @@ exports.Bech32PrefixResponse = {
 };
 function createBaseAddressBytesToStringRequest() {
     return {
-        addressBytes: new Uint8Array()
+        address_bytes: new Uint8Array()
     };
 }
 exports.AddressBytesToStringRequest = {
     typeUrl: "/cosmos.auth.v1beta1.AddressBytesToStringRequest",
     aminoType: "cosmos-sdk/AddressBytesToStringRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.addressBytes.length !== 0) {
-            writer.uint32(10).bytes(message.addressBytes);
+        if (message.address_bytes.length !== 0) {
+            writer.uint32(10).bytes(message.address_bytes);
         }
         return writer;
     },
@@ -818,7 +818,7 @@ exports.AddressBytesToStringRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.addressBytes = reader.bytes();
+                    message.address_bytes = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -829,27 +829,27 @@ exports.AddressBytesToStringRequest = {
     },
     fromJSON(object) {
         return {
-            addressBytes: (0, helpers_1.isSet)(object.addressBytes) ? (0, helpers_1.bytesFromBase64)(object.addressBytes) : new Uint8Array()
+            address_bytes: (0, helpers_1.isSet)(object.address_bytes) ? (0, helpers_1.bytesFromBase64)(object.address_bytes) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.addressBytes !== undefined && (obj.addressBytes = (0, helpers_1.base64FromBytes)(message.addressBytes !== undefined ? message.addressBytes : new Uint8Array()));
+        message.address_bytes !== undefined && (obj.address_bytes = (0, helpers_1.base64FromBytes)(message.address_bytes !== undefined ? message.address_bytes : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAddressBytesToStringRequest();
-        message.addressBytes = object.addressBytes ?? new Uint8Array();
+        message.address_bytes = object.address_bytes ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
-            addressBytes: object.address_bytes
+            address_bytes: object.address_bytes
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.address_bytes = message.addressBytes;
+        obj.address_bytes = message.address_bytes;
         return obj;
     },
     fromAminoMsg(object) {
@@ -876,15 +876,15 @@ exports.AddressBytesToStringRequest = {
 };
 function createBaseAddressBytesToStringResponse() {
     return {
-        addressString: ""
+        address_string: ""
     };
 }
 exports.AddressBytesToStringResponse = {
     typeUrl: "/cosmos.auth.v1beta1.AddressBytesToStringResponse",
     aminoType: "cosmos-sdk/AddressBytesToStringResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.addressString !== "") {
-            writer.uint32(10).string(message.addressString);
+        if (message.address_string !== "") {
+            writer.uint32(10).string(message.address_string);
         }
         return writer;
     },
@@ -896,7 +896,7 @@ exports.AddressBytesToStringResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.addressString = reader.string();
+                    message.address_string = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -907,27 +907,27 @@ exports.AddressBytesToStringResponse = {
     },
     fromJSON(object) {
         return {
-            addressString: (0, helpers_1.isSet)(object.addressString) ? String(object.addressString) : ""
+            address_string: (0, helpers_1.isSet)(object.address_string) ? String(object.address_string) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.addressString !== undefined && (obj.addressString = message.addressString);
+        message.address_string !== undefined && (obj.address_string = message.address_string);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAddressBytesToStringResponse();
-        message.addressString = object.addressString ?? "";
+        message.address_string = object.address_string ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            addressString: object.address_string
+            address_string: object.address_string
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.address_string = message.addressString;
+        obj.address_string = message.address_string;
         return obj;
     },
     fromAminoMsg(object) {
@@ -954,15 +954,15 @@ exports.AddressBytesToStringResponse = {
 };
 function createBaseAddressStringToBytesRequest() {
     return {
-        addressString: ""
+        address_string: ""
     };
 }
 exports.AddressStringToBytesRequest = {
     typeUrl: "/cosmos.auth.v1beta1.AddressStringToBytesRequest",
     aminoType: "cosmos-sdk/AddressStringToBytesRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.addressString !== "") {
-            writer.uint32(10).string(message.addressString);
+        if (message.address_string !== "") {
+            writer.uint32(10).string(message.address_string);
         }
         return writer;
     },
@@ -974,7 +974,7 @@ exports.AddressStringToBytesRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.addressString = reader.string();
+                    message.address_string = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -985,27 +985,27 @@ exports.AddressStringToBytesRequest = {
     },
     fromJSON(object) {
         return {
-            addressString: (0, helpers_1.isSet)(object.addressString) ? String(object.addressString) : ""
+            address_string: (0, helpers_1.isSet)(object.address_string) ? String(object.address_string) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.addressString !== undefined && (obj.addressString = message.addressString);
+        message.address_string !== undefined && (obj.address_string = message.address_string);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAddressStringToBytesRequest();
-        message.addressString = object.addressString ?? "";
+        message.address_string = object.address_string ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            addressString: object.address_string
+            address_string: object.address_string
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.address_string = message.addressString;
+        obj.address_string = message.address_string;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1032,15 +1032,15 @@ exports.AddressStringToBytesRequest = {
 };
 function createBaseAddressStringToBytesResponse() {
     return {
-        addressBytes: new Uint8Array()
+        address_bytes: new Uint8Array()
     };
 }
 exports.AddressStringToBytesResponse = {
     typeUrl: "/cosmos.auth.v1beta1.AddressStringToBytesResponse",
     aminoType: "cosmos-sdk/AddressStringToBytesResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.addressBytes.length !== 0) {
-            writer.uint32(10).bytes(message.addressBytes);
+        if (message.address_bytes.length !== 0) {
+            writer.uint32(10).bytes(message.address_bytes);
         }
         return writer;
     },
@@ -1052,7 +1052,7 @@ exports.AddressStringToBytesResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.addressBytes = reader.bytes();
+                    message.address_bytes = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1063,27 +1063,27 @@ exports.AddressStringToBytesResponse = {
     },
     fromJSON(object) {
         return {
-            addressBytes: (0, helpers_1.isSet)(object.addressBytes) ? (0, helpers_1.bytesFromBase64)(object.addressBytes) : new Uint8Array()
+            address_bytes: (0, helpers_1.isSet)(object.address_bytes) ? (0, helpers_1.bytesFromBase64)(object.address_bytes) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.addressBytes !== undefined && (obj.addressBytes = (0, helpers_1.base64FromBytes)(message.addressBytes !== undefined ? message.addressBytes : new Uint8Array()));
+        message.address_bytes !== undefined && (obj.address_bytes = (0, helpers_1.base64FromBytes)(message.address_bytes !== undefined ? message.address_bytes : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAddressStringToBytesResponse();
-        message.addressBytes = object.addressBytes ?? new Uint8Array();
+        message.address_bytes = object.address_bytes ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
-            addressBytes: object.address_bytes
+            address_bytes: object.address_bytes
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.address_bytes = message.addressBytes;
+        obj.address_bytes = message.address_bytes;
         return obj;
     },
     fromAminoMsg(object) {

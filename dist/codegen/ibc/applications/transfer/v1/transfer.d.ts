@@ -11,10 +11,10 @@ export interface DenomTrace {
      */
     path: string;
     /** base denomination of the relayed fungible token. */
-    baseDenom: string;
+    base_denom: string;
 }
 export interface DenomTraceProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.DenomTrace";
+    type_url: "/ibc.applications.transfer.v1.DenomTrace";
     value: Uint8Array;
 }
 /**
@@ -53,15 +53,15 @@ export interface Params {
      * send_enabled enables or disables all cross-chain token transfers from this
      * chain.
      */
-    sendEnabled: boolean;
+    send_enabled: boolean;
     /**
      * receive_enabled enables or disables all cross-chain token transfers to this
      * chain.
      */
-    receiveEnabled: boolean;
+    receive_enabled: boolean;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.Params";
+    type_url: "/ibc.applications.transfer.v1.Params";
     value: Uint8Array;
 }
 /**

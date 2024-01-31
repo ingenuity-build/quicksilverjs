@@ -4,17 +4,17 @@ import { DeepPartial } from "../../../../helpers";
 /** MsgCreateClient defines a message to create an IBC client */
 export interface MsgCreateClient {
     /** light client state */
-    clientState: Any;
+    client_state: Any;
     /**
      * consensus state associated with the client that corresponds to a given
      * height.
      */
-    consensusState: Any;
+    consensus_state: Any;
     /** signer address */
     signer: string;
 }
 export interface MsgCreateClientProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgCreateClient";
+    type_url: "/ibc.core.client.v1.MsgCreateClient";
     value: Uint8Array;
 }
 /** MsgCreateClient defines a message to create an IBC client */
@@ -43,7 +43,7 @@ export interface MsgCreateClientSDKType {
 export interface MsgCreateClientResponse {
 }
 export interface MsgCreateClientResponseProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgCreateClientResponse";
+    type_url: "/ibc.core.client.v1.MsgCreateClientResponse";
     value: Uint8Array;
 }
 /** MsgCreateClientResponse defines the Msg/CreateClient response type. */
@@ -62,14 +62,14 @@ export interface MsgCreateClientResponseSDKType {
  */
 export interface MsgUpdateClient {
     /** client unique identifier */
-    clientId: string;
+    client_id: string;
     /** header to update the light client */
     header: Any;
     /** signer address */
     signer: string;
 }
 export interface MsgUpdateClientProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgUpdateClient";
+    type_url: "/ibc.core.client.v1.MsgUpdateClient";
     value: Uint8Array;
 }
 /**
@@ -101,7 +101,7 @@ export interface MsgUpdateClientSDKType {
 export interface MsgUpdateClientResponse {
 }
 export interface MsgUpdateClientResponseProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgUpdateClientResponse";
+    type_url: "/ibc.core.client.v1.MsgUpdateClientResponse";
     value: Uint8Array;
 }
 /** MsgUpdateClientResponse defines the Msg/UpdateClient response type. */
@@ -120,23 +120,23 @@ export interface MsgUpdateClientResponseSDKType {
  */
 export interface MsgUpgradeClient {
     /** client unique identifier */
-    clientId: string;
+    client_id: string;
     /** upgraded client state */
-    clientState: Any;
+    client_state: Any;
     /**
      * upgraded consensus state, only contains enough information to serve as a
      * basis of trust in update logic
      */
-    consensusState: Any;
+    consensus_state: Any;
     /** proof that old chain committed to new client */
-    proofUpgradeClient: Uint8Array;
+    proof_upgrade_client: Uint8Array;
     /** proof that old chain committed to new consensus state */
-    proofUpgradeConsensusState: Uint8Array;
+    proof_upgrade_consensus_state: Uint8Array;
     /** signer address */
     signer: string;
 }
 export interface MsgUpgradeClientProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgUpgradeClient";
+    type_url: "/ibc.core.client.v1.MsgUpgradeClient";
     value: Uint8Array;
 }
 /**
@@ -180,7 +180,7 @@ export interface MsgUpgradeClientSDKType {
 export interface MsgUpgradeClientResponse {
 }
 export interface MsgUpgradeClientResponseProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgUpgradeClientResponse";
+    type_url: "/ibc.core.client.v1.MsgUpgradeClientResponse";
     value: Uint8Array;
 }
 /** MsgUpgradeClientResponse defines the Msg/UpgradeClient response type. */
@@ -199,14 +199,14 @@ export interface MsgUpgradeClientResponseSDKType {
  */
 export interface MsgSubmitMisbehaviour {
     /** client unique identifier */
-    clientId: string;
+    client_id: string;
     /** misbehaviour used for freezing the light client */
     misbehaviour: Any;
     /** signer address */
     signer: string;
 }
 export interface MsgSubmitMisbehaviourProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgSubmitMisbehaviour";
+    type_url: "/ibc.core.client.v1.MsgSubmitMisbehaviour";
     value: Uint8Array;
 }
 /**
@@ -241,7 +241,7 @@ export interface MsgSubmitMisbehaviourSDKType {
 export interface MsgSubmitMisbehaviourResponse {
 }
 export interface MsgSubmitMisbehaviourResponseProtoMsg {
-    typeUrl: "/ibc.core.client.v1.MsgSubmitMisbehaviourResponse";
+    type_url: "/ibc.core.client.v1.MsgSubmitMisbehaviourResponse";
     value: Uint8Array;
 }
 /**

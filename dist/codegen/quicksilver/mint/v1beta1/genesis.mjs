@@ -5,7 +5,7 @@ function createBaseGenesisState() {
     return {
         minter: Minter.fromPartial({}),
         params: Params.fromPartial({}),
-        reductionStartedEpoch: Long.ZERO
+        reduction_started_epoch: Long.ZERO
     };
 }
 export const GenesisState = {
@@ -17,8 +17,8 @@ export const GenesisState = {
         if (message.params !== undefined) {
             Params.encode(message.params, writer.uint32(18).fork()).ldelim();
         }
-        if (!message.reductionStartedEpoch.isZero()) {
-            writer.uint32(24).int64(message.reductionStartedEpoch);
+        if (!message.reduction_started_epoch.isZero()) {
+            writer.uint32(24).int64(message.reduction_started_epoch);
         }
         return writer;
     },
@@ -36,7 +36,7 @@ export const GenesisState = {
                     message.params = Params.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.reductionStartedEpoch = reader.int64();
+                    message.reduction_started_epoch = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -49,35 +49,35 @@ export const GenesisState = {
         return {
             minter: isSet(object.minter) ? Minter.fromJSON(object.minter) : undefined,
             params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
-            reductionStartedEpoch: isSet(object.reductionStartedEpoch) ? Long.fromValue(object.reductionStartedEpoch) : Long.ZERO
+            reduction_started_epoch: isSet(object.reduction_started_epoch) ? Long.fromValue(object.reduction_started_epoch) : Long.ZERO
         };
     },
     toJSON(message) {
         const obj = {};
         message.minter !== undefined && (obj.minter = message.minter ? Minter.toJSON(message.minter) : undefined);
         message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
-        message.reductionStartedEpoch !== undefined && (obj.reductionStartedEpoch = (message.reductionStartedEpoch || Long.ZERO).toString());
+        message.reduction_started_epoch !== undefined && (obj.reduction_started_epoch = (message.reduction_started_epoch || Long.ZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGenesisState();
         message.minter = object.minter !== undefined && object.minter !== null ? Minter.fromPartial(object.minter) : undefined;
         message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
-        message.reductionStartedEpoch = object.reductionStartedEpoch !== undefined && object.reductionStartedEpoch !== null ? Long.fromValue(object.reductionStartedEpoch) : Long.ZERO;
+        message.reduction_started_epoch = object.reduction_started_epoch !== undefined && object.reduction_started_epoch !== null ? Long.fromValue(object.reduction_started_epoch) : Long.ZERO;
         return message;
     },
     fromAmino(object) {
         return {
             minter: object?.minter ? Minter.fromAmino(object.minter) : undefined,
             params: object?.params ? Params.fromAmino(object.params) : undefined,
-            reductionStartedEpoch: Long.fromString(object.reduction_started_epoch)
+            reduction_started_epoch: Long.fromString(object.reduction_started_epoch)
         };
     },
     toAmino(message) {
         const obj = {};
         obj.minter = message.minter ? Minter.toAmino(message.minter) : undefined;
         obj.params = message.params ? Params.toAmino(message.params) : undefined;
-        obj.reduction_started_epoch = message.reductionStartedEpoch ? message.reductionStartedEpoch.toString() : undefined;
+        obj.reduction_started_epoch = message.reduction_started_epoch ? message.reduction_started_epoch.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

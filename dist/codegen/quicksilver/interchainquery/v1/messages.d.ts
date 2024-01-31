@@ -3,15 +3,15 @@ import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /** MsgSubmitQueryResponse represents a message type to fulfil a query request. */
 export interface MsgSubmitQueryResponse {
-    chainId: string;
-    queryId: string;
+    chain_id: string;
+    query_id: string;
     result: Uint8Array;
-    proofOps: ProofOps;
+    proof_ops: ProofOps;
     height: Long;
-    fromAddress: string;
+    from_address: string;
 }
 export interface MsgSubmitQueryResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponse";
+    type_url: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponse";
     value: Uint8Array;
 }
 /** MsgSubmitQueryResponse represents a message type to fulfil a query request. */
@@ -43,7 +43,7 @@ export interface MsgSubmitQueryResponseSDKType {
 export interface MsgSubmitQueryResponseResponse {
 }
 export interface MsgSubmitQueryResponseResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponseResponse";
+    type_url: "/quicksilver.interchainquery.v1.MsgSubmitQueryResponseResponse";
     value: Uint8Array;
 }
 /**

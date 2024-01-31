@@ -29,19 +29,19 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 const helpers_1 = require("../../../helpers");
 function createBaseParams() {
     return {
-        sendEnabled: [],
-        defaultSendEnabled: false
+        send_enabled: [],
+        default_send_enabled: false
     };
 }
 exports.Params = {
     typeUrl: "/cosmos.bank.v1beta1.Params",
     aminoType: "cosmos-sdk/Params",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.sendEnabled) {
+        for (const v of message.send_enabled) {
             exports.SendEnabled.encode(v, writer.uint32(10).fork()).ldelim();
         }
-        if (message.defaultSendEnabled === true) {
-            writer.uint32(16).bool(message.defaultSendEnabled);
+        if (message.default_send_enabled === true) {
+            writer.uint32(16).bool(message.default_send_enabled);
         }
         return writer;
     },
@@ -53,10 +53,10 @@ exports.Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.sendEnabled.push(exports.SendEnabled.decode(reader, reader.uint32()));
+                    message.send_enabled.push(exports.SendEnabled.decode(reader, reader.uint32()));
                     break;
                 case 2:
-                    message.defaultSendEnabled = reader.bool();
+                    message.default_send_enabled = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -67,42 +67,42 @@ exports.Params = {
     },
     fromJSON(object) {
         return {
-            sendEnabled: Array.isArray(object?.sendEnabled) ? object.sendEnabled.map((e) => exports.SendEnabled.fromJSON(e)) : [],
-            defaultSendEnabled: (0, helpers_1.isSet)(object.defaultSendEnabled) ? Boolean(object.defaultSendEnabled) : false
+            send_enabled: Array.isArray(object?.send_enabled) ? object.send_enabled.map((e) => exports.SendEnabled.fromJSON(e)) : [],
+            default_send_enabled: (0, helpers_1.isSet)(object.default_send_enabled) ? Boolean(object.default_send_enabled) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.sendEnabled) {
-            obj.sendEnabled = message.sendEnabled.map(e => e ? exports.SendEnabled.toJSON(e) : undefined);
-        }
-        else {
-            obj.sendEnabled = [];
-        }
-        message.defaultSendEnabled !== undefined && (obj.defaultSendEnabled = message.defaultSendEnabled);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseParams();
-        message.sendEnabled = object.sendEnabled?.map(e => exports.SendEnabled.fromPartial(e)) || [];
-        message.defaultSendEnabled = object.defaultSendEnabled ?? false;
-        return message;
-    },
-    fromAmino(object) {
-        return {
-            sendEnabled: Array.isArray(object?.send_enabled) ? object.send_enabled.map((e) => exports.SendEnabled.fromAmino(e)) : [],
-            defaultSendEnabled: object.default_send_enabled
-        };
-    },
-    toAmino(message) {
-        const obj = {};
-        if (message.sendEnabled) {
-            obj.send_enabled = message.sendEnabled.map(e => e ? exports.SendEnabled.toAmino(e) : undefined);
+        if (message.send_enabled) {
+            obj.send_enabled = message.send_enabled.map(e => e ? exports.SendEnabled.toJSON(e) : undefined);
         }
         else {
             obj.send_enabled = [];
         }
-        obj.default_send_enabled = message.defaultSendEnabled;
+        message.default_send_enabled !== undefined && (obj.default_send_enabled = message.default_send_enabled);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseParams();
+        message.send_enabled = object.send_enabled?.map(e => exports.SendEnabled.fromPartial(e)) || [];
+        message.default_send_enabled = object.default_send_enabled ?? false;
+        return message;
+    },
+    fromAmino(object) {
+        return {
+            send_enabled: Array.isArray(object?.send_enabled) ? object.send_enabled.map((e) => exports.SendEnabled.fromAmino(e)) : [],
+            default_send_enabled: object.default_send_enabled
+        };
+    },
+    toAmino(message) {
+        const obj = {};
+        if (message.send_enabled) {
+            obj.send_enabled = message.send_enabled.map(e => e ? exports.SendEnabled.toAmino(e) : undefined);
+        }
+        else {
+            obj.send_enabled = [];
+        }
+        obj.default_send_enabled = message.default_send_enabled;
         return obj;
     },
     fromAminoMsg(object) {
@@ -621,13 +621,13 @@ exports.DenomUnit = {
 function createBaseMetadata() {
     return {
         description: "",
-        denomUnits: [],
+        denom_units: [],
         base: "",
         display: "",
         name: "",
         symbol: "",
         uri: "",
-        uriHash: ""
+        uri_hash: ""
     };
 }
 exports.Metadata = {
@@ -637,7 +637,7 @@ exports.Metadata = {
         if (message.description !== "") {
             writer.uint32(10).string(message.description);
         }
-        for (const v of message.denomUnits) {
+        for (const v of message.denom_units) {
             exports.DenomUnit.encode(v, writer.uint32(18).fork()).ldelim();
         }
         if (message.base !== "") {
@@ -655,8 +655,8 @@ exports.Metadata = {
         if (message.uri !== "") {
             writer.uint32(58).string(message.uri);
         }
-        if (message.uriHash !== "") {
-            writer.uint32(66).string(message.uriHash);
+        if (message.uri_hash !== "") {
+            writer.uint32(66).string(message.uri_hash);
         }
         return writer;
     },
@@ -671,7 +671,7 @@ exports.Metadata = {
                     message.description = reader.string();
                     break;
                 case 2:
-                    message.denomUnits.push(exports.DenomUnit.decode(reader, reader.uint32()));
+                    message.denom_units.push(exports.DenomUnit.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.base = reader.string();
@@ -689,7 +689,7 @@ exports.Metadata = {
                     message.uri = reader.string();
                     break;
                 case 8:
-                    message.uriHash = reader.string();
+                    message.uri_hash = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -701,61 +701,61 @@ exports.Metadata = {
     fromJSON(object) {
         return {
             description: (0, helpers_1.isSet)(object.description) ? String(object.description) : "",
-            denomUnits: Array.isArray(object?.denomUnits) ? object.denomUnits.map((e) => exports.DenomUnit.fromJSON(e)) : [],
+            denom_units: Array.isArray(object?.denom_units) ? object.denom_units.map((e) => exports.DenomUnit.fromJSON(e)) : [],
             base: (0, helpers_1.isSet)(object.base) ? String(object.base) : "",
             display: (0, helpers_1.isSet)(object.display) ? String(object.display) : "",
             name: (0, helpers_1.isSet)(object.name) ? String(object.name) : "",
             symbol: (0, helpers_1.isSet)(object.symbol) ? String(object.symbol) : "",
             uri: (0, helpers_1.isSet)(object.uri) ? String(object.uri) : "",
-            uriHash: (0, helpers_1.isSet)(object.uriHash) ? String(object.uriHash) : ""
+            uri_hash: (0, helpers_1.isSet)(object.uri_hash) ? String(object.uri_hash) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.description !== undefined && (obj.description = message.description);
-        if (message.denomUnits) {
-            obj.denomUnits = message.denomUnits.map(e => e ? exports.DenomUnit.toJSON(e) : undefined);
+        if (message.denom_units) {
+            obj.denom_units = message.denom_units.map(e => e ? exports.DenomUnit.toJSON(e) : undefined);
         }
         else {
-            obj.denomUnits = [];
+            obj.denom_units = [];
         }
         message.base !== undefined && (obj.base = message.base);
         message.display !== undefined && (obj.display = message.display);
         message.name !== undefined && (obj.name = message.name);
         message.symbol !== undefined && (obj.symbol = message.symbol);
         message.uri !== undefined && (obj.uri = message.uri);
-        message.uriHash !== undefined && (obj.uriHash = message.uriHash);
+        message.uri_hash !== undefined && (obj.uri_hash = message.uri_hash);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMetadata();
         message.description = object.description ?? "";
-        message.denomUnits = object.denomUnits?.map(e => exports.DenomUnit.fromPartial(e)) || [];
+        message.denom_units = object.denom_units?.map(e => exports.DenomUnit.fromPartial(e)) || [];
         message.base = object.base ?? "";
         message.display = object.display ?? "";
         message.name = object.name ?? "";
         message.symbol = object.symbol ?? "";
         message.uri = object.uri ?? "";
-        message.uriHash = object.uriHash ?? "";
+        message.uri_hash = object.uri_hash ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             description: object.description,
-            denomUnits: Array.isArray(object?.denom_units) ? object.denom_units.map((e) => exports.DenomUnit.fromAmino(e)) : [],
+            denom_units: Array.isArray(object?.denom_units) ? object.denom_units.map((e) => exports.DenomUnit.fromAmino(e)) : [],
             base: object.base,
             display: object.display,
             name: object.name,
             symbol: object.symbol,
             uri: object.uri,
-            uriHash: object.uri_hash
+            uri_hash: object.uri_hash
         };
     },
     toAmino(message) {
         const obj = {};
         obj.description = message.description;
-        if (message.denomUnits) {
-            obj.denom_units = message.denomUnits.map(e => e ? exports.DenomUnit.toAmino(e) : undefined);
+        if (message.denom_units) {
+            obj.denom_units = message.denom_units.map(e => e ? exports.DenomUnit.toAmino(e) : undefined);
         }
         else {
             obj.denom_units = [];
@@ -765,7 +765,7 @@ exports.Metadata = {
         obj.name = message.name;
         obj.symbol = message.symbol;
         obj.uri = message.uri;
-        obj.uri_hash = message.uriHash;
+        obj.uri_hash = message.uri_hash;
         return obj;
     },
     fromAminoMsg(object) {

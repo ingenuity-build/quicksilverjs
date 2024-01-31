@@ -36,10 +36,10 @@ export interface Plan {
      * If this field is not empty, an error will be thrown.
      */
     /** @deprecated */
-    upgradedClientState: Any;
+    upgraded_client_state: Any;
 }
 export interface PlanProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.Plan";
+    type_url: "/cosmos.upgrade.v1beta1.Plan";
     value: Uint8Array;
 }
 /** Plan specifies information about a planned upgrade and when it should occur. */
@@ -107,7 +107,7 @@ export interface SoftwareUpgradeProposal {
     plan: Plan;
 }
 export interface SoftwareUpgradeProposalProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal";
+    type_url: "/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal";
     value: Uint8Array;
 }
 /**
@@ -152,7 +152,7 @@ export interface CancelSoftwareUpgradeProposal {
     description: string;
 }
 export interface CancelSoftwareUpgradeProposalProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal";
+    type_url: "/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal";
     value: Uint8Array;
 }
 /**
@@ -194,7 +194,7 @@ export interface ModuleVersion {
     version: Long;
 }
 export interface ModuleVersionProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.ModuleVersion";
+    type_url: "/cosmos.upgrade.v1beta1.ModuleVersion";
     value: Uint8Array;
 }
 /**

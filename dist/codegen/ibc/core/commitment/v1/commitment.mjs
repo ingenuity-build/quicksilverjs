@@ -81,15 +81,15 @@ export const MerkleRoot = {
 };
 function createBaseMerklePrefix() {
     return {
-        keyPrefix: new Uint8Array()
+        key_prefix: new Uint8Array()
     };
 }
 export const MerklePrefix = {
     typeUrl: "/ibc.core.commitment.v1.MerklePrefix",
     aminoType: "cosmos-sdk/MerklePrefix",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.keyPrefix.length !== 0) {
-            writer.uint32(10).bytes(message.keyPrefix);
+        if (message.key_prefix.length !== 0) {
+            writer.uint32(10).bytes(message.key_prefix);
         }
         return writer;
     },
@@ -101,7 +101,7 @@ export const MerklePrefix = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.keyPrefix = reader.bytes();
+                    message.key_prefix = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -112,27 +112,27 @@ export const MerklePrefix = {
     },
     fromJSON(object) {
         return {
-            keyPrefix: isSet(object.keyPrefix) ? bytesFromBase64(object.keyPrefix) : new Uint8Array()
+            key_prefix: isSet(object.key_prefix) ? bytesFromBase64(object.key_prefix) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.keyPrefix !== undefined && (obj.keyPrefix = base64FromBytes(message.keyPrefix !== undefined ? message.keyPrefix : new Uint8Array()));
+        message.key_prefix !== undefined && (obj.key_prefix = base64FromBytes(message.key_prefix !== undefined ? message.key_prefix : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMerklePrefix();
-        message.keyPrefix = object.keyPrefix ?? new Uint8Array();
+        message.key_prefix = object.key_prefix ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
-            keyPrefix: object.key_prefix
+            key_prefix: object.key_prefix
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.key_prefix = message.keyPrefix;
+        obj.key_prefix = message.key_prefix;
         return obj;
     },
     fromAminoMsg(object) {
@@ -159,14 +159,14 @@ export const MerklePrefix = {
 };
 function createBaseMerklePath() {
     return {
-        keyPath: []
+        key_path: []
     };
 }
 export const MerklePath = {
     typeUrl: "/ibc.core.commitment.v1.MerklePath",
     aminoType: "cosmos-sdk/MerklePath",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.keyPath) {
+        for (const v of message.key_path) {
             writer.uint32(10).string(v);
         }
         return writer;
@@ -179,7 +179,7 @@ export const MerklePath = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.keyPath.push(reader.string());
+                    message.key_path.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -190,33 +190,33 @@ export const MerklePath = {
     },
     fromJSON(object) {
         return {
-            keyPath: Array.isArray(object?.keyPath) ? object.keyPath.map((e) => String(e)) : []
+            key_path: Array.isArray(object?.key_path) ? object.key_path.map((e) => String(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.keyPath) {
-            obj.keyPath = message.keyPath.map(e => e);
+        if (message.key_path) {
+            obj.key_path = message.key_path.map(e => e);
         }
         else {
-            obj.keyPath = [];
+            obj.key_path = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMerklePath();
-        message.keyPath = object.keyPath?.map(e => e) || [];
+        message.key_path = object.key_path?.map(e => e) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            keyPath: Array.isArray(object?.key_path) ? object.key_path.map((e) => e) : []
+            key_path: Array.isArray(object?.key_path) ? object.key_path.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.keyPath) {
-            obj.key_path = message.keyPath.map(e => e);
+        if (message.key_path) {
+            obj.key_path = message.key_path.map(e => e);
         }
         else {
             obj.key_path = [];

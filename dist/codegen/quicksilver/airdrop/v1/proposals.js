@@ -31,8 +31,8 @@ function createBaseRegisterZoneDropProposal() {
     return {
         title: "",
         description: "",
-        zoneDrop: airdrop_1.ZoneDrop.fromPartial({}),
-        claimRecords: new Uint8Array()
+        zone_drop: airdrop_1.ZoneDrop.fromPartial({}),
+        claim_records: new Uint8Array()
     };
 }
 exports.RegisterZoneDropProposal = {
@@ -44,11 +44,11 @@ exports.RegisterZoneDropProposal = {
         if (message.description !== "") {
             writer.uint32(18).string(message.description);
         }
-        if (message.zoneDrop !== undefined) {
-            airdrop_1.ZoneDrop.encode(message.zoneDrop, writer.uint32(26).fork()).ldelim();
+        if (message.zone_drop !== undefined) {
+            airdrop_1.ZoneDrop.encode(message.zone_drop, writer.uint32(26).fork()).ldelim();
         }
-        if (message.claimRecords.length !== 0) {
-            writer.uint32(34).bytes(message.claimRecords);
+        if (message.claim_records.length !== 0) {
+            writer.uint32(34).bytes(message.claim_records);
         }
         return writer;
     },
@@ -66,10 +66,10 @@ exports.RegisterZoneDropProposal = {
                     message.description = reader.string();
                     break;
                 case 3:
-                    message.zoneDrop = airdrop_1.ZoneDrop.decode(reader, reader.uint32());
+                    message.zone_drop = airdrop_1.ZoneDrop.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.claimRecords = reader.bytes();
+                    message.claim_records = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -82,40 +82,40 @@ exports.RegisterZoneDropProposal = {
         return {
             title: (0, helpers_1.isSet)(object.title) ? String(object.title) : "",
             description: (0, helpers_1.isSet)(object.description) ? String(object.description) : "",
-            zoneDrop: (0, helpers_1.isSet)(object.zoneDrop) ? airdrop_1.ZoneDrop.fromJSON(object.zoneDrop) : undefined,
-            claimRecords: (0, helpers_1.isSet)(object.claimRecords) ? (0, helpers_1.bytesFromBase64)(object.claimRecords) : new Uint8Array()
+            zone_drop: (0, helpers_1.isSet)(object.zone_drop) ? airdrop_1.ZoneDrop.fromJSON(object.zone_drop) : undefined,
+            claim_records: (0, helpers_1.isSet)(object.claim_records) ? (0, helpers_1.bytesFromBase64)(object.claim_records) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
         message.title !== undefined && (obj.title = message.title);
         message.description !== undefined && (obj.description = message.description);
-        message.zoneDrop !== undefined && (obj.zoneDrop = message.zoneDrop ? airdrop_1.ZoneDrop.toJSON(message.zoneDrop) : undefined);
-        message.claimRecords !== undefined && (obj.claimRecords = (0, helpers_1.base64FromBytes)(message.claimRecords !== undefined ? message.claimRecords : new Uint8Array()));
+        message.zone_drop !== undefined && (obj.zone_drop = message.zone_drop ? airdrop_1.ZoneDrop.toJSON(message.zone_drop) : undefined);
+        message.claim_records !== undefined && (obj.claim_records = (0, helpers_1.base64FromBytes)(message.claim_records !== undefined ? message.claim_records : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseRegisterZoneDropProposal();
         message.title = object.title ?? "";
         message.description = object.description ?? "";
-        message.zoneDrop = object.zoneDrop !== undefined && object.zoneDrop !== null ? airdrop_1.ZoneDrop.fromPartial(object.zoneDrop) : undefined;
-        message.claimRecords = object.claimRecords ?? new Uint8Array();
+        message.zone_drop = object.zone_drop !== undefined && object.zone_drop !== null ? airdrop_1.ZoneDrop.fromPartial(object.zone_drop) : undefined;
+        message.claim_records = object.claim_records ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
             title: object.title,
             description: object.description,
-            zoneDrop: object?.zone_drop ? airdrop_1.ZoneDrop.fromAmino(object.zone_drop) : undefined,
-            claimRecords: object.claim_records
+            zone_drop: object?.zone_drop ? airdrop_1.ZoneDrop.fromAmino(object.zone_drop) : undefined,
+            claim_records: object.claim_records
         };
     },
     toAmino(message) {
         const obj = {};
         obj.title = message.title;
         obj.description = message.description;
-        obj.zone_drop = message.zoneDrop ? airdrop_1.ZoneDrop.toAmino(message.zoneDrop) : undefined;
-        obj.claim_records = message.claimRecords;
+        obj.zone_drop = message.zone_drop ? airdrop_1.ZoneDrop.toAmino(message.zone_drop) : undefined;
+        obj.claim_records = message.claim_records;
         return obj;
     },
     fromAminoMsg(object) {

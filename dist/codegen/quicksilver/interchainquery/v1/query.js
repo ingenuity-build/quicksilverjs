@@ -35,7 +35,7 @@ const helpers_1 = require("../../../helpers");
 function createBaseQueryRequestsRequest() {
     return {
         pagination: pagination_1.PageRequest.fromPartial({}),
-        chainId: ""
+        chain_id: ""
     };
 }
 exports.QueryRequestsRequest = {
@@ -44,8 +44,8 @@ exports.QueryRequestsRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.chainId !== "") {
-            writer.uint32(18).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(18).string(message.chain_id);
         }
         return writer;
     },
@@ -60,7 +60,7 @@ exports.QueryRequestsRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -72,31 +72,31 @@ exports.QueryRequestsRequest = {
     fromJSON(object) {
         return {
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageRequest.fromJSON(object.pagination) : undefined,
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : ""
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageRequest.toJSON(message.pagination) : undefined);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryRequestsRequest();
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageRequest.fromPartial(object.pagination) : undefined;
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             pagination: object?.pagination ? pagination_1.PageRequest.fromAmino(object.pagination) : undefined,
-            chainId: object.chain_id
+            chain_id: object.chain_id
         };
     },
     toAmino(message) {
         const obj = {};
         obj.pagination = message.pagination ? pagination_1.PageRequest.toAmino(message.pagination) : undefined;
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -211,10 +211,10 @@ exports.QueryRequestsResponse = {
 function createBaseGetTxWithProofResponse() {
     return {
         tx: tx_1.Tx.fromPartial({}),
-        txResponse: abci_1.TxResponse.fromPartial({}),
+        tx_response: abci_1.TxResponse.fromPartial({}),
         proof: types_1.TxProof.fromPartial({}),
         header: tendermint_1.Header.fromPartial({}),
-        txBytes: new Uint8Array()
+        tx_bytes: new Uint8Array()
     };
 }
 exports.GetTxWithProofResponse = {
@@ -223,8 +223,8 @@ exports.GetTxWithProofResponse = {
         if (message.tx !== undefined) {
             tx_1.Tx.encode(message.tx, writer.uint32(10).fork()).ldelim();
         }
-        if (message.txResponse !== undefined) {
-            abci_1.TxResponse.encode(message.txResponse, writer.uint32(18).fork()).ldelim();
+        if (message.tx_response !== undefined) {
+            abci_1.TxResponse.encode(message.tx_response, writer.uint32(18).fork()).ldelim();
         }
         if (message.proof !== undefined) {
             types_1.TxProof.encode(message.proof, writer.uint32(26).fork()).ldelim();
@@ -232,8 +232,8 @@ exports.GetTxWithProofResponse = {
         if (message.header !== undefined) {
             tendermint_1.Header.encode(message.header, writer.uint32(34).fork()).ldelim();
         }
-        if (message.txBytes.length !== 0) {
-            writer.uint32(42).bytes(message.txBytes);
+        if (message.tx_bytes.length !== 0) {
+            writer.uint32(42).bytes(message.tx_bytes);
         }
         return writer;
     },
@@ -248,7 +248,7 @@ exports.GetTxWithProofResponse = {
                     message.tx = tx_1.Tx.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.txResponse = abci_1.TxResponse.decode(reader, reader.uint32());
+                    message.tx_response = abci_1.TxResponse.decode(reader, reader.uint32());
                     break;
                 case 3:
                     message.proof = types_1.TxProof.decode(reader, reader.uint32());
@@ -257,7 +257,7 @@ exports.GetTxWithProofResponse = {
                     message.header = tendermint_1.Header.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.txBytes = reader.bytes();
+                    message.tx_bytes = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -269,46 +269,46 @@ exports.GetTxWithProofResponse = {
     fromJSON(object) {
         return {
             tx: (0, helpers_1.isSet)(object.tx) ? tx_1.Tx.fromJSON(object.tx) : undefined,
-            txResponse: (0, helpers_1.isSet)(object.txResponse) ? abci_1.TxResponse.fromJSON(object.txResponse) : undefined,
+            tx_response: (0, helpers_1.isSet)(object.tx_response) ? abci_1.TxResponse.fromJSON(object.tx_response) : undefined,
             proof: (0, helpers_1.isSet)(object.proof) ? types_1.TxProof.fromJSON(object.proof) : undefined,
             header: (0, helpers_1.isSet)(object.header) ? tendermint_1.Header.fromJSON(object.header) : undefined,
-            txBytes: (0, helpers_1.isSet)(object.txBytes) ? (0, helpers_1.bytesFromBase64)(object.txBytes) : new Uint8Array()
+            tx_bytes: (0, helpers_1.isSet)(object.tx_bytes) ? (0, helpers_1.bytesFromBase64)(object.tx_bytes) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
         message.tx !== undefined && (obj.tx = message.tx ? tx_1.Tx.toJSON(message.tx) : undefined);
-        message.txResponse !== undefined && (obj.txResponse = message.txResponse ? abci_1.TxResponse.toJSON(message.txResponse) : undefined);
+        message.tx_response !== undefined && (obj.tx_response = message.tx_response ? abci_1.TxResponse.toJSON(message.tx_response) : undefined);
         message.proof !== undefined && (obj.proof = message.proof ? types_1.TxProof.toJSON(message.proof) : undefined);
         message.header !== undefined && (obj.header = message.header ? tendermint_1.Header.toJSON(message.header) : undefined);
-        message.txBytes !== undefined && (obj.txBytes = (0, helpers_1.base64FromBytes)(message.txBytes !== undefined ? message.txBytes : new Uint8Array()));
+        message.tx_bytes !== undefined && (obj.tx_bytes = (0, helpers_1.base64FromBytes)(message.tx_bytes !== undefined ? message.tx_bytes : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGetTxWithProofResponse();
         message.tx = object.tx !== undefined && object.tx !== null ? tx_1.Tx.fromPartial(object.tx) : undefined;
-        message.txResponse = object.txResponse !== undefined && object.txResponse !== null ? abci_1.TxResponse.fromPartial(object.txResponse) : undefined;
+        message.tx_response = object.tx_response !== undefined && object.tx_response !== null ? abci_1.TxResponse.fromPartial(object.tx_response) : undefined;
         message.proof = object.proof !== undefined && object.proof !== null ? types_1.TxProof.fromPartial(object.proof) : undefined;
         message.header = object.header !== undefined && object.header !== null ? tendermint_1.Header.fromPartial(object.header) : undefined;
-        message.txBytes = object.txBytes ?? new Uint8Array();
+        message.tx_bytes = object.tx_bytes ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
             tx: object?.tx ? tx_1.Tx.fromAmino(object.tx) : undefined,
-            txResponse: object?.tx_response ? abci_1.TxResponse.fromAmino(object.tx_response) : undefined,
+            tx_response: object?.tx_response ? abci_1.TxResponse.fromAmino(object.tx_response) : undefined,
             proof: object?.proof ? types_1.TxProof.fromAmino(object.proof) : undefined,
             header: object?.header ? tendermint_1.Header.fromAmino(object.header) : undefined,
-            txBytes: object.tx_bytes
+            tx_bytes: object.tx_bytes
         };
     },
     toAmino(message) {
         const obj = {};
         obj.tx = message.tx ? tx_1.Tx.toAmino(message.tx) : undefined;
-        obj.tx_response = message.txResponse ? abci_1.TxResponse.toAmino(message.txResponse) : undefined;
+        obj.tx_response = message.tx_response ? abci_1.TxResponse.toAmino(message.tx_response) : undefined;
         obj.proof = message.proof ? types_1.TxProof.toAmino(message.proof) : undefined;
         obj.header = message.header ? tendermint_1.Header.toAmino(message.header) : undefined;
-        obj.tx_bytes = message.txBytes;
+        obj.tx_bytes = message.tx_bytes;
         return obj;
     },
     fromAminoMsg(object) {

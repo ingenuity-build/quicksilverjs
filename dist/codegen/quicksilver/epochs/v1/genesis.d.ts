@@ -3,15 +3,15 @@ import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface EpochInfo {
     identifier: string;
-    startTime: Date;
+    start_time: Date;
     duration: Duration;
-    currentEpoch: Long;
-    currentEpochStartTime: Date;
-    epochCountingStarted: boolean;
-    currentEpochStartHeight: Long;
+    current_epoch: Long;
+    current_epoch_start_time: Date;
+    epoch_counting_started: boolean;
+    current_epoch_start_height: Long;
 }
 export interface EpochInfoProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.EpochInfo";
+    type_url: "/quicksilver.epochs.v1.EpochInfo";
     value: Uint8Array;
 }
 export interface EpochInfoAmino {
@@ -41,7 +41,7 @@ export interface GenesisState {
     epochs: EpochInfo[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.GenesisState";
+    type_url: "/quicksilver.epochs.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the epochs module's genesis state. */

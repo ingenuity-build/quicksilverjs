@@ -14,7 +14,7 @@ import { DeepPartial } from "../../helpers";
 export interface Empty {
 }
 export interface EmptyProtoMsg {
-    typeUrl: "/google.protobuf.Empty";
+    type_url: "/google.protobuf.Empty";
     value: Uint8Array;
 }
 /**

@@ -4,12 +4,12 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** QueryClaimsRequest is the request type for the Query/Claims RPC method. */
 export interface QueryClaimsRequest {
-    chainId: string;
+    chain_id: string;
     address: string;
     pagination: PageRequest;
 }
 export interface QueryClaimsRequestProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.QueryClaimsRequest";
+    type_url: "/quicksilver.claimsmanager.v1.QueryClaimsRequest";
     value: Uint8Array;
 }
 /** QueryClaimsRequest is the request type for the Query/Claims RPC method. */
@@ -34,7 +34,7 @@ export interface QueryClaimsResponse {
     pagination: PageResponse;
 }
 export interface QueryClaimsResponseProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.QueryClaimsResponse";
+    type_url: "/quicksilver.claimsmanager.v1.QueryClaimsResponse";
     value: Uint8Array;
 }
 /** QueryClaimsResponse is the response type for the Query/Claims RPC method. */

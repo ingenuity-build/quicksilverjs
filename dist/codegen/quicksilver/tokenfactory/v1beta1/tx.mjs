@@ -87,14 +87,14 @@ export const MsgCreateDenom = {
 };
 function createBaseMsgCreateDenomResponse() {
     return {
-        newTokenDenom: ""
+        new_token_denom: ""
     };
 }
 export const MsgCreateDenomResponse = {
     typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenomResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.newTokenDenom !== "") {
-            writer.uint32(10).string(message.newTokenDenom);
+        if (message.new_token_denom !== "") {
+            writer.uint32(10).string(message.new_token_denom);
         }
         return writer;
     },
@@ -106,7 +106,7 @@ export const MsgCreateDenomResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.newTokenDenom = reader.string();
+                    message.new_token_denom = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -117,27 +117,27 @@ export const MsgCreateDenomResponse = {
     },
     fromJSON(object) {
         return {
-            newTokenDenom: isSet(object.newTokenDenom) ? String(object.newTokenDenom) : ""
+            new_token_denom: isSet(object.new_token_denom) ? String(object.new_token_denom) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.newTokenDenom !== undefined && (obj.newTokenDenom = message.newTokenDenom);
+        message.new_token_denom !== undefined && (obj.new_token_denom = message.new_token_denom);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgCreateDenomResponse();
-        message.newTokenDenom = object.newTokenDenom ?? "";
+        message.new_token_denom = object.new_token_denom ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            newTokenDenom: object.new_token_denom
+            new_token_denom: object.new_token_denom
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.new_token_denom = message.newTokenDenom;
+        obj.new_token_denom = message.new_token_denom;
         return obj;
     },
     fromAminoMsg(object) {
@@ -438,7 +438,7 @@ function createBaseMsgChangeAdmin() {
     return {
         sender: "",
         denom: "",
-        newAdmin: ""
+        new_admin: ""
     };
 }
 export const MsgChangeAdmin = {
@@ -450,8 +450,8 @@ export const MsgChangeAdmin = {
         if (message.denom !== "") {
             writer.uint32(18).string(message.denom);
         }
-        if (message.newAdmin !== "") {
-            writer.uint32(26).string(message.newAdmin);
+        if (message.new_admin !== "") {
+            writer.uint32(26).string(message.new_admin);
         }
         return writer;
     },
@@ -469,7 +469,7 @@ export const MsgChangeAdmin = {
                     message.denom = reader.string();
                     break;
                 case 3:
-                    message.newAdmin = reader.string();
+                    message.new_admin = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -482,35 +482,35 @@ export const MsgChangeAdmin = {
         return {
             sender: isSet(object.sender) ? String(object.sender) : "",
             denom: isSet(object.denom) ? String(object.denom) : "",
-            newAdmin: isSet(object.newAdmin) ? String(object.newAdmin) : ""
+            new_admin: isSet(object.new_admin) ? String(object.new_admin) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.sender !== undefined && (obj.sender = message.sender);
         message.denom !== undefined && (obj.denom = message.denom);
-        message.newAdmin !== undefined && (obj.newAdmin = message.newAdmin);
+        message.new_admin !== undefined && (obj.new_admin = message.new_admin);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgChangeAdmin();
         message.sender = object.sender ?? "";
         message.denom = object.denom ?? "";
-        message.newAdmin = object.newAdmin ?? "";
+        message.new_admin = object.new_admin ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             sender: object.sender,
             denom: object.denom,
-            newAdmin: object.new_admin
+            new_admin: object.new_admin
         };
     },
     toAmino(message) {
         const obj = {};
         obj.sender = message.sender;
         obj.denom = message.denom;
-        obj.new_admin = message.newAdmin;
+        obj.new_admin = message.new_admin;
         return obj;
     },
     fromAminoMsg(object) {

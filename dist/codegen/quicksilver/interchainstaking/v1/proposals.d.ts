@@ -4,22 +4,22 @@ import * as _m0 from "protobufjs/minimal";
 export interface RegisterZoneProposal {
     title: string;
     description: string;
-    connectionId: string;
-    baseDenom: string;
-    localDenom: string;
-    accountPrefix: string;
+    connection_id: string;
+    base_denom: string;
+    local_denom: string;
+    account_prefix: string;
     /** deprecated */
-    multiSend: boolean;
-    liquidityModule: boolean;
-    messagesPerTx: Long;
-    returnToSender: boolean;
-    depositsEnabled: boolean;
-    unbondingEnabled: boolean;
+    multi_send: boolean;
+    liquidity_module: boolean;
+    messages_per_tx: Long;
+    return_to_sender: boolean;
+    deposits_enabled: boolean;
+    unbonding_enabled: boolean;
     decimals: Long;
     is118: boolean;
 }
 export interface RegisterZoneProposalProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.RegisterZoneProposal";
+    type_url: "/quicksilver.interchainstaking.v1.RegisterZoneProposal";
     value: Uint8Array;
 }
 export interface RegisterZoneProposalAmino {
@@ -62,22 +62,22 @@ export interface RegisterZoneProposalSDKType {
 export interface RegisterZoneProposalWithDeposit {
     title: string;
     description: string;
-    connectionId: string;
-    baseDenom: string;
-    localDenom: string;
-    accountPrefix: string;
-    multiSend: boolean;
-    liquidityModule: boolean;
+    connection_id: string;
+    base_denom: string;
+    local_denom: string;
+    account_prefix: string;
+    multi_send: boolean;
+    liquidity_module: boolean;
     deposit: string;
-    messagesPerTx: Long;
-    returnToSender: boolean;
-    depositsEnabled: boolean;
-    unbondingEnabled: boolean;
+    messages_per_tx: Long;
+    return_to_sender: boolean;
+    deposits_enabled: boolean;
+    unbonding_enabled: boolean;
     decimals: Long;
     is118: boolean;
 }
 export interface RegisterZoneProposalWithDepositProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.RegisterZoneProposalWithDeposit";
+    type_url: "/quicksilver.interchainstaking.v1.RegisterZoneProposalWithDeposit";
     value: Uint8Array;
 }
 export interface RegisterZoneProposalWithDepositAmino {
@@ -121,11 +121,11 @@ export interface RegisterZoneProposalWithDepositSDKType {
 export interface UpdateZoneProposal {
     title: string;
     description: string;
-    chainId: string;
+    chain_id: string;
     changes: UpdateZoneValue[];
 }
 export interface UpdateZoneProposalProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.UpdateZoneProposal";
+    type_url: "/quicksilver.interchainstaking.v1.UpdateZoneProposal";
     value: Uint8Array;
 }
 export interface UpdateZoneProposalAmino {
@@ -147,12 +147,12 @@ export interface UpdateZoneProposalSDKType {
 export interface UpdateZoneProposalWithDeposit {
     title: string;
     description: string;
-    chainId: string;
+    chain_id: string;
     changes: UpdateZoneValue[];
     deposit: string;
 }
 export interface UpdateZoneProposalWithDepositProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.UpdateZoneProposalWithDeposit";
+    type_url: "/quicksilver.interchainstaking.v1.UpdateZoneProposalWithDeposit";
     value: Uint8Array;
 }
 export interface UpdateZoneProposalWithDepositAmino {
@@ -182,7 +182,7 @@ export interface UpdateZoneValue {
     value: string;
 }
 export interface UpdateZoneValueProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.UpdateZoneValue";
+    type_url: "/quicksilver.interchainstaking.v1.UpdateZoneValue";
     value: Uint8Array;
 }
 /**
@@ -208,12 +208,12 @@ export interface UpdateZoneValueSDKType {
 export interface MsgGovReopenChannel {
     title: string;
     description: string;
-    connectionId: string;
-    portId: string;
+    connection_id: string;
+    port_id: string;
     authority: string;
 }
 export interface MsgGovReopenChannelProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovReopenChannel";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovReopenChannel";
     value: Uint8Array;
 }
 export interface MsgGovReopenChannelAmino {
@@ -238,7 +238,7 @@ export interface MsgGovReopenChannelSDKType {
 export interface MsgGovReopenChannelResponse {
 }
 export interface MsgGovReopenChannelResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovReopenChannelResponse";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovReopenChannelResponse";
     value: Uint8Array;
 }
 /** MsgGovReopenChannelResponse defines the MsgGovReopenChannel response type. */
@@ -254,12 +254,12 @@ export interface MsgGovReopenChannelResponseSDKType {
 export interface MsgGovCloseChannel {
     title: string;
     description: string;
-    channelId: string;
-    portId: string;
+    channel_id: string;
+    port_id: string;
     authority: string;
 }
 export interface MsgGovCloseChannelProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovCloseChannel";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovCloseChannel";
     value: Uint8Array;
 }
 export interface MsgGovCloseChannelAmino {
@@ -284,7 +284,7 @@ export interface MsgGovCloseChannelSDKType {
 export interface MsgGovCloseChannelResponse {
 }
 export interface MsgGovCloseChannelResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovCloseChannelResponse";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovCloseChannelResponse";
     value: Uint8Array;
 }
 /** MsgGovCloseChannelResponse defines the MsgGovCloseChannel response type. */
@@ -300,12 +300,12 @@ export interface MsgGovCloseChannelResponseSDKType {
 export interface MsgGovSetLsmCaps {
     title: string;
     description: string;
-    chainId: string;
+    chain_id: string;
     caps: LsmCaps;
     authority: string;
 }
 export interface MsgGovSetLsmCapsProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovSetLsmCaps";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovSetLsmCaps";
     value: Uint8Array;
 }
 export interface MsgGovSetLsmCapsAmino {
@@ -329,7 +329,7 @@ export interface MsgGovSetLsmCapsSDKType {
 export interface MsgGovSetLsmCapsResponse {
 }
 export interface MsgGovSetLsmCapsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgGovSetLsmCapsResponse";
+    type_url: "/quicksilver.interchainstaking.v1.MsgGovSetLsmCapsResponse";
     value: Uint8Array;
 }
 export interface MsgGovSetLsmCapsResponseAmino {

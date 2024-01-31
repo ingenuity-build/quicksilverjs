@@ -4,24 +4,24 @@ import { Long, isSet } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 function createBaseMsgTransfer() {
     return {
-        sourcePort: "",
-        sourceChannel: "",
+        source_port: "",
+        source_channel: "",
         token: Coin.fromPartial({}),
         sender: "",
         receiver: "",
-        timeoutHeight: Height.fromPartial({}),
-        timeoutTimestamp: Long.UZERO
+        timeout_height: Height.fromPartial({}),
+        timeout_timestamp: Long.UZERO
     };
 }
 export const MsgTransfer = {
     typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
     aminoType: "cosmos-sdk/MsgTransfer",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.sourcePort !== "") {
-            writer.uint32(10).string(message.sourcePort);
+        if (message.source_port !== "") {
+            writer.uint32(10).string(message.source_port);
         }
-        if (message.sourceChannel !== "") {
-            writer.uint32(18).string(message.sourceChannel);
+        if (message.source_channel !== "") {
+            writer.uint32(18).string(message.source_channel);
         }
         if (message.token !== undefined) {
             Coin.encode(message.token, writer.uint32(26).fork()).ldelim();
@@ -32,11 +32,11 @@ export const MsgTransfer = {
         if (message.receiver !== "") {
             writer.uint32(42).string(message.receiver);
         }
-        if (message.timeoutHeight !== undefined) {
-            Height.encode(message.timeoutHeight, writer.uint32(50).fork()).ldelim();
+        if (message.timeout_height !== undefined) {
+            Height.encode(message.timeout_height, writer.uint32(50).fork()).ldelim();
         }
-        if (!message.timeoutTimestamp.isZero()) {
-            writer.uint32(56).uint64(message.timeoutTimestamp);
+        if (!message.timeout_timestamp.isZero()) {
+            writer.uint32(56).uint64(message.timeout_timestamp);
         }
         return writer;
     },
@@ -48,10 +48,10 @@ export const MsgTransfer = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.sourcePort = reader.string();
+                    message.source_port = reader.string();
                     break;
                 case 2:
-                    message.sourceChannel = reader.string();
+                    message.source_channel = reader.string();
                     break;
                 case 3:
                     message.token = Coin.decode(reader, reader.uint32());
@@ -63,10 +63,10 @@ export const MsgTransfer = {
                     message.receiver = reader.string();
                     break;
                 case 6:
-                    message.timeoutHeight = Height.decode(reader, reader.uint32());
+                    message.timeout_height = Height.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.timeoutTimestamp = reader.uint64();
+                    message.timeout_timestamp = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -77,57 +77,57 @@ export const MsgTransfer = {
     },
     fromJSON(object) {
         return {
-            sourcePort: isSet(object.sourcePort) ? String(object.sourcePort) : "",
-            sourceChannel: isSet(object.sourceChannel) ? String(object.sourceChannel) : "",
+            source_port: isSet(object.source_port) ? String(object.source_port) : "",
+            source_channel: isSet(object.source_channel) ? String(object.source_channel) : "",
             token: isSet(object.token) ? Coin.fromJSON(object.token) : undefined,
             sender: isSet(object.sender) ? String(object.sender) : "",
             receiver: isSet(object.receiver) ? String(object.receiver) : "",
-            timeoutHeight: isSet(object.timeoutHeight) ? Height.fromJSON(object.timeoutHeight) : undefined,
-            timeoutTimestamp: isSet(object.timeoutTimestamp) ? Long.fromValue(object.timeoutTimestamp) : Long.UZERO
+            timeout_height: isSet(object.timeout_height) ? Height.fromJSON(object.timeout_height) : undefined,
+            timeout_timestamp: isSet(object.timeout_timestamp) ? Long.fromValue(object.timeout_timestamp) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.sourcePort !== undefined && (obj.sourcePort = message.sourcePort);
-        message.sourceChannel !== undefined && (obj.sourceChannel = message.sourceChannel);
+        message.source_port !== undefined && (obj.source_port = message.source_port);
+        message.source_channel !== undefined && (obj.source_channel = message.source_channel);
         message.token !== undefined && (obj.token = message.token ? Coin.toJSON(message.token) : undefined);
         message.sender !== undefined && (obj.sender = message.sender);
         message.receiver !== undefined && (obj.receiver = message.receiver);
-        message.timeoutHeight !== undefined && (obj.timeoutHeight = message.timeoutHeight ? Height.toJSON(message.timeoutHeight) : undefined);
-        message.timeoutTimestamp !== undefined && (obj.timeoutTimestamp = (message.timeoutTimestamp || Long.UZERO).toString());
+        message.timeout_height !== undefined && (obj.timeout_height = message.timeout_height ? Height.toJSON(message.timeout_height) : undefined);
+        message.timeout_timestamp !== undefined && (obj.timeout_timestamp = (message.timeout_timestamp || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgTransfer();
-        message.sourcePort = object.sourcePort ?? "";
-        message.sourceChannel = object.sourceChannel ?? "";
+        message.source_port = object.source_port ?? "";
+        message.source_channel = object.source_channel ?? "";
         message.token = object.token !== undefined && object.token !== null ? Coin.fromPartial(object.token) : undefined;
         message.sender = object.sender ?? "";
         message.receiver = object.receiver ?? "";
-        message.timeoutHeight = object.timeoutHeight !== undefined && object.timeoutHeight !== null ? Height.fromPartial(object.timeoutHeight) : undefined;
-        message.timeoutTimestamp = object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null ? Long.fromValue(object.timeoutTimestamp) : Long.UZERO;
+        message.timeout_height = object.timeout_height !== undefined && object.timeout_height !== null ? Height.fromPartial(object.timeout_height) : undefined;
+        message.timeout_timestamp = object.timeout_timestamp !== undefined && object.timeout_timestamp !== null ? Long.fromValue(object.timeout_timestamp) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            sourcePort: object.source_port,
-            sourceChannel: object.source_channel,
+            source_port: object.source_port,
+            source_channel: object.source_channel,
             token: object?.token ? Coin.fromAmino(object.token) : undefined,
             sender: object.sender,
             receiver: object.receiver,
-            timeoutHeight: object?.timeout_height ? Height.fromAmino(object.timeout_height) : undefined,
-            timeoutTimestamp: Long.fromString(object.timeout_timestamp)
+            timeout_height: object?.timeout_height ? Height.fromAmino(object.timeout_height) : undefined,
+            timeout_timestamp: Long.fromString(object.timeout_timestamp)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.source_port = message.sourcePort;
-        obj.source_channel = message.sourceChannel;
+        obj.source_port = message.source_port;
+        obj.source_channel = message.source_channel;
         obj.token = message.token ? Coin.toAmino(message.token) : undefined;
         obj.sender = message.sender;
         obj.receiver = message.receiver;
-        obj.timeout_height = message.timeoutHeight ? Height.toAmino(message.timeoutHeight) : {};
-        obj.timeout_timestamp = message.timeoutTimestamp ? message.timeoutTimestamp.toString() : undefined;
+        obj.timeout_height = message.timeout_height ? Height.toAmino(message.timeout_height) : {};
+        obj.timeout_timestamp = message.timeout_timestamp ? message.timeout_timestamp.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

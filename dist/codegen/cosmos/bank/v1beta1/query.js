@@ -1568,7 +1568,7 @@ exports.DenomOwner = {
 };
 function createBaseQueryDenomOwnersResponse() {
     return {
-        denomOwners: [],
+        denom_owners: [],
         pagination: pagination_1.PageResponse.fromPartial({})
     };
 }
@@ -1576,7 +1576,7 @@ exports.QueryDenomOwnersResponse = {
     typeUrl: "/cosmos.bank.v1beta1.QueryDenomOwnersResponse",
     aminoType: "cosmos-sdk/QueryDenomOwnersResponse",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.denomOwners) {
+        for (const v of message.denom_owners) {
             exports.DenomOwner.encode(v, writer.uint32(10).fork()).ldelim();
         }
         if (message.pagination !== undefined) {
@@ -1592,7 +1592,7 @@ exports.QueryDenomOwnersResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.denomOwners.push(exports.DenomOwner.decode(reader, reader.uint32()));
+                    message.denom_owners.push(exports.DenomOwner.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
@@ -1606,37 +1606,37 @@ exports.QueryDenomOwnersResponse = {
     },
     fromJSON(object) {
         return {
-            denomOwners: Array.isArray(object?.denomOwners) ? object.denomOwners.map((e) => exports.DenomOwner.fromJSON(e)) : [],
+            denom_owners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e) => exports.DenomOwner.fromJSON(e)) : [],
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageResponse.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.denomOwners) {
-            obj.denomOwners = message.denomOwners.map(e => e ? exports.DenomOwner.toJSON(e) : undefined);
+        if (message.denom_owners) {
+            obj.denom_owners = message.denom_owners.map(e => e ? exports.DenomOwner.toJSON(e) : undefined);
         }
         else {
-            obj.denomOwners = [];
+            obj.denom_owners = [];
         }
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageResponse.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDenomOwnersResponse();
-        message.denomOwners = object.denomOwners?.map(e => exports.DenomOwner.fromPartial(e)) || [];
+        message.denom_owners = object.denom_owners?.map(e => exports.DenomOwner.fromPartial(e)) || [];
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageResponse.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            denomOwners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e) => exports.DenomOwner.fromAmino(e)) : [],
+            denom_owners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e) => exports.DenomOwner.fromAmino(e)) : [],
             pagination: object?.pagination ? pagination_1.PageResponse.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.denomOwners) {
-            obj.denom_owners = message.denomOwners.map(e => e ? exports.DenomOwner.toAmino(e) : undefined);
+        if (message.denom_owners) {
+            obj.denom_owners = message.denom_owners.map(e => e ? exports.DenomOwner.toAmino(e) : undefined);
         }
         else {
             obj.denom_owners = [];

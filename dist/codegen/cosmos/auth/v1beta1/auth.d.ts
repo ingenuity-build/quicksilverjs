@@ -9,12 +9,12 @@ import * as _m0 from "protobufjs/minimal";
 export interface BaseAccount {
     $typeUrl?: string;
     address: string;
-    pubKey: Any;
-    accountNumber: Long;
+    pub_key: Any;
+    account_number: Long;
     sequence: Long;
 }
 export interface BaseAccountProtoMsg {
-    typeUrl: "/cosmos.auth.v1beta1.BaseAccount";
+    type_url: "/cosmos.auth.v1beta1.BaseAccount";
     value: Uint8Array;
 }
 /**
@@ -47,12 +47,12 @@ export interface BaseAccountSDKType {
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccount {
     $typeUrl?: string;
-    baseAccount: BaseAccount;
+    base_account: BaseAccount;
     name: string;
     permissions: string[];
 }
 export interface ModuleAccountProtoMsg {
-    typeUrl: "/cosmos.auth.v1beta1.ModuleAccount";
+    type_url: "/cosmos.auth.v1beta1.ModuleAccount";
     value: Uint8Array;
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
@@ -74,14 +74,14 @@ export interface ModuleAccountSDKType {
 }
 /** Params defines the parameters for the auth module. */
 export interface Params {
-    maxMemoCharacters: Long;
-    txSigLimit: Long;
-    txSizeCostPerByte: Long;
-    sigVerifyCostEd25519: Long;
-    sigVerifyCostSecp256k1: Long;
+    max_memo_characters: Long;
+    tx_sig_limit: Long;
+    tx_size_cost_per_byte: Long;
+    sig_verify_cost_ed25519: Long;
+    sig_verify_cost_secp256k1: Long;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/cosmos.auth.v1beta1.Params";
+    type_url: "/cosmos.auth.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params defines the parameters for the auth module. */

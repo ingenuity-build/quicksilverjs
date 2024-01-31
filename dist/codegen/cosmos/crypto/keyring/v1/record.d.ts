@@ -7,7 +7,7 @@ export interface Record {
     /** name represents a name of Record */
     name: string;
     /** pub_key represents a public key in any format */
-    pubKey: Any;
+    pub_key: Any;
     /** local stores the public information about a locally stored key */
     local?: Record_Local;
     /** ledger stores the public information about a Ledger key */
@@ -18,7 +18,7 @@ export interface Record {
     offline?: Record_Offline;
 }
 export interface RecordProtoMsg {
-    typeUrl: "/cosmos.crypto.keyring.v1.Record";
+    type_url: "/cosmos.crypto.keyring.v1.Record";
     value: Uint8Array;
 }
 /** Record is used for representing a key in the keyring. */
@@ -54,11 +54,11 @@ export interface RecordSDKType {
  * Local item
  */
 export interface Record_Local {
-    privKey: Any;
-    privKeyType: string;
+    priv_key: Any;
+    priv_key_type: string;
 }
 export interface Record_LocalProtoMsg {
-    typeUrl: "/cosmos.crypto.keyring.v1.Local";
+    type_url: "/cosmos.crypto.keyring.v1.Local";
     value: Uint8Array;
 }
 /**
@@ -86,7 +86,7 @@ export interface Record_Ledger {
     path: BIP44Params;
 }
 export interface Record_LedgerProtoMsg {
-    typeUrl: "/cosmos.crypto.keyring.v1.Ledger";
+    type_url: "/cosmos.crypto.keyring.v1.Ledger";
     value: Uint8Array;
 }
 /** Ledger item */
@@ -105,7 +105,7 @@ export interface Record_LedgerSDKType {
 export interface Record_Multi {
 }
 export interface Record_MultiProtoMsg {
-    typeUrl: "/cosmos.crypto.keyring.v1.Multi";
+    type_url: "/cosmos.crypto.keyring.v1.Multi";
     value: Uint8Array;
 }
 /** Multi item */
@@ -122,7 +122,7 @@ export interface Record_MultiSDKType {
 export interface Record_Offline {
 }
 export interface Record_OfflineProtoMsg {
-    typeUrl: "/cosmos.crypto.keyring.v1.Offline";
+    type_url: "/cosmos.crypto.keyring.v1.Offline";
     value: Uint8Array;
 }
 /** Offline item */

@@ -19,7 +19,7 @@ export declare function claimTypeToJSON(object: ClaimType): string;
 export interface Params {
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.Params";
+    type_url: "/quicksilver.claimsmanager.v1.Params";
     value: Uint8Array;
 }
 /** Params holds parameters for the claimsmanager module. */
@@ -34,14 +34,14 @@ export interface ParamsSDKType {
 }
 /** Claim define the users claim for holding assets within a given zone. */
 export interface Claim {
-    userAddress: string;
-    chainId: string;
+    user_address: string;
+    chain_id: string;
     module: ClaimType;
-    sourceChainId: string;
+    source_chain_id: string;
     amount: Long;
 }
 export interface ClaimProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.Claim";
+    type_url: "/quicksilver.claimsmanager.v1.Claim";
     value: Uint8Array;
 }
 /** Claim define the users claim for holding assets within a given zone. */
@@ -68,12 +68,12 @@ export interface ClaimSDKType {
 export interface Proof {
     key: Uint8Array;
     data: Uint8Array;
-    proofOps: ProofOps;
+    proof_ops: ProofOps;
     height: Long;
-    proofType: string;
+    proof_type: string;
 }
 export interface ProofProtoMsg {
-    typeUrl: "/quicksilver.claimsmanager.v1.Proof";
+    type_url: "/quicksilver.claimsmanager.v1.Proof";
     value: Uint8Array;
 }
 /** Proof defines a type used to cryptographically prove a claim. */

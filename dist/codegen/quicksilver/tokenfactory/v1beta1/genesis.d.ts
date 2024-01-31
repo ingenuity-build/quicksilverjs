@@ -6,10 +6,10 @@ import { DeepPartial } from "../../../helpers";
 export interface GenesisState {
     /** params defines the paramaters of the module. */
     params: Params;
-    factoryDenoms: GenesisDenom[];
+    factory_denoms: GenesisDenom[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.GenesisState";
+    type_url: "/quicksilver.tokenfactory.v1beta1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the tokenfactory module's genesis state. */
@@ -34,10 +34,10 @@ export interface GenesisStateSDKType {
  */
 export interface GenesisDenom {
     denom: string;
-    authorityMetadata: DenomAuthorityMetadata;
+    authority_metadata: DenomAuthorityMetadata;
 }
 export interface GenesisDenomProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.GenesisDenom";
+    type_url: "/quicksilver.tokenfactory.v1beta1.GenesisDenom";
     value: Uint8Array;
 }
 /**

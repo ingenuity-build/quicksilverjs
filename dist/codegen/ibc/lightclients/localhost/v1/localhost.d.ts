@@ -7,12 +7,12 @@ import { DeepPartial } from "../../../../helpers";
  */
 export interface ClientState {
     /** self chain ID */
-    chainId: string;
+    chain_id: string;
     /** self latest block height */
     height: Height;
 }
 export interface ClientStateProtoMsg {
-    typeUrl: "/ibc.lightclients.localhost.v1.ClientState";
+    type_url: "/ibc.lightclients.localhost.v1.ClientState";
     value: Uint8Array;
 }
 /**

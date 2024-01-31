@@ -14,7 +14,7 @@ export interface MsgGrant {
     grant: Grant;
 }
 export interface MsgGrantProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgGrant";
+    type_url: "/cosmos.authz.v1beta1.MsgGrant";
     value: Uint8Array;
 }
 /**
@@ -44,7 +44,7 @@ export interface MsgExecResponse {
     results: Uint8Array[];
 }
 export interface MsgExecResponseProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgExecResponse";
+    type_url: "/cosmos.authz.v1beta1.MsgExecResponse";
     value: Uint8Array;
 }
 /** MsgExecResponse defines the Msg/MsgExecResponse response type. */
@@ -74,7 +74,7 @@ export interface MsgExec {
     msgs: (Any)[] | Any[];
 }
 export interface MsgExecProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgExec";
+    type_url: "/cosmos.authz.v1beta1.MsgExec";
     value: Uint8Array;
 }
 export type MsgExecEncoded = Omit<MsgExec, "msgs"> & {
@@ -116,7 +116,7 @@ export interface MsgExecSDKType {
 export interface MsgGrantResponse {
 }
 export interface MsgGrantResponseProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse";
+    type_url: "/cosmos.authz.v1beta1.MsgGrantResponse";
     value: Uint8Array;
 }
 /** MsgGrantResponse defines the Msg/MsgGrant response type. */
@@ -136,10 +136,10 @@ export interface MsgGrantResponseSDKType {
 export interface MsgRevoke {
     granter: string;
     grantee: string;
-    msgTypeUrl: string;
+    msg_type_url: string;
 }
 export interface MsgRevokeProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgRevoke";
+    type_url: "/cosmos.authz.v1beta1.MsgRevoke";
     value: Uint8Array;
 }
 /**
@@ -168,7 +168,7 @@ export interface MsgRevokeSDKType {
 export interface MsgRevokeResponse {
 }
 export interface MsgRevokeResponseProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.MsgRevokeResponse";
+    type_url: "/cosmos.authz.v1beta1.MsgRevokeResponse";
     value: Uint8Array;
 }
 /** MsgRevokeResponse defines the Msg/MsgRevokeResponse response type. */

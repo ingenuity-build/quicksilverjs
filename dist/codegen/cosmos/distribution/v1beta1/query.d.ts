@@ -7,7 +7,7 @@ import * as _m0 from "protobufjs/minimal";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryParamsRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -26,7 +26,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryParamsResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -48,10 +48,10 @@ export interface QueryParamsResponseSDKType {
  */
 export interface QueryValidatorOutstandingRewardsRequest {
     /** validator_address defines the validator address to query for. */
-    validatorAddress: string;
+    validator_address: string;
 }
 export interface QueryValidatorOutstandingRewardsRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest";
     value: Uint8Array;
 }
 /**
@@ -81,7 +81,7 @@ export interface QueryValidatorOutstandingRewardsResponse {
     rewards: ValidatorOutstandingRewards;
 }
 export interface QueryValidatorOutstandingRewardsResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponse";
     value: Uint8Array;
 }
 /**
@@ -108,10 +108,10 @@ export interface QueryValidatorOutstandingRewardsResponseSDKType {
  */
 export interface QueryValidatorCommissionRequest {
     /** validator_address defines the validator address to query for. */
-    validatorAddress: string;
+    validator_address: string;
 }
 export interface QueryValidatorCommissionRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest";
     value: Uint8Array;
 }
 /**
@@ -142,7 +142,7 @@ export interface QueryValidatorCommissionResponse {
     commission: ValidatorAccumulatedCommission;
 }
 export interface QueryValidatorCommissionResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorCommissionResponse";
     value: Uint8Array;
 }
 /**
@@ -170,16 +170,16 @@ export interface QueryValidatorCommissionResponseSDKType {
  */
 export interface QueryValidatorSlashesRequest {
     /** validator_address defines the validator address to query for. */
-    validatorAddress: string;
+    validator_address: string;
     /** starting_height defines the optional starting height to query the slashes. */
-    startingHeight: Long;
+    starting_height: Long;
     /** starting_height defines the optional ending height to query the slashes. */
-    endingHeight: Long;
+    ending_height: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryValidatorSlashesRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest";
     value: Uint8Array;
 }
 /**
@@ -221,7 +221,7 @@ export interface QueryValidatorSlashesResponse {
     pagination: PageResponse;
 }
 export interface QueryValidatorSlashesResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryValidatorSlashesResponse";
     value: Uint8Array;
 }
 /**
@@ -252,12 +252,12 @@ export interface QueryValidatorSlashesResponseSDKType {
  */
 export interface QueryDelegationRewardsRequest {
     /** delegator_address defines the delegator address to query for. */
-    delegatorAddress: string;
+    delegator_address: string;
     /** validator_address defines the validator address to query for. */
-    validatorAddress: string;
+    validator_address: string;
 }
 export interface QueryDelegationRewardsRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest";
     value: Uint8Array;
 }
 /**
@@ -291,7 +291,7 @@ export interface QueryDelegationRewardsResponse {
     rewards: DecCoin[];
 }
 export interface QueryDelegationRewardsResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegationRewardsResponse";
     value: Uint8Array;
 }
 /**
@@ -319,10 +319,10 @@ export interface QueryDelegationRewardsResponseSDKType {
  */
 export interface QueryDelegationTotalRewardsRequest {
     /** delegator_address defines the delegator address to query for. */
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface QueryDelegationTotalRewardsRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest";
     value: Uint8Array;
 }
 /**
@@ -355,7 +355,7 @@ export interface QueryDelegationTotalRewardsResponse {
     total: DecCoin[];
 }
 export interface QueryDelegationTotalRewardsResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsResponse";
     value: Uint8Array;
 }
 /**
@@ -386,10 +386,10 @@ export interface QueryDelegationTotalRewardsResponseSDKType {
  */
 export interface QueryDelegatorValidatorsRequest {
     /** delegator_address defines the delegator address to query for. */
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface QueryDelegatorValidatorsRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest";
     value: Uint8Array;
 }
 /**
@@ -420,7 +420,7 @@ export interface QueryDelegatorValidatorsResponse {
     validators: string[];
 }
 export interface QueryDelegatorValidatorsResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsResponse";
     value: Uint8Array;
 }
 /**
@@ -448,10 +448,10 @@ export interface QueryDelegatorValidatorsResponseSDKType {
  */
 export interface QueryDelegatorWithdrawAddressRequest {
     /** delegator_address defines the delegator address to query for. */
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface QueryDelegatorWithdrawAddressRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest";
     value: Uint8Array;
 }
 /**
@@ -479,10 +479,10 @@ export interface QueryDelegatorWithdrawAddressRequestSDKType {
  */
 export interface QueryDelegatorWithdrawAddressResponse {
     /** withdraw_address defines the delegator address to query for. */
-    withdrawAddress: string;
+    withdraw_address: string;
 }
 export interface QueryDelegatorWithdrawAddressResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse";
     value: Uint8Array;
 }
 /**
@@ -511,7 +511,7 @@ export interface QueryDelegatorWithdrawAddressResponseSDKType {
 export interface QueryCommunityPoolRequest {
 }
 export interface QueryCommunityPoolRequestProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryCommunityPoolRequest";
+    type_url: "/cosmos.distribution.v1beta1.QueryCommunityPoolRequest";
     value: Uint8Array;
 }
 /**
@@ -539,7 +539,7 @@ export interface QueryCommunityPoolResponse {
     pool: DecCoin[];
 }
 export interface QueryCommunityPoolResponseProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.QueryCommunityPoolResponse";
+    type_url: "/cosmos.distribution.v1beta1.QueryCommunityPoolResponse";
     value: Uint8Array;
 }
 /**

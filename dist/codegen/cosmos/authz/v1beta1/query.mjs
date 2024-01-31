@@ -6,7 +6,7 @@ function createBaseQueryGrantsRequest() {
     return {
         granter: "",
         grantee: "",
-        msgTypeUrl: "",
+        msg_type_url: "",
         pagination: PageRequest.fromPartial({})
     };
 }
@@ -20,8 +20,8 @@ export const QueryGrantsRequest = {
         if (message.grantee !== "") {
             writer.uint32(18).string(message.grantee);
         }
-        if (message.msgTypeUrl !== "") {
-            writer.uint32(26).string(message.msgTypeUrl);
+        if (message.msg_type_url !== "") {
+            writer.uint32(26).string(message.msg_type_url);
         }
         if (message.pagination !== undefined) {
             PageRequest.encode(message.pagination, writer.uint32(34).fork()).ldelim();
@@ -42,7 +42,7 @@ export const QueryGrantsRequest = {
                     message.grantee = reader.string();
                     break;
                 case 3:
-                    message.msgTypeUrl = reader.string();
+                    message.msg_type_url = reader.string();
                     break;
                 case 4:
                     message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -58,7 +58,7 @@ export const QueryGrantsRequest = {
         return {
             granter: isSet(object.granter) ? String(object.granter) : "",
             grantee: isSet(object.grantee) ? String(object.grantee) : "",
-            msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : "",
+            msg_type_url: isSet(object.msg_type_url) ? String(object.msg_type_url) : "",
             pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
         };
     },
@@ -66,7 +66,7 @@ export const QueryGrantsRequest = {
         const obj = {};
         message.granter !== undefined && (obj.granter = message.granter);
         message.grantee !== undefined && (obj.grantee = message.grantee);
-        message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+        message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
         message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
         return obj;
     },
@@ -74,7 +74,7 @@ export const QueryGrantsRequest = {
         const message = createBaseQueryGrantsRequest();
         message.granter = object.granter ?? "";
         message.grantee = object.grantee ?? "";
-        message.msgTypeUrl = object.msgTypeUrl ?? "";
+        message.msg_type_url = object.msg_type_url ?? "";
         message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
         return message;
     },
@@ -82,7 +82,7 @@ export const QueryGrantsRequest = {
         return {
             granter: object.granter,
             grantee: object.grantee,
-            msgTypeUrl: object.msg_type_url,
+            msg_type_url: object.msg_type_url,
             pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
         };
     },
@@ -90,7 +90,7 @@ export const QueryGrantsRequest = {
         const obj = {};
         obj.granter = message.granter;
         obj.grantee = message.grantee;
-        obj.msg_type_url = message.msgTypeUrl;
+        obj.msg_type_url = message.msg_type_url;
         obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
         return obj;
     },

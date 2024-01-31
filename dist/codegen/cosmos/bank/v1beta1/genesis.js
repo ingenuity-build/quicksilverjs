@@ -33,7 +33,7 @@ function createBaseGenesisState() {
         params: bank_1.Params.fromPartial({}),
         balances: [],
         supply: [],
-        denomMetadata: []
+        denom_metadata: []
     };
 }
 exports.GenesisState = {
@@ -49,7 +49,7 @@ exports.GenesisState = {
         for (const v of message.supply) {
             coin_1.Coin.encode(v, writer.uint32(26).fork()).ldelim();
         }
-        for (const v of message.denomMetadata) {
+        for (const v of message.denom_metadata) {
             bank_1.Metadata.encode(v, writer.uint32(34).fork()).ldelim();
         }
         return writer;
@@ -71,7 +71,7 @@ exports.GenesisState = {
                     message.supply.push(coin_1.Coin.decode(reader, reader.uint32()));
                     break;
                 case 4:
-                    message.denomMetadata.push(bank_1.Metadata.decode(reader, reader.uint32()));
+                    message.denom_metadata.push(bank_1.Metadata.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -85,7 +85,7 @@ exports.GenesisState = {
             params: (0, helpers_1.isSet)(object.params) ? bank_1.Params.fromJSON(object.params) : undefined,
             balances: Array.isArray(object?.balances) ? object.balances.map((e) => exports.Balance.fromJSON(e)) : [],
             supply: Array.isArray(object?.supply) ? object.supply.map((e) => coin_1.Coin.fromJSON(e)) : [],
-            denomMetadata: Array.isArray(object?.denomMetadata) ? object.denomMetadata.map((e) => bank_1.Metadata.fromJSON(e)) : []
+            denom_metadata: Array.isArray(object?.denom_metadata) ? object.denom_metadata.map((e) => bank_1.Metadata.fromJSON(e)) : []
         };
     },
     toJSON(message) {
@@ -103,11 +103,11 @@ exports.GenesisState = {
         else {
             obj.supply = [];
         }
-        if (message.denomMetadata) {
-            obj.denomMetadata = message.denomMetadata.map(e => e ? bank_1.Metadata.toJSON(e) : undefined);
+        if (message.denom_metadata) {
+            obj.denom_metadata = message.denom_metadata.map(e => e ? bank_1.Metadata.toJSON(e) : undefined);
         }
         else {
-            obj.denomMetadata = [];
+            obj.denom_metadata = [];
         }
         return obj;
     },
@@ -116,7 +116,7 @@ exports.GenesisState = {
         message.params = object.params !== undefined && object.params !== null ? bank_1.Params.fromPartial(object.params) : undefined;
         message.balances = object.balances?.map(e => exports.Balance.fromPartial(e)) || [];
         message.supply = object.supply?.map(e => coin_1.Coin.fromPartial(e)) || [];
-        message.denomMetadata = object.denomMetadata?.map(e => bank_1.Metadata.fromPartial(e)) || [];
+        message.denom_metadata = object.denom_metadata?.map(e => bank_1.Metadata.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
@@ -124,7 +124,7 @@ exports.GenesisState = {
             params: object?.params ? bank_1.Params.fromAmino(object.params) : undefined,
             balances: Array.isArray(object?.balances) ? object.balances.map((e) => exports.Balance.fromAmino(e)) : [],
             supply: Array.isArray(object?.supply) ? object.supply.map((e) => coin_1.Coin.fromAmino(e)) : [],
-            denomMetadata: Array.isArray(object?.denom_metadata) ? object.denom_metadata.map((e) => bank_1.Metadata.fromAmino(e)) : []
+            denom_metadata: Array.isArray(object?.denom_metadata) ? object.denom_metadata.map((e) => bank_1.Metadata.fromAmino(e)) : []
         };
     },
     toAmino(message) {
@@ -142,8 +142,8 @@ exports.GenesisState = {
         else {
             obj.supply = [];
         }
-        if (message.denomMetadata) {
-            obj.denom_metadata = message.denomMetadata.map(e => e ? bank_1.Metadata.toAmino(e) : undefined);
+        if (message.denom_metadata) {
+            obj.denom_metadata = message.denom_metadata.map(e => e ? bank_1.Metadata.toAmino(e) : undefined);
         }
         else {
             obj.denom_metadata = [];

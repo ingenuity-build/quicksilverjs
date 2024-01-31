@@ -3,12 +3,12 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../../helpers";
 /** GenesisState defines the ibc-transfer genesis state */
 export interface GenesisState {
-    portId: string;
-    denomTraces: DenomTrace[];
+    port_id: string;
+    denom_traces: DenomTrace[];
     params: Params;
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/ibc.applications.transfer.v1.GenesisState";
+    type_url: "/ibc.applications.transfer.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the ibc-transfer genesis state */

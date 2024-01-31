@@ -2,10 +2,10 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** MsgUnjail defines the Msg/Unjail request type */
 export interface MsgUnjail {
-    validatorAddr: string;
+    validator_addr: string;
 }
 export interface MsgUnjailProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail";
+    type_url: "/cosmos.slashing.v1beta1.MsgUnjail";
     value: Uint8Array;
 }
 /** MsgUnjail defines the Msg/Unjail request type */
@@ -24,7 +24,7 @@ export interface MsgUnjailSDKType {
 export interface MsgUnjailResponse {
 }
 export interface MsgUnjailResponseProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse";
+    type_url: "/cosmos.slashing.v1beta1.MsgUnjailResponse";
     value: Uint8Array;
 }
 /** MsgUnjailResponse defines the Msg/Unjail response type */

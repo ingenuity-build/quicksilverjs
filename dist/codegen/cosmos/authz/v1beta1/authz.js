@@ -315,14 +315,14 @@ exports.GrantAuthorization = {
 };
 function createBaseGrantQueueItem() {
     return {
-        msgTypeUrls: []
+        msg_type_urls: []
     };
 }
 exports.GrantQueueItem = {
     typeUrl: "/cosmos.authz.v1beta1.GrantQueueItem",
     aminoType: "cosmos-sdk/GrantQueueItem",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.msgTypeUrls) {
+        for (const v of message.msg_type_urls) {
             writer.uint32(10).string(v);
         }
         return writer;
@@ -335,7 +335,7 @@ exports.GrantQueueItem = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.msgTypeUrls.push(reader.string());
+                    message.msg_type_urls.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -346,33 +346,33 @@ exports.GrantQueueItem = {
     },
     fromJSON(object) {
         return {
-            msgTypeUrls: Array.isArray(object?.msgTypeUrls) ? object.msgTypeUrls.map((e) => String(e)) : []
+            msg_type_urls: Array.isArray(object?.msg_type_urls) ? object.msg_type_urls.map((e) => String(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.msgTypeUrls) {
-            obj.msgTypeUrls = message.msgTypeUrls.map(e => e);
+        if (message.msg_type_urls) {
+            obj.msg_type_urls = message.msg_type_urls.map(e => e);
         }
         else {
-            obj.msgTypeUrls = [];
+            obj.msg_type_urls = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGrantQueueItem();
-        message.msgTypeUrls = object.msgTypeUrls?.map(e => e) || [];
+        message.msg_type_urls = object.msg_type_urls?.map(e => e) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            msgTypeUrls: Array.isArray(object?.msg_type_urls) ? object.msg_type_urls.map((e) => e) : []
+            msg_type_urls: Array.isArray(object?.msg_type_urls) ? object.msg_type_urls.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.msgTypeUrls) {
-            obj.msg_type_urls = message.msgTypeUrls.map(e => e);
+        if (message.msg_type_urls) {
+            obj.msg_type_urls = message.msg_type_urls.map(e => e);
         }
         else {
             obj.msg_type_urls = [];

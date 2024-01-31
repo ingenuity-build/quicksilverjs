@@ -7,14 +7,14 @@ import { DeepPartial } from "../../../helpers";
 export interface MsgCreateValidator {
     description: Description;
     commission: CommissionRates;
-    minSelfDelegation: string;
-    delegatorAddress: string;
-    validatorAddress: string;
+    min_self_delegation: string;
+    delegator_address: string;
+    validator_address: string;
     pubkey: Any | undefined;
     value: Coin;
 }
 export interface MsgCreateValidatorProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator";
+    type_url: "/cosmos.staking.v1beta1.MsgCreateValidator";
     value: Uint8Array;
 }
 export type MsgCreateValidatorEncoded = Omit<MsgCreateValidator, "pubkey"> & {
@@ -48,7 +48,7 @@ export interface MsgCreateValidatorSDKType {
 export interface MsgCreateValidatorResponse {
 }
 export interface MsgCreateValidatorResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidatorResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgCreateValidatorResponse";
     value: Uint8Array;
 }
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
@@ -64,18 +64,18 @@ export interface MsgCreateValidatorResponseSDKType {
 /** MsgEditValidator defines a SDK message for editing an existing validator. */
 export interface MsgEditValidator {
     description: Description;
-    validatorAddress: string;
+    validator_address: string;
     /**
      * We pass a reference to the new commission rate and min self delegation as
      * it's not mandatory to update. If not updated, the deserialized rate will be
      * zero with no way to distinguish if an update was intended.
      * REF: #2373
      */
-    commissionRate: string;
-    minSelfDelegation: string;
+    commission_rate: string;
+    min_self_delegation: string;
 }
 export interface MsgEditValidatorProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgEditValidator";
+    type_url: "/cosmos.staking.v1beta1.MsgEditValidator";
     value: Uint8Array;
 }
 /** MsgEditValidator defines a SDK message for editing an existing validator. */
@@ -106,7 +106,7 @@ export interface MsgEditValidatorSDKType {
 export interface MsgEditValidatorResponse {
 }
 export interface MsgEditValidatorResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgEditValidatorResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgEditValidatorResponse";
     value: Uint8Array;
 }
 /** MsgEditValidatorResponse defines the Msg/EditValidator response type. */
@@ -124,12 +124,12 @@ export interface MsgEditValidatorResponseSDKType {
  * from a delegator to a validator.
  */
 export interface MsgDelegate {
-    delegatorAddress: string;
-    validatorAddress: string;
+    delegator_address: string;
+    validator_address: string;
     amount: Coin;
 }
 export interface MsgDelegateProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgDelegate";
+    type_url: "/cosmos.staking.v1beta1.MsgDelegate";
     value: Uint8Array;
 }
 /**
@@ -158,7 +158,7 @@ export interface MsgDelegateSDKType {
 export interface MsgDelegateResponse {
 }
 export interface MsgDelegateResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgDelegateResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgDelegateResponse";
     value: Uint8Array;
 }
 /** MsgDelegateResponse defines the Msg/Delegate response type. */
@@ -176,13 +176,13 @@ export interface MsgDelegateResponseSDKType {
  * of coins from a delegator and source validator to a destination validator.
  */
 export interface MsgBeginRedelegate {
-    delegatorAddress: string;
-    validatorSrcAddress: string;
-    validatorDstAddress: string;
+    delegator_address: string;
+    validator_src_address: string;
+    validator_dst_address: string;
     amount: Coin;
 }
 export interface MsgBeginRedelegateProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegate";
+    type_url: "/cosmos.staking.v1beta1.MsgBeginRedelegate";
     value: Uint8Array;
 }
 /**
@@ -211,10 +211,10 @@ export interface MsgBeginRedelegateSDKType {
 }
 /** MsgBeginRedelegateResponse defines the Msg/BeginRedelegate response type. */
 export interface MsgBeginRedelegateResponse {
-    completionTime: Date;
+    completion_time: Date;
 }
 export interface MsgBeginRedelegateResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegateResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgBeginRedelegateResponse";
     value: Uint8Array;
 }
 /** MsgBeginRedelegateResponse defines the Msg/BeginRedelegate response type. */
@@ -234,12 +234,12 @@ export interface MsgBeginRedelegateResponseSDKType {
  * delegate and a validator.
  */
 export interface MsgUndelegate {
-    delegatorAddress: string;
-    validatorAddress: string;
+    delegator_address: string;
+    validator_address: string;
     amount: Coin;
 }
 export interface MsgUndelegateProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgUndelegate";
+    type_url: "/cosmos.staking.v1beta1.MsgUndelegate";
     value: Uint8Array;
 }
 /**
@@ -266,10 +266,10 @@ export interface MsgUndelegateSDKType {
 }
 /** MsgUndelegateResponse defines the Msg/Undelegate response type. */
 export interface MsgUndelegateResponse {
-    completionTime: Date;
+    completion_time: Date;
 }
 export interface MsgUndelegateResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgUndelegateResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgUndelegateResponse";
     value: Uint8Array;
 }
 /** MsgUndelegateResponse defines the Msg/Undelegate response type. */

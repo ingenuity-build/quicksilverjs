@@ -31,7 +31,7 @@ function createBaseGenesisState() {
     return {
         minter: mint_1.Minter.fromPartial({}),
         params: mint_1.Params.fromPartial({}),
-        reductionStartedEpoch: helpers_1.Long.ZERO
+        reduction_started_epoch: helpers_1.Long.ZERO
     };
 }
 exports.GenesisState = {
@@ -43,8 +43,8 @@ exports.GenesisState = {
         if (message.params !== undefined) {
             mint_1.Params.encode(message.params, writer.uint32(18).fork()).ldelim();
         }
-        if (!message.reductionStartedEpoch.isZero()) {
-            writer.uint32(24).int64(message.reductionStartedEpoch);
+        if (!message.reduction_started_epoch.isZero()) {
+            writer.uint32(24).int64(message.reduction_started_epoch);
         }
         return writer;
     },
@@ -62,7 +62,7 @@ exports.GenesisState = {
                     message.params = mint_1.Params.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.reductionStartedEpoch = reader.int64();
+                    message.reduction_started_epoch = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -75,35 +75,35 @@ exports.GenesisState = {
         return {
             minter: (0, helpers_1.isSet)(object.minter) ? mint_1.Minter.fromJSON(object.minter) : undefined,
             params: (0, helpers_1.isSet)(object.params) ? mint_1.Params.fromJSON(object.params) : undefined,
-            reductionStartedEpoch: (0, helpers_1.isSet)(object.reductionStartedEpoch) ? helpers_1.Long.fromValue(object.reductionStartedEpoch) : helpers_1.Long.ZERO
+            reduction_started_epoch: (0, helpers_1.isSet)(object.reduction_started_epoch) ? helpers_1.Long.fromValue(object.reduction_started_epoch) : helpers_1.Long.ZERO
         };
     },
     toJSON(message) {
         const obj = {};
         message.minter !== undefined && (obj.minter = message.minter ? mint_1.Minter.toJSON(message.minter) : undefined);
         message.params !== undefined && (obj.params = message.params ? mint_1.Params.toJSON(message.params) : undefined);
-        message.reductionStartedEpoch !== undefined && (obj.reductionStartedEpoch = (message.reductionStartedEpoch || helpers_1.Long.ZERO).toString());
+        message.reduction_started_epoch !== undefined && (obj.reduction_started_epoch = (message.reduction_started_epoch || helpers_1.Long.ZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGenesisState();
         message.minter = object.minter !== undefined && object.minter !== null ? mint_1.Minter.fromPartial(object.minter) : undefined;
         message.params = object.params !== undefined && object.params !== null ? mint_1.Params.fromPartial(object.params) : undefined;
-        message.reductionStartedEpoch = object.reductionStartedEpoch !== undefined && object.reductionStartedEpoch !== null ? helpers_1.Long.fromValue(object.reductionStartedEpoch) : helpers_1.Long.ZERO;
+        message.reduction_started_epoch = object.reduction_started_epoch !== undefined && object.reduction_started_epoch !== null ? helpers_1.Long.fromValue(object.reduction_started_epoch) : helpers_1.Long.ZERO;
         return message;
     },
     fromAmino(object) {
         return {
             minter: object?.minter ? mint_1.Minter.fromAmino(object.minter) : undefined,
             params: object?.params ? mint_1.Params.fromAmino(object.params) : undefined,
-            reductionStartedEpoch: helpers_1.Long.fromString(object.reduction_started_epoch)
+            reduction_started_epoch: helpers_1.Long.fromString(object.reduction_started_epoch)
         };
     },
     toAmino(message) {
         const obj = {};
         obj.minter = message.minter ? mint_1.Minter.toAmino(message.minter) : undefined;
         obj.params = message.params ? mint_1.Params.toAmino(message.params) : undefined;
-        obj.reduction_started_epoch = message.reductionStartedEpoch ? message.reductionStartedEpoch.toString() : undefined;
+        obj.reduction_started_epoch = message.reduction_started_epoch ? message.reduction_started_epoch.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

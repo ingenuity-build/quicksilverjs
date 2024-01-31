@@ -5,7 +5,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.QueryParamsRequest";
+    type_url: "/quicksilver.mint.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -24,7 +24,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.QueryParamsResponse";
+    type_url: "/quicksilver.mint.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -47,7 +47,7 @@ export interface QueryParamsResponseSDKType {
 export interface QueryEpochProvisionsRequest {
 }
 export interface QueryEpochProvisionsRequestProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsRequest";
+    type_url: "/quicksilver.mint.v1beta1.QueryEpochProvisionsRequest";
     value: Uint8Array;
 }
 /**
@@ -72,10 +72,10 @@ export interface QueryEpochProvisionsRequestSDKType {
  */
 export interface QueryEpochProvisionsResponse {
     /** epoch_provisions is the current minting per epoch provisions value. */
-    epochProvisions: Uint8Array;
+    epoch_provisions: Uint8Array;
 }
 export interface QueryEpochProvisionsResponseProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse";
+    type_url: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse";
     value: Uint8Array;
 }
 /**

@@ -6,14 +6,14 @@ import { DeepPartial } from "../../../helpers";
  * claim regarding the given zone (chain).
  */
 export interface MsgSubmitClaim {
-    userAddress: string;
+    user_address: string;
     zone: string;
-    srcZone: string;
-    claimType: ClaimType;
+    src_zone: string;
+    claim_type: ClaimType;
     proofs: Proof[];
 }
 export interface MsgSubmitClaimProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaim";
+    type_url: "/quicksilver.participationrewards.v1.MsgSubmitClaim";
     value: Uint8Array;
 }
 /**
@@ -46,7 +46,7 @@ export interface MsgSubmitClaimSDKType {
 export interface MsgSubmitClaimResponse {
 }
 export interface MsgSubmitClaimResponseProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaimResponse";
+    type_url: "/quicksilver.participationrewards.v1.MsgSubmitClaimResponse";
     value: Uint8Array;
 }
 /** MsgSubmitClaimResponse defines the MsgSubmitClaim response type. */

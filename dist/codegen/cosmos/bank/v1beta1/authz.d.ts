@@ -9,10 +9,10 @@ import { DeepPartial } from "../../../helpers";
  */
 export interface SendAuthorization {
     $typeUrl?: string;
-    spendLimit: Coin[];
+    spend_limit: Coin[];
 }
 export interface SendAuthorizationProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.SendAuthorization";
+    type_url: "/cosmos.bank.v1beta1.SendAuthorization";
     value: Uint8Array;
 }
 /**

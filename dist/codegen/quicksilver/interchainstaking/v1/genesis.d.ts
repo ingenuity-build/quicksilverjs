@@ -2,12 +2,12 @@ import { Delegation, DelegationAmino, DelegationSDKType, DelegatorIntent, Delega
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Params_v1 {
-    depositInterval: Long;
-    validatorsetInterval: Long;
-    commissionRate: string;
+    deposit_interval: Long;
+    validatorset_interval: Long;
+    commission_rate: string;
 }
 export interface Params_v1ProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Params_v1";
+    type_url: "/quicksilver.interchainstaking.v1.Params_v1";
     value: Uint8Array;
 }
 export interface Params_v1Amino {
@@ -25,13 +25,13 @@ export interface Params_v1SDKType {
     commission_rate: string;
 }
 export interface Params {
-    depositInterval: Long;
-    validatorsetInterval: Long;
-    commissionRate: string;
-    unbondingEnabled: boolean;
+    deposit_interval: Long;
+    validatorset_interval: Long;
+    commission_rate: string;
+    unbonding_enabled: boolean;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Params";
+    type_url: "/quicksilver.interchainstaking.v1.Params";
     value: Uint8Array;
 }
 export interface ParamsAmino {
@@ -51,11 +51,11 @@ export interface ParamsSDKType {
     unbonding_enabled: boolean;
 }
 export interface DelegationsForZone {
-    chainId: string;
+    chain_id: string;
     delegations: Delegation[];
 }
 export interface DelegationsForZoneProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.DelegationsForZone";
+    type_url: "/quicksilver.interchainstaking.v1.DelegationsForZone";
     value: Uint8Array;
 }
 export interface DelegationsForZoneAmino {
@@ -71,12 +71,12 @@ export interface DelegationsForZoneSDKType {
     delegations: DelegationSDKType[];
 }
 export interface DelegatorIntentsForZone {
-    chainId: string;
-    delegationIntent: DelegatorIntent[];
+    chain_id: string;
+    delegation_intent: DelegatorIntent[];
     snapshot: boolean;
 }
 export interface DelegatorIntentsForZoneProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntentsForZone";
+    type_url: "/quicksilver.interchainstaking.v1.DelegatorIntentsForZone";
     value: Uint8Array;
 }
 export interface DelegatorIntentsForZoneAmino {
@@ -99,13 +99,13 @@ export interface GenesisState {
     zones: Zone[];
     receipts: Receipt[];
     delegations: DelegationsForZone[];
-    performanceDelegations: DelegationsForZone[];
-    delegatorIntents: DelegatorIntentsForZone[];
-    portConnections: PortConnectionTuple[];
-    withdrawalRecords: WithdrawalRecord[];
+    performance_delegations: DelegationsForZone[];
+    delegator_intents: DelegatorIntentsForZone[];
+    port_connections: PortConnectionTuple[];
+    withdrawal_records: WithdrawalRecord[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.GenesisState";
+    type_url: "/quicksilver.interchainstaking.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the interchainstaking module's genesis state. */

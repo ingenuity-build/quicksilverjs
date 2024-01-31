@@ -31,7 +31,7 @@ function createBasePageRequest() {
         key: new Uint8Array(),
         offset: helpers_1.Long.UZERO,
         limit: helpers_1.Long.UZERO,
-        countTotal: false,
+        count_total: false,
         reverse: false
     };
 }
@@ -48,8 +48,8 @@ exports.PageRequest = {
         if (!message.limit.isZero()) {
             writer.uint32(24).uint64(message.limit);
         }
-        if (message.countTotal === true) {
-            writer.uint32(32).bool(message.countTotal);
+        if (message.count_total === true) {
+            writer.uint32(32).bool(message.count_total);
         }
         if (message.reverse === true) {
             writer.uint32(40).bool(message.reverse);
@@ -73,7 +73,7 @@ exports.PageRequest = {
                     message.limit = reader.uint64();
                     break;
                 case 4:
-                    message.countTotal = reader.bool();
+                    message.count_total = reader.bool();
                     break;
                 case 5:
                     message.reverse = reader.bool();
@@ -90,7 +90,7 @@ exports.PageRequest = {
             key: (0, helpers_1.isSet)(object.key) ? (0, helpers_1.bytesFromBase64)(object.key) : new Uint8Array(),
             offset: (0, helpers_1.isSet)(object.offset) ? helpers_1.Long.fromValue(object.offset) : helpers_1.Long.UZERO,
             limit: (0, helpers_1.isSet)(object.limit) ? helpers_1.Long.fromValue(object.limit) : helpers_1.Long.UZERO,
-            countTotal: (0, helpers_1.isSet)(object.countTotal) ? Boolean(object.countTotal) : false,
+            count_total: (0, helpers_1.isSet)(object.count_total) ? Boolean(object.count_total) : false,
             reverse: (0, helpers_1.isSet)(object.reverse) ? Boolean(object.reverse) : false
         };
     },
@@ -99,7 +99,7 @@ exports.PageRequest = {
         message.key !== undefined && (obj.key = (0, helpers_1.base64FromBytes)(message.key !== undefined ? message.key : new Uint8Array()));
         message.offset !== undefined && (obj.offset = (message.offset || helpers_1.Long.UZERO).toString());
         message.limit !== undefined && (obj.limit = (message.limit || helpers_1.Long.UZERO).toString());
-        message.countTotal !== undefined && (obj.countTotal = message.countTotal);
+        message.count_total !== undefined && (obj.count_total = message.count_total);
         message.reverse !== undefined && (obj.reverse = message.reverse);
         return obj;
     },
@@ -108,7 +108,7 @@ exports.PageRequest = {
         message.key = object.key ?? new Uint8Array();
         message.offset = object.offset !== undefined && object.offset !== null ? helpers_1.Long.fromValue(object.offset) : helpers_1.Long.UZERO;
         message.limit = object.limit !== undefined && object.limit !== null ? helpers_1.Long.fromValue(object.limit) : helpers_1.Long.UZERO;
-        message.countTotal = object.countTotal ?? false;
+        message.count_total = object.count_total ?? false;
         message.reverse = object.reverse ?? false;
         return message;
     },
@@ -117,7 +117,7 @@ exports.PageRequest = {
             key: object.key,
             offset: helpers_1.Long.fromString(object.offset),
             limit: helpers_1.Long.fromString(object.limit),
-            countTotal: object.count_total,
+            count_total: object.count_total,
             reverse: object.reverse
         };
     },
@@ -126,7 +126,7 @@ exports.PageRequest = {
         obj.key = message.key;
         obj.offset = message.offset ? message.offset.toString() : undefined;
         obj.limit = message.limit ? message.limit.toString() : undefined;
-        obj.count_total = message.countTotal;
+        obj.count_total = message.count_total;
         obj.reverse = message.reverse;
         return obj;
     },
@@ -154,7 +154,7 @@ exports.PageRequest = {
 };
 function createBasePageResponse() {
     return {
-        nextKey: new Uint8Array(),
+        next_key: new Uint8Array(),
         total: helpers_1.Long.UZERO
     };
 }
@@ -162,8 +162,8 @@ exports.PageResponse = {
     typeUrl: "/cosmos.base.query.v1beta1.PageResponse",
     aminoType: "cosmos-sdk/PageResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.nextKey.length !== 0) {
-            writer.uint32(10).bytes(message.nextKey);
+        if (message.next_key.length !== 0) {
+            writer.uint32(10).bytes(message.next_key);
         }
         if (!message.total.isZero()) {
             writer.uint32(16).uint64(message.total);
@@ -178,7 +178,7 @@ exports.PageResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.nextKey = reader.bytes();
+                    message.next_key = reader.bytes();
                     break;
                 case 2:
                     message.total = reader.uint64();
@@ -192,31 +192,31 @@ exports.PageResponse = {
     },
     fromJSON(object) {
         return {
-            nextKey: (0, helpers_1.isSet)(object.nextKey) ? (0, helpers_1.bytesFromBase64)(object.nextKey) : new Uint8Array(),
+            next_key: (0, helpers_1.isSet)(object.next_key) ? (0, helpers_1.bytesFromBase64)(object.next_key) : new Uint8Array(),
             total: (0, helpers_1.isSet)(object.total) ? helpers_1.Long.fromValue(object.total) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.nextKey !== undefined && (obj.nextKey = (0, helpers_1.base64FromBytes)(message.nextKey !== undefined ? message.nextKey : new Uint8Array()));
+        message.next_key !== undefined && (obj.next_key = (0, helpers_1.base64FromBytes)(message.next_key !== undefined ? message.next_key : new Uint8Array()));
         message.total !== undefined && (obj.total = (message.total || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBasePageResponse();
-        message.nextKey = object.nextKey ?? new Uint8Array();
+        message.next_key = object.next_key ?? new Uint8Array();
         message.total = object.total !== undefined && object.total !== null ? helpers_1.Long.fromValue(object.total) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            nextKey: object.next_key,
+            next_key: object.next_key,
             total: helpers_1.Long.fromString(object.total)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.next_key = message.nextKey;
+        obj.next_key = message.next_key;
         obj.total = message.total ? message.total.toString() : undefined;
         return obj;
     },

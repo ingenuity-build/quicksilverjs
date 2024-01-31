@@ -4,7 +4,7 @@ import { Long, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 function createBaseMsgClaim() {
     return {
-        chainId: "",
+        chain_id: "",
         action: Long.ZERO,
         address: "",
         proofs: []
@@ -13,8 +13,8 @@ function createBaseMsgClaim() {
 export const MsgClaim = {
     typeUrl: "/quicksilver.airdrop.v1.MsgClaim",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (!message.action.isZero()) {
             writer.uint32(16).int64(message.action);
@@ -35,7 +35,7 @@ export const MsgClaim = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.action = reader.int64();
@@ -55,7 +55,7 @@ export const MsgClaim = {
     },
     fromJSON(object) {
         return {
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             action: isSet(object.action) ? Long.fromValue(object.action) : Long.ZERO,
             address: isSet(object.address) ? String(object.address) : "",
             proofs: Array.isArray(object?.proofs) ? object.proofs.map((e) => Proof.fromJSON(e)) : []
@@ -63,7 +63,7 @@ export const MsgClaim = {
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.action !== undefined && (obj.action = (message.action || Long.ZERO).toString());
         message.address !== undefined && (obj.address = message.address);
         if (message.proofs) {
@@ -76,7 +76,7 @@ export const MsgClaim = {
     },
     fromPartial(object) {
         const message = createBaseMsgClaim();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.action = object.action !== undefined && object.action !== null ? Long.fromValue(object.action) : Long.ZERO;
         message.address = object.address ?? "";
         message.proofs = object.proofs?.map(e => Proof.fromPartial(e)) || [];
@@ -84,7 +84,7 @@ export const MsgClaim = {
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             action: Long.fromString(object.action),
             address: object.address,
             proofs: Array.isArray(object?.proofs) ? object.proofs.map((e) => Proof.fromAmino(e)) : []
@@ -92,7 +92,7 @@ export const MsgClaim = {
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.action = message.action ? message.action.toString() : undefined;
         obj.address = message.address;
         if (message.proofs) {
@@ -193,7 +193,7 @@ export const MsgClaimResponse = {
 function createBaseMsgIncentivePoolSpend() {
     return {
         authority: "",
-        toAddress: "",
+        to_address: "",
         amount: []
     };
 }
@@ -203,8 +203,8 @@ export const MsgIncentivePoolSpend = {
         if (message.authority !== "") {
             writer.uint32(10).string(message.authority);
         }
-        if (message.toAddress !== "") {
-            writer.uint32(18).string(message.toAddress);
+        if (message.to_address !== "") {
+            writer.uint32(18).string(message.to_address);
         }
         for (const v of message.amount) {
             Coin.encode(v, writer.uint32(26).fork()).ldelim();
@@ -222,7 +222,7 @@ export const MsgIncentivePoolSpend = {
                     message.authority = reader.string();
                     break;
                 case 2:
-                    message.toAddress = reader.string();
+                    message.to_address = reader.string();
                     break;
                 case 3:
                     message.amount.push(Coin.decode(reader, reader.uint32()));
@@ -237,14 +237,14 @@ export const MsgIncentivePoolSpend = {
     fromJSON(object) {
         return {
             authority: isSet(object.authority) ? String(object.authority) : "",
-            toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+            to_address: isSet(object.to_address) ? String(object.to_address) : "",
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => Coin.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.authority !== undefined && (obj.authority = message.authority);
-        message.toAddress !== undefined && (obj.toAddress = message.toAddress);
+        message.to_address !== undefined && (obj.to_address = message.to_address);
         if (message.amount) {
             obj.amount = message.amount.map(e => e ? Coin.toJSON(e) : undefined);
         }
@@ -256,21 +256,21 @@ export const MsgIncentivePoolSpend = {
     fromPartial(object) {
         const message = createBaseMsgIncentivePoolSpend();
         message.authority = object.authority ?? "";
-        message.toAddress = object.toAddress ?? "";
+        message.to_address = object.to_address ?? "";
         message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             authority: object.authority,
-            toAddress: object.to_address,
+            to_address: object.to_address,
             amount: Array.isArray(object?.amount) ? object.amount.map((e) => Coin.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.authority = message.authority;
-        obj.to_address = message.toAddress;
+        obj.to_address = message.to_address;
         if (message.amount) {
             obj.amount = message.amount.map(e => e ? Coin.toAmino(e) : undefined);
         }

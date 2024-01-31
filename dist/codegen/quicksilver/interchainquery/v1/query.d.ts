@@ -9,10 +9,10 @@ import { DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryRequestsRequest {
     pagination: PageRequest;
-    chainId: string;
+    chain_id: string;
 }
 export interface QueryRequestsRequestProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.QueryRequestsRequest";
+    type_url: "/quicksilver.interchainquery.v1.QueryRequestsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -36,7 +36,7 @@ export interface QueryRequestsResponse {
     pagination: PageResponse;
 }
 export interface QueryRequestsResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.QueryRequestsResponse";
+    type_url: "/quicksilver.interchainquery.v1.QueryRequestsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -62,15 +62,15 @@ export interface GetTxWithProofResponse {
      * deprecated, v1.2.13
      * proof is the tmproto.TxProof for the queried tx
      */
-    txResponse: TxResponse;
+    tx_response: TxResponse;
     proof: TxProof;
     /** ibc-go header to validate txs */
     header: Header;
     /** tx_bytes is the byte representation of the queried tx */
-    txBytes: Uint8Array;
+    tx_bytes: Uint8Array;
 }
 export interface GetTxWithProofResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.GetTxWithProofResponse";
+    type_url: "/quicksilver.interchainquery.v1.GetTxWithProofResponse";
     value: Uint8Array;
 }
 /** GetTxResponse is the response type for the Service.GetTx method. */

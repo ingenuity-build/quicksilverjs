@@ -30,7 +30,7 @@ const helpers_1 = require("../../../helpers");
 function createBaseLegacyAminoPubKey() {
     return {
         threshold: 0,
-        publicKeys: []
+        public_keys: []
     };
 }
 exports.LegacyAminoPubKey = {
@@ -40,7 +40,7 @@ exports.LegacyAminoPubKey = {
         if (message.threshold !== 0) {
             writer.uint32(8).uint32(message.threshold);
         }
-        for (const v of message.publicKeys) {
+        for (const v of message.public_keys) {
             any_1.Any.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
@@ -56,7 +56,7 @@ exports.LegacyAminoPubKey = {
                     message.threshold = reader.uint32();
                     break;
                 case 2:
-                    message.publicKeys.push(any_1.Any.decode(reader, reader.uint32()));
+                    message.public_keys.push(any_1.Any.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -68,37 +68,37 @@ exports.LegacyAminoPubKey = {
     fromJSON(object) {
         return {
             threshold: (0, helpers_1.isSet)(object.threshold) ? Number(object.threshold) : 0,
-            publicKeys: Array.isArray(object?.publicKeys) ? object.publicKeys.map((e) => any_1.Any.fromJSON(e)) : []
+            public_keys: Array.isArray(object?.public_keys) ? object.public_keys.map((e) => any_1.Any.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.threshold !== undefined && (obj.threshold = Math.round(message.threshold));
-        if (message.publicKeys) {
-            obj.publicKeys = message.publicKeys.map(e => e ? any_1.Any.toJSON(e) : undefined);
+        if (message.public_keys) {
+            obj.public_keys = message.public_keys.map(e => e ? any_1.Any.toJSON(e) : undefined);
         }
         else {
-            obj.publicKeys = [];
+            obj.public_keys = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseLegacyAminoPubKey();
         message.threshold = object.threshold ?? 0;
-        message.publicKeys = object.publicKeys?.map(e => any_1.Any.fromPartial(e)) || [];
+        message.public_keys = object.public_keys?.map(e => any_1.Any.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             threshold: object.threshold,
-            publicKeys: Array.isArray(object?.public_keys) ? object.public_keys.map((e) => any_1.Any.fromAmino(e)) : []
+            public_keys: Array.isArray(object?.public_keys) ? object.public_keys.map((e) => any_1.Any.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.threshold = message.threshold;
-        if (message.publicKeys) {
-            obj.public_keys = message.publicKeys.map(e => e ? any_1.Any.toAmino(e) : undefined);
+        if (message.public_keys) {
+            obj.public_keys = message.public_keys.map(e => e ? any_1.Any.toAmino(e) : undefined);
         }
         else {
             obj.public_keys = [];

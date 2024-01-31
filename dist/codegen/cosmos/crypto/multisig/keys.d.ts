@@ -8,10 +8,10 @@ import { DeepPartial } from "../../../helpers";
  */
 export interface LegacyAminoPubKey {
     threshold: number;
-    publicKeys: Any[];
+    public_keys: Any[];
 }
 export interface LegacyAminoPubKeyProtoMsg {
-    typeUrl: "/cosmos.crypto.multisig.LegacyAminoPubKey";
+    type_url: "/cosmos.crypto.multisig.LegacyAminoPubKey";
     value: Uint8Array;
 }
 /**

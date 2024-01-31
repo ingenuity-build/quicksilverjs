@@ -19,7 +19,7 @@ export class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             setPaginationParams(options, params.pagination);
         }
-        const endpoint = `quicksilver/claimsmanager/v1/claims/${params.chainId}`;
+        const endpoint = `quicksilver/claimsmanager/v1/claims/${params.chain_id}`;
         return await this.req.get(endpoint, options);
     }
     /* LastEpochClaims returns all zone claims from the last epoch. */
@@ -33,7 +33,7 @@ export class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             setPaginationParams(options, params.pagination);
         }
-        const endpoint = `quicksilver/claimsmanager/v1/previous_epoch_claims/${params.chainId}`;
+        const endpoint = `quicksilver/claimsmanager/v1/previous_epoch_claims/${params.chain_id}`;
         return await this.req.get(endpoint, options);
     }
     /* UserClaims returns all zone claims for a given address from the current epoch. */
@@ -41,8 +41,8 @@ export class LCDQueryClient {
         const options = {
             params: {}
         };
-        if (typeof params?.chainId !== "undefined") {
-            options.params.chain_id = params.chainId;
+        if (typeof params?.chain_id !== "undefined") {
+            options.params.chain_id = params.chain_id;
         }
         if (typeof params?.pagination !== "undefined") {
             setPaginationParams(options, params.pagination);
@@ -55,8 +55,8 @@ export class LCDQueryClient {
         const options = {
             params: {}
         };
-        if (typeof params?.chainId !== "undefined") {
-            options.params.chain_id = params.chainId;
+        if (typeof params?.chain_id !== "undefined") {
+            options.params.chain_id = params.chain_id;
         }
         if (typeof params?.pagination !== "undefined") {
             setPaginationParams(options, params.pagination);

@@ -26,11 +26,11 @@ export declare function tokenizeShareLockStatusFromJSON(object: any): TokenizeSh
 export declare function tokenizeShareLockStatusToJSON(object: TokenizeShareLockStatus): string;
 /** TokenizeShareRecordReward represents the properties of tokenize share */
 export interface TokenizeShareRecordReward {
-    recordId: Long;
+    record_id: Long;
     reward: DecCoin[];
 }
 export interface TokenizeShareRecordRewardProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.TokenizeShareRecordReward";
+    type_url: "/cosmos.staking.v1beta1.TokenizeShareRecordReward";
     value: Uint8Array;
 }
 /** TokenizeShareRecordReward represents the properties of tokenize share */
@@ -53,10 +53,10 @@ export interface TokenizeShareRecordRewardSDKType {
  * method.
  */
 export interface QueryTokenizeShareRecordRewardRequest {
-    ownerAddress: string;
+    owner_address: string;
 }
 export interface QueryTokenizeShareRecordRewardRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardRequest";
     value: Uint8Array;
 }
 /**
@@ -90,7 +90,7 @@ export interface QueryTokenizeShareRecordRewardResponse {
     total: DecCoin[];
 }
 export interface QueryTokenizeShareRecordRewardResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardResponse";
     value: Uint8Array;
 }
 /**
@@ -120,11 +120,11 @@ export interface QueryTokenizeShareRecordRewardResponseSDKType {
  * specific record
  */
 export interface MsgWithdrawTokenizeShareRecordReward {
-    ownerAddress: string;
-    recordId: Long;
+    owner_address: string;
+    record_id: Long;
 }
 export interface MsgWithdrawTokenizeShareRecordRewardProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordReward";
+    type_url: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordReward";
     value: Uint8Array;
 }
 /**
@@ -154,7 +154,7 @@ export interface MsgWithdrawTokenizeShareRecordRewardSDKType {
 export interface MsgWithdrawTokenizeShareRecordRewardResponse {
 }
 export interface MsgWithdrawTokenizeShareRecordRewardResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordRewardResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordRewardResponse";
     value: Uint8Array;
 }
 /**
@@ -178,10 +178,10 @@ export interface MsgWithdrawTokenizeShareRecordRewardResponseSDKType {
  * all records owned by the designated owner
  */
 export interface MsgWithdrawAllTokenizeShareRecordReward {
-    ownerAddress: string;
+    owner_address: string;
 }
 export interface MsgWithdrawAllTokenizeShareRecordRewardProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordReward";
+    type_url: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordReward";
     value: Uint8Array;
 }
 /**
@@ -209,7 +209,7 @@ export interface MsgWithdrawAllTokenizeShareRecordRewardSDKType {
 export interface MsgWithdrawAllTokenizeShareRecordRewardResponse {
 }
 export interface MsgWithdrawAllTokenizeShareRecordRewardResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordRewardResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordRewardResponse";
     value: Uint8Array;
 }
 /**
@@ -236,7 +236,7 @@ export interface QueryTokenizeShareRecordByIdRequest {
     id: Long;
 }
 export interface QueryTokenizeShareRecordByIdRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdRequest";
     value: Uint8Array;
 }
 /**
@@ -265,7 +265,7 @@ export interface QueryTokenizeShareRecordByIdResponse {
     record: TokenizeShareRecord;
 }
 export interface QueryTokenizeShareRecordByIdResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdResponse";
     value: Uint8Array;
 }
 /**
@@ -294,7 +294,7 @@ export interface QueryTokenizeShareRecordByDenomRequest {
     denom: string;
 }
 export interface QueryTokenizeShareRecordByDenomRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomRequest";
     value: Uint8Array;
 }
 /**
@@ -323,7 +323,7 @@ export interface QueryTokenizeShareRecordByDenomResponse {
     record: TokenizeShareRecord;
 }
 export interface QueryTokenizeShareRecordByDenomResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomResponse";
     value: Uint8Array;
 }
 /**
@@ -352,7 +352,7 @@ export interface QueryTokenizeShareRecordsOwnedRequest {
     owner: string;
 }
 export interface QueryTokenizeShareRecordsOwnedRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedRequest";
     value: Uint8Array;
 }
 /**
@@ -381,7 +381,7 @@ export interface QueryTokenizeShareRecordsOwnedResponse {
     records: TokenizeShareRecord[];
 }
 export interface QueryTokenizeShareRecordsOwnedResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedResponse";
     value: Uint8Array;
 }
 /**
@@ -411,7 +411,7 @@ export interface QueryAllTokenizeShareRecordsRequest {
     pagination: PageRequest;
 }
 export interface QueryAllTokenizeShareRecordsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsRequest";
     value: Uint8Array;
 }
 /**
@@ -443,7 +443,7 @@ export interface QueryAllTokenizeShareRecordsResponse {
     pagination: PageResponse;
 }
 export interface QueryAllTokenizeShareRecordsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsResponse";
     value: Uint8Array;
 }
 /**
@@ -474,7 +474,7 @@ export interface QueryAllTokenizeShareRecordsResponseSDKType {
 export interface QueryLastTokenizeShareRecordIdRequest {
 }
 export interface QueryLastTokenizeShareRecordIdRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdRequest";
     value: Uint8Array;
 }
 /**
@@ -501,7 +501,7 @@ export interface QueryLastTokenizeShareRecordIdResponse {
     id: Long;
 }
 export interface QueryLastTokenizeShareRecordIdResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdResponse";
     value: Uint8Array;
 }
 /**
@@ -529,7 +529,7 @@ export interface QueryLastTokenizeShareRecordIdResponseSDKType {
 export interface QueryTotalTokenizeSharedAssetsRequest {
 }
 export interface QueryTotalTokenizeSharedAssetsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsRequest";
     value: Uint8Array;
 }
 /**
@@ -556,7 +556,7 @@ export interface QueryTotalTokenizeSharedAssetsResponse {
     value: Coin;
 }
 export interface QueryTotalTokenizeSharedAssetsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsResponse";
     value: Uint8Array;
 }
 /**
@@ -584,7 +584,7 @@ export interface QueryTotalTokenizeSharedAssetsResponseSDKType {
 export interface QueryTotalLiquidStaked {
 }
 export interface QueryTotalLiquidStakedProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTotalLiquidStaked";
+    type_url: "/cosmos.staking.v1beta1.QueryTotalLiquidStaked";
     value: Uint8Array;
 }
 /**
@@ -611,7 +611,7 @@ export interface QueryTotalLiquidStakedResponse {
     tokens: string;
 }
 export interface QueryTotalLiquidStakedResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTotalLiquidStakedResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTotalLiquidStakedResponse";
     value: Uint8Array;
 }
 /**
@@ -640,7 +640,7 @@ export interface QueryTokenizeShareLockInfo {
     address: string;
 }
 export interface QueryTokenizeShareLockInfoProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfo";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfo";
     value: Uint8Array;
 }
 /**
@@ -667,10 +667,10 @@ export interface QueryTokenizeShareLockInfoSDKType {
  */
 export interface QueryTokenizeShareLockInfoResponse {
     status: string;
-    expirationTime: string;
+    expiration_time: string;
 }
 export interface QueryTokenizeShareLockInfoResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfoResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfoResponse";
     value: Uint8Array;
 }
 /**
@@ -698,12 +698,12 @@ export interface TokenizeShareRecord {
     id: Long;
     owner: string;
     /** module account take the role of delegator */
-    moduleAccount: string;
+    module_account: string;
     /** validator delegated to for tokenize share record creation */
     validator: string;
 }
 export interface TokenizeShareRecordProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.TokenizeShareRecord";
+    type_url: "/cosmos.staking.v1beta1.TokenizeShareRecord";
     value: Uint8Array;
 }
 /** TokenizeShareRecord represents a tokenized delegation */
@@ -734,7 +734,7 @@ export interface PendingTokenizeShareAuthorizations {
     addresses: string[];
 }
 export interface PendingTokenizeShareAuthorizationsProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.PendingTokenizeShareAuthorizations";
+    type_url: "/cosmos.staking.v1beta1.PendingTokenizeShareAuthorizations";
     value: Uint8Array;
 }
 /**
@@ -760,10 +760,10 @@ export interface PendingTokenizeShareAuthorizationsSDKType {
  * a validator from bonded to unbonded
  */
 export interface MsgUnbondValidator {
-    validatorAddress: string;
+    validator_address: string;
 }
 export interface MsgUnbondValidatorProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgUnbondValidator";
+    type_url: "/cosmos.staking.v1beta1.MsgUnbondValidator";
     value: Uint8Array;
 }
 /**
@@ -788,7 +788,7 @@ export interface MsgUnbondValidatorSDKType {
 export interface MsgUnbondValidatorResponse {
 }
 export interface MsgUnbondValidatorResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgUnbondValidatorResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgUnbondValidatorResponse";
     value: Uint8Array;
 }
 /** MsgUnbondValidatorResponse defines the Msg/UnbondValidator response type. */
@@ -803,13 +803,13 @@ export interface MsgUnbondValidatorResponseSDKType {
 }
 /** MsgTokenizeShares tokenizes a delegation */
 export interface MsgTokenizeShares {
-    delegatorAddress: string;
-    validatorAddress: string;
+    delegator_address: string;
+    validator_address: string;
     amount: Coin;
-    tokenizedShareOwner: string;
+    tokenized_share_owner: string;
 }
 export interface MsgTokenizeSharesProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgTokenizeShares";
+    type_url: "/cosmos.staking.v1beta1.MsgTokenizeShares";
     value: Uint8Array;
 }
 /** MsgTokenizeShares tokenizes a delegation */
@@ -835,7 +835,7 @@ export interface MsgTokenizeSharesResponse {
     amount: Coin;
 }
 export interface MsgTokenizeSharesResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgTokenizeSharesResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgTokenizeSharesResponse";
     value: Uint8Array;
 }
 /** MsgTokenizeSharesResponse defines the Msg/MsgTokenizeShares response type. */
@@ -855,11 +855,11 @@ export interface MsgTokenizeSharesResponseSDKType {
  * delegation
  */
 export interface MsgRedeemTokensForShares {
-    delegatorAddress: string;
+    delegator_address: string;
     amount: Coin;
 }
 export interface MsgRedeemTokensForSharesProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares";
+    type_url: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares";
     value: Uint8Array;
 }
 /**
@@ -890,7 +890,7 @@ export interface MsgRedeemTokensForSharesResponse {
     amount: Coin;
 }
 export interface MsgRedeemTokensForSharesResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForSharesResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgRedeemTokensForSharesResponse";
     value: Uint8Array;
 }
 /**
@@ -913,12 +913,12 @@ export interface MsgRedeemTokensForSharesResponseSDKType {
 }
 /** MsgTransferTokenizeShareRecord transfer a tokenize share record */
 export interface MsgTransferTokenizeShareRecord {
-    tokenizeShareRecordId: Long;
+    tokenize_share_record_id: Long;
     sender: string;
-    newOwner: string;
+    new_owner: string;
 }
 export interface MsgTransferTokenizeShareRecordProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecord";
+    type_url: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecord";
     value: Uint8Array;
 }
 /** MsgTransferTokenizeShareRecord transfer a tokenize share record */
@@ -944,7 +944,7 @@ export interface MsgTransferTokenizeShareRecordSDKType {
 export interface MsgTransferTokenizeShareRecordResponse {
 }
 export interface MsgTransferTokenizeShareRecordResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecordResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecordResponse";
     value: Uint8Array;
 }
 /**
@@ -968,10 +968,10 @@ export interface MsgTransferTokenizeShareRecordResponseSDKType {
  * address
  */
 export interface MsgDisableTokenizeShares {
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface MsgDisableTokenizeSharesProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares";
+    type_url: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares";
     value: Uint8Array;
 }
 /**
@@ -999,7 +999,7 @@ export interface MsgDisableTokenizeSharesSDKType {
 export interface MsgDisableTokenizeSharesResponse {
 }
 export interface MsgDisableTokenizeSharesResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeSharesResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgDisableTokenizeSharesResponse";
     value: Uint8Array;
 }
 /**
@@ -1020,10 +1020,10 @@ export interface MsgDisableTokenizeSharesResponseSDKType {
 }
 /** MsgEnableTokenizeShares re-enables tokenization of shares for a given address */
 export interface MsgEnableTokenizeShares {
-    delegatorAddress: string;
+    delegator_address: string;
 }
 export interface MsgEnableTokenizeSharesProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares";
+    type_url: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares";
     value: Uint8Array;
 }
 /** MsgEnableTokenizeShares re-enables tokenization of shares for a given address */
@@ -1043,10 +1043,10 @@ export interface MsgEnableTokenizeSharesSDKType {
  * type.
  */
 export interface MsgEnableTokenizeSharesResponse {
-    completionTime: Date;
+    completion_time: Date;
 }
 export interface MsgEnableTokenizeSharesResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeSharesResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgEnableTokenizeSharesResponse";
     value: Uint8Array;
 }
 /**
@@ -1072,11 +1072,11 @@ export interface MsgEnableTokenizeSharesResponseSDKType {
  * delegated coins from a delegator to a validator.
  */
 export interface MsgValidatorBond {
-    delegatorAddress: string;
-    validatorAddress: string;
+    delegator_address: string;
+    validator_address: string;
 }
 export interface MsgValidatorBondProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgValidatorBond";
+    type_url: "/cosmos.staking.v1beta1.MsgValidatorBond";
     value: Uint8Array;
 }
 /**
@@ -1103,7 +1103,7 @@ export interface MsgValidatorBondSDKType {
 export interface MsgValidatorBondResponse {
 }
 export interface MsgValidatorBondResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.MsgValidatorBondResponse";
+    type_url: "/cosmos.staking.v1beta1.MsgValidatorBondResponse";
     value: Uint8Array;
 }
 /** MsgValidatorBondResponse defines the Msg/ValidatorBond response type. */

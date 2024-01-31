@@ -4,7 +4,7 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 function createBaseQueryClaimsRequest() {
     return {
-        chainId: "",
+        chain_id: "",
         address: "",
         pagination: PageRequest.fromPartial({})
     };
@@ -12,8 +12,8 @@ function createBaseQueryClaimsRequest() {
 export const QueryClaimsRequest = {
     typeUrl: "/quicksilver.claimsmanager.v1.QueryClaimsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.address !== "") {
             writer.uint32(18).string(message.address);
@@ -31,7 +31,7 @@ export const QueryClaimsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.address = reader.string();
@@ -48,35 +48,35 @@ export const QueryClaimsRequest = {
     },
     fromJSON(object) {
         return {
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             address: isSet(object.address) ? String(object.address) : "",
             pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.address !== undefined && (obj.address = message.address);
         message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClaimsRequest();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.address = object.address ?? "";
         message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             address: object.address,
             pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.address = message.address;
         obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
         return obj;

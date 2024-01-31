@@ -30,7 +30,7 @@ const helpers_1 = require("../../../helpers");
 function createBaseGenesisState() {
     return {
         params: participationrewards_1.Params.fromPartial({}),
-        protocolData: []
+        protocol_data: []
     };
 }
 exports.GenesisState = {
@@ -39,7 +39,7 @@ exports.GenesisState = {
         if (message.params !== undefined) {
             participationrewards_1.Params.encode(message.params, writer.uint32(10).fork()).ldelim();
         }
-        for (const v of message.protocolData) {
+        for (const v of message.protocol_data) {
             participationrewards_1.KeyedProtocolData.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
@@ -55,7 +55,7 @@ exports.GenesisState = {
                     message.params = participationrewards_1.Params.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.protocolData.push(participationrewards_1.KeyedProtocolData.decode(reader, reader.uint32()));
+                    message.protocol_data.push(participationrewards_1.KeyedProtocolData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -67,37 +67,37 @@ exports.GenesisState = {
     fromJSON(object) {
         return {
             params: (0, helpers_1.isSet)(object.params) ? participationrewards_1.Params.fromJSON(object.params) : undefined,
-            protocolData: Array.isArray(object?.protocolData) ? object.protocolData.map((e) => participationrewards_1.KeyedProtocolData.fromJSON(e)) : []
+            protocol_data: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e) => participationrewards_1.KeyedProtocolData.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
         message.params !== undefined && (obj.params = message.params ? participationrewards_1.Params.toJSON(message.params) : undefined);
-        if (message.protocolData) {
-            obj.protocolData = message.protocolData.map(e => e ? participationrewards_1.KeyedProtocolData.toJSON(e) : undefined);
+        if (message.protocol_data) {
+            obj.protocol_data = message.protocol_data.map(e => e ? participationrewards_1.KeyedProtocolData.toJSON(e) : undefined);
         }
         else {
-            obj.protocolData = [];
+            obj.protocol_data = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGenesisState();
         message.params = object.params !== undefined && object.params !== null ? participationrewards_1.Params.fromPartial(object.params) : undefined;
-        message.protocolData = object.protocolData?.map(e => participationrewards_1.KeyedProtocolData.fromPartial(e)) || [];
+        message.protocol_data = object.protocol_data?.map(e => participationrewards_1.KeyedProtocolData.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             params: object?.params ? participationrewards_1.Params.fromAmino(object.params) : undefined,
-            protocolData: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e) => participationrewards_1.KeyedProtocolData.fromAmino(e)) : []
+            protocol_data: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e) => participationrewards_1.KeyedProtocolData.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
         obj.params = message.params ? participationrewards_1.Params.toAmino(message.params) : undefined;
-        if (message.protocolData) {
-            obj.protocol_data = message.protocolData.map(e => e ? participationrewards_1.KeyedProtocolData.toAmino(e) : undefined);
+        if (message.protocol_data) {
+            obj.protocol_data = message.protocol_data.map(e => e ? participationrewards_1.KeyedProtocolData.toAmino(e) : undefined);
         }
         else {
             obj.protocol_data = [];

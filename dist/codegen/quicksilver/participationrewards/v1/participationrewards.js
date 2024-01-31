@@ -148,22 +148,22 @@ function protocolDataTypeToJSON(object) {
 exports.protocolDataTypeToJSON = protocolDataTypeToJSON;
 function createBaseDistributionProportions() {
     return {
-        validatorSelectionAllocation: "",
-        holdingsAllocation: "",
-        lockupAllocation: ""
+        validator_selection_allocation: "",
+        holdings_allocation: "",
+        lockup_allocation: ""
     };
 }
 exports.DistributionProportions = {
     typeUrl: "/quicksilver.participationrewards.v1.DistributionProportions",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorSelectionAllocation !== "") {
-            writer.uint32(10).string(message.validatorSelectionAllocation);
+        if (message.validator_selection_allocation !== "") {
+            writer.uint32(10).string(message.validator_selection_allocation);
         }
-        if (message.holdingsAllocation !== "") {
-            writer.uint32(18).string(message.holdingsAllocation);
+        if (message.holdings_allocation !== "") {
+            writer.uint32(18).string(message.holdings_allocation);
         }
-        if (message.lockupAllocation !== "") {
-            writer.uint32(26).string(message.lockupAllocation);
+        if (message.lockup_allocation !== "") {
+            writer.uint32(26).string(message.lockup_allocation);
         }
         return writer;
     },
@@ -175,13 +175,13 @@ exports.DistributionProportions = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorSelectionAllocation = reader.string();
+                    message.validator_selection_allocation = reader.string();
                     break;
                 case 2:
-                    message.holdingsAllocation = reader.string();
+                    message.holdings_allocation = reader.string();
                     break;
                 case 3:
-                    message.lockupAllocation = reader.string();
+                    message.lockup_allocation = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -192,37 +192,37 @@ exports.DistributionProportions = {
     },
     fromJSON(object) {
         return {
-            validatorSelectionAllocation: (0, helpers_1.isSet)(object.validatorSelectionAllocation) ? String(object.validatorSelectionAllocation) : "",
-            holdingsAllocation: (0, helpers_1.isSet)(object.holdingsAllocation) ? String(object.holdingsAllocation) : "",
-            lockupAllocation: (0, helpers_1.isSet)(object.lockupAllocation) ? String(object.lockupAllocation) : ""
+            validator_selection_allocation: (0, helpers_1.isSet)(object.validator_selection_allocation) ? String(object.validator_selection_allocation) : "",
+            holdings_allocation: (0, helpers_1.isSet)(object.holdings_allocation) ? String(object.holdings_allocation) : "",
+            lockup_allocation: (0, helpers_1.isSet)(object.lockup_allocation) ? String(object.lockup_allocation) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorSelectionAllocation !== undefined && (obj.validatorSelectionAllocation = message.validatorSelectionAllocation);
-        message.holdingsAllocation !== undefined && (obj.holdingsAllocation = message.holdingsAllocation);
-        message.lockupAllocation !== undefined && (obj.lockupAllocation = message.lockupAllocation);
+        message.validator_selection_allocation !== undefined && (obj.validator_selection_allocation = message.validator_selection_allocation);
+        message.holdings_allocation !== undefined && (obj.holdings_allocation = message.holdings_allocation);
+        message.lockup_allocation !== undefined && (obj.lockup_allocation = message.lockup_allocation);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseDistributionProportions();
-        message.validatorSelectionAllocation = object.validatorSelectionAllocation ?? "";
-        message.holdingsAllocation = object.holdingsAllocation ?? "";
-        message.lockupAllocation = object.lockupAllocation ?? "";
+        message.validator_selection_allocation = object.validator_selection_allocation ?? "";
+        message.holdings_allocation = object.holdings_allocation ?? "";
+        message.lockup_allocation = object.lockup_allocation ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorSelectionAllocation: object.validator_selection_allocation,
-            holdingsAllocation: object.holdings_allocation,
-            lockupAllocation: object.lockup_allocation
+            validator_selection_allocation: object.validator_selection_allocation,
+            holdings_allocation: object.holdings_allocation,
+            lockup_allocation: object.lockup_allocation
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_selection_allocation = message.validatorSelectionAllocation;
-        obj.holdings_allocation = message.holdingsAllocation;
-        obj.lockup_allocation = message.lockupAllocation;
+        obj.validator_selection_allocation = message.validator_selection_allocation;
+        obj.holdings_allocation = message.holdings_allocation;
+        obj.lockup_allocation = message.lockup_allocation;
         return obj;
     },
     fromAminoMsg(object) {
@@ -243,18 +243,18 @@ exports.DistributionProportions = {
 };
 function createBaseParams() {
     return {
-        distributionProportions: exports.DistributionProportions.fromPartial({}),
-        claimsEnabled: false
+        distribution_proportions: exports.DistributionProportions.fromPartial({}),
+        claims_enabled: false
     };
 }
 exports.Params = {
     typeUrl: "/quicksilver.participationrewards.v1.Params",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.distributionProportions !== undefined) {
-            exports.DistributionProportions.encode(message.distributionProportions, writer.uint32(10).fork()).ldelim();
+        if (message.distribution_proportions !== undefined) {
+            exports.DistributionProportions.encode(message.distribution_proportions, writer.uint32(10).fork()).ldelim();
         }
-        if (message.claimsEnabled === true) {
-            writer.uint32(16).bool(message.claimsEnabled);
+        if (message.claims_enabled === true) {
+            writer.uint32(16).bool(message.claims_enabled);
         }
         return writer;
     },
@@ -266,10 +266,10 @@ exports.Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.distributionProportions = exports.DistributionProportions.decode(reader, reader.uint32());
+                    message.distribution_proportions = exports.DistributionProportions.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.claimsEnabled = reader.bool();
+                    message.claims_enabled = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -280,32 +280,32 @@ exports.Params = {
     },
     fromJSON(object) {
         return {
-            distributionProportions: (0, helpers_1.isSet)(object.distributionProportions) ? exports.DistributionProportions.fromJSON(object.distributionProportions) : undefined,
-            claimsEnabled: (0, helpers_1.isSet)(object.claimsEnabled) ? Boolean(object.claimsEnabled) : false
+            distribution_proportions: (0, helpers_1.isSet)(object.distribution_proportions) ? exports.DistributionProportions.fromJSON(object.distribution_proportions) : undefined,
+            claims_enabled: (0, helpers_1.isSet)(object.claims_enabled) ? Boolean(object.claims_enabled) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        message.distributionProportions !== undefined && (obj.distributionProportions = message.distributionProportions ? exports.DistributionProportions.toJSON(message.distributionProportions) : undefined);
-        message.claimsEnabled !== undefined && (obj.claimsEnabled = message.claimsEnabled);
+        message.distribution_proportions !== undefined && (obj.distribution_proportions = message.distribution_proportions ? exports.DistributionProportions.toJSON(message.distribution_proportions) : undefined);
+        message.claims_enabled !== undefined && (obj.claims_enabled = message.claims_enabled);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams();
-        message.distributionProportions = object.distributionProportions !== undefined && object.distributionProportions !== null ? exports.DistributionProportions.fromPartial(object.distributionProportions) : undefined;
-        message.claimsEnabled = object.claimsEnabled ?? false;
+        message.distribution_proportions = object.distribution_proportions !== undefined && object.distribution_proportions !== null ? exports.DistributionProportions.fromPartial(object.distribution_proportions) : undefined;
+        message.claims_enabled = object.claims_enabled ?? false;
         return message;
     },
     fromAmino(object) {
         return {
-            distributionProportions: object?.distribution_proportions ? exports.DistributionProportions.fromAmino(object.distribution_proportions) : undefined,
-            claimsEnabled: object.claims_enabled
+            distribution_proportions: object?.distribution_proportions ? exports.DistributionProportions.fromAmino(object.distribution_proportions) : undefined,
+            claims_enabled: object.claims_enabled
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.distribution_proportions = message.distributionProportions ? exports.DistributionProportions.toAmino(message.distributionProportions) : undefined;
-        obj.claims_enabled = message.claimsEnabled;
+        obj.distribution_proportions = message.distribution_proportions ? exports.DistributionProportions.toAmino(message.distribution_proportions) : undefined;
+        obj.claims_enabled = message.claims_enabled;
         return obj;
     },
     fromAminoMsg(object) {
@@ -327,7 +327,7 @@ exports.Params = {
 function createBaseKeyedProtocolData() {
     return {
         key: "",
-        protocolData: exports.ProtocolData.fromPartial({})
+        protocol_data: exports.ProtocolData.fromPartial({})
     };
 }
 exports.KeyedProtocolData = {
@@ -336,8 +336,8 @@ exports.KeyedProtocolData = {
         if (message.key !== "") {
             writer.uint32(10).string(message.key);
         }
-        if (message.protocolData !== undefined) {
-            exports.ProtocolData.encode(message.protocolData, writer.uint32(18).fork()).ldelim();
+        if (message.protocol_data !== undefined) {
+            exports.ProtocolData.encode(message.protocol_data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
@@ -352,7 +352,7 @@ exports.KeyedProtocolData = {
                     message.key = reader.string();
                     break;
                 case 2:
-                    message.protocolData = exports.ProtocolData.decode(reader, reader.uint32());
+                    message.protocol_data = exports.ProtocolData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -364,31 +364,31 @@ exports.KeyedProtocolData = {
     fromJSON(object) {
         return {
             key: (0, helpers_1.isSet)(object.key) ? String(object.key) : "",
-            protocolData: (0, helpers_1.isSet)(object.protocolData) ? exports.ProtocolData.fromJSON(object.protocolData) : undefined
+            protocol_data: (0, helpers_1.isSet)(object.protocol_data) ? exports.ProtocolData.fromJSON(object.protocol_data) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.key !== undefined && (obj.key = message.key);
-        message.protocolData !== undefined && (obj.protocolData = message.protocolData ? exports.ProtocolData.toJSON(message.protocolData) : undefined);
+        message.protocol_data !== undefined && (obj.protocol_data = message.protocol_data ? exports.ProtocolData.toJSON(message.protocol_data) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseKeyedProtocolData();
         message.key = object.key ?? "";
-        message.protocolData = object.protocolData !== undefined && object.protocolData !== null ? exports.ProtocolData.fromPartial(object.protocolData) : undefined;
+        message.protocol_data = object.protocol_data !== undefined && object.protocol_data !== null ? exports.ProtocolData.fromPartial(object.protocol_data) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             key: object.key,
-            protocolData: object?.protocol_data ? exports.ProtocolData.fromAmino(object.protocol_data) : undefined
+            protocol_data: object?.protocol_data ? exports.ProtocolData.fromAmino(object.protocol_data) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.key = message.key;
-        obj.protocol_data = message.protocolData ? exports.ProtocolData.toAmino(message.protocolData) : undefined;
+        obj.protocol_data = message.protocol_data ? exports.ProtocolData.toAmino(message.protocol_data) : undefined;
         return obj;
     },
     fromAminoMsg(object) {

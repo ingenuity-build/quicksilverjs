@@ -14,7 +14,7 @@ class LCDQueryClient {
     }
     /* Connection queries an IBC connection end. */
     async connection(params) {
-        const endpoint = `ibc/core/connection/v1/connections/${params.connectionId}`;
+        const endpoint = `ibc/core/connection/v1/connections/${params.connection_id}`;
         return await this.req.get(endpoint);
     }
     /* Connections queries all the IBC connections of a chain. */
@@ -33,19 +33,19 @@ class LCDQueryClient {
     /* ClientConnections queries the connection paths associated with a client
      state. */
     async clientConnections(params) {
-        const endpoint = `ibc/core/connection/v1/client_connections/${params.clientId}`;
+        const endpoint = `ibc/core/connection/v1/client_connections/${params.client_id}`;
         return await this.req.get(endpoint);
     }
     /* ConnectionClientState queries the client state associated with the
      connection. */
     async connectionClientState(params) {
-        const endpoint = `ibc/core/connection/v1/connections/${params.connectionId}/client_state`;
+        const endpoint = `ibc/core/connection/v1/connections/${params.connection_id}/client_state`;
         return await this.req.get(endpoint);
     }
     /* ConnectionConsensusState queries the consensus state associated with the
      connection. */
     async connectionConsensusState(params) {
-        const endpoint = `ibc/core/connection/v1/connections/${params.connectionId}/consensus_state/revision/${params.revisionNumber}/height/${params.revisionHeight}`;
+        const endpoint = `ibc/core/connection/v1/connections/${params.connection_id}/consensus_state/revision/${params.revision_number}/height/${params.revision_height}`;
         return await this.req.get(endpoint);
     }
 }

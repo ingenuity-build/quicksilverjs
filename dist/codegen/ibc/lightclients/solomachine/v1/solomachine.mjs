@@ -101,9 +101,9 @@ export function dataTypeToJSON(object) {
 function createBaseClientState() {
     return {
         sequence: Long.UZERO,
-        frozenSequence: Long.UZERO,
-        consensusState: ConsensusState.fromPartial({}),
-        allowUpdateAfterProposal: false
+        frozen_sequence: Long.UZERO,
+        consensus_state: ConsensusState.fromPartial({}),
+        allow_update_after_proposal: false
     };
 }
 export const ClientState = {
@@ -113,14 +113,14 @@ export const ClientState = {
         if (!message.sequence.isZero()) {
             writer.uint32(8).uint64(message.sequence);
         }
-        if (!message.frozenSequence.isZero()) {
-            writer.uint32(16).uint64(message.frozenSequence);
+        if (!message.frozen_sequence.isZero()) {
+            writer.uint32(16).uint64(message.frozen_sequence);
         }
-        if (message.consensusState !== undefined) {
-            ConsensusState.encode(message.consensusState, writer.uint32(26).fork()).ldelim();
+        if (message.consensus_state !== undefined) {
+            ConsensusState.encode(message.consensus_state, writer.uint32(26).fork()).ldelim();
         }
-        if (message.allowUpdateAfterProposal === true) {
-            writer.uint32(32).bool(message.allowUpdateAfterProposal);
+        if (message.allow_update_after_proposal === true) {
+            writer.uint32(32).bool(message.allow_update_after_proposal);
         }
         return writer;
     },
@@ -135,13 +135,13 @@ export const ClientState = {
                     message.sequence = reader.uint64();
                     break;
                 case 2:
-                    message.frozenSequence = reader.uint64();
+                    message.frozen_sequence = reader.uint64();
                     break;
                 case 3:
-                    message.consensusState = ConsensusState.decode(reader, reader.uint32());
+                    message.consensus_state = ConsensusState.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.allowUpdateAfterProposal = reader.bool();
+                    message.allow_update_after_proposal = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -153,41 +153,41 @@ export const ClientState = {
     fromJSON(object) {
         return {
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO,
-            frozenSequence: isSet(object.frozenSequence) ? Long.fromValue(object.frozenSequence) : Long.UZERO,
-            consensusState: isSet(object.consensusState) ? ConsensusState.fromJSON(object.consensusState) : undefined,
-            allowUpdateAfterProposal: isSet(object.allowUpdateAfterProposal) ? Boolean(object.allowUpdateAfterProposal) : false
+            frozen_sequence: isSet(object.frozen_sequence) ? Long.fromValue(object.frozen_sequence) : Long.UZERO,
+            consensus_state: isSet(object.consensus_state) ? ConsensusState.fromJSON(object.consensus_state) : undefined,
+            allow_update_after_proposal: isSet(object.allow_update_after_proposal) ? Boolean(object.allow_update_after_proposal) : false
         };
     },
     toJSON(message) {
         const obj = {};
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
-        message.frozenSequence !== undefined && (obj.frozenSequence = (message.frozenSequence || Long.UZERO).toString());
-        message.consensusState !== undefined && (obj.consensusState = message.consensusState ? ConsensusState.toJSON(message.consensusState) : undefined);
-        message.allowUpdateAfterProposal !== undefined && (obj.allowUpdateAfterProposal = message.allowUpdateAfterProposal);
+        message.frozen_sequence !== undefined && (obj.frozen_sequence = (message.frozen_sequence || Long.UZERO).toString());
+        message.consensus_state !== undefined && (obj.consensus_state = message.consensus_state ? ConsensusState.toJSON(message.consensus_state) : undefined);
+        message.allow_update_after_proposal !== undefined && (obj.allow_update_after_proposal = message.allow_update_after_proposal);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseClientState();
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
-        message.frozenSequence = object.frozenSequence !== undefined && object.frozenSequence !== null ? Long.fromValue(object.frozenSequence) : Long.UZERO;
-        message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? ConsensusState.fromPartial(object.consensusState) : undefined;
-        message.allowUpdateAfterProposal = object.allowUpdateAfterProposal ?? false;
+        message.frozen_sequence = object.frozen_sequence !== undefined && object.frozen_sequence !== null ? Long.fromValue(object.frozen_sequence) : Long.UZERO;
+        message.consensus_state = object.consensus_state !== undefined && object.consensus_state !== null ? ConsensusState.fromPartial(object.consensus_state) : undefined;
+        message.allow_update_after_proposal = object.allow_update_after_proposal ?? false;
         return message;
     },
     fromAmino(object) {
         return {
             sequence: Long.fromString(object.sequence),
-            frozenSequence: Long.fromString(object.frozen_sequence),
-            consensusState: object?.consensus_state ? ConsensusState.fromAmino(object.consensus_state) : undefined,
-            allowUpdateAfterProposal: object.allow_update_after_proposal
+            frozen_sequence: Long.fromString(object.frozen_sequence),
+            consensus_state: object?.consensus_state ? ConsensusState.fromAmino(object.consensus_state) : undefined,
+            allow_update_after_proposal: object.allow_update_after_proposal
         };
     },
     toAmino(message) {
         const obj = {};
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
-        obj.frozen_sequence = message.frozenSequence ? message.frozenSequence.toString() : undefined;
-        obj.consensus_state = message.consensusState ? ConsensusState.toAmino(message.consensusState) : undefined;
-        obj.allow_update_after_proposal = message.allowUpdateAfterProposal;
+        obj.frozen_sequence = message.frozen_sequence ? message.frozen_sequence.toString() : undefined;
+        obj.consensus_state = message.consensus_state ? ConsensusState.toAmino(message.consensus_state) : undefined;
+        obj.allow_update_after_proposal = message.allow_update_after_proposal;
         return obj;
     },
     fromAminoMsg(object) {
@@ -214,7 +214,7 @@ export const ClientState = {
 };
 function createBaseConsensusState() {
     return {
-        publicKey: Any.fromPartial({}),
+        public_key: Any.fromPartial({}),
         diversifier: "",
         timestamp: Long.UZERO
     };
@@ -223,8 +223,8 @@ export const ConsensusState = {
     typeUrl: "/ibc.lightclients.solomachine.v1.ConsensusState",
     aminoType: "cosmos-sdk/ConsensusState",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.publicKey !== undefined) {
-            Any.encode(message.publicKey, writer.uint32(10).fork()).ldelim();
+        if (message.public_key !== undefined) {
+            Any.encode(message.public_key, writer.uint32(10).fork()).ldelim();
         }
         if (message.diversifier !== "") {
             writer.uint32(18).string(message.diversifier);
@@ -242,7 +242,7 @@ export const ConsensusState = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.publicKey = Any.decode(reader, reader.uint32());
+                    message.public_key = Any.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.diversifier = reader.string();
@@ -259,35 +259,35 @@ export const ConsensusState = {
     },
     fromJSON(object) {
         return {
-            publicKey: isSet(object.publicKey) ? Any.fromJSON(object.publicKey) : undefined,
+            public_key: isSet(object.public_key) ? Any.fromJSON(object.public_key) : undefined,
             diversifier: isSet(object.diversifier) ? String(object.diversifier) : "",
             timestamp: isSet(object.timestamp) ? Long.fromValue(object.timestamp) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.publicKey !== undefined && (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
+        message.public_key !== undefined && (obj.public_key = message.public_key ? Any.toJSON(message.public_key) : undefined);
         message.diversifier !== undefined && (obj.diversifier = message.diversifier);
         message.timestamp !== undefined && (obj.timestamp = (message.timestamp || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseConsensusState();
-        message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
+        message.public_key = object.public_key !== undefined && object.public_key !== null ? Any.fromPartial(object.public_key) : undefined;
         message.diversifier = object.diversifier ?? "";
         message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Long.fromValue(object.timestamp) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined,
+            public_key: object?.public_key ? Any.fromAmino(object.public_key) : undefined,
             diversifier: object.diversifier,
             timestamp: Long.fromString(object.timestamp)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.public_key = message.publicKey ? Any.toAmino(message.publicKey) : undefined;
+        obj.public_key = message.public_key ? Any.toAmino(message.public_key) : undefined;
         obj.diversifier = message.diversifier;
         obj.timestamp = message.timestamp ? message.timestamp.toString() : undefined;
         return obj;
@@ -319,8 +319,8 @@ function createBaseHeader() {
         sequence: Long.UZERO,
         timestamp: Long.UZERO,
         signature: new Uint8Array(),
-        newPublicKey: Any.fromPartial({}),
-        newDiversifier: ""
+        new_public_key: Any.fromPartial({}),
+        new_diversifier: ""
     };
 }
 export const Header = {
@@ -336,11 +336,11 @@ export const Header = {
         if (message.signature.length !== 0) {
             writer.uint32(26).bytes(message.signature);
         }
-        if (message.newPublicKey !== undefined) {
-            Any.encode(message.newPublicKey, writer.uint32(34).fork()).ldelim();
+        if (message.new_public_key !== undefined) {
+            Any.encode(message.new_public_key, writer.uint32(34).fork()).ldelim();
         }
-        if (message.newDiversifier !== "") {
-            writer.uint32(42).string(message.newDiversifier);
+        if (message.new_diversifier !== "") {
+            writer.uint32(42).string(message.new_diversifier);
         }
         return writer;
     },
@@ -361,10 +361,10 @@ export const Header = {
                     message.signature = reader.bytes();
                     break;
                 case 4:
-                    message.newPublicKey = Any.decode(reader, reader.uint32());
+                    message.new_public_key = Any.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.newDiversifier = reader.string();
+                    message.new_diversifier = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -378,8 +378,8 @@ export const Header = {
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO,
             timestamp: isSet(object.timestamp) ? Long.fromValue(object.timestamp) : Long.UZERO,
             signature: isSet(object.signature) ? bytesFromBase64(object.signature) : new Uint8Array(),
-            newPublicKey: isSet(object.newPublicKey) ? Any.fromJSON(object.newPublicKey) : undefined,
-            newDiversifier: isSet(object.newDiversifier) ? String(object.newDiversifier) : ""
+            new_public_key: isSet(object.new_public_key) ? Any.fromJSON(object.new_public_key) : undefined,
+            new_diversifier: isSet(object.new_diversifier) ? String(object.new_diversifier) : ""
         };
     },
     toJSON(message) {
@@ -387,8 +387,8 @@ export const Header = {
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
         message.timestamp !== undefined && (obj.timestamp = (message.timestamp || Long.UZERO).toString());
         message.signature !== undefined && (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array()));
-        message.newPublicKey !== undefined && (obj.newPublicKey = message.newPublicKey ? Any.toJSON(message.newPublicKey) : undefined);
-        message.newDiversifier !== undefined && (obj.newDiversifier = message.newDiversifier);
+        message.new_public_key !== undefined && (obj.new_public_key = message.new_public_key ? Any.toJSON(message.new_public_key) : undefined);
+        message.new_diversifier !== undefined && (obj.new_diversifier = message.new_diversifier);
         return obj;
     },
     fromPartial(object) {
@@ -396,8 +396,8 @@ export const Header = {
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
         message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Long.fromValue(object.timestamp) : Long.UZERO;
         message.signature = object.signature ?? new Uint8Array();
-        message.newPublicKey = object.newPublicKey !== undefined && object.newPublicKey !== null ? Any.fromPartial(object.newPublicKey) : undefined;
-        message.newDiversifier = object.newDiversifier ?? "";
+        message.new_public_key = object.new_public_key !== undefined && object.new_public_key !== null ? Any.fromPartial(object.new_public_key) : undefined;
+        message.new_diversifier = object.new_diversifier ?? "";
         return message;
     },
     fromAmino(object) {
@@ -405,8 +405,8 @@ export const Header = {
             sequence: Long.fromString(object.sequence),
             timestamp: Long.fromString(object.timestamp),
             signature: object.signature,
-            newPublicKey: object?.new_public_key ? Any.fromAmino(object.new_public_key) : undefined,
-            newDiversifier: object.new_diversifier
+            new_public_key: object?.new_public_key ? Any.fromAmino(object.new_public_key) : undefined,
+            new_diversifier: object.new_diversifier
         };
     },
     toAmino(message) {
@@ -414,8 +414,8 @@ export const Header = {
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         obj.timestamp = message.timestamp ? message.timestamp.toString() : undefined;
         obj.signature = message.signature;
-        obj.new_public_key = message.newPublicKey ? Any.toAmino(message.newPublicKey) : undefined;
-        obj.new_diversifier = message.newDiversifier;
+        obj.new_public_key = message.new_public_key ? Any.toAmino(message.new_public_key) : undefined;
+        obj.new_diversifier = message.new_diversifier;
         return obj;
     },
     fromAminoMsg(object) {
@@ -442,27 +442,27 @@ export const Header = {
 };
 function createBaseMisbehaviour() {
     return {
-        clientId: "",
+        client_id: "",
         sequence: Long.UZERO,
-        signatureOne: SignatureAndData.fromPartial({}),
-        signatureTwo: SignatureAndData.fromPartial({})
+        signature_one: SignatureAndData.fromPartial({}),
+        signature_two: SignatureAndData.fromPartial({})
     };
 }
 export const Misbehaviour = {
     typeUrl: "/ibc.lightclients.solomachine.v1.Misbehaviour",
     aminoType: "cosmos-sdk/Misbehaviour",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(10).string(message.client_id);
         }
         if (!message.sequence.isZero()) {
             writer.uint32(16).uint64(message.sequence);
         }
-        if (message.signatureOne !== undefined) {
-            SignatureAndData.encode(message.signatureOne, writer.uint32(26).fork()).ldelim();
+        if (message.signature_one !== undefined) {
+            SignatureAndData.encode(message.signature_one, writer.uint32(26).fork()).ldelim();
         }
-        if (message.signatureTwo !== undefined) {
-            SignatureAndData.encode(message.signatureTwo, writer.uint32(34).fork()).ldelim();
+        if (message.signature_two !== undefined) {
+            SignatureAndData.encode(message.signature_two, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -474,16 +474,16 @@ export const Misbehaviour = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 2:
                     message.sequence = reader.uint64();
                     break;
                 case 3:
-                    message.signatureOne = SignatureAndData.decode(reader, reader.uint32());
+                    message.signature_one = SignatureAndData.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.signatureTwo = SignatureAndData.decode(reader, reader.uint32());
+                    message.signature_two = SignatureAndData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -494,42 +494,42 @@ export const Misbehaviour = {
     },
     fromJSON(object) {
         return {
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO,
-            signatureOne: isSet(object.signatureOne) ? SignatureAndData.fromJSON(object.signatureOne) : undefined,
-            signatureTwo: isSet(object.signatureTwo) ? SignatureAndData.fromJSON(object.signatureTwo) : undefined
+            signature_one: isSet(object.signature_one) ? SignatureAndData.fromJSON(object.signature_one) : undefined,
+            signature_two: isSet(object.signature_two) ? SignatureAndData.fromJSON(object.signature_two) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
-        message.signatureOne !== undefined && (obj.signatureOne = message.signatureOne ? SignatureAndData.toJSON(message.signatureOne) : undefined);
-        message.signatureTwo !== undefined && (obj.signatureTwo = message.signatureTwo ? SignatureAndData.toJSON(message.signatureTwo) : undefined);
+        message.signature_one !== undefined && (obj.signature_one = message.signature_one ? SignatureAndData.toJSON(message.signature_one) : undefined);
+        message.signature_two !== undefined && (obj.signature_two = message.signature_two ? SignatureAndData.toJSON(message.signature_two) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMisbehaviour();
-        message.clientId = object.clientId ?? "";
+        message.client_id = object.client_id ?? "";
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
-        message.signatureOne = object.signatureOne !== undefined && object.signatureOne !== null ? SignatureAndData.fromPartial(object.signatureOne) : undefined;
-        message.signatureTwo = object.signatureTwo !== undefined && object.signatureTwo !== null ? SignatureAndData.fromPartial(object.signatureTwo) : undefined;
+        message.signature_one = object.signature_one !== undefined && object.signature_one !== null ? SignatureAndData.fromPartial(object.signature_one) : undefined;
+        message.signature_two = object.signature_two !== undefined && object.signature_two !== null ? SignatureAndData.fromPartial(object.signature_two) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            clientId: object.client_id,
+            client_id: object.client_id,
             sequence: Long.fromString(object.sequence),
-            signatureOne: object?.signature_one ? SignatureAndData.fromAmino(object.signature_one) : undefined,
-            signatureTwo: object?.signature_two ? SignatureAndData.fromAmino(object.signature_two) : undefined
+            signature_one: object?.signature_one ? SignatureAndData.fromAmino(object.signature_one) : undefined,
+            signature_two: object?.signature_two ? SignatureAndData.fromAmino(object.signature_two) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.client_id = message.clientId;
+        obj.client_id = message.client_id;
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
-        obj.signature_one = message.signatureOne ? SignatureAndData.toAmino(message.signatureOne) : undefined;
-        obj.signature_two = message.signatureTwo ? SignatureAndData.toAmino(message.signatureTwo) : undefined;
+        obj.signature_one = message.signature_one ? SignatureAndData.toAmino(message.signature_one) : undefined;
+        obj.signature_two = message.signature_two ? SignatureAndData.toAmino(message.signature_two) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -557,7 +557,7 @@ export const Misbehaviour = {
 function createBaseSignatureAndData() {
     return {
         signature: new Uint8Array(),
-        dataType: 0,
+        data_type: 0,
         data: new Uint8Array(),
         timestamp: Long.UZERO
     };
@@ -569,8 +569,8 @@ export const SignatureAndData = {
         if (message.signature.length !== 0) {
             writer.uint32(10).bytes(message.signature);
         }
-        if (message.dataType !== 0) {
-            writer.uint32(16).int32(message.dataType);
+        if (message.data_type !== 0) {
+            writer.uint32(16).int32(message.data_type);
         }
         if (message.data.length !== 0) {
             writer.uint32(26).bytes(message.data);
@@ -591,7 +591,7 @@ export const SignatureAndData = {
                     message.signature = reader.bytes();
                     break;
                 case 2:
-                    message.dataType = reader.int32();
+                    message.data_type = reader.int32();
                     break;
                 case 3:
                     message.data = reader.bytes();
@@ -609,7 +609,7 @@ export const SignatureAndData = {
     fromJSON(object) {
         return {
             signature: isSet(object.signature) ? bytesFromBase64(object.signature) : new Uint8Array(),
-            dataType: isSet(object.dataType) ? dataTypeFromJSON(object.dataType) : -1,
+            data_type: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
             data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(),
             timestamp: isSet(object.timestamp) ? Long.fromValue(object.timestamp) : Long.UZERO
         };
@@ -617,7 +617,7 @@ export const SignatureAndData = {
     toJSON(message) {
         const obj = {};
         message.signature !== undefined && (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array()));
-        message.dataType !== undefined && (obj.dataType = dataTypeToJSON(message.dataType));
+        message.data_type !== undefined && (obj.data_type = dataTypeToJSON(message.data_type));
         message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
         message.timestamp !== undefined && (obj.timestamp = (message.timestamp || Long.UZERO).toString());
         return obj;
@@ -625,7 +625,7 @@ export const SignatureAndData = {
     fromPartial(object) {
         const message = createBaseSignatureAndData();
         message.signature = object.signature ?? new Uint8Array();
-        message.dataType = object.dataType ?? 0;
+        message.data_type = object.data_type ?? 0;
         message.data = object.data ?? new Uint8Array();
         message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Long.fromValue(object.timestamp) : Long.UZERO;
         return message;
@@ -633,7 +633,7 @@ export const SignatureAndData = {
     fromAmino(object) {
         return {
             signature: object.signature,
-            dataType: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
+            data_type: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
             data: object.data,
             timestamp: Long.fromString(object.timestamp)
         };
@@ -641,7 +641,7 @@ export const SignatureAndData = {
     toAmino(message) {
         const obj = {};
         obj.signature = message.signature;
-        obj.data_type = message.dataType;
+        obj.data_type = message.data_type;
         obj.data = message.data;
         obj.timestamp = message.timestamp ? message.timestamp.toString() : undefined;
         return obj;
@@ -670,7 +670,7 @@ export const SignatureAndData = {
 };
 function createBaseTimestampedSignatureData() {
     return {
-        signatureData: new Uint8Array(),
+        signature_data: new Uint8Array(),
         timestamp: Long.UZERO
     };
 }
@@ -678,8 +678,8 @@ export const TimestampedSignatureData = {
     typeUrl: "/ibc.lightclients.solomachine.v1.TimestampedSignatureData",
     aminoType: "cosmos-sdk/TimestampedSignatureData",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.signatureData.length !== 0) {
-            writer.uint32(10).bytes(message.signatureData);
+        if (message.signature_data.length !== 0) {
+            writer.uint32(10).bytes(message.signature_data);
         }
         if (!message.timestamp.isZero()) {
             writer.uint32(16).uint64(message.timestamp);
@@ -694,7 +694,7 @@ export const TimestampedSignatureData = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.signatureData = reader.bytes();
+                    message.signature_data = reader.bytes();
                     break;
                 case 2:
                     message.timestamp = reader.uint64();
@@ -708,31 +708,31 @@ export const TimestampedSignatureData = {
     },
     fromJSON(object) {
         return {
-            signatureData: isSet(object.signatureData) ? bytesFromBase64(object.signatureData) : new Uint8Array(),
+            signature_data: isSet(object.signature_data) ? bytesFromBase64(object.signature_data) : new Uint8Array(),
             timestamp: isSet(object.timestamp) ? Long.fromValue(object.timestamp) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.signatureData !== undefined && (obj.signatureData = base64FromBytes(message.signatureData !== undefined ? message.signatureData : new Uint8Array()));
+        message.signature_data !== undefined && (obj.signature_data = base64FromBytes(message.signature_data !== undefined ? message.signature_data : new Uint8Array()));
         message.timestamp !== undefined && (obj.timestamp = (message.timestamp || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseTimestampedSignatureData();
-        message.signatureData = object.signatureData ?? new Uint8Array();
+        message.signature_data = object.signature_data ?? new Uint8Array();
         message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Long.fromValue(object.timestamp) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            signatureData: object.signature_data,
+            signature_data: object.signature_data,
             timestamp: Long.fromString(object.timestamp)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.signature_data = message.signatureData;
+        obj.signature_data = message.signature_data;
         obj.timestamp = message.timestamp ? message.timestamp.toString() : undefined;
         return obj;
     },
@@ -763,7 +763,7 @@ function createBaseSignBytes() {
         sequence: Long.UZERO,
         timestamp: Long.UZERO,
         diversifier: "",
-        dataType: 0,
+        data_type: 0,
         data: new Uint8Array()
     };
 }
@@ -780,8 +780,8 @@ export const SignBytes = {
         if (message.diversifier !== "") {
             writer.uint32(26).string(message.diversifier);
         }
-        if (message.dataType !== 0) {
-            writer.uint32(32).int32(message.dataType);
+        if (message.data_type !== 0) {
+            writer.uint32(32).int32(message.data_type);
         }
         if (message.data.length !== 0) {
             writer.uint32(42).bytes(message.data);
@@ -805,7 +805,7 @@ export const SignBytes = {
                     message.diversifier = reader.string();
                     break;
                 case 4:
-                    message.dataType = reader.int32();
+                    message.data_type = reader.int32();
                     break;
                 case 5:
                     message.data = reader.bytes();
@@ -822,7 +822,7 @@ export const SignBytes = {
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO,
             timestamp: isSet(object.timestamp) ? Long.fromValue(object.timestamp) : Long.UZERO,
             diversifier: isSet(object.diversifier) ? String(object.diversifier) : "",
-            dataType: isSet(object.dataType) ? dataTypeFromJSON(object.dataType) : -1,
+            data_type: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
             data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array()
         };
     },
@@ -831,7 +831,7 @@ export const SignBytes = {
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
         message.timestamp !== undefined && (obj.timestamp = (message.timestamp || Long.UZERO).toString());
         message.diversifier !== undefined && (obj.diversifier = message.diversifier);
-        message.dataType !== undefined && (obj.dataType = dataTypeToJSON(message.dataType));
+        message.data_type !== undefined && (obj.data_type = dataTypeToJSON(message.data_type));
         message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
         return obj;
     },
@@ -840,7 +840,7 @@ export const SignBytes = {
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
         message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Long.fromValue(object.timestamp) : Long.UZERO;
         message.diversifier = object.diversifier ?? "";
-        message.dataType = object.dataType ?? 0;
+        message.data_type = object.data_type ?? 0;
         message.data = object.data ?? new Uint8Array();
         return message;
     },
@@ -849,7 +849,7 @@ export const SignBytes = {
             sequence: Long.fromString(object.sequence),
             timestamp: Long.fromString(object.timestamp),
             diversifier: object.diversifier,
-            dataType: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
+            data_type: isSet(object.data_type) ? dataTypeFromJSON(object.data_type) : -1,
             data: object.data
         };
     },
@@ -858,7 +858,7 @@ export const SignBytes = {
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         obj.timestamp = message.timestamp ? message.timestamp.toString() : undefined;
         obj.diversifier = message.diversifier;
-        obj.data_type = message.dataType;
+        obj.data_type = message.data_type;
         obj.data = message.data;
         return obj;
     },
@@ -886,19 +886,19 @@ export const SignBytes = {
 };
 function createBaseHeaderData() {
     return {
-        newPubKey: Any.fromPartial({}),
-        newDiversifier: ""
+        new_pub_key: Any.fromPartial({}),
+        new_diversifier: ""
     };
 }
 export const HeaderData = {
     typeUrl: "/ibc.lightclients.solomachine.v1.HeaderData",
     aminoType: "cosmos-sdk/HeaderData",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.newPubKey !== undefined) {
-            Any.encode(message.newPubKey, writer.uint32(10).fork()).ldelim();
+        if (message.new_pub_key !== undefined) {
+            Any.encode(message.new_pub_key, writer.uint32(10).fork()).ldelim();
         }
-        if (message.newDiversifier !== "") {
-            writer.uint32(18).string(message.newDiversifier);
+        if (message.new_diversifier !== "") {
+            writer.uint32(18).string(message.new_diversifier);
         }
         return writer;
     },
@@ -910,10 +910,10 @@ export const HeaderData = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.newPubKey = Any.decode(reader, reader.uint32());
+                    message.new_pub_key = Any.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.newDiversifier = reader.string();
+                    message.new_diversifier = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -924,32 +924,32 @@ export const HeaderData = {
     },
     fromJSON(object) {
         return {
-            newPubKey: isSet(object.newPubKey) ? Any.fromJSON(object.newPubKey) : undefined,
-            newDiversifier: isSet(object.newDiversifier) ? String(object.newDiversifier) : ""
+            new_pub_key: isSet(object.new_pub_key) ? Any.fromJSON(object.new_pub_key) : undefined,
+            new_diversifier: isSet(object.new_diversifier) ? String(object.new_diversifier) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.newPubKey !== undefined && (obj.newPubKey = message.newPubKey ? Any.toJSON(message.newPubKey) : undefined);
-        message.newDiversifier !== undefined && (obj.newDiversifier = message.newDiversifier);
+        message.new_pub_key !== undefined && (obj.new_pub_key = message.new_pub_key ? Any.toJSON(message.new_pub_key) : undefined);
+        message.new_diversifier !== undefined && (obj.new_diversifier = message.new_diversifier);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseHeaderData();
-        message.newPubKey = object.newPubKey !== undefined && object.newPubKey !== null ? Any.fromPartial(object.newPubKey) : undefined;
-        message.newDiversifier = object.newDiversifier ?? "";
+        message.new_pub_key = object.new_pub_key !== undefined && object.new_pub_key !== null ? Any.fromPartial(object.new_pub_key) : undefined;
+        message.new_diversifier = object.new_diversifier ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            newPubKey: object?.new_pub_key ? Any.fromAmino(object.new_pub_key) : undefined,
-            newDiversifier: object.new_diversifier
+            new_pub_key: object?.new_pub_key ? Any.fromAmino(object.new_pub_key) : undefined,
+            new_diversifier: object.new_diversifier
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.new_pub_key = message.newPubKey ? Any.toAmino(message.newPubKey) : undefined;
-        obj.new_diversifier = message.newDiversifier;
+        obj.new_pub_key = message.new_pub_key ? Any.toAmino(message.new_pub_key) : undefined;
+        obj.new_diversifier = message.new_diversifier;
         return obj;
     },
     fromAminoMsg(object) {
@@ -977,7 +977,7 @@ export const HeaderData = {
 function createBaseClientStateData() {
     return {
         path: new Uint8Array(),
-        clientState: Any.fromPartial({})
+        client_state: Any.fromPartial({})
     };
 }
 export const ClientStateData = {
@@ -987,8 +987,8 @@ export const ClientStateData = {
         if (message.path.length !== 0) {
             writer.uint32(10).bytes(message.path);
         }
-        if (message.clientState !== undefined) {
-            Any.encode(message.clientState, writer.uint32(18).fork()).ldelim();
+        if (message.client_state !== undefined) {
+            Any.encode(message.client_state, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
@@ -1003,7 +1003,7 @@ export const ClientStateData = {
                     message.path = reader.bytes();
                     break;
                 case 2:
-                    message.clientState = Any.decode(reader, reader.uint32());
+                    message.client_state = Any.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1015,31 +1015,31 @@ export const ClientStateData = {
     fromJSON(object) {
         return {
             path: isSet(object.path) ? bytesFromBase64(object.path) : new Uint8Array(),
-            clientState: isSet(object.clientState) ? Any.fromJSON(object.clientState) : undefined
+            client_state: isSet(object.client_state) ? Any.fromJSON(object.client_state) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.path !== undefined && (obj.path = base64FromBytes(message.path !== undefined ? message.path : new Uint8Array()));
-        message.clientState !== undefined && (obj.clientState = message.clientState ? Any.toJSON(message.clientState) : undefined);
+        message.client_state !== undefined && (obj.client_state = message.client_state ? Any.toJSON(message.client_state) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseClientStateData();
         message.path = object.path ?? new Uint8Array();
-        message.clientState = object.clientState !== undefined && object.clientState !== null ? Any.fromPartial(object.clientState) : undefined;
+        message.client_state = object.client_state !== undefined && object.client_state !== null ? Any.fromPartial(object.client_state) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             path: object.path,
-            clientState: object?.client_state ? Any.fromAmino(object.client_state) : undefined
+            client_state: object?.client_state ? Any.fromAmino(object.client_state) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.path = message.path;
-        obj.client_state = message.clientState ? Any.toAmino(message.clientState) : undefined;
+        obj.client_state = message.client_state ? Any.toAmino(message.client_state) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1067,7 +1067,7 @@ export const ClientStateData = {
 function createBaseConsensusStateData() {
     return {
         path: new Uint8Array(),
-        consensusState: Any.fromPartial({})
+        consensus_state: Any.fromPartial({})
     };
 }
 export const ConsensusStateData = {
@@ -1077,8 +1077,8 @@ export const ConsensusStateData = {
         if (message.path.length !== 0) {
             writer.uint32(10).bytes(message.path);
         }
-        if (message.consensusState !== undefined) {
-            Any.encode(message.consensusState, writer.uint32(18).fork()).ldelim();
+        if (message.consensus_state !== undefined) {
+            Any.encode(message.consensus_state, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
@@ -1093,7 +1093,7 @@ export const ConsensusStateData = {
                     message.path = reader.bytes();
                     break;
                 case 2:
-                    message.consensusState = Any.decode(reader, reader.uint32());
+                    message.consensus_state = Any.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1105,31 +1105,31 @@ export const ConsensusStateData = {
     fromJSON(object) {
         return {
             path: isSet(object.path) ? bytesFromBase64(object.path) : new Uint8Array(),
-            consensusState: isSet(object.consensusState) ? Any.fromJSON(object.consensusState) : undefined
+            consensus_state: isSet(object.consensus_state) ? Any.fromJSON(object.consensus_state) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.path !== undefined && (obj.path = base64FromBytes(message.path !== undefined ? message.path : new Uint8Array()));
-        message.consensusState !== undefined && (obj.consensusState = message.consensusState ? Any.toJSON(message.consensusState) : undefined);
+        message.consensus_state !== undefined && (obj.consensus_state = message.consensus_state ? Any.toJSON(message.consensus_state) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseConsensusStateData();
         message.path = object.path ?? new Uint8Array();
-        message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? Any.fromPartial(object.consensusState) : undefined;
+        message.consensus_state = object.consensus_state !== undefined && object.consensus_state !== null ? Any.fromPartial(object.consensus_state) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             path: object.path,
-            consensusState: object?.consensus_state ? Any.fromAmino(object.consensus_state) : undefined
+            consensus_state: object?.consensus_state ? Any.fromAmino(object.consensus_state) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.path = message.path;
-        obj.consensus_state = message.consensusState ? Any.toAmino(message.consensusState) : undefined;
+        obj.consensus_state = message.consensus_state ? Any.toAmino(message.consensus_state) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1595,7 +1595,7 @@ export const PacketReceiptAbsenceData = {
 function createBaseNextSequenceRecvData() {
     return {
         path: new Uint8Array(),
-        nextSeqRecv: Long.UZERO
+        next_seq_recv: Long.UZERO
     };
 }
 export const NextSequenceRecvData = {
@@ -1605,8 +1605,8 @@ export const NextSequenceRecvData = {
         if (message.path.length !== 0) {
             writer.uint32(10).bytes(message.path);
         }
-        if (!message.nextSeqRecv.isZero()) {
-            writer.uint32(16).uint64(message.nextSeqRecv);
+        if (!message.next_seq_recv.isZero()) {
+            writer.uint32(16).uint64(message.next_seq_recv);
         }
         return writer;
     },
@@ -1621,7 +1621,7 @@ export const NextSequenceRecvData = {
                     message.path = reader.bytes();
                     break;
                 case 2:
-                    message.nextSeqRecv = reader.uint64();
+                    message.next_seq_recv = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1633,31 +1633,31 @@ export const NextSequenceRecvData = {
     fromJSON(object) {
         return {
             path: isSet(object.path) ? bytesFromBase64(object.path) : new Uint8Array(),
-            nextSeqRecv: isSet(object.nextSeqRecv) ? Long.fromValue(object.nextSeqRecv) : Long.UZERO
+            next_seq_recv: isSet(object.next_seq_recv) ? Long.fromValue(object.next_seq_recv) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
         message.path !== undefined && (obj.path = base64FromBytes(message.path !== undefined ? message.path : new Uint8Array()));
-        message.nextSeqRecv !== undefined && (obj.nextSeqRecv = (message.nextSeqRecv || Long.UZERO).toString());
+        message.next_seq_recv !== undefined && (obj.next_seq_recv = (message.next_seq_recv || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseNextSequenceRecvData();
         message.path = object.path ?? new Uint8Array();
-        message.nextSeqRecv = object.nextSeqRecv !== undefined && object.nextSeqRecv !== null ? Long.fromValue(object.nextSeqRecv) : Long.UZERO;
+        message.next_seq_recv = object.next_seq_recv !== undefined && object.next_seq_recv !== null ? Long.fromValue(object.next_seq_recv) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
             path: object.path,
-            nextSeqRecv: Long.fromString(object.next_seq_recv)
+            next_seq_recv: Long.fromString(object.next_seq_recv)
         };
     },
     toAmino(message) {
         const obj = {};
         obj.path = message.path;
-        obj.next_seq_recv = message.nextSeqRecv ? message.nextSeqRecv.toString() : undefined;
+        obj.next_seq_recv = message.next_seq_recv ? message.next_seq_recv.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

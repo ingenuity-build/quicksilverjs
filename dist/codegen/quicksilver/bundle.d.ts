@@ -163,7 +163,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryZoneDropRequest;
                 toJSON(message: _90.QueryZoneDropRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                 }): _90.QueryZoneDropRequest;
                 fromAmino(object: _90.QueryZoneDropRequestAmino): _90.QueryZoneDropRequest;
                 toAmino(message: _90.QueryZoneDropRequest): _90.QueryZoneDropRequestAmino;
@@ -179,9 +179,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryZoneDropResponse;
                 toJSON(message: _90.QueryZoneDropResponse): unknown;
                 fromPartial(object: {
-                    zoneDrop?: {
-                        chainId?: string;
-                        startTime?: Date;
+                    zone_drop?: {
+                        chain_id?: string;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
@@ -192,7 +192,7 @@ export declare namespace quicksilver {
                         };
                         allocation?: string | number | import("long").default;
                         actions?: string[];
-                        isConcluded?: boolean;
+                        is_concluded?: boolean;
                     };
                 }): _90.QueryZoneDropResponse;
                 fromAmino(object: _90.QueryZoneDropResponseAmino): _90.QueryZoneDropResponse;
@@ -209,7 +209,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryAccountBalanceRequest;
                 toJSON(message: _90.QueryAccountBalanceRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                 }): _90.QueryAccountBalanceRequest;
                 fromAmino(object: _90.QueryAccountBalanceRequestAmino): _90.QueryAccountBalanceRequest;
                 toAmino(message: _90.QueryAccountBalanceRequest): _90.QueryAccountBalanceRequestAmino;
@@ -225,7 +225,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryAccountBalanceResponse;
                 toJSON(message: _90.QueryAccountBalanceResponse): unknown;
                 fromPartial(object: {
-                    accountBalance?: {
+                    account_balance?: {
                         denom?: string;
                         amount?: string;
                     };
@@ -249,7 +249,7 @@ export declare namespace quicksilver {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _90.QueryZoneDropsRequest;
@@ -267,9 +267,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryZoneDropsResponse;
                 toJSON(message: _90.QueryZoneDropsResponse): unknown;
                 fromPartial(object: {
-                    zoneDrops?: {
-                        chainId?: string;
-                        startTime?: Date;
+                    zone_drops?: {
+                        chain_id?: string;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
@@ -280,10 +280,10 @@ export declare namespace quicksilver {
                         };
                         allocation?: string | number | import("long").default;
                         actions?: string[];
-                        isConcluded?: boolean;
+                        is_concluded?: boolean;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _90.QueryZoneDropsResponse;
@@ -301,7 +301,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryClaimRecordRequest;
                 toJSON(message: _90.QueryClaimRecordRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     address?: string;
                 }): _90.QueryClaimRecordRequest;
                 fromAmino(object: _90.QueryClaimRecordRequestAmino): _90.QueryClaimRecordRequest;
@@ -318,17 +318,17 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryClaimRecordResponse;
                 toJSON(message: _90.QueryClaimRecordResponse): unknown;
                 fromPartial(object: {
-                    claimRecord?: {
-                        chainId?: string;
+                    claim_record?: {
+                        chain_id?: string;
                         address?: string;
-                        actionsCompleted?: {
+                        actions_completed?: {
                             [x: number]: {
-                                completeTime?: Date;
-                                claimAmount?: string | number | import("long").default;
+                                complete_time?: Date;
+                                claim_amount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").default;
-                        baseValue?: string | number | import("long").default;
+                        max_allocation?: string | number | import("long").default;
+                        base_value?: string | number | import("long").default;
                     };
                 }): _90.QueryClaimRecordResponse;
                 fromAmino(object: _90.QueryClaimRecordResponseAmino): _90.QueryClaimRecordResponse;
@@ -345,12 +345,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryClaimRecordsRequest;
                 toJSON(message: _90.QueryClaimRecordsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _90.QueryClaimRecordsRequest;
@@ -368,20 +368,20 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _90.QueryClaimRecordsResponse;
                 toJSON(message: _90.QueryClaimRecordsResponse): unknown;
                 fromPartial(object: {
-                    claimRecords?: {
-                        chainId?: string;
+                    claim_records?: {
+                        chain_id?: string;
                         address?: string;
-                        actionsCompleted?: {
+                        actions_completed?: {
                             [x: number]: {
-                                completeTime?: Date;
-                                claimAmount?: string | number | import("long").default;
+                                complete_time?: Date;
+                                claim_amount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").default;
-                        baseValue?: string | number | import("long").default;
+                        max_allocation?: string | number | import("long").default;
+                        base_value?: string | number | import("long").default;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _90.QueryClaimRecordsResponse;
@@ -401,9 +401,9 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    zoneDrop?: {
-                        chainId?: string;
-                        startTime?: Date;
+                    zone_drop?: {
+                        chain_id?: string;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
@@ -414,9 +414,9 @@ export declare namespace quicksilver {
                         };
                         allocation?: string | number | import("long").default;
                         actions?: string[];
-                        isConcluded?: boolean;
+                        is_concluded?: boolean;
                     };
-                    claimRecords?: Uint8Array;
+                    claim_records?: Uint8Array;
                 }): _89.RegisterZoneDropProposal;
                 fromAmino(object: _89.RegisterZoneDropProposalAmino): _89.RegisterZoneDropProposal;
                 toAmino(message: _89.RegisterZoneDropProposal): _89.RegisterZoneDropProposalAmino;
@@ -446,13 +446,13 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _87.MsgClaim;
                 toJSON(message: _87.MsgClaim): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     action?: string | number | import("long").default;
                     address?: string;
                     proofs?: {
                         key?: Uint8Array;
                         data?: Uint8Array;
-                        proofOps?: {
+                        proof_ops?: {
                             ops?: {
                                 type?: string;
                                 key?: Uint8Array;
@@ -460,7 +460,7 @@ export declare namespace quicksilver {
                             }[];
                         };
                         height?: string | number | import("long").default;
-                        proofType?: string;
+                        proof_type?: string;
                     }[];
                 }): _87.MsgClaim;
                 fromAmino(object: _87.MsgClaimAmino): _87.MsgClaim;
@@ -494,7 +494,7 @@ export declare namespace quicksilver {
                 toJSON(message: _87.MsgIncentivePoolSpend): unknown;
                 fromPartial(object: {
                     authority?: string;
-                    toAddress?: string;
+                    to_address?: string;
                     amount?: {
                         denom?: string;
                         amount?: string;
@@ -529,9 +529,9 @@ export declare namespace quicksilver {
                 toJSON(message: _86.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {};
-                    zoneDrops?: {
-                        chainId?: string;
-                        startTime?: Date;
+                    zone_drops?: {
+                        chain_id?: string;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
@@ -542,19 +542,19 @@ export declare namespace quicksilver {
                         };
                         allocation?: string | number | import("long").default;
                         actions?: string[];
-                        isConcluded?: boolean;
+                        is_concluded?: boolean;
                     }[];
-                    claimRecords?: {
-                        chainId?: string;
+                    claim_records?: {
+                        chain_id?: string;
                         address?: string;
-                        actionsCompleted?: {
+                        actions_completed?: {
                             [x: number]: {
-                                completeTime?: Date;
-                                claimAmount?: string | number | import("long").default;
+                                complete_time?: Date;
+                                claim_amount?: string | number | import("long").default;
                             };
                         };
-                        maxAllocation?: string | number | import("long").default;
-                        baseValue?: string | number | import("long").default;
+                        max_allocation?: string | number | import("long").default;
+                        base_value?: string | number | import("long").default;
                     }[];
                 }): _86.GenesisState;
                 fromAmino(object: _86.GenesisStateAmino): _86.GenesisState;
@@ -581,8 +581,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _85.ZoneDrop;
                 toJSON(message: _85.ZoneDrop): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    startTime?: Date;
+                    chain_id?: string;
+                    start_time?: Date;
                     duration?: {
                         seconds?: string | number | import("long").default;
                         nanos?: number;
@@ -593,7 +593,7 @@ export declare namespace quicksilver {
                     };
                     allocation?: string | number | import("long").default;
                     actions?: string[];
-                    isConcluded?: boolean;
+                    is_concluded?: boolean;
                 }): _85.ZoneDrop;
                 fromAmino(object: _85.ZoneDropAmino): _85.ZoneDrop;
                 toAmino(message: _85.ZoneDrop): _85.ZoneDropAmino;
@@ -610,8 +610,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     key?: number;
                     value?: {
-                        completeTime?: Date;
-                        claimAmount?: string | number | import("long").default;
+                        complete_time?: Date;
+                        claim_amount?: string | number | import("long").default;
                     };
                 }): _85.ClaimRecord_ActionsCompletedEntry;
                 fromAmino(object: _85.ClaimRecord_ActionsCompletedEntryAmino): _85.ClaimRecord_ActionsCompletedEntry;
@@ -627,16 +627,16 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _85.ClaimRecord;
                 toJSON(message: _85.ClaimRecord): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     address?: string;
-                    actionsCompleted?: {
+                    actions_completed?: {
                         [x: number]: {
-                            completeTime?: Date;
-                            claimAmount?: string | number | import("long").default;
+                            complete_time?: Date;
+                            claim_amount?: string | number | import("long").default;
                         };
                     };
-                    maxAllocation?: string | number | import("long").default;
-                    baseValue?: string | number | import("long").default;
+                    max_allocation?: string | number | import("long").default;
+                    base_value?: string | number | import("long").default;
                 }): _85.ClaimRecord;
                 fromAmino(object: _85.ClaimRecordAmino): _85.ClaimRecord;
                 toAmino(message: _85.ClaimRecord): _85.ClaimRecordAmino;
@@ -652,8 +652,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _85.CompletedAction;
                 toJSON(message: _85.CompletedAction): unknown;
                 fromPartial(object: {
-                    completeTime?: Date;
-                    claimAmount?: string | number | import("long").default;
+                    complete_time?: Date;
+                    claim_amount?: string | number | import("long").default;
                 }): _85.CompletedAction;
                 fromAmino(object: _85.CompletedActionAmino): _85.CompletedAction;
                 toAmino(message: _85.CompletedAction): _85.CompletedActionAmino;
@@ -676,13 +676,13 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _94.QueryClaimsRequest;
                 toJSON(message: _94.QueryClaimsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     address?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _94.QueryClaimsRequest;
@@ -701,14 +701,14 @@ export declare namespace quicksilver {
                 toJSON(message: _94.QueryClaimsResponse): unknown;
                 fromPartial(object: {
                     claims?: {
-                        userAddress?: string;
-                        chainId?: string;
+                        user_address?: string;
+                        chain_id?: string;
                         module?: _91.ClaimType;
-                        sourceChainId?: string;
+                        source_chain_id?: string;
                         amount?: string | number | import("long").default;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _94.QueryClaimsResponse;
@@ -728,10 +728,10 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     params?: {};
                     claims?: {
-                        userAddress?: string;
-                        chainId?: string;
+                        user_address?: string;
+                        chain_id?: string;
                         module?: _91.ClaimType;
-                        sourceChainId?: string;
+                        source_chain_id?: string;
                         amount?: string | number | import("long").default;
                     }[];
                 }): _92.GenesisState;
@@ -768,10 +768,10 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _91.Claim;
                 toJSON(message: _91.Claim): unknown;
                 fromPartial(object: {
-                    userAddress?: string;
-                    chainId?: string;
+                    user_address?: string;
+                    chain_id?: string;
                     module?: _91.ClaimType;
-                    sourceChainId?: string;
+                    source_chain_id?: string;
                     amount?: string | number | import("long").default;
                 }): _91.Claim;
                 fromAmino(object: _91.ClaimAmino): _91.Claim;
@@ -790,7 +790,7 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     key?: Uint8Array;
                     data?: Uint8Array;
-                    proofOps?: {
+                    proof_ops?: {
                         ops?: {
                             type?: string;
                             key?: Uint8Array;
@@ -798,7 +798,7 @@ export declare namespace quicksilver {
                         }[];
                     };
                     height?: string | number | import("long").default;
-                    proofType?: string;
+                    proof_type?: string;
                 }): _91.Proof;
                 fromAmino(object: _91.ProofAmino): _91.Proof;
                 toAmino(message: _91.Proof): _91.ProofAmino;
@@ -825,7 +825,7 @@ export declare namespace quicksilver {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _96.QueryEpochsInfoRequest;
@@ -845,18 +845,18 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     epochs?: {
                         identifier?: string;
-                        startTime?: Date;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        currentEpoch?: string | number | import("long").default;
-                        currentEpochStartTime?: Date;
-                        epochCountingStarted?: boolean;
-                        currentEpochStartHeight?: string | number | import("long").default;
+                        current_epoch?: string | number | import("long").default;
+                        current_epoch_start_time?: Date;
+                        epoch_counting_started?: boolean;
+                        current_epoch_start_height?: string | number | import("long").default;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _96.QueryEpochsInfoResponse;
@@ -890,7 +890,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _96.QueryCurrentEpochResponse;
                 toJSON(message: _96.QueryCurrentEpochResponse): unknown;
                 fromPartial(object: {
-                    currentEpoch?: string | number | import("long").default;
+                    current_epoch?: string | number | import("long").default;
                 }): _96.QueryCurrentEpochResponse;
                 fromAmino(object: _96.QueryCurrentEpochResponseAmino): _96.QueryCurrentEpochResponse;
                 toAmino(message: _96.QueryCurrentEpochResponse): _96.QueryCurrentEpochResponseAmino;
@@ -907,15 +907,15 @@ export declare namespace quicksilver {
                 toJSON(message: _95.EpochInfo): unknown;
                 fromPartial(object: {
                     identifier?: string;
-                    startTime?: Date;
+                    start_time?: Date;
                     duration?: {
                         seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
-                    currentEpoch?: string | number | import("long").default;
-                    currentEpochStartTime?: Date;
-                    epochCountingStarted?: boolean;
-                    currentEpochStartHeight?: string | number | import("long").default;
+                    current_epoch?: string | number | import("long").default;
+                    current_epoch_start_time?: Date;
+                    epoch_counting_started?: boolean;
+                    current_epoch_start_height?: string | number | import("long").default;
                 }): _95.EpochInfo;
                 fromAmino(object: _95.EpochInfoAmino): _95.EpochInfo;
                 toAmino(message: _95.EpochInfo): _95.EpochInfoAmino;
@@ -933,15 +933,15 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     epochs?: {
                         identifier?: string;
-                        startTime?: Date;
+                        start_time?: Date;
                         duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        currentEpoch?: string | number | import("long").default;
-                        currentEpochStartTime?: Date;
-                        epochCountingStarted?: boolean;
-                        currentEpochStartHeight?: string | number | import("long").default;
+                        current_epoch?: string | number | import("long").default;
+                        current_epoch_start_time?: Date;
+                        epoch_counting_started?: boolean;
+                        current_epoch_start_height?: string | number | import("long").default;
                     }[];
                 }): _95.GenesisState;
                 fromAmino(object: _95.GenesisStateAmino): _95.GenesisState;
@@ -1008,10 +1008,10 @@ export declare namespace quicksilver {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
-                    chainId?: string;
+                    chain_id?: string;
                 }): _100.QueryRequestsRequest;
                 fromAmino(object: _100.QueryRequestsRequestAmino): _100.QueryRequestsRequest;
                 toAmino(message: _100.QueryRequestsRequest): _100.QueryRequestsRequestAmino;
@@ -1029,18 +1029,18 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     queries?: {
                         id?: string;
-                        connectionId?: string;
-                        chainId?: string;
-                        queryType?: string;
+                        connection_id?: string;
+                        chain_id?: string;
+                        query_type?: string;
                         request?: Uint8Array;
                         period?: string;
-                        lastHeight?: string;
-                        callbackId?: string;
+                        last_height?: string;
+                        callback_id?: string;
                         ttl?: string | number | import("long").default;
-                        lastEmission?: string;
+                        last_emission?: string;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _100.QueryRequestsResponse;
@@ -1062,39 +1062,39 @@ export declare namespace quicksilver {
                         body?: {
                             messages?: {
                                 $typeUrl?: string;
-                                typeUrl?: string;
+                                type_url?: string;
                                 value?: Uint8Array;
                             }[];
                             memo?: string;
-                            timeoutHeight?: string | number | import("long").default;
-                            extensionOptions?: {
+                            timeout_height?: string | number | import("long").default;
+                            extension_options?: {
                                 $typeUrl?: string;
-                                typeUrl?: string;
+                                type_url?: string;
                                 value?: Uint8Array;
                             }[];
-                            nonCriticalExtensionOptions?: {
+                            non_critical_extension_options?: {
                                 $typeUrl?: string;
-                                typeUrl?: string;
+                                type_url?: string;
                                 value?: Uint8Array;
                             }[];
                         };
-                        authInfo?: {
-                            signerInfos?: {
-                                publicKey?: {
+                        auth_info?: {
+                            signer_infos?: {
+                                public_key?: {
                                     $typeUrl?: string;
-                                    typeUrl?: string;
+                                    type_url?: string;
                                     value?: Uint8Array;
                                 };
-                                modeInfo?: {
+                                mode_info?: {
                                     single?: {
                                         mode?: import("../cosmos/tx/signing/v1beta1/signing").SignMode;
                                     };
                                     multi?: {
                                         bitarray?: {
-                                            extraBitsStored?: number;
+                                            extra_bits_stored?: number;
                                             elems?: Uint8Array;
                                         };
-                                        modeInfos?: any[];
+                                        mode_infos?: any[];
                                     };
                                 };
                                 sequence?: string | number | import("long").default;
@@ -1104,7 +1104,7 @@ export declare namespace quicksilver {
                                     denom?: string;
                                     amount?: string;
                                 }[];
-                                gasLimit?: string | number | import("long").default;
+                                gas_limit?: string | number | import("long").default;
                                 payer?: string;
                                 granter?: string;
                             };
@@ -1118,15 +1118,15 @@ export declare namespace quicksilver {
                         };
                         signatures?: Uint8Array[];
                     };
-                    txResponse?: {
+                    tx_response?: {
                         height?: string | number | import("long").default;
                         txhash?: string;
                         codespace?: string;
                         code?: number;
                         data?: string;
-                        rawLog?: string;
+                        raw_log?: string;
                         logs?: {
-                            msgIndex?: number;
+                            msg_index?: number;
                             log?: string;
                             events?: {
                                 type?: string;
@@ -1137,11 +1137,11 @@ export declare namespace quicksilver {
                             }[];
                         }[];
                         info?: string;
-                        gasWanted?: string | number | import("long").default;
-                        gasUsed?: string | number | import("long").default;
+                        gas_wanted?: string | number | import("long").default;
+                        gas_used?: string | number | import("long").default;
                         tx?: {
                             $typeUrl?: string;
-                            typeUrl?: string;
+                            type_url?: string;
                             value?: Uint8Array;
                         };
                         timestamp?: string;
@@ -1155,108 +1155,108 @@ export declare namespace quicksilver {
                         }[];
                     };
                     proof?: {
-                        rootHash?: Uint8Array;
+                        root_hash?: Uint8Array;
                         data?: Uint8Array;
                         proof?: {
                             total?: string | number | import("long").default;
                             index?: string | number | import("long").default;
-                            leafHash?: Uint8Array;
+                            leaf_hash?: Uint8Array;
                             aunts?: Uint8Array[];
                         };
                     };
                     header?: {
-                        signedHeader?: {
+                        signed_header?: {
                             header?: {
                                 version?: {
                                     block?: string | number | import("long").default;
                                     app?: string | number | import("long").default;
                                 };
-                                chainId?: string;
+                                chain_id?: string;
                                 height?: string | number | import("long").default;
                                 time?: Date;
-                                lastBlockId?: {
+                                last_block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
-                                lastCommitHash?: Uint8Array;
-                                dataHash?: Uint8Array;
-                                validatorsHash?: Uint8Array;
-                                nextValidatorsHash?: Uint8Array;
-                                consensusHash?: Uint8Array;
-                                appHash?: Uint8Array;
-                                lastResultsHash?: Uint8Array;
-                                evidenceHash?: Uint8Array;
-                                proposerAddress?: Uint8Array;
+                                last_commit_hash?: Uint8Array;
+                                data_hash?: Uint8Array;
+                                validators_hash?: Uint8Array;
+                                next_validators_hash?: Uint8Array;
+                                consensus_hash?: Uint8Array;
+                                app_hash?: Uint8Array;
+                                last_results_hash?: Uint8Array;
+                                evidence_hash?: Uint8Array;
+                                proposer_address?: Uint8Array;
                             };
                             commit?: {
                                 height?: string | number | import("long").default;
                                 round?: number;
-                                blockId?: {
+                                block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
                                 signatures?: {
-                                    blockIdFlag?: import("../tendermint/types/types").BlockIDFlag;
-                                    validatorAddress?: Uint8Array;
+                                    block_id_flag?: import("../tendermint/types/types").BlockIDFlag;
+                                    validator_address?: Uint8Array;
                                     timestamp?: Date;
                                     signature?: Uint8Array;
                                 }[];
                             };
                         };
-                        validatorSet?: {
+                        validator_set?: {
                             validators?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").default;
+                            total_voting_power?: string | number | import("long").default;
                         };
-                        trustedHeight?: {
-                            revisionNumber?: string | number | import("long").default;
-                            revisionHeight?: string | number | import("long").default;
+                        trusted_height?: {
+                            revision_number?: string | number | import("long").default;
+                            revision_height?: string | number | import("long").default;
                         };
-                        trustedValidators?: {
+                        trusted_validators?: {
                             validators?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").default;
+                            total_voting_power?: string | number | import("long").default;
                         };
                     };
-                    txBytes?: Uint8Array;
+                    tx_bytes?: Uint8Array;
                 }): _100.GetTxWithProofResponse;
                 fromAmino(object: _100.GetTxWithProofResponseAmino): _100.GetTxWithProofResponse;
                 toAmino(message: _100.GetTxWithProofResponse): _100.GetTxWithProofResponseAmino;
@@ -1272,10 +1272,10 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _99.MsgSubmitQueryResponse;
                 toJSON(message: _99.MsgSubmitQueryResponse): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    queryId?: string;
+                    chain_id?: string;
+                    query_id?: string;
                     result?: Uint8Array;
-                    proofOps?: {
+                    proof_ops?: {
                         ops?: {
                             type?: string;
                             key?: Uint8Array;
@@ -1283,7 +1283,7 @@ export declare namespace quicksilver {
                         }[];
                     };
                     height?: string | number | import("long").default;
-                    fromAddress?: string;
+                    from_address?: string;
                 }): _99.MsgSubmitQueryResponse;
                 fromAmino(object: _99.MsgSubmitQueryResponseAmino): _99.MsgSubmitQueryResponse;
                 toAmino(message: _99.MsgSubmitQueryResponse): _99.MsgSubmitQueryResponseAmino;
@@ -1314,15 +1314,15 @@ export declare namespace quicksilver {
                 toJSON(message: _98.Query): unknown;
                 fromPartial(object: {
                     id?: string;
-                    connectionId?: string;
-                    chainId?: string;
-                    queryType?: string;
+                    connection_id?: string;
+                    chain_id?: string;
+                    query_type?: string;
                     request?: Uint8Array;
                     period?: string;
-                    lastHeight?: string;
-                    callbackId?: string;
+                    last_height?: string;
+                    callback_id?: string;
                     ttl?: string | number | import("long").default;
-                    lastEmission?: string;
+                    last_emission?: string;
                 }): _98.Query;
                 fromAmino(object: _98.QueryAmino): _98.Query;
                 toAmino(message: _98.Query): _98.QueryAmino;
@@ -1339,8 +1339,8 @@ export declare namespace quicksilver {
                 toJSON(message: _98.DataPoint): unknown;
                 fromPartial(object: {
                     id?: string;
-                    remoteHeight?: string;
-                    localHeight?: string;
+                    remote_height?: string;
+                    local_height?: string;
                     value?: Uint8Array;
                 }): _98.DataPoint;
                 fromAmino(object: _98.DataPointAmino): _98.DataPoint;
@@ -1359,15 +1359,15 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     queries?: {
                         id?: string;
-                        connectionId?: string;
-                        chainId?: string;
-                        queryType?: string;
+                        connection_id?: string;
+                        chain_id?: string;
+                        query_type?: string;
                         request?: Uint8Array;
                         period?: string;
-                        lastHeight?: string;
-                        callbackId?: string;
+                        last_height?: string;
+                        callback_id?: string;
                         ttl?: string | number | import("long").default;
-                        lastEmission?: string;
+                        last_emission?: string;
                     }[];
                 }): _97.GenesisState;
                 fromAmino(object: _97.GenesisStateAmino): _97.GenesisState;
@@ -1533,13 +1533,13 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.Statistics;
                 toJSON(message: _105.Statistics): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     deposited?: string | number | import("long").default;
                     deposits?: string | number | import("long").default;
                     depositors?: string | number | import("long").default;
                     delegated?: string | number | import("long").default;
                     supply?: string | number | import("long").default;
-                    distanceToTarget?: string;
+                    distance_to_target?: string;
                 }): _105.Statistics;
                 fromAmino(object: _105.StatisticsAmino): _105.Statistics;
                 toAmino(message: _105.Statistics): _105.StatisticsAmino;
@@ -1559,7 +1559,7 @@ export declare namespace quicksilver {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryZonesRequest;
@@ -1578,101 +1578,101 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryZonesResponse): unknown;
                 fromPartial(object: {
                     zones?: {
-                        connectionId?: string;
-                        chainId?: string;
-                        depositAddress?: {
+                        connection_id?: string;
+                        chain_id?: string;
+                        deposit_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        withdrawalAddress?: {
+                        withdrawal_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        performanceAddress?: {
+                        performance_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        delegationAddress?: {
+                        delegation_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        accountPrefix?: string;
-                        localDenom?: string;
-                        baseDenom?: string;
-                        redemptionRate?: string;
-                        lastRedemptionRate?: string;
+                        account_prefix?: string;
+                        local_denom?: string;
+                        base_denom?: string;
+                        redemption_rate?: string;
+                        last_redemption_rate?: string;
                         validators?: {
-                            valoperAddress?: string;
-                            commissionRate?: string;
-                            delegatorShares?: string;
-                            votingPower?: string;
+                            valoper_address?: string;
+                            commission_rate?: string;
+                            delegator_shares?: string;
+                            voting_power?: string;
                             score?: string;
                             status?: string;
                             jailed?: boolean;
                             tombstoned?: boolean;
-                            jailedSince?: Date;
-                            validatorBondShares?: string;
-                            liquidShares?: string;
+                            jailed_since?: Date;
+                            validator_bond_shares?: string;
+                            liquid_shares?: string;
                         }[];
-                        aggregateIntent?: {
-                            valoperAddress?: string;
+                        aggregate_intent?: {
+                            valoper_address?: string;
                             weight?: string;
                         }[];
-                        multiSend?: boolean;
-                        liquidityModule?: boolean;
-                        withdrawalWaitgroup?: number;
-                        ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").default;
-                        holdingsAllocation?: string | number | import("long").default;
-                        lastEpochHeight?: string | number | import("long").default;
+                        multi_send?: boolean;
+                        liquidity_module?: boolean;
+                        withdrawal_waitgroup?: number;
+                        ibc_next_validators_hash?: Uint8Array;
+                        validator_selection_allocation?: string | number | import("long").default;
+                        holdings_allocation?: string | number | import("long").default;
+                        last_epoch_height?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").default;
-                        messagesPerTx?: string | number | import("long").default;
+                        unbonding_period?: string | number | import("long").default;
+                        messages_per_tx?: string | number | import("long").default;
                         decimals?: string | number | import("long").default;
-                        unbondingEnabled?: boolean;
-                        depositsEnabled?: boolean;
-                        returnToSender?: boolean;
+                        unbonding_enabled?: boolean;
+                        deposits_enabled?: boolean;
+                        return_to_sender?: boolean;
                         is118?: boolean;
                         subzoneInfo?: {
                             authority?: string;
-                            baseChainID?: string;
+                            base_chainID?: string;
                         };
                     }[];
                     stats?: {
-                        chainId?: string;
+                        chain_id?: string;
                         deposited?: string | number | import("long").default;
                         deposits?: string | number | import("long").default;
                         depositors?: string | number | import("long").default;
                         delegated?: string | number | import("long").default;
                         supply?: string | number | import("long").default;
-                        distanceToTarget?: string;
+                        distance_to_target?: string;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryZonesResponse;
@@ -1690,7 +1690,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryZoneRequest;
                 toJSON(message: _105.QueryZoneRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                 }): _105.QueryZoneRequest;
                 fromAmino(object: _105.QueryZoneRequestAmino): _105.QueryZoneRequest;
                 toAmino(message: _105.QueryZoneRequest): _105.QueryZoneRequestAmino;
@@ -1707,98 +1707,98 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryZoneResponse): unknown;
                 fromPartial(object: {
                     zone?: {
-                        connectionId?: string;
-                        chainId?: string;
-                        depositAddress?: {
+                        connection_id?: string;
+                        chain_id?: string;
+                        deposit_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        withdrawalAddress?: {
+                        withdrawal_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        performanceAddress?: {
+                        performance_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        delegationAddress?: {
+                        delegation_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        accountPrefix?: string;
-                        localDenom?: string;
-                        baseDenom?: string;
-                        redemptionRate?: string;
-                        lastRedemptionRate?: string;
+                        account_prefix?: string;
+                        local_denom?: string;
+                        base_denom?: string;
+                        redemption_rate?: string;
+                        last_redemption_rate?: string;
                         validators?: {
-                            valoperAddress?: string;
-                            commissionRate?: string;
-                            delegatorShares?: string;
-                            votingPower?: string;
+                            valoper_address?: string;
+                            commission_rate?: string;
+                            delegator_shares?: string;
+                            voting_power?: string;
                             score?: string;
                             status?: string;
                             jailed?: boolean;
                             tombstoned?: boolean;
-                            jailedSince?: Date;
-                            validatorBondShares?: string;
-                            liquidShares?: string;
+                            jailed_since?: Date;
+                            validator_bond_shares?: string;
+                            liquid_shares?: string;
                         }[];
-                        aggregateIntent?: {
-                            valoperAddress?: string;
+                        aggregate_intent?: {
+                            valoper_address?: string;
                             weight?: string;
                         }[];
-                        multiSend?: boolean;
-                        liquidityModule?: boolean;
-                        withdrawalWaitgroup?: number;
-                        ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").default;
-                        holdingsAllocation?: string | number | import("long").default;
-                        lastEpochHeight?: string | number | import("long").default;
+                        multi_send?: boolean;
+                        liquidity_module?: boolean;
+                        withdrawal_waitgroup?: number;
+                        ibc_next_validators_hash?: Uint8Array;
+                        validator_selection_allocation?: string | number | import("long").default;
+                        holdings_allocation?: string | number | import("long").default;
+                        last_epoch_height?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").default;
-                        messagesPerTx?: string | number | import("long").default;
+                        unbonding_period?: string | number | import("long").default;
+                        messages_per_tx?: string | number | import("long").default;
                         decimals?: string | number | import("long").default;
-                        unbondingEnabled?: boolean;
-                        depositsEnabled?: boolean;
-                        returnToSender?: boolean;
+                        unbonding_enabled?: boolean;
+                        deposits_enabled?: boolean;
+                        return_to_sender?: boolean;
                         is118?: boolean;
                         subzoneInfo?: {
                             authority?: string;
-                            baseChainID?: string;
+                            base_chainID?: string;
                         };
                     };
                     stats?: {
-                        chainId?: string;
+                        chain_id?: string;
                         deposited?: string | number | import("long").default;
                         deposits?: string | number | import("long").default;
                         depositors?: string | number | import("long").default;
                         delegated?: string | number | import("long").default;
                         supply?: string | number | import("long").default;
-                        distanceToTarget?: string;
+                        distance_to_target?: string;
                     };
                 }): _105.QueryZoneResponse;
                 fromAmino(object: _105.QueryZoneResponseAmino): _105.QueryZoneResponse;
@@ -1815,13 +1815,13 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryZoneValidatorsRequest;
                 toJSON(message: _105.QueryZoneValidatorsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     status?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryZoneValidatorsRequest;
@@ -1840,20 +1840,20 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryZoneValidatorsResponse): unknown;
                 fromPartial(object: {
                     validators?: {
-                        valoperAddress?: string;
-                        commissionRate?: string;
-                        delegatorShares?: string;
-                        votingPower?: string;
+                        valoper_address?: string;
+                        commission_rate?: string;
+                        delegator_shares?: string;
+                        voting_power?: string;
                         score?: string;
                         status?: string;
                         jailed?: boolean;
                         tombstoned?: boolean;
-                        jailedSince?: Date;
-                        validatorBondShares?: string;
-                        liquidShares?: string;
+                        jailed_since?: Date;
+                        validator_bond_shares?: string;
+                        liquid_shares?: string;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryZoneValidatorsResponse;
@@ -1871,7 +1871,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryDepositAccountForChainRequest;
                 toJSON(message: _105.QueryDepositAccountForChainRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                 }): _105.QueryDepositAccountForChainRequest;
                 fromAmino(object: _105.QueryDepositAccountForChainRequestAmino): _105.QueryDepositAccountForChainRequest;
                 toAmino(message: _105.QueryDepositAccountForChainRequest): _105.QueryDepositAccountForChainRequestAmino;
@@ -1887,7 +1887,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryDepositAccountForChainResponse;
                 toJSON(message: _105.QueryDepositAccountForChainResponse): unknown;
                 fromPartial(object: {
-                    depositAccountAddress?: string;
+                    deposit_account_address?: string;
                 }): _105.QueryDepositAccountForChainResponse;
                 fromAmino(object: _105.QueryDepositAccountForChainResponseAmino): _105.QueryDepositAccountForChainResponse;
                 toAmino(message: _105.QueryDepositAccountForChainResponse): _105.QueryDepositAccountForChainResponseAmino;
@@ -1903,8 +1903,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryDelegatorIntentRequest;
                 toJSON(message: _105.QueryDelegatorIntentRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    delegatorAddress?: string;
+                    chain_id?: string;
+                    delegator_address?: string;
                 }): _105.QueryDelegatorIntentRequest;
                 fromAmino(object: _105.QueryDelegatorIntentRequestAmino): _105.QueryDelegatorIntentRequest;
                 toAmino(message: _105.QueryDelegatorIntentRequest): _105.QueryDelegatorIntentRequestAmino;
@@ -1923,7 +1923,7 @@ export declare namespace quicksilver {
                     intent?: {
                         delegator?: string;
                         intents?: {
-                            valoperAddress?: string;
+                            valoper_address?: string;
                             weight?: string;
                         }[];
                     };
@@ -1942,7 +1942,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryDelegatorIntentsRequest;
                 toJSON(message: _105.QueryDelegatorIntentsRequest): unknown;
                 fromPartial(object: {
-                    delegatorAddress?: string;
+                    delegator_address?: string;
                 }): _105.QueryDelegatorIntentsRequest;
                 fromAmino(object: _105.QueryDelegatorIntentsRequestAmino): _105.QueryDelegatorIntentsRequest;
                 toAmino(message: _105.QueryDelegatorIntentsRequest): _105.QueryDelegatorIntentsRequestAmino;
@@ -1958,11 +1958,11 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.DelegatorIntentsResponse;
                 toJSON(message: _105.DelegatorIntentsResponse): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     intent?: {
                         delegator?: string;
                         intents?: {
-                            valoperAddress?: string;
+                            valoper_address?: string;
                             weight?: string;
                         }[];
                     };
@@ -1982,11 +1982,11 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryDelegatorIntentsResponse): unknown;
                 fromPartial(object: {
                     intents?: {
-                        chainId?: string;
+                        chain_id?: string;
                         intent?: {
                             delegator?: string;
                             intents?: {
-                                valoperAddress?: string;
+                                valoper_address?: string;
                                 weight?: string;
                             }[];
                         };
@@ -2006,12 +2006,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryDelegationsRequest;
                 toJSON(message: _105.QueryDelegationsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryDelegationsRequest;
@@ -2030,18 +2030,18 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryDelegationsResponse): unknown;
                 fromPartial(object: {
                     delegations?: {
-                        delegationAddress?: string;
-                        validatorAddress?: string;
+                        delegation_address?: string;
+                        validator_address?: string;
                         amount?: {
                             denom?: string;
                             amount?: string;
                         };
                         height?: string | number | import("long").default;
-                        redelegationEnd?: string | number | import("long").default;
+                        redelegation_end?: string | number | import("long").default;
                     }[];
                     tvl?: string | number | import("long").default;
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryDelegationsResponse;
@@ -2059,12 +2059,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryReceiptsRequest;
                 toJSON(message: _105.QueryReceiptsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryReceiptsRequest;
@@ -2083,18 +2083,18 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryReceiptsResponse): unknown;
                 fromPartial(object: {
                     receipts?: {
-                        chainId?: string;
+                        chain_id?: string;
                         sender?: string;
                         txhash?: string;
                         amount?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        firstSeen?: Date;
+                        first_seen?: Date;
                         completed?: Date;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryReceiptsResponse;
@@ -2112,8 +2112,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryTxStatusRequest;
                 toJSON(message: _105.QueryTxStatusRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    txHash?: string;
+                    chain_id?: string;
+                    tx_hash?: string;
                 }): _105.QueryTxStatusRequest;
                 fromAmino(object: _105.QueryTxStatusRequestAmino): _105.QueryTxStatusRequest;
                 toAmino(message: _105.QueryTxStatusRequest): _105.QueryTxStatusRequestAmino;
@@ -2130,14 +2130,14 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryTxStatusResponse): unknown;
                 fromPartial(object: {
                     receipt?: {
-                        chainId?: string;
+                        chain_id?: string;
                         sender?: string;
                         txhash?: string;
                         amount?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        firstSeen?: Date;
+                        first_seen?: Date;
                         completed?: Date;
                     };
                 }): _105.QueryTxStatusResponse;
@@ -2155,13 +2155,13 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryWithdrawalRecordsRequest;
                 toJSON(message: _105.QueryWithdrawalRecordsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    delegatorAddress?: string;
+                    chain_id?: string;
+                    delegator_address?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryWithdrawalRecordsRequest;
@@ -2180,7 +2180,7 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryWithdrawalRecordsResponse): unknown;
                 fromPartial(object: {
                     withdrawals?: {
-                        chainId?: string;
+                        chain_id?: string;
                         delegator?: string;
                         distribution?: {
                             valoper?: string;
@@ -2191,19 +2191,19 @@ export declare namespace quicksilver {
                             denom?: string;
                             amount?: string;
                         }[];
-                        burnAmount?: {
+                        burn_amount?: {
                             denom?: string;
                             amount?: string;
                         };
                         txhash?: string;
                         status?: number;
-                        completionTime?: Date;
+                        completion_time?: Date;
                         requeued?: boolean;
                         acknowledged?: boolean;
-                        epochNumber?: string | number | import("long").default;
+                        epoch_number?: string | number | import("long").default;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryWithdrawalRecordsResponse;
@@ -2221,12 +2221,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryUserWithdrawalRecordsRequest;
                 toJSON(message: _105.QueryUserWithdrawalRecordsRequest): unknown;
                 fromPartial(object: {
-                    userAddress?: string;
+                    user_address?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryUserWithdrawalRecordsRequest;
@@ -2244,12 +2244,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryUnbondingRecordsRequest;
                 toJSON(message: _105.QueryUnbondingRecordsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryUnbondingRecordsRequest;
@@ -2268,13 +2268,13 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryUnbondingRecordsResponse): unknown;
                 fromPartial(object: {
                     unbondings?: {
-                        chainId?: string;
-                        epochNumber?: string | number | import("long").default;
+                        chain_id?: string;
+                        epoch_number?: string | number | import("long").default;
                         validator?: string;
-                        relatedTxhash?: string[];
+                        related_txhash?: string[];
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryUnbondingRecordsResponse;
@@ -2292,12 +2292,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _105.QueryRedelegationRecordsRequest;
                 toJSON(message: _105.QueryRedelegationRecordsRequest): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     pagination?: {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryRedelegationRecordsRequest;
@@ -2316,15 +2316,15 @@ export declare namespace quicksilver {
                 toJSON(message: _105.QueryRedelegationRecordsResponse): unknown;
                 fromPartial(object: {
                     redelegations?: {
-                        chainId?: string;
-                        epochNumber?: string | number | import("long").default;
+                        chain_id?: string;
+                        epoch_number?: string | number | import("long").default;
                         source?: string;
                         destination?: string;
                         amount?: string | number | import("long").default;
-                        completionTime?: Date;
+                        completion_time?: Date;
                     }[];
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryRedelegationRecordsResponse;
@@ -2347,7 +2347,7 @@ export declare namespace quicksilver {
                         key?: Uint8Array;
                         offset?: string | number | import("long").default;
                         limit?: string | number | import("long").default;
-                        countTotal?: boolean;
+                        count_total?: boolean;
                         reverse?: boolean;
                     };
                 }): _105.QueryMappedAccountsRequest;
@@ -2384,7 +2384,7 @@ export declare namespace quicksilver {
                         [x: string]: Uint8Array;
                     };
                     pagination?: {
-                        nextKey?: Uint8Array;
+                        next_key?: Uint8Array;
                         total?: string | number | import("long").default;
                     };
                 }): _105.QueryMappedAccountsResponse;
@@ -2404,16 +2404,16 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    connectionId?: string;
-                    baseDenom?: string;
-                    localDenom?: string;
-                    accountPrefix?: string;
-                    multiSend?: boolean;
-                    liquidityModule?: boolean;
-                    messagesPerTx?: string | number | import("long").default;
-                    returnToSender?: boolean;
-                    depositsEnabled?: boolean;
-                    unbondingEnabled?: boolean;
+                    connection_id?: string;
+                    base_denom?: string;
+                    local_denom?: string;
+                    account_prefix?: string;
+                    multi_send?: boolean;
+                    liquidity_module?: boolean;
+                    messages_per_tx?: string | number | import("long").default;
+                    return_to_sender?: boolean;
+                    deposits_enabled?: boolean;
+                    unbonding_enabled?: boolean;
                     decimals?: string | number | import("long").default;
                     is118?: boolean;
                 }): _104.RegisterZoneProposal;
@@ -2433,17 +2433,17 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    connectionId?: string;
-                    baseDenom?: string;
-                    localDenom?: string;
-                    accountPrefix?: string;
-                    multiSend?: boolean;
-                    liquidityModule?: boolean;
+                    connection_id?: string;
+                    base_denom?: string;
+                    local_denom?: string;
+                    account_prefix?: string;
+                    multi_send?: boolean;
+                    liquidity_module?: boolean;
                     deposit?: string;
-                    messagesPerTx?: string | number | import("long").default;
-                    returnToSender?: boolean;
-                    depositsEnabled?: boolean;
-                    unbondingEnabled?: boolean;
+                    messages_per_tx?: string | number | import("long").default;
+                    return_to_sender?: boolean;
+                    deposits_enabled?: boolean;
+                    unbonding_enabled?: boolean;
                     decimals?: string | number | import("long").default;
                     is118?: boolean;
                 }): _104.RegisterZoneProposalWithDeposit;
@@ -2463,7 +2463,7 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    chainId?: string;
+                    chain_id?: string;
                     changes?: {
                         key?: string;
                         value?: string;
@@ -2485,7 +2485,7 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    chainId?: string;
+                    chain_id?: string;
                     changes?: {
                         key?: string;
                         value?: string;
@@ -2525,8 +2525,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    connectionId?: string;
-                    portId?: string;
+                    connection_id?: string;
+                    port_id?: string;
                     authority?: string;
                 }): _104.MsgGovReopenChannel;
                 fromAmino(object: _104.MsgGovReopenChannelAmino): _104.MsgGovReopenChannel;
@@ -2559,8 +2559,8 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    channelId?: string;
-                    portId?: string;
+                    channel_id?: string;
+                    port_id?: string;
                     authority?: string;
                 }): _104.MsgGovCloseChannel;
                 fromAmino(object: _104.MsgGovCloseChannelAmino): _104.MsgGovCloseChannel;
@@ -2593,11 +2593,11 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                    chainId?: string;
+                    chain_id?: string;
                     caps?: {
-                        validatorCap?: string;
-                        validatorBondCap?: string;
-                        globalCap?: string;
+                        validator_cap?: string;
+                        validator_bond_cap?: string;
+                        global_cap?: string;
                     };
                     authority?: string;
                 }): _104.MsgGovSetLsmCaps;
@@ -2634,8 +2634,8 @@ export declare namespace quicksilver {
                         denom?: string;
                         amount?: string;
                     };
-                    destinationAddress?: string;
-                    fromAddress?: string;
+                    destination_address?: string;
+                    from_address?: string;
                 }): _103.MsgRequestRedemption;
                 fromAmino(object: _103.MsgRequestRedemptionAmino): _103.MsgRequestRedemption;
                 toAmino(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionAmino;
@@ -2667,9 +2667,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _103.MsgSignalIntent;
                 toJSON(message: _103.MsgSignalIntent): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     intents?: string;
-                    fromAddress?: string;
+                    from_address?: string;
                 }): _103.MsgSignalIntent;
                 fromAmino(object: _103.MsgSignalIntentAmino): _103.MsgSignalIntent;
                 toAmino(message: _103.MsgSignalIntent): _103.MsgSignalIntentAmino;
@@ -2700,88 +2700,88 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.Zone;
                 toJSON(message: _102.Zone): unknown;
                 fromPartial(object: {
-                    connectionId?: string;
-                    chainId?: string;
-                    depositAddress?: {
+                    connection_id?: string;
+                    chain_id?: string;
+                    deposit_address?: {
                         address?: string;
                         balance?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        portName?: string;
-                        withdrawalAddress?: string;
-                        balanceWaitgroup?: number;
+                        port_name?: string;
+                        withdrawal_address?: string;
+                        balance_waitgroup?: number;
                     };
-                    withdrawalAddress?: {
+                    withdrawal_address?: {
                         address?: string;
                         balance?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        portName?: string;
-                        withdrawalAddress?: string;
-                        balanceWaitgroup?: number;
+                        port_name?: string;
+                        withdrawal_address?: string;
+                        balance_waitgroup?: number;
                     };
-                    performanceAddress?: {
+                    performance_address?: {
                         address?: string;
                         balance?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        portName?: string;
-                        withdrawalAddress?: string;
-                        balanceWaitgroup?: number;
+                        port_name?: string;
+                        withdrawal_address?: string;
+                        balance_waitgroup?: number;
                     };
-                    delegationAddress?: {
+                    delegation_address?: {
                         address?: string;
                         balance?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        portName?: string;
-                        withdrawalAddress?: string;
-                        balanceWaitgroup?: number;
+                        port_name?: string;
+                        withdrawal_address?: string;
+                        balance_waitgroup?: number;
                     };
-                    accountPrefix?: string;
-                    localDenom?: string;
-                    baseDenom?: string;
-                    redemptionRate?: string;
-                    lastRedemptionRate?: string;
+                    account_prefix?: string;
+                    local_denom?: string;
+                    base_denom?: string;
+                    redemption_rate?: string;
+                    last_redemption_rate?: string;
                     validators?: {
-                        valoperAddress?: string;
-                        commissionRate?: string;
-                        delegatorShares?: string;
-                        votingPower?: string;
+                        valoper_address?: string;
+                        commission_rate?: string;
+                        delegator_shares?: string;
+                        voting_power?: string;
                         score?: string;
                         status?: string;
                         jailed?: boolean;
                         tombstoned?: boolean;
-                        jailedSince?: Date;
-                        validatorBondShares?: string;
-                        liquidShares?: string;
+                        jailed_since?: Date;
+                        validator_bond_shares?: string;
+                        liquid_shares?: string;
                     }[];
-                    aggregateIntent?: {
-                        valoperAddress?: string;
+                    aggregate_intent?: {
+                        valoper_address?: string;
                         weight?: string;
                     }[];
-                    multiSend?: boolean;
-                    liquidityModule?: boolean;
-                    withdrawalWaitgroup?: number;
-                    ibcNextValidatorsHash?: Uint8Array;
-                    validatorSelectionAllocation?: string | number | import("long").default;
-                    holdingsAllocation?: string | number | import("long").default;
-                    lastEpochHeight?: string | number | import("long").default;
+                    multi_send?: boolean;
+                    liquidity_module?: boolean;
+                    withdrawal_waitgroup?: number;
+                    ibc_next_validators_hash?: Uint8Array;
+                    validator_selection_allocation?: string | number | import("long").default;
+                    holdings_allocation?: string | number | import("long").default;
+                    last_epoch_height?: string | number | import("long").default;
                     tvl?: string;
-                    unbondingPeriod?: string | number | import("long").default;
-                    messagesPerTx?: string | number | import("long").default;
+                    unbonding_period?: string | number | import("long").default;
+                    messages_per_tx?: string | number | import("long").default;
                     decimals?: string | number | import("long").default;
-                    unbondingEnabled?: boolean;
-                    depositsEnabled?: boolean;
-                    returnToSender?: boolean;
+                    unbonding_enabled?: boolean;
+                    deposits_enabled?: boolean;
+                    return_to_sender?: boolean;
                     is118?: boolean;
                     subzoneInfo?: {
                         authority?: string;
-                        baseChainID?: string;
+                        base_chainID?: string;
                     };
                 }): _102.Zone;
                 fromAmino(object: _102.ZoneAmino): _102.Zone;
@@ -2799,7 +2799,7 @@ export declare namespace quicksilver {
                 toJSON(message: _102.SubzoneInfo): unknown;
                 fromPartial(object: {
                     authority?: string;
-                    baseChainID?: string;
+                    base_chainID?: string;
                 }): _102.SubzoneInfo;
                 fromAmino(object: _102.SubzoneInfoAmino): _102.SubzoneInfo;
                 toAmino(message: _102.SubzoneInfo): _102.SubzoneInfoAmino;
@@ -2815,9 +2815,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.LsmCaps;
                 toJSON(message: _102.LsmCaps): unknown;
                 fromPartial(object: {
-                    validatorCap?: string;
-                    validatorBondCap?: string;
-                    globalCap?: string;
+                    validator_cap?: string;
+                    validator_bond_cap?: string;
+                    global_cap?: string;
                 }): _102.LsmCaps;
                 fromAmino(object: _102.LsmCapsAmino): _102.LsmCaps;
                 toAmino(message: _102.LsmCaps): _102.LsmCapsAmino;
@@ -2838,9 +2838,9 @@ export declare namespace quicksilver {
                         denom?: string;
                         amount?: string;
                     }[];
-                    portName?: string;
-                    withdrawalAddress?: string;
-                    balanceWaitgroup?: number;
+                    port_name?: string;
+                    withdrawal_address?: string;
+                    balance_waitgroup?: number;
                 }): _102.ICAAccount;
                 fromAmino(object: _102.ICAAccountAmino): _102.ICAAccount;
                 toAmino(message: _102.ICAAccount): _102.ICAAccountAmino;
@@ -2873,7 +2873,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.WithdrawalRecord;
                 toJSON(message: _102.WithdrawalRecord): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     delegator?: string;
                     distribution?: {
                         valoper?: string;
@@ -2884,16 +2884,16 @@ export declare namespace quicksilver {
                         denom?: string;
                         amount?: string;
                     }[];
-                    burnAmount?: {
+                    burn_amount?: {
                         denom?: string;
                         amount?: string;
                     };
                     txhash?: string;
                     status?: number;
-                    completionTime?: Date;
+                    completion_time?: Date;
                     requeued?: boolean;
                     acknowledged?: boolean;
-                    epochNumber?: string | number | import("long").default;
+                    epoch_number?: string | number | import("long").default;
                 }): _102.WithdrawalRecord;
                 fromAmino(object: _102.WithdrawalRecordAmino): _102.WithdrawalRecord;
                 toAmino(message: _102.WithdrawalRecord): _102.WithdrawalRecordAmino;
@@ -2909,10 +2909,10 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.UnbondingRecord;
                 toJSON(message: _102.UnbondingRecord): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    epochNumber?: string | number | import("long").default;
+                    chain_id?: string;
+                    epoch_number?: string | number | import("long").default;
                     validator?: string;
-                    relatedTxhash?: string[];
+                    related_txhash?: string[];
                 }): _102.UnbondingRecord;
                 fromAmino(object: _102.UnbondingRecordAmino): _102.UnbondingRecord;
                 toAmino(message: _102.UnbondingRecord): _102.UnbondingRecordAmino;
@@ -2928,12 +2928,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.RedelegationRecord;
                 toJSON(message: _102.RedelegationRecord): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    epochNumber?: string | number | import("long").default;
+                    chain_id?: string;
+                    epoch_number?: string | number | import("long").default;
                     source?: string;
                     destination?: string;
                     amount?: string | number | import("long").default;
-                    completionTime?: Date;
+                    completion_time?: Date;
                 }): _102.RedelegationRecord;
                 fromAmino(object: _102.RedelegationRecordAmino): _102.RedelegationRecord;
                 toAmino(message: _102.RedelegationRecord): _102.RedelegationRecordAmino;
@@ -2970,17 +2970,17 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.Validator;
                 toJSON(message: _102.Validator): unknown;
                 fromPartial(object: {
-                    valoperAddress?: string;
-                    commissionRate?: string;
-                    delegatorShares?: string;
-                    votingPower?: string;
+                    valoper_address?: string;
+                    commission_rate?: string;
+                    delegator_shares?: string;
+                    voting_power?: string;
                     score?: string;
                     status?: string;
                     jailed?: boolean;
                     tombstoned?: boolean;
-                    jailedSince?: Date;
-                    validatorBondShares?: string;
-                    liquidShares?: string;
+                    jailed_since?: Date;
+                    validator_bond_shares?: string;
+                    liquid_shares?: string;
                 }): _102.Validator;
                 fromAmino(object: _102.ValidatorAmino): _102.Validator;
                 toAmino(message: _102.Validator): _102.ValidatorAmino;
@@ -2998,7 +2998,7 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     delegator?: string;
                     intents?: {
-                        valoperAddress?: string;
+                        valoper_address?: string;
                         weight?: string;
                     }[];
                 }): _102.DelegatorIntent;
@@ -3016,7 +3016,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.ValidatorIntent;
                 toJSON(message: _102.ValidatorIntent): unknown;
                 fromPartial(object: {
-                    valoperAddress?: string;
+                    valoper_address?: string;
                     weight?: string;
                 }): _102.ValidatorIntent;
                 fromAmino(object: _102.ValidatorIntentAmino): _102.ValidatorIntent;
@@ -3033,14 +3033,14 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.Delegation;
                 toJSON(message: _102.Delegation): unknown;
                 fromPartial(object: {
-                    delegationAddress?: string;
-                    validatorAddress?: string;
+                    delegation_address?: string;
+                    validator_address?: string;
                     amount?: {
                         denom?: string;
                         amount?: string;
                     };
                     height?: string | number | import("long").default;
-                    redelegationEnd?: string | number | import("long").default;
+                    redelegation_end?: string | number | import("long").default;
                 }): _102.Delegation;
                 fromAmino(object: _102.DelegationAmino): _102.Delegation;
                 toAmino(message: _102.Delegation): _102.DelegationAmino;
@@ -3056,8 +3056,8 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.PortConnectionTuple;
                 toJSON(message: _102.PortConnectionTuple): unknown;
                 fromPartial(object: {
-                    connectionId?: string;
-                    portId?: string;
+                    connection_id?: string;
+                    port_id?: string;
                 }): _102.PortConnectionTuple;
                 fromAmino(object: _102.PortConnectionTupleAmino): _102.PortConnectionTuple;
                 toAmino(message: _102.PortConnectionTuple): _102.PortConnectionTupleAmino;
@@ -3073,14 +3073,14 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _102.Receipt;
                 toJSON(message: _102.Receipt): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     sender?: string;
                     txhash?: string;
                     amount?: {
                         denom?: string;
                         amount?: string;
                     }[];
-                    firstSeen?: Date;
+                    first_seen?: Date;
                     completed?: Date;
                 }): _102.Receipt;
                 fromAmino(object: _102.ReceiptAmino): _102.Receipt;
@@ -3097,9 +3097,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.Params_v1;
                 toJSON(message: _101.Params_v1): unknown;
                 fromPartial(object: {
-                    depositInterval?: string | number | import("long").default;
-                    validatorsetInterval?: string | number | import("long").default;
-                    commissionRate?: string;
+                    deposit_interval?: string | number | import("long").default;
+                    validatorset_interval?: string | number | import("long").default;
+                    commission_rate?: string;
                 }): _101.Params_v1;
                 fromAmino(object: _101.Params_v1Amino): _101.Params_v1;
                 toAmino(message: _101.Params_v1): _101.Params_v1Amino;
@@ -3115,10 +3115,10 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.Params;
                 toJSON(message: _101.Params): unknown;
                 fromPartial(object: {
-                    depositInterval?: string | number | import("long").default;
-                    validatorsetInterval?: string | number | import("long").default;
-                    commissionRate?: string;
-                    unbondingEnabled?: boolean;
+                    deposit_interval?: string | number | import("long").default;
+                    validatorset_interval?: string | number | import("long").default;
+                    commission_rate?: string;
+                    unbonding_enabled?: boolean;
                 }): _101.Params;
                 fromAmino(object: _101.ParamsAmino): _101.Params;
                 toAmino(message: _101.Params): _101.ParamsAmino;
@@ -3134,16 +3134,16 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.DelegationsForZone;
                 toJSON(message: _101.DelegationsForZone): unknown;
                 fromPartial(object: {
-                    chainId?: string;
+                    chain_id?: string;
                     delegations?: {
-                        delegationAddress?: string;
-                        validatorAddress?: string;
+                        delegation_address?: string;
+                        validator_address?: string;
                         amount?: {
                             denom?: string;
                             amount?: string;
                         };
                         height?: string | number | import("long").default;
-                        redelegationEnd?: string | number | import("long").default;
+                        redelegation_end?: string | number | import("long").default;
                     }[];
                 }): _101.DelegationsForZone;
                 fromAmino(object: _101.DelegationsForZoneAmino): _101.DelegationsForZone;
@@ -3160,11 +3160,11 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _101.DelegatorIntentsForZone;
                 toJSON(message: _101.DelegatorIntentsForZone): unknown;
                 fromPartial(object: {
-                    chainId?: string;
-                    delegationIntent?: {
+                    chain_id?: string;
+                    delegation_intent?: {
                         delegator?: string;
                         intents?: {
-                            valoperAddress?: string;
+                            valoper_address?: string;
                             weight?: string;
                         }[];
                     }[];
@@ -3185,150 +3185,150 @@ export declare namespace quicksilver {
                 toJSON(message: _101.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
-                        depositInterval?: string | number | import("long").default;
-                        validatorsetInterval?: string | number | import("long").default;
-                        commissionRate?: string;
-                        unbondingEnabled?: boolean;
+                        deposit_interval?: string | number | import("long").default;
+                        validatorset_interval?: string | number | import("long").default;
+                        commission_rate?: string;
+                        unbonding_enabled?: boolean;
                     };
                     zones?: {
-                        connectionId?: string;
-                        chainId?: string;
-                        depositAddress?: {
+                        connection_id?: string;
+                        chain_id?: string;
+                        deposit_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        withdrawalAddress?: {
+                        withdrawal_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        performanceAddress?: {
+                        performance_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        delegationAddress?: {
+                        delegation_address?: {
                             address?: string;
                             balance?: {
                                 denom?: string;
                                 amount?: string;
                             }[];
-                            portName?: string;
-                            withdrawalAddress?: string;
-                            balanceWaitgroup?: number;
+                            port_name?: string;
+                            withdrawal_address?: string;
+                            balance_waitgroup?: number;
                         };
-                        accountPrefix?: string;
-                        localDenom?: string;
-                        baseDenom?: string;
-                        redemptionRate?: string;
-                        lastRedemptionRate?: string;
+                        account_prefix?: string;
+                        local_denom?: string;
+                        base_denom?: string;
+                        redemption_rate?: string;
+                        last_redemption_rate?: string;
                         validators?: {
-                            valoperAddress?: string;
-                            commissionRate?: string;
-                            delegatorShares?: string;
-                            votingPower?: string;
+                            valoper_address?: string;
+                            commission_rate?: string;
+                            delegator_shares?: string;
+                            voting_power?: string;
                             score?: string;
                             status?: string;
                             jailed?: boolean;
                             tombstoned?: boolean;
-                            jailedSince?: Date;
-                            validatorBondShares?: string;
-                            liquidShares?: string;
+                            jailed_since?: Date;
+                            validator_bond_shares?: string;
+                            liquid_shares?: string;
                         }[];
-                        aggregateIntent?: {
-                            valoperAddress?: string;
+                        aggregate_intent?: {
+                            valoper_address?: string;
                             weight?: string;
                         }[];
-                        multiSend?: boolean;
-                        liquidityModule?: boolean;
-                        withdrawalWaitgroup?: number;
-                        ibcNextValidatorsHash?: Uint8Array;
-                        validatorSelectionAllocation?: string | number | import("long").default;
-                        holdingsAllocation?: string | number | import("long").default;
-                        lastEpochHeight?: string | number | import("long").default;
+                        multi_send?: boolean;
+                        liquidity_module?: boolean;
+                        withdrawal_waitgroup?: number;
+                        ibc_next_validators_hash?: Uint8Array;
+                        validator_selection_allocation?: string | number | import("long").default;
+                        holdings_allocation?: string | number | import("long").default;
+                        last_epoch_height?: string | number | import("long").default;
                         tvl?: string;
-                        unbondingPeriod?: string | number | import("long").default;
-                        messagesPerTx?: string | number | import("long").default;
+                        unbonding_period?: string | number | import("long").default;
+                        messages_per_tx?: string | number | import("long").default;
                         decimals?: string | number | import("long").default;
-                        unbondingEnabled?: boolean;
-                        depositsEnabled?: boolean;
-                        returnToSender?: boolean;
+                        unbonding_enabled?: boolean;
+                        deposits_enabled?: boolean;
+                        return_to_sender?: boolean;
                         is118?: boolean;
                         subzoneInfo?: {
                             authority?: string;
-                            baseChainID?: string;
+                            base_chainID?: string;
                         };
                     }[];
                     receipts?: {
-                        chainId?: string;
+                        chain_id?: string;
                         sender?: string;
                         txhash?: string;
                         amount?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        firstSeen?: Date;
+                        first_seen?: Date;
                         completed?: Date;
                     }[];
                     delegations?: {
-                        chainId?: string;
+                        chain_id?: string;
                         delegations?: {
-                            delegationAddress?: string;
-                            validatorAddress?: string;
+                            delegation_address?: string;
+                            validator_address?: string;
                             amount?: {
                                 denom?: string;
                                 amount?: string;
                             };
                             height?: string | number | import("long").default;
-                            redelegationEnd?: string | number | import("long").default;
+                            redelegation_end?: string | number | import("long").default;
                         }[];
                     }[];
-                    performanceDelegations?: {
-                        chainId?: string;
+                    performance_delegations?: {
+                        chain_id?: string;
                         delegations?: {
-                            delegationAddress?: string;
-                            validatorAddress?: string;
+                            delegation_address?: string;
+                            validator_address?: string;
                             amount?: {
                                 denom?: string;
                                 amount?: string;
                             };
                             height?: string | number | import("long").default;
-                            redelegationEnd?: string | number | import("long").default;
+                            redelegation_end?: string | number | import("long").default;
                         }[];
                     }[];
-                    delegatorIntents?: {
-                        chainId?: string;
-                        delegationIntent?: {
+                    delegator_intents?: {
+                        chain_id?: string;
+                        delegation_intent?: {
                             delegator?: string;
                             intents?: {
-                                valoperAddress?: string;
+                                valoper_address?: string;
                                 weight?: string;
                             }[];
                         }[];
                         snapshot?: boolean;
                     }[];
-                    portConnections?: {
-                        connectionId?: string;
-                        portId?: string;
+                    port_connections?: {
+                        connection_id?: string;
+                        port_id?: string;
                     }[];
-                    withdrawalRecords?: {
-                        chainId?: string;
+                    withdrawal_records?: {
+                        chain_id?: string;
                         delegator?: string;
                         distribution?: {
                             valoper?: string;
@@ -3339,16 +3339,16 @@ export declare namespace quicksilver {
                             denom?: string;
                             amount?: string;
                         }[];
-                        burnAmount?: {
+                        burn_amount?: {
                             denom?: string;
                             amount?: string;
                         };
                         txhash?: string;
                         status?: number;
-                        completionTime?: Date;
+                        completion_time?: Date;
                         requeued?: boolean;
                         acknowledged?: boolean;
-                        epochNumber?: string | number | import("long").default;
+                        epoch_number?: string | number | import("long").default;
                     }[];
                 }): _101.GenesisState;
                 fromAmino(object: _101.GenesisStateAmino): _101.GenesisState;
@@ -3387,18 +3387,18 @@ export declare namespace quicksilver {
                 toJSON(message: _108.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     params?: {
-                        mintDenom?: string;
-                        genesisEpochProvisions?: string;
-                        epochIdentifier?: string;
-                        reductionPeriodInEpochs?: string | number | import("long").default;
-                        reductionFactor?: string;
-                        distributionProportions?: {
+                        mint_denom?: string;
+                        genesis_epoch_provisions?: string;
+                        epoch_identifier?: string;
+                        reduction_period_in_epochs?: string | number | import("long").default;
+                        reduction_factor?: string;
+                        distribution_proportions?: {
                             staking?: string;
-                            poolIncentives?: string;
-                            participationRewards?: string;
-                            communityPool?: string;
+                            pool_incentives?: string;
+                            participation_rewards?: string;
+                            community_pool?: string;
                         };
-                        mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
+                        minting_rewards_distribution_start_epoch?: string | number | import("long").default;
                     };
                 }): _108.QueryParamsResponse;
                 fromAmino(object: _108.QueryParamsResponseAmino): _108.QueryParamsResponse;
@@ -3429,7 +3429,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _108.QueryEpochProvisionsResponse;
                 toJSON(message: _108.QueryEpochProvisionsResponse): unknown;
                 fromPartial(object: {
-                    epochProvisions?: Uint8Array;
+                    epoch_provisions?: Uint8Array;
                 }): _108.QueryEpochProvisionsResponse;
                 fromAmino(object: _108.QueryEpochProvisionsResponseAmino): _108.QueryEpochProvisionsResponse;
                 toAmino(message: _108.QueryEpochProvisionsResponse): _108.QueryEpochProvisionsResponseAmino;
@@ -3445,7 +3445,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _107.Minter;
                 toJSON(message: _107.Minter): unknown;
                 fromPartial(object: {
-                    epochProvisions?: string;
+                    epoch_provisions?: string;
                 }): _107.Minter;
                 fromAmino(object: _107.MinterAmino): _107.Minter;
                 toAmino(message: _107.Minter): _107.MinterAmino;
@@ -3462,9 +3462,9 @@ export declare namespace quicksilver {
                 toJSON(message: _107.DistributionProportions): unknown;
                 fromPartial(object: {
                     staking?: string;
-                    poolIncentives?: string;
-                    participationRewards?: string;
-                    communityPool?: string;
+                    pool_incentives?: string;
+                    participation_rewards?: string;
+                    community_pool?: string;
                 }): _107.DistributionProportions;
                 fromAmino(object: _107.DistributionProportionsAmino): _107.DistributionProportions;
                 toAmino(message: _107.DistributionProportions): _107.DistributionProportionsAmino;
@@ -3480,18 +3480,18 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _107.Params;
                 toJSON(message: _107.Params): unknown;
                 fromPartial(object: {
-                    mintDenom?: string;
-                    genesisEpochProvisions?: string;
-                    epochIdentifier?: string;
-                    reductionPeriodInEpochs?: string | number | import("long").default;
-                    reductionFactor?: string;
-                    distributionProportions?: {
+                    mint_denom?: string;
+                    genesis_epoch_provisions?: string;
+                    epoch_identifier?: string;
+                    reduction_period_in_epochs?: string | number | import("long").default;
+                    reduction_factor?: string;
+                    distribution_proportions?: {
                         staking?: string;
-                        poolIncentives?: string;
-                        participationRewards?: string;
-                        communityPool?: string;
+                        pool_incentives?: string;
+                        participation_rewards?: string;
+                        community_pool?: string;
                     };
-                    mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
+                    minting_rewards_distribution_start_epoch?: string | number | import("long").default;
                 }): _107.Params;
                 fromAmino(object: _107.ParamsAmino): _107.Params;
                 toAmino(message: _107.Params): _107.ParamsAmino;
@@ -3508,23 +3508,23 @@ export declare namespace quicksilver {
                 toJSON(message: _106.GenesisState): unknown;
                 fromPartial(object: {
                     minter?: {
-                        epochProvisions?: string;
+                        epoch_provisions?: string;
                     };
                     params?: {
-                        mintDenom?: string;
-                        genesisEpochProvisions?: string;
-                        epochIdentifier?: string;
-                        reductionPeriodInEpochs?: string | number | import("long").default;
-                        reductionFactor?: string;
-                        distributionProportions?: {
+                        mint_denom?: string;
+                        genesis_epoch_provisions?: string;
+                        epoch_identifier?: string;
+                        reduction_period_in_epochs?: string | number | import("long").default;
+                        reduction_factor?: string;
+                        distribution_proportions?: {
                             staking?: string;
-                            poolIncentives?: string;
-                            participationRewards?: string;
-                            communityPool?: string;
+                            pool_incentives?: string;
+                            participation_rewards?: string;
+                            community_pool?: string;
                         };
-                        mintingRewardsDistributionStartEpoch?: string | number | import("long").default;
+                        minting_rewards_distribution_start_epoch?: string | number | import("long").default;
                     };
-                    reductionStartedEpoch?: string | number | import("long").default;
+                    reduction_started_epoch?: string | number | import("long").default;
                 }): _106.GenesisState;
                 fromAmino(object: _106.GenesisStateAmino): _106.GenesisState;
                 toAmino(message: _106.GenesisState): _106.GenesisStateAmino;
@@ -3629,12 +3629,12 @@ export declare namespace quicksilver {
                 toJSON(message: _113.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     params?: {
-                        distributionProportions?: {
-                            validatorSelectionAllocation?: string;
-                            holdingsAllocation?: string;
-                            lockupAllocation?: string;
+                        distribution_proportions?: {
+                            validator_selection_allocation?: string;
+                            holdings_allocation?: string;
+                            lockup_allocation?: string;
                         };
-                        claimsEnabled?: boolean;
+                        claims_enabled?: boolean;
                     };
                 }): _113.QueryParamsResponse;
                 fromAmino(object: _113.QueryParamsResponseAmino): _113.QueryParamsResponse;
@@ -3764,9 +3764,9 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _111.DistributionProportions;
                 toJSON(message: _111.DistributionProportions): unknown;
                 fromPartial(object: {
-                    validatorSelectionAllocation?: string;
-                    holdingsAllocation?: string;
-                    lockupAllocation?: string;
+                    validator_selection_allocation?: string;
+                    holdings_allocation?: string;
+                    lockup_allocation?: string;
                 }): _111.DistributionProportions;
                 fromAmino(object: _111.DistributionProportionsAmino): _111.DistributionProportions;
                 toAmino(message: _111.DistributionProportions): _111.DistributionProportionsAmino;
@@ -3782,12 +3782,12 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _111.Params;
                 toJSON(message: _111.Params): unknown;
                 fromPartial(object: {
-                    distributionProportions?: {
-                        validatorSelectionAllocation?: string;
-                        holdingsAllocation?: string;
-                        lockupAllocation?: string;
+                    distribution_proportions?: {
+                        validator_selection_allocation?: string;
+                        holdings_allocation?: string;
+                        lockup_allocation?: string;
                     };
-                    claimsEnabled?: boolean;
+                    claims_enabled?: boolean;
                 }): _111.Params;
                 fromAmino(object: _111.ParamsAmino): _111.Params;
                 toAmino(message: _111.Params): _111.ParamsAmino;
@@ -3804,7 +3804,7 @@ export declare namespace quicksilver {
                 toJSON(message: _111.KeyedProtocolData): unknown;
                 fromPartial(object: {
                     key?: string;
-                    protocolData?: {
+                    protocol_data?: {
                         type?: string;
                         data?: Uint8Array;
                     };
@@ -3841,14 +3841,14 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _110.MsgSubmitClaim;
                 toJSON(message: _110.MsgSubmitClaim): unknown;
                 fromPartial(object: {
-                    userAddress?: string;
+                    user_address?: string;
                     zone?: string;
-                    srcZone?: string;
-                    claimType?: _91.ClaimType;
+                    src_zone?: string;
+                    claim_type?: _91.ClaimType;
                     proofs?: {
                         key?: Uint8Array;
                         data?: Uint8Array;
-                        proofOps?: {
+                        proof_ops?: {
                             ops?: {
                                 type?: string;
                                 key?: Uint8Array;
@@ -3856,7 +3856,7 @@ export declare namespace quicksilver {
                             }[];
                         };
                         height?: string | number | import("long").default;
-                        proofType?: string;
+                        proof_type?: string;
                     }[];
                 }): _110.MsgSubmitClaim;
                 fromAmino(object: _110.MsgSubmitClaimAmino): _110.MsgSubmitClaim;
@@ -3889,16 +3889,16 @@ export declare namespace quicksilver {
                 toJSON(message: _109.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
-                        distributionProportions?: {
-                            validatorSelectionAllocation?: string;
-                            holdingsAllocation?: string;
-                            lockupAllocation?: string;
+                        distribution_proportions?: {
+                            validator_selection_allocation?: string;
+                            holdings_allocation?: string;
+                            lockup_allocation?: string;
                         };
-                        claimsEnabled?: boolean;
+                        claims_enabled?: boolean;
                     };
-                    protocolData?: {
+                    protocol_data?: {
                         key?: string;
-                        protocolData?: {
+                        protocol_data?: {
                             type?: string;
                             data?: Uint8Array;
                         };
@@ -3940,7 +3940,7 @@ export declare namespace quicksilver {
                 toJSON(message: _114.QuerySupplyResponse): unknown;
                 fromPartial(object: {
                     supply?: string | number | import("long").default;
-                    circulatingSupply?: string | number | import("long").default;
+                    circulating_supply?: string | number | import("long").default;
                 }): _114.QuerySupplyResponse;
                 fromAmino(object: _114.QuerySupplyResponseAmino): _114.QuerySupplyResponse;
                 toAmino(message: _114.QuerySupplyResponse): _114.QuerySupplyResponseAmino;
@@ -4122,7 +4122,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _119.MsgCreateDenomResponse;
                 toJSON(message: _119.MsgCreateDenomResponse): unknown;
                 fromPartial(object: {
-                    newTokenDenom?: string;
+                    new_token_denom?: string;
                 }): _119.MsgCreateDenomResponse;
                 fromAmino(object: _119.MsgCreateDenomResponseAmino): _119.MsgCreateDenomResponse;
                 toAmino(message: _119.MsgCreateDenomResponse): _119.MsgCreateDenomResponseAmino;
@@ -4208,7 +4208,7 @@ export declare namespace quicksilver {
                 fromPartial(object: {
                     sender?: string;
                     denom?: string;
-                    newAdmin?: string;
+                    new_admin?: string;
                 }): _119.MsgChangeAdmin;
                 fromAmino(object: _119.MsgChangeAdminAmino): _119.MsgChangeAdmin;
                 toAmino(message: _119.MsgChangeAdmin): _119.MsgChangeAdminAmino;
@@ -4241,7 +4241,7 @@ export declare namespace quicksilver {
                     sender?: string;
                     metadata?: {
                         description?: string;
-                        denomUnits?: {
+                        denom_units?: {
                             denom?: string;
                             exponent?: number;
                             aliases?: string[];
@@ -4251,7 +4251,7 @@ export declare namespace quicksilver {
                         name?: string;
                         symbol?: string;
                         uri?: string;
-                        uriHash?: string;
+                        uri_hash?: string;
                     };
                 }): _119.MsgSetDenomMetadata;
                 fromAmino(object: _119.MsgSetDenomMetadataAmino): _119.MsgSetDenomMetadata;
@@ -4297,7 +4297,7 @@ export declare namespace quicksilver {
                 toJSON(message: _118.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     params?: {
-                        denomCreationFee?: {
+                        denom_creation_fee?: {
                             denom?: string;
                             amount?: string;
                         }[];
@@ -4333,7 +4333,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _118.QueryDenomAuthorityMetadataResponse;
                 toJSON(message: _118.QueryDenomAuthorityMetadataResponse): unknown;
                 fromPartial(object: {
-                    authorityMetadata?: {
+                    authority_metadata?: {
                         admin?: string;
                     };
                 }): _118.QueryDenomAuthorityMetadataResponse;
@@ -4383,7 +4383,7 @@ export declare namespace quicksilver {
                 fromJSON(object: any): _117.Params;
                 toJSON(message: _117.Params): unknown;
                 fromPartial(object: {
-                    denomCreationFee?: {
+                    denom_creation_fee?: {
                         denom?: string;
                         amount?: string;
                     }[];
@@ -4403,14 +4403,14 @@ export declare namespace quicksilver {
                 toJSON(message: _116.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
-                        denomCreationFee?: {
+                        denom_creation_fee?: {
                             denom?: string;
                             amount?: string;
                         }[];
                     };
-                    factoryDenoms?: {
+                    factory_denoms?: {
                         denom?: string;
-                        authorityMetadata?: {
+                        authority_metadata?: {
                             admin?: string;
                         };
                     }[];
@@ -4430,7 +4430,7 @@ export declare namespace quicksilver {
                 toJSON(message: _116.GenesisDenom): unknown;
                 fromPartial(object: {
                     denom?: string;
-                    authorityMetadata?: {
+                    authority_metadata?: {
                         admin?: string;
                     };
                 }): _116.GenesisDenom;

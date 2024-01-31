@@ -6,19 +6,19 @@ import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpe
 import * as _m0 from "protobufjs/minimal";
 function createBaseQueryChannelRequest() {
     return {
-        portId: "",
-        channelId: ""
+        port_id: "",
+        channel_id: ""
     };
 }
 export const QueryChannelRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryChannelRequest",
     aminoType: "cosmos-sdk/QueryChannelRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         return writer;
     },
@@ -30,10 +30,10 @@ export const QueryChannelRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -44,32 +44,32 @@ export const QueryChannelRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : ""
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id
+            port_id: object.port_id,
+            channel_id: object.channel_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -98,7 +98,7 @@ function createBaseQueryChannelResponse() {
     return {
         channel: Channel.fromPartial({}),
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryChannelResponse = {
@@ -111,8 +111,8 @@ export const QueryChannelResponse = {
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -130,7 +130,7 @@ export const QueryChannelResponse = {
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -143,35 +143,35 @@ export const QueryChannelResponse = {
         return {
             channel: isSet(object.channel) ? Channel.fromJSON(object.channel) : undefined,
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.channel !== undefined && (obj.channel = message.channel ? Channel.toJSON(message.channel) : undefined);
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelResponse();
         message.channel = object.channel !== undefined && object.channel !== null ? Channel.fromPartial(object.channel) : undefined;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             channel: object?.channel ? Channel.fromAmino(object.channel) : undefined,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.channel = message.channel ? Channel.toAmino(message.channel) : undefined;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -590,19 +590,19 @@ export const QueryConnectionChannelsResponse = {
 };
 function createBaseQueryChannelClientStateRequest() {
     return {
-        portId: "",
-        channelId: ""
+        port_id: "",
+        channel_id: ""
     };
 }
 export const QueryChannelClientStateRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateRequest",
     aminoType: "cosmos-sdk/QueryChannelClientStateRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         return writer;
     },
@@ -614,10 +614,10 @@ export const QueryChannelClientStateRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -628,32 +628,32 @@ export const QueryChannelClientStateRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : ""
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelClientStateRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id
+            port_id: object.port_id,
+            channel_id: object.channel_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -680,23 +680,23 @@ export const QueryChannelClientStateRequest = {
 };
 function createBaseQueryChannelClientStateResponse() {
     return {
-        identifiedClientState: IdentifiedClientState.fromPartial({}),
+        identified_client_state: IdentifiedClientState.fromPartial({}),
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryChannelClientStateResponse = {
     typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateResponse",
     aminoType: "cosmos-sdk/QueryChannelClientStateResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.identifiedClientState !== undefined) {
-            IdentifiedClientState.encode(message.identifiedClientState, writer.uint32(10).fork()).ldelim();
+        if (message.identified_client_state !== undefined) {
+            IdentifiedClientState.encode(message.identified_client_state, writer.uint32(10).fork()).ldelim();
         }
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -708,13 +708,13 @@ export const QueryChannelClientStateResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.identifiedClientState = IdentifiedClientState.decode(reader, reader.uint32());
+                    message.identified_client_state = IdentifiedClientState.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -725,37 +725,37 @@ export const QueryChannelClientStateResponse = {
     },
     fromJSON(object) {
         return {
-            identifiedClientState: isSet(object.identifiedClientState) ? IdentifiedClientState.fromJSON(object.identifiedClientState) : undefined,
+            identified_client_state: isSet(object.identified_client_state) ? IdentifiedClientState.fromJSON(object.identified_client_state) : undefined,
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.identifiedClientState !== undefined && (obj.identifiedClientState = message.identifiedClientState ? IdentifiedClientState.toJSON(message.identifiedClientState) : undefined);
+        message.identified_client_state !== undefined && (obj.identified_client_state = message.identified_client_state ? IdentifiedClientState.toJSON(message.identified_client_state) : undefined);
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelClientStateResponse();
-        message.identifiedClientState = object.identifiedClientState !== undefined && object.identifiedClientState !== null ? IdentifiedClientState.fromPartial(object.identifiedClientState) : undefined;
+        message.identified_client_state = object.identified_client_state !== undefined && object.identified_client_state !== null ? IdentifiedClientState.fromPartial(object.identified_client_state) : undefined;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            identifiedClientState: object?.identified_client_state ? IdentifiedClientState.fromAmino(object.identified_client_state) : undefined,
+            identified_client_state: object?.identified_client_state ? IdentifiedClientState.fromAmino(object.identified_client_state) : undefined,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.identified_client_state = message.identifiedClientState ? IdentifiedClientState.toAmino(message.identifiedClientState) : undefined;
+        obj.identified_client_state = message.identified_client_state ? IdentifiedClientState.toAmino(message.identified_client_state) : undefined;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -782,27 +782,27 @@ export const QueryChannelClientStateResponse = {
 };
 function createBaseQueryChannelConsensusStateRequest() {
     return {
-        portId: "",
-        channelId: "",
-        revisionNumber: Long.UZERO,
-        revisionHeight: Long.UZERO
+        port_id: "",
+        channel_id: "",
+        revision_number: Long.UZERO,
+        revision_height: Long.UZERO
     };
 }
 export const QueryChannelConsensusStateRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateRequest",
     aminoType: "cosmos-sdk/QueryChannelConsensusStateRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
-        if (!message.revisionNumber.isZero()) {
-            writer.uint32(24).uint64(message.revisionNumber);
+        if (!message.revision_number.isZero()) {
+            writer.uint32(24).uint64(message.revision_number);
         }
-        if (!message.revisionHeight.isZero()) {
-            writer.uint32(32).uint64(message.revisionHeight);
+        if (!message.revision_height.isZero()) {
+            writer.uint32(32).uint64(message.revision_height);
         }
         return writer;
     },
@@ -814,16 +814,16 @@ export const QueryChannelConsensusStateRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
-                    message.revisionNumber = reader.uint64();
+                    message.revision_number = reader.uint64();
                     break;
                 case 4:
-                    message.revisionHeight = reader.uint64();
+                    message.revision_height = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -834,42 +834,42 @@ export const QueryChannelConsensusStateRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
-            revisionNumber: isSet(object.revisionNumber) ? Long.fromValue(object.revisionNumber) : Long.UZERO,
-            revisionHeight: isSet(object.revisionHeight) ? Long.fromValue(object.revisionHeight) : Long.UZERO
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
+            revision_number: isSet(object.revision_number) ? Long.fromValue(object.revision_number) : Long.UZERO,
+            revision_height: isSet(object.revision_height) ? Long.fromValue(object.revision_height) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
-        message.revisionNumber !== undefined && (obj.revisionNumber = (message.revisionNumber || Long.UZERO).toString());
-        message.revisionHeight !== undefined && (obj.revisionHeight = (message.revisionHeight || Long.UZERO).toString());
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
+        message.revision_number !== undefined && (obj.revision_number = (message.revision_number || Long.UZERO).toString());
+        message.revision_height !== undefined && (obj.revision_height = (message.revision_height || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelConsensusStateRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
-        message.revisionNumber = object.revisionNumber !== undefined && object.revisionNumber !== null ? Long.fromValue(object.revisionNumber) : Long.UZERO;
-        message.revisionHeight = object.revisionHeight !== undefined && object.revisionHeight !== null ? Long.fromValue(object.revisionHeight) : Long.UZERO;
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
+        message.revision_number = object.revision_number !== undefined && object.revision_number !== null ? Long.fromValue(object.revision_number) : Long.UZERO;
+        message.revision_height = object.revision_height !== undefined && object.revision_height !== null ? Long.fromValue(object.revision_height) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
-            revisionNumber: Long.fromString(object.revision_number),
-            revisionHeight: Long.fromString(object.revision_height)
+            port_id: object.port_id,
+            channel_id: object.channel_id,
+            revision_number: Long.fromString(object.revision_number),
+            revision_height: Long.fromString(object.revision_height)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
-        obj.revision_number = message.revisionNumber ? message.revisionNumber.toString() : undefined;
-        obj.revision_height = message.revisionHeight ? message.revisionHeight.toString() : undefined;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
+        obj.revision_number = message.revision_number ? message.revision_number.toString() : undefined;
+        obj.revision_height = message.revision_height ? message.revision_height.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -896,27 +896,27 @@ export const QueryChannelConsensusStateRequest = {
 };
 function createBaseQueryChannelConsensusStateResponse() {
     return {
-        consensusState: Any.fromPartial({}),
-        clientId: "",
+        consensus_state: Any.fromPartial({}),
+        client_id: "",
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryChannelConsensusStateResponse = {
     typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateResponse",
     aminoType: "cosmos-sdk/QueryChannelConsensusStateResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.consensusState !== undefined) {
-            Any.encode(message.consensusState, writer.uint32(10).fork()).ldelim();
+        if (message.consensus_state !== undefined) {
+            Any.encode(message.consensus_state, writer.uint32(10).fork()).ldelim();
         }
-        if (message.clientId !== "") {
-            writer.uint32(18).string(message.clientId);
+        if (message.client_id !== "") {
+            writer.uint32(18).string(message.client_id);
         }
         if (message.proof.length !== 0) {
             writer.uint32(26).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(34).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -928,16 +928,16 @@ export const QueryChannelConsensusStateResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.consensusState = Any.decode(reader, reader.uint32());
+                    message.consensus_state = Any.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.clientId = reader.string();
+                    message.client_id = reader.string();
                     break;
                 case 3:
                     message.proof = reader.bytes();
                     break;
                 case 4:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -948,42 +948,42 @@ export const QueryChannelConsensusStateResponse = {
     },
     fromJSON(object) {
         return {
-            consensusState: isSet(object.consensusState) ? Any.fromJSON(object.consensusState) : undefined,
-            clientId: isSet(object.clientId) ? String(object.clientId) : "",
+            consensus_state: isSet(object.consensus_state) ? Any.fromJSON(object.consensus_state) : undefined,
+            client_id: isSet(object.client_id) ? String(object.client_id) : "",
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.consensusState !== undefined && (obj.consensusState = message.consensusState ? Any.toJSON(message.consensusState) : undefined);
-        message.clientId !== undefined && (obj.clientId = message.clientId);
+        message.consensus_state !== undefined && (obj.consensus_state = message.consensus_state ? Any.toJSON(message.consensus_state) : undefined);
+        message.client_id !== undefined && (obj.client_id = message.client_id);
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryChannelConsensusStateResponse();
-        message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? Any.fromPartial(object.consensusState) : undefined;
-        message.clientId = object.clientId ?? "";
+        message.consensus_state = object.consensus_state !== undefined && object.consensus_state !== null ? Any.fromPartial(object.consensus_state) : undefined;
+        message.client_id = object.client_id ?? "";
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            consensusState: object?.consensus_state ? Any.fromAmino(object.consensus_state) : undefined,
-            clientId: object.client_id,
+            consensus_state: object?.consensus_state ? Any.fromAmino(object.consensus_state) : undefined,
+            client_id: object.client_id,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.consensus_state = message.consensusState ? Any.toAmino(message.consensusState) : undefined;
-        obj.client_id = message.clientId;
+        obj.consensus_state = message.consensus_state ? Any.toAmino(message.consensus_state) : undefined;
+        obj.client_id = message.client_id;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -1010,8 +1010,8 @@ export const QueryChannelConsensusStateResponse = {
 };
 function createBaseQueryPacketCommitmentRequest() {
     return {
-        portId: "",
-        channelId: "",
+        port_id: "",
+        channel_id: "",
         sequence: Long.UZERO
     };
 }
@@ -1019,11 +1019,11 @@ export const QueryPacketCommitmentRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentRequest",
     aminoType: "cosmos-sdk/QueryPacketCommitmentRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         if (!message.sequence.isZero()) {
             writer.uint32(24).uint64(message.sequence);
@@ -1038,10 +1038,10 @@ export const QueryPacketCommitmentRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     message.sequence = reader.uint64();
@@ -1055,36 +1055,36 @@ export const QueryPacketCommitmentRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketCommitmentRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
+            port_id: object.port_id,
+            channel_id: object.channel_id,
             sequence: Long.fromString(object.sequence)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         return obj;
     },
@@ -1114,7 +1114,7 @@ function createBaseQueryPacketCommitmentResponse() {
     return {
         commitment: new Uint8Array(),
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryPacketCommitmentResponse = {
@@ -1127,8 +1127,8 @@ export const QueryPacketCommitmentResponse = {
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -1146,7 +1146,7 @@ export const QueryPacketCommitmentResponse = {
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1159,35 +1159,35 @@ export const QueryPacketCommitmentResponse = {
         return {
             commitment: isSet(object.commitment) ? bytesFromBase64(object.commitment) : new Uint8Array(),
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.commitment !== undefined && (obj.commitment = base64FromBytes(message.commitment !== undefined ? message.commitment : new Uint8Array()));
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketCommitmentResponse();
         message.commitment = object.commitment ?? new Uint8Array();
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             commitment: object.commitment,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.commitment = message.commitment;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -1214,8 +1214,8 @@ export const QueryPacketCommitmentResponse = {
 };
 function createBaseQueryPacketCommitmentsRequest() {
     return {
-        portId: "",
-        channelId: "",
+        port_id: "",
+        channel_id: "",
         pagination: PageRequest.fromPartial({})
     };
 }
@@ -1223,11 +1223,11 @@ export const QueryPacketCommitmentsRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsRequest",
     aminoType: "cosmos-sdk/QueryPacketCommitmentsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         if (message.pagination !== undefined) {
             PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
@@ -1242,10 +1242,10 @@ export const QueryPacketCommitmentsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -1259,36 +1259,36 @@ export const QueryPacketCommitmentsRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
             pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketCommitmentsRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
+            port_id: object.port_id,
+            channel_id: object.channel_id,
             pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
         return obj;
     },
@@ -1428,8 +1428,8 @@ export const QueryPacketCommitmentsResponse = {
 };
 function createBaseQueryPacketReceiptRequest() {
     return {
-        portId: "",
-        channelId: "",
+        port_id: "",
+        channel_id: "",
         sequence: Long.UZERO
     };
 }
@@ -1437,11 +1437,11 @@ export const QueryPacketReceiptRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptRequest",
     aminoType: "cosmos-sdk/QueryPacketReceiptRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         if (!message.sequence.isZero()) {
             writer.uint32(24).uint64(message.sequence);
@@ -1456,10 +1456,10 @@ export const QueryPacketReceiptRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     message.sequence = reader.uint64();
@@ -1473,36 +1473,36 @@ export const QueryPacketReceiptRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketReceiptRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
+            port_id: object.port_id,
+            channel_id: object.channel_id,
             sequence: Long.fromString(object.sequence)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         return obj;
     },
@@ -1532,7 +1532,7 @@ function createBaseQueryPacketReceiptResponse() {
     return {
         received: false,
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryPacketReceiptResponse = {
@@ -1545,8 +1545,8 @@ export const QueryPacketReceiptResponse = {
         if (message.proof.length !== 0) {
             writer.uint32(26).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(34).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -1564,7 +1564,7 @@ export const QueryPacketReceiptResponse = {
                     message.proof = reader.bytes();
                     break;
                 case 4:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1577,35 +1577,35 @@ export const QueryPacketReceiptResponse = {
         return {
             received: isSet(object.received) ? Boolean(object.received) : false,
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.received !== undefined && (obj.received = message.received);
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketReceiptResponse();
         message.received = object.received ?? false;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             received: object.received,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.received = message.received;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -1632,8 +1632,8 @@ export const QueryPacketReceiptResponse = {
 };
 function createBaseQueryPacketAcknowledgementRequest() {
     return {
-        portId: "",
-        channelId: "",
+        port_id: "",
+        channel_id: "",
         sequence: Long.UZERO
     };
 }
@@ -1641,11 +1641,11 @@ export const QueryPacketAcknowledgementRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementRequest",
     aminoType: "cosmos-sdk/QueryPacketAcknowledgementRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         if (!message.sequence.isZero()) {
             writer.uint32(24).uint64(message.sequence);
@@ -1660,10 +1660,10 @@ export const QueryPacketAcknowledgementRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     message.sequence = reader.uint64();
@@ -1677,36 +1677,36 @@ export const QueryPacketAcknowledgementRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
             sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketAcknowledgementRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
+            port_id: object.port_id,
+            channel_id: object.channel_id,
             sequence: Long.fromString(object.sequence)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         obj.sequence = message.sequence ? message.sequence.toString() : undefined;
         return obj;
     },
@@ -1736,7 +1736,7 @@ function createBaseQueryPacketAcknowledgementResponse() {
     return {
         acknowledgement: new Uint8Array(),
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryPacketAcknowledgementResponse = {
@@ -1749,8 +1749,8 @@ export const QueryPacketAcknowledgementResponse = {
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -1768,7 +1768,7 @@ export const QueryPacketAcknowledgementResponse = {
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1781,35 +1781,35 @@ export const QueryPacketAcknowledgementResponse = {
         return {
             acknowledgement: isSet(object.acknowledgement) ? bytesFromBase64(object.acknowledgement) : new Uint8Array(),
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
         message.acknowledgement !== undefined && (obj.acknowledgement = base64FromBytes(message.acknowledgement !== undefined ? message.acknowledgement : new Uint8Array()));
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketAcknowledgementResponse();
         message.acknowledgement = object.acknowledgement ?? new Uint8Array();
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
             acknowledgement: object.acknowledgement,
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
         obj.acknowledgement = message.acknowledgement;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {
@@ -1836,27 +1836,27 @@ export const QueryPacketAcknowledgementResponse = {
 };
 function createBaseQueryPacketAcknowledgementsRequest() {
     return {
-        portId: "",
-        channelId: "",
+        port_id: "",
+        channel_id: "",
         pagination: PageRequest.fromPartial({}),
-        packetCommitmentSequences: []
+        packet_commitment_sequences: []
     };
 }
 export const QueryPacketAcknowledgementsRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest",
     aminoType: "cosmos-sdk/QueryPacketAcknowledgementsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         if (message.pagination !== undefined) {
             PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
         }
         writer.uint32(34).fork();
-        for (const v of message.packetCommitmentSequences) {
+        for (const v of message.packet_commitment_sequences) {
             writer.uint64(v);
         }
         writer.ldelim();
@@ -1870,10 +1870,10 @@ export const QueryPacketAcknowledgementsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -1882,11 +1882,11 @@ export const QueryPacketAcknowledgementsRequest = {
                     if ((tag & 7) === 2) {
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.packetCommitmentSequences.push(reader.uint64());
+                            message.packet_commitment_sequences.push(reader.uint64());
                         }
                     }
                     else {
-                        message.packetCommitmentSequences.push(reader.uint64());
+                        message.packet_commitment_sequences.push(reader.uint64());
                     }
                     break;
                 default:
@@ -1898,48 +1898,48 @@ export const QueryPacketAcknowledgementsRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
             pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
-            packetCommitmentSequences: Array.isArray(object?.packetCommitmentSequences) ? object.packetCommitmentSequences.map((e) => Long.fromValue(e)) : []
+            packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => Long.fromValue(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-        if (message.packetCommitmentSequences) {
-            obj.packetCommitmentSequences = message.packetCommitmentSequences.map(e => (e || Long.UZERO).toString());
+        if (message.packet_commitment_sequences) {
+            obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => (e || Long.UZERO).toString());
         }
         else {
-            obj.packetCommitmentSequences = [];
+            obj.packet_commitment_sequences = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryPacketAcknowledgementsRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
-        message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => Long.fromValue(e)) || [];
+        message.packet_commitment_sequences = object.packet_commitment_sequences?.map(e => Long.fromValue(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
+            port_id: object.port_id,
+            channel_id: object.channel_id,
             pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined,
-            packetCommitmentSequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => e) : []
+            packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
-        if (message.packetCommitmentSequences) {
-            obj.packet_commitment_sequences = message.packetCommitmentSequences.map(e => e);
+        if (message.packet_commitment_sequences) {
+            obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => e);
         }
         else {
             obj.packet_commitment_sequences = [];
@@ -2082,23 +2082,23 @@ export const QueryPacketAcknowledgementsResponse = {
 };
 function createBaseQueryUnreceivedPacketsRequest() {
     return {
-        portId: "",
-        channelId: "",
-        packetCommitmentSequences: []
+        port_id: "",
+        channel_id: "",
+        packet_commitment_sequences: []
     };
 }
 export const QueryUnreceivedPacketsRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsRequest",
     aminoType: "cosmos-sdk/QueryUnreceivedPacketsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         writer.uint32(26).fork();
-        for (const v of message.packetCommitmentSequences) {
+        for (const v of message.packet_commitment_sequences) {
             writer.uint64(v);
         }
         writer.ldelim();
@@ -2112,20 +2112,20 @@ export const QueryUnreceivedPacketsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     if ((tag & 7) === 2) {
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.packetCommitmentSequences.push(reader.uint64());
+                            message.packet_commitment_sequences.push(reader.uint64());
                         }
                     }
                     else {
-                        message.packetCommitmentSequences.push(reader.uint64());
+                        message.packet_commitment_sequences.push(reader.uint64());
                     }
                     break;
                 default:
@@ -2137,43 +2137,43 @@ export const QueryUnreceivedPacketsRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
-            packetCommitmentSequences: Array.isArray(object?.packetCommitmentSequences) ? object.packetCommitmentSequences.map((e) => Long.fromValue(e)) : []
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
+            packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => Long.fromValue(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
-        if (message.packetCommitmentSequences) {
-            obj.packetCommitmentSequences = message.packetCommitmentSequences.map(e => (e || Long.UZERO).toString());
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
+        if (message.packet_commitment_sequences) {
+            obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => (e || Long.UZERO).toString());
         }
         else {
-            obj.packetCommitmentSequences = [];
+            obj.packet_commitment_sequences = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryUnreceivedPacketsRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
-        message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => Long.fromValue(e)) || [];
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
+        message.packet_commitment_sequences = object.packet_commitment_sequences?.map(e => Long.fromValue(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
-            packetCommitmentSequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => e) : []
+            port_id: object.port_id,
+            channel_id: object.channel_id,
+            packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
-        if (message.packetCommitmentSequences) {
-            obj.packet_commitment_sequences = message.packetCommitmentSequences.map(e => e);
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
+        if (message.packet_commitment_sequences) {
+            obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => e);
         }
         else {
             obj.packet_commitment_sequences = [];
@@ -2314,23 +2314,23 @@ export const QueryUnreceivedPacketsResponse = {
 };
 function createBaseQueryUnreceivedAcksRequest() {
     return {
-        portId: "",
-        channelId: "",
-        packetAckSequences: []
+        port_id: "",
+        channel_id: "",
+        packet_ack_sequences: []
     };
 }
 export const QueryUnreceivedAcksRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksRequest",
     aminoType: "cosmos-sdk/QueryUnreceivedAcksRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         writer.uint32(26).fork();
-        for (const v of message.packetAckSequences) {
+        for (const v of message.packet_ack_sequences) {
             writer.uint64(v);
         }
         writer.ldelim();
@@ -2344,20 +2344,20 @@ export const QueryUnreceivedAcksRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 case 3:
                     if ((tag & 7) === 2) {
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.packetAckSequences.push(reader.uint64());
+                            message.packet_ack_sequences.push(reader.uint64());
                         }
                     }
                     else {
-                        message.packetAckSequences.push(reader.uint64());
+                        message.packet_ack_sequences.push(reader.uint64());
                     }
                     break;
                 default:
@@ -2369,43 +2369,43 @@ export const QueryUnreceivedAcksRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : "",
-            packetAckSequences: Array.isArray(object?.packetAckSequences) ? object.packetAckSequences.map((e) => Long.fromValue(e)) : []
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
+            packet_ack_sequences: Array.isArray(object?.packet_ack_sequences) ? object.packet_ack_sequences.map((e) => Long.fromValue(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
-        if (message.packetAckSequences) {
-            obj.packetAckSequences = message.packetAckSequences.map(e => (e || Long.UZERO).toString());
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
+        if (message.packet_ack_sequences) {
+            obj.packet_ack_sequences = message.packet_ack_sequences.map(e => (e || Long.UZERO).toString());
         }
         else {
-            obj.packetAckSequences = [];
+            obj.packet_ack_sequences = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryUnreceivedAcksRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
-        message.packetAckSequences = object.packetAckSequences?.map(e => Long.fromValue(e)) || [];
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
+        message.packet_ack_sequences = object.packet_ack_sequences?.map(e => Long.fromValue(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id,
-            packetAckSequences: Array.isArray(object?.packet_ack_sequences) ? object.packet_ack_sequences.map((e) => e) : []
+            port_id: object.port_id,
+            channel_id: object.channel_id,
+            packet_ack_sequences: Array.isArray(object?.packet_ack_sequences) ? object.packet_ack_sequences.map((e) => e) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
-        if (message.packetAckSequences) {
-            obj.packet_ack_sequences = message.packetAckSequences.map(e => e);
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
+        if (message.packet_ack_sequences) {
+            obj.packet_ack_sequences = message.packet_ack_sequences.map(e => e);
         }
         else {
             obj.packet_ack_sequences = [];
@@ -2546,19 +2546,19 @@ export const QueryUnreceivedAcksResponse = {
 };
 function createBaseQueryNextSequenceReceiveRequest() {
     return {
-        portId: "",
-        channelId: ""
+        port_id: "",
+        channel_id: ""
     };
 }
 export const QueryNextSequenceReceiveRequest = {
     typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveRequest",
     aminoType: "cosmos-sdk/QueryNextSequenceReceiveRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        if (message.channelId !== "") {
-            writer.uint32(18).string(message.channelId);
+        if (message.channel_id !== "") {
+            writer.uint32(18).string(message.channel_id);
         }
         return writer;
     },
@@ -2570,10 +2570,10 @@ export const QueryNextSequenceReceiveRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.channelId = reader.string();
+                    message.channel_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2584,32 +2584,32 @@ export const QueryNextSequenceReceiveRequest = {
     },
     fromJSON(object) {
         return {
-            portId: isSet(object.portId) ? String(object.portId) : "",
-            channelId: isSet(object.channelId) ? String(object.channelId) : ""
+            port_id: isSet(object.port_id) ? String(object.port_id) : "",
+            channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        message.channelId !== undefined && (obj.channelId = message.channelId);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        message.channel_id !== undefined && (obj.channel_id = message.channel_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryNextSequenceReceiveRequest();
-        message.portId = object.portId ?? "";
-        message.channelId = object.channelId ?? "";
+        message.port_id = object.port_id ?? "";
+        message.channel_id = object.channel_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            channelId: object.channel_id
+            port_id: object.port_id,
+            channel_id: object.channel_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        obj.channel_id = message.channelId;
+        obj.port_id = message.port_id;
+        obj.channel_id = message.channel_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -2636,23 +2636,23 @@ export const QueryNextSequenceReceiveRequest = {
 };
 function createBaseQueryNextSequenceReceiveResponse() {
     return {
-        nextSequenceReceive: Long.UZERO,
+        next_sequence_receive: Long.UZERO,
         proof: new Uint8Array(),
-        proofHeight: Height.fromPartial({})
+        proof_height: Height.fromPartial({})
     };
 }
 export const QueryNextSequenceReceiveResponse = {
     typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveResponse",
     aminoType: "cosmos-sdk/QueryNextSequenceReceiveResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (!message.nextSequenceReceive.isZero()) {
-            writer.uint32(8).uint64(message.nextSequenceReceive);
+        if (!message.next_sequence_receive.isZero()) {
+            writer.uint32(8).uint64(message.next_sequence_receive);
         }
         if (message.proof.length !== 0) {
             writer.uint32(18).bytes(message.proof);
         }
-        if (message.proofHeight !== undefined) {
-            Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
+        if (message.proof_height !== undefined) {
+            Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -2664,13 +2664,13 @@ export const QueryNextSequenceReceiveResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.nextSequenceReceive = reader.uint64();
+                    message.next_sequence_receive = reader.uint64();
                     break;
                 case 2:
                     message.proof = reader.bytes();
                     break;
                 case 3:
-                    message.proofHeight = Height.decode(reader, reader.uint32());
+                    message.proof_height = Height.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2681,37 +2681,37 @@ export const QueryNextSequenceReceiveResponse = {
     },
     fromJSON(object) {
         return {
-            nextSequenceReceive: isSet(object.nextSequenceReceive) ? Long.fromValue(object.nextSequenceReceive) : Long.UZERO,
+            next_sequence_receive: isSet(object.next_sequence_receive) ? Long.fromValue(object.next_sequence_receive) : Long.UZERO,
             proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-            proofHeight: isSet(object.proofHeight) ? Height.fromJSON(object.proofHeight) : undefined
+            proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.nextSequenceReceive !== undefined && (obj.nextSequenceReceive = (message.nextSequenceReceive || Long.UZERO).toString());
+        message.next_sequence_receive !== undefined && (obj.next_sequence_receive = (message.next_sequence_receive || Long.UZERO).toString());
         message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-        message.proofHeight !== undefined && (obj.proofHeight = message.proofHeight ? Height.toJSON(message.proofHeight) : undefined);
+        message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryNextSequenceReceiveResponse();
-        message.nextSequenceReceive = object.nextSequenceReceive !== undefined && object.nextSequenceReceive !== null ? Long.fromValue(object.nextSequenceReceive) : Long.UZERO;
+        message.next_sequence_receive = object.next_sequence_receive !== undefined && object.next_sequence_receive !== null ? Long.fromValue(object.next_sequence_receive) : Long.UZERO;
         message.proof = object.proof ?? new Uint8Array();
-        message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
+        message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            nextSequenceReceive: Long.fromString(object.next_sequence_receive),
+            next_sequence_receive: Long.fromString(object.next_sequence_receive),
             proof: object.proof,
-            proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
+            proof_height: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.next_sequence_receive = message.nextSequenceReceive ? message.nextSequenceReceive.toString() : undefined;
+        obj.next_sequence_receive = message.next_sequence_receive ? message.next_sequence_receive.toString() : undefined;
         obj.proof = message.proof;
-        obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
+        obj.proof_height = message.proof_height ? Height.toAmino(message.proof_height) : {};
         return obj;
     },
     fromAminoMsg(object) {

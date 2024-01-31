@@ -29,14 +29,14 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseSendAuthorization() {
     return {
         $typeUrl: "/cosmos.bank.v1beta1.SendAuthorization",
-        spendLimit: []
+        spend_limit: []
     };
 }
 exports.SendAuthorization = {
     typeUrl: "/cosmos.bank.v1beta1.SendAuthorization",
     aminoType: "cosmos-sdk/SendAuthorization",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.spendLimit) {
+        for (const v of message.spend_limit) {
             coin_1.Coin.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
@@ -49,7 +49,7 @@ exports.SendAuthorization = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.spendLimit.push(coin_1.Coin.decode(reader, reader.uint32()));
+                    message.spend_limit.push(coin_1.Coin.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -60,33 +60,33 @@ exports.SendAuthorization = {
     },
     fromJSON(object) {
         return {
-            spendLimit: Array.isArray(object?.spendLimit) ? object.spendLimit.map((e) => coin_1.Coin.fromJSON(e)) : []
+            spend_limit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e) => coin_1.Coin.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.spendLimit) {
-            obj.spendLimit = message.spendLimit.map(e => e ? coin_1.Coin.toJSON(e) : undefined);
+        if (message.spend_limit) {
+            obj.spend_limit = message.spend_limit.map(e => e ? coin_1.Coin.toJSON(e) : undefined);
         }
         else {
-            obj.spendLimit = [];
+            obj.spend_limit = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseSendAuthorization();
-        message.spendLimit = object.spendLimit?.map(e => coin_1.Coin.fromPartial(e)) || [];
+        message.spend_limit = object.spend_limit?.map(e => coin_1.Coin.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            spendLimit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e) => coin_1.Coin.fromAmino(e)) : []
+            spend_limit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e) => coin_1.Coin.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.spendLimit) {
-            obj.spend_limit = message.spendLimit.map(e => e ? coin_1.Coin.toAmino(e) : undefined);
+        if (message.spend_limit) {
+            obj.spend_limit = message.spend_limit.map(e => e ? coin_1.Coin.toAmino(e) : undefined);
         }
         else {
             obj.spend_limit = [];

@@ -59,7 +59,7 @@ export const QuerySupplyRequest = {
 function createBaseQuerySupplyResponse() {
     return {
         supply: Long.UZERO,
-        circulatingSupply: Long.UZERO
+        circulating_supply: Long.UZERO
     };
 }
 export const QuerySupplyResponse = {
@@ -68,8 +68,8 @@ export const QuerySupplyResponse = {
         if (!message.supply.isZero()) {
             writer.uint32(8).uint64(message.supply);
         }
-        if (!message.circulatingSupply.isZero()) {
-            writer.uint32(16).uint64(message.circulatingSupply);
+        if (!message.circulating_supply.isZero()) {
+            writer.uint32(16).uint64(message.circulating_supply);
         }
         return writer;
     },
@@ -84,7 +84,7 @@ export const QuerySupplyResponse = {
                     message.supply = reader.uint64();
                     break;
                 case 2:
-                    message.circulatingSupply = reader.uint64();
+                    message.circulating_supply = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -96,31 +96,31 @@ export const QuerySupplyResponse = {
     fromJSON(object) {
         return {
             supply: isSet(object.supply) ? Long.fromValue(object.supply) : Long.UZERO,
-            circulatingSupply: isSet(object.circulatingSupply) ? Long.fromValue(object.circulatingSupply) : Long.UZERO
+            circulating_supply: isSet(object.circulating_supply) ? Long.fromValue(object.circulating_supply) : Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
         message.supply !== undefined && (obj.supply = (message.supply || Long.UZERO).toString());
-        message.circulatingSupply !== undefined && (obj.circulatingSupply = (message.circulatingSupply || Long.UZERO).toString());
+        message.circulating_supply !== undefined && (obj.circulating_supply = (message.circulating_supply || Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQuerySupplyResponse();
         message.supply = object.supply !== undefined && object.supply !== null ? Long.fromValue(object.supply) : Long.UZERO;
-        message.circulatingSupply = object.circulatingSupply !== undefined && object.circulatingSupply !== null ? Long.fromValue(object.circulatingSupply) : Long.UZERO;
+        message.circulating_supply = object.circulating_supply !== undefined && object.circulating_supply !== null ? Long.fromValue(object.circulating_supply) : Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
             supply: Long.fromString(object.supply),
-            circulatingSupply: Long.fromString(object.circulating_supply)
+            circulating_supply: Long.fromString(object.circulating_supply)
         };
     },
     toAmino(message) {
         const obj = {};
         obj.supply = message.supply ? message.supply.toString() : undefined;
-        obj.circulating_supply = message.circulatingSupply ? message.circulatingSupply.toString() : undefined;
+        obj.circulating_supply = message.circulating_supply ? message.circulating_supply.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

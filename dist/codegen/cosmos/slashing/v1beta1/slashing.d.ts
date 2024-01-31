@@ -8,15 +8,15 @@ import * as _m0 from "protobufjs/minimal";
 export interface ValidatorSigningInfo {
     address: string;
     /** Height at which validator was first a candidate OR was unjailed */
-    startHeight: Long;
+    start_height: Long;
     /**
      * Index which is incremented each time the validator was a bonded
      * in a block and may have signed a precommit or not. This in conjunction with the
      * `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.
      */
-    indexOffset: Long;
+    index_offset: Long;
     /** Timestamp until which the validator is jailed due to liveness downtime. */
-    jailedUntil: Date;
+    jailed_until: Date;
     /**
      * Whether or not a validator has been tombstoned (killed out of validator set). It is set
      * once the validator commits an equivocation or for any other configured misbehiavor.
@@ -26,10 +26,10 @@ export interface ValidatorSigningInfo {
      * A counter kept to avoid unnecessary array reads.
      * Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.
      */
-    missedBlocksCounter: Long;
+    missed_blocks_counter: Long;
 }
 export interface ValidatorSigningInfoProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.ValidatorSigningInfo";
+    type_url: "/cosmos.slashing.v1beta1.ValidatorSigningInfo";
     value: Uint8Array;
 }
 /**
@@ -77,14 +77,14 @@ export interface ValidatorSigningInfoSDKType {
 }
 /** Params represents the parameters used for by the slashing module. */
 export interface Params {
-    signedBlocksWindow: Long;
-    minSignedPerWindow: Uint8Array;
-    downtimeJailDuration: Duration;
-    slashFractionDoubleSign: Uint8Array;
-    slashFractionDowntime: Uint8Array;
+    signed_blocks_window: Long;
+    min_signed_per_window: Uint8Array;
+    downtime_jail_duration: Duration;
+    slash_fraction_double_sign: Uint8Array;
+    slash_fraction_downtime: Uint8Array;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.Params";
+    type_url: "/cosmos.slashing.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params represents the parameters used for by the slashing module. */

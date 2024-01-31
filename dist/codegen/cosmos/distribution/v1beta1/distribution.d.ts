@@ -3,13 +3,13 @@ import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /** Params defines the set of params for the distribution module. */
 export interface Params {
-    communityTax: string;
-    baseProposerReward: string;
-    bonusProposerReward: string;
-    withdrawAddrEnabled: boolean;
+    community_tax: string;
+    base_proposer_reward: string;
+    bonus_proposer_reward: string;
+    withdraw_addr_enabled: boolean;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.Params";
+    type_url: "/cosmos.distribution.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params defines the set of params for the distribution module. */
@@ -45,11 +45,11 @@ export interface ParamsSDKType {
  *  + one per validator for the zeroeth period, set on initialization
  */
 export interface ValidatorHistoricalRewards {
-    cumulativeRewardRatio: DecCoin[];
-    referenceCount: number;
+    cumulative_reward_ratio: DecCoin[];
+    reference_count: number;
 }
 export interface ValidatorHistoricalRewardsProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorHistoricalRewards";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorHistoricalRewards";
     value: Uint8Array;
 }
 /**
@@ -102,7 +102,7 @@ export interface ValidatorCurrentRewards {
     period: Long;
 }
 export interface ValidatorCurrentRewardsProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorCurrentRewards";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorCurrentRewards";
     value: Uint8Array;
 }
 /**
@@ -135,7 +135,7 @@ export interface ValidatorAccumulatedCommission {
     commission: DecCoin[];
 }
 export interface ValidatorAccumulatedCommissionProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorAccumulatedCommission";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorAccumulatedCommission";
     value: Uint8Array;
 }
 /**
@@ -164,7 +164,7 @@ export interface ValidatorOutstandingRewards {
     rewards: DecCoin[];
 }
 export interface ValidatorOutstandingRewardsProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorOutstandingRewards";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorOutstandingRewards";
     value: Uint8Array;
 }
 /**
@@ -192,11 +192,11 @@ export interface ValidatorOutstandingRewardsSDKType {
  * for delegations which are withdrawn after a slash has occurred.
  */
 export interface ValidatorSlashEvent {
-    validatorPeriod: Long;
+    validator_period: Long;
     fraction: string;
 }
 export interface ValidatorSlashEventProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorSlashEvent";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorSlashEvent";
     value: Uint8Array;
 }
 /**
@@ -225,10 +225,10 @@ export interface ValidatorSlashEventSDKType {
 }
 /** ValidatorSlashEvents is a collection of ValidatorSlashEvent messages. */
 export interface ValidatorSlashEvents {
-    validatorSlashEvents: ValidatorSlashEvent[];
+    validator_slash_events: ValidatorSlashEvent[];
 }
 export interface ValidatorSlashEventsProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.ValidatorSlashEvents";
+    type_url: "/cosmos.distribution.v1beta1.ValidatorSlashEvents";
     value: Uint8Array;
 }
 /** ValidatorSlashEvents is a collection of ValidatorSlashEvent messages. */
@@ -245,10 +245,10 @@ export interface ValidatorSlashEventsSDKType {
 }
 /** FeePool is the global fee pool for distribution. */
 export interface FeePool {
-    communityPool: DecCoin[];
+    community_pool: DecCoin[];
 }
 export interface FeePoolProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.FeePool";
+    type_url: "/cosmos.distribution.v1beta1.FeePool";
     value: Uint8Array;
 }
 /** FeePool is the global fee pool for distribution. */
@@ -276,7 +276,7 @@ export interface CommunityPoolSpendProposal {
     amount: Coin[];
 }
 export interface CommunityPoolSpendProposalProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.CommunityPoolSpendProposal";
+    type_url: "/cosmos.distribution.v1beta1.CommunityPoolSpendProposal";
     value: Uint8Array;
 }
 /**
@@ -315,12 +315,12 @@ export interface CommunityPoolSpendProposalSDKType {
  * thus sdk.Dec is used.
  */
 export interface DelegatorStartingInfo {
-    previousPeriod: Long;
+    previous_period: Long;
     stake: string;
     height: Long;
 }
 export interface DelegatorStartingInfoProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.DelegatorStartingInfo";
+    type_url: "/cosmos.distribution.v1beta1.DelegatorStartingInfo";
     value: Uint8Array;
 }
 /**
@@ -358,11 +358,11 @@ export interface DelegatorStartingInfoSDKType {
  * of a delegator's delegation reward.
  */
 export interface DelegationDelegatorReward {
-    validatorAddress: string;
+    validator_address: string;
     reward: DecCoin[];
 }
 export interface DelegationDelegatorRewardProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.DelegationDelegatorReward";
+    type_url: "/cosmos.distribution.v1beta1.DelegationDelegatorReward";
     value: Uint8Array;
 }
 /**
@@ -398,7 +398,7 @@ export interface CommunityPoolSpendProposalWithDeposit {
     deposit: string;
 }
 export interface CommunityPoolSpendProposalWithDepositProtoMsg {
-    typeUrl: "/cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDeposit";
+    type_url: "/cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDeposit";
     value: Uint8Array;
 }
 /**

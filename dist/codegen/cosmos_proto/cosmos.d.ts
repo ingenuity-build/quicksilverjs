@@ -29,7 +29,7 @@ export interface InterfaceDescriptor {
     description: string;
 }
 export interface InterfaceDescriptorProtoMsg {
-    typeUrl: "/cosmos_proto.InterfaceDescriptor";
+    type_url: "/cosmos_proto.InterfaceDescriptor";
     value: Uint8Array;
 }
 /**
@@ -91,10 +91,10 @@ export interface ScalarDescriptor {
      * encoding standards and simple and clear. Currently only string and
      * bytes fields are supported for scalars.
      */
-    fieldType: ScalarType[];
+    field_type: ScalarType[];
 }
 export interface ScalarDescriptorProtoMsg {
-    typeUrl: "/cosmos_proto.ScalarDescriptor";
+    type_url: "/cosmos_proto.ScalarDescriptor";
     value: Uint8Array;
 }
 /**

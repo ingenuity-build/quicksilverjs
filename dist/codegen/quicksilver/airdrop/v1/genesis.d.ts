@@ -5,11 +5,11 @@ import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the airdrop module's genesis state. */
 export interface GenesisState {
     params: Params;
-    zoneDrops: ZoneDrop[];
-    claimRecords: ClaimRecord[];
+    zone_drops: ZoneDrop[];
+    claim_records: ClaimRecord[];
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.GenesisState";
+    type_url: "/quicksilver.airdrop.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the airdrop module's genesis state. */

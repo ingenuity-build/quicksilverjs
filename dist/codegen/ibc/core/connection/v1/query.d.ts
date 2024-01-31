@@ -10,10 +10,10 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface QueryConnectionRequest {
     /** connection unique identifier */
-    connectionId: string;
+    connection_id: string;
 }
 export interface QueryConnectionRequestProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionRequest";
+    type_url: "/ibc.core.connection.v1.QueryConnectionRequest";
     value: Uint8Array;
 }
 /**
@@ -46,10 +46,10 @@ export interface QueryConnectionResponse {
     /** merkle proof of existence */
     proof: Uint8Array;
     /** height at which the proof was retrieved */
-    proofHeight: Height;
+    proof_height: Height;
 }
 export interface QueryConnectionResponseProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionResponse";
+    type_url: "/ibc.core.connection.v1.QueryConnectionResponse";
     value: Uint8Array;
 }
 /**
@@ -87,7 +87,7 @@ export interface QueryConnectionsRequest {
     pagination: PageRequest;
 }
 export interface QueryConnectionsRequestProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionsRequest";
+    type_url: "/ibc.core.connection.v1.QueryConnectionsRequest";
     value: Uint8Array;
 }
 /**
@@ -121,7 +121,7 @@ export interface QueryConnectionsResponse {
     height: Height;
 }
 export interface QueryConnectionsResponseProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionsResponse";
+    type_url: "/ibc.core.connection.v1.QueryConnectionsResponse";
     value: Uint8Array;
 }
 /**
@@ -155,10 +155,10 @@ export interface QueryConnectionsResponseSDKType {
  */
 export interface QueryClientConnectionsRequest {
     /** client identifier associated with a connection */
-    clientId: string;
+    client_id: string;
 }
 export interface QueryClientConnectionsRequestProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryClientConnectionsRequest";
+    type_url: "/ibc.core.connection.v1.QueryClientConnectionsRequest";
     value: Uint8Array;
 }
 /**
@@ -186,14 +186,14 @@ export interface QueryClientConnectionsRequestSDKType {
  */
 export interface QueryClientConnectionsResponse {
     /** slice of all the connection paths associated with a client. */
-    connectionPaths: string[];
+    connection_paths: string[];
     /** merkle proof of existence */
     proof: Uint8Array;
     /** height at which the proof was generated */
-    proofHeight: Height;
+    proof_height: Height;
 }
 export interface QueryClientConnectionsResponseProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryClientConnectionsResponse";
+    type_url: "/ibc.core.connection.v1.QueryClientConnectionsResponse";
     value: Uint8Array;
 }
 /**
@@ -227,10 +227,10 @@ export interface QueryClientConnectionsResponseSDKType {
  */
 export interface QueryConnectionClientStateRequest {
     /** connection identifier */
-    connectionId: string;
+    connection_id: string;
 }
 export interface QueryConnectionClientStateRequestProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionClientStateRequest";
+    type_url: "/ibc.core.connection.v1.QueryConnectionClientStateRequest";
     value: Uint8Array;
 }
 /**
@@ -258,14 +258,14 @@ export interface QueryConnectionClientStateRequestSDKType {
  */
 export interface QueryConnectionClientStateResponse {
     /** client state associated with the channel */
-    identifiedClientState: IdentifiedClientState;
+    identified_client_state: IdentifiedClientState;
     /** merkle proof of existence */
     proof: Uint8Array;
     /** height at which the proof was retrieved */
-    proofHeight: Height;
+    proof_height: Height;
 }
 export interface QueryConnectionClientStateResponseProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionClientStateResponse";
+    type_url: "/ibc.core.connection.v1.QueryConnectionClientStateResponse";
     value: Uint8Array;
 }
 /**
@@ -299,12 +299,12 @@ export interface QueryConnectionClientStateResponseSDKType {
  */
 export interface QueryConnectionConsensusStateRequest {
     /** connection identifier */
-    connectionId: string;
-    revisionNumber: Long;
-    revisionHeight: Long;
+    connection_id: string;
+    revision_number: Long;
+    revision_height: Long;
 }
 export interface QueryConnectionConsensusStateRequestProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionConsensusStateRequest";
+    type_url: "/ibc.core.connection.v1.QueryConnectionConsensusStateRequest";
     value: Uint8Array;
 }
 /**
@@ -336,16 +336,16 @@ export interface QueryConnectionConsensusStateRequestSDKType {
  */
 export interface QueryConnectionConsensusStateResponse {
     /** consensus state associated with the channel */
-    consensusState: Any;
+    consensus_state: Any;
     /** client ID associated with the consensus state */
-    clientId: string;
+    client_id: string;
     /** merkle proof of existence */
     proof: Uint8Array;
     /** height at which the proof was retrieved */
-    proofHeight: Height;
+    proof_height: Height;
 }
 export interface QueryConnectionConsensusStateResponseProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.QueryConnectionConsensusStateResponse";
+    type_url: "/ibc.core.connection.v1.QueryConnectionConsensusStateResponse";
     value: Uint8Array;
 }
 /**

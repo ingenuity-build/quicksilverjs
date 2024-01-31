@@ -2,19 +2,19 @@ import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Query {
     id: string;
-    connectionId: string;
-    chainId: string;
-    queryType: string;
+    connection_id: string;
+    chain_id: string;
+    query_type: string;
     request: Uint8Array;
     /** change these to uint64 in v0.5.0 */
     period: string;
-    lastHeight: string;
-    callbackId: string;
+    last_height: string;
+    callback_id: string;
     ttl: Long;
-    lastEmission: string;
+    last_emission: string;
 }
 export interface QueryProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.Query";
+    type_url: "/quicksilver.interchainquery.v1.Query";
     value: Uint8Array;
 }
 export interface QueryAmino {
@@ -49,12 +49,12 @@ export interface QuerySDKType {
 export interface DataPoint {
     id: string;
     /** change these to uint64 in v0.5.0 */
-    remoteHeight: string;
-    localHeight: string;
+    remote_height: string;
+    local_height: string;
     value: Uint8Array;
 }
 export interface DataPointProtoMsg {
-    typeUrl: "/quicksilver.interchainquery.v1.DataPoint";
+    type_url: "/quicksilver.interchainquery.v1.DataPoint";
     value: Uint8Array;
 }
 export interface DataPointAmino {

@@ -7,11 +7,11 @@ import { DeepPartial } from "../../../helpers";
  */
 export interface MsgRequestRedemption {
     value: Coin;
-    destinationAddress: string;
-    fromAddress: string;
+    destination_address: string;
+    from_address: string;
 }
 export interface MsgRequestRedemptionProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
+    type_url: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
     value: Uint8Array;
 }
 /**
@@ -40,7 +40,7 @@ export interface MsgRequestRedemptionSDKType {
 export interface MsgRequestRedemptionResponse {
 }
 export interface MsgRequestRedemptionResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemptionResponse";
+    type_url: "/quicksilver.interchainstaking.v1.MsgRequestRedemptionResponse";
     value: Uint8Array;
 }
 /** MsgRequestRedemptionResponse defines the MsgRequestRedemption response type. */
@@ -58,12 +58,12 @@ export interface MsgRequestRedemptionResponseSDKType {
  * one or more validators.
  */
 export interface MsgSignalIntent {
-    chainId: string;
+    chain_id: string;
     intents: string;
-    fromAddress: string;
+    from_address: string;
 }
 export interface MsgSignalIntentProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
+    type_url: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
     value: Uint8Array;
 }
 /**
@@ -92,7 +92,7 @@ export interface MsgSignalIntentSDKType {
 export interface MsgSignalIntentResponse {
 }
 export interface MsgSignalIntentResponseProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntentResponse";
+    type_url: "/quicksilver.interchainstaking.v1.MsgSignalIntentResponse";
     value: Uint8Array;
 }
 /** MsgSignalIntentResponse defines the MsgSignalIntent response type. */

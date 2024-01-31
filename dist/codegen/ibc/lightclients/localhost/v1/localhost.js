@@ -29,7 +29,7 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 const helpers_1 = require("../../../../helpers");
 function createBaseClientState() {
     return {
-        chainId: "",
+        chain_id: "",
         height: client_1.Height.fromPartial({})
     };
 }
@@ -37,8 +37,8 @@ exports.ClientState = {
     typeUrl: "/ibc.lightclients.localhost.v1.ClientState",
     aminoType: "cosmos-sdk/ClientState",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.height !== undefined) {
             client_1.Height.encode(message.height, writer.uint32(18).fork()).ldelim();
@@ -53,7 +53,7 @@ exports.ClientState = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.height = client_1.Height.decode(reader, reader.uint32());
@@ -67,31 +67,31 @@ exports.ClientState = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             height: (0, helpers_1.isSet)(object.height) ? client_1.Height.fromJSON(object.height) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.height !== undefined && (obj.height = message.height ? client_1.Height.toJSON(message.height) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseClientState();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.height = object.height !== undefined && object.height !== null ? client_1.Height.fromPartial(object.height) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             height: object?.height ? client_1.Height.fromAmino(object.height) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.height = message.height ? client_1.Height.toAmino(message.height) : {};
         return obj;
     },

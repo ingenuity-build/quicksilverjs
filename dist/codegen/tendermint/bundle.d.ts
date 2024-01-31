@@ -44,45 +44,45 @@ export declare namespace tendermint {
                 flush?: {};
                 info?: {
                     version?: string;
-                    blockVersion?: string | number | import("long").default;
-                    p2pVersion?: string | number | import("long").default;
+                    block_version?: string | number | import("long").default;
+                    p2p_version?: string | number | import("long").default;
                 };
-                setOption?: {
+                set_option?: {
                     key?: string;
                     value?: string;
                 };
-                initChain?: {
+                init_chain?: {
                     time?: Date;
-                    chainId?: string;
-                    consensusParams?: {
+                    chain_id?: string;
+                    consensus_params?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
+                            max_gas?: string | number | import("long").default;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
+                            max_age_num_blocks?: string | number | import("long").default;
+                            max_age_duration?: {
                                 seconds?: string | number | import("long").default;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
                         };
                         validator?: {
-                            pubKeyTypes?: string[];
+                            pub_key_types?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            app_version?: string | number | import("long").default;
                         };
                     };
                     validators?: {
-                        pubKey?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
                         power?: string | number | import("long").default;
                     }[];
-                    appStateBytes?: Uint8Array;
-                    initialHeight?: string | number | import("long").default;
+                    app_state_bytes?: Uint8Array;
+                    initial_height?: string | number | import("long").default;
                 };
                 query?: {
                     data?: Uint8Array;
@@ -90,44 +90,44 @@ export declare namespace tendermint {
                     height?: string | number | import("long").default;
                     prove?: boolean;
                 };
-                beginBlock?: {
+                begin_block?: {
                     hash?: Uint8Array;
                     header?: {
                         version?: {
                             block?: string | number | import("long").default;
                             app?: string | number | import("long").default;
                         };
-                        chainId?: string;
+                        chain_id?: string;
                         height?: string | number | import("long").default;
                         time?: Date;
-                        lastBlockId?: {
+                        last_block_id?: {
                             hash?: Uint8Array;
-                            partSetHeader?: {
+                            part_set_header?: {
                                 total?: number;
                                 hash?: Uint8Array;
                             };
                         };
-                        lastCommitHash?: Uint8Array;
-                        dataHash?: Uint8Array;
-                        validatorsHash?: Uint8Array;
-                        nextValidatorsHash?: Uint8Array;
-                        consensusHash?: Uint8Array;
-                        appHash?: Uint8Array;
-                        lastResultsHash?: Uint8Array;
-                        evidenceHash?: Uint8Array;
-                        proposerAddress?: Uint8Array;
+                        last_commit_hash?: Uint8Array;
+                        data_hash?: Uint8Array;
+                        validators_hash?: Uint8Array;
+                        next_validators_hash?: Uint8Array;
+                        consensus_hash?: Uint8Array;
+                        app_hash?: Uint8Array;
+                        last_results_hash?: Uint8Array;
+                        evidence_hash?: Uint8Array;
+                        proposer_address?: Uint8Array;
                     };
-                    lastCommitInfo?: {
+                    last_commit_info?: {
                         round?: number;
                         votes?: {
                             validator?: {
                                 address?: Uint8Array;
                                 power?: string | number | import("long").default;
                             };
-                            signedLastBlock?: boolean;
+                            signed_last_block?: boolean;
                         }[];
                     };
-                    byzantineValidators?: {
+                    byzantine_validators?: {
                         type?: _120.EvidenceType;
                         validator?: {
                             address?: Uint8Array;
@@ -135,22 +135,22 @@ export declare namespace tendermint {
                         };
                         height?: string | number | import("long").default;
                         time?: Date;
-                        totalVotingPower?: string | number | import("long").default;
+                        total_voting_power?: string | number | import("long").default;
                     }[];
                 };
-                checkTx?: {
+                check_tx?: {
                     tx?: Uint8Array;
                     type?: _120.CheckTxType;
                 };
-                deliverTx?: {
+                deliver_tx?: {
                     tx?: Uint8Array;
                 };
-                endBlock?: {
+                end_block?: {
                     height?: string | number | import("long").default;
                 };
                 commit?: {};
-                listSnapshots?: {};
-                offerSnapshot?: {
+                list_snapshots?: {};
+                offer_snapshot?: {
                     snapshot?: {
                         height?: string | number | import("long").default;
                         format?: number;
@@ -158,14 +158,14 @@ export declare namespace tendermint {
                         hash?: Uint8Array;
                         metadata?: Uint8Array;
                     };
-                    appHash?: Uint8Array;
+                    app_hash?: Uint8Array;
                 };
-                loadSnapshotChunk?: {
+                load_snapshot_chunk?: {
                     height?: string | number | import("long").default;
                     format?: number;
                     chunk?: number;
                 };
-                applySnapshotChunk?: {
+                apply_snapshot_chunk?: {
                     index?: number;
                     chunk?: Uint8Array;
                     sender?: string;
@@ -216,8 +216,8 @@ export declare namespace tendermint {
             toJSON(message: _120.RequestInfo): unknown;
             fromPartial(object: {
                 version?: string;
-                blockVersion?: string | number | import("long").default;
-                p2pVersion?: string | number | import("long").default;
+                block_version?: string | number | import("long").default;
+                p2p_version?: string | number | import("long").default;
             }): _120.RequestInfo;
             fromAmino(object: _120.RequestInfoAmino): _120.RequestInfo;
             toAmino(message: _120.RequestInfo): _120.RequestInfoAmino;
@@ -251,36 +251,36 @@ export declare namespace tendermint {
             toJSON(message: _120.RequestInitChain): unknown;
             fromPartial(object: {
                 time?: Date;
-                chainId?: string;
-                consensusParams?: {
+                chain_id?: string;
+                consensus_params?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
+                        max_gas?: string | number | import("long").default;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
+                        max_age_num_blocks?: string | number | import("long").default;
+                        max_age_duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
                     };
                     validator?: {
-                        pubKeyTypes?: string[];
+                        pub_key_types?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        app_version?: string | number | import("long").default;
                     };
                 };
                 validators?: {
-                    pubKey?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
                     power?: string | number | import("long").default;
                 }[];
-                appStateBytes?: Uint8Array;
-                initialHeight?: string | number | import("long").default;
+                app_state_bytes?: Uint8Array;
+                initial_height?: string | number | import("long").default;
             }): _120.RequestInitChain;
             fromAmino(object: _120.RequestInitChainAmino): _120.RequestInitChain;
             toAmino(message: _120.RequestInitChain): _120.RequestInitChainAmino;
@@ -321,37 +321,37 @@ export declare namespace tendermint {
                         block?: string | number | import("long").default;
                         app?: string | number | import("long").default;
                     };
-                    chainId?: string;
+                    chain_id?: string;
                     height?: string | number | import("long").default;
                     time?: Date;
-                    lastBlockId?: {
+                    last_block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
-                    lastCommitHash?: Uint8Array;
-                    dataHash?: Uint8Array;
-                    validatorsHash?: Uint8Array;
-                    nextValidatorsHash?: Uint8Array;
-                    consensusHash?: Uint8Array;
-                    appHash?: Uint8Array;
-                    lastResultsHash?: Uint8Array;
-                    evidenceHash?: Uint8Array;
-                    proposerAddress?: Uint8Array;
+                    last_commit_hash?: Uint8Array;
+                    data_hash?: Uint8Array;
+                    validators_hash?: Uint8Array;
+                    next_validators_hash?: Uint8Array;
+                    consensus_hash?: Uint8Array;
+                    app_hash?: Uint8Array;
+                    last_results_hash?: Uint8Array;
+                    evidence_hash?: Uint8Array;
+                    proposer_address?: Uint8Array;
                 };
-                lastCommitInfo?: {
+                last_commit_info?: {
                     round?: number;
                     votes?: {
                         validator?: {
                             address?: Uint8Array;
                             power?: string | number | import("long").default;
                         };
-                        signedLastBlock?: boolean;
+                        signed_last_block?: boolean;
                     }[];
                 };
-                byzantineValidators?: {
+                byzantine_validators?: {
                     type?: _120.EvidenceType;
                     validator?: {
                         address?: Uint8Array;
@@ -359,7 +359,7 @@ export declare namespace tendermint {
                     };
                     height?: string | number | import("long").default;
                     time?: Date;
-                    totalVotingPower?: string | number | import("long").default;
+                    total_voting_power?: string | number | import("long").default;
                 }[];
             }): _120.RequestBeginBlock;
             fromAmino(object: _120.RequestBeginBlockAmino): _120.RequestBeginBlock;
@@ -460,7 +460,7 @@ export declare namespace tendermint {
                     hash?: Uint8Array;
                     metadata?: Uint8Array;
                 };
-                appHash?: Uint8Array;
+                app_hash?: Uint8Array;
             }): _120.RequestOfferSnapshot;
             fromAmino(object: _120.RequestOfferSnapshotAmino): _120.RequestOfferSnapshot;
             toAmino(message: _120.RequestOfferSnapshot): _120.RequestOfferSnapshotAmino;
@@ -522,44 +522,44 @@ export declare namespace tendermint {
                 info?: {
                     data?: string;
                     version?: string;
-                    appVersion?: string | number | import("long").default;
-                    lastBlockHeight?: string | number | import("long").default;
-                    lastBlockAppHash?: Uint8Array;
+                    app_version?: string | number | import("long").default;
+                    last_block_height?: string | number | import("long").default;
+                    last_block_app_hash?: Uint8Array;
                 };
-                setOption?: {
+                set_option?: {
                     code?: number;
                     log?: string;
                     info?: string;
                 };
-                initChain?: {
-                    consensusParams?: {
+                init_chain?: {
+                    consensus_params?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
+                            max_gas?: string | number | import("long").default;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
+                            max_age_num_blocks?: string | number | import("long").default;
+                            max_age_duration?: {
                                 seconds?: string | number | import("long").default;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
                         };
                         validator?: {
-                            pubKeyTypes?: string[];
+                            pub_key_types?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            app_version?: string | number | import("long").default;
                         };
                     };
                     validators?: {
-                        pubKey?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
                         power?: string | number | import("long").default;
                     }[];
-                    appHash?: Uint8Array;
+                    app_hash?: Uint8Array;
                 };
                 query?: {
                     code?: number;
@@ -568,7 +568,7 @@ export declare namespace tendermint {
                     index?: string | number | import("long").default;
                     key?: Uint8Array;
                     value?: Uint8Array;
-                    proofOps?: {
+                    proof_ops?: {
                         ops?: {
                             type?: string;
                             key?: Uint8Array;
@@ -578,7 +578,7 @@ export declare namespace tendermint {
                     height?: string | number | import("long").default;
                     codespace?: string;
                 };
-                beginBlock?: {
+                begin_block?: {
                     events?: {
                         type?: string;
                         attributes?: {
@@ -588,13 +588,13 @@ export declare namespace tendermint {
                         }[];
                     }[];
                 };
-                checkTx?: {
+                check_tx?: {
                     code?: number;
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gas_wanted?: string | number | import("long").default;
+                    gas_used?: string | number | import("long").default;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -605,13 +605,13 @@ export declare namespace tendermint {
                     }[];
                     codespace?: string;
                 };
-                deliverTx?: {
+                deliver_tx?: {
                     code?: number;
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gas_wanted?: string | number | import("long").default;
+                    gas_used?: string | number | import("long").default;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -622,32 +622,32 @@ export declare namespace tendermint {
                     }[];
                     codespace?: string;
                 };
-                endBlock?: {
-                    validatorUpdates?: {
-                        pubKey?: {
+                end_block?: {
+                    validator_updates?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
                         power?: string | number | import("long").default;
                     }[];
-                    consensusParamUpdates?: {
+                    consensus_param_updates?: {
                         block?: {
-                            maxBytes?: string | number | import("long").default;
-                            maxGas?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
+                            max_gas?: string | number | import("long").default;
                         };
                         evidence?: {
-                            maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
+                            max_age_num_blocks?: string | number | import("long").default;
+                            max_age_duration?: {
                                 seconds?: string | number | import("long").default;
                                 nanos?: number;
                             };
-                            maxBytes?: string | number | import("long").default;
+                            max_bytes?: string | number | import("long").default;
                         };
                         validator?: {
-                            pubKeyTypes?: string[];
+                            pub_key_types?: string[];
                         };
                         version?: {
-                            appVersion?: string | number | import("long").default;
+                            app_version?: string | number | import("long").default;
                         };
                     };
                     events?: {
@@ -661,9 +661,9 @@ export declare namespace tendermint {
                 };
                 commit?: {
                     data?: Uint8Array;
-                    retainHeight?: string | number | import("long").default;
+                    retain_height?: string | number | import("long").default;
                 };
-                listSnapshots?: {
+                list_snapshots?: {
                     snapshots?: {
                         height?: string | number | import("long").default;
                         format?: number;
@@ -672,16 +672,16 @@ export declare namespace tendermint {
                         metadata?: Uint8Array;
                     }[];
                 };
-                offerSnapshot?: {
+                offer_snapshot?: {
                     result?: _120.ResponseOfferSnapshot_Result;
                 };
-                loadSnapshotChunk?: {
+                load_snapshot_chunk?: {
                     chunk?: Uint8Array;
                 };
-                applySnapshotChunk?: {
+                apply_snapshot_chunk?: {
                     result?: _120.ResponseApplySnapshotChunk_Result;
-                    refetchChunks?: number[];
-                    rejectSenders?: string[];
+                    refetch_chunks?: number[];
+                    reject_senders?: string[];
                 };
             }): _120.Response;
             fromAmino(object: _120.ResponseAmino): _120.Response;
@@ -746,9 +746,9 @@ export declare namespace tendermint {
             fromPartial(object: {
                 data?: string;
                 version?: string;
-                appVersion?: string | number | import("long").default;
-                lastBlockHeight?: string | number | import("long").default;
-                lastBlockAppHash?: Uint8Array;
+                app_version?: string | number | import("long").default;
+                last_block_height?: string | number | import("long").default;
+                last_block_app_hash?: Uint8Array;
             }): _120.ResponseInfo;
             fromAmino(object: _120.ResponseInfoAmino): _120.ResponseInfo;
             toAmino(message: _120.ResponseInfo): _120.ResponseInfoAmino;
@@ -782,34 +782,34 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.ResponseInitChain;
             toJSON(message: _120.ResponseInitChain): unknown;
             fromPartial(object: {
-                consensusParams?: {
+                consensus_params?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
+                        max_gas?: string | number | import("long").default;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
+                        max_age_num_blocks?: string | number | import("long").default;
+                        max_age_duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
                     };
                     validator?: {
-                        pubKeyTypes?: string[];
+                        pub_key_types?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        app_version?: string | number | import("long").default;
                     };
                 };
                 validators?: {
-                    pubKey?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
                     power?: string | number | import("long").default;
                 }[];
-                appHash?: Uint8Array;
+                app_hash?: Uint8Array;
             }): _120.ResponseInitChain;
             fromAmino(object: _120.ResponseInitChainAmino): _120.ResponseInitChain;
             toAmino(message: _120.ResponseInitChain): _120.ResponseInitChainAmino;
@@ -831,7 +831,7 @@ export declare namespace tendermint {
                 index?: string | number | import("long").default;
                 key?: Uint8Array;
                 value?: Uint8Array;
-                proofOps?: {
+                proof_ops?: {
                     ops?: {
                         type?: string;
                         key?: Uint8Array;
@@ -882,8 +882,8 @@ export declare namespace tendermint {
                 data?: Uint8Array;
                 log?: string;
                 info?: string;
-                gasWanted?: string | number | import("long").default;
-                gasUsed?: string | number | import("long").default;
+                gas_wanted?: string | number | import("long").default;
+                gas_used?: string | number | import("long").default;
                 events?: {
                     type?: string;
                     attributes?: {
@@ -912,8 +912,8 @@ export declare namespace tendermint {
                 data?: Uint8Array;
                 log?: string;
                 info?: string;
-                gasWanted?: string | number | import("long").default;
-                gasUsed?: string | number | import("long").default;
+                gas_wanted?: string | number | import("long").default;
+                gas_used?: string | number | import("long").default;
                 events?: {
                     type?: string;
                     attributes?: {
@@ -938,31 +938,31 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.ResponseEndBlock;
             toJSON(message: _120.ResponseEndBlock): unknown;
             fromPartial(object: {
-                validatorUpdates?: {
-                    pubKey?: {
+                validator_updates?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
                     power?: string | number | import("long").default;
                 }[];
-                consensusParamUpdates?: {
+                consensus_param_updates?: {
                     block?: {
-                        maxBytes?: string | number | import("long").default;
-                        maxGas?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
+                        max_gas?: string | number | import("long").default;
                     };
                     evidence?: {
-                        maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
+                        max_age_num_blocks?: string | number | import("long").default;
+                        max_age_duration?: {
                             seconds?: string | number | import("long").default;
                             nanos?: number;
                         };
-                        maxBytes?: string | number | import("long").default;
+                        max_bytes?: string | number | import("long").default;
                     };
                     validator?: {
-                        pubKeyTypes?: string[];
+                        pub_key_types?: string[];
                     };
                     version?: {
-                        appVersion?: string | number | import("long").default;
+                        app_version?: string | number | import("long").default;
                     };
                 };
                 events?: {
@@ -989,7 +989,7 @@ export declare namespace tendermint {
             toJSON(message: _120.ResponseCommit): unknown;
             fromPartial(object: {
                 data?: Uint8Array;
-                retainHeight?: string | number | import("long").default;
+                retain_height?: string | number | import("long").default;
             }): _120.ResponseCommit;
             fromAmino(object: _120.ResponseCommitAmino): _120.ResponseCommit;
             toAmino(message: _120.ResponseCommit): _120.ResponseCommitAmino;
@@ -1060,8 +1060,8 @@ export declare namespace tendermint {
             toJSON(message: _120.ResponseApplySnapshotChunk): unknown;
             fromPartial(object: {
                 result?: _120.ResponseApplySnapshotChunk_Result;
-                refetchChunks?: number[];
-                rejectSenders?: string[];
+                refetch_chunks?: number[];
+                reject_senders?: string[];
             }): _120.ResponseApplySnapshotChunk;
             fromAmino(object: _120.ResponseApplySnapshotChunkAmino): _120.ResponseApplySnapshotChunk;
             toAmino(message: _120.ResponseApplySnapshotChunk): _120.ResponseApplySnapshotChunkAmino;
@@ -1078,22 +1078,22 @@ export declare namespace tendermint {
             toJSON(message: _120.ConsensusParams): unknown;
             fromPartial(object: {
                 block?: {
-                    maxBytes?: string | number | import("long").default;
-                    maxGas?: string | number | import("long").default;
+                    max_bytes?: string | number | import("long").default;
+                    max_gas?: string | number | import("long").default;
                 };
                 evidence?: {
-                    maxAgeNumBlocks?: string | number | import("long").default;
-                    maxAgeDuration?: {
+                    max_age_num_blocks?: string | number | import("long").default;
+                    max_age_duration?: {
                         seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
-                    maxBytes?: string | number | import("long").default;
+                    max_bytes?: string | number | import("long").default;
                 };
                 validator?: {
-                    pubKeyTypes?: string[];
+                    pub_key_types?: string[];
                 };
                 version?: {
-                    appVersion?: string | number | import("long").default;
+                    app_version?: string | number | import("long").default;
                 };
             }): _120.ConsensusParams;
             fromAmino(object: _120.ConsensusParamsAmino): _120.ConsensusParams;
@@ -1110,8 +1110,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.BlockParams;
             toJSON(message: _120.BlockParams): unknown;
             fromPartial(object: {
-                maxBytes?: string | number | import("long").default;
-                maxGas?: string | number | import("long").default;
+                max_bytes?: string | number | import("long").default;
+                max_gas?: string | number | import("long").default;
             }): _120.BlockParams;
             fromAmino(object: _120.BlockParamsAmino): _120.BlockParams;
             toAmino(message: _120.BlockParams): _120.BlockParamsAmino;
@@ -1133,7 +1133,7 @@ export declare namespace tendermint {
                         address?: Uint8Array;
                         power?: string | number | import("long").default;
                     };
-                    signedLastBlock?: boolean;
+                    signed_last_block?: boolean;
                 }[];
             }): _120.LastCommitInfo;
             fromAmino(object: _120.LastCommitInfoAmino): _120.LastCommitInfo;
@@ -1197,8 +1197,8 @@ export declare namespace tendermint {
                     data?: Uint8Array;
                     log?: string;
                     info?: string;
-                    gasWanted?: string | number | import("long").default;
-                    gasUsed?: string | number | import("long").default;
+                    gas_wanted?: string | number | import("long").default;
+                    gas_used?: string | number | import("long").default;
                     events?: {
                         type?: string;
                         attributes?: {
@@ -1241,7 +1241,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _120.ValidatorUpdate;
             toJSON(message: _120.ValidatorUpdate): unknown;
             fromPartial(object: {
-                pubKey?: {
+                pub_key?: {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
@@ -1265,7 +1265,7 @@ export declare namespace tendermint {
                     address?: Uint8Array;
                     power?: string | number | import("long").default;
                 };
-                signedLastBlock?: boolean;
+                signed_last_block?: boolean;
             }): _120.VoteInfo;
             fromAmino(object: _120.VoteInfoAmino): _120.VoteInfo;
             toAmino(message: _120.VoteInfo): _120.VoteInfoAmino;
@@ -1288,7 +1288,7 @@ export declare namespace tendermint {
                 };
                 height?: string | number | import("long").default;
                 time?: Date;
-                totalVotingPower?: string | number | import("long").default;
+                total_voting_power?: string | number | import("long").default;
             }): _120.Evidence;
             fromAmino(object: _120.EvidenceAmino): _120.Evidence;
             toAmino(message: _120.Evidence): _120.EvidenceAmino;
@@ -1328,7 +1328,7 @@ export declare namespace tendermint {
             fromPartial(object: {
                 total?: string | number | import("long").default;
                 index?: string | number | import("long").default;
-                leafHash?: Uint8Array;
+                leaf_hash?: Uint8Array;
                 aunts?: Uint8Array[];
             }): _122.Proof;
             fromAmino(object: _122.ProofAmino): _122.Proof;
@@ -1349,7 +1349,7 @@ export declare namespace tendermint {
                 proof?: {
                     total?: string | number | import("long").default;
                     index?: string | number | import("long").default;
-                    leafHash?: Uint8Array;
+                    leaf_hash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
             }): _122.ValueOp;
@@ -1481,20 +1481,20 @@ export declare namespace tendermint {
             fromJSON(object: any): _124.NodeInfo;
             toJSON(message: _124.NodeInfo): unknown;
             fromPartial(object: {
-                protocolVersion?: {
+                protocol_version?: {
                     p2p?: string | number | import("long").default;
                     block?: string | number | import("long").default;
                     app?: string | number | import("long").default;
                 };
-                nodeId?: string;
-                listenAddr?: string;
+                node_id?: string;
+                listen_addr?: string;
                 network?: string;
                 version?: string;
                 channels?: Uint8Array;
                 moniker?: string;
                 other?: {
-                    txIndex?: string;
-                    rpcAddress?: string;
+                    tx_index?: string;
+                    rpc_address?: string;
                 };
             }): _124.NodeInfo;
             fromAmino(object: _124.NodeInfoAmino): _124.NodeInfo;
@@ -1511,8 +1511,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _124.NodeInfoOther;
             toJSON(message: _124.NodeInfoOther): unknown;
             fromPartial(object: {
-                txIndex?: string;
-                rpcAddress?: string;
+                tx_index?: string;
+                rpc_address?: string;
             }): _124.NodeInfoOther;
             fromAmino(object: _124.NodeInfoOtherAmino): _124.NodeInfoOther;
             toAmino(message: _124.NodeInfoOther): _124.NodeInfoOtherAmino;
@@ -1529,13 +1529,13 @@ export declare namespace tendermint {
             toJSON(message: _124.PeerInfo): unknown;
             fromPartial(object: {
                 id?: string;
-                addressInfo?: {
+                address_info?: {
                     address?: string;
-                    lastDialSuccess?: Date;
-                    lastDialFailure?: Date;
-                    dialFailures?: number;
+                    last_dial_success?: Date;
+                    last_dial_failure?: Date;
+                    dial_failures?: number;
                 }[];
-                lastConnected?: Date;
+                last_connected?: Date;
             }): _124.PeerInfo;
             fromAmino(object: _124.PeerInfoAmino): _124.PeerInfo;
             toAmino(message: _124.PeerInfo): _124.PeerInfoAmino;
@@ -1552,9 +1552,9 @@ export declare namespace tendermint {
             toJSON(message: _124.PeerAddressInfo): unknown;
             fromPartial(object: {
                 address?: string;
-                lastDialSuccess?: Date;
-                lastDialFailure?: Date;
-                dialFailures?: number;
+                last_dial_success?: Date;
+                last_dial_failure?: Date;
+                dial_failures?: number;
             }): _124.PeerAddressInfo;
             fromAmino(object: _124.PeerAddressInfoAmino): _124.PeerAddressInfo;
             toAmino(message: _124.PeerAddressInfo): _124.PeerAddressInfoAmino;
@@ -1574,23 +1574,23 @@ export declare namespace tendermint {
             fromPartial(object: {
                 validators?: {
                     address?: Uint8Array;
-                    pubKey?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    voting_power?: string | number | import("long").default;
+                    proposer_priority?: string | number | import("long").default;
                 }[];
                 proposer?: {
                     address?: Uint8Array;
-                    pubKey?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    voting_power?: string | number | import("long").default;
+                    proposer_priority?: string | number | import("long").default;
                 };
-                totalVotingPower?: string | number | import("long").default;
+                total_voting_power?: string | number | import("long").default;
             }): _129.ValidatorSet;
             fromAmino(object: _129.ValidatorSetAmino): _129.ValidatorSet;
             toAmino(message: _129.ValidatorSet): _129.ValidatorSetAmino;
@@ -1607,12 +1607,12 @@ export declare namespace tendermint {
             toJSON(message: _129.Validator): unknown;
             fromPartial(object: {
                 address?: Uint8Array;
-                pubKey?: {
+                pub_key?: {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
-                votingPower?: string | number | import("long").default;
-                proposerPriority?: string | number | import("long").default;
+                voting_power?: string | number | import("long").default;
+                proposer_priority?: string | number | import("long").default;
             }): _129.Validator;
             fromAmino(object: _129.ValidatorAmino): _129.Validator;
             toAmino(message: _129.Validator): _129.ValidatorAmino;
@@ -1628,11 +1628,11 @@ export declare namespace tendermint {
             fromJSON(object: any): _129.SimpleValidator;
             toJSON(message: _129.SimpleValidator): unknown;
             fromPartial(object: {
-                pubKey?: {
+                pub_key?: {
                     ed25519?: Uint8Array;
                     secp256k1?: Uint8Array;
                 };
-                votingPower?: string | number | import("long").default;
+                voting_power?: string | number | import("long").default;
             }): _129.SimpleValidator;
             fromAmino(object: _129.SimpleValidatorAmino): _129.SimpleValidator;
             toAmino(message: _129.SimpleValidator): _129.SimpleValidatorAmino;
@@ -1680,7 +1680,7 @@ export declare namespace tendermint {
                 proof?: {
                     total?: string | number | import("long").default;
                     index?: string | number | import("long").default;
-                    leafHash?: Uint8Array;
+                    leaf_hash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
             }): _128.Part;
@@ -1699,7 +1699,7 @@ export declare namespace tendermint {
             toJSON(message: _128.BlockID): unknown;
             fromPartial(object: {
                 hash?: Uint8Array;
-                partSetHeader?: {
+                part_set_header?: {
                     total?: number;
                     hash?: Uint8Array;
                 };
@@ -1722,25 +1722,25 @@ export declare namespace tendermint {
                     block?: string | number | import("long").default;
                     app?: string | number | import("long").default;
                 };
-                chainId?: string;
+                chain_id?: string;
                 height?: string | number | import("long").default;
                 time?: Date;
-                lastBlockId?: {
+                last_block_id?: {
                     hash?: Uint8Array;
-                    partSetHeader?: {
+                    part_set_header?: {
                         total?: number;
                         hash?: Uint8Array;
                     };
                 };
-                lastCommitHash?: Uint8Array;
-                dataHash?: Uint8Array;
-                validatorsHash?: Uint8Array;
-                nextValidatorsHash?: Uint8Array;
-                consensusHash?: Uint8Array;
-                appHash?: Uint8Array;
-                lastResultsHash?: Uint8Array;
-                evidenceHash?: Uint8Array;
-                proposerAddress?: Uint8Array;
+                last_commit_hash?: Uint8Array;
+                data_hash?: Uint8Array;
+                validators_hash?: Uint8Array;
+                next_validators_hash?: Uint8Array;
+                consensus_hash?: Uint8Array;
+                app_hash?: Uint8Array;
+                last_results_hash?: Uint8Array;
+                evidence_hash?: Uint8Array;
+                proposer_address?: Uint8Array;
             }): _128.Header;
             fromAmino(object: _128.HeaderAmino): _128.Header;
             toAmino(message: _128.Header): _128.HeaderAmino;
@@ -1775,16 +1775,16 @@ export declare namespace tendermint {
                 type?: _128.SignedMsgType;
                 height?: string | number | import("long").default;
                 round?: number;
-                blockId?: {
+                block_id?: {
                     hash?: Uint8Array;
-                    partSetHeader?: {
+                    part_set_header?: {
                         total?: number;
                         hash?: Uint8Array;
                     };
                 };
                 timestamp?: Date;
-                validatorAddress?: Uint8Array;
-                validatorIndex?: number;
+                validator_address?: Uint8Array;
+                validator_index?: number;
                 signature?: Uint8Array;
             }): _128.Vote;
             fromAmino(object: _128.VoteAmino): _128.Vote;
@@ -1803,16 +1803,16 @@ export declare namespace tendermint {
             fromPartial(object: {
                 height?: string | number | import("long").default;
                 round?: number;
-                blockId?: {
+                block_id?: {
                     hash?: Uint8Array;
-                    partSetHeader?: {
+                    part_set_header?: {
                         total?: number;
                         hash?: Uint8Array;
                     };
                 };
                 signatures?: {
-                    blockIdFlag?: _128.BlockIDFlag;
-                    validatorAddress?: Uint8Array;
+                    block_id_flag?: _128.BlockIDFlag;
+                    validator_address?: Uint8Array;
                     timestamp?: Date;
                     signature?: Uint8Array;
                 }[];
@@ -1831,8 +1831,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _128.CommitSig;
             toJSON(message: _128.CommitSig): unknown;
             fromPartial(object: {
-                blockIdFlag?: _128.BlockIDFlag;
-                validatorAddress?: Uint8Array;
+                block_id_flag?: _128.BlockIDFlag;
+                validator_address?: Uint8Array;
                 timestamp?: Date;
                 signature?: Uint8Array;
             }): _128.CommitSig;
@@ -1853,10 +1853,10 @@ export declare namespace tendermint {
                 type?: _128.SignedMsgType;
                 height?: string | number | import("long").default;
                 round?: number;
-                polRound?: number;
-                blockId?: {
+                pol_round?: number;
+                block_id?: {
                     hash?: Uint8Array;
-                    partSetHeader?: {
+                    part_set_header?: {
                         total?: number;
                         hash?: Uint8Array;
                     };
@@ -1883,39 +1883,39 @@ export declare namespace tendermint {
                         block?: string | number | import("long").default;
                         app?: string | number | import("long").default;
                     };
-                    chainId?: string;
+                    chain_id?: string;
                     height?: string | number | import("long").default;
                     time?: Date;
-                    lastBlockId?: {
+                    last_block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
-                    lastCommitHash?: Uint8Array;
-                    dataHash?: Uint8Array;
-                    validatorsHash?: Uint8Array;
-                    nextValidatorsHash?: Uint8Array;
-                    consensusHash?: Uint8Array;
-                    appHash?: Uint8Array;
-                    lastResultsHash?: Uint8Array;
-                    evidenceHash?: Uint8Array;
-                    proposerAddress?: Uint8Array;
+                    last_commit_hash?: Uint8Array;
+                    data_hash?: Uint8Array;
+                    validators_hash?: Uint8Array;
+                    next_validators_hash?: Uint8Array;
+                    consensus_hash?: Uint8Array;
+                    app_hash?: Uint8Array;
+                    last_results_hash?: Uint8Array;
+                    evidence_hash?: Uint8Array;
+                    proposer_address?: Uint8Array;
                 };
                 commit?: {
                     height?: string | number | import("long").default;
                     round?: number;
-                    blockId?: {
+                    block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
                     signatures?: {
-                        blockIdFlag?: _128.BlockIDFlag;
-                        validatorAddress?: Uint8Array;
+                        block_id_flag?: _128.BlockIDFlag;
+                        validator_address?: Uint8Array;
                         timestamp?: Date;
                         signature?: Uint8Array;
                     }[];
@@ -1935,70 +1935,70 @@ export declare namespace tendermint {
             fromJSON(object: any): _128.LightBlock;
             toJSON(message: _128.LightBlock): unknown;
             fromPartial(object: {
-                signedHeader?: {
+                signed_header?: {
                     header?: {
                         version?: {
                             block?: string | number | import("long").default;
                             app?: string | number | import("long").default;
                         };
-                        chainId?: string;
+                        chain_id?: string;
                         height?: string | number | import("long").default;
                         time?: Date;
-                        lastBlockId?: {
+                        last_block_id?: {
                             hash?: Uint8Array;
-                            partSetHeader?: {
+                            part_set_header?: {
                                 total?: number;
                                 hash?: Uint8Array;
                             };
                         };
-                        lastCommitHash?: Uint8Array;
-                        dataHash?: Uint8Array;
-                        validatorsHash?: Uint8Array;
-                        nextValidatorsHash?: Uint8Array;
-                        consensusHash?: Uint8Array;
-                        appHash?: Uint8Array;
-                        lastResultsHash?: Uint8Array;
-                        evidenceHash?: Uint8Array;
-                        proposerAddress?: Uint8Array;
+                        last_commit_hash?: Uint8Array;
+                        data_hash?: Uint8Array;
+                        validators_hash?: Uint8Array;
+                        next_validators_hash?: Uint8Array;
+                        consensus_hash?: Uint8Array;
+                        app_hash?: Uint8Array;
+                        last_results_hash?: Uint8Array;
+                        evidence_hash?: Uint8Array;
+                        proposer_address?: Uint8Array;
                     };
                     commit?: {
                         height?: string | number | import("long").default;
                         round?: number;
-                        blockId?: {
+                        block_id?: {
                             hash?: Uint8Array;
-                            partSetHeader?: {
+                            part_set_header?: {
                                 total?: number;
                                 hash?: Uint8Array;
                             };
                         };
                         signatures?: {
-                            blockIdFlag?: _128.BlockIDFlag;
-                            validatorAddress?: Uint8Array;
+                            block_id_flag?: _128.BlockIDFlag;
+                            validator_address?: Uint8Array;
                             timestamp?: Date;
                             signature?: Uint8Array;
                         }[];
                     };
                 };
-                validatorSet?: {
+                validator_set?: {
                     validators?: {
                         address?: Uint8Array;
-                        pubKey?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        voting_power?: string | number | import("long").default;
+                        proposer_priority?: string | number | import("long").default;
                     }[];
                     proposer?: {
                         address?: Uint8Array;
-                        pubKey?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        voting_power?: string | number | import("long").default;
+                        proposer_priority?: string | number | import("long").default;
                     };
-                    totalVotingPower?: string | number | import("long").default;
+                    total_voting_power?: string | number | import("long").default;
                 };
             }): _128.LightBlock;
             fromAmino(object: _128.LightBlockAmino): _128.LightBlock;
@@ -2015,40 +2015,40 @@ export declare namespace tendermint {
             fromJSON(object: any): _128.BlockMeta;
             toJSON(message: _128.BlockMeta): unknown;
             fromPartial(object: {
-                blockId?: {
+                block_id?: {
                     hash?: Uint8Array;
-                    partSetHeader?: {
+                    part_set_header?: {
                         total?: number;
                         hash?: Uint8Array;
                     };
                 };
-                blockSize?: string | number | import("long").default;
+                block_size?: string | number | import("long").default;
                 header?: {
                     version?: {
                         block?: string | number | import("long").default;
                         app?: string | number | import("long").default;
                     };
-                    chainId?: string;
+                    chain_id?: string;
                     height?: string | number | import("long").default;
                     time?: Date;
-                    lastBlockId?: {
+                    last_block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
-                    lastCommitHash?: Uint8Array;
-                    dataHash?: Uint8Array;
-                    validatorsHash?: Uint8Array;
-                    nextValidatorsHash?: Uint8Array;
-                    consensusHash?: Uint8Array;
-                    appHash?: Uint8Array;
-                    lastResultsHash?: Uint8Array;
-                    evidenceHash?: Uint8Array;
-                    proposerAddress?: Uint8Array;
+                    last_commit_hash?: Uint8Array;
+                    data_hash?: Uint8Array;
+                    validators_hash?: Uint8Array;
+                    next_validators_hash?: Uint8Array;
+                    consensus_hash?: Uint8Array;
+                    app_hash?: Uint8Array;
+                    last_results_hash?: Uint8Array;
+                    evidence_hash?: Uint8Array;
+                    proposer_address?: Uint8Array;
                 };
-                numTxs?: string | number | import("long").default;
+                num_txs?: string | number | import("long").default;
             }): _128.BlockMeta;
             fromAmino(object: _128.BlockMetaAmino): _128.BlockMeta;
             toAmino(message: _128.BlockMeta): _128.BlockMetaAmino;
@@ -2064,12 +2064,12 @@ export declare namespace tendermint {
             fromJSON(object: any): _128.TxProof;
             toJSON(message: _128.TxProof): unknown;
             fromPartial(object: {
-                rootHash?: Uint8Array;
+                root_hash?: Uint8Array;
                 data?: Uint8Array;
                 proof?: {
                     total?: string | number | import("long").default;
                     index?: string | number | import("long").default;
-                    leafHash?: Uint8Array;
+                    leaf_hash?: Uint8Array;
                     aunts?: Uint8Array[];
                 };
             }): _128.TxProof;
@@ -2088,23 +2088,23 @@ export declare namespace tendermint {
             toJSON(message: _127.ConsensusParams): unknown;
             fromPartial(object: {
                 block?: {
-                    maxBytes?: string | number | import("long").default;
-                    maxGas?: string | number | import("long").default;
-                    timeIotaMs?: string | number | import("long").default;
+                    max_bytes?: string | number | import("long").default;
+                    max_gas?: string | number | import("long").default;
+                    time_iota_ms?: string | number | import("long").default;
                 };
                 evidence?: {
-                    maxAgeNumBlocks?: string | number | import("long").default;
-                    maxAgeDuration?: {
+                    max_age_num_blocks?: string | number | import("long").default;
+                    max_age_duration?: {
                         seconds?: string | number | import("long").default;
                         nanos?: number;
                     };
-                    maxBytes?: string | number | import("long").default;
+                    max_bytes?: string | number | import("long").default;
                 };
                 validator?: {
-                    pubKeyTypes?: string[];
+                    pub_key_types?: string[];
                 };
                 version?: {
-                    appVersion?: string | number | import("long").default;
+                    app_version?: string | number | import("long").default;
                 };
             }): _127.ConsensusParams;
             fromAmino(object: _127.ConsensusParamsAmino): _127.ConsensusParams;
@@ -2121,9 +2121,9 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.BlockParams;
             toJSON(message: _127.BlockParams): unknown;
             fromPartial(object: {
-                maxBytes?: string | number | import("long").default;
-                maxGas?: string | number | import("long").default;
-                timeIotaMs?: string | number | import("long").default;
+                max_bytes?: string | number | import("long").default;
+                max_gas?: string | number | import("long").default;
+                time_iota_ms?: string | number | import("long").default;
             }): _127.BlockParams;
             fromAmino(object: _127.BlockParamsAmino): _127.BlockParams;
             toAmino(message: _127.BlockParams): _127.BlockParamsAmino;
@@ -2139,12 +2139,12 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.EvidenceParams;
             toJSON(message: _127.EvidenceParams): unknown;
             fromPartial(object: {
-                maxAgeNumBlocks?: string | number | import("long").default;
-                maxAgeDuration?: {
+                max_age_num_blocks?: string | number | import("long").default;
+                max_age_duration?: {
                     seconds?: string | number | import("long").default;
                     nanos?: number;
                 };
-                maxBytes?: string | number | import("long").default;
+                max_bytes?: string | number | import("long").default;
             }): _127.EvidenceParams;
             fromAmino(object: _127.EvidenceParamsAmino): _127.EvidenceParams;
             toAmino(message: _127.EvidenceParams): _127.EvidenceParamsAmino;
@@ -2160,7 +2160,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.ValidatorParams;
             toJSON(message: _127.ValidatorParams): unknown;
             fromPartial(object: {
-                pubKeyTypes?: string[];
+                pub_key_types?: string[];
             }): _127.ValidatorParams;
             fromAmino(object: _127.ValidatorParamsAmino): _127.ValidatorParams;
             toAmino(message: _127.ValidatorParams): _127.ValidatorParamsAmino;
@@ -2176,7 +2176,7 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.VersionParams;
             toJSON(message: _127.VersionParams): unknown;
             fromPartial(object: {
-                appVersion?: string | number | import("long").default;
+                app_version?: string | number | import("long").default;
             }): _127.VersionParams;
             fromAmino(object: _127.VersionParamsAmino): _127.VersionParams;
             toAmino(message: _127.VersionParams): _127.VersionParamsAmino;
@@ -2192,8 +2192,8 @@ export declare namespace tendermint {
             fromJSON(object: any): _127.HashedParams;
             toJSON(message: _127.HashedParams): unknown;
             fromPartial(object: {
-                blockMaxBytes?: string | number | import("long").default;
-                blockMaxGas?: string | number | import("long").default;
+                block_max_bytes?: string | number | import("long").default;
+                block_max_gas?: string | number | import("long").default;
             }): _127.HashedParams;
             fromAmino(object: _127.HashedParamsAmino): _127.HashedParams;
             toAmino(message: _127.HashedParams): _127.HashedParamsAmino;
@@ -2209,122 +2209,122 @@ export declare namespace tendermint {
             fromJSON(object: any): _126.Evidence;
             toJSON(message: _126.Evidence): unknown;
             fromPartial(object: {
-                duplicateVoteEvidence?: {
-                    voteA?: {
+                duplicate_vote_evidence?: {
+                    vote_a?: {
                         type?: _128.SignedMsgType;
                         height?: string | number | import("long").default;
                         round?: number;
-                        blockId?: {
+                        block_id?: {
                             hash?: Uint8Array;
-                            partSetHeader?: {
+                            part_set_header?: {
                                 total?: number;
                                 hash?: Uint8Array;
                             };
                         };
                         timestamp?: Date;
-                        validatorAddress?: Uint8Array;
-                        validatorIndex?: number;
+                        validator_address?: Uint8Array;
+                        validator_index?: number;
                         signature?: Uint8Array;
                     };
-                    voteB?: {
+                    vote_b?: {
                         type?: _128.SignedMsgType;
                         height?: string | number | import("long").default;
                         round?: number;
-                        blockId?: {
+                        block_id?: {
                             hash?: Uint8Array;
-                            partSetHeader?: {
+                            part_set_header?: {
                                 total?: number;
                                 hash?: Uint8Array;
                             };
                         };
                         timestamp?: Date;
-                        validatorAddress?: Uint8Array;
-                        validatorIndex?: number;
+                        validator_address?: Uint8Array;
+                        validator_index?: number;
                         signature?: Uint8Array;
                     };
-                    totalVotingPower?: string | number | import("long").default;
-                    validatorPower?: string | number | import("long").default;
+                    total_voting_power?: string | number | import("long").default;
+                    validator_power?: string | number | import("long").default;
                     timestamp?: Date;
                 };
-                lightClientAttackEvidence?: {
-                    conflictingBlock?: {
-                        signedHeader?: {
+                light_client_attack_evidence?: {
+                    conflicting_block?: {
+                        signed_header?: {
                             header?: {
                                 version?: {
                                     block?: string | number | import("long").default;
                                     app?: string | number | import("long").default;
                                 };
-                                chainId?: string;
+                                chain_id?: string;
                                 height?: string | number | import("long").default;
                                 time?: Date;
-                                lastBlockId?: {
+                                last_block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
-                                lastCommitHash?: Uint8Array;
-                                dataHash?: Uint8Array;
-                                validatorsHash?: Uint8Array;
-                                nextValidatorsHash?: Uint8Array;
-                                consensusHash?: Uint8Array;
-                                appHash?: Uint8Array;
-                                lastResultsHash?: Uint8Array;
-                                evidenceHash?: Uint8Array;
-                                proposerAddress?: Uint8Array;
+                                last_commit_hash?: Uint8Array;
+                                data_hash?: Uint8Array;
+                                validators_hash?: Uint8Array;
+                                next_validators_hash?: Uint8Array;
+                                consensus_hash?: Uint8Array;
+                                app_hash?: Uint8Array;
+                                last_results_hash?: Uint8Array;
+                                evidence_hash?: Uint8Array;
+                                proposer_address?: Uint8Array;
                             };
                             commit?: {
                                 height?: string | number | import("long").default;
                                 round?: number;
-                                blockId?: {
+                                block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
                                 signatures?: {
-                                    blockIdFlag?: _128.BlockIDFlag;
-                                    validatorAddress?: Uint8Array;
+                                    block_id_flag?: _128.BlockIDFlag;
+                                    validator_address?: Uint8Array;
                                     timestamp?: Date;
                                     signature?: Uint8Array;
                                 }[];
                             };
                         };
-                        validatorSet?: {
+                        validator_set?: {
                             validators?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             }[];
                             proposer?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             };
-                            totalVotingPower?: string | number | import("long").default;
+                            total_voting_power?: string | number | import("long").default;
                         };
                     };
-                    commonHeight?: string | number | import("long").default;
-                    byzantineValidators?: {
+                    common_height?: string | number | import("long").default;
+                    byzantine_validators?: {
                         address?: Uint8Array;
-                        pubKey?: {
+                        pub_key?: {
                             ed25519?: Uint8Array;
                             secp256k1?: Uint8Array;
                         };
-                        votingPower?: string | number | import("long").default;
-                        proposerPriority?: string | number | import("long").default;
+                        voting_power?: string | number | import("long").default;
+                        proposer_priority?: string | number | import("long").default;
                     }[];
-                    totalVotingPower?: string | number | import("long").default;
+                    total_voting_power?: string | number | import("long").default;
                     timestamp?: Date;
                 };
             }): _126.Evidence;
@@ -2342,40 +2342,40 @@ export declare namespace tendermint {
             fromJSON(object: any): _126.DuplicateVoteEvidence;
             toJSON(message: _126.DuplicateVoteEvidence): unknown;
             fromPartial(object: {
-                voteA?: {
+                vote_a?: {
                     type?: _128.SignedMsgType;
                     height?: string | number | import("long").default;
                     round?: number;
-                    blockId?: {
+                    block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
                     timestamp?: Date;
-                    validatorAddress?: Uint8Array;
-                    validatorIndex?: number;
+                    validator_address?: Uint8Array;
+                    validator_index?: number;
                     signature?: Uint8Array;
                 };
-                voteB?: {
+                vote_b?: {
                     type?: _128.SignedMsgType;
                     height?: string | number | import("long").default;
                     round?: number;
-                    blockId?: {
+                    block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
                     timestamp?: Date;
-                    validatorAddress?: Uint8Array;
-                    validatorIndex?: number;
+                    validator_address?: Uint8Array;
+                    validator_index?: number;
                     signature?: Uint8Array;
                 };
-                totalVotingPower?: string | number | import("long").default;
-                validatorPower?: string | number | import("long").default;
+                total_voting_power?: string | number | import("long").default;
+                validator_power?: string | number | import("long").default;
                 timestamp?: Date;
             }): _126.DuplicateVoteEvidence;
             fromAmino(object: _126.DuplicateVoteEvidenceAmino): _126.DuplicateVoteEvidence;
@@ -2392,84 +2392,84 @@ export declare namespace tendermint {
             fromJSON(object: any): _126.LightClientAttackEvidence;
             toJSON(message: _126.LightClientAttackEvidence): unknown;
             fromPartial(object: {
-                conflictingBlock?: {
-                    signedHeader?: {
+                conflicting_block?: {
+                    signed_header?: {
                         header?: {
                             version?: {
                                 block?: string | number | import("long").default;
                                 app?: string | number | import("long").default;
                             };
-                            chainId?: string;
+                            chain_id?: string;
                             height?: string | number | import("long").default;
                             time?: Date;
-                            lastBlockId?: {
+                            last_block_id?: {
                                 hash?: Uint8Array;
-                                partSetHeader?: {
+                                part_set_header?: {
                                     total?: number;
                                     hash?: Uint8Array;
                                 };
                             };
-                            lastCommitHash?: Uint8Array;
-                            dataHash?: Uint8Array;
-                            validatorsHash?: Uint8Array;
-                            nextValidatorsHash?: Uint8Array;
-                            consensusHash?: Uint8Array;
-                            appHash?: Uint8Array;
-                            lastResultsHash?: Uint8Array;
-                            evidenceHash?: Uint8Array;
-                            proposerAddress?: Uint8Array;
+                            last_commit_hash?: Uint8Array;
+                            data_hash?: Uint8Array;
+                            validators_hash?: Uint8Array;
+                            next_validators_hash?: Uint8Array;
+                            consensus_hash?: Uint8Array;
+                            app_hash?: Uint8Array;
+                            last_results_hash?: Uint8Array;
+                            evidence_hash?: Uint8Array;
+                            proposer_address?: Uint8Array;
                         };
                         commit?: {
                             height?: string | number | import("long").default;
                             round?: number;
-                            blockId?: {
+                            block_id?: {
                                 hash?: Uint8Array;
-                                partSetHeader?: {
+                                part_set_header?: {
                                     total?: number;
                                     hash?: Uint8Array;
                                 };
                             };
                             signatures?: {
-                                blockIdFlag?: _128.BlockIDFlag;
-                                validatorAddress?: Uint8Array;
+                                block_id_flag?: _128.BlockIDFlag;
+                                validator_address?: Uint8Array;
                                 timestamp?: Date;
                                 signature?: Uint8Array;
                             }[];
                         };
                     };
-                    validatorSet?: {
+                    validator_set?: {
                         validators?: {
                             address?: Uint8Array;
-                            pubKey?: {
+                            pub_key?: {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            voting_power?: string | number | import("long").default;
+                            proposer_priority?: string | number | import("long").default;
                         }[];
                         proposer?: {
                             address?: Uint8Array;
-                            pubKey?: {
+                            pub_key?: {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            voting_power?: string | number | import("long").default;
+                            proposer_priority?: string | number | import("long").default;
                         };
-                        totalVotingPower?: string | number | import("long").default;
+                        total_voting_power?: string | number | import("long").default;
                     };
                 };
-                commonHeight?: string | number | import("long").default;
-                byzantineValidators?: {
+                common_height?: string | number | import("long").default;
+                byzantine_validators?: {
                     address?: Uint8Array;
-                    pubKey?: {
+                    pub_key?: {
                         ed25519?: Uint8Array;
                         secp256k1?: Uint8Array;
                     };
-                    votingPower?: string | number | import("long").default;
-                    proposerPriority?: string | number | import("long").default;
+                    voting_power?: string | number | import("long").default;
+                    proposer_priority?: string | number | import("long").default;
                 }[];
-                totalVotingPower?: string | number | import("long").default;
+                total_voting_power?: string | number | import("long").default;
                 timestamp?: Date;
             }): _126.LightClientAttackEvidence;
             fromAmino(object: _126.LightClientAttackEvidenceAmino): _126.LightClientAttackEvidence;
@@ -2487,122 +2487,122 @@ export declare namespace tendermint {
             toJSON(message: _126.EvidenceList): unknown;
             fromPartial(object: {
                 evidence?: {
-                    duplicateVoteEvidence?: {
-                        voteA?: {
+                    duplicate_vote_evidence?: {
+                        vote_a?: {
                             type?: _128.SignedMsgType;
                             height?: string | number | import("long").default;
                             round?: number;
-                            blockId?: {
+                            block_id?: {
                                 hash?: Uint8Array;
-                                partSetHeader?: {
+                                part_set_header?: {
                                     total?: number;
                                     hash?: Uint8Array;
                                 };
                             };
                             timestamp?: Date;
-                            validatorAddress?: Uint8Array;
-                            validatorIndex?: number;
+                            validator_address?: Uint8Array;
+                            validator_index?: number;
                             signature?: Uint8Array;
                         };
-                        voteB?: {
+                        vote_b?: {
                             type?: _128.SignedMsgType;
                             height?: string | number | import("long").default;
                             round?: number;
-                            blockId?: {
+                            block_id?: {
                                 hash?: Uint8Array;
-                                partSetHeader?: {
+                                part_set_header?: {
                                     total?: number;
                                     hash?: Uint8Array;
                                 };
                             };
                             timestamp?: Date;
-                            validatorAddress?: Uint8Array;
-                            validatorIndex?: number;
+                            validator_address?: Uint8Array;
+                            validator_index?: number;
                             signature?: Uint8Array;
                         };
-                        totalVotingPower?: string | number | import("long").default;
-                        validatorPower?: string | number | import("long").default;
+                        total_voting_power?: string | number | import("long").default;
+                        validator_power?: string | number | import("long").default;
                         timestamp?: Date;
                     };
-                    lightClientAttackEvidence?: {
-                        conflictingBlock?: {
-                            signedHeader?: {
+                    light_client_attack_evidence?: {
+                        conflicting_block?: {
+                            signed_header?: {
                                 header?: {
                                     version?: {
                                         block?: string | number | import("long").default;
                                         app?: string | number | import("long").default;
                                     };
-                                    chainId?: string;
+                                    chain_id?: string;
                                     height?: string | number | import("long").default;
                                     time?: Date;
-                                    lastBlockId?: {
+                                    last_block_id?: {
                                         hash?: Uint8Array;
-                                        partSetHeader?: {
+                                        part_set_header?: {
                                             total?: number;
                                             hash?: Uint8Array;
                                         };
                                     };
-                                    lastCommitHash?: Uint8Array;
-                                    dataHash?: Uint8Array;
-                                    validatorsHash?: Uint8Array;
-                                    nextValidatorsHash?: Uint8Array;
-                                    consensusHash?: Uint8Array;
-                                    appHash?: Uint8Array;
-                                    lastResultsHash?: Uint8Array;
-                                    evidenceHash?: Uint8Array;
-                                    proposerAddress?: Uint8Array;
+                                    last_commit_hash?: Uint8Array;
+                                    data_hash?: Uint8Array;
+                                    validators_hash?: Uint8Array;
+                                    next_validators_hash?: Uint8Array;
+                                    consensus_hash?: Uint8Array;
+                                    app_hash?: Uint8Array;
+                                    last_results_hash?: Uint8Array;
+                                    evidence_hash?: Uint8Array;
+                                    proposer_address?: Uint8Array;
                                 };
                                 commit?: {
                                     height?: string | number | import("long").default;
                                     round?: number;
-                                    blockId?: {
+                                    block_id?: {
                                         hash?: Uint8Array;
-                                        partSetHeader?: {
+                                        part_set_header?: {
                                             total?: number;
                                             hash?: Uint8Array;
                                         };
                                     };
                                     signatures?: {
-                                        blockIdFlag?: _128.BlockIDFlag;
-                                        validatorAddress?: Uint8Array;
+                                        block_id_flag?: _128.BlockIDFlag;
+                                        validator_address?: Uint8Array;
                                         timestamp?: Date;
                                         signature?: Uint8Array;
                                     }[];
                                 };
                             };
-                            validatorSet?: {
+                            validator_set?: {
                                 validators?: {
                                     address?: Uint8Array;
-                                    pubKey?: {
+                                    pub_key?: {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").default;
-                                    proposerPriority?: string | number | import("long").default;
+                                    voting_power?: string | number | import("long").default;
+                                    proposer_priority?: string | number | import("long").default;
                                 }[];
                                 proposer?: {
                                     address?: Uint8Array;
-                                    pubKey?: {
+                                    pub_key?: {
                                         ed25519?: Uint8Array;
                                         secp256k1?: Uint8Array;
                                     };
-                                    votingPower?: string | number | import("long").default;
-                                    proposerPriority?: string | number | import("long").default;
+                                    voting_power?: string | number | import("long").default;
+                                    proposer_priority?: string | number | import("long").default;
                                 };
-                                totalVotingPower?: string | number | import("long").default;
+                                total_voting_power?: string | number | import("long").default;
                             };
                         };
-                        commonHeight?: string | number | import("long").default;
-                        byzantineValidators?: {
+                        common_height?: string | number | import("long").default;
+                        byzantine_validators?: {
                             address?: Uint8Array;
-                            pubKey?: {
+                            pub_key?: {
                                 ed25519?: Uint8Array;
                                 secp256k1?: Uint8Array;
                             };
-                            votingPower?: string | number | import("long").default;
-                            proposerPriority?: string | number | import("long").default;
+                            voting_power?: string | number | import("long").default;
+                            proposer_priority?: string | number | import("long").default;
                         }[];
-                        totalVotingPower?: string | number | import("long").default;
+                        total_voting_power?: string | number | import("long").default;
                         timestamp?: Date;
                     };
                 }[];
@@ -2626,164 +2626,164 @@ export declare namespace tendermint {
                         block?: string | number | import("long").default;
                         app?: string | number | import("long").default;
                     };
-                    chainId?: string;
+                    chain_id?: string;
                     height?: string | number | import("long").default;
                     time?: Date;
-                    lastBlockId?: {
+                    last_block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
-                    lastCommitHash?: Uint8Array;
-                    dataHash?: Uint8Array;
-                    validatorsHash?: Uint8Array;
-                    nextValidatorsHash?: Uint8Array;
-                    consensusHash?: Uint8Array;
-                    appHash?: Uint8Array;
-                    lastResultsHash?: Uint8Array;
-                    evidenceHash?: Uint8Array;
-                    proposerAddress?: Uint8Array;
+                    last_commit_hash?: Uint8Array;
+                    data_hash?: Uint8Array;
+                    validators_hash?: Uint8Array;
+                    next_validators_hash?: Uint8Array;
+                    consensus_hash?: Uint8Array;
+                    app_hash?: Uint8Array;
+                    last_results_hash?: Uint8Array;
+                    evidence_hash?: Uint8Array;
+                    proposer_address?: Uint8Array;
                 };
                 data?: {
                     txs?: Uint8Array[];
                 };
                 evidence?: {
                     evidence?: {
-                        duplicateVoteEvidence?: {
-                            voteA?: {
+                        duplicate_vote_evidence?: {
+                            vote_a?: {
                                 type?: _128.SignedMsgType;
                                 height?: string | number | import("long").default;
                                 round?: number;
-                                blockId?: {
+                                block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
                                 timestamp?: Date;
-                                validatorAddress?: Uint8Array;
-                                validatorIndex?: number;
+                                validator_address?: Uint8Array;
+                                validator_index?: number;
                                 signature?: Uint8Array;
                             };
-                            voteB?: {
+                            vote_b?: {
                                 type?: _128.SignedMsgType;
                                 height?: string | number | import("long").default;
                                 round?: number;
-                                blockId?: {
+                                block_id?: {
                                     hash?: Uint8Array;
-                                    partSetHeader?: {
+                                    part_set_header?: {
                                         total?: number;
                                         hash?: Uint8Array;
                                     };
                                 };
                                 timestamp?: Date;
-                                validatorAddress?: Uint8Array;
-                                validatorIndex?: number;
+                                validator_address?: Uint8Array;
+                                validator_index?: number;
                                 signature?: Uint8Array;
                             };
-                            totalVotingPower?: string | number | import("long").default;
-                            validatorPower?: string | number | import("long").default;
+                            total_voting_power?: string | number | import("long").default;
+                            validator_power?: string | number | import("long").default;
                             timestamp?: Date;
                         };
-                        lightClientAttackEvidence?: {
-                            conflictingBlock?: {
-                                signedHeader?: {
+                        light_client_attack_evidence?: {
+                            conflicting_block?: {
+                                signed_header?: {
                                     header?: {
                                         version?: {
                                             block?: string | number | import("long").default;
                                             app?: string | number | import("long").default;
                                         };
-                                        chainId?: string;
+                                        chain_id?: string;
                                         height?: string | number | import("long").default;
                                         time?: Date;
-                                        lastBlockId?: {
+                                        last_block_id?: {
                                             hash?: Uint8Array;
-                                            partSetHeader?: {
+                                            part_set_header?: {
                                                 total?: number;
                                                 hash?: Uint8Array;
                                             };
                                         };
-                                        lastCommitHash?: Uint8Array;
-                                        dataHash?: Uint8Array;
-                                        validatorsHash?: Uint8Array;
-                                        nextValidatorsHash?: Uint8Array;
-                                        consensusHash?: Uint8Array;
-                                        appHash?: Uint8Array;
-                                        lastResultsHash?: Uint8Array;
-                                        evidenceHash?: Uint8Array;
-                                        proposerAddress?: Uint8Array;
+                                        last_commit_hash?: Uint8Array;
+                                        data_hash?: Uint8Array;
+                                        validators_hash?: Uint8Array;
+                                        next_validators_hash?: Uint8Array;
+                                        consensus_hash?: Uint8Array;
+                                        app_hash?: Uint8Array;
+                                        last_results_hash?: Uint8Array;
+                                        evidence_hash?: Uint8Array;
+                                        proposer_address?: Uint8Array;
                                     };
                                     commit?: {
                                         height?: string | number | import("long").default;
                                         round?: number;
-                                        blockId?: {
+                                        block_id?: {
                                             hash?: Uint8Array;
-                                            partSetHeader?: {
+                                            part_set_header?: {
                                                 total?: number;
                                                 hash?: Uint8Array;
                                             };
                                         };
                                         signatures?: {
-                                            blockIdFlag?: _128.BlockIDFlag;
-                                            validatorAddress?: Uint8Array;
+                                            block_id_flag?: _128.BlockIDFlag;
+                                            validator_address?: Uint8Array;
                                             timestamp?: Date;
                                             signature?: Uint8Array;
                                         }[];
                                     };
                                 };
-                                validatorSet?: {
+                                validator_set?: {
                                     validators?: {
                                         address?: Uint8Array;
-                                        pubKey?: {
+                                        pub_key?: {
                                             ed25519?: Uint8Array;
                                             secp256k1?: Uint8Array;
                                         };
-                                        votingPower?: string | number | import("long").default;
-                                        proposerPriority?: string | number | import("long").default;
+                                        voting_power?: string | number | import("long").default;
+                                        proposer_priority?: string | number | import("long").default;
                                     }[];
                                     proposer?: {
                                         address?: Uint8Array;
-                                        pubKey?: {
+                                        pub_key?: {
                                             ed25519?: Uint8Array;
                                             secp256k1?: Uint8Array;
                                         };
-                                        votingPower?: string | number | import("long").default;
-                                        proposerPriority?: string | number | import("long").default;
+                                        voting_power?: string | number | import("long").default;
+                                        proposer_priority?: string | number | import("long").default;
                                     };
-                                    totalVotingPower?: string | number | import("long").default;
+                                    total_voting_power?: string | number | import("long").default;
                                 };
                             };
-                            commonHeight?: string | number | import("long").default;
-                            byzantineValidators?: {
+                            common_height?: string | number | import("long").default;
+                            byzantine_validators?: {
                                 address?: Uint8Array;
-                                pubKey?: {
+                                pub_key?: {
                                     ed25519?: Uint8Array;
                                     secp256k1?: Uint8Array;
                                 };
-                                votingPower?: string | number | import("long").default;
-                                proposerPriority?: string | number | import("long").default;
+                                voting_power?: string | number | import("long").default;
+                                proposer_priority?: string | number | import("long").default;
                             }[];
-                            totalVotingPower?: string | number | import("long").default;
+                            total_voting_power?: string | number | import("long").default;
                             timestamp?: Date;
                         };
                     }[];
                 };
-                lastCommit?: {
+                last_commit?: {
                     height?: string | number | import("long").default;
                     round?: number;
-                    blockId?: {
+                    block_id?: {
                         hash?: Uint8Array;
-                        partSetHeader?: {
+                        part_set_header?: {
                             total?: number;
                             hash?: Uint8Array;
                         };
                     };
                     signatures?: {
-                        blockIdFlag?: _128.BlockIDFlag;
-                        validatorAddress?: Uint8Array;
+                        block_id_flag?: _128.BlockIDFlag;
+                        validator_address?: Uint8Array;
                         timestamp?: Date;
                         signature?: Uint8Array;
                     }[];

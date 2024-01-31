@@ -29,15 +29,15 @@ const helpers_1 = require("../../helpers");
 function createBaseAny() {
     return {
         $typeUrl: "/google.protobuf.Any",
-        typeUrl: "",
+        type_url: "",
         value: new Uint8Array()
     };
 }
 exports.Any = {
     typeUrl: "/google.protobuf.Any",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.typeUrl !== "") {
-            writer.uint32(10).string(message.typeUrl);
+        if (message.type_url !== "") {
+            writer.uint32(10).string(message.type_url);
         }
         if (message.value.length !== 0) {
             writer.uint32(18).bytes(message.value);
@@ -52,7 +52,7 @@ exports.Any = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.typeUrl = reader.string();
+                    message.type_url = reader.string();
                     break;
                 case 2:
                     message.value = reader.bytes();
@@ -66,19 +66,19 @@ exports.Any = {
     },
     fromJSON(object) {
         return {
-            typeUrl: (0, helpers_1.isSet)(object.typeUrl) ? String(object.typeUrl) : "",
+            type_url: (0, helpers_1.isSet)(object.type_url) ? String(object.type_url) : "",
             value: (0, helpers_1.isSet)(object.value) ? (0, helpers_1.bytesFromBase64)(object.value) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
+        message.type_url !== undefined && (obj.type_url = message.type_url);
         message.value !== undefined && (obj.value = (0, helpers_1.base64FromBytes)(message.value !== undefined ? message.value : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseAny();
-        message.typeUrl = object.typeUrl ?? "";
+        message.type_url = object.type_url ?? "";
         message.value = object.value ?? new Uint8Array();
         return message;
     },

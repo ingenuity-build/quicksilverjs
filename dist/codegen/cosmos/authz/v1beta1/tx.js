@@ -387,7 +387,7 @@ function createBaseMsgRevoke() {
     return {
         granter: "",
         grantee: "",
-        msgTypeUrl: ""
+        msg_type_url: ""
     };
 }
 exports.MsgRevoke = {
@@ -400,8 +400,8 @@ exports.MsgRevoke = {
         if (message.grantee !== "") {
             writer.uint32(18).string(message.grantee);
         }
-        if (message.msgTypeUrl !== "") {
-            writer.uint32(26).string(message.msgTypeUrl);
+        if (message.msg_type_url !== "") {
+            writer.uint32(26).string(message.msg_type_url);
         }
         return writer;
     },
@@ -419,7 +419,7 @@ exports.MsgRevoke = {
                     message.grantee = reader.string();
                     break;
                 case 3:
-                    message.msgTypeUrl = reader.string();
+                    message.msg_type_url = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -432,35 +432,35 @@ exports.MsgRevoke = {
         return {
             granter: (0, helpers_1.isSet)(object.granter) ? String(object.granter) : "",
             grantee: (0, helpers_1.isSet)(object.grantee) ? String(object.grantee) : "",
-            msgTypeUrl: (0, helpers_1.isSet)(object.msgTypeUrl) ? String(object.msgTypeUrl) : ""
+            msg_type_url: (0, helpers_1.isSet)(object.msg_type_url) ? String(object.msg_type_url) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.granter !== undefined && (obj.granter = message.granter);
         message.grantee !== undefined && (obj.grantee = message.grantee);
-        message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+        message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgRevoke();
         message.granter = object.granter ?? "";
         message.grantee = object.grantee ?? "";
-        message.msgTypeUrl = object.msgTypeUrl ?? "";
+        message.msg_type_url = object.msg_type_url ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             granter: object.granter,
             grantee: object.grantee,
-            msgTypeUrl: object.msg_type_url
+            msg_type_url: object.msg_type_url
         };
     },
     toAmino(message) {
         const obj = {};
         obj.granter = message.granter;
         obj.grantee = message.grantee;
-        obj.msg_type_url = message.msgTypeUrl;
+        obj.msg_type_url = message.msg_type_url;
         return obj;
     },
     fromAminoMsg(object) {

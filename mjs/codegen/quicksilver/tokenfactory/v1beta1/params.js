@@ -2,13 +2,13 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
 function createBaseParams() {
     return {
-        denomCreationFee: []
+        denom_creation_fee: []
     };
 }
 export const Params = {
     typeUrl: "/quicksilver.tokenfactory.v1beta1.Params",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.denomCreationFee) {
+        for (const v of message.denom_creation_fee) {
             Coin.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
@@ -21,7 +21,7 @@ export const Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.denomCreationFee.push(Coin.decode(reader, reader.uint32()));
+                    message.denom_creation_fee.push(Coin.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -32,33 +32,33 @@ export const Params = {
     },
     fromJSON(object) {
         return {
-            denomCreationFee: Array.isArray(object?.denomCreationFee) ? object.denomCreationFee.map((e) => Coin.fromJSON(e)) : []
+            denom_creation_fee: Array.isArray(object?.denom_creation_fee) ? object.denom_creation_fee.map((e) => Coin.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.denomCreationFee) {
-            obj.denomCreationFee = message.denomCreationFee.map(e => e ? Coin.toJSON(e) : undefined);
+        if (message.denom_creation_fee) {
+            obj.denom_creation_fee = message.denom_creation_fee.map(e => e ? Coin.toJSON(e) : undefined);
         }
         else {
-            obj.denomCreationFee = [];
+            obj.denom_creation_fee = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams();
-        message.denomCreationFee = object.denomCreationFee?.map(e => Coin.fromPartial(e)) || [];
+        message.denom_creation_fee = object.denom_creation_fee?.map(e => Coin.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            denomCreationFee: Array.isArray(object?.denom_creation_fee) ? object.denom_creation_fee.map((e) => Coin.fromAmino(e)) : []
+            denom_creation_fee: Array.isArray(object?.denom_creation_fee) ? object.denom_creation_fee.map((e) => Coin.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.denomCreationFee) {
-            obj.denom_creation_fee = message.denomCreationFee.map(e => e ? Coin.toAmino(e) : undefined);
+        if (message.denom_creation_fee) {
+            obj.denom_creation_fee = message.denom_creation_fee.map(e => e ? Coin.toAmino(e) : undefined);
         }
         else {
             obj.denom_creation_fee = [];

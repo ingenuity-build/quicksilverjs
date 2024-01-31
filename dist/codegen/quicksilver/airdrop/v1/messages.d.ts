@@ -3,13 +3,13 @@ import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin"
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface MsgClaim {
-    chainId: string;
+    chain_id: string;
     action: Long;
     address: string;
     proofs: Proof[];
 }
 export interface MsgClaimProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.MsgClaim";
+    type_url: "/quicksilver.airdrop.v1.MsgClaim";
     value: Uint8Array;
 }
 export interface MsgClaimAmino {
@@ -32,7 +32,7 @@ export interface MsgClaimResponse {
     amount: Long;
 }
 export interface MsgClaimResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.MsgClaimResponse";
+    type_url: "/quicksilver.airdrop.v1.MsgClaimResponse";
     value: Uint8Array;
 }
 export interface MsgClaimResponseAmino {
@@ -48,11 +48,11 @@ export interface MsgClaimResponseSDKType {
 /** MsgIncentivePoolSpend represents a message to send coins from one account to another. */
 export interface MsgIncentivePoolSpend {
     authority: string;
-    toAddress: string;
+    to_address: string;
     amount: Coin[];
 }
 export interface MsgIncentivePoolSpendProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend";
+    type_url: "/quicksilver.airdrop.v1.MsgIncentivePoolSpend";
     value: Uint8Array;
 }
 /** MsgIncentivePoolSpend represents a message to send coins from one account to another. */
@@ -75,7 +75,7 @@ export interface MsgIncentivePoolSpendSDKType {
 export interface MsgIncentivePoolSpendResponse {
 }
 export interface MsgIncentivePoolSpendResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse";
+    type_url: "/quicksilver.airdrop.v1.MsgIncentivePoolSpendResponse";
     value: Uint8Array;
 }
 /** MsgIncentivePoolSpendResponse defines the MsgIncentivePoolSpend response type. */

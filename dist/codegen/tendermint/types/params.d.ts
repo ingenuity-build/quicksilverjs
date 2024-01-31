@@ -12,7 +12,7 @@ export interface ConsensusParams {
     version: VersionParams;
 }
 export interface ConsensusParamsProtoMsg {
-    typeUrl: "/tendermint.types.ConsensusParams";
+    type_url: "/tendermint.types.ConsensusParams";
     value: Uint8Array;
 }
 /**
@@ -45,22 +45,22 @@ export interface BlockParams {
      * Max block size, in bytes.
      * Note: must be greater than 0
      */
-    maxBytes: Long;
+    max_bytes: Long;
     /**
      * Max gas per block.
      * Note: must be greater or equal to -1
      */
-    maxGas: Long;
+    max_gas: Long;
     /**
      * Minimum time increment between consecutive blocks (in milliseconds) If the
      * block header timestamp is ahead of the system clock, decrease this value.
      *
      * Not exposed to the application.
      */
-    timeIotaMs: Long;
+    time_iota_ms: Long;
 }
 export interface BlockParamsProtoMsg {
-    typeUrl: "/tendermint.types.BlockParams";
+    type_url: "/tendermint.types.BlockParams";
     value: Uint8Array;
 }
 /** BlockParams contains limits on the block size. */
@@ -101,7 +101,7 @@ export interface EvidenceParams {
      * The basic formula for calculating this is: MaxAgeDuration / {average block
      * time}.
      */
-    maxAgeNumBlocks: Long;
+    max_age_num_blocks: Long;
     /**
      * Max age of evidence, in time.
      *
@@ -109,16 +109,16 @@ export interface EvidenceParams {
      * mechanism for handling [Nothing-At-Stake
      * attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
      */
-    maxAgeDuration: Duration;
+    max_age_duration: Duration;
     /**
      * This sets the maximum size of total evidence in bytes that can be committed in a single block.
      * and should fall comfortably under the max block bytes.
      * Default is 1048576 or 1MB
      */
-    maxBytes: Long;
+    max_bytes: Long;
 }
 export interface EvidenceParamsProtoMsg {
-    typeUrl: "/tendermint.types.EvidenceParams";
+    type_url: "/tendermint.types.EvidenceParams";
     value: Uint8Array;
 }
 /** EvidenceParams determine how we handle evidence of malfeasance. */
@@ -160,10 +160,10 @@ export interface EvidenceParamsSDKType {
  * NOTE: uses ABCI pubkey naming, not Amino names.
  */
 export interface ValidatorParams {
-    pubKeyTypes: string[];
+    pub_key_types: string[];
 }
 export interface ValidatorParamsProtoMsg {
-    typeUrl: "/tendermint.types.ValidatorParams";
+    type_url: "/tendermint.types.ValidatorParams";
     value: Uint8Array;
 }
 /**
@@ -186,10 +186,10 @@ export interface ValidatorParamsSDKType {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParams {
-    appVersion: Long;
+    app_version: Long;
 }
 export interface VersionParamsProtoMsg {
-    typeUrl: "/tendermint.types.VersionParams";
+    type_url: "/tendermint.types.VersionParams";
     value: Uint8Array;
 }
 /** VersionParams contains the ABCI application version. */
@@ -210,11 +210,11 @@ export interface VersionParamsSDKType {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParams {
-    blockMaxBytes: Long;
-    blockMaxGas: Long;
+    block_max_bytes: Long;
+    block_max_gas: Long;
 }
 export interface HashedParamsProtoMsg {
-    typeUrl: "/tendermint.types.HashedParams";
+    type_url: "/tendermint.types.HashedParams";
     value: Uint8Array;
 }
 /**

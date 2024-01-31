@@ -239,14 +239,14 @@ export const QueryCurrentEpochRequest = {
 };
 function createBaseQueryCurrentEpochResponse() {
     return {
-        currentEpoch: Long.ZERO
+        current_epoch: Long.ZERO
     };
 }
 export const QueryCurrentEpochResponse = {
     typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (!message.currentEpoch.isZero()) {
-            writer.uint32(8).int64(message.currentEpoch);
+        if (!message.current_epoch.isZero()) {
+            writer.uint32(8).int64(message.current_epoch);
         }
         return writer;
     },
@@ -258,7 +258,7 @@ export const QueryCurrentEpochResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.currentEpoch = reader.int64();
+                    message.current_epoch = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -269,27 +269,27 @@ export const QueryCurrentEpochResponse = {
     },
     fromJSON(object) {
         return {
-            currentEpoch: isSet(object.currentEpoch) ? Long.fromValue(object.currentEpoch) : Long.ZERO
+            current_epoch: isSet(object.current_epoch) ? Long.fromValue(object.current_epoch) : Long.ZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.currentEpoch !== undefined && (obj.currentEpoch = (message.currentEpoch || Long.ZERO).toString());
+        message.current_epoch !== undefined && (obj.current_epoch = (message.current_epoch || Long.ZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryCurrentEpochResponse();
-        message.currentEpoch = object.currentEpoch !== undefined && object.currentEpoch !== null ? Long.fromValue(object.currentEpoch) : Long.ZERO;
+        message.current_epoch = object.current_epoch !== undefined && object.current_epoch !== null ? Long.fromValue(object.current_epoch) : Long.ZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            currentEpoch: Long.fromString(object.current_epoch)
+            current_epoch: Long.fromString(object.current_epoch)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.current_epoch = message.currentEpoch ? message.currentEpoch.toString() : undefined;
+        obj.current_epoch = message.current_epoch ? message.current_epoch.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

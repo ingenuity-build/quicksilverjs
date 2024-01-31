@@ -3,10 +3,10 @@ import * as _m0 from "protobufjs/minimal";
 /** Minter represents the minting state. */
 export interface Minter {
     /** current epoch provisions */
-    epochProvisions: string;
+    epoch_provisions: string;
 }
 export interface MinterProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.Minter";
+    type_url: "/quicksilver.mint.v1beta1.Minter";
     value: Uint8Array;
 }
 /** Minter represents the minting state. */
@@ -32,20 +32,20 @@ export interface DistributionProportions {
      * pool_incentives defines the proportion of the minted minted_denom that is
      * to be allocated as pool incentives.
      */
-    poolIncentives: string;
+    pool_incentives: string;
     /**
      * participation_rewards defines the proportion of the minted minted_denom
      * that is to be allocated to participation rewards address.
      */
-    participationRewards: string;
+    participation_rewards: string;
     /**
      * community_pool defines the proportion of the minted minted_denom that is
      * to be allocated to the community pool.
      */
-    communityPool: string;
+    community_pool: string;
 }
 export interface DistributionProportionsProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.DistributionProportions";
+    type_url: "/quicksilver.mint.v1beta1.DistributionProportions";
     value: Uint8Array;
 }
 export interface DistributionProportionsAmino {
@@ -83,22 +83,22 @@ export interface DistributionProportionsSDKType {
 /** Params holds parameters for the mint module. */
 export interface Params {
     /** type of coin to mint */
-    mintDenom: string;
+    mint_denom: string;
     /** epoch provisions from the first epoch */
-    genesisEpochProvisions: string;
+    genesis_epoch_provisions: string;
     /** mint epoch identifier */
-    epochIdentifier: string;
+    epoch_identifier: string;
     /** number of epochs take to reduce rewards */
-    reductionPeriodInEpochs: Long;
+    reduction_period_in_epochs: Long;
     /** reduction multiplier to execute on each period */
-    reductionFactor: string;
+    reduction_factor: string;
     /** distribution_proportions defines the proportion of the minted denom */
-    distributionProportions: DistributionProportions;
+    distribution_proportions: DistributionProportions;
     /** start epoch to distribute minting rewards */
-    mintingRewardsDistributionStartEpoch: Long;
+    minting_rewards_distribution_start_epoch: Long;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.Params";
+    type_url: "/quicksilver.mint.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params holds parameters for the mint module. */

@@ -4,12 +4,12 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** MsgSend represents a message to send coins from one account to another. */
 export interface MsgSend {
-    fromAddress: string;
-    toAddress: string;
+    from_address: string;
+    to_address: string;
     amount: Coin[];
 }
 export interface MsgSendProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.MsgSend";
+    type_url: "/cosmos.bank.v1beta1.MsgSend";
     value: Uint8Array;
 }
 /** MsgSend represents a message to send coins from one account to another. */
@@ -32,7 +32,7 @@ export interface MsgSendSDKType {
 export interface MsgSendResponse {
 }
 export interface MsgSendResponseProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.MsgSendResponse";
+    type_url: "/cosmos.bank.v1beta1.MsgSendResponse";
     value: Uint8Array;
 }
 /** MsgSendResponse defines the Msg/Send response type. */
@@ -51,7 +51,7 @@ export interface MsgMultiSend {
     outputs: Output[];
 }
 export interface MsgMultiSendProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.MsgMultiSend";
+    type_url: "/cosmos.bank.v1beta1.MsgMultiSend";
     value: Uint8Array;
 }
 /** MsgMultiSend represents an arbitrary multi-in, multi-out send message. */
@@ -72,7 +72,7 @@ export interface MsgMultiSendSDKType {
 export interface MsgMultiSendResponse {
 }
 export interface MsgMultiSendResponseProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.MsgMultiSendResponse";
+    type_url: "/cosmos.bank.v1beta1.MsgMultiSendResponse";
     value: Uint8Array;
 }
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */

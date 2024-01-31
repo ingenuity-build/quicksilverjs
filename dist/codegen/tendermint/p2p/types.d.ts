@@ -6,7 +6,7 @@ export interface ProtocolVersion {
     app: Long;
 }
 export interface ProtocolVersionProtoMsg {
-    typeUrl: "/tendermint.p2p.ProtocolVersion";
+    type_url: "/tendermint.p2p.ProtocolVersion";
     value: Uint8Array;
 }
 export interface ProtocolVersionAmino {
@@ -24,9 +24,9 @@ export interface ProtocolVersionSDKType {
     app: Long;
 }
 export interface NodeInfo {
-    protocolVersion: ProtocolVersion;
-    nodeId: string;
-    listenAddr: string;
+    protocol_version: ProtocolVersion;
+    node_id: string;
+    listen_addr: string;
     network: string;
     version: string;
     channels: Uint8Array;
@@ -34,7 +34,7 @@ export interface NodeInfo {
     other: NodeInfoOther;
 }
 export interface NodeInfoProtoMsg {
-    typeUrl: "/tendermint.p2p.NodeInfo";
+    type_url: "/tendermint.p2p.NodeInfo";
     value: Uint8Array;
 }
 export interface NodeInfoAmino {
@@ -62,11 +62,11 @@ export interface NodeInfoSDKType {
     other: NodeInfoOtherSDKType;
 }
 export interface NodeInfoOther {
-    txIndex: string;
-    rpcAddress: string;
+    tx_index: string;
+    rpc_address: string;
 }
 export interface NodeInfoOtherProtoMsg {
-    typeUrl: "/tendermint.p2p.NodeInfoOther";
+    type_url: "/tendermint.p2p.NodeInfoOther";
     value: Uint8Array;
 }
 export interface NodeInfoOtherAmino {
@@ -83,11 +83,11 @@ export interface NodeInfoOtherSDKType {
 }
 export interface PeerInfo {
     id: string;
-    addressInfo: PeerAddressInfo[];
-    lastConnected: Date;
+    address_info: PeerAddressInfo[];
+    last_connected: Date;
 }
 export interface PeerInfoProtoMsg {
-    typeUrl: "/tendermint.p2p.PeerInfo";
+    type_url: "/tendermint.p2p.PeerInfo";
     value: Uint8Array;
 }
 export interface PeerInfoAmino {
@@ -106,12 +106,12 @@ export interface PeerInfoSDKType {
 }
 export interface PeerAddressInfo {
     address: string;
-    lastDialSuccess: Date;
-    lastDialFailure: Date;
-    dialFailures: number;
+    last_dial_success: Date;
+    last_dial_failure: Date;
+    dial_failures: number;
 }
 export interface PeerAddressInfoProtoMsg {
-    typeUrl: "/tendermint.p2p.PeerAddressInfo";
+    type_url: "/tendermint.p2p.PeerAddressInfo";
     value: Uint8Array;
 }
 export interface PeerAddressInfoAmino {

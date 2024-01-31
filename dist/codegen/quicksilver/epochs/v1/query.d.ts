@@ -6,7 +6,7 @@ export interface QueryEpochsInfoRequest {
     pagination: PageRequest;
 }
 export interface QueryEpochsInfoRequestProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.QueryEpochsInfoRequest";
+    type_url: "/quicksilver.epochs.v1.QueryEpochsInfoRequest";
     value: Uint8Array;
 }
 export interface QueryEpochsInfoRequestAmino {
@@ -24,7 +24,7 @@ export interface QueryEpochsInfoResponse {
     pagination: PageResponse;
 }
 export interface QueryEpochsInfoResponseProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.QueryEpochsInfoResponse";
+    type_url: "/quicksilver.epochs.v1.QueryEpochsInfoResponse";
     value: Uint8Array;
 }
 export interface QueryEpochsInfoResponseAmino {
@@ -43,7 +43,7 @@ export interface QueryCurrentEpochRequest {
     identifier: string;
 }
 export interface QueryCurrentEpochRequestProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochRequest";
+    type_url: "/quicksilver.epochs.v1.QueryCurrentEpochRequest";
     value: Uint8Array;
 }
 export interface QueryCurrentEpochRequestAmino {
@@ -57,10 +57,10 @@ export interface QueryCurrentEpochRequestSDKType {
     identifier: string;
 }
 export interface QueryCurrentEpochResponse {
-    currentEpoch: Long;
+    current_epoch: Long;
 }
 export interface QueryCurrentEpochResponseProtoMsg {
-    typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochResponse";
+    type_url: "/quicksilver.epochs.v1.QueryCurrentEpochResponse";
     value: Uint8Array;
 }
 export interface QueryCurrentEpochResponseAmino {

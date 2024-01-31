@@ -4,7 +4,7 @@ import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
     /** starting_proposal_id is the ID of the starting proposal. */
-    startingProposalId: Long;
+    starting_proposal_id: Long;
     /** deposits defines all the deposits present at genesis. */
     deposits: Deposit[];
     /** votes defines all the votes present at genesis. */
@@ -12,14 +12,14 @@ export interface GenesisState {
     /** proposals defines all the proposals present at genesis. */
     proposals: Proposal[];
     /** params defines all the paramaters of related to deposit. */
-    depositParams: DepositParams;
+    deposit_params: DepositParams;
     /** params defines all the paramaters of related to voting. */
-    votingParams: VotingParams;
+    voting_params: VotingParams;
     /** params defines all the paramaters of related to tally. */
-    tallyParams: TallyParams;
+    tally_params: TallyParams;
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/cosmos.gov.v1beta1.GenesisState";
+    type_url: "/cosmos.gov.v1beta1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the gov module's genesis state. */

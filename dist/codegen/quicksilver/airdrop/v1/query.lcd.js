@@ -20,12 +20,12 @@ class LCDQueryClient {
     }
     /* ZoneDrop returns the details of the specified zone airdrop. */
     async zoneDrop(params) {
-        const endpoint = `quicksilver/airdrop/v1/zonedrop/${params.chainId}`;
+        const endpoint = `quicksilver/airdrop/v1/zonedrop/${params.chain_id}`;
         return await this.req.get(endpoint);
     }
     /* AccountBalance returns the module account balance of the specified zone. */
     async accountBalance(params) {
-        const endpoint = `quicksilver/airdrop/v1/accountbalance/${params.chainId}`;
+        const endpoint = `quicksilver/airdrop/v1/accountbalance/${params.chain_id}`;
         return await this.req.get(endpoint);
     }
     /* ZoneDrops returns all zone airdrops of the specified status. */
@@ -42,7 +42,7 @@ class LCDQueryClient {
     /* ClaimRecord returns the claim record that corresponds to the given zone and
      address. */
     async claimRecord(params) {
-        const endpoint = `quicksilver/airdrop/v1/claimrecord/${params.chainId}/${params.address}`;
+        const endpoint = `quicksilver/airdrop/v1/claimrecord/${params.chain_id}/${params.address}`;
         return await this.req.get(endpoint);
     }
     /* ClaimRecords returns all the claim records of the given zone. */
@@ -53,7 +53,7 @@ class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);
         }
-        const endpoint = `quicksilver/airdrop/v1/claimrecords/${params.chainId}`;
+        const endpoint = `quicksilver/airdrop/v1/claimrecords/${params.chain_id}`;
         return await this.req.get(endpoint, options);
     }
 }

@@ -31,7 +31,7 @@ export declare function stateToJSON(object: State): string;
  */
 export interface ConnectionEnd {
     /** client associated with this connection. */
-    clientId: string;
+    client_id: string;
     /**
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection.
@@ -46,10 +46,10 @@ export interface ConnectionEnd {
      * packet-verification NOTE: delay period logic is only implemented by some
      * clients.
      */
-    delayPeriod: Long;
+    delay_period: Long;
 }
 export interface ConnectionEndProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.ConnectionEnd";
+    type_url: "/ibc.core.connection.v1.ConnectionEnd";
     value: Uint8Array;
 }
 /**
@@ -102,7 +102,7 @@ export interface IdentifiedConnection {
     /** connection identifier. */
     id: string;
     /** client associated with this connection. */
-    clientId: string;
+    client_id: string;
     /**
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -113,10 +113,10 @@ export interface IdentifiedConnection {
     /** counterparty chain associated with this connection. */
     counterparty: Counterparty;
     /** delay period associated with this connection. */
-    delayPeriod: Long;
+    delay_period: Long;
 }
 export interface IdentifiedConnectionProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.IdentifiedConnection";
+    type_url: "/ibc.core.connection.v1.IdentifiedConnection";
     value: Uint8Array;
 }
 /**
@@ -162,17 +162,17 @@ export interface Counterparty {
      * identifies the client on the counterparty chain associated with a given
      * connection.
      */
-    clientId: string;
+    client_id: string;
     /**
      * identifies the connection end on the counterparty chain associated with a
      * given connection.
      */
-    connectionId: string;
+    connection_id: string;
     /** commitment merkle prefix of the counterparty chain. */
     prefix: MerklePrefix;
 }
 export interface CounterpartyProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.Counterparty";
+    type_url: "/ibc.core.connection.v1.Counterparty";
     value: Uint8Array;
 }
 /** Counterparty defines the counterparty chain associated with a connection end. */
@@ -206,7 +206,7 @@ export interface ClientPaths {
     paths: string[];
 }
 export interface ClientPathsProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.ClientPaths";
+    type_url: "/ibc.core.connection.v1.ClientPaths";
     value: Uint8Array;
 }
 /** ClientPaths define all the connection paths for a client state. */
@@ -225,12 +225,12 @@ export interface ClientPathsSDKType {
 /** ConnectionPaths define all the connection paths for a given client state. */
 export interface ConnectionPaths {
     /** client state unique identifier */
-    clientId: string;
+    client_id: string;
     /** list of connection paths */
     paths: string[];
 }
 export interface ConnectionPathsProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.ConnectionPaths";
+    type_url: "/ibc.core.connection.v1.ConnectionPaths";
     value: Uint8Array;
 }
 /** ConnectionPaths define all the connection paths for a given client state. */
@@ -260,7 +260,7 @@ export interface Version {
     features: string[];
 }
 export interface VersionProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.Version";
+    type_url: "/ibc.core.connection.v1.Version";
     value: Uint8Array;
 }
 /**
@@ -292,10 +292,10 @@ export interface Params {
      * largest amount of time that the chain might reasonably take to produce the next block under normal operating
      * conditions. A safe choice is 3-5x the expected time per block.
      */
-    maxExpectedTimePerBlock: Long;
+    max_expected_time_per_block: Long;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/ibc.core.connection.v1.Params";
+    type_url: "/ibc.core.connection.v1.Params";
     value: Uint8Array;
 }
 /** Params defines the set of Connection parameters. */

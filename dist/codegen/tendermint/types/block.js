@@ -33,7 +33,7 @@ function createBaseBlock() {
         header: types_1.Header.fromPartial({}),
         data: types_1.Data.fromPartial({}),
         evidence: evidence_1.EvidenceList.fromPartial({}),
-        lastCommit: types_1.Commit.fromPartial({})
+        last_commit: types_1.Commit.fromPartial({})
     };
 }
 exports.Block = {
@@ -48,8 +48,8 @@ exports.Block = {
         if (message.evidence !== undefined) {
             evidence_1.EvidenceList.encode(message.evidence, writer.uint32(26).fork()).ldelim();
         }
-        if (message.lastCommit !== undefined) {
-            types_1.Commit.encode(message.lastCommit, writer.uint32(34).fork()).ldelim();
+        if (message.last_commit !== undefined) {
+            types_1.Commit.encode(message.last_commit, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -70,7 +70,7 @@ exports.Block = {
                     message.evidence = evidence_1.EvidenceList.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.lastCommit = types_1.Commit.decode(reader, reader.uint32());
+                    message.last_commit = types_1.Commit.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -84,7 +84,7 @@ exports.Block = {
             header: (0, helpers_1.isSet)(object.header) ? types_1.Header.fromJSON(object.header) : undefined,
             data: (0, helpers_1.isSet)(object.data) ? types_1.Data.fromJSON(object.data) : undefined,
             evidence: (0, helpers_1.isSet)(object.evidence) ? evidence_1.EvidenceList.fromJSON(object.evidence) : undefined,
-            lastCommit: (0, helpers_1.isSet)(object.lastCommit) ? types_1.Commit.fromJSON(object.lastCommit) : undefined
+            last_commit: (0, helpers_1.isSet)(object.last_commit) ? types_1.Commit.fromJSON(object.last_commit) : undefined
         };
     },
     toJSON(message) {
@@ -92,7 +92,7 @@ exports.Block = {
         message.header !== undefined && (obj.header = message.header ? types_1.Header.toJSON(message.header) : undefined);
         message.data !== undefined && (obj.data = message.data ? types_1.Data.toJSON(message.data) : undefined);
         message.evidence !== undefined && (obj.evidence = message.evidence ? evidence_1.EvidenceList.toJSON(message.evidence) : undefined);
-        message.lastCommit !== undefined && (obj.lastCommit = message.lastCommit ? types_1.Commit.toJSON(message.lastCommit) : undefined);
+        message.last_commit !== undefined && (obj.last_commit = message.last_commit ? types_1.Commit.toJSON(message.last_commit) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -100,7 +100,7 @@ exports.Block = {
         message.header = object.header !== undefined && object.header !== null ? types_1.Header.fromPartial(object.header) : undefined;
         message.data = object.data !== undefined && object.data !== null ? types_1.Data.fromPartial(object.data) : undefined;
         message.evidence = object.evidence !== undefined && object.evidence !== null ? evidence_1.EvidenceList.fromPartial(object.evidence) : undefined;
-        message.lastCommit = object.lastCommit !== undefined && object.lastCommit !== null ? types_1.Commit.fromPartial(object.lastCommit) : undefined;
+        message.last_commit = object.last_commit !== undefined && object.last_commit !== null ? types_1.Commit.fromPartial(object.last_commit) : undefined;
         return message;
     },
     fromAmino(object) {
@@ -108,7 +108,7 @@ exports.Block = {
             header: object?.header ? types_1.Header.fromAmino(object.header) : undefined,
             data: object?.data ? types_1.Data.fromAmino(object.data) : undefined,
             evidence: object?.evidence ? evidence_1.EvidenceList.fromAmino(object.evidence) : undefined,
-            lastCommit: object?.last_commit ? types_1.Commit.fromAmino(object.last_commit) : undefined
+            last_commit: object?.last_commit ? types_1.Commit.fromAmino(object.last_commit) : undefined
         };
     },
     toAmino(message) {
@@ -116,7 +116,7 @@ exports.Block = {
         obj.header = message.header ? types_1.Header.toAmino(message.header) : undefined;
         obj.data = message.data ? types_1.Data.toAmino(message.data) : undefined;
         obj.evidence = message.evidence ? evidence_1.EvidenceList.toAmino(message.evidence) : undefined;
-        obj.last_commit = message.lastCommit ? types_1.Commit.toAmino(message.lastCommit) : undefined;
+        obj.last_commit = message.last_commit ? types_1.Commit.toAmino(message.last_commit) : undefined;
         return obj;
     },
     fromAminoMsg(object) {

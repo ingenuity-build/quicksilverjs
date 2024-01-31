@@ -29,7 +29,7 @@ const helpers_1 = require("../../../../helpers");
 function createBaseDenomTrace() {
     return {
         path: "",
-        baseDenom: ""
+        base_denom: ""
     };
 }
 exports.DenomTrace = {
@@ -39,8 +39,8 @@ exports.DenomTrace = {
         if (message.path !== "") {
             writer.uint32(10).string(message.path);
         }
-        if (message.baseDenom !== "") {
-            writer.uint32(18).string(message.baseDenom);
+        if (message.base_denom !== "") {
+            writer.uint32(18).string(message.base_denom);
         }
         return writer;
     },
@@ -55,7 +55,7 @@ exports.DenomTrace = {
                     message.path = reader.string();
                     break;
                 case 2:
-                    message.baseDenom = reader.string();
+                    message.base_denom = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -67,31 +67,31 @@ exports.DenomTrace = {
     fromJSON(object) {
         return {
             path: (0, helpers_1.isSet)(object.path) ? String(object.path) : "",
-            baseDenom: (0, helpers_1.isSet)(object.baseDenom) ? String(object.baseDenom) : ""
+            base_denom: (0, helpers_1.isSet)(object.base_denom) ? String(object.base_denom) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.path !== undefined && (obj.path = message.path);
-        message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
+        message.base_denom !== undefined && (obj.base_denom = message.base_denom);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseDenomTrace();
         message.path = object.path ?? "";
-        message.baseDenom = object.baseDenom ?? "";
+        message.base_denom = object.base_denom ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             path: object.path,
-            baseDenom: object.base_denom
+            base_denom: object.base_denom
         };
     },
     toAmino(message) {
         const obj = {};
         obj.path = message.path;
-        obj.base_denom = message.baseDenom;
+        obj.base_denom = message.base_denom;
         return obj;
     },
     fromAminoMsg(object) {
@@ -118,19 +118,19 @@ exports.DenomTrace = {
 };
 function createBaseParams() {
     return {
-        sendEnabled: false,
-        receiveEnabled: false
+        send_enabled: false,
+        receive_enabled: false
     };
 }
 exports.Params = {
     typeUrl: "/ibc.applications.transfer.v1.Params",
     aminoType: "cosmos-sdk/Params",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.sendEnabled === true) {
-            writer.uint32(8).bool(message.sendEnabled);
+        if (message.send_enabled === true) {
+            writer.uint32(8).bool(message.send_enabled);
         }
-        if (message.receiveEnabled === true) {
-            writer.uint32(16).bool(message.receiveEnabled);
+        if (message.receive_enabled === true) {
+            writer.uint32(16).bool(message.receive_enabled);
         }
         return writer;
     },
@@ -142,10 +142,10 @@ exports.Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.sendEnabled = reader.bool();
+                    message.send_enabled = reader.bool();
                     break;
                 case 2:
-                    message.receiveEnabled = reader.bool();
+                    message.receive_enabled = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -156,32 +156,32 @@ exports.Params = {
     },
     fromJSON(object) {
         return {
-            sendEnabled: (0, helpers_1.isSet)(object.sendEnabled) ? Boolean(object.sendEnabled) : false,
-            receiveEnabled: (0, helpers_1.isSet)(object.receiveEnabled) ? Boolean(object.receiveEnabled) : false
+            send_enabled: (0, helpers_1.isSet)(object.send_enabled) ? Boolean(object.send_enabled) : false,
+            receive_enabled: (0, helpers_1.isSet)(object.receive_enabled) ? Boolean(object.receive_enabled) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        message.sendEnabled !== undefined && (obj.sendEnabled = message.sendEnabled);
-        message.receiveEnabled !== undefined && (obj.receiveEnabled = message.receiveEnabled);
+        message.send_enabled !== undefined && (obj.send_enabled = message.send_enabled);
+        message.receive_enabled !== undefined && (obj.receive_enabled = message.receive_enabled);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams();
-        message.sendEnabled = object.sendEnabled ?? false;
-        message.receiveEnabled = object.receiveEnabled ?? false;
+        message.send_enabled = object.send_enabled ?? false;
+        message.receive_enabled = object.receive_enabled ?? false;
         return message;
     },
     fromAmino(object) {
         return {
-            sendEnabled: object.send_enabled,
-            receiveEnabled: object.receive_enabled
+            send_enabled: object.send_enabled,
+            receive_enabled: object.receive_enabled
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.send_enabled = message.sendEnabled;
-        obj.receive_enabled = message.receiveEnabled;
+        obj.send_enabled = message.send_enabled;
+        obj.receive_enabled = message.receive_enabled;
         return obj;
     },
     fromAminoMsg(object) {

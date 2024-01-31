@@ -34,32 +34,32 @@ const encoding_1 = require("@cosmjs/encoding");
 const amino_1 = require("@cosmjs/amino");
 function createBaseValidator() {
     return {
-        operatorAddress: "",
-        consensusPubkey: any_1.Any.fromPartial({}),
+        operator_address: "",
+        consensus_pubkey: any_1.Any.fromPartial({}),
         jailed: false,
         status: 0,
         tokens: "",
-        delegatorShares: "",
+        delegator_shares: "",
         description: staking_1.Description.fromPartial({}),
-        unbondingHeight: helpers_1.Long.ZERO,
-        unbondingTime: new Date(),
+        unbonding_height: helpers_1.Long.ZERO,
+        unbonding_time: new Date(),
         commission: staking_1.Commission.fromPartial({}),
-        minSelfDelegation: "",
-        unbondingOnHoldRefCount: helpers_1.Long.ZERO,
-        unbondingIds: [],
-        validatorBondShares: "",
-        liquidShares: ""
+        min_self_delegation: "",
+        unbonding_on_hold_ref_count: helpers_1.Long.ZERO,
+        unbonding_ids: [],
+        validator_bond_shares: "",
+        liquid_shares: ""
     };
 }
 exports.Validator = {
     typeUrl: "/cosmos.lsmstaking.v1beta1.Validator",
     aminoType: "cosmos-sdk/Validator",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.operatorAddress !== "") {
-            writer.uint32(10).string(message.operatorAddress);
+        if (message.operator_address !== "") {
+            writer.uint32(10).string(message.operator_address);
         }
-        if (message.consensusPubkey !== undefined) {
-            any_1.Any.encode(message.consensusPubkey, writer.uint32(18).fork()).ldelim();
+        if (message.consensus_pubkey !== undefined) {
+            any_1.Any.encode(message.consensus_pubkey, writer.uint32(18).fork()).ldelim();
         }
         if (message.jailed === true) {
             writer.uint32(24).bool(message.jailed);
@@ -70,37 +70,37 @@ exports.Validator = {
         if (message.tokens !== "") {
             writer.uint32(42).string(message.tokens);
         }
-        if (message.delegatorShares !== "") {
-            writer.uint32(50).string(message.delegatorShares);
+        if (message.delegator_shares !== "") {
+            writer.uint32(50).string(message.delegator_shares);
         }
         if (message.description !== undefined) {
             staking_1.Description.encode(message.description, writer.uint32(58).fork()).ldelim();
         }
-        if (!message.unbondingHeight.isZero()) {
-            writer.uint32(64).int64(message.unbondingHeight);
+        if (!message.unbonding_height.isZero()) {
+            writer.uint32(64).int64(message.unbonding_height);
         }
-        if (message.unbondingTime !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.unbondingTime), writer.uint32(74).fork()).ldelim();
+        if (message.unbonding_time !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.unbonding_time), writer.uint32(74).fork()).ldelim();
         }
         if (message.commission !== undefined) {
             staking_1.Commission.encode(message.commission, writer.uint32(82).fork()).ldelim();
         }
-        if (message.minSelfDelegation !== "") {
-            writer.uint32(90).string(message.minSelfDelegation);
+        if (message.min_self_delegation !== "") {
+            writer.uint32(90).string(message.min_self_delegation);
         }
-        if (!message.unbondingOnHoldRefCount.isZero()) {
-            writer.uint32(96).int64(message.unbondingOnHoldRefCount);
+        if (!message.unbonding_on_hold_ref_count.isZero()) {
+            writer.uint32(96).int64(message.unbonding_on_hold_ref_count);
         }
         writer.uint32(106).fork();
-        for (const v of message.unbondingIds) {
+        for (const v of message.unbonding_ids) {
             writer.uint64(v);
         }
         writer.ldelim();
-        if (message.validatorBondShares !== "") {
-            writer.uint32(114).string(message.validatorBondShares);
+        if (message.validator_bond_shares !== "") {
+            writer.uint32(114).string(message.validator_bond_shares);
         }
-        if (message.liquidShares !== "") {
-            writer.uint32(122).string(message.liquidShares);
+        if (message.liquid_shares !== "") {
+            writer.uint32(122).string(message.liquid_shares);
         }
         return writer;
     },
@@ -112,10 +112,10 @@ exports.Validator = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.operatorAddress = reader.string();
+                    message.operator_address = reader.string();
                     break;
                 case 2:
-                    message.consensusPubkey = (0, exports.Cosmos_cryptoPubKey_InterfaceDecoder)(reader);
+                    message.consensus_pubkey = (0, exports.Cosmos_cryptoPubKey_InterfaceDecoder)(reader);
                     break;
                 case 3:
                     message.jailed = reader.bool();
@@ -127,42 +127,42 @@ exports.Validator = {
                     message.tokens = reader.string();
                     break;
                 case 6:
-                    message.delegatorShares = reader.string();
+                    message.delegator_shares = reader.string();
                     break;
                 case 7:
                     message.description = staking_1.Description.decode(reader, reader.uint32());
                     break;
                 case 8:
-                    message.unbondingHeight = reader.int64();
+                    message.unbonding_height = reader.int64();
                     break;
                 case 9:
-                    message.unbondingTime = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.unbonding_time = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 10:
                     message.commission = staking_1.Commission.decode(reader, reader.uint32());
                     break;
                 case 11:
-                    message.minSelfDelegation = reader.string();
+                    message.min_self_delegation = reader.string();
                     break;
                 case 12:
-                    message.unbondingOnHoldRefCount = reader.int64();
+                    message.unbonding_on_hold_ref_count = reader.int64();
                     break;
                 case 13:
                     if ((tag & 7) === 2) {
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.unbondingIds.push(reader.uint64());
+                            message.unbonding_ids.push(reader.uint64());
                         }
                     }
                     else {
-                        message.unbondingIds.push(reader.uint64());
+                        message.unbonding_ids.push(reader.uint64());
                     }
                     break;
                 case 14:
-                    message.validatorBondShares = reader.string();
+                    message.validator_bond_shares = reader.string();
                     break;
                 case 15:
-                    message.liquidShares = reader.string();
+                    message.liquid_shares = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -173,113 +173,113 @@ exports.Validator = {
     },
     fromJSON(object) {
         return {
-            operatorAddress: (0, helpers_1.isSet)(object.operatorAddress) ? String(object.operatorAddress) : "",
-            consensusPubkey: (0, helpers_1.isSet)(object.consensusPubkey) ? any_1.Any.fromJSON(object.consensusPubkey) : undefined,
+            operator_address: (0, helpers_1.isSet)(object.operator_address) ? String(object.operator_address) : "",
+            consensus_pubkey: (0, helpers_1.isSet)(object.consensus_pubkey) ? any_1.Any.fromJSON(object.consensus_pubkey) : undefined,
             jailed: (0, helpers_1.isSet)(object.jailed) ? Boolean(object.jailed) : false,
             status: (0, helpers_1.isSet)(object.status) ? (0, staking_1.bondStatusFromJSON)(object.status) : -1,
             tokens: (0, helpers_1.isSet)(object.tokens) ? String(object.tokens) : "",
-            delegatorShares: (0, helpers_1.isSet)(object.delegatorShares) ? String(object.delegatorShares) : "",
+            delegator_shares: (0, helpers_1.isSet)(object.delegator_shares) ? String(object.delegator_shares) : "",
             description: (0, helpers_1.isSet)(object.description) ? staking_1.Description.fromJSON(object.description) : undefined,
-            unbondingHeight: (0, helpers_1.isSet)(object.unbondingHeight) ? helpers_1.Long.fromValue(object.unbondingHeight) : helpers_1.Long.ZERO,
-            unbondingTime: (0, helpers_1.isSet)(object.unbondingTime) ? (0, helpers_1.fromJsonTimestamp)(object.unbondingTime) : undefined,
+            unbonding_height: (0, helpers_1.isSet)(object.unbonding_height) ? helpers_1.Long.fromValue(object.unbonding_height) : helpers_1.Long.ZERO,
+            unbonding_time: (0, helpers_1.isSet)(object.unbonding_time) ? (0, helpers_1.fromJsonTimestamp)(object.unbonding_time) : undefined,
             commission: (0, helpers_1.isSet)(object.commission) ? staking_1.Commission.fromJSON(object.commission) : undefined,
-            minSelfDelegation: (0, helpers_1.isSet)(object.minSelfDelegation) ? String(object.minSelfDelegation) : "",
-            unbondingOnHoldRefCount: (0, helpers_1.isSet)(object.unbondingOnHoldRefCount) ? helpers_1.Long.fromValue(object.unbondingOnHoldRefCount) : helpers_1.Long.ZERO,
-            unbondingIds: Array.isArray(object?.unbondingIds) ? object.unbondingIds.map((e) => helpers_1.Long.fromValue(e)) : [],
-            validatorBondShares: (0, helpers_1.isSet)(object.validatorBondShares) ? String(object.validatorBondShares) : "",
-            liquidShares: (0, helpers_1.isSet)(object.liquidShares) ? String(object.liquidShares) : ""
+            min_self_delegation: (0, helpers_1.isSet)(object.min_self_delegation) ? String(object.min_self_delegation) : "",
+            unbonding_on_hold_ref_count: (0, helpers_1.isSet)(object.unbonding_on_hold_ref_count) ? helpers_1.Long.fromValue(object.unbonding_on_hold_ref_count) : helpers_1.Long.ZERO,
+            unbonding_ids: Array.isArray(object?.unbonding_ids) ? object.unbonding_ids.map((e) => helpers_1.Long.fromValue(e)) : [],
+            validator_bond_shares: (0, helpers_1.isSet)(object.validator_bond_shares) ? String(object.validator_bond_shares) : "",
+            liquid_shares: (0, helpers_1.isSet)(object.liquid_shares) ? String(object.liquid_shares) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.operatorAddress !== undefined && (obj.operatorAddress = message.operatorAddress);
-        message.consensusPubkey !== undefined && (obj.consensusPubkey = message.consensusPubkey ? any_1.Any.toJSON(message.consensusPubkey) : undefined);
+        message.operator_address !== undefined && (obj.operator_address = message.operator_address);
+        message.consensus_pubkey !== undefined && (obj.consensus_pubkey = message.consensus_pubkey ? any_1.Any.toJSON(message.consensus_pubkey) : undefined);
         message.jailed !== undefined && (obj.jailed = message.jailed);
         message.status !== undefined && (obj.status = (0, staking_1.bondStatusToJSON)(message.status));
         message.tokens !== undefined && (obj.tokens = message.tokens);
-        message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares);
+        message.delegator_shares !== undefined && (obj.delegator_shares = message.delegator_shares);
         message.description !== undefined && (obj.description = message.description ? staking_1.Description.toJSON(message.description) : undefined);
-        message.unbondingHeight !== undefined && (obj.unbondingHeight = (message.unbondingHeight || helpers_1.Long.ZERO).toString());
-        message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime.toISOString());
+        message.unbonding_height !== undefined && (obj.unbonding_height = (message.unbonding_height || helpers_1.Long.ZERO).toString());
+        message.unbonding_time !== undefined && (obj.unbonding_time = message.unbonding_time.toISOString());
         message.commission !== undefined && (obj.commission = message.commission ? staking_1.Commission.toJSON(message.commission) : undefined);
-        message.minSelfDelegation !== undefined && (obj.minSelfDelegation = message.minSelfDelegation);
-        message.unbondingOnHoldRefCount !== undefined && (obj.unbondingOnHoldRefCount = (message.unbondingOnHoldRefCount || helpers_1.Long.ZERO).toString());
-        if (message.unbondingIds) {
-            obj.unbondingIds = message.unbondingIds.map(e => (e || helpers_1.Long.UZERO).toString());
+        message.min_self_delegation !== undefined && (obj.min_self_delegation = message.min_self_delegation);
+        message.unbonding_on_hold_ref_count !== undefined && (obj.unbonding_on_hold_ref_count = (message.unbonding_on_hold_ref_count || helpers_1.Long.ZERO).toString());
+        if (message.unbonding_ids) {
+            obj.unbonding_ids = message.unbonding_ids.map(e => (e || helpers_1.Long.UZERO).toString());
         }
         else {
-            obj.unbondingIds = [];
+            obj.unbonding_ids = [];
         }
-        message.validatorBondShares !== undefined && (obj.validatorBondShares = message.validatorBondShares);
-        message.liquidShares !== undefined && (obj.liquidShares = message.liquidShares);
+        message.validator_bond_shares !== undefined && (obj.validator_bond_shares = message.validator_bond_shares);
+        message.liquid_shares !== undefined && (obj.liquid_shares = message.liquid_shares);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseValidator();
-        message.operatorAddress = object.operatorAddress ?? "";
-        message.consensusPubkey = object.consensusPubkey !== undefined && object.consensusPubkey !== null ? any_1.Any.fromPartial(object.consensusPubkey) : undefined;
+        message.operator_address = object.operator_address ?? "";
+        message.consensus_pubkey = object.consensus_pubkey !== undefined && object.consensus_pubkey !== null ? any_1.Any.fromPartial(object.consensus_pubkey) : undefined;
         message.jailed = object.jailed ?? false;
         message.status = object.status ?? 0;
         message.tokens = object.tokens ?? "";
-        message.delegatorShares = object.delegatorShares ?? "";
+        message.delegator_shares = object.delegator_shares ?? "";
         message.description = object.description !== undefined && object.description !== null ? staking_1.Description.fromPartial(object.description) : undefined;
-        message.unbondingHeight = object.unbondingHeight !== undefined && object.unbondingHeight !== null ? helpers_1.Long.fromValue(object.unbondingHeight) : helpers_1.Long.ZERO;
-        message.unbondingTime = object.unbondingTime ?? undefined;
+        message.unbonding_height = object.unbonding_height !== undefined && object.unbonding_height !== null ? helpers_1.Long.fromValue(object.unbonding_height) : helpers_1.Long.ZERO;
+        message.unbonding_time = object.unbonding_time ?? undefined;
         message.commission = object.commission !== undefined && object.commission !== null ? staking_1.Commission.fromPartial(object.commission) : undefined;
-        message.minSelfDelegation = object.minSelfDelegation ?? "";
-        message.unbondingOnHoldRefCount = object.unbondingOnHoldRefCount !== undefined && object.unbondingOnHoldRefCount !== null ? helpers_1.Long.fromValue(object.unbondingOnHoldRefCount) : helpers_1.Long.ZERO;
-        message.unbondingIds = object.unbondingIds?.map(e => helpers_1.Long.fromValue(e)) || [];
-        message.validatorBondShares = object.validatorBondShares ?? "";
-        message.liquidShares = object.liquidShares ?? "";
+        message.min_self_delegation = object.min_self_delegation ?? "";
+        message.unbonding_on_hold_ref_count = object.unbonding_on_hold_ref_count !== undefined && object.unbonding_on_hold_ref_count !== null ? helpers_1.Long.fromValue(object.unbonding_on_hold_ref_count) : helpers_1.Long.ZERO;
+        message.unbonding_ids = object.unbonding_ids?.map(e => helpers_1.Long.fromValue(e)) || [];
+        message.validator_bond_shares = object.validator_bond_shares ?? "";
+        message.liquid_shares = object.liquid_shares ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            operatorAddress: object.operator_address,
-            consensusPubkey: (0, amino_1.encodeBech32Pubkey)({
+            operator_address: object.operator_address,
+            consensus_pubkey: (0, amino_1.encodeBech32Pubkey)({
                 type: "tendermint/PubKeySecp256k1",
                 value: (0, encoding_1.toBase64)(object.consensus_pubkey.value)
             }, "cosmos"),
             jailed: object.jailed,
             status: (0, helpers_1.isSet)(object.status) ? (0, staking_1.bondStatusFromJSON)(object.status) : -1,
             tokens: object.tokens,
-            delegatorShares: object.delegator_shares,
+            delegator_shares: object.delegator_shares,
             description: object?.description ? staking_1.Description.fromAmino(object.description) : undefined,
-            unbondingHeight: helpers_1.Long.fromString(object.unbonding_height),
-            unbondingTime: object.unbonding_time,
+            unbonding_height: helpers_1.Long.fromString(object.unbonding_height),
+            unbonding_time: object.unbonding_time,
             commission: object?.commission ? staking_1.Commission.fromAmino(object.commission) : undefined,
-            minSelfDelegation: object.min_self_delegation,
-            unbondingOnHoldRefCount: helpers_1.Long.fromString(object.unbonding_on_hold_ref_count),
-            unbondingIds: Array.isArray(object?.unbonding_ids) ? object.unbonding_ids.map((e) => e) : [],
-            validatorBondShares: object.validator_bond_shares,
-            liquidShares: object.liquid_shares
+            min_self_delegation: object.min_self_delegation,
+            unbonding_on_hold_ref_count: helpers_1.Long.fromString(object.unbonding_on_hold_ref_count),
+            unbonding_ids: Array.isArray(object?.unbonding_ids) ? object.unbonding_ids.map((e) => e) : [],
+            validator_bond_shares: object.validator_bond_shares,
+            liquid_shares: object.liquid_shares
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.operator_address = message.operatorAddress;
-        obj.consensus_pubkey = message.consensusPubkey ? {
+        obj.operator_address = message.operator_address;
+        obj.consensus_pubkey = message.consensus_pubkey ? {
             typeUrl: "/cosmos.crypto.secp256k1.PubKey",
-            value: (0, encoding_1.fromBase64)((0, amino_1.decodeBech32Pubkey)(message.consensusPubkey).value)
+            value: (0, encoding_1.fromBase64)((0, amino_1.decodeBech32Pubkey)(message.consensus_pubkey).value)
         } : undefined;
         obj.jailed = message.jailed;
         obj.status = message.status;
         obj.tokens = message.tokens;
-        obj.delegator_shares = message.delegatorShares;
+        obj.delegator_shares = message.delegator_shares;
         obj.description = message.description ? staking_1.Description.toAmino(message.description) : undefined;
-        obj.unbonding_height = message.unbondingHeight ? message.unbondingHeight.toString() : undefined;
-        obj.unbonding_time = message.unbondingTime;
+        obj.unbonding_height = message.unbonding_height ? message.unbonding_height.toString() : undefined;
+        obj.unbonding_time = message.unbonding_time;
         obj.commission = message.commission ? staking_1.Commission.toAmino(message.commission) : undefined;
-        obj.min_self_delegation = message.minSelfDelegation;
-        obj.unbonding_on_hold_ref_count = message.unbondingOnHoldRefCount ? message.unbondingOnHoldRefCount.toString() : undefined;
-        if (message.unbondingIds) {
-            obj.unbonding_ids = message.unbondingIds.map(e => e);
+        obj.min_self_delegation = message.min_self_delegation;
+        obj.unbonding_on_hold_ref_count = message.unbonding_on_hold_ref_count ? message.unbonding_on_hold_ref_count.toString() : undefined;
+        if (message.unbonding_ids) {
+            obj.unbonding_ids = message.unbonding_ids.map(e => e);
         }
         else {
             obj.unbonding_ids = [];
         }
-        obj.validator_bond_shares = message.validatorBondShares;
-        obj.liquid_shares = message.liquidShares;
+        obj.validator_bond_shares = message.validator_bond_shares;
+        obj.liquid_shares = message.liquid_shares;
         return obj;
     },
     fromAminoMsg(object) {

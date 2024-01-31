@@ -25,10 +25,10 @@ export declare namespace google {
                         path?: string;
                     };
                     body?: string;
-                    responseBody?: string;
-                    additionalBindings?: any[];
+                    response_body?: string;
+                    additional_bindings?: any[];
                 }[];
-                fullyDecodeReservedExpansion?: boolean;
+                fully_decode_reserved_expansion?: boolean;
             }): _57.Http;
             fromAmino(object: _57.HttpAmino): _57.Http;
             toAmino(message: _57.Http): _57.HttpAmino;
@@ -55,8 +55,8 @@ export declare namespace google {
                     path?: string;
                 };
                 body?: string;
-                responseBody?: string;
-                additionalBindings?: any[];
+                response_body?: string;
+                additional_bindings?: any[];
             }): _57.HttpRule;
             fromAmino(object: _57.HttpRuleAmino): _57.HttpRule;
             toAmino(message: _57.HttpRule): _57.HttpRuleAmino;
@@ -173,20 +173,20 @@ export declare namespace google {
                     name?: string;
                     package?: string;
                     dependency?: string[];
-                    publicDependency?: number[];
-                    weakDependency?: number[];
-                    messageType?: {
+                    public_dependency?: number[];
+                    weak_dependency?: number[];
+                    message_type?: {
                         name?: string;
                         field?: {
                             name?: string;
                             number?: number;
                             label?: _59.FieldDescriptorProto_Label;
                             type?: _59.FieldDescriptorProto_Type;
-                            typeName?: string;
+                            type_name?: string;
                             extendee?: string;
-                            defaultValue?: string;
-                            oneofIndex?: number;
-                            jsonName?: string;
+                            default_value?: string;
+                            oneof_index?: number;
+                            json_name?: string;
                             options?: {
                                 ctype?: _59.FieldOptions_CType;
                                 packed?: boolean;
@@ -194,17 +194,17 @@ export declare namespace google {
                                 lazy?: boolean;
                                 deprecated?: boolean;
                                 weak?: boolean;
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
@@ -213,11 +213,11 @@ export declare namespace google {
                             number?: number;
                             label?: _59.FieldDescriptorProto_Label;
                             type?: _59.FieldDescriptorProto_Type;
-                            typeName?: string;
+                            type_name?: string;
                             extendee?: string;
-                            defaultValue?: string;
-                            oneofIndex?: number;
-                            jsonName?: string;
+                            default_value?: string;
+                            oneof_index?: number;
+                            json_name?: string;
                             options?: {
                                 ctype?: _59.FieldOptions_CType;
                                 packed?: boolean;
@@ -225,204 +225,204 @@ export declare namespace google {
                                 lazy?: boolean;
                                 deprecated?: boolean;
                                 weak?: boolean;
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
-                        nestedType?: any[];
-                        enumType?: {
+                        nested_type?: any[];
+                        enum_type?: {
                             name?: string;
                             value?: {
                                 name?: string;
                                 number?: number;
                                 options?: {
                                     deprecated?: boolean;
-                                    uninterpretedOption?: {
+                                    uninterpreted_option?: {
                                         name?: {
-                                            namePart?: string;
-                                            isExtension?: boolean;
+                                            name_part?: string;
+                                            is_extension?: boolean;
                                         }[];
-                                        identifierValue?: string;
-                                        positiveIntValue?: string | number | import("long").default;
-                                        negativeIntValue?: string | number | import("long").default;
-                                        doubleValue?: number;
-                                        stringValue?: Uint8Array;
-                                        aggregateValue?: string;
+                                        identifier_value?: string;
+                                        positive_int_value?: string | number | import("long").default;
+                                        negative_int_value?: string | number | import("long").default;
+                                        double_value?: number;
+                                        string_value?: Uint8Array;
+                                        aggregate_value?: string;
                                     }[];
                                 };
                             }[];
                             options?: {
-                                allowAlias?: boolean;
+                                allow_alias?: boolean;
                                 deprecated?: boolean;
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
-                            reservedRange?: {
+                            reserved_range?: {
                                 start?: number;
                                 end?: number;
                             }[];
-                            reservedName?: string[];
+                            reserved_name?: string[];
                         }[];
-                        extensionRange?: {
+                        extension_range?: {
                             start?: number;
                             end?: number;
                             options?: {
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
-                        oneofDecl?: {
+                        oneof_decl?: {
                             name?: string;
                             options?: {
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
                         options?: {
-                            messageSetWireFormat?: boolean;
-                            noStandardDescriptorAccessor?: boolean;
+                            message_set_wire_format?: boolean;
+                            no_standard_descriptor_accessor?: boolean;
                             deprecated?: boolean;
-                            mapEntry?: boolean;
-                            uninterpretedOption?: {
+                            map_entry?: boolean;
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
-                        reservedRange?: {
+                        reserved_range?: {
                             start?: number;
                             end?: number;
                         }[];
-                        reservedName?: string[];
+                        reserved_name?: string[];
                     }[];
-                    enumType?: {
+                    enum_type?: {
                         name?: string;
                         value?: {
                             name?: string;
                             number?: number;
                             options?: {
                                 deprecated?: boolean;
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
                         options?: {
-                            allowAlias?: boolean;
+                            allow_alias?: boolean;
                             deprecated?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
-                        reservedRange?: {
+                        reserved_range?: {
                             start?: number;
                             end?: number;
                         }[];
-                        reservedName?: string[];
+                        reserved_name?: string[];
                     }[];
                     service?: {
                         name?: string;
                         method?: {
                             name?: string;
-                            inputType?: string;
-                            outputType?: string;
+                            input_type?: string;
+                            output_type?: string;
                             options?: {
                                 deprecated?: boolean;
-                                idempotencyLevel?: _59.MethodOptions_IdempotencyLevel;
-                                uninterpretedOption?: {
+                                idempotency_level?: _59.MethodOptions_IdempotencyLevel;
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
-                            clientStreaming?: boolean;
-                            serverStreaming?: boolean;
+                            client_streaming?: boolean;
+                            server_streaming?: boolean;
                         }[];
                         options?: {
                             deprecated?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
@@ -431,11 +431,11 @@ export declare namespace google {
                         number?: number;
                         label?: _59.FieldDescriptorProto_Label;
                         type?: _59.FieldDescriptorProto_Type;
-                        typeName?: string;
+                        type_name?: string;
                         extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
+                        default_value?: string;
+                        oneof_index?: number;
+                        json_name?: string;
                         options?: {
                             ctype?: _59.FieldOptions_CType;
                             packed?: boolean;
@@ -443,61 +443,61 @@ export declare namespace google {
                             lazy?: boolean;
                             deprecated?: boolean;
                             weak?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
                     options?: {
-                        javaPackage?: string;
-                        javaOuterClassname?: string;
-                        javaMultipleFiles?: boolean;
-                        javaGenerateEqualsAndHash?: boolean;
-                        javaStringCheckUtf8?: boolean;
-                        optimizeFor?: _59.FileOptions_OptimizeMode;
-                        goPackage?: string;
-                        ccGenericServices?: boolean;
-                        javaGenericServices?: boolean;
-                        pyGenericServices?: boolean;
-                        phpGenericServices?: boolean;
+                        java_package?: string;
+                        java_outer_classname?: string;
+                        java_multiple_files?: boolean;
+                        java_generate_equals_and_hash?: boolean;
+                        java_string_check_utf8?: boolean;
+                        optimize_for?: _59.FileOptions_OptimizeMode;
+                        go_package?: string;
+                        cc_generic_services?: boolean;
+                        java_generic_services?: boolean;
+                        py_generic_services?: boolean;
+                        php_generic_services?: boolean;
                         deprecated?: boolean;
-                        ccEnableArenas?: boolean;
-                        objcClassPrefix?: string;
-                        csharpNamespace?: string;
-                        swiftPrefix?: string;
-                        phpClassPrefix?: string;
-                        phpNamespace?: string;
-                        phpMetadataNamespace?: string;
-                        rubyPackage?: string;
-                        uninterpretedOption?: {
+                        cc_enable_arenas?: boolean;
+                        objc_class_prefix?: string;
+                        csharp_namespace?: string;
+                        swift_prefix?: string;
+                        php_class_prefix?: string;
+                        php_namespace?: string;
+                        php_metadata_namespace?: string;
+                        ruby_package?: string;
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
-                    sourceCodeInfo?: {
+                    source_code_info?: {
                         location?: {
                             path?: number[];
                             span?: number[];
-                            leadingComments?: string;
-                            trailingComments?: string;
-                            leadingDetachedComments?: string[];
+                            leading_comments?: string;
+                            trailing_comments?: string;
+                            leading_detached_comments?: string[];
                         }[];
                     };
                     syntax?: string;
@@ -520,20 +520,20 @@ export declare namespace google {
                 name?: string;
                 package?: string;
                 dependency?: string[];
-                publicDependency?: number[];
-                weakDependency?: number[];
-                messageType?: {
+                public_dependency?: number[];
+                weak_dependency?: number[];
+                message_type?: {
                     name?: string;
                     field?: {
                         name?: string;
                         number?: number;
                         label?: _59.FieldDescriptorProto_Label;
                         type?: _59.FieldDescriptorProto_Type;
-                        typeName?: string;
+                        type_name?: string;
                         extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
+                        default_value?: string;
+                        oneof_index?: number;
+                        json_name?: string;
                         options?: {
                             ctype?: _59.FieldOptions_CType;
                             packed?: boolean;
@@ -541,17 +541,17 @@ export declare namespace google {
                             lazy?: boolean;
                             deprecated?: boolean;
                             weak?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
@@ -560,11 +560,11 @@ export declare namespace google {
                         number?: number;
                         label?: _59.FieldDescriptorProto_Label;
                         type?: _59.FieldDescriptorProto_Type;
-                        typeName?: string;
+                        type_name?: string;
                         extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
+                        default_value?: string;
+                        oneof_index?: number;
+                        json_name?: string;
                         options?: {
                             ctype?: _59.FieldOptions_CType;
                             packed?: boolean;
@@ -572,204 +572,204 @@ export declare namespace google {
                             lazy?: boolean;
                             deprecated?: boolean;
                             weak?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
-                    nestedType?: any[];
-                    enumType?: {
+                    nested_type?: any[];
+                    enum_type?: {
                         name?: string;
                         value?: {
                             name?: string;
                             number?: number;
                             options?: {
                                 deprecated?: boolean;
-                                uninterpretedOption?: {
+                                uninterpreted_option?: {
                                     name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
+                                        name_part?: string;
+                                        is_extension?: boolean;
                                     }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long").default;
-                                    negativeIntValue?: string | number | import("long").default;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
+                                    identifier_value?: string;
+                                    positive_int_value?: string | number | import("long").default;
+                                    negative_int_value?: string | number | import("long").default;
+                                    double_value?: number;
+                                    string_value?: Uint8Array;
+                                    aggregate_value?: string;
                                 }[];
                             };
                         }[];
                         options?: {
-                            allowAlias?: boolean;
+                            allow_alias?: boolean;
                             deprecated?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
-                        reservedRange?: {
+                        reserved_range?: {
                             start?: number;
                             end?: number;
                         }[];
-                        reservedName?: string[];
+                        reserved_name?: string[];
                     }[];
-                    extensionRange?: {
+                    extension_range?: {
                         start?: number;
                         end?: number;
                         options?: {
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
-                    oneofDecl?: {
+                    oneof_decl?: {
                         name?: string;
                         options?: {
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
                     options?: {
-                        messageSetWireFormat?: boolean;
-                        noStandardDescriptorAccessor?: boolean;
+                        message_set_wire_format?: boolean;
+                        no_standard_descriptor_accessor?: boolean;
                         deprecated?: boolean;
-                        mapEntry?: boolean;
-                        uninterpretedOption?: {
+                        map_entry?: boolean;
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
-                    reservedRange?: {
+                    reserved_range?: {
                         start?: number;
                         end?: number;
                     }[];
-                    reservedName?: string[];
+                    reserved_name?: string[];
                 }[];
-                enumType?: {
+                enum_type?: {
                     name?: string;
                     value?: {
                         name?: string;
                         number?: number;
                         options?: {
                             deprecated?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
                     options?: {
-                        allowAlias?: boolean;
+                        allow_alias?: boolean;
                         deprecated?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
-                    reservedRange?: {
+                    reserved_range?: {
                         start?: number;
                         end?: number;
                     }[];
-                    reservedName?: string[];
+                    reserved_name?: string[];
                 }[];
                 service?: {
                     name?: string;
                     method?: {
                         name?: string;
-                        inputType?: string;
-                        outputType?: string;
+                        input_type?: string;
+                        output_type?: string;
                         options?: {
                             deprecated?: boolean;
-                            idempotencyLevel?: _59.MethodOptions_IdempotencyLevel;
-                            uninterpretedOption?: {
+                            idempotency_level?: _59.MethodOptions_IdempotencyLevel;
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
-                        clientStreaming?: boolean;
-                        serverStreaming?: boolean;
+                        client_streaming?: boolean;
+                        server_streaming?: boolean;
                     }[];
                     options?: {
                         deprecated?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
@@ -778,11 +778,11 @@ export declare namespace google {
                     number?: number;
                     label?: _59.FieldDescriptorProto_Label;
                     type?: _59.FieldDescriptorProto_Type;
-                    typeName?: string;
+                    type_name?: string;
                     extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
+                    default_value?: string;
+                    oneof_index?: number;
+                    json_name?: string;
                     options?: {
                         ctype?: _59.FieldOptions_CType;
                         packed?: boolean;
@@ -790,61 +790,61 @@ export declare namespace google {
                         lazy?: boolean;
                         deprecated?: boolean;
                         weak?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
                 options?: {
-                    javaPackage?: string;
-                    javaOuterClassname?: string;
-                    javaMultipleFiles?: boolean;
-                    javaGenerateEqualsAndHash?: boolean;
-                    javaStringCheckUtf8?: boolean;
-                    optimizeFor?: _59.FileOptions_OptimizeMode;
-                    goPackage?: string;
-                    ccGenericServices?: boolean;
-                    javaGenericServices?: boolean;
-                    pyGenericServices?: boolean;
-                    phpGenericServices?: boolean;
+                    java_package?: string;
+                    java_outer_classname?: string;
+                    java_multiple_files?: boolean;
+                    java_generate_equals_and_hash?: boolean;
+                    java_string_check_utf8?: boolean;
+                    optimize_for?: _59.FileOptions_OptimizeMode;
+                    go_package?: string;
+                    cc_generic_services?: boolean;
+                    java_generic_services?: boolean;
+                    py_generic_services?: boolean;
+                    php_generic_services?: boolean;
                     deprecated?: boolean;
-                    ccEnableArenas?: boolean;
-                    objcClassPrefix?: string;
-                    csharpNamespace?: string;
-                    swiftPrefix?: string;
-                    phpClassPrefix?: string;
-                    phpNamespace?: string;
-                    phpMetadataNamespace?: string;
-                    rubyPackage?: string;
-                    uninterpretedOption?: {
+                    cc_enable_arenas?: boolean;
+                    objc_class_prefix?: string;
+                    csharp_namespace?: string;
+                    swift_prefix?: string;
+                    php_class_prefix?: string;
+                    php_namespace?: string;
+                    php_metadata_namespace?: string;
+                    ruby_package?: string;
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
-                sourceCodeInfo?: {
+                source_code_info?: {
                     location?: {
                         path?: number[];
                         span?: number[];
-                        leadingComments?: string;
-                        trailingComments?: string;
-                        leadingDetachedComments?: string[];
+                        leading_comments?: string;
+                        trailing_comments?: string;
+                        leading_detached_comments?: string[];
                     }[];
                 };
                 syntax?: string;
@@ -869,11 +869,11 @@ export declare namespace google {
                     number?: number;
                     label?: _59.FieldDescriptorProto_Label;
                     type?: _59.FieldDescriptorProto_Type;
-                    typeName?: string;
+                    type_name?: string;
                     extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
+                    default_value?: string;
+                    oneof_index?: number;
+                    json_name?: string;
                     options?: {
                         ctype?: _59.FieldOptions_CType;
                         packed?: boolean;
@@ -881,17 +881,17 @@ export declare namespace google {
                         lazy?: boolean;
                         deprecated?: boolean;
                         weak?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
@@ -900,11 +900,11 @@ export declare namespace google {
                     number?: number;
                     label?: _59.FieldDescriptorProto_Label;
                     type?: _59.FieldDescriptorProto_Type;
-                    typeName?: string;
+                    type_name?: string;
                     extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
+                    default_value?: string;
+                    oneof_index?: number;
+                    json_name?: string;
                     options?: {
                         ctype?: _59.FieldOptions_CType;
                         packed?: boolean;
@@ -912,122 +912,122 @@ export declare namespace google {
                         lazy?: boolean;
                         deprecated?: boolean;
                         weak?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
-                nestedType?: any[];
-                enumType?: {
+                nested_type?: any[];
+                enum_type?: {
                     name?: string;
                     value?: {
                         name?: string;
                         number?: number;
                         options?: {
                             deprecated?: boolean;
-                            uninterpretedOption?: {
+                            uninterpreted_option?: {
                                 name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
+                                    name_part?: string;
+                                    is_extension?: boolean;
                                 }[];
-                                identifierValue?: string;
-                                positiveIntValue?: string | number | import("long").default;
-                                negativeIntValue?: string | number | import("long").default;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
+                                identifier_value?: string;
+                                positive_int_value?: string | number | import("long").default;
+                                negative_int_value?: string | number | import("long").default;
+                                double_value?: number;
+                                string_value?: Uint8Array;
+                                aggregate_value?: string;
                             }[];
                         };
                     }[];
                     options?: {
-                        allowAlias?: boolean;
+                        allow_alias?: boolean;
                         deprecated?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
-                    reservedRange?: {
+                    reserved_range?: {
                         start?: number;
                         end?: number;
                     }[];
-                    reservedName?: string[];
+                    reserved_name?: string[];
                 }[];
-                extensionRange?: {
+                extension_range?: {
                     start?: number;
                     end?: number;
                     options?: {
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
-                oneofDecl?: {
+                oneof_decl?: {
                     name?: string;
                     options?: {
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
                 options?: {
-                    messageSetWireFormat?: boolean;
-                    noStandardDescriptorAccessor?: boolean;
+                    message_set_wire_format?: boolean;
+                    no_standard_descriptor_accessor?: boolean;
                     deprecated?: boolean;
-                    mapEntry?: boolean;
-                    uninterpretedOption?: {
+                    map_entry?: boolean;
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
-                reservedRange?: {
+                reserved_range?: {
                     start?: number;
                     end?: number;
                 }[];
-                reservedName?: string[];
+                reserved_name?: string[];
             }): _59.DescriptorProto;
             fromAmino(object: _59.DescriptorProtoAmino): _59.DescriptorProto;
             toAmino(message: _59.DescriptorProto): _59.DescriptorProtoAmino;
@@ -1046,17 +1046,17 @@ export declare namespace google {
                 start?: number;
                 end?: number;
                 options?: {
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
             }): _59.DescriptorProto_ExtensionRange;
@@ -1091,17 +1091,17 @@ export declare namespace google {
             fromJSON(object: any): _59.ExtensionRangeOptions;
             toJSON(message: _59.ExtensionRangeOptions): unknown;
             fromPartial(object: {
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.ExtensionRangeOptions;
             fromAmino(object: _59.ExtensionRangeOptionsAmino): _59.ExtensionRangeOptions;
@@ -1122,11 +1122,11 @@ export declare namespace google {
                 number?: number;
                 label?: _59.FieldDescriptorProto_Label;
                 type?: _59.FieldDescriptorProto_Type;
-                typeName?: string;
+                type_name?: string;
                 extendee?: string;
-                defaultValue?: string;
-                oneofIndex?: number;
-                jsonName?: string;
+                default_value?: string;
+                oneof_index?: number;
+                json_name?: string;
                 options?: {
                     ctype?: _59.FieldOptions_CType;
                     packed?: boolean;
@@ -1134,17 +1134,17 @@ export declare namespace google {
                     lazy?: boolean;
                     deprecated?: boolean;
                     weak?: boolean;
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
             }): _59.FieldDescriptorProto;
@@ -1164,17 +1164,17 @@ export declare namespace google {
             fromPartial(object: {
                 name?: string;
                 options?: {
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
             }): _59.OneofDescriptorProto;
@@ -1198,41 +1198,41 @@ export declare namespace google {
                     number?: number;
                     options?: {
                         deprecated?: boolean;
-                        uninterpretedOption?: {
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
                 }[];
                 options?: {
-                    allowAlias?: boolean;
+                    allow_alias?: boolean;
                     deprecated?: boolean;
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
-                reservedRange?: {
+                reserved_range?: {
                     start?: number;
                     end?: number;
                 }[];
-                reservedName?: string[];
+                reserved_name?: string[];
             }): _59.EnumDescriptorProto;
             fromAmino(object: _59.EnumDescriptorProtoAmino): _59.EnumDescriptorProto;
             toAmino(message: _59.EnumDescriptorProto): _59.EnumDescriptorProtoAmino;
@@ -1269,17 +1269,17 @@ export declare namespace google {
                 number?: number;
                 options?: {
                     deprecated?: boolean;
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
             }): _59.EnumValueDescriptorProto;
@@ -1300,40 +1300,40 @@ export declare namespace google {
                 name?: string;
                 method?: {
                     name?: string;
-                    inputType?: string;
-                    outputType?: string;
+                    input_type?: string;
+                    output_type?: string;
                     options?: {
                         deprecated?: boolean;
-                        idempotencyLevel?: _59.MethodOptions_IdempotencyLevel;
-                        uninterpretedOption?: {
+                        idempotency_level?: _59.MethodOptions_IdempotencyLevel;
+                        uninterpreted_option?: {
                             name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
+                                name_part?: string;
+                                is_extension?: boolean;
                             }[];
-                            identifierValue?: string;
-                            positiveIntValue?: string | number | import("long").default;
-                            negativeIntValue?: string | number | import("long").default;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
+                            identifier_value?: string;
+                            positive_int_value?: string | number | import("long").default;
+                            negative_int_value?: string | number | import("long").default;
+                            double_value?: number;
+                            string_value?: Uint8Array;
+                            aggregate_value?: string;
                         }[];
                     };
-                    clientStreaming?: boolean;
-                    serverStreaming?: boolean;
+                    client_streaming?: boolean;
+                    server_streaming?: boolean;
                 }[];
                 options?: {
                     deprecated?: boolean;
-                    uninterpretedOption?: {
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
             }): _59.ServiceDescriptorProto;
@@ -1352,26 +1352,26 @@ export declare namespace google {
             toJSON(message: _59.MethodDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
-                inputType?: string;
-                outputType?: string;
+                input_type?: string;
+                output_type?: string;
                 options?: {
                     deprecated?: boolean;
-                    idempotencyLevel?: _59.MethodOptions_IdempotencyLevel;
-                    uninterpretedOption?: {
+                    idempotency_level?: _59.MethodOptions_IdempotencyLevel;
+                    uninterpreted_option?: {
                         name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
+                            name_part?: string;
+                            is_extension?: boolean;
                         }[];
-                        identifierValue?: string;
-                        positiveIntValue?: string | number | import("long").default;
-                        negativeIntValue?: string | number | import("long").default;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
+                        identifier_value?: string;
+                        positive_int_value?: string | number | import("long").default;
+                        negative_int_value?: string | number | import("long").default;
+                        double_value?: number;
+                        string_value?: Uint8Array;
+                        aggregate_value?: string;
                     }[];
                 };
-                clientStreaming?: boolean;
-                serverStreaming?: boolean;
+                client_streaming?: boolean;
+                server_streaming?: boolean;
             }): _59.MethodDescriptorProto;
             fromAmino(object: _59.MethodDescriptorProtoAmino): _59.MethodDescriptorProto;
             toAmino(message: _59.MethodDescriptorProto): _59.MethodDescriptorProtoAmino;
@@ -1387,37 +1387,37 @@ export declare namespace google {
             fromJSON(object: any): _59.FileOptions;
             toJSON(message: _59.FileOptions): unknown;
             fromPartial(object: {
-                javaPackage?: string;
-                javaOuterClassname?: string;
-                javaMultipleFiles?: boolean;
-                javaGenerateEqualsAndHash?: boolean;
-                javaStringCheckUtf8?: boolean;
-                optimizeFor?: _59.FileOptions_OptimizeMode;
-                goPackage?: string;
-                ccGenericServices?: boolean;
-                javaGenericServices?: boolean;
-                pyGenericServices?: boolean;
-                phpGenericServices?: boolean;
+                java_package?: string;
+                java_outer_classname?: string;
+                java_multiple_files?: boolean;
+                java_generate_equals_and_hash?: boolean;
+                java_string_check_utf8?: boolean;
+                optimize_for?: _59.FileOptions_OptimizeMode;
+                go_package?: string;
+                cc_generic_services?: boolean;
+                java_generic_services?: boolean;
+                py_generic_services?: boolean;
+                php_generic_services?: boolean;
                 deprecated?: boolean;
-                ccEnableArenas?: boolean;
-                objcClassPrefix?: string;
-                csharpNamespace?: string;
-                swiftPrefix?: string;
-                phpClassPrefix?: string;
-                phpNamespace?: string;
-                phpMetadataNamespace?: string;
-                rubyPackage?: string;
-                uninterpretedOption?: {
+                cc_enable_arenas?: boolean;
+                objc_class_prefix?: string;
+                csharp_namespace?: string;
+                swift_prefix?: string;
+                php_class_prefix?: string;
+                php_namespace?: string;
+                php_metadata_namespace?: string;
+                ruby_package?: string;
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.FileOptions;
             fromAmino(object: _59.FileOptionsAmino): _59.FileOptions;
@@ -1434,21 +1434,21 @@ export declare namespace google {
             fromJSON(object: any): _59.MessageOptions;
             toJSON(message: _59.MessageOptions): unknown;
             fromPartial(object: {
-                messageSetWireFormat?: boolean;
-                noStandardDescriptorAccessor?: boolean;
+                message_set_wire_format?: boolean;
+                no_standard_descriptor_accessor?: boolean;
                 deprecated?: boolean;
-                mapEntry?: boolean;
-                uninterpretedOption?: {
+                map_entry?: boolean;
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.MessageOptions;
             fromAmino(object: _59.MessageOptionsAmino): _59.MessageOptions;
@@ -1471,17 +1471,17 @@ export declare namespace google {
                 lazy?: boolean;
                 deprecated?: boolean;
                 weak?: boolean;
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.FieldOptions;
             fromAmino(object: _59.FieldOptionsAmino): _59.FieldOptions;
@@ -1498,17 +1498,17 @@ export declare namespace google {
             fromJSON(object: any): _59.OneofOptions;
             toJSON(message: _59.OneofOptions): unknown;
             fromPartial(object: {
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.OneofOptions;
             fromAmino(object: _59.OneofOptionsAmino): _59.OneofOptions;
@@ -1525,19 +1525,19 @@ export declare namespace google {
             fromJSON(object: any): _59.EnumOptions;
             toJSON(message: _59.EnumOptions): unknown;
             fromPartial(object: {
-                allowAlias?: boolean;
+                allow_alias?: boolean;
                 deprecated?: boolean;
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.EnumOptions;
             fromAmino(object: _59.EnumOptionsAmino): _59.EnumOptions;
@@ -1555,17 +1555,17 @@ export declare namespace google {
             toJSON(message: _59.EnumValueOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.EnumValueOptions;
             fromAmino(object: _59.EnumValueOptionsAmino): _59.EnumValueOptions;
@@ -1583,17 +1583,17 @@ export declare namespace google {
             toJSON(message: _59.ServiceOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
-                uninterpretedOption?: {
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.ServiceOptions;
             fromAmino(object: _59.ServiceOptionsAmino): _59.ServiceOptions;
@@ -1611,18 +1611,18 @@ export declare namespace google {
             toJSON(message: _59.MethodOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
-                idempotencyLevel?: _59.MethodOptions_IdempotencyLevel;
-                uninterpretedOption?: {
+                idempotency_level?: _59.MethodOptions_IdempotencyLevel;
+                uninterpreted_option?: {
                     name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
+                        name_part?: string;
+                        is_extension?: boolean;
                     }[];
-                    identifierValue?: string;
-                    positiveIntValue?: string | number | import("long").default;
-                    negativeIntValue?: string | number | import("long").default;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
+                    identifier_value?: string;
+                    positive_int_value?: string | number | import("long").default;
+                    negative_int_value?: string | number | import("long").default;
+                    double_value?: number;
+                    string_value?: Uint8Array;
+                    aggregate_value?: string;
                 }[];
             }): _59.MethodOptions;
             fromAmino(object: _59.MethodOptionsAmino): _59.MethodOptions;
@@ -1640,15 +1640,15 @@ export declare namespace google {
             toJSON(message: _59.UninterpretedOption): unknown;
             fromPartial(object: {
                 name?: {
-                    namePart?: string;
-                    isExtension?: boolean;
+                    name_part?: string;
+                    is_extension?: boolean;
                 }[];
-                identifierValue?: string;
-                positiveIntValue?: string | number | import("long").default;
-                negativeIntValue?: string | number | import("long").default;
-                doubleValue?: number;
-                stringValue?: Uint8Array;
-                aggregateValue?: string;
+                identifier_value?: string;
+                positive_int_value?: string | number | import("long").default;
+                negative_int_value?: string | number | import("long").default;
+                double_value?: number;
+                string_value?: Uint8Array;
+                aggregate_value?: string;
             }): _59.UninterpretedOption;
             fromAmino(object: _59.UninterpretedOptionAmino): _59.UninterpretedOption;
             toAmino(message: _59.UninterpretedOption): _59.UninterpretedOptionAmino;
@@ -1664,8 +1664,8 @@ export declare namespace google {
             fromJSON(object: any): _59.UninterpretedOption_NamePart;
             toJSON(message: _59.UninterpretedOption_NamePart): unknown;
             fromPartial(object: {
-                namePart?: string;
-                isExtension?: boolean;
+                name_part?: string;
+                is_extension?: boolean;
             }): _59.UninterpretedOption_NamePart;
             fromAmino(object: _59.UninterpretedOption_NamePartAmino): _59.UninterpretedOption_NamePart;
             toAmino(message: _59.UninterpretedOption_NamePart): _59.UninterpretedOption_NamePartAmino;
@@ -1684,9 +1684,9 @@ export declare namespace google {
                 location?: {
                     path?: number[];
                     span?: number[];
-                    leadingComments?: string;
-                    trailingComments?: string;
-                    leadingDetachedComments?: string[];
+                    leading_comments?: string;
+                    trailing_comments?: string;
+                    leading_detached_comments?: string[];
                 }[];
             }): _59.SourceCodeInfo;
             fromAmino(object: _59.SourceCodeInfoAmino): _59.SourceCodeInfo;
@@ -1705,9 +1705,9 @@ export declare namespace google {
             fromPartial(object: {
                 path?: number[];
                 span?: number[];
-                leadingComments?: string;
-                trailingComments?: string;
-                leadingDetachedComments?: string[];
+                leading_comments?: string;
+                trailing_comments?: string;
+                leading_detached_comments?: string[];
             }): _59.SourceCodeInfo_Location;
             fromAmino(object: _59.SourceCodeInfo_LocationAmino): _59.SourceCodeInfo_Location;
             toAmino(message: _59.SourceCodeInfo_Location): _59.SourceCodeInfo_LocationAmino;
@@ -1725,7 +1725,7 @@ export declare namespace google {
             fromPartial(object: {
                 annotation?: {
                     path?: number[];
-                    sourceFile?: string;
+                    source_file?: string;
                     begin?: number;
                     end?: number;
                 }[];
@@ -1745,7 +1745,7 @@ export declare namespace google {
             toJSON(message: _59.GeneratedCodeInfo_Annotation): unknown;
             fromPartial(object: {
                 path?: number[];
-                sourceFile?: string;
+                source_file?: string;
                 begin?: number;
                 end?: number;
             }): _59.GeneratedCodeInfo_Annotation;
@@ -1764,7 +1764,7 @@ export declare namespace google {
             toJSON(message: _58.Any): unknown;
             fromPartial(object: {
                 $typeUrl?: string;
-                typeUrl?: string;
+                type_url?: string;
                 value?: Uint8Array;
             }): _58.Any;
             fromAmino(object: _58.AnyAmino): _58.Any;

@@ -186,23 +186,23 @@ function statusToJSON(object) {
 exports.statusToJSON = statusToJSON;
 function createBaseZoneDrop() {
     return {
-        chainId: "",
-        startTime: new Date(),
+        chain_id: "",
+        start_time: new Date(),
         duration: duration_1.Duration.fromPartial({}),
         decay: duration_1.Duration.fromPartial({}),
         allocation: helpers_1.Long.UZERO,
         actions: [],
-        isConcluded: false
+        is_concluded: false
     };
 }
 exports.ZoneDrop = {
     typeUrl: "/quicksilver.airdrop.v1.ZoneDrop",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
-        if (message.startTime !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.startTime), writer.uint32(18).fork()).ldelim();
+        if (message.start_time !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.start_time), writer.uint32(18).fork()).ldelim();
         }
         if (message.duration !== undefined) {
             duration_1.Duration.encode(message.duration, writer.uint32(26).fork()).ldelim();
@@ -216,8 +216,8 @@ exports.ZoneDrop = {
         for (const v of message.actions) {
             writer.uint32(50).string(v);
         }
-        if (message.isConcluded === true) {
-            writer.uint32(56).bool(message.isConcluded);
+        if (message.is_concluded === true) {
+            writer.uint32(56).bool(message.is_concluded);
         }
         return writer;
     },
@@ -229,10 +229,10 @@ exports.ZoneDrop = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
-                    message.startTime = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.start_time = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.duration = duration_1.Duration.decode(reader, reader.uint32());
@@ -247,7 +247,7 @@ exports.ZoneDrop = {
                     message.actions.push(reader.string());
                     break;
                 case 7:
-                    message.isConcluded = reader.bool();
+                    message.is_concluded = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -258,19 +258,19 @@ exports.ZoneDrop = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
-            startTime: (0, helpers_1.isSet)(object.startTime) ? (0, helpers_1.fromJsonTimestamp)(object.startTime) : undefined,
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
+            start_time: (0, helpers_1.isSet)(object.start_time) ? (0, helpers_1.fromJsonTimestamp)(object.start_time) : undefined,
             duration: (0, helpers_1.isSet)(object.duration) ? duration_1.Duration.fromJSON(object.duration) : undefined,
             decay: (0, helpers_1.isSet)(object.decay) ? duration_1.Duration.fromJSON(object.decay) : undefined,
             allocation: (0, helpers_1.isSet)(object.allocation) ? helpers_1.Long.fromValue(object.allocation) : helpers_1.Long.UZERO,
             actions: Array.isArray(object?.actions) ? object.actions.map((e) => String(e)) : [],
-            isConcluded: (0, helpers_1.isSet)(object.isConcluded) ? Boolean(object.isConcluded) : false
+            is_concluded: (0, helpers_1.isSet)(object.is_concluded) ? Boolean(object.is_concluded) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        message.startTime !== undefined && (obj.startTime = message.startTime.toISOString());
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        message.start_time !== undefined && (obj.start_time = message.start_time.toISOString());
         message.duration !== undefined && (obj.duration = message.duration ? duration_1.Duration.toJSON(message.duration) : undefined);
         message.decay !== undefined && (obj.decay = message.decay ? duration_1.Duration.toJSON(message.decay) : undefined);
         message.allocation !== undefined && (obj.allocation = (message.allocation || helpers_1.Long.UZERO).toString());
@@ -280,35 +280,35 @@ exports.ZoneDrop = {
         else {
             obj.actions = [];
         }
-        message.isConcluded !== undefined && (obj.isConcluded = message.isConcluded);
+        message.is_concluded !== undefined && (obj.is_concluded = message.is_concluded);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseZoneDrop();
-        message.chainId = object.chainId ?? "";
-        message.startTime = object.startTime ?? undefined;
+        message.chain_id = object.chain_id ?? "";
+        message.start_time = object.start_time ?? undefined;
         message.duration = object.duration !== undefined && object.duration !== null ? duration_1.Duration.fromPartial(object.duration) : undefined;
         message.decay = object.decay !== undefined && object.decay !== null ? duration_1.Duration.fromPartial(object.decay) : undefined;
         message.allocation = object.allocation !== undefined && object.allocation !== null ? helpers_1.Long.fromValue(object.allocation) : helpers_1.Long.UZERO;
         message.actions = object.actions?.map(e => e) || [];
-        message.isConcluded = object.isConcluded ?? false;
+        message.is_concluded = object.is_concluded ?? false;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
-            startTime: object.start_time,
+            chain_id: object.chain_id,
+            start_time: object.start_time,
             duration: object?.duration ? duration_1.Duration.fromAmino(object.duration) : undefined,
             decay: object?.decay ? duration_1.Duration.fromAmino(object.decay) : undefined,
             allocation: helpers_1.Long.fromString(object.allocation),
             actions: Array.isArray(object?.actions) ? object.actions.map((e) => e) : [],
-            isConcluded: object.is_concluded
+            is_concluded: object.is_concluded
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
-        obj.start_time = message.startTime;
+        obj.chain_id = message.chain_id;
+        obj.start_time = message.start_time;
         obj.duration = message.duration ? duration_1.Duration.toAmino(message.duration) : undefined;
         obj.decay = message.decay ? duration_1.Duration.toAmino(message.decay) : undefined;
         obj.allocation = message.allocation ? message.allocation.toString() : undefined;
@@ -318,7 +318,7 @@ exports.ZoneDrop = {
         else {
             obj.actions = [];
         }
-        obj.is_concluded = message.isConcluded;
+        obj.is_concluded = message.is_concluded;
         return obj;
     },
     fromAminoMsg(object) {
@@ -415,33 +415,33 @@ exports.ClaimRecord_ActionsCompletedEntry = {
 };
 function createBaseClaimRecord() {
     return {
-        chainId: "",
+        chain_id: "",
         address: "",
-        actionsCompleted: {},
-        maxAllocation: helpers_1.Long.UZERO,
-        baseValue: helpers_1.Long.UZERO
+        actions_completed: {},
+        max_allocation: helpers_1.Long.UZERO,
+        base_value: helpers_1.Long.UZERO
     };
 }
 exports.ClaimRecord = {
     typeUrl: "/quicksilver.airdrop.v1.ClaimRecord",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.address !== "") {
             writer.uint32(18).string(message.address);
         }
-        Object.entries(message.actionsCompleted).forEach(([key, value]) => {
+        Object.entries(message.actions_completed).forEach(([key, value]) => {
             exports.ClaimRecord_ActionsCompletedEntry.encode({
                 key: key,
                 value
             }, writer.uint32(26).fork()).ldelim();
         });
-        if (!message.maxAllocation.isZero()) {
-            writer.uint32(32).uint64(message.maxAllocation);
+        if (!message.max_allocation.isZero()) {
+            writer.uint32(32).uint64(message.max_allocation);
         }
-        if (!message.baseValue.isZero()) {
-            writer.uint32(40).uint64(message.baseValue);
+        if (!message.base_value.isZero()) {
+            writer.uint32(40).uint64(message.base_value);
         }
         return writer;
     },
@@ -453,7 +453,7 @@ exports.ClaimRecord = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.address = reader.string();
@@ -461,14 +461,14 @@ exports.ClaimRecord = {
                 case 3:
                     const entry3 = exports.ClaimRecord_ActionsCompletedEntry.decode(reader, reader.uint32());
                     if (entry3.value !== undefined) {
-                        message.actionsCompleted[entry3.key] = entry3.value;
+                        message.actions_completed[entry3.key] = entry3.value;
                     }
                     break;
                 case 4:
-                    message.maxAllocation = reader.uint64();
+                    message.max_allocation = reader.uint64();
                     break;
                 case 5:
-                    message.baseValue = reader.uint64();
+                    message.base_value = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -479,68 +479,68 @@ exports.ClaimRecord = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             address: (0, helpers_1.isSet)(object.address) ? String(object.address) : "",
-            actionsCompleted: (0, helpers_1.isObject)(object.actionsCompleted) ? Object.entries(object.actionsCompleted).reduce((acc, [key, value]) => {
+            actions_completed: (0, helpers_1.isObject)(object.actions_completed) ? Object.entries(object.actions_completed).reduce((acc, [key, value]) => {
                 acc[Number(key)] = exports.CompletedAction.fromJSON(value);
                 return acc;
             }, {}) : {},
-            maxAllocation: (0, helpers_1.isSet)(object.maxAllocation) ? helpers_1.Long.fromValue(object.maxAllocation) : helpers_1.Long.UZERO,
-            baseValue: (0, helpers_1.isSet)(object.baseValue) ? helpers_1.Long.fromValue(object.baseValue) : helpers_1.Long.UZERO
+            max_allocation: (0, helpers_1.isSet)(object.max_allocation) ? helpers_1.Long.fromValue(object.max_allocation) : helpers_1.Long.UZERO,
+            base_value: (0, helpers_1.isSet)(object.base_value) ? helpers_1.Long.fromValue(object.base_value) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.address !== undefined && (obj.address = message.address);
-        obj.actionsCompleted = {};
-        if (message.actionsCompleted) {
-            Object.entries(message.actionsCompleted).forEach(([k, v]) => {
-                obj.actionsCompleted[k] = exports.CompletedAction.toJSON(v);
+        obj.actions_completed = {};
+        if (message.actions_completed) {
+            Object.entries(message.actions_completed).forEach(([k, v]) => {
+                obj.actions_completed[k] = exports.CompletedAction.toJSON(v);
             });
         }
-        message.maxAllocation !== undefined && (obj.maxAllocation = (message.maxAllocation || helpers_1.Long.UZERO).toString());
-        message.baseValue !== undefined && (obj.baseValue = (message.baseValue || helpers_1.Long.UZERO).toString());
+        message.max_allocation !== undefined && (obj.max_allocation = (message.max_allocation || helpers_1.Long.UZERO).toString());
+        message.base_value !== undefined && (obj.base_value = (message.base_value || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseClaimRecord();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.address = object.address ?? "";
-        message.actionsCompleted = Object.entries(object.actionsCompleted ?? {}).reduce((acc, [key, value]) => {
+        message.actions_completed = Object.entries(object.actions_completed ?? {}).reduce((acc, [key, value]) => {
             if (value !== undefined) {
                 acc[Number(key)] = exports.CompletedAction.fromPartial(value);
             }
             return acc;
         }, {});
-        message.maxAllocation = object.maxAllocation !== undefined && object.maxAllocation !== null ? helpers_1.Long.fromValue(object.maxAllocation) : helpers_1.Long.UZERO;
-        message.baseValue = object.baseValue !== undefined && object.baseValue !== null ? helpers_1.Long.fromValue(object.baseValue) : helpers_1.Long.UZERO;
+        message.max_allocation = object.max_allocation !== undefined && object.max_allocation !== null ? helpers_1.Long.fromValue(object.max_allocation) : helpers_1.Long.UZERO;
+        message.base_value = object.base_value !== undefined && object.base_value !== null ? helpers_1.Long.fromValue(object.base_value) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             address: object.address,
-            actionsCompleted: (0, helpers_1.isObject)(object.actions_completed) ? Object.entries(object.actions_completed).reduce((acc, [key, value]) => {
+            actions_completed: (0, helpers_1.isObject)(object.actions_completed) ? Object.entries(object.actions_completed).reduce((acc, [key, value]) => {
                 acc[Number(key)] = exports.CompletedAction.fromAmino(value);
                 return acc;
             }, {}) : {},
-            maxAllocation: helpers_1.Long.fromString(object.max_allocation),
-            baseValue: helpers_1.Long.fromString(object.base_value)
+            max_allocation: helpers_1.Long.fromString(object.max_allocation),
+            base_value: helpers_1.Long.fromString(object.base_value)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.address = message.address;
         obj.actions_completed = {};
-        if (message.actionsCompleted) {
-            Object.entries(message.actionsCompleted).forEach(([k, v]) => {
+        if (message.actions_completed) {
+            Object.entries(message.actions_completed).forEach(([k, v]) => {
                 obj.actions_completed[k] = exports.CompletedAction.toAmino(v);
             });
         }
-        obj.max_allocation = message.maxAllocation ? message.maxAllocation.toString() : undefined;
-        obj.base_value = message.baseValue ? message.baseValue.toString() : undefined;
+        obj.max_allocation = message.max_allocation ? message.max_allocation.toString() : undefined;
+        obj.base_value = message.base_value ? message.base_value.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -561,18 +561,18 @@ exports.ClaimRecord = {
 };
 function createBaseCompletedAction() {
     return {
-        completeTime: new Date(),
-        claimAmount: helpers_1.Long.UZERO
+        complete_time: new Date(),
+        claim_amount: helpers_1.Long.UZERO
     };
 }
 exports.CompletedAction = {
     typeUrl: "/quicksilver.airdrop.v1.CompletedAction",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.completeTime !== undefined) {
-            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.completeTime), writer.uint32(10).fork()).ldelim();
+        if (message.complete_time !== undefined) {
+            timestamp_1.Timestamp.encode((0, helpers_1.toTimestamp)(message.complete_time), writer.uint32(10).fork()).ldelim();
         }
-        if (!message.claimAmount.isZero()) {
-            writer.uint32(16).uint64(message.claimAmount);
+        if (!message.claim_amount.isZero()) {
+            writer.uint32(16).uint64(message.claim_amount);
         }
         return writer;
     },
@@ -584,10 +584,10 @@ exports.CompletedAction = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.completeTime = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
+                    message.complete_time = (0, helpers_1.fromTimestamp)(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 2:
-                    message.claimAmount = reader.uint64();
+                    message.claim_amount = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -598,32 +598,32 @@ exports.CompletedAction = {
     },
     fromJSON(object) {
         return {
-            completeTime: (0, helpers_1.isSet)(object.completeTime) ? (0, helpers_1.fromJsonTimestamp)(object.completeTime) : undefined,
-            claimAmount: (0, helpers_1.isSet)(object.claimAmount) ? helpers_1.Long.fromValue(object.claimAmount) : helpers_1.Long.UZERO
+            complete_time: (0, helpers_1.isSet)(object.complete_time) ? (0, helpers_1.fromJsonTimestamp)(object.complete_time) : undefined,
+            claim_amount: (0, helpers_1.isSet)(object.claim_amount) ? helpers_1.Long.fromValue(object.claim_amount) : helpers_1.Long.UZERO
         };
     },
     toJSON(message) {
         const obj = {};
-        message.completeTime !== undefined && (obj.completeTime = message.completeTime.toISOString());
-        message.claimAmount !== undefined && (obj.claimAmount = (message.claimAmount || helpers_1.Long.UZERO).toString());
+        message.complete_time !== undefined && (obj.complete_time = message.complete_time.toISOString());
+        message.claim_amount !== undefined && (obj.claim_amount = (message.claim_amount || helpers_1.Long.UZERO).toString());
         return obj;
     },
     fromPartial(object) {
         const message = createBaseCompletedAction();
-        message.completeTime = object.completeTime ?? undefined;
-        message.claimAmount = object.claimAmount !== undefined && object.claimAmount !== null ? helpers_1.Long.fromValue(object.claimAmount) : helpers_1.Long.UZERO;
+        message.complete_time = object.complete_time ?? undefined;
+        message.claim_amount = object.claim_amount !== undefined && object.claim_amount !== null ? helpers_1.Long.fromValue(object.claim_amount) : helpers_1.Long.UZERO;
         return message;
     },
     fromAmino(object) {
         return {
-            completeTime: object.complete_time,
-            claimAmount: helpers_1.Long.fromString(object.claim_amount)
+            complete_time: object.complete_time,
+            claim_amount: helpers_1.Long.fromString(object.claim_amount)
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.complete_time = message.completeTime;
-        obj.claim_amount = message.claimAmount ? message.claimAmount.toString() : undefined;
+        obj.complete_time = message.complete_time;
+        obj.claim_amount = message.claim_amount ? message.claim_amount.toString() : undefined;
         return obj;
     },
     fromAminoMsg(object) {

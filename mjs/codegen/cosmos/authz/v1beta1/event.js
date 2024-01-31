@@ -2,7 +2,7 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 function createBaseEventGrant() {
     return {
-        msgTypeUrl: "",
+        msg_type_url: "",
         granter: "",
         grantee: ""
     };
@@ -11,8 +11,8 @@ export const EventGrant = {
     typeUrl: "/cosmos.authz.v1beta1.EventGrant",
     aminoType: "cosmos-sdk/EventGrant",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.msgTypeUrl !== "") {
-            writer.uint32(18).string(message.msgTypeUrl);
+        if (message.msg_type_url !== "") {
+            writer.uint32(18).string(message.msg_type_url);
         }
         if (message.granter !== "") {
             writer.uint32(26).string(message.granter);
@@ -30,7 +30,7 @@ export const EventGrant = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 2:
-                    message.msgTypeUrl = reader.string();
+                    message.msg_type_url = reader.string();
                     break;
                 case 3:
                     message.granter = reader.string();
@@ -47,35 +47,35 @@ export const EventGrant = {
     },
     fromJSON(object) {
         return {
-            msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : "",
+            msg_type_url: isSet(object.msg_type_url) ? String(object.msg_type_url) : "",
             granter: isSet(object.granter) ? String(object.granter) : "",
             grantee: isSet(object.grantee) ? String(object.grantee) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+        message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
         message.granter !== undefined && (obj.granter = message.granter);
         message.grantee !== undefined && (obj.grantee = message.grantee);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseEventGrant();
-        message.msgTypeUrl = object.msgTypeUrl ?? "";
+        message.msg_type_url = object.msg_type_url ?? "";
         message.granter = object.granter ?? "";
         message.grantee = object.grantee ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            msgTypeUrl: object.msg_type_url,
+            msg_type_url: object.msg_type_url,
             granter: object.granter,
             grantee: object.grantee
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.msg_type_url = message.msgTypeUrl;
+        obj.msg_type_url = message.msg_type_url;
         obj.granter = message.granter;
         obj.grantee = message.grantee;
         return obj;
@@ -104,7 +104,7 @@ export const EventGrant = {
 };
 function createBaseEventRevoke() {
     return {
-        msgTypeUrl: "",
+        msg_type_url: "",
         granter: "",
         grantee: ""
     };
@@ -113,8 +113,8 @@ export const EventRevoke = {
     typeUrl: "/cosmos.authz.v1beta1.EventRevoke",
     aminoType: "cosmos-sdk/EventRevoke",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.msgTypeUrl !== "") {
-            writer.uint32(18).string(message.msgTypeUrl);
+        if (message.msg_type_url !== "") {
+            writer.uint32(18).string(message.msg_type_url);
         }
         if (message.granter !== "") {
             writer.uint32(26).string(message.granter);
@@ -132,7 +132,7 @@ export const EventRevoke = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 2:
-                    message.msgTypeUrl = reader.string();
+                    message.msg_type_url = reader.string();
                     break;
                 case 3:
                     message.granter = reader.string();
@@ -149,35 +149,35 @@ export const EventRevoke = {
     },
     fromJSON(object) {
         return {
-            msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : "",
+            msg_type_url: isSet(object.msg_type_url) ? String(object.msg_type_url) : "",
             granter: isSet(object.granter) ? String(object.granter) : "",
             grantee: isSet(object.grantee) ? String(object.grantee) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+        message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
         message.granter !== undefined && (obj.granter = message.granter);
         message.grantee !== undefined && (obj.grantee = message.grantee);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseEventRevoke();
-        message.msgTypeUrl = object.msgTypeUrl ?? "";
+        message.msg_type_url = object.msg_type_url ?? "";
         message.granter = object.granter ?? "";
         message.grantee = object.grantee ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            msgTypeUrl: object.msg_type_url,
+            msg_type_url: object.msg_type_url,
             granter: object.granter,
             grantee: object.grantee
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.msg_type_url = message.msgTypeUrl;
+        obj.msg_type_url = message.msg_type_url;
         obj.granter = message.granter;
         obj.grantee = message.grantee;
         return obj;

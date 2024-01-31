@@ -8,10 +8,10 @@ export interface GenesisState {
     /** params defines all the paramaters of the module. */
     params: Params;
     /** current reduction period start epoch */
-    reductionStartedEpoch: Long;
+    reduction_started_epoch: Long;
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/quicksilver.mint.v1beta1.GenesisState";
+    type_url: "/quicksilver.mint.v1beta1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the mint module's genesis state. */

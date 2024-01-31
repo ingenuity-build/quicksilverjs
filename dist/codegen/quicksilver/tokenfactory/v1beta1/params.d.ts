@@ -3,10 +3,10 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** Params defines the parameters for the tokenfactory module. */
 export interface Params {
-    denomCreationFee: Coin[];
+    denom_creation_fee: Coin[];
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/quicksilver.tokenfactory.v1beta1.Params";
+    type_url: "/quicksilver.tokenfactory.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params defines the parameters for the tokenfactory module. */

@@ -21,8 +21,8 @@ class LCDQueryClient {
         if (typeof params?.grantee !== "undefined") {
             options.params.grantee = params.grantee;
         }
-        if (typeof params?.msgTypeUrl !== "undefined") {
-            options.params.msg_type_url = params.msgTypeUrl;
+        if (typeof params?.msg_type_url !== "undefined") {
+            options.params.msg_type_url = params.msg_type_url;
         }
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);

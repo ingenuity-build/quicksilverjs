@@ -34,7 +34,7 @@ function createBasePlan() {
         time: new Date(),
         height: helpers_1.Long.ZERO,
         info: "",
-        upgradedClientState: any_1.Any.fromPartial({})
+        upgraded_client_state: any_1.Any.fromPartial({})
     };
 }
 exports.Plan = {
@@ -53,8 +53,8 @@ exports.Plan = {
         if (message.info !== "") {
             writer.uint32(34).string(message.info);
         }
-        if (message.upgradedClientState !== undefined) {
-            any_1.Any.encode(message.upgradedClientState, writer.uint32(42).fork()).ldelim();
+        if (message.upgraded_client_state !== undefined) {
+            any_1.Any.encode(message.upgraded_client_state, writer.uint32(42).fork()).ldelim();
         }
         return writer;
     },
@@ -78,7 +78,7 @@ exports.Plan = {
                     message.info = reader.string();
                     break;
                 case 5:
-                    message.upgradedClientState = any_1.Any.decode(reader, reader.uint32());
+                    message.upgraded_client_state = any_1.Any.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -93,7 +93,7 @@ exports.Plan = {
             time: (0, helpers_1.isSet)(object.time) ? (0, helpers_1.fromJsonTimestamp)(object.time) : undefined,
             height: (0, helpers_1.isSet)(object.height) ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO,
             info: (0, helpers_1.isSet)(object.info) ? String(object.info) : "",
-            upgradedClientState: (0, helpers_1.isSet)(object.upgradedClientState) ? any_1.Any.fromJSON(object.upgradedClientState) : undefined
+            upgraded_client_state: (0, helpers_1.isSet)(object.upgraded_client_state) ? any_1.Any.fromJSON(object.upgraded_client_state) : undefined
         };
     },
     toJSON(message) {
@@ -102,7 +102,7 @@ exports.Plan = {
         message.time !== undefined && (obj.time = message.time.toISOString());
         message.height !== undefined && (obj.height = (message.height || helpers_1.Long.ZERO).toString());
         message.info !== undefined && (obj.info = message.info);
-        message.upgradedClientState !== undefined && (obj.upgradedClientState = message.upgradedClientState ? any_1.Any.toJSON(message.upgradedClientState) : undefined);
+        message.upgraded_client_state !== undefined && (obj.upgraded_client_state = message.upgraded_client_state ? any_1.Any.toJSON(message.upgraded_client_state) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -111,7 +111,7 @@ exports.Plan = {
         message.time = object.time ?? undefined;
         message.height = object.height !== undefined && object.height !== null ? helpers_1.Long.fromValue(object.height) : helpers_1.Long.ZERO;
         message.info = object.info ?? "";
-        message.upgradedClientState = object.upgradedClientState !== undefined && object.upgradedClientState !== null ? any_1.Any.fromPartial(object.upgradedClientState) : undefined;
+        message.upgraded_client_state = object.upgraded_client_state !== undefined && object.upgraded_client_state !== null ? any_1.Any.fromPartial(object.upgraded_client_state) : undefined;
         return message;
     },
     fromAmino(object) {
@@ -120,7 +120,7 @@ exports.Plan = {
             time: object.time,
             height: helpers_1.Long.fromString(object.height),
             info: object.info,
-            upgradedClientState: object?.upgraded_client_state ? any_1.Any.fromAmino(object.upgraded_client_state) : undefined
+            upgraded_client_state: object?.upgraded_client_state ? any_1.Any.fromAmino(object.upgraded_client_state) : undefined
         };
     },
     toAmino(message) {
@@ -129,7 +129,7 @@ exports.Plan = {
         obj.time = message.time;
         obj.height = message.height ? message.height.toString() : undefined;
         obj.info = message.info;
-        obj.upgraded_client_state = message.upgradedClientState ? any_1.Any.toAmino(message.upgradedClientState) : undefined;
+        obj.upgraded_client_state = message.upgraded_client_state ? any_1.Any.toAmino(message.upgraded_client_state) : undefined;
         return obj;
     },
     fromAminoMsg(object) {

@@ -29,15 +29,15 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseQuery() {
     return {
         id: "",
-        connectionId: "",
-        chainId: "",
-        queryType: "",
+        connection_id: "",
+        chain_id: "",
+        query_type: "",
         request: new Uint8Array(),
         period: "",
-        lastHeight: "",
-        callbackId: "",
+        last_height: "",
+        callback_id: "",
         ttl: helpers_1.Long.UZERO,
-        lastEmission: ""
+        last_emission: ""
     };
 }
 exports.Query = {
@@ -46,14 +46,14 @@ exports.Query = {
         if (message.id !== "") {
             writer.uint32(10).string(message.id);
         }
-        if (message.connectionId !== "") {
-            writer.uint32(18).string(message.connectionId);
+        if (message.connection_id !== "") {
+            writer.uint32(18).string(message.connection_id);
         }
-        if (message.chainId !== "") {
-            writer.uint32(26).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(26).string(message.chain_id);
         }
-        if (message.queryType !== "") {
-            writer.uint32(34).string(message.queryType);
+        if (message.query_type !== "") {
+            writer.uint32(34).string(message.query_type);
         }
         if (message.request.length !== 0) {
             writer.uint32(42).bytes(message.request);
@@ -61,17 +61,17 @@ exports.Query = {
         if (message.period !== "") {
             writer.uint32(50).string(message.period);
         }
-        if (message.lastHeight !== "") {
-            writer.uint32(58).string(message.lastHeight);
+        if (message.last_height !== "") {
+            writer.uint32(58).string(message.last_height);
         }
-        if (message.callbackId !== "") {
-            writer.uint32(66).string(message.callbackId);
+        if (message.callback_id !== "") {
+            writer.uint32(66).string(message.callback_id);
         }
         if (!message.ttl.isZero()) {
             writer.uint32(72).uint64(message.ttl);
         }
-        if (message.lastEmission !== "") {
-            writer.uint32(82).string(message.lastEmission);
+        if (message.last_emission !== "") {
+            writer.uint32(82).string(message.last_emission);
         }
         return writer;
     },
@@ -86,13 +86,13 @@ exports.Query = {
                     message.id = reader.string();
                     break;
                 case 2:
-                    message.connectionId = reader.string();
+                    message.connection_id = reader.string();
                     break;
                 case 3:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 4:
-                    message.queryType = reader.string();
+                    message.query_type = reader.string();
                     break;
                 case 5:
                     message.request = reader.bytes();
@@ -101,16 +101,16 @@ exports.Query = {
                     message.period = reader.string();
                     break;
                 case 7:
-                    message.lastHeight = reader.string();
+                    message.last_height = reader.string();
                     break;
                 case 8:
-                    message.callbackId = reader.string();
+                    message.callback_id = reader.string();
                     break;
                 case 9:
                     message.ttl = reader.uint64();
                     break;
                 case 10:
-                    message.lastEmission = reader.string();
+                    message.last_emission = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -122,71 +122,71 @@ exports.Query = {
     fromJSON(object) {
         return {
             id: (0, helpers_1.isSet)(object.id) ? String(object.id) : "",
-            connectionId: (0, helpers_1.isSet)(object.connectionId) ? String(object.connectionId) : "",
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
-            queryType: (0, helpers_1.isSet)(object.queryType) ? String(object.queryType) : "",
+            connection_id: (0, helpers_1.isSet)(object.connection_id) ? String(object.connection_id) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
+            query_type: (0, helpers_1.isSet)(object.query_type) ? String(object.query_type) : "",
             request: (0, helpers_1.isSet)(object.request) ? (0, helpers_1.bytesFromBase64)(object.request) : new Uint8Array(),
             period: (0, helpers_1.isSet)(object.period) ? String(object.period) : "",
-            lastHeight: (0, helpers_1.isSet)(object.lastHeight) ? String(object.lastHeight) : "",
-            callbackId: (0, helpers_1.isSet)(object.callbackId) ? String(object.callbackId) : "",
+            last_height: (0, helpers_1.isSet)(object.last_height) ? String(object.last_height) : "",
+            callback_id: (0, helpers_1.isSet)(object.callback_id) ? String(object.callback_id) : "",
             ttl: (0, helpers_1.isSet)(object.ttl) ? helpers_1.Long.fromValue(object.ttl) : helpers_1.Long.UZERO,
-            lastEmission: (0, helpers_1.isSet)(object.lastEmission) ? String(object.lastEmission) : ""
+            last_emission: (0, helpers_1.isSet)(object.last_emission) ? String(object.last_emission) : ""
         };
     },
     toJSON(message) {
         const obj = {};
         message.id !== undefined && (obj.id = message.id);
-        message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        message.queryType !== undefined && (obj.queryType = message.queryType);
+        message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        message.query_type !== undefined && (obj.query_type = message.query_type);
         message.request !== undefined && (obj.request = (0, helpers_1.base64FromBytes)(message.request !== undefined ? message.request : new Uint8Array()));
         message.period !== undefined && (obj.period = message.period);
-        message.lastHeight !== undefined && (obj.lastHeight = message.lastHeight);
-        message.callbackId !== undefined && (obj.callbackId = message.callbackId);
+        message.last_height !== undefined && (obj.last_height = message.last_height);
+        message.callback_id !== undefined && (obj.callback_id = message.callback_id);
         message.ttl !== undefined && (obj.ttl = (message.ttl || helpers_1.Long.UZERO).toString());
-        message.lastEmission !== undefined && (obj.lastEmission = message.lastEmission);
+        message.last_emission !== undefined && (obj.last_emission = message.last_emission);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQuery();
         message.id = object.id ?? "";
-        message.connectionId = object.connectionId ?? "";
-        message.chainId = object.chainId ?? "";
-        message.queryType = object.queryType ?? "";
+        message.connection_id = object.connection_id ?? "";
+        message.chain_id = object.chain_id ?? "";
+        message.query_type = object.query_type ?? "";
         message.request = object.request ?? new Uint8Array();
         message.period = object.period ?? "";
-        message.lastHeight = object.lastHeight ?? "";
-        message.callbackId = object.callbackId ?? "";
+        message.last_height = object.last_height ?? "";
+        message.callback_id = object.callback_id ?? "";
         message.ttl = object.ttl !== undefined && object.ttl !== null ? helpers_1.Long.fromValue(object.ttl) : helpers_1.Long.UZERO;
-        message.lastEmission = object.lastEmission ?? "";
+        message.last_emission = object.last_emission ?? "";
         return message;
     },
     fromAmino(object) {
         return {
             id: object.id,
-            connectionId: object.connection_id,
-            chainId: object.chain_id,
-            queryType: object.query_type,
+            connection_id: object.connection_id,
+            chain_id: object.chain_id,
+            query_type: object.query_type,
             request: object.request,
             period: object.period,
-            lastHeight: object.last_height,
-            callbackId: object.callback_id,
+            last_height: object.last_height,
+            callback_id: object.callback_id,
             ttl: helpers_1.Long.fromString(object.ttl),
-            lastEmission: object.last_emission
+            last_emission: object.last_emission
         };
     },
     toAmino(message) {
         const obj = {};
         obj.id = message.id;
-        obj.connection_id = message.connectionId;
-        obj.chain_id = message.chainId;
-        obj.query_type = message.queryType;
+        obj.connection_id = message.connection_id;
+        obj.chain_id = message.chain_id;
+        obj.query_type = message.query_type;
         obj.request = message.request;
         obj.period = message.period;
-        obj.last_height = message.lastHeight;
-        obj.callback_id = message.callbackId;
+        obj.last_height = message.last_height;
+        obj.callback_id = message.callback_id;
         obj.ttl = message.ttl ? message.ttl.toString() : undefined;
-        obj.last_emission = message.lastEmission;
+        obj.last_emission = message.last_emission;
         return obj;
     },
     fromAminoMsg(object) {
@@ -208,8 +208,8 @@ exports.Query = {
 function createBaseDataPoint() {
     return {
         id: "",
-        remoteHeight: "",
-        localHeight: "",
+        remote_height: "",
+        local_height: "",
         value: new Uint8Array()
     };
 }
@@ -219,11 +219,11 @@ exports.DataPoint = {
         if (message.id !== "") {
             writer.uint32(10).string(message.id);
         }
-        if (message.remoteHeight !== "") {
-            writer.uint32(18).string(message.remoteHeight);
+        if (message.remote_height !== "") {
+            writer.uint32(18).string(message.remote_height);
         }
-        if (message.localHeight !== "") {
-            writer.uint32(26).string(message.localHeight);
+        if (message.local_height !== "") {
+            writer.uint32(26).string(message.local_height);
         }
         if (message.value.length !== 0) {
             writer.uint32(34).bytes(message.value);
@@ -241,10 +241,10 @@ exports.DataPoint = {
                     message.id = reader.string();
                     break;
                 case 2:
-                    message.remoteHeight = reader.string();
+                    message.remote_height = reader.string();
                     break;
                 case 3:
-                    message.localHeight = reader.string();
+                    message.local_height = reader.string();
                     break;
                 case 4:
                     message.value = reader.bytes();
@@ -259,40 +259,40 @@ exports.DataPoint = {
     fromJSON(object) {
         return {
             id: (0, helpers_1.isSet)(object.id) ? String(object.id) : "",
-            remoteHeight: (0, helpers_1.isSet)(object.remoteHeight) ? String(object.remoteHeight) : "",
-            localHeight: (0, helpers_1.isSet)(object.localHeight) ? String(object.localHeight) : "",
+            remote_height: (0, helpers_1.isSet)(object.remote_height) ? String(object.remote_height) : "",
+            local_height: (0, helpers_1.isSet)(object.local_height) ? String(object.local_height) : "",
             value: (0, helpers_1.isSet)(object.value) ? (0, helpers_1.bytesFromBase64)(object.value) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
         message.id !== undefined && (obj.id = message.id);
-        message.remoteHeight !== undefined && (obj.remoteHeight = message.remoteHeight);
-        message.localHeight !== undefined && (obj.localHeight = message.localHeight);
+        message.remote_height !== undefined && (obj.remote_height = message.remote_height);
+        message.local_height !== undefined && (obj.local_height = message.local_height);
         message.value !== undefined && (obj.value = (0, helpers_1.base64FromBytes)(message.value !== undefined ? message.value : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseDataPoint();
         message.id = object.id ?? "";
-        message.remoteHeight = object.remoteHeight ?? "";
-        message.localHeight = object.localHeight ?? "";
+        message.remote_height = object.remote_height ?? "";
+        message.local_height = object.local_height ?? "";
         message.value = object.value ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
             id: object.id,
-            remoteHeight: object.remote_height,
-            localHeight: object.local_height,
+            remote_height: object.remote_height,
+            local_height: object.local_height,
             value: object.value
         };
     },
     toAmino(message) {
         const obj = {};
         obj.id = message.id;
-        obj.remote_height = message.remoteHeight;
-        obj.local_height = message.localHeight;
+        obj.remote_height = message.remote_height;
+        obj.local_height = message.local_height;
         obj.value = message.value;
         return obj;
     },

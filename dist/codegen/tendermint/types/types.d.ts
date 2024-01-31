@@ -35,7 +35,7 @@ export interface PartSetHeader {
     hash: Uint8Array;
 }
 export interface PartSetHeaderProtoMsg {
-    typeUrl: "/tendermint.types.PartSetHeader";
+    type_url: "/tendermint.types.PartSetHeader";
     value: Uint8Array;
 }
 /** PartsetHeader */
@@ -58,7 +58,7 @@ export interface Part {
     proof: Proof;
 }
 export interface PartProtoMsg {
-    typeUrl: "/tendermint.types.Part";
+    type_url: "/tendermint.types.Part";
     value: Uint8Array;
 }
 export interface PartAmino {
@@ -78,10 +78,10 @@ export interface PartSDKType {
 /** BlockID */
 export interface BlockID {
     hash: Uint8Array;
-    partSetHeader: PartSetHeader;
+    part_set_header: PartSetHeader;
 }
 export interface BlockIDProtoMsg {
-    typeUrl: "/tendermint.types.BlockID";
+    type_url: "/tendermint.types.BlockID";
     value: Uint8Array;
 }
 /** BlockID */
@@ -102,30 +102,30 @@ export interface BlockIDSDKType {
 export interface Header {
     /** basic block info */
     version: Consensus;
-    chainId: string;
+    chain_id: string;
     height: Long;
     time: Date;
     /** prev block info */
-    lastBlockId: BlockID;
+    last_block_id: BlockID;
     /** hashes of block data */
-    lastCommitHash: Uint8Array;
-    dataHash: Uint8Array;
+    last_commit_hash: Uint8Array;
+    data_hash: Uint8Array;
     /** hashes from the app output from the prev block */
-    validatorsHash: Uint8Array;
+    validators_hash: Uint8Array;
     /** validators for the next block */
-    nextValidatorsHash: Uint8Array;
+    next_validators_hash: Uint8Array;
     /** consensus params for current block */
-    consensusHash: Uint8Array;
+    consensus_hash: Uint8Array;
     /** state after txs from the previous block */
-    appHash: Uint8Array;
-    lastResultsHash: Uint8Array;
+    app_hash: Uint8Array;
+    last_results_hash: Uint8Array;
     /** consensus info */
-    evidenceHash: Uint8Array;
+    evidence_hash: Uint8Array;
     /** original proposer of the block */
-    proposerAddress: Uint8Array;
+    proposer_address: Uint8Array;
 }
 export interface HeaderProtoMsg {
-    typeUrl: "/tendermint.types.Header";
+    type_url: "/tendermint.types.Header";
     value: Uint8Array;
 }
 /** Header defines the structure of a Tendermint block header. */
@@ -185,7 +185,7 @@ export interface Data {
     txs: Uint8Array[];
 }
 export interface DataProtoMsg {
-    typeUrl: "/tendermint.types.Data";
+    type_url: "/tendermint.types.Data";
     value: Uint8Array;
 }
 /** Data contains the set of transactions included in the block */
@@ -214,14 +214,14 @@ export interface Vote {
     height: Long;
     round: number;
     /** zero if vote is nil. */
-    blockId: BlockID;
+    block_id: BlockID;
     timestamp: Date;
-    validatorAddress: Uint8Array;
-    validatorIndex: number;
+    validator_address: Uint8Array;
+    validator_index: number;
     signature: Uint8Array;
 }
 export interface VoteProtoMsg {
-    typeUrl: "/tendermint.types.Vote";
+    type_url: "/tendermint.types.Vote";
     value: Uint8Array;
 }
 /**
@@ -261,11 +261,11 @@ export interface VoteSDKType {
 export interface Commit {
     height: Long;
     round: number;
-    blockId: BlockID;
+    block_id: BlockID;
     signatures: CommitSig[];
 }
 export interface CommitProtoMsg {
-    typeUrl: "/tendermint.types.Commit";
+    type_url: "/tendermint.types.Commit";
     value: Uint8Array;
 }
 /** Commit contains the evidence that a block was committed by a set of validators. */
@@ -288,13 +288,13 @@ export interface CommitSDKType {
 }
 /** CommitSig is a part of the Vote included in a Commit. */
 export interface CommitSig {
-    blockIdFlag: BlockIDFlag;
-    validatorAddress: Uint8Array;
+    block_id_flag: BlockIDFlag;
+    validator_address: Uint8Array;
     timestamp: Date;
     signature: Uint8Array;
 }
 export interface CommitSigProtoMsg {
-    typeUrl: "/tendermint.types.CommitSig";
+    type_url: "/tendermint.types.CommitSig";
     value: Uint8Array;
 }
 /** CommitSig is a part of the Vote included in a Commit. */
@@ -319,13 +319,13 @@ export interface Proposal {
     type: SignedMsgType;
     height: Long;
     round: number;
-    polRound: number;
-    blockId: BlockID;
+    pol_round: number;
+    block_id: BlockID;
     timestamp: Date;
     signature: Uint8Array;
 }
 export interface ProposalProtoMsg {
-    typeUrl: "/tendermint.types.Proposal";
+    type_url: "/tendermint.types.Proposal";
     value: Uint8Array;
 }
 export interface ProposalAmino {
@@ -355,7 +355,7 @@ export interface SignedHeader {
     commit: Commit;
 }
 export interface SignedHeaderProtoMsg {
-    typeUrl: "/tendermint.types.SignedHeader";
+    type_url: "/tendermint.types.SignedHeader";
     value: Uint8Array;
 }
 export interface SignedHeaderAmino {
@@ -371,11 +371,11 @@ export interface SignedHeaderSDKType {
     commit: CommitSDKType;
 }
 export interface LightBlock {
-    signedHeader: SignedHeader;
-    validatorSet: ValidatorSet;
+    signed_header: SignedHeader;
+    validator_set: ValidatorSet;
 }
 export interface LightBlockProtoMsg {
-    typeUrl: "/tendermint.types.LightBlock";
+    type_url: "/tendermint.types.LightBlock";
     value: Uint8Array;
 }
 export interface LightBlockAmino {
@@ -391,13 +391,13 @@ export interface LightBlockSDKType {
     validator_set: ValidatorSetSDKType;
 }
 export interface BlockMeta {
-    blockId: BlockID;
-    blockSize: Long;
+    block_id: BlockID;
+    block_size: Long;
     header: Header;
-    numTxs: Long;
+    num_txs: Long;
 }
 export interface BlockMetaProtoMsg {
-    typeUrl: "/tendermint.types.BlockMeta";
+    type_url: "/tendermint.types.BlockMeta";
     value: Uint8Array;
 }
 export interface BlockMetaAmino {
@@ -418,12 +418,12 @@ export interface BlockMetaSDKType {
 }
 /** TxProof represents a Merkle proof of the presence of a transaction in the Merkle tree. */
 export interface TxProof {
-    rootHash: Uint8Array;
+    root_hash: Uint8Array;
     data: Uint8Array;
     proof: Proof;
 }
 export interface TxProofProtoMsg {
-    typeUrl: "/tendermint.types.TxProof";
+    type_url: "/tendermint.types.TxProof";
     value: Uint8Array;
 }
 /** TxProof represents a Merkle proof of the presence of a transaction in the Merkle tree. */

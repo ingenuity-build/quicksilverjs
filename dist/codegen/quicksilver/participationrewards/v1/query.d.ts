@@ -5,7 +5,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.QueryParamsRequest";
+    type_url: "/quicksilver.participationrewards.v1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -24,7 +24,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.QueryParamsResponse";
+    type_url: "/quicksilver.participationrewards.v1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -46,7 +46,7 @@ export interface QueryProtocolDataRequest {
     key: string;
 }
 export interface QueryProtocolDataRequestProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.QueryProtocolDataRequest";
+    type_url: "/quicksilver.participationrewards.v1.QueryProtocolDataRequest";
     value: Uint8Array;
 }
 /** QueryProtocolDataRequest is the request type for querying Protocol Data. */
@@ -69,7 +69,7 @@ export interface QueryProtocolDataResponse {
     data: Uint8Array[];
 }
 export interface QueryProtocolDataResponseProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.QueryProtocolDataResponse";
+    type_url: "/quicksilver.participationrewards.v1.QueryProtocolDataResponse";
     value: Uint8Array;
 }
 /** QueryProtocolDataResponse is the response type for querying Protocol Data. */

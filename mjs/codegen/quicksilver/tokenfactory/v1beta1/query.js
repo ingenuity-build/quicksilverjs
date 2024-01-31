@@ -202,14 +202,14 @@ export const QueryDenomAuthorityMetadataRequest = {
 };
 function createBaseQueryDenomAuthorityMetadataResponse() {
     return {
-        authorityMetadata: DenomAuthorityMetadata.fromPartial({})
+        authority_metadata: DenomAuthorityMetadata.fromPartial({})
     };
 }
 export const QueryDenomAuthorityMetadataResponse = {
     typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.authorityMetadata !== undefined) {
-            DenomAuthorityMetadata.encode(message.authorityMetadata, writer.uint32(10).fork()).ldelim();
+        if (message.authority_metadata !== undefined) {
+            DenomAuthorityMetadata.encode(message.authority_metadata, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -221,7 +221,7 @@ export const QueryDenomAuthorityMetadataResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.authorityMetadata = DenomAuthorityMetadata.decode(reader, reader.uint32());
+                    message.authority_metadata = DenomAuthorityMetadata.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -232,27 +232,27 @@ export const QueryDenomAuthorityMetadataResponse = {
     },
     fromJSON(object) {
         return {
-            authorityMetadata: isSet(object.authorityMetadata) ? DenomAuthorityMetadata.fromJSON(object.authorityMetadata) : undefined
+            authority_metadata: isSet(object.authority_metadata) ? DenomAuthorityMetadata.fromJSON(object.authority_metadata) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.authorityMetadata !== undefined && (obj.authorityMetadata = message.authorityMetadata ? DenomAuthorityMetadata.toJSON(message.authorityMetadata) : undefined);
+        message.authority_metadata !== undefined && (obj.authority_metadata = message.authority_metadata ? DenomAuthorityMetadata.toJSON(message.authority_metadata) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDenomAuthorityMetadataResponse();
-        message.authorityMetadata = object.authorityMetadata !== undefined && object.authorityMetadata !== null ? DenomAuthorityMetadata.fromPartial(object.authorityMetadata) : undefined;
+        message.authority_metadata = object.authority_metadata !== undefined && object.authority_metadata !== null ? DenomAuthorityMetadata.fromPartial(object.authority_metadata) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            authorityMetadata: object?.authority_metadata ? DenomAuthorityMetadata.fromAmino(object.authority_metadata) : undefined
+            authority_metadata: object?.authority_metadata ? DenomAuthorityMetadata.fromAmino(object.authority_metadata) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.authority_metadata = message.authorityMetadata ? DenomAuthorityMetadata.toAmino(message.authorityMetadata) : undefined;
+        obj.authority_metadata = message.authority_metadata ? DenomAuthorityMetadata.toAmino(message.authority_metadata) : undefined;
         return obj;
     },
     fromAminoMsg(object) {

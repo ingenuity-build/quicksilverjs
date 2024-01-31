@@ -3,11 +3,11 @@ import * as _m0 from "protobufjs/minimal";
 export interface Proof {
     total: Long;
     index: Long;
-    leafHash: Uint8Array;
+    leaf_hash: Uint8Array;
     aunts: Uint8Array[];
 }
 export interface ProofProtoMsg {
-    typeUrl: "/tendermint.crypto.Proof";
+    type_url: "/tendermint.crypto.Proof";
     value: Uint8Array;
 }
 export interface ProofAmino {
@@ -33,7 +33,7 @@ export interface ValueOp {
     proof: Proof;
 }
 export interface ValueOpProtoMsg {
-    typeUrl: "/tendermint.crypto.ValueOp";
+    type_url: "/tendermint.crypto.ValueOp";
     value: Uint8Array;
 }
 export interface ValueOpAmino {
@@ -56,7 +56,7 @@ export interface DominoOp {
     output: string;
 }
 export interface DominoOpProtoMsg {
-    typeUrl: "/tendermint.crypto.DominoOp";
+    type_url: "/tendermint.crypto.DominoOp";
     value: Uint8Array;
 }
 export interface DominoOpAmino {
@@ -84,7 +84,7 @@ export interface ProofOp {
     data: Uint8Array;
 }
 export interface ProofOpProtoMsg {
-    typeUrl: "/tendermint.crypto.ProofOp";
+    type_url: "/tendermint.crypto.ProofOp";
     value: Uint8Array;
 }
 /**
@@ -116,7 +116,7 @@ export interface ProofOps {
     ops: ProofOp[];
 }
 export interface ProofOpsProtoMsg {
-    typeUrl: "/tendermint.crypto.ProofOps";
+    type_url: "/tendermint.crypto.ProofOps";
     value: Uint8Array;
 }
 /** ProofOps is Merkle proof defined by the list of ProofOps */

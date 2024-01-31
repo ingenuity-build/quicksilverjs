@@ -374,15 +374,15 @@ exports.QueryAnnualProvisionsRequest = {
 };
 function createBaseQueryAnnualProvisionsResponse() {
     return {
-        annualProvisions: new Uint8Array()
+        annual_provisions: new Uint8Array()
     };
 }
 exports.QueryAnnualProvisionsResponse = {
     typeUrl: "/cosmos.mint.v1beta1.QueryAnnualProvisionsResponse",
     aminoType: "cosmos-sdk/QueryAnnualProvisionsResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.annualProvisions.length !== 0) {
-            writer.uint32(10).bytes(message.annualProvisions);
+        if (message.annual_provisions.length !== 0) {
+            writer.uint32(10).bytes(message.annual_provisions);
         }
         return writer;
     },
@@ -394,7 +394,7 @@ exports.QueryAnnualProvisionsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.annualProvisions = reader.bytes();
+                    message.annual_provisions = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -405,27 +405,27 @@ exports.QueryAnnualProvisionsResponse = {
     },
     fromJSON(object) {
         return {
-            annualProvisions: (0, helpers_1.isSet)(object.annualProvisions) ? (0, helpers_1.bytesFromBase64)(object.annualProvisions) : new Uint8Array()
+            annual_provisions: (0, helpers_1.isSet)(object.annual_provisions) ? (0, helpers_1.bytesFromBase64)(object.annual_provisions) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.annualProvisions !== undefined && (obj.annualProvisions = (0, helpers_1.base64FromBytes)(message.annualProvisions !== undefined ? message.annualProvisions : new Uint8Array()));
+        message.annual_provisions !== undefined && (obj.annual_provisions = (0, helpers_1.base64FromBytes)(message.annual_provisions !== undefined ? message.annual_provisions : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryAnnualProvisionsResponse();
-        message.annualProvisions = object.annualProvisions ?? new Uint8Array();
+        message.annual_provisions = object.annual_provisions ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
-            annualProvisions: object.annual_provisions
+            annual_provisions: object.annual_provisions
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.annual_provisions = message.annualProvisions;
+        obj.annual_provisions = message.annual_provisions;
         return obj;
     },
     fromAminoMsg(object) {

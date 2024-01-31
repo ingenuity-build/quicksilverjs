@@ -145,15 +145,15 @@ export const QueryParamsResponse = {
 };
 function createBaseQuerySigningInfoRequest() {
     return {
-        consAddress: ""
+        cons_address: ""
     };
 }
 export const QuerySigningInfoRequest = {
     typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfoRequest",
     aminoType: "cosmos-sdk/QuerySigningInfoRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.consAddress !== "") {
-            writer.uint32(10).string(message.consAddress);
+        if (message.cons_address !== "") {
+            writer.uint32(10).string(message.cons_address);
         }
         return writer;
     },
@@ -165,7 +165,7 @@ export const QuerySigningInfoRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.consAddress = reader.string();
+                    message.cons_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -176,27 +176,27 @@ export const QuerySigningInfoRequest = {
     },
     fromJSON(object) {
         return {
-            consAddress: isSet(object.consAddress) ? String(object.consAddress) : ""
+            cons_address: isSet(object.cons_address) ? String(object.cons_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.consAddress !== undefined && (obj.consAddress = message.consAddress);
+        message.cons_address !== undefined && (obj.cons_address = message.cons_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQuerySigningInfoRequest();
-        message.consAddress = object.consAddress ?? "";
+        message.cons_address = object.cons_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            consAddress: object.cons_address
+            cons_address: object.cons_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.cons_address = message.consAddress;
+        obj.cons_address = message.cons_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -223,15 +223,15 @@ export const QuerySigningInfoRequest = {
 };
 function createBaseQuerySigningInfoResponse() {
     return {
-        valSigningInfo: ValidatorSigningInfo.fromPartial({})
+        val_signing_info: ValidatorSigningInfo.fromPartial({})
     };
 }
 export const QuerySigningInfoResponse = {
     typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfoResponse",
     aminoType: "cosmos-sdk/QuerySigningInfoResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.valSigningInfo !== undefined) {
-            ValidatorSigningInfo.encode(message.valSigningInfo, writer.uint32(10).fork()).ldelim();
+        if (message.val_signing_info !== undefined) {
+            ValidatorSigningInfo.encode(message.val_signing_info, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -243,7 +243,7 @@ export const QuerySigningInfoResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.valSigningInfo = ValidatorSigningInfo.decode(reader, reader.uint32());
+                    message.val_signing_info = ValidatorSigningInfo.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -254,27 +254,27 @@ export const QuerySigningInfoResponse = {
     },
     fromJSON(object) {
         return {
-            valSigningInfo: isSet(object.valSigningInfo) ? ValidatorSigningInfo.fromJSON(object.valSigningInfo) : undefined
+            val_signing_info: isSet(object.val_signing_info) ? ValidatorSigningInfo.fromJSON(object.val_signing_info) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.valSigningInfo !== undefined && (obj.valSigningInfo = message.valSigningInfo ? ValidatorSigningInfo.toJSON(message.valSigningInfo) : undefined);
+        message.val_signing_info !== undefined && (obj.val_signing_info = message.val_signing_info ? ValidatorSigningInfo.toJSON(message.val_signing_info) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQuerySigningInfoResponse();
-        message.valSigningInfo = object.valSigningInfo !== undefined && object.valSigningInfo !== null ? ValidatorSigningInfo.fromPartial(object.valSigningInfo) : undefined;
+        message.val_signing_info = object.val_signing_info !== undefined && object.val_signing_info !== null ? ValidatorSigningInfo.fromPartial(object.val_signing_info) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            valSigningInfo: object?.val_signing_info ? ValidatorSigningInfo.fromAmino(object.val_signing_info) : undefined
+            val_signing_info: object?.val_signing_info ? ValidatorSigningInfo.fromAmino(object.val_signing_info) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.val_signing_info = message.valSigningInfo ? ValidatorSigningInfo.toAmino(message.valSigningInfo) : undefined;
+        obj.val_signing_info = message.val_signing_info ? ValidatorSigningInfo.toAmino(message.val_signing_info) : undefined;
         return obj;
     },
     fromAminoMsg(object) {

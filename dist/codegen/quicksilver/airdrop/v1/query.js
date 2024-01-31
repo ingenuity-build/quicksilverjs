@@ -159,14 +159,14 @@ exports.QueryParamsResponse = {
 };
 function createBaseQueryZoneDropRequest() {
     return {
-        chainId: ""
+        chain_id: ""
     };
 }
 exports.QueryZoneDropRequest = {
     typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         return writer;
     },
@@ -178,7 +178,7 @@ exports.QueryZoneDropRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -189,27 +189,27 @@ exports.QueryZoneDropRequest = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : ""
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryZoneDropRequest();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id
+            chain_id: object.chain_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -230,14 +230,14 @@ exports.QueryZoneDropRequest = {
 };
 function createBaseQueryZoneDropResponse() {
     return {
-        zoneDrop: airdrop_1.ZoneDrop.fromPartial({})
+        zone_drop: airdrop_1.ZoneDrop.fromPartial({})
     };
 }
 exports.QueryZoneDropResponse = {
     typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.zoneDrop !== undefined) {
-            airdrop_1.ZoneDrop.encode(message.zoneDrop, writer.uint32(10).fork()).ldelim();
+        if (message.zone_drop !== undefined) {
+            airdrop_1.ZoneDrop.encode(message.zone_drop, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -249,7 +249,7 @@ exports.QueryZoneDropResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.zoneDrop = airdrop_1.ZoneDrop.decode(reader, reader.uint32());
+                    message.zone_drop = airdrop_1.ZoneDrop.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -260,27 +260,27 @@ exports.QueryZoneDropResponse = {
     },
     fromJSON(object) {
         return {
-            zoneDrop: (0, helpers_1.isSet)(object.zoneDrop) ? airdrop_1.ZoneDrop.fromJSON(object.zoneDrop) : undefined
+            zone_drop: (0, helpers_1.isSet)(object.zone_drop) ? airdrop_1.ZoneDrop.fromJSON(object.zone_drop) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.zoneDrop !== undefined && (obj.zoneDrop = message.zoneDrop ? airdrop_1.ZoneDrop.toJSON(message.zoneDrop) : undefined);
+        message.zone_drop !== undefined && (obj.zone_drop = message.zone_drop ? airdrop_1.ZoneDrop.toJSON(message.zone_drop) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryZoneDropResponse();
-        message.zoneDrop = object.zoneDrop !== undefined && object.zoneDrop !== null ? airdrop_1.ZoneDrop.fromPartial(object.zoneDrop) : undefined;
+        message.zone_drop = object.zone_drop !== undefined && object.zone_drop !== null ? airdrop_1.ZoneDrop.fromPartial(object.zone_drop) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            zoneDrop: object?.zone_drop ? airdrop_1.ZoneDrop.fromAmino(object.zone_drop) : undefined
+            zone_drop: object?.zone_drop ? airdrop_1.ZoneDrop.fromAmino(object.zone_drop) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.zone_drop = message.zoneDrop ? airdrop_1.ZoneDrop.toAmino(message.zoneDrop) : undefined;
+        obj.zone_drop = message.zone_drop ? airdrop_1.ZoneDrop.toAmino(message.zone_drop) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -301,14 +301,14 @@ exports.QueryZoneDropResponse = {
 };
 function createBaseQueryAccountBalanceRequest() {
     return {
-        chainId: ""
+        chain_id: ""
     };
 }
 exports.QueryAccountBalanceRequest = {
     typeUrl: "/quicksilver.airdrop.v1.QueryAccountBalanceRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         return writer;
     },
@@ -320,7 +320,7 @@ exports.QueryAccountBalanceRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -331,27 +331,27 @@ exports.QueryAccountBalanceRequest = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : ""
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryAccountBalanceRequest();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id
+            chain_id: object.chain_id
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         return obj;
     },
     fromAminoMsg(object) {
@@ -372,14 +372,14 @@ exports.QueryAccountBalanceRequest = {
 };
 function createBaseQueryAccountBalanceResponse() {
     return {
-        accountBalance: coin_1.Coin.fromPartial({})
+        account_balance: coin_1.Coin.fromPartial({})
     };
 }
 exports.QueryAccountBalanceResponse = {
     typeUrl: "/quicksilver.airdrop.v1.QueryAccountBalanceResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.accountBalance !== undefined) {
-            coin_1.Coin.encode(message.accountBalance, writer.uint32(10).fork()).ldelim();
+        if (message.account_balance !== undefined) {
+            coin_1.Coin.encode(message.account_balance, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -391,7 +391,7 @@ exports.QueryAccountBalanceResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.accountBalance = coin_1.Coin.decode(reader, reader.uint32());
+                    message.account_balance = coin_1.Coin.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -402,27 +402,27 @@ exports.QueryAccountBalanceResponse = {
     },
     fromJSON(object) {
         return {
-            accountBalance: (0, helpers_1.isSet)(object.accountBalance) ? coin_1.Coin.fromJSON(object.accountBalance) : undefined
+            account_balance: (0, helpers_1.isSet)(object.account_balance) ? coin_1.Coin.fromJSON(object.account_balance) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.accountBalance !== undefined && (obj.accountBalance = message.accountBalance ? coin_1.Coin.toJSON(message.accountBalance) : undefined);
+        message.account_balance !== undefined && (obj.account_balance = message.account_balance ? coin_1.Coin.toJSON(message.account_balance) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryAccountBalanceResponse();
-        message.accountBalance = object.accountBalance !== undefined && object.accountBalance !== null ? coin_1.Coin.fromPartial(object.accountBalance) : undefined;
+        message.account_balance = object.account_balance !== undefined && object.account_balance !== null ? coin_1.Coin.fromPartial(object.account_balance) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            accountBalance: object?.account_balance ? coin_1.Coin.fromAmino(object.account_balance) : undefined
+            account_balance: object?.account_balance ? coin_1.Coin.fromAmino(object.account_balance) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.account_balance = message.accountBalance ? coin_1.Coin.toAmino(message.accountBalance) : undefined;
+        obj.account_balance = message.account_balance ? coin_1.Coin.toAmino(message.account_balance) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -526,14 +526,14 @@ exports.QueryZoneDropsRequest = {
 };
 function createBaseQueryZoneDropsResponse() {
     return {
-        zoneDrops: [],
+        zone_drops: [],
         pagination: pagination_1.PageResponse.fromPartial({})
     };
 }
 exports.QueryZoneDropsResponse = {
     typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropsResponse",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.zoneDrops) {
+        for (const v of message.zone_drops) {
             airdrop_1.ZoneDrop.encode(v, writer.uint32(10).fork()).ldelim();
         }
         if (message.pagination !== undefined) {
@@ -549,7 +549,7 @@ exports.QueryZoneDropsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.zoneDrops.push(airdrop_1.ZoneDrop.decode(reader, reader.uint32()));
+                    message.zone_drops.push(airdrop_1.ZoneDrop.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
@@ -563,37 +563,37 @@ exports.QueryZoneDropsResponse = {
     },
     fromJSON(object) {
         return {
-            zoneDrops: Array.isArray(object?.zoneDrops) ? object.zoneDrops.map((e) => airdrop_1.ZoneDrop.fromJSON(e)) : [],
+            zone_drops: Array.isArray(object?.zone_drops) ? object.zone_drops.map((e) => airdrop_1.ZoneDrop.fromJSON(e)) : [],
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageResponse.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.zoneDrops) {
-            obj.zoneDrops = message.zoneDrops.map(e => e ? airdrop_1.ZoneDrop.toJSON(e) : undefined);
+        if (message.zone_drops) {
+            obj.zone_drops = message.zone_drops.map(e => e ? airdrop_1.ZoneDrop.toJSON(e) : undefined);
         }
         else {
-            obj.zoneDrops = [];
+            obj.zone_drops = [];
         }
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageResponse.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryZoneDropsResponse();
-        message.zoneDrops = object.zoneDrops?.map(e => airdrop_1.ZoneDrop.fromPartial(e)) || [];
+        message.zone_drops = object.zone_drops?.map(e => airdrop_1.ZoneDrop.fromPartial(e)) || [];
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageResponse.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            zoneDrops: Array.isArray(object?.zone_drops) ? object.zone_drops.map((e) => airdrop_1.ZoneDrop.fromAmino(e)) : [],
+            zone_drops: Array.isArray(object?.zone_drops) ? object.zone_drops.map((e) => airdrop_1.ZoneDrop.fromAmino(e)) : [],
             pagination: object?.pagination ? pagination_1.PageResponse.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.zoneDrops) {
-            obj.zone_drops = message.zoneDrops.map(e => e ? airdrop_1.ZoneDrop.toAmino(e) : undefined);
+        if (message.zone_drops) {
+            obj.zone_drops = message.zone_drops.map(e => e ? airdrop_1.ZoneDrop.toAmino(e) : undefined);
         }
         else {
             obj.zone_drops = [];
@@ -619,15 +619,15 @@ exports.QueryZoneDropsResponse = {
 };
 function createBaseQueryClaimRecordRequest() {
     return {
-        chainId: "",
+        chain_id: "",
         address: ""
     };
 }
 exports.QueryClaimRecordRequest = {
     typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.address !== "") {
             writer.uint32(18).string(message.address);
@@ -642,7 +642,7 @@ exports.QueryClaimRecordRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.address = reader.string();
@@ -656,31 +656,31 @@ exports.QueryClaimRecordRequest = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             address: (0, helpers_1.isSet)(object.address) ? String(object.address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.address !== undefined && (obj.address = message.address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClaimRecordRequest();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.address = object.address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             address: object.address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.address = message.address;
         return obj;
     },
@@ -702,14 +702,14 @@ exports.QueryClaimRecordRequest = {
 };
 function createBaseQueryClaimRecordResponse() {
     return {
-        claimRecord: airdrop_1.ClaimRecord.fromPartial({})
+        claim_record: airdrop_1.ClaimRecord.fromPartial({})
     };
 }
 exports.QueryClaimRecordResponse = {
     typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.claimRecord !== undefined) {
-            airdrop_1.ClaimRecord.encode(message.claimRecord, writer.uint32(10).fork()).ldelim();
+        if (message.claim_record !== undefined) {
+            airdrop_1.ClaimRecord.encode(message.claim_record, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -721,7 +721,7 @@ exports.QueryClaimRecordResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.claimRecord = airdrop_1.ClaimRecord.decode(reader, reader.uint32());
+                    message.claim_record = airdrop_1.ClaimRecord.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -732,27 +732,27 @@ exports.QueryClaimRecordResponse = {
     },
     fromJSON(object) {
         return {
-            claimRecord: (0, helpers_1.isSet)(object.claimRecord) ? airdrop_1.ClaimRecord.fromJSON(object.claimRecord) : undefined
+            claim_record: (0, helpers_1.isSet)(object.claim_record) ? airdrop_1.ClaimRecord.fromJSON(object.claim_record) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.claimRecord !== undefined && (obj.claimRecord = message.claimRecord ? airdrop_1.ClaimRecord.toJSON(message.claimRecord) : undefined);
+        message.claim_record !== undefined && (obj.claim_record = message.claim_record ? airdrop_1.ClaimRecord.toJSON(message.claim_record) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClaimRecordResponse();
-        message.claimRecord = object.claimRecord !== undefined && object.claimRecord !== null ? airdrop_1.ClaimRecord.fromPartial(object.claimRecord) : undefined;
+        message.claim_record = object.claim_record !== undefined && object.claim_record !== null ? airdrop_1.ClaimRecord.fromPartial(object.claim_record) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            claimRecord: object?.claim_record ? airdrop_1.ClaimRecord.fromAmino(object.claim_record) : undefined
+            claim_record: object?.claim_record ? airdrop_1.ClaimRecord.fromAmino(object.claim_record) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.claim_record = message.claimRecord ? airdrop_1.ClaimRecord.toAmino(message.claimRecord) : undefined;
+        obj.claim_record = message.claim_record ? airdrop_1.ClaimRecord.toAmino(message.claim_record) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -773,15 +773,15 @@ exports.QueryClaimRecordResponse = {
 };
 function createBaseQueryClaimRecordsRequest() {
     return {
-        chainId: "",
+        chain_id: "",
         pagination: pagination_1.PageRequest.fromPartial({})
     };
 }
 exports.QueryClaimRecordsRequest = {
     typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -796,7 +796,7 @@ exports.QueryClaimRecordsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
@@ -810,31 +810,31 @@ exports.QueryClaimRecordsRequest = {
     },
     fromJSON(object) {
         return {
-            chainId: (0, helpers_1.isSet)(object.chainId) ? String(object.chainId) : "",
+            chain_id: (0, helpers_1.isSet)(object.chain_id) ? String(object.chain_id) : "",
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageRequest.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageRequest.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClaimRecordsRequest();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageRequest.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             pagination: object?.pagination ? pagination_1.PageRequest.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         obj.pagination = message.pagination ? pagination_1.PageRequest.toAmino(message.pagination) : undefined;
         return obj;
     },
@@ -856,14 +856,14 @@ exports.QueryClaimRecordsRequest = {
 };
 function createBaseQueryClaimRecordsResponse() {
     return {
-        claimRecords: [],
+        claim_records: [],
         pagination: pagination_1.PageResponse.fromPartial({})
     };
 }
 exports.QueryClaimRecordsResponse = {
     typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordsResponse",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.claimRecords) {
+        for (const v of message.claim_records) {
             airdrop_1.ClaimRecord.encode(v, writer.uint32(10).fork()).ldelim();
         }
         if (message.pagination !== undefined) {
@@ -879,7 +879,7 @@ exports.QueryClaimRecordsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.claimRecords.push(airdrop_1.ClaimRecord.decode(reader, reader.uint32()));
+                    message.claim_records.push(airdrop_1.ClaimRecord.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
@@ -893,37 +893,37 @@ exports.QueryClaimRecordsResponse = {
     },
     fromJSON(object) {
         return {
-            claimRecords: Array.isArray(object?.claimRecords) ? object.claimRecords.map((e) => airdrop_1.ClaimRecord.fromJSON(e)) : [],
+            claim_records: Array.isArray(object?.claim_records) ? object.claim_records.map((e) => airdrop_1.ClaimRecord.fromJSON(e)) : [],
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageResponse.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.claimRecords) {
-            obj.claimRecords = message.claimRecords.map(e => e ? airdrop_1.ClaimRecord.toJSON(e) : undefined);
+        if (message.claim_records) {
+            obj.claim_records = message.claim_records.map(e => e ? airdrop_1.ClaimRecord.toJSON(e) : undefined);
         }
         else {
-            obj.claimRecords = [];
+            obj.claim_records = [];
         }
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageResponse.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryClaimRecordsResponse();
-        message.claimRecords = object.claimRecords?.map(e => airdrop_1.ClaimRecord.fromPartial(e)) || [];
+        message.claim_records = object.claim_records?.map(e => airdrop_1.ClaimRecord.fromPartial(e)) || [];
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageResponse.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            claimRecords: Array.isArray(object?.claim_records) ? object.claim_records.map((e) => airdrop_1.ClaimRecord.fromAmino(e)) : [],
+            claim_records: Array.isArray(object?.claim_records) ? object.claim_records.map((e) => airdrop_1.ClaimRecord.fromAmino(e)) : [],
             pagination: object?.pagination ? pagination_1.PageResponse.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.claimRecords) {
-            obj.claim_records = message.claimRecords.map(e => e ? airdrop_1.ClaimRecord.toAmino(e) : undefined);
+        if (message.claim_records) {
+            obj.claim_records = message.claim_records.map(e => e ? airdrop_1.ClaimRecord.toAmino(e) : undefined);
         }
         else {
             obj.claim_records = [];

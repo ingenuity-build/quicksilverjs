@@ -20,10 +20,10 @@ export interface Http {
      * The default behavior is to not decode RFC 6570 reserved characters in multi
      * segment matches.
      */
-    fullyDecodeReservedExpansion: boolean;
+    fully_decode_reserved_expansion: boolean;
 }
 export interface HttpProtoMsg {
-    typeUrl: "/google.api.Http";
+    type_url: "/google.api.Http";
     value: Uint8Array;
 }
 /**
@@ -376,16 +376,16 @@ export interface HttpRule {
      * NOTE: The referred field must be present at the top-level of the response
      * message type.
      */
-    responseBody: string;
+    response_body: string;
     /**
      * Additional HTTP bindings for the selector. Nested bindings must
      * not contain an `additional_bindings` field themselves (that is,
      * the nesting may only be one level deep).
      */
-    additionalBindings: HttpRule[];
+    additional_bindings: HttpRule[];
 }
 export interface HttpRuleProtoMsg {
-    typeUrl: "/google.api.HttpRule";
+    type_url: "/google.api.HttpRule";
     value: Uint8Array;
 }
 /**
@@ -1006,7 +1006,7 @@ export interface CustomHttpPattern {
     path: string;
 }
 export interface CustomHttpPatternProtoMsg {
-    typeUrl: "/google.api.CustomHttpPattern";
+    type_url: "/google.api.CustomHttpPattern";
     value: Uint8Array;
 }
 /** A custom pattern is used for defining custom HTTP verb. */

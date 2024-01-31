@@ -3,7 +3,7 @@ import * as _m0 from "protobufjs/minimal";
 export interface QuerySupplyRequest {
 }
 export interface QuerySupplyRequestProtoMsg {
-    typeUrl: "/quicksilver.supply.v1.QuerySupplyRequest";
+    type_url: "/quicksilver.supply.v1.QuerySupplyRequest";
     value: Uint8Array;
 }
 export interface QuerySupplyRequestAmino {
@@ -16,10 +16,10 @@ export interface QuerySupplyRequestSDKType {
 }
 export interface QuerySupplyResponse {
     supply: Long;
-    circulatingSupply: Long;
+    circulating_supply: Long;
 }
 export interface QuerySupplyResponseProtoMsg {
-    typeUrl: "/quicksilver.supply.v1.QuerySupplyResponse";
+    type_url: "/quicksilver.supply.v1.QuerySupplyResponse";
     value: Uint8Array;
 }
 export interface QuerySupplyResponseAmino {

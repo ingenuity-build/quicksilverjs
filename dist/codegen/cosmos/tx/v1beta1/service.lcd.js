@@ -26,8 +26,8 @@ class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);
         }
-        if (typeof params?.orderBy !== "undefined") {
-            options.params.order_by = params.orderBy;
+        if (typeof params?.order_by !== "undefined") {
+            options.params.order_by = params.order_by;
         }
         const endpoint = `cosmos/tx/v1beta1/txs`;
         return await this.req.get(endpoint, options);

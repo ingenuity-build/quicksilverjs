@@ -58,27 +58,27 @@ export function authorizationTypeToJSON(object) {
 function createBaseStakeAuthorization() {
     return {
         $typeUrl: "/cosmos.staking.v1beta1.StakeAuthorization",
-        maxTokens: Coin.fromPartial({}),
-        allowList: undefined,
-        denyList: undefined,
-        authorizationType: 0
+        max_tokens: Coin.fromPartial({}),
+        allow_list: undefined,
+        deny_list: undefined,
+        authorization_type: 0
     };
 }
 export const StakeAuthorization = {
     typeUrl: "/cosmos.staking.v1beta1.StakeAuthorization",
     aminoType: "cosmos-sdk/StakeAuthorization",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.maxTokens !== undefined) {
-            Coin.encode(message.maxTokens, writer.uint32(10).fork()).ldelim();
+        if (message.max_tokens !== undefined) {
+            Coin.encode(message.max_tokens, writer.uint32(10).fork()).ldelim();
         }
-        if (message.allowList !== undefined) {
-            StakeAuthorization_Validators.encode(message.allowList, writer.uint32(18).fork()).ldelim();
+        if (message.allow_list !== undefined) {
+            StakeAuthorization_Validators.encode(message.allow_list, writer.uint32(18).fork()).ldelim();
         }
-        if (message.denyList !== undefined) {
-            StakeAuthorization_Validators.encode(message.denyList, writer.uint32(26).fork()).ldelim();
+        if (message.deny_list !== undefined) {
+            StakeAuthorization_Validators.encode(message.deny_list, writer.uint32(26).fork()).ldelim();
         }
-        if (message.authorizationType !== 0) {
-            writer.uint32(32).int32(message.authorizationType);
+        if (message.authorization_type !== 0) {
+            writer.uint32(32).int32(message.authorization_type);
         }
         return writer;
     },
@@ -90,16 +90,16 @@ export const StakeAuthorization = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.maxTokens = Coin.decode(reader, reader.uint32());
+                    message.max_tokens = Coin.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.allowList = StakeAuthorization_Validators.decode(reader, reader.uint32());
+                    message.allow_list = StakeAuthorization_Validators.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.denyList = StakeAuthorization_Validators.decode(reader, reader.uint32());
+                    message.deny_list = StakeAuthorization_Validators.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.authorizationType = reader.int32();
+                    message.authorization_type = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -110,42 +110,42 @@ export const StakeAuthorization = {
     },
     fromJSON(object) {
         return {
-            maxTokens: isSet(object.maxTokens) ? Coin.fromJSON(object.maxTokens) : undefined,
-            allowList: isSet(object.allowList) ? StakeAuthorization_Validators.fromJSON(object.allowList) : undefined,
-            denyList: isSet(object.denyList) ? StakeAuthorization_Validators.fromJSON(object.denyList) : undefined,
-            authorizationType: isSet(object.authorizationType) ? authorizationTypeFromJSON(object.authorizationType) : -1
+            max_tokens: isSet(object.max_tokens) ? Coin.fromJSON(object.max_tokens) : undefined,
+            allow_list: isSet(object.allow_list) ? StakeAuthorization_Validators.fromJSON(object.allow_list) : undefined,
+            deny_list: isSet(object.deny_list) ? StakeAuthorization_Validators.fromJSON(object.deny_list) : undefined,
+            authorization_type: isSet(object.authorization_type) ? authorizationTypeFromJSON(object.authorization_type) : -1
         };
     },
     toJSON(message) {
         const obj = {};
-        message.maxTokens !== undefined && (obj.maxTokens = message.maxTokens ? Coin.toJSON(message.maxTokens) : undefined);
-        message.allowList !== undefined && (obj.allowList = message.allowList ? StakeAuthorization_Validators.toJSON(message.allowList) : undefined);
-        message.denyList !== undefined && (obj.denyList = message.denyList ? StakeAuthorization_Validators.toJSON(message.denyList) : undefined);
-        message.authorizationType !== undefined && (obj.authorizationType = authorizationTypeToJSON(message.authorizationType));
+        message.max_tokens !== undefined && (obj.max_tokens = message.max_tokens ? Coin.toJSON(message.max_tokens) : undefined);
+        message.allow_list !== undefined && (obj.allow_list = message.allow_list ? StakeAuthorization_Validators.toJSON(message.allow_list) : undefined);
+        message.deny_list !== undefined && (obj.deny_list = message.deny_list ? StakeAuthorization_Validators.toJSON(message.deny_list) : undefined);
+        message.authorization_type !== undefined && (obj.authorization_type = authorizationTypeToJSON(message.authorization_type));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseStakeAuthorization();
-        message.maxTokens = object.maxTokens !== undefined && object.maxTokens !== null ? Coin.fromPartial(object.maxTokens) : undefined;
-        message.allowList = object.allowList !== undefined && object.allowList !== null ? StakeAuthorization_Validators.fromPartial(object.allowList) : undefined;
-        message.denyList = object.denyList !== undefined && object.denyList !== null ? StakeAuthorization_Validators.fromPartial(object.denyList) : undefined;
-        message.authorizationType = object.authorizationType ?? 0;
+        message.max_tokens = object.max_tokens !== undefined && object.max_tokens !== null ? Coin.fromPartial(object.max_tokens) : undefined;
+        message.allow_list = object.allow_list !== undefined && object.allow_list !== null ? StakeAuthorization_Validators.fromPartial(object.allow_list) : undefined;
+        message.deny_list = object.deny_list !== undefined && object.deny_list !== null ? StakeAuthorization_Validators.fromPartial(object.deny_list) : undefined;
+        message.authorization_type = object.authorization_type ?? 0;
         return message;
     },
     fromAmino(object) {
         return {
-            maxTokens: object?.max_tokens ? Coin.fromAmino(object.max_tokens) : undefined,
-            allowList: object?.allow_list ? StakeAuthorization_Validators.fromAmino(object.allow_list) : undefined,
-            denyList: object?.deny_list ? StakeAuthorization_Validators.fromAmino(object.deny_list) : undefined,
-            authorizationType: isSet(object.authorization_type) ? authorizationTypeFromJSON(object.authorization_type) : -1
+            max_tokens: object?.max_tokens ? Coin.fromAmino(object.max_tokens) : undefined,
+            allow_list: object?.allow_list ? StakeAuthorization_Validators.fromAmino(object.allow_list) : undefined,
+            deny_list: object?.deny_list ? StakeAuthorization_Validators.fromAmino(object.deny_list) : undefined,
+            authorization_type: isSet(object.authorization_type) ? authorizationTypeFromJSON(object.authorization_type) : -1
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.max_tokens = message.maxTokens ? Coin.toAmino(message.maxTokens) : undefined;
-        obj.allow_list = message.allowList ? StakeAuthorization_Validators.toAmino(message.allowList) : undefined;
-        obj.deny_list = message.denyList ? StakeAuthorization_Validators.toAmino(message.denyList) : undefined;
-        obj.authorization_type = message.authorizationType;
+        obj.max_tokens = message.max_tokens ? Coin.toAmino(message.max_tokens) : undefined;
+        obj.allow_list = message.allow_list ? StakeAuthorization_Validators.toAmino(message.allow_list) : undefined;
+        obj.deny_list = message.deny_list ? StakeAuthorization_Validators.toAmino(message.deny_list) : undefined;
+        obj.authorization_type = message.authorization_type;
         return obj;
     },
     fromAminoMsg(object) {

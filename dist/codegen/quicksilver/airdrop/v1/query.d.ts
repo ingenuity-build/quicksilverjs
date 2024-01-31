@@ -8,7 +8,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryParamsRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -27,7 +27,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryParamsResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -46,10 +46,10 @@ export interface QueryParamsResponseSDKType {
 /** QueryZoneDropRequest is the request type for Query/ZoneDrop RPC method. */
 export interface QueryZoneDropRequest {
     /** chain_id identifies the zone. */
-    chainId: string;
+    chain_id: string;
 }
 export interface QueryZoneDropRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryZoneDropRequest";
     value: Uint8Array;
 }
 /** QueryZoneDropRequest is the request type for Query/ZoneDrop RPC method. */
@@ -67,10 +67,10 @@ export interface QueryZoneDropRequestSDKType {
 }
 /** QueryZoneDropResponse is the response type for Query/ZoneDrop RPC method. */
 export interface QueryZoneDropResponse {
-    zoneDrop: ZoneDrop;
+    zone_drop: ZoneDrop;
 }
 export interface QueryZoneDropResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryZoneDropResponse";
     value: Uint8Array;
 }
 /** QueryZoneDropResponse is the response type for Query/ZoneDrop RPC method. */
@@ -91,10 +91,10 @@ export interface QueryZoneDropResponseSDKType {
  */
 export interface QueryAccountBalanceRequest {
     /** chain_id identifies the zone. */
-    chainId: string;
+    chain_id: string;
 }
 export interface QueryAccountBalanceRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryAccountBalanceRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryAccountBalanceRequest";
     value: Uint8Array;
 }
 /**
@@ -121,10 +121,10 @@ export interface QueryAccountBalanceRequestSDKType {
  * method.
  */
 export interface QueryAccountBalanceResponse {
-    accountBalance: Coin;
+    account_balance: Coin;
 }
 export interface QueryAccountBalanceResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryAccountBalanceResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryAccountBalanceResponse";
     value: Uint8Array;
 }
 /**
@@ -157,7 +157,7 @@ export interface QueryZoneDropsRequest {
     pagination: PageRequest;
 }
 export interface QueryZoneDropsRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropsRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryZoneDropsRequest";
     value: Uint8Array;
 }
 /** QueryZoneDropsRequest is the request type for Query/ZoneDrops RPC method. */
@@ -182,11 +182,11 @@ export interface QueryZoneDropsRequestSDKType {
 }
 /** QueryZoneDropResponse is the response type for Query/ZoneDrops RPC method. */
 export interface QueryZoneDropsResponse {
-    zoneDrops: ZoneDrop[];
+    zone_drops: ZoneDrop[];
     pagination: PageResponse;
 }
 export interface QueryZoneDropsResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryZoneDropsResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryZoneDropsResponse";
     value: Uint8Array;
 }
 /** QueryZoneDropResponse is the response type for Query/ZoneDrops RPC method. */
@@ -205,11 +205,11 @@ export interface QueryZoneDropsResponseSDKType {
 }
 /** QueryClaimRecordRequest is the request type for Query/ClaimRecord RPC method. */
 export interface QueryClaimRecordRequest {
-    chainId: string;
+    chain_id: string;
     address: string;
 }
 export interface QueryClaimRecordRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryClaimRecordRequest";
     value: Uint8Array;
 }
 /** QueryClaimRecordRequest is the request type for Query/ClaimRecord RPC method. */
@@ -231,10 +231,10 @@ export interface QueryClaimRecordRequestSDKType {
  * method.
  */
 export interface QueryClaimRecordResponse {
-    claimRecord: ClaimRecord;
+    claim_record: ClaimRecord;
 }
 export interface QueryClaimRecordResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryClaimRecordResponse";
     value: Uint8Array;
 }
 /**
@@ -260,11 +260,11 @@ export interface QueryClaimRecordResponseSDKType {
  * method.
  */
 export interface QueryClaimRecordsRequest {
-    chainId: string;
+    chain_id: string;
     pagination: PageRequest;
 }
 export interface QueryClaimRecordsRequestProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordsRequest";
+    type_url: "/quicksilver.airdrop.v1.QueryClaimRecordsRequest";
     value: Uint8Array;
 }
 /**
@@ -292,11 +292,11 @@ export interface QueryClaimRecordsRequestSDKType {
  * method.
  */
 export interface QueryClaimRecordsResponse {
-    claimRecords: ClaimRecord[];
+    claim_records: ClaimRecord[];
     pagination: PageResponse;
 }
 export interface QueryClaimRecordsResponseProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.QueryClaimRecordsResponse";
+    type_url: "/quicksilver.airdrop.v1.QueryClaimRecordsResponse";
     value: Uint8Array;
 }
 /**

@@ -108,15 +108,15 @@ exports.QueryDenomTraceRequest = {
 };
 function createBaseQueryDenomTraceResponse() {
     return {
-        denomTrace: transfer_1.DenomTrace.fromPartial({})
+        denom_trace: transfer_1.DenomTrace.fromPartial({})
     };
 }
 exports.QueryDenomTraceResponse = {
     typeUrl: "/ibc.applications.transfer.v1.QueryDenomTraceResponse",
     aminoType: "cosmos-sdk/QueryDenomTraceResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.denomTrace !== undefined) {
-            transfer_1.DenomTrace.encode(message.denomTrace, writer.uint32(10).fork()).ldelim();
+        if (message.denom_trace !== undefined) {
+            transfer_1.DenomTrace.encode(message.denom_trace, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
@@ -128,7 +128,7 @@ exports.QueryDenomTraceResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.denomTrace = transfer_1.DenomTrace.decode(reader, reader.uint32());
+                    message.denom_trace = transfer_1.DenomTrace.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -139,27 +139,27 @@ exports.QueryDenomTraceResponse = {
     },
     fromJSON(object) {
         return {
-            denomTrace: (0, helpers_1.isSet)(object.denomTrace) ? transfer_1.DenomTrace.fromJSON(object.denomTrace) : undefined
+            denom_trace: (0, helpers_1.isSet)(object.denom_trace) ? transfer_1.DenomTrace.fromJSON(object.denom_trace) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.denomTrace !== undefined && (obj.denomTrace = message.denomTrace ? transfer_1.DenomTrace.toJSON(message.denomTrace) : undefined);
+        message.denom_trace !== undefined && (obj.denom_trace = message.denom_trace ? transfer_1.DenomTrace.toJSON(message.denom_trace) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDenomTraceResponse();
-        message.denomTrace = object.denomTrace !== undefined && object.denomTrace !== null ? transfer_1.DenomTrace.fromPartial(object.denomTrace) : undefined;
+        message.denom_trace = object.denom_trace !== undefined && object.denom_trace !== null ? transfer_1.DenomTrace.fromPartial(object.denom_trace) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            denomTrace: object?.denom_trace ? transfer_1.DenomTrace.fromAmino(object.denom_trace) : undefined
+            denom_trace: object?.denom_trace ? transfer_1.DenomTrace.fromAmino(object.denom_trace) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.denom_trace = message.denomTrace ? transfer_1.DenomTrace.toAmino(message.denomTrace) : undefined;
+        obj.denom_trace = message.denom_trace ? transfer_1.DenomTrace.toAmino(message.denom_trace) : undefined;
         return obj;
     },
     fromAminoMsg(object) {
@@ -264,7 +264,7 @@ exports.QueryDenomTracesRequest = {
 };
 function createBaseQueryDenomTracesResponse() {
     return {
-        denomTraces: [],
+        denom_traces: [],
         pagination: pagination_1.PageResponse.fromPartial({})
     };
 }
@@ -272,7 +272,7 @@ exports.QueryDenomTracesResponse = {
     typeUrl: "/ibc.applications.transfer.v1.QueryDenomTracesResponse",
     aminoType: "cosmos-sdk/QueryDenomTracesResponse",
     encode(message, writer = _m0.Writer.create()) {
-        for (const v of message.denomTraces) {
+        for (const v of message.denom_traces) {
             transfer_1.DenomTrace.encode(v, writer.uint32(10).fork()).ldelim();
         }
         if (message.pagination !== undefined) {
@@ -288,7 +288,7 @@ exports.QueryDenomTracesResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.denomTraces.push(transfer_1.DenomTrace.decode(reader, reader.uint32()));
+                    message.denom_traces.push(transfer_1.DenomTrace.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
@@ -302,37 +302,37 @@ exports.QueryDenomTracesResponse = {
     },
     fromJSON(object) {
         return {
-            denomTraces: Array.isArray(object?.denomTraces) ? object.denomTraces.map((e) => transfer_1.DenomTrace.fromJSON(e)) : [],
+            denom_traces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromJSON(e)) : [],
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageResponse.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.denomTraces) {
-            obj.denomTraces = message.denomTraces.map(e => e ? transfer_1.DenomTrace.toJSON(e) : undefined);
+        if (message.denom_traces) {
+            obj.denom_traces = message.denom_traces.map(e => e ? transfer_1.DenomTrace.toJSON(e) : undefined);
         }
         else {
-            obj.denomTraces = [];
+            obj.denom_traces = [];
         }
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageResponse.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDenomTracesResponse();
-        message.denomTraces = object.denomTraces?.map(e => transfer_1.DenomTrace.fromPartial(e)) || [];
+        message.denom_traces = object.denom_traces?.map(e => transfer_1.DenomTrace.fromPartial(e)) || [];
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageResponse.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            denomTraces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromAmino(e)) : [],
+            denom_traces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromAmino(e)) : [],
             pagination: object?.pagination ? pagination_1.PageResponse.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.denomTraces) {
-            obj.denom_traces = message.denomTraces.map(e => e ? transfer_1.DenomTrace.toAmino(e) : undefined);
+        if (message.denom_traces) {
+            obj.denom_traces = message.denom_traces.map(e => e ? transfer_1.DenomTrace.toAmino(e) : undefined);
         }
         else {
             obj.denom_traces = [];

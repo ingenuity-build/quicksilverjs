@@ -4,7 +4,7 @@ function createBaseProof() {
     return {
         total: Long.ZERO,
         index: Long.ZERO,
-        leafHash: new Uint8Array(),
+        leaf_hash: new Uint8Array(),
         aunts: []
     };
 }
@@ -17,8 +17,8 @@ export const Proof = {
         if (!message.index.isZero()) {
             writer.uint32(16).int64(message.index);
         }
-        if (message.leafHash.length !== 0) {
-            writer.uint32(26).bytes(message.leafHash);
+        if (message.leaf_hash.length !== 0) {
+            writer.uint32(26).bytes(message.leaf_hash);
         }
         for (const v of message.aunts) {
             writer.uint32(34).bytes(v);
@@ -39,7 +39,7 @@ export const Proof = {
                     message.index = reader.int64();
                     break;
                 case 3:
-                    message.leafHash = reader.bytes();
+                    message.leaf_hash = reader.bytes();
                     break;
                 case 4:
                     message.aunts.push(reader.bytes());
@@ -55,7 +55,7 @@ export const Proof = {
         return {
             total: isSet(object.total) ? Long.fromValue(object.total) : Long.ZERO,
             index: isSet(object.index) ? Long.fromValue(object.index) : Long.ZERO,
-            leafHash: isSet(object.leafHash) ? bytesFromBase64(object.leafHash) : new Uint8Array(),
+            leaf_hash: isSet(object.leaf_hash) ? bytesFromBase64(object.leaf_hash) : new Uint8Array(),
             aunts: Array.isArray(object?.aunts) ? object.aunts.map((e) => bytesFromBase64(e)) : []
         };
     },
@@ -63,7 +63,7 @@ export const Proof = {
         const obj = {};
         message.total !== undefined && (obj.total = (message.total || Long.ZERO).toString());
         message.index !== undefined && (obj.index = (message.index || Long.ZERO).toString());
-        message.leafHash !== undefined && (obj.leafHash = base64FromBytes(message.leafHash !== undefined ? message.leafHash : new Uint8Array()));
+        message.leaf_hash !== undefined && (obj.leaf_hash = base64FromBytes(message.leaf_hash !== undefined ? message.leaf_hash : new Uint8Array()));
         if (message.aunts) {
             obj.aunts = message.aunts.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
         }
@@ -76,7 +76,7 @@ export const Proof = {
         const message = createBaseProof();
         message.total = object.total !== undefined && object.total !== null ? Long.fromValue(object.total) : Long.ZERO;
         message.index = object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.ZERO;
-        message.leafHash = object.leafHash ?? new Uint8Array();
+        message.leaf_hash = object.leaf_hash ?? new Uint8Array();
         message.aunts = object.aunts?.map(e => e) || [];
         return message;
     },
@@ -84,7 +84,7 @@ export const Proof = {
         return {
             total: Long.fromString(object.total),
             index: Long.fromString(object.index),
-            leafHash: object.leaf_hash,
+            leaf_hash: object.leaf_hash,
             aunts: Array.isArray(object?.aunts) ? object.aunts.map((e) => e) : []
         };
     },
@@ -92,7 +92,7 @@ export const Proof = {
         const obj = {};
         obj.total = message.total ? message.total.toString() : undefined;
         obj.index = message.index ? message.index.toString() : undefined;
-        obj.leaf_hash = message.leafHash;
+        obj.leaf_hash = message.leaf_hash;
         if (message.aunts) {
             obj.aunts = message.aunts.map(e => e);
         }

@@ -9,7 +9,7 @@ export interface MerkleRoot {
     hash: Uint8Array;
 }
 export interface MerkleRootProtoMsg {
-    typeUrl: "/ibc.core.commitment.v1.MerkleRoot";
+    type_url: "/ibc.core.commitment.v1.MerkleRoot";
     value: Uint8Array;
 }
 /**
@@ -36,10 +36,10 @@ export interface MerkleRootSDKType {
  * append(Path.KeyPrefix, key...))
  */
 export interface MerklePrefix {
-    keyPrefix: Uint8Array;
+    key_prefix: Uint8Array;
 }
 export interface MerklePrefixProtoMsg {
-    typeUrl: "/ibc.core.commitment.v1.MerklePrefix";
+    type_url: "/ibc.core.commitment.v1.MerklePrefix";
     value: Uint8Array;
 }
 /**
@@ -68,10 +68,10 @@ export interface MerklePrefixSDKType {
  * MerklePath is represented from root-to-leaf
  */
 export interface MerklePath {
-    keyPath: string[];
+    key_path: string[];
 }
 export interface MerklePathProtoMsg {
-    typeUrl: "/ibc.core.commitment.v1.MerklePath";
+    type_url: "/ibc.core.commitment.v1.MerklePath";
     value: Uint8Array;
 }
 /**
@@ -105,7 +105,7 @@ export interface MerkleProof {
     proofs: CommitmentProof[];
 }
 export interface MerkleProofProtoMsg {
-    typeUrl: "/ibc.core.commitment.v1.MerkleProof";
+    type_url: "/ibc.core.commitment.v1.MerkleProof";
     value: Uint8Array;
 }
 /**

@@ -471,8 +471,8 @@ export const CommitmentProof = {
 function createBaseLeafOp() {
     return {
         hash: 0,
-        prehashKey: 0,
-        prehashValue: 0,
+        prehash_key: 0,
+        prehash_value: 0,
         length: 0,
         prefix: new Uint8Array()
     };
@@ -483,11 +483,11 @@ export const LeafOp = {
         if (message.hash !== 0) {
             writer.uint32(8).int32(message.hash);
         }
-        if (message.prehashKey !== 0) {
-            writer.uint32(16).int32(message.prehashKey);
+        if (message.prehash_key !== 0) {
+            writer.uint32(16).int32(message.prehash_key);
         }
-        if (message.prehashValue !== 0) {
-            writer.uint32(24).int32(message.prehashValue);
+        if (message.prehash_value !== 0) {
+            writer.uint32(24).int32(message.prehash_value);
         }
         if (message.length !== 0) {
             writer.uint32(32).int32(message.length);
@@ -508,10 +508,10 @@ export const LeafOp = {
                     message.hash = reader.int32();
                     break;
                 case 2:
-                    message.prehashKey = reader.int32();
+                    message.prehash_key = reader.int32();
                     break;
                 case 3:
-                    message.prehashValue = reader.int32();
+                    message.prehash_value = reader.int32();
                     break;
                 case 4:
                     message.length = reader.int32();
@@ -529,8 +529,8 @@ export const LeafOp = {
     fromJSON(object) {
         return {
             hash: isSet(object.hash) ? hashOpFromJSON(object.hash) : -1,
-            prehashKey: isSet(object.prehashKey) ? hashOpFromJSON(object.prehashKey) : -1,
-            prehashValue: isSet(object.prehashValue) ? hashOpFromJSON(object.prehashValue) : -1,
+            prehash_key: isSet(object.prehash_key) ? hashOpFromJSON(object.prehash_key) : -1,
+            prehash_value: isSet(object.prehash_value) ? hashOpFromJSON(object.prehash_value) : -1,
             length: isSet(object.length) ? lengthOpFromJSON(object.length) : -1,
             prefix: isSet(object.prefix) ? bytesFromBase64(object.prefix) : new Uint8Array()
         };
@@ -538,8 +538,8 @@ export const LeafOp = {
     toJSON(message) {
         const obj = {};
         message.hash !== undefined && (obj.hash = hashOpToJSON(message.hash));
-        message.prehashKey !== undefined && (obj.prehashKey = hashOpToJSON(message.prehashKey));
-        message.prehashValue !== undefined && (obj.prehashValue = hashOpToJSON(message.prehashValue));
+        message.prehash_key !== undefined && (obj.prehash_key = hashOpToJSON(message.prehash_key));
+        message.prehash_value !== undefined && (obj.prehash_value = hashOpToJSON(message.prehash_value));
         message.length !== undefined && (obj.length = lengthOpToJSON(message.length));
         message.prefix !== undefined && (obj.prefix = base64FromBytes(message.prefix !== undefined ? message.prefix : new Uint8Array()));
         return obj;
@@ -547,8 +547,8 @@ export const LeafOp = {
     fromPartial(object) {
         const message = createBaseLeafOp();
         message.hash = object.hash ?? 0;
-        message.prehashKey = object.prehashKey ?? 0;
-        message.prehashValue = object.prehashValue ?? 0;
+        message.prehash_key = object.prehash_key ?? 0;
+        message.prehash_value = object.prehash_value ?? 0;
         message.length = object.length ?? 0;
         message.prefix = object.prefix ?? new Uint8Array();
         return message;
@@ -556,8 +556,8 @@ export const LeafOp = {
     fromAmino(object) {
         return {
             hash: isSet(object.hash) ? hashOpFromJSON(object.hash) : -1,
-            prehashKey: isSet(object.prehash_key) ? hashOpFromJSON(object.prehash_key) : -1,
-            prehashValue: isSet(object.prehash_value) ? hashOpFromJSON(object.prehash_value) : -1,
+            prehash_key: isSet(object.prehash_key) ? hashOpFromJSON(object.prehash_key) : -1,
+            prehash_value: isSet(object.prehash_value) ? hashOpFromJSON(object.prehash_value) : -1,
             length: isSet(object.length) ? lengthOpFromJSON(object.length) : -1,
             prefix: object.prefix
         };
@@ -565,8 +565,8 @@ export const LeafOp = {
     toAmino(message) {
         const obj = {};
         obj.hash = message.hash;
-        obj.prehash_key = message.prehashKey;
-        obj.prehash_value = message.prehashValue;
+        obj.prehash_key = message.prehash_key;
+        obj.prehash_value = message.prehash_value;
         obj.length = message.length;
         obj.prefix = message.prefix;
         return obj;
@@ -684,26 +684,26 @@ export const InnerOp = {
 };
 function createBaseProofSpec() {
     return {
-        leafSpec: LeafOp.fromPartial({}),
-        innerSpec: InnerSpec.fromPartial({}),
-        maxDepth: 0,
-        minDepth: 0
+        leaf_spec: LeafOp.fromPartial({}),
+        inner_spec: InnerSpec.fromPartial({}),
+        max_depth: 0,
+        min_depth: 0
     };
 }
 export const ProofSpec = {
     typeUrl: "/ics23.ProofSpec",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.leafSpec !== undefined) {
-            LeafOp.encode(message.leafSpec, writer.uint32(10).fork()).ldelim();
+        if (message.leaf_spec !== undefined) {
+            LeafOp.encode(message.leaf_spec, writer.uint32(10).fork()).ldelim();
         }
-        if (message.innerSpec !== undefined) {
-            InnerSpec.encode(message.innerSpec, writer.uint32(18).fork()).ldelim();
+        if (message.inner_spec !== undefined) {
+            InnerSpec.encode(message.inner_spec, writer.uint32(18).fork()).ldelim();
         }
-        if (message.maxDepth !== 0) {
-            writer.uint32(24).int32(message.maxDepth);
+        if (message.max_depth !== 0) {
+            writer.uint32(24).int32(message.max_depth);
         }
-        if (message.minDepth !== 0) {
-            writer.uint32(32).int32(message.minDepth);
+        if (message.min_depth !== 0) {
+            writer.uint32(32).int32(message.min_depth);
         }
         return writer;
     },
@@ -715,16 +715,16 @@ export const ProofSpec = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.leafSpec = LeafOp.decode(reader, reader.uint32());
+                    message.leaf_spec = LeafOp.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.innerSpec = InnerSpec.decode(reader, reader.uint32());
+                    message.inner_spec = InnerSpec.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.maxDepth = reader.int32();
+                    message.max_depth = reader.int32();
                     break;
                 case 4:
-                    message.minDepth = reader.int32();
+                    message.min_depth = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -735,42 +735,42 @@ export const ProofSpec = {
     },
     fromJSON(object) {
         return {
-            leafSpec: isSet(object.leafSpec) ? LeafOp.fromJSON(object.leafSpec) : undefined,
-            innerSpec: isSet(object.innerSpec) ? InnerSpec.fromJSON(object.innerSpec) : undefined,
-            maxDepth: isSet(object.maxDepth) ? Number(object.maxDepth) : 0,
-            minDepth: isSet(object.minDepth) ? Number(object.minDepth) : 0
+            leaf_spec: isSet(object.leaf_spec) ? LeafOp.fromJSON(object.leaf_spec) : undefined,
+            inner_spec: isSet(object.inner_spec) ? InnerSpec.fromJSON(object.inner_spec) : undefined,
+            max_depth: isSet(object.max_depth) ? Number(object.max_depth) : 0,
+            min_depth: isSet(object.min_depth) ? Number(object.min_depth) : 0
         };
     },
     toJSON(message) {
         const obj = {};
-        message.leafSpec !== undefined && (obj.leafSpec = message.leafSpec ? LeafOp.toJSON(message.leafSpec) : undefined);
-        message.innerSpec !== undefined && (obj.innerSpec = message.innerSpec ? InnerSpec.toJSON(message.innerSpec) : undefined);
-        message.maxDepth !== undefined && (obj.maxDepth = Math.round(message.maxDepth));
-        message.minDepth !== undefined && (obj.minDepth = Math.round(message.minDepth));
+        message.leaf_spec !== undefined && (obj.leaf_spec = message.leaf_spec ? LeafOp.toJSON(message.leaf_spec) : undefined);
+        message.inner_spec !== undefined && (obj.inner_spec = message.inner_spec ? InnerSpec.toJSON(message.inner_spec) : undefined);
+        message.max_depth !== undefined && (obj.max_depth = Math.round(message.max_depth));
+        message.min_depth !== undefined && (obj.min_depth = Math.round(message.min_depth));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseProofSpec();
-        message.leafSpec = object.leafSpec !== undefined && object.leafSpec !== null ? LeafOp.fromPartial(object.leafSpec) : undefined;
-        message.innerSpec = object.innerSpec !== undefined && object.innerSpec !== null ? InnerSpec.fromPartial(object.innerSpec) : undefined;
-        message.maxDepth = object.maxDepth ?? 0;
-        message.minDepth = object.minDepth ?? 0;
+        message.leaf_spec = object.leaf_spec !== undefined && object.leaf_spec !== null ? LeafOp.fromPartial(object.leaf_spec) : undefined;
+        message.inner_spec = object.inner_spec !== undefined && object.inner_spec !== null ? InnerSpec.fromPartial(object.inner_spec) : undefined;
+        message.max_depth = object.max_depth ?? 0;
+        message.min_depth = object.min_depth ?? 0;
         return message;
     },
     fromAmino(object) {
         return {
-            leafSpec: object?.leaf_spec ? LeafOp.fromAmino(object.leaf_spec) : undefined,
-            innerSpec: object?.inner_spec ? InnerSpec.fromAmino(object.inner_spec) : undefined,
-            maxDepth: object.max_depth,
-            minDepth: object.min_depth
+            leaf_spec: object?.leaf_spec ? LeafOp.fromAmino(object.leaf_spec) : undefined,
+            inner_spec: object?.inner_spec ? InnerSpec.fromAmino(object.inner_spec) : undefined,
+            max_depth: object.max_depth,
+            min_depth: object.min_depth
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.leaf_spec = message.leafSpec ? LeafOp.toAmino(message.leafSpec) : undefined;
-        obj.inner_spec = message.innerSpec ? InnerSpec.toAmino(message.innerSpec) : undefined;
-        obj.max_depth = message.maxDepth;
-        obj.min_depth = message.minDepth;
+        obj.leaf_spec = message.leaf_spec ? LeafOp.toAmino(message.leaf_spec) : undefined;
+        obj.inner_spec = message.inner_spec ? InnerSpec.toAmino(message.inner_spec) : undefined;
+        obj.max_depth = message.max_depth;
+        obj.min_depth = message.min_depth;
         return obj;
     },
     fromAminoMsg(object) {
@@ -791,11 +791,11 @@ export const ProofSpec = {
 };
 function createBaseInnerSpec() {
     return {
-        childOrder: [],
-        childSize: 0,
-        minPrefixLength: 0,
-        maxPrefixLength: 0,
-        emptyChild: new Uint8Array(),
+        child_order: [],
+        child_size: 0,
+        min_prefix_length: 0,
+        max_prefix_length: 0,
+        empty_child: new Uint8Array(),
         hash: 0
     };
 }
@@ -803,21 +803,21 @@ export const InnerSpec = {
     typeUrl: "/ics23.InnerSpec",
     encode(message, writer = _m0.Writer.create()) {
         writer.uint32(10).fork();
-        for (const v of message.childOrder) {
+        for (const v of message.child_order) {
             writer.int32(v);
         }
         writer.ldelim();
-        if (message.childSize !== 0) {
-            writer.uint32(16).int32(message.childSize);
+        if (message.child_size !== 0) {
+            writer.uint32(16).int32(message.child_size);
         }
-        if (message.minPrefixLength !== 0) {
-            writer.uint32(24).int32(message.minPrefixLength);
+        if (message.min_prefix_length !== 0) {
+            writer.uint32(24).int32(message.min_prefix_length);
         }
-        if (message.maxPrefixLength !== 0) {
-            writer.uint32(32).int32(message.maxPrefixLength);
+        if (message.max_prefix_length !== 0) {
+            writer.uint32(32).int32(message.max_prefix_length);
         }
-        if (message.emptyChild.length !== 0) {
-            writer.uint32(42).bytes(message.emptyChild);
+        if (message.empty_child.length !== 0) {
+            writer.uint32(42).bytes(message.empty_child);
         }
         if (message.hash !== 0) {
             writer.uint32(48).int32(message.hash);
@@ -835,24 +835,24 @@ export const InnerSpec = {
                     if ((tag & 7) === 2) {
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.childOrder.push(reader.int32());
+                            message.child_order.push(reader.int32());
                         }
                     }
                     else {
-                        message.childOrder.push(reader.int32());
+                        message.child_order.push(reader.int32());
                     }
                     break;
                 case 2:
-                    message.childSize = reader.int32();
+                    message.child_size = reader.int32();
                     break;
                 case 3:
-                    message.minPrefixLength = reader.int32();
+                    message.min_prefix_length = reader.int32();
                     break;
                 case 4:
-                    message.maxPrefixLength = reader.int32();
+                    message.max_prefix_length = reader.int32();
                     break;
                 case 5:
-                    message.emptyChild = reader.bytes();
+                    message.empty_child = reader.bytes();
                     break;
                 case 6:
                     message.hash = reader.int32();
@@ -866,61 +866,61 @@ export const InnerSpec = {
     },
     fromJSON(object) {
         return {
-            childOrder: Array.isArray(object?.childOrder) ? object.childOrder.map((e) => Number(e)) : [],
-            childSize: isSet(object.childSize) ? Number(object.childSize) : 0,
-            minPrefixLength: isSet(object.minPrefixLength) ? Number(object.minPrefixLength) : 0,
-            maxPrefixLength: isSet(object.maxPrefixLength) ? Number(object.maxPrefixLength) : 0,
-            emptyChild: isSet(object.emptyChild) ? bytesFromBase64(object.emptyChild) : new Uint8Array(),
+            child_order: Array.isArray(object?.child_order) ? object.child_order.map((e) => Number(e)) : [],
+            child_size: isSet(object.child_size) ? Number(object.child_size) : 0,
+            min_prefix_length: isSet(object.min_prefix_length) ? Number(object.min_prefix_length) : 0,
+            max_prefix_length: isSet(object.max_prefix_length) ? Number(object.max_prefix_length) : 0,
+            empty_child: isSet(object.empty_child) ? bytesFromBase64(object.empty_child) : new Uint8Array(),
             hash: isSet(object.hash) ? hashOpFromJSON(object.hash) : -1
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.childOrder) {
-            obj.childOrder = message.childOrder.map(e => Math.round(e));
+        if (message.child_order) {
+            obj.child_order = message.child_order.map(e => Math.round(e));
         }
         else {
-            obj.childOrder = [];
+            obj.child_order = [];
         }
-        message.childSize !== undefined && (obj.childSize = Math.round(message.childSize));
-        message.minPrefixLength !== undefined && (obj.minPrefixLength = Math.round(message.minPrefixLength));
-        message.maxPrefixLength !== undefined && (obj.maxPrefixLength = Math.round(message.maxPrefixLength));
-        message.emptyChild !== undefined && (obj.emptyChild = base64FromBytes(message.emptyChild !== undefined ? message.emptyChild : new Uint8Array()));
+        message.child_size !== undefined && (obj.child_size = Math.round(message.child_size));
+        message.min_prefix_length !== undefined && (obj.min_prefix_length = Math.round(message.min_prefix_length));
+        message.max_prefix_length !== undefined && (obj.max_prefix_length = Math.round(message.max_prefix_length));
+        message.empty_child !== undefined && (obj.empty_child = base64FromBytes(message.empty_child !== undefined ? message.empty_child : new Uint8Array()));
         message.hash !== undefined && (obj.hash = hashOpToJSON(message.hash));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseInnerSpec();
-        message.childOrder = object.childOrder?.map(e => e) || [];
-        message.childSize = object.childSize ?? 0;
-        message.minPrefixLength = object.minPrefixLength ?? 0;
-        message.maxPrefixLength = object.maxPrefixLength ?? 0;
-        message.emptyChild = object.emptyChild ?? new Uint8Array();
+        message.child_order = object.child_order?.map(e => e) || [];
+        message.child_size = object.child_size ?? 0;
+        message.min_prefix_length = object.min_prefix_length ?? 0;
+        message.max_prefix_length = object.max_prefix_length ?? 0;
+        message.empty_child = object.empty_child ?? new Uint8Array();
         message.hash = object.hash ?? 0;
         return message;
     },
     fromAmino(object) {
         return {
-            childOrder: Array.isArray(object?.child_order) ? object.child_order.map((e) => e) : [],
-            childSize: object.child_size,
-            minPrefixLength: object.min_prefix_length,
-            maxPrefixLength: object.max_prefix_length,
-            emptyChild: object.empty_child,
+            child_order: Array.isArray(object?.child_order) ? object.child_order.map((e) => e) : [],
+            child_size: object.child_size,
+            min_prefix_length: object.min_prefix_length,
+            max_prefix_length: object.max_prefix_length,
+            empty_child: object.empty_child,
             hash: isSet(object.hash) ? hashOpFromJSON(object.hash) : -1
         };
     },
     toAmino(message) {
         const obj = {};
-        if (message.childOrder) {
-            obj.child_order = message.childOrder.map(e => e);
+        if (message.child_order) {
+            obj.child_order = message.child_order.map(e => e);
         }
         else {
             obj.child_order = [];
         }
-        obj.child_size = message.childSize;
-        obj.min_prefix_length = message.minPrefixLength;
-        obj.max_prefix_length = message.maxPrefixLength;
-        obj.empty_child = message.emptyChild;
+        obj.child_size = message.child_size;
+        obj.min_prefix_length = message.min_prefix_length;
+        obj.max_prefix_length = message.max_prefix_length;
+        obj.empty_child = message.empty_child;
         obj.hash = message.hash;
         return obj;
     },
@@ -1107,7 +1107,7 @@ export const BatchEntry = {
 function createBaseCompressedBatchProof() {
     return {
         entries: [],
-        lookupInners: []
+        lookup_inners: []
     };
 }
 export const CompressedBatchProof = {
@@ -1116,7 +1116,7 @@ export const CompressedBatchProof = {
         for (const v of message.entries) {
             CompressedBatchEntry.encode(v, writer.uint32(10).fork()).ldelim();
         }
-        for (const v of message.lookupInners) {
+        for (const v of message.lookup_inners) {
             InnerOp.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
@@ -1132,7 +1132,7 @@ export const CompressedBatchProof = {
                     message.entries.push(CompressedBatchEntry.decode(reader, reader.uint32()));
                     break;
                 case 2:
-                    message.lookupInners.push(InnerOp.decode(reader, reader.uint32()));
+                    message.lookup_inners.push(InnerOp.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1144,7 +1144,7 @@ export const CompressedBatchProof = {
     fromJSON(object) {
         return {
             entries: Array.isArray(object?.entries) ? object.entries.map((e) => CompressedBatchEntry.fromJSON(e)) : [],
-            lookupInners: Array.isArray(object?.lookupInners) ? object.lookupInners.map((e) => InnerOp.fromJSON(e)) : []
+            lookup_inners: Array.isArray(object?.lookup_inners) ? object.lookup_inners.map((e) => InnerOp.fromJSON(e)) : []
         };
     },
     toJSON(message) {
@@ -1155,24 +1155,24 @@ export const CompressedBatchProof = {
         else {
             obj.entries = [];
         }
-        if (message.lookupInners) {
-            obj.lookupInners = message.lookupInners.map(e => e ? InnerOp.toJSON(e) : undefined);
+        if (message.lookup_inners) {
+            obj.lookup_inners = message.lookup_inners.map(e => e ? InnerOp.toJSON(e) : undefined);
         }
         else {
-            obj.lookupInners = [];
+            obj.lookup_inners = [];
         }
         return obj;
     },
     fromPartial(object) {
         const message = createBaseCompressedBatchProof();
         message.entries = object.entries?.map(e => CompressedBatchEntry.fromPartial(e)) || [];
-        message.lookupInners = object.lookupInners?.map(e => InnerOp.fromPartial(e)) || [];
+        message.lookup_inners = object.lookup_inners?.map(e => InnerOp.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
             entries: Array.isArray(object?.entries) ? object.entries.map((e) => CompressedBatchEntry.fromAmino(e)) : [],
-            lookupInners: Array.isArray(object?.lookup_inners) ? object.lookup_inners.map((e) => InnerOp.fromAmino(e)) : []
+            lookup_inners: Array.isArray(object?.lookup_inners) ? object.lookup_inners.map((e) => InnerOp.fromAmino(e)) : []
         };
     },
     toAmino(message) {
@@ -1183,8 +1183,8 @@ export const CompressedBatchProof = {
         else {
             obj.entries = [];
         }
-        if (message.lookupInners) {
-            obj.lookup_inners = message.lookupInners.map(e => e ? InnerOp.toAmino(e) : undefined);
+        if (message.lookup_inners) {
+            obj.lookup_inners = message.lookup_inners.map(e => e ? InnerOp.toAmino(e) : undefined);
         }
         else {
             obj.lookup_inners = [];

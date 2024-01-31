@@ -74,7 +74,7 @@ export interface ExistenceProof {
     path: InnerOp[];
 }
 export interface ExistenceProofProtoMsg {
-    typeUrl: "/ics23.ExistenceProof";
+    type_url: "/ics23.ExistenceProof";
     value: Uint8Array;
 }
 /**
@@ -147,7 +147,7 @@ export interface NonExistenceProof {
     right: ExistenceProof;
 }
 export interface NonExistenceProofProtoMsg {
-    typeUrl: "/ics23.NonExistenceProof";
+    type_url: "/ics23.NonExistenceProof";
     value: Uint8Array;
 }
 /**
@@ -183,7 +183,7 @@ export interface CommitmentProof {
     compressed?: CompressedBatchProof;
 }
 export interface CommitmentProofProtoMsg {
-    typeUrl: "/ics23.CommitmentProof";
+    type_url: "/ics23.CommitmentProof";
     value: Uint8Array;
 }
 /** CommitmentProof is either an ExistenceProof or a NonExistenceProof, or a Batch of such messages */
@@ -222,8 +222,8 @@ export interface CommitmentProofSDKType {
  */
 export interface LeafOp {
     hash: HashOp;
-    prehashKey: HashOp;
-    prehashValue: HashOp;
+    prehash_key: HashOp;
+    prehash_value: HashOp;
     length: LengthOp;
     /**
      * prefix is a fixed bytes that may optionally be included at the beginning to differentiate
@@ -232,7 +232,7 @@ export interface LeafOp {
     prefix: Uint8Array;
 }
 export interface LeafOpProtoMsg {
-    typeUrl: "/ics23.LeafOp";
+    type_url: "/ics23.LeafOp";
     value: Uint8Array;
 }
 /**
@@ -312,7 +312,7 @@ export interface InnerOp {
     suffix: Uint8Array;
 }
 export interface InnerOpProtoMsg {
-    typeUrl: "/ics23.InnerOp";
+    type_url: "/ics23.InnerOp";
     value: Uint8Array;
 }
 /**
@@ -380,15 +380,15 @@ export interface ProofSpec {
      * any field in the ExistenceProof must be the same as in this spec.
      * except Prefix, which is just the first bytes of prefix (spec can be longer)
      */
-    leafSpec: LeafOp;
-    innerSpec: InnerSpec;
+    leaf_spec: LeafOp;
+    inner_spec: InnerSpec;
     /** max_depth (if > 0) is the maximum number of InnerOps allowed (mainly for fixed-depth tries) */
-    maxDepth: number;
+    max_depth: number;
     /** min_depth (if > 0) is the minimum number of InnerOps allowed (mainly for fixed-depth tries) */
-    minDepth: number;
+    min_depth: number;
 }
 export interface ProofSpecProtoMsg {
-    typeUrl: "/ics23.ProofSpec";
+    type_url: "/ics23.ProofSpec";
     value: Uint8Array;
 }
 /**
@@ -453,17 +453,17 @@ export interface InnerSpec {
      * iavl tree is [0, 1] (left then right)
      * merk is [0, 2, 1] (left, right, here)
      */
-    childOrder: number[];
-    childSize: number;
-    minPrefixLength: number;
-    maxPrefixLength: number;
+    child_order: number[];
+    child_size: number;
+    min_prefix_length: number;
+    max_prefix_length: number;
     /** empty child is the prehash image that is used when one child is nil (eg. 20 bytes of 0) */
-    emptyChild: Uint8Array;
+    empty_child: Uint8Array;
     /** hash is the algorithm that must be used for each InnerOp */
     hash: HashOp;
 }
 export interface InnerSpecProtoMsg {
-    typeUrl: "/ics23.InnerSpec";
+    type_url: "/ics23.InnerSpec";
     value: Uint8Array;
 }
 /**
@@ -518,7 +518,7 @@ export interface BatchProof {
     entries: BatchEntry[];
 }
 export interface BatchProofProtoMsg {
-    typeUrl: "/ics23.BatchProof";
+    type_url: "/ics23.BatchProof";
     value: Uint8Array;
 }
 /** BatchProof is a group of multiple proof types than can be compressed */
@@ -539,7 +539,7 @@ export interface BatchEntry {
     nonexist?: NonExistenceProof;
 }
 export interface BatchEntryProtoMsg {
-    typeUrl: "/ics23.BatchEntry";
+    type_url: "/ics23.BatchEntry";
     value: Uint8Array;
 }
 /** Use BatchEntry not CommitmentProof, to avoid recursion */
@@ -558,10 +558,10 @@ export interface BatchEntrySDKType {
 }
 export interface CompressedBatchProof {
     entries: CompressedBatchEntry[];
-    lookupInners: InnerOp[];
+    lookup_inners: InnerOp[];
 }
 export interface CompressedBatchProofProtoMsg {
-    typeUrl: "/ics23.CompressedBatchProof";
+    type_url: "/ics23.CompressedBatchProof";
     value: Uint8Array;
 }
 export interface CompressedBatchProofAmino {
@@ -582,7 +582,7 @@ export interface CompressedBatchEntry {
     nonexist?: CompressedNonExistenceProof;
 }
 export interface CompressedBatchEntryProtoMsg {
-    typeUrl: "/ics23.CompressedBatchEntry";
+    type_url: "/ics23.CompressedBatchEntry";
     value: Uint8Array;
 }
 /** Use BatchEntry not CommitmentProof, to avoid recursion */
@@ -607,7 +607,7 @@ export interface CompressedExistenceProof {
     path: number[];
 }
 export interface CompressedExistenceProofProtoMsg {
-    typeUrl: "/ics23.CompressedExistenceProof";
+    type_url: "/ics23.CompressedExistenceProof";
     value: Uint8Array;
 }
 export interface CompressedExistenceProofAmino {
@@ -634,7 +634,7 @@ export interface CompressedNonExistenceProof {
     right: CompressedExistenceProof;
 }
 export interface CompressedNonExistenceProofProtoMsg {
-    typeUrl: "/ics23.CompressedNonExistenceProof";
+    type_url: "/ics23.CompressedNonExistenceProof";
     value: Uint8Array;
 }
 export interface CompressedNonExistenceProofAmino {

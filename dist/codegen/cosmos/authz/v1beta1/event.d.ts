@@ -3,14 +3,14 @@ import { DeepPartial } from "../../../helpers";
 /** EventGrant is emitted on Msg/Grant */
 export interface EventGrant {
     /** Msg type URL for which an autorization is granted */
-    msgTypeUrl: string;
+    msg_type_url: string;
     /** Granter account address */
     granter: string;
     /** Grantee account address */
     grantee: string;
 }
 export interface EventGrantProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.EventGrant";
+    type_url: "/cosmos.authz.v1beta1.EventGrant";
     value: Uint8Array;
 }
 /** EventGrant is emitted on Msg/Grant */
@@ -35,14 +35,14 @@ export interface EventGrantSDKType {
 /** EventRevoke is emitted on Msg/Revoke */
 export interface EventRevoke {
     /** Msg type URL for which an autorization is revoked */
-    msgTypeUrl: string;
+    msg_type_url: string;
     /** Granter account address */
     granter: string;
     /** Grantee account address */
     grantee: string;
 }
 export interface EventRevokeProtoMsg {
-    typeUrl: "/cosmos.authz.v1beta1.EventRevoke";
+    type_url: "/cosmos.authz.v1beta1.EventRevoke";
     value: Uint8Array;
 }
 /** EventRevoke is emitted on Msg/Revoke */

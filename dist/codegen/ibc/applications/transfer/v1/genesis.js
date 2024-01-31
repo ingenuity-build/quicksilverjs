@@ -29,8 +29,8 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 const helpers_1 = require("../../../../helpers");
 function createBaseGenesisState() {
     return {
-        portId: "",
-        denomTraces: [],
+        port_id: "",
+        denom_traces: [],
         params: transfer_1.Params.fromPartial({})
     };
 }
@@ -38,10 +38,10 @@ exports.GenesisState = {
     typeUrl: "/ibc.applications.transfer.v1.GenesisState",
     aminoType: "cosmos-sdk/GenesisState",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.portId !== "") {
-            writer.uint32(10).string(message.portId);
+        if (message.port_id !== "") {
+            writer.uint32(10).string(message.port_id);
         }
-        for (const v of message.denomTraces) {
+        for (const v of message.denom_traces) {
             transfer_1.DenomTrace.encode(v, writer.uint32(18).fork()).ldelim();
         }
         if (message.params !== undefined) {
@@ -57,10 +57,10 @@ exports.GenesisState = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.portId = reader.string();
+                    message.port_id = reader.string();
                     break;
                 case 2:
-                    message.denomTraces.push(transfer_1.DenomTrace.decode(reader, reader.uint32()));
+                    message.denom_traces.push(transfer_1.DenomTrace.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.params = transfer_1.Params.decode(reader, reader.uint32());
@@ -74,42 +74,42 @@ exports.GenesisState = {
     },
     fromJSON(object) {
         return {
-            portId: (0, helpers_1.isSet)(object.portId) ? String(object.portId) : "",
-            denomTraces: Array.isArray(object?.denomTraces) ? object.denomTraces.map((e) => transfer_1.DenomTrace.fromJSON(e)) : [],
+            port_id: (0, helpers_1.isSet)(object.port_id) ? String(object.port_id) : "",
+            denom_traces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromJSON(e)) : [],
             params: (0, helpers_1.isSet)(object.params) ? transfer_1.Params.fromJSON(object.params) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.portId !== undefined && (obj.portId = message.portId);
-        if (message.denomTraces) {
-            obj.denomTraces = message.denomTraces.map(e => e ? transfer_1.DenomTrace.toJSON(e) : undefined);
+        message.port_id !== undefined && (obj.port_id = message.port_id);
+        if (message.denom_traces) {
+            obj.denom_traces = message.denom_traces.map(e => e ? transfer_1.DenomTrace.toJSON(e) : undefined);
         }
         else {
-            obj.denomTraces = [];
+            obj.denom_traces = [];
         }
         message.params !== undefined && (obj.params = message.params ? transfer_1.Params.toJSON(message.params) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseGenesisState();
-        message.portId = object.portId ?? "";
-        message.denomTraces = object.denomTraces?.map(e => transfer_1.DenomTrace.fromPartial(e)) || [];
+        message.port_id = object.port_id ?? "";
+        message.denom_traces = object.denom_traces?.map(e => transfer_1.DenomTrace.fromPartial(e)) || [];
         message.params = object.params !== undefined && object.params !== null ? transfer_1.Params.fromPartial(object.params) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            portId: object.port_id,
-            denomTraces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromAmino(e)) : [],
+            port_id: object.port_id,
+            denom_traces: Array.isArray(object?.denom_traces) ? object.denom_traces.map((e) => transfer_1.DenomTrace.fromAmino(e)) : [],
             params: object?.params ? transfer_1.Params.fromAmino(object.params) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.port_id = message.portId;
-        if (message.denomTraces) {
-            obj.denom_traces = message.denomTraces.map(e => e ? transfer_1.DenomTrace.toAmino(e) : undefined);
+        obj.port_id = message.port_id;
+        if (message.denom_traces) {
+            obj.denom_traces = message.denom_traces.map(e => e ? transfer_1.DenomTrace.toAmino(e) : undefined);
         }
         else {
             obj.denom_traces = [];

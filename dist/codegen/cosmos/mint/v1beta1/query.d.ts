@@ -5,7 +5,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryParamsRequest";
+    type_url: "/cosmos.mint.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -24,7 +24,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryParamsResponse";
+    type_url: "/cosmos.mint.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -44,7 +44,7 @@ export interface QueryParamsResponseSDKType {
 export interface QueryInflationRequest {
 }
 export interface QueryInflationRequestProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryInflationRequest";
+    type_url: "/cosmos.mint.v1beta1.QueryInflationRequest";
     value: Uint8Array;
 }
 /** QueryInflationRequest is the request type for the Query/Inflation RPC method. */
@@ -66,7 +66,7 @@ export interface QueryInflationResponse {
     inflation: Uint8Array;
 }
 export interface QueryInflationResponseProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryInflationResponse";
+    type_url: "/cosmos.mint.v1beta1.QueryInflationResponse";
     value: Uint8Array;
 }
 /**
@@ -95,7 +95,7 @@ export interface QueryInflationResponseSDKType {
 export interface QueryAnnualProvisionsRequest {
 }
 export interface QueryAnnualProvisionsRequestProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryAnnualProvisionsRequest";
+    type_url: "/cosmos.mint.v1beta1.QueryAnnualProvisionsRequest";
     value: Uint8Array;
 }
 /**
@@ -120,10 +120,10 @@ export interface QueryAnnualProvisionsRequestSDKType {
  */
 export interface QueryAnnualProvisionsResponse {
     /** annual_provisions is the current minting annual provisions value. */
-    annualProvisions: Uint8Array;
+    annual_provisions: Uint8Array;
 }
 export interface QueryAnnualProvisionsResponseProtoMsg {
-    typeUrl: "/cosmos.mint.v1beta1.QueryAnnualProvisionsResponse";
+    type_url: "/cosmos.mint.v1beta1.QueryAnnualProvisionsResponse";
     value: Uint8Array;
 }
 /**

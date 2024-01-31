@@ -21,15 +21,15 @@ export interface TxResponse {
      * The output of the application's logger (raw string). May be
      * non-deterministic.
      */
-    rawLog: string;
+    raw_log: string;
     /** The output of the application's logger (typed). May be non-deterministic. */
     logs: ABCIMessageLog[];
     /** Additional information. May be non-deterministic. */
     info: string;
     /** Amount of gas requested for transaction. */
-    gasWanted: Long;
+    gas_wanted: Long;
     /** Amount of gas consumed by transaction. */
-    gasUsed: Long;
+    gas_used: Long;
     /** The request transaction bytes. */
     tx: Any;
     /**
@@ -49,7 +49,7 @@ export interface TxResponse {
     events: Event[];
 }
 export interface TxResponseProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.TxResponse";
+    type_url: "/cosmos.base.abci.v1beta1.TxResponse";
     value: Uint8Array;
 }
 /**
@@ -123,7 +123,7 @@ export interface TxResponseSDKType {
 }
 /** ABCIMessageLog defines a structure containing an indexed tx ABCI message log. */
 export interface ABCIMessageLog {
-    msgIndex: number;
+    msg_index: number;
     log: string;
     /**
      * Events contains a slice of Event objects that were emitted during some
@@ -132,7 +132,7 @@ export interface ABCIMessageLog {
     events: StringEvent[];
 }
 export interface ABCIMessageLogProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.ABCIMessageLog";
+    type_url: "/cosmos.base.abci.v1beta1.ABCIMessageLog";
     value: Uint8Array;
 }
 /** ABCIMessageLog defines a structure containing an indexed tx ABCI message log. */
@@ -164,7 +164,7 @@ export interface StringEvent {
     attributes: Attribute[];
 }
 export interface StringEventProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.StringEvent";
+    type_url: "/cosmos.base.abci.v1beta1.StringEvent";
     value: Uint8Array;
 }
 /**
@@ -196,7 +196,7 @@ export interface Attribute {
     value: string;
 }
 export interface AttributeProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.Attribute";
+    type_url: "/cosmos.base.abci.v1beta1.Attribute";
     value: Uint8Array;
 }
 /**
@@ -222,12 +222,12 @@ export interface AttributeSDKType {
 /** GasInfo defines tx execution gas context. */
 export interface GasInfo {
     /** GasWanted is the maximum units of work we allow this tx to perform. */
-    gasWanted: Long;
+    gas_wanted: Long;
     /** GasUsed is the amount of gas actually consumed. */
-    gasUsed: Long;
+    gas_used: Long;
 }
 export interface GasInfoProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.GasInfo";
+    type_url: "/cosmos.base.abci.v1beta1.GasInfo";
     value: Uint8Array;
 }
 /** GasInfo defines tx execution gas context. */
@@ -268,10 +268,10 @@ export interface Result {
      *
      * Since: cosmos-sdk 0.46
      */
-    msgResponses: Any[];
+    msg_responses: Any[];
 }
 export interface ResultProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.Result";
+    type_url: "/cosmos.base.abci.v1beta1.Result";
     value: Uint8Array;
 }
 /** Result is the union of ResponseFormat and ResponseCheckTx. */
@@ -315,11 +315,11 @@ export interface ResultSDKType {
  * successfully simulated.
  */
 export interface SimulationResponse {
-    gasInfo: GasInfo;
+    gas_info: GasInfo;
     result: Result;
 }
 export interface SimulationResponseProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.SimulationResponse";
+    type_url: "/cosmos.base.abci.v1beta1.SimulationResponse";
     value: Uint8Array;
 }
 /**
@@ -348,11 +348,11 @@ export interface SimulationResponseSDKType {
  */
 /** @deprecated */
 export interface MsgData {
-    msgType: string;
+    msg_type: string;
     data: Uint8Array;
 }
 export interface MsgDataProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.MsgData";
+    type_url: "/cosmos.base.abci.v1beta1.MsgData";
     value: Uint8Array;
 }
 /**
@@ -390,10 +390,10 @@ export interface TxMsgData {
      *
      * Since: cosmos-sdk 0.46
      */
-    msgResponses: Any[];
+    msg_responses: Any[];
 }
 export interface TxMsgDataProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.TxMsgData";
+    type_url: "/cosmos.base.abci.v1beta1.TxMsgData";
     value: Uint8Array;
 }
 /**
@@ -427,20 +427,20 @@ export interface TxMsgDataSDKType {
 /** SearchTxsResult defines a structure for querying txs pageable */
 export interface SearchTxsResult {
     /** Count of all txs */
-    totalCount: Long;
+    total_count: Long;
     /** Count of txs in current page */
     count: Long;
     /** Index of current page, start from 1 */
-    pageNumber: Long;
+    page_number: Long;
     /** Count of total pages */
-    pageTotal: Long;
+    page_total: Long;
     /** Max count txs per page */
     limit: Long;
     /** List of txs in current page */
     txs: TxResponse[];
 }
 export interface SearchTxsResultProtoMsg {
-    typeUrl: "/cosmos.base.abci.v1beta1.SearchTxsResult";
+    type_url: "/cosmos.base.abci.v1beta1.SearchTxsResult";
     value: Uint8Array;
 }
 /** SearchTxsResult defines a structure for querying txs pageable */

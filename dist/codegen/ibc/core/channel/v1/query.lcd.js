@@ -22,7 +22,7 @@ class LCDQueryClient {
     }
     /* Channel queries an IBC Channel. */
     async channel(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}`;
         return await this.req.get(endpoint);
     }
     /* Channels queries all the IBC channels of a chain. */
@@ -53,18 +53,18 @@ class LCDQueryClient {
     /* ChannelClientState queries for the client state for the channel associated
      with the provided channel identifiers. */
     async channelClientState(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/client_state`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/client_state`;
         return await this.req.get(endpoint);
     }
     /* ChannelConsensusState queries for the consensus state for the channel
      associated with the provided channel identifiers. */
     async channelConsensusState(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/consensus_state/revision/${params.revisionNumber}/height/${params.revisionHeight}`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/consensus_state/revision/${params.revision_number}/height/${params.revision_height}`;
         return await this.req.get(endpoint);
     }
     /* PacketCommitment queries a stored packet commitment hash. */
     async packetCommitment(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_commitments/${params.sequence}`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_commitments/${params.sequence}`;
         return await this.req.get(endpoint);
     }
     /* PacketCommitments returns all the packet commitments hashes associated
@@ -76,18 +76,18 @@ class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);
         }
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_commitments`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_commitments`;
         return await this.req.get(endpoint, options);
     }
     /* PacketReceipt queries if a given packet sequence has been received on the
      queried chain */
     async packetReceipt(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_receipts/${params.sequence}`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_receipts/${params.sequence}`;
         return await this.req.get(endpoint);
     }
     /* PacketAcknowledgement queries a stored packet acknowledgement hash. */
     async packetAcknowledgement(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_acks/${params.sequence}`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_acks/${params.sequence}`;
         return await this.req.get(endpoint);
     }
     /* PacketAcknowledgements returns all the packet acknowledgements associated
@@ -99,27 +99,27 @@ class LCDQueryClient {
         if (typeof params?.pagination !== "undefined") {
             (0, helpers_1.setPaginationParams)(options, params.pagination);
         }
-        if (typeof params?.packetCommitmentSequences !== "undefined") {
-            options.params.packet_commitment_sequences = params.packetCommitmentSequences;
+        if (typeof params?.packet_commitment_sequences !== "undefined") {
+            options.params.packet_commitment_sequences = params.packet_commitment_sequences;
         }
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_acknowledgements`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_acknowledgements`;
         return await this.req.get(endpoint, options);
     }
     /* UnreceivedPackets returns all the unreceived IBC packets associated with a
      channel and sequences. */
     async unreceivedPackets(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_commitments/${params.packetCommitmentSequences}/unreceived_packets`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_commitments/${params.packet_commitment_sequences}/unreceived_packets`;
         return await this.req.get(endpoint);
     }
     /* UnreceivedAcks returns all the unreceived IBC acknowledgements associated
      with a channel and sequences. */
     async unreceivedAcks(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_commitments/${params.packetAckSequences}/unreceived_acks`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/packet_commitments/${params.packet_ack_sequences}/unreceived_acks`;
         return await this.req.get(endpoint);
     }
     /* NextSequenceReceive returns the next receive sequence for a given channel. */
     async nextSequenceReceive(params) {
-        const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/next_sequence`;
+        const endpoint = `ibc/core/channel/v1/channels/${params.channel_id}/ports/${params.port_id}/next_sequence`;
         return await this.req.get(endpoint);
     }
 }

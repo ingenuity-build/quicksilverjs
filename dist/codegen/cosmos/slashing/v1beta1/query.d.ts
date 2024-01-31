@@ -6,7 +6,7 @@ import { DeepPartial } from "../../../helpers";
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QueryParamsRequest";
+    type_url: "/cosmos.slashing.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
@@ -24,7 +24,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QueryParamsResponse";
+    type_url: "/cosmos.slashing.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -45,10 +45,10 @@ export interface QueryParamsResponseSDKType {
  */
 export interface QuerySigningInfoRequest {
     /** cons_address is the address to query signing info of */
-    consAddress: string;
+    cons_address: string;
 }
 export interface QuerySigningInfoRequestProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfoRequest";
+    type_url: "/cosmos.slashing.v1beta1.QuerySigningInfoRequest";
     value: Uint8Array;
 }
 /**
@@ -76,10 +76,10 @@ export interface QuerySigningInfoRequestSDKType {
  */
 export interface QuerySigningInfoResponse {
     /** val_signing_info is the signing info of requested val cons address */
-    valSigningInfo: ValidatorSigningInfo;
+    val_signing_info: ValidatorSigningInfo;
 }
 export interface QuerySigningInfoResponseProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfoResponse";
+    type_url: "/cosmos.slashing.v1beta1.QuerySigningInfoResponse";
     value: Uint8Array;
 }
 /**
@@ -109,7 +109,7 @@ export interface QuerySigningInfosRequest {
     pagination: PageRequest;
 }
 export interface QuerySigningInfosRequestProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfosRequest";
+    type_url: "/cosmos.slashing.v1beta1.QuerySigningInfosRequest";
     value: Uint8Array;
 }
 /**
@@ -140,7 +140,7 @@ export interface QuerySigningInfosResponse {
     pagination: PageResponse;
 }
 export interface QuerySigningInfosResponseProtoMsg {
-    typeUrl: "/cosmos.slashing.v1beta1.QuerySigningInfosResponse";
+    type_url: "/cosmos.slashing.v1beta1.QuerySigningInfosResponse";
     value: Uint8Array;
 }
 /**

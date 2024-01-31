@@ -6,17 +6,17 @@ export interface GenesisState {
     /** client states with their corresponding identifiers */
     clients: IdentifiedClientState[];
     /** consensus states from each client */
-    clientsConsensus: ClientConsensusStates[];
+    clients_consensus: ClientConsensusStates[];
     /** metadata from each client */
-    clientsMetadata: IdentifiedGenesisMetadata[];
+    clients_metadata: IdentifiedGenesisMetadata[];
     params: Params;
     /** create localhost on initialization */
-    createLocalhost: boolean;
+    create_localhost: boolean;
     /** the sequence for the next generated client identifier */
-    nextClientSequence: Long;
+    next_client_sequence: Long;
 }
 export interface GenesisStateProtoMsg {
-    typeUrl: "/ibc.core.client.v1.GenesisState";
+    type_url: "/ibc.core.client.v1.GenesisState";
     value: Uint8Array;
 }
 /** GenesisState defines the ibc client submodule's genesis state. */
@@ -57,7 +57,7 @@ export interface GenesisMetadata {
     value: Uint8Array;
 }
 export interface GenesisMetadataProtoMsg {
-    typeUrl: "/ibc.core.client.v1.GenesisMetadata";
+    type_url: "/ibc.core.client.v1.GenesisMetadata";
     value: Uint8Array;
 }
 /**
@@ -87,11 +87,11 @@ export interface GenesisMetadataSDKType {
  * client id.
  */
 export interface IdentifiedGenesisMetadata {
-    clientId: string;
-    clientMetadata: GenesisMetadata[];
+    client_id: string;
+    client_metadata: GenesisMetadata[];
 }
 export interface IdentifiedGenesisMetadataProtoMsg {
-    typeUrl: "/ibc.core.client.v1.IdentifiedGenesisMetadata";
+    type_url: "/ibc.core.client.v1.IdentifiedGenesisMetadata";
     value: Uint8Array;
 }
 /**

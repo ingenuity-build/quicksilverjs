@@ -186,14 +186,14 @@ export const QueryEpochProvisionsRequest = {
 };
 function createBaseQueryEpochProvisionsResponse() {
     return {
-        epochProvisions: new Uint8Array()
+        epoch_provisions: new Uint8Array()
     };
 }
 export const QueryEpochProvisionsResponse = {
     typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.epochProvisions.length !== 0) {
-            writer.uint32(10).bytes(message.epochProvisions);
+        if (message.epoch_provisions.length !== 0) {
+            writer.uint32(10).bytes(message.epoch_provisions);
         }
         return writer;
     },
@@ -205,7 +205,7 @@ export const QueryEpochProvisionsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.epochProvisions = reader.bytes();
+                    message.epoch_provisions = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -216,27 +216,27 @@ export const QueryEpochProvisionsResponse = {
     },
     fromJSON(object) {
         return {
-            epochProvisions: isSet(object.epochProvisions) ? bytesFromBase64(object.epochProvisions) : new Uint8Array()
+            epoch_provisions: isSet(object.epoch_provisions) ? bytesFromBase64(object.epoch_provisions) : new Uint8Array()
         };
     },
     toJSON(message) {
         const obj = {};
-        message.epochProvisions !== undefined && (obj.epochProvisions = base64FromBytes(message.epochProvisions !== undefined ? message.epochProvisions : new Uint8Array()));
+        message.epoch_provisions !== undefined && (obj.epoch_provisions = base64FromBytes(message.epoch_provisions !== undefined ? message.epoch_provisions : new Uint8Array()));
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryEpochProvisionsResponse();
-        message.epochProvisions = object.epochProvisions ?? new Uint8Array();
+        message.epoch_provisions = object.epoch_provisions ?? new Uint8Array();
         return message;
     },
     fromAmino(object) {
         return {
-            epochProvisions: object.epoch_provisions
+            epoch_provisions: object.epoch_provisions
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.epoch_provisions = message.epochProvisions;
+        obj.epoch_provisions = message.epoch_provisions;
         return obj;
     },
     fromAminoMsg(object) {

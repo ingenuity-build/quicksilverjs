@@ -3,11 +3,11 @@ import { Validator, ValidatorAmino, ValidatorSDKType } from "./validator";
 import { Long, DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Evidence {
-    duplicateVoteEvidence?: DuplicateVoteEvidence;
-    lightClientAttackEvidence?: LightClientAttackEvidence;
+    duplicate_vote_evidence?: DuplicateVoteEvidence;
+    light_client_attack_evidence?: LightClientAttackEvidence;
 }
 export interface EvidenceProtoMsg {
-    typeUrl: "/tendermint.types.Evidence";
+    type_url: "/tendermint.types.Evidence";
     value: Uint8Array;
 }
 export interface EvidenceAmino {
@@ -24,14 +24,14 @@ export interface EvidenceSDKType {
 }
 /** DuplicateVoteEvidence contains evidence of a validator signed two conflicting votes. */
 export interface DuplicateVoteEvidence {
-    voteA: Vote;
-    voteB: Vote;
-    totalVotingPower: Long;
-    validatorPower: Long;
+    vote_a: Vote;
+    vote_b: Vote;
+    total_voting_power: Long;
+    validator_power: Long;
     timestamp: Date;
 }
 export interface DuplicateVoteEvidenceProtoMsg {
-    typeUrl: "/tendermint.types.DuplicateVoteEvidence";
+    type_url: "/tendermint.types.DuplicateVoteEvidence";
     value: Uint8Array;
 }
 /** DuplicateVoteEvidence contains evidence of a validator signed two conflicting votes. */
@@ -56,14 +56,14 @@ export interface DuplicateVoteEvidenceSDKType {
 }
 /** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
 export interface LightClientAttackEvidence {
-    conflictingBlock: LightBlock;
-    commonHeight: Long;
-    byzantineValidators: Validator[];
-    totalVotingPower: Long;
+    conflicting_block: LightBlock;
+    common_height: Long;
+    byzantine_validators: Validator[];
+    total_voting_power: Long;
     timestamp: Date;
 }
 export interface LightClientAttackEvidenceProtoMsg {
-    typeUrl: "/tendermint.types.LightClientAttackEvidence";
+    type_url: "/tendermint.types.LightClientAttackEvidence";
     value: Uint8Array;
 }
 /** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
@@ -90,7 +90,7 @@ export interface EvidenceList {
     evidence: Evidence[];
 }
 export interface EvidenceListProtoMsg {
-    typeUrl: "/tendermint.types.EvidenceList";
+    type_url: "/tendermint.types.EvidenceList";
     value: Uint8Array;
 }
 export interface EvidenceListAmino {

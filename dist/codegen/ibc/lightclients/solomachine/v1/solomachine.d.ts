@@ -42,16 +42,16 @@ export interface ClientState {
     /** latest sequence of the client state */
     sequence: Long;
     /** frozen sequence of the solo machine */
-    frozenSequence: Long;
-    consensusState: ConsensusState;
+    frozen_sequence: Long;
+    consensus_state: ConsensusState;
     /**
      * when set to true, will allow governance to update a solo machine client.
      * The client will be unfrozen if it is frozen.
      */
-    allowUpdateAfterProposal: boolean;
+    allow_update_after_proposal: boolean;
 }
 export interface ClientStateProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ClientState";
+    type_url: "/ibc.lightclients.solomachine.v1.ClientState";
     value: Uint8Array;
 }
 /**
@@ -91,7 +91,7 @@ export interface ClientStateSDKType {
  */
 export interface ConsensusState {
     /** public key of the solo machine */
-    publicKey: Any;
+    public_key: Any;
     /**
      * diversifier allows the same public key to be re-used across different solo
      * machine clients (potentially on different chains) without being considered
@@ -101,7 +101,7 @@ export interface ConsensusState {
     timestamp: Long;
 }
 export interface ConsensusStateProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ConsensusState";
+    type_url: "/ibc.lightclients.solomachine.v1.ConsensusState";
     value: Uint8Array;
 }
 /**
@@ -140,11 +140,11 @@ export interface Header {
     sequence: Long;
     timestamp: Long;
     signature: Uint8Array;
-    newPublicKey: Any;
-    newDiversifier: string;
+    new_public_key: Any;
+    new_diversifier: string;
 }
 export interface HeaderProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.Header";
+    type_url: "/ibc.lightclients.solomachine.v1.Header";
     value: Uint8Array;
 }
 /** Header defines a solo machine consensus header */
@@ -173,13 +173,13 @@ export interface HeaderSDKType {
  * of a sequence and two signatures over different messages at that sequence.
  */
 export interface Misbehaviour {
-    clientId: string;
+    client_id: string;
     sequence: Long;
-    signatureOne: SignatureAndData;
-    signatureTwo: SignatureAndData;
+    signature_one: SignatureAndData;
+    signature_two: SignatureAndData;
 }
 export interface MisbehaviourProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.Misbehaviour";
+    type_url: "/ibc.lightclients.solomachine.v1.Misbehaviour";
     value: Uint8Array;
 }
 /**
@@ -212,12 +212,12 @@ export interface MisbehaviourSDKType {
  */
 export interface SignatureAndData {
     signature: Uint8Array;
-    dataType: DataType;
+    data_type: DataType;
     data: Uint8Array;
     timestamp: Long;
 }
 export interface SignatureAndDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.SignatureAndData";
+    type_url: "/ibc.lightclients.solomachine.v1.SignatureAndData";
     value: Uint8Array;
 }
 /**
@@ -249,11 +249,11 @@ export interface SignatureAndDataSDKType {
  * signature.
  */
 export interface TimestampedSignatureData {
-    signatureData: Uint8Array;
+    signature_data: Uint8Array;
     timestamp: Long;
 }
 export interface TimestampedSignatureDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.TimestampedSignatureData";
+    type_url: "/ibc.lightclients.solomachine.v1.TimestampedSignatureData";
     value: Uint8Array;
 }
 /**
@@ -282,12 +282,12 @@ export interface SignBytes {
     timestamp: Long;
     diversifier: string;
     /** type of the data used */
-    dataType: DataType;
+    data_type: DataType;
     /** marshaled data */
     data: Uint8Array;
 }
 export interface SignBytesProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.SignBytes";
+    type_url: "/ibc.lightclients.solomachine.v1.SignBytes";
     value: Uint8Array;
 }
 /** SignBytes defines the signed bytes used for signature verification. */
@@ -315,12 +315,12 @@ export interface SignBytesSDKType {
 /** HeaderData returns the SignBytes data for update verification. */
 export interface HeaderData {
     /** header public key */
-    newPubKey: Any;
+    new_pub_key: Any;
     /** header diversifier */
-    newDiversifier: string;
+    new_diversifier: string;
 }
 export interface HeaderDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.HeaderData";
+    type_url: "/ibc.lightclients.solomachine.v1.HeaderData";
     value: Uint8Array;
 }
 /** HeaderData returns the SignBytes data for update verification. */
@@ -342,10 +342,10 @@ export interface HeaderDataSDKType {
 /** ClientStateData returns the SignBytes data for client state verification. */
 export interface ClientStateData {
     path: Uint8Array;
-    clientState: Any;
+    client_state: Any;
 }
 export interface ClientStateDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ClientStateData";
+    type_url: "/ibc.lightclients.solomachine.v1.ClientStateData";
     value: Uint8Array;
 }
 /** ClientStateData returns the SignBytes data for client state verification. */
@@ -368,10 +368,10 @@ export interface ClientStateDataSDKType {
  */
 export interface ConsensusStateData {
     path: Uint8Array;
-    consensusState: Any;
+    consensus_state: Any;
 }
 export interface ConsensusStateDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ConsensusStateData";
+    type_url: "/ibc.lightclients.solomachine.v1.ConsensusStateData";
     value: Uint8Array;
 }
 /**
@@ -403,7 +403,7 @@ export interface ConnectionStateData {
     connection: ConnectionEnd;
 }
 export interface ConnectionStateDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ConnectionStateData";
+    type_url: "/ibc.lightclients.solomachine.v1.ConnectionStateData";
     value: Uint8Array;
 }
 /**
@@ -435,7 +435,7 @@ export interface ChannelStateData {
     channel: Channel;
 }
 export interface ChannelStateDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.ChannelStateData";
+    type_url: "/ibc.lightclients.solomachine.v1.ChannelStateData";
     value: Uint8Array;
 }
 /**
@@ -467,7 +467,7 @@ export interface PacketCommitmentData {
     commitment: Uint8Array;
 }
 export interface PacketCommitmentDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.PacketCommitmentData";
+    type_url: "/ibc.lightclients.solomachine.v1.PacketCommitmentData";
     value: Uint8Array;
 }
 /**
@@ -499,7 +499,7 @@ export interface PacketAcknowledgementData {
     acknowledgement: Uint8Array;
 }
 export interface PacketAcknowledgementDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.PacketAcknowledgementData";
+    type_url: "/ibc.lightclients.solomachine.v1.PacketAcknowledgementData";
     value: Uint8Array;
 }
 /**
@@ -530,7 +530,7 @@ export interface PacketReceiptAbsenceData {
     path: Uint8Array;
 }
 export interface PacketReceiptAbsenceDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.PacketReceiptAbsenceData";
+    type_url: "/ibc.lightclients.solomachine.v1.PacketReceiptAbsenceData";
     value: Uint8Array;
 }
 /**
@@ -557,10 +557,10 @@ export interface PacketReceiptAbsenceDataSDKType {
  */
 export interface NextSequenceRecvData {
     path: Uint8Array;
-    nextSeqRecv: Long;
+    next_seq_recv: Long;
 }
 export interface NextSequenceRecvDataProtoMsg {
-    typeUrl: "/ibc.lightclients.solomachine.v1.NextSequenceRecvData";
+    type_url: "/ibc.lightclients.solomachine.v1.NextSequenceRecvData";
     value: Uint8Array;
 }
 /**

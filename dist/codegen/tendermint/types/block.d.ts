@@ -6,10 +6,10 @@ export interface Block {
     header: Header;
     data: Data;
     evidence: EvidenceList;
-    lastCommit: Commit;
+    last_commit: Commit;
 }
 export interface BlockProtoMsg {
-    typeUrl: "/tendermint.types.Block";
+    type_url: "/tendermint.types.Block";
     value: Uint8Array;
 }
 export interface BlockAmino {

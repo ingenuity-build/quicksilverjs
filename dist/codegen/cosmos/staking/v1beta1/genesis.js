@@ -30,11 +30,11 @@ const _m0 = __importStar(require("protobufjs/minimal"));
 function createBaseGenesisState() {
     return {
         params: staking_1.Params.fromPartial({}),
-        lastTotalPower: new Uint8Array(),
-        lastValidatorPowers: [],
+        last_total_power: new Uint8Array(),
+        last_validator_powers: [],
         validators: [],
         delegations: [],
-        unbondingDelegations: [],
+        unbonding_delegations: [],
         redelegations: [],
         exported: false
     };
@@ -46,10 +46,10 @@ exports.GenesisState = {
         if (message.params !== undefined) {
             staking_1.Params.encode(message.params, writer.uint32(10).fork()).ldelim();
         }
-        if (message.lastTotalPower.length !== 0) {
-            writer.uint32(18).bytes(message.lastTotalPower);
+        if (message.last_total_power.length !== 0) {
+            writer.uint32(18).bytes(message.last_total_power);
         }
-        for (const v of message.lastValidatorPowers) {
+        for (const v of message.last_validator_powers) {
             exports.LastValidatorPower.encode(v, writer.uint32(26).fork()).ldelim();
         }
         for (const v of message.validators) {
@@ -58,7 +58,7 @@ exports.GenesisState = {
         for (const v of message.delegations) {
             staking_1.Delegation.encode(v, writer.uint32(42).fork()).ldelim();
         }
-        for (const v of message.unbondingDelegations) {
+        for (const v of message.unbonding_delegations) {
             staking_1.UnbondingDelegation.encode(v, writer.uint32(50).fork()).ldelim();
         }
         for (const v of message.redelegations) {
@@ -80,10 +80,10 @@ exports.GenesisState = {
                     message.params = staking_1.Params.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.lastTotalPower = reader.bytes();
+                    message.last_total_power = reader.bytes();
                     break;
                 case 3:
-                    message.lastValidatorPowers.push(exports.LastValidatorPower.decode(reader, reader.uint32()));
+                    message.last_validator_powers.push(exports.LastValidatorPower.decode(reader, reader.uint32()));
                     break;
                 case 4:
                     message.validators.push(staking_1.Validator.decode(reader, reader.uint32()));
@@ -92,7 +92,7 @@ exports.GenesisState = {
                     message.delegations.push(staking_1.Delegation.decode(reader, reader.uint32()));
                     break;
                 case 6:
-                    message.unbondingDelegations.push(staking_1.UnbondingDelegation.decode(reader, reader.uint32()));
+                    message.unbonding_delegations.push(staking_1.UnbondingDelegation.decode(reader, reader.uint32()));
                     break;
                 case 7:
                     message.redelegations.push(staking_1.Redelegation.decode(reader, reader.uint32()));
@@ -110,11 +110,11 @@ exports.GenesisState = {
     fromJSON(object) {
         return {
             params: (0, helpers_1.isSet)(object.params) ? staking_1.Params.fromJSON(object.params) : undefined,
-            lastTotalPower: (0, helpers_1.isSet)(object.lastTotalPower) ? (0, helpers_1.bytesFromBase64)(object.lastTotalPower) : new Uint8Array(),
-            lastValidatorPowers: Array.isArray(object?.lastValidatorPowers) ? object.lastValidatorPowers.map((e) => exports.LastValidatorPower.fromJSON(e)) : [],
+            last_total_power: (0, helpers_1.isSet)(object.last_total_power) ? (0, helpers_1.bytesFromBase64)(object.last_total_power) : new Uint8Array(),
+            last_validator_powers: Array.isArray(object?.last_validator_powers) ? object.last_validator_powers.map((e) => exports.LastValidatorPower.fromJSON(e)) : [],
             validators: Array.isArray(object?.validators) ? object.validators.map((e) => staking_1.Validator.fromJSON(e)) : [],
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => staking_1.Delegation.fromJSON(e)) : [],
-            unbondingDelegations: Array.isArray(object?.unbondingDelegations) ? object.unbondingDelegations.map((e) => staking_1.UnbondingDelegation.fromJSON(e)) : [],
+            unbonding_delegations: Array.isArray(object?.unbonding_delegations) ? object.unbonding_delegations.map((e) => staking_1.UnbondingDelegation.fromJSON(e)) : [],
             redelegations: Array.isArray(object?.redelegations) ? object.redelegations.map((e) => staking_1.Redelegation.fromJSON(e)) : [],
             exported: (0, helpers_1.isSet)(object.exported) ? Boolean(object.exported) : false
         };
@@ -122,12 +122,12 @@ exports.GenesisState = {
     toJSON(message) {
         const obj = {};
         message.params !== undefined && (obj.params = message.params ? staking_1.Params.toJSON(message.params) : undefined);
-        message.lastTotalPower !== undefined && (obj.lastTotalPower = (0, helpers_1.base64FromBytes)(message.lastTotalPower !== undefined ? message.lastTotalPower : new Uint8Array()));
-        if (message.lastValidatorPowers) {
-            obj.lastValidatorPowers = message.lastValidatorPowers.map(e => e ? exports.LastValidatorPower.toJSON(e) : undefined);
+        message.last_total_power !== undefined && (obj.last_total_power = (0, helpers_1.base64FromBytes)(message.last_total_power !== undefined ? message.last_total_power : new Uint8Array()));
+        if (message.last_validator_powers) {
+            obj.last_validator_powers = message.last_validator_powers.map(e => e ? exports.LastValidatorPower.toJSON(e) : undefined);
         }
         else {
-            obj.lastValidatorPowers = [];
+            obj.last_validator_powers = [];
         }
         if (message.validators) {
             obj.validators = message.validators.map(e => e ? staking_1.Validator.toJSON(e) : undefined);
@@ -141,11 +141,11 @@ exports.GenesisState = {
         else {
             obj.delegations = [];
         }
-        if (message.unbondingDelegations) {
-            obj.unbondingDelegations = message.unbondingDelegations.map(e => e ? staking_1.UnbondingDelegation.toJSON(e) : undefined);
+        if (message.unbonding_delegations) {
+            obj.unbonding_delegations = message.unbonding_delegations.map(e => e ? staking_1.UnbondingDelegation.toJSON(e) : undefined);
         }
         else {
-            obj.unbondingDelegations = [];
+            obj.unbonding_delegations = [];
         }
         if (message.redelegations) {
             obj.redelegations = message.redelegations.map(e => e ? staking_1.Redelegation.toJSON(e) : undefined);
@@ -159,11 +159,11 @@ exports.GenesisState = {
     fromPartial(object) {
         const message = createBaseGenesisState();
         message.params = object.params !== undefined && object.params !== null ? staking_1.Params.fromPartial(object.params) : undefined;
-        message.lastTotalPower = object.lastTotalPower ?? new Uint8Array();
-        message.lastValidatorPowers = object.lastValidatorPowers?.map(e => exports.LastValidatorPower.fromPartial(e)) || [];
+        message.last_total_power = object.last_total_power ?? new Uint8Array();
+        message.last_validator_powers = object.last_validator_powers?.map(e => exports.LastValidatorPower.fromPartial(e)) || [];
         message.validators = object.validators?.map(e => staking_1.Validator.fromPartial(e)) || [];
         message.delegations = object.delegations?.map(e => staking_1.Delegation.fromPartial(e)) || [];
-        message.unbondingDelegations = object.unbondingDelegations?.map(e => staking_1.UnbondingDelegation.fromPartial(e)) || [];
+        message.unbonding_delegations = object.unbonding_delegations?.map(e => staking_1.UnbondingDelegation.fromPartial(e)) || [];
         message.redelegations = object.redelegations?.map(e => staking_1.Redelegation.fromPartial(e)) || [];
         message.exported = object.exported ?? false;
         return message;
@@ -171,11 +171,11 @@ exports.GenesisState = {
     fromAmino(object) {
         return {
             params: object?.params ? staking_1.Params.fromAmino(object.params) : undefined,
-            lastTotalPower: object.last_total_power,
-            lastValidatorPowers: Array.isArray(object?.last_validator_powers) ? object.last_validator_powers.map((e) => exports.LastValidatorPower.fromAmino(e)) : [],
+            last_total_power: object.last_total_power,
+            last_validator_powers: Array.isArray(object?.last_validator_powers) ? object.last_validator_powers.map((e) => exports.LastValidatorPower.fromAmino(e)) : [],
             validators: Array.isArray(object?.validators) ? object.validators.map((e) => staking_1.Validator.fromAmino(e)) : [],
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => staking_1.Delegation.fromAmino(e)) : [],
-            unbondingDelegations: Array.isArray(object?.unbonding_delegations) ? object.unbonding_delegations.map((e) => staking_1.UnbondingDelegation.fromAmino(e)) : [],
+            unbonding_delegations: Array.isArray(object?.unbonding_delegations) ? object.unbonding_delegations.map((e) => staking_1.UnbondingDelegation.fromAmino(e)) : [],
             redelegations: Array.isArray(object?.redelegations) ? object.redelegations.map((e) => staking_1.Redelegation.fromAmino(e)) : [],
             exported: object.exported
         };
@@ -183,9 +183,9 @@ exports.GenesisState = {
     toAmino(message) {
         const obj = {};
         obj.params = message.params ? staking_1.Params.toAmino(message.params) : undefined;
-        obj.last_total_power = message.lastTotalPower;
-        if (message.lastValidatorPowers) {
-            obj.last_validator_powers = message.lastValidatorPowers.map(e => e ? exports.LastValidatorPower.toAmino(e) : undefined);
+        obj.last_total_power = message.last_total_power;
+        if (message.last_validator_powers) {
+            obj.last_validator_powers = message.last_validator_powers.map(e => e ? exports.LastValidatorPower.toAmino(e) : undefined);
         }
         else {
             obj.last_validator_powers = [];
@@ -202,8 +202,8 @@ exports.GenesisState = {
         else {
             obj.delegations = [];
         }
-        if (message.unbondingDelegations) {
-            obj.unbonding_delegations = message.unbondingDelegations.map(e => e ? staking_1.UnbondingDelegation.toAmino(e) : undefined);
+        if (message.unbonding_delegations) {
+            obj.unbonding_delegations = message.unbonding_delegations.map(e => e ? staking_1.UnbondingDelegation.toAmino(e) : undefined);
         }
         else {
             obj.unbonding_delegations = [];

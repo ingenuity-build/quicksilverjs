@@ -32,19 +32,19 @@ export interface StakeAuthorization {
      * max_tokens specifies the maximum amount of tokens can be delegate to a validator. If it is
      * empty, there is no spend limit and any amount of coins can be delegated.
      */
-    maxTokens: Coin;
+    max_tokens: Coin;
     /**
      * allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
      * account.
      */
-    allowList?: StakeAuthorization_Validators;
+    allow_list?: StakeAuthorization_Validators;
     /** deny_list specifies list of validator addresses to whom grantee can not delegate tokens. */
-    denyList?: StakeAuthorization_Validators;
+    deny_list?: StakeAuthorization_Validators;
     /** authorization_type defines one of AuthorizationType. */
-    authorizationType: AuthorizationType;
+    authorization_type: AuthorizationType;
 }
 export interface StakeAuthorizationProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.StakeAuthorization";
+    type_url: "/cosmos.staking.v1beta1.StakeAuthorization";
     value: Uint8Array;
 }
 /**
@@ -89,7 +89,7 @@ export interface StakeAuthorization_Validators {
     address: string[];
 }
 export interface StakeAuthorization_ValidatorsProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.Validators";
+    type_url: "/cosmos.staking.v1beta1.Validators";
     value: Uint8Array;
 }
 /** Validators defines list of validator addresses. */

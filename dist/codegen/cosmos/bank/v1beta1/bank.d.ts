@@ -3,11 +3,11 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** Params defines the parameters for the bank module. */
 export interface Params {
-    sendEnabled: SendEnabled[];
-    defaultSendEnabled: boolean;
+    send_enabled: SendEnabled[];
+    default_send_enabled: boolean;
 }
 export interface ParamsProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Params";
+    type_url: "/cosmos.bank.v1beta1.Params";
     value: Uint8Array;
 }
 /** Params defines the parameters for the bank module. */
@@ -33,7 +33,7 @@ export interface SendEnabled {
     enabled: boolean;
 }
 export interface SendEnabledProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.SendEnabled";
+    type_url: "/cosmos.bank.v1beta1.SendEnabled";
     value: Uint8Array;
 }
 /**
@@ -62,7 +62,7 @@ export interface Input {
     coins: Coin[];
 }
 export interface InputProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Input";
+    type_url: "/cosmos.bank.v1beta1.Input";
     value: Uint8Array;
 }
 /** Input models transaction input. */
@@ -85,7 +85,7 @@ export interface Output {
     coins: Coin[];
 }
 export interface OutputProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Output";
+    type_url: "/cosmos.bank.v1beta1.Output";
     value: Uint8Array;
 }
 /** Output models transaction outputs. */
@@ -113,7 +113,7 @@ export interface Supply {
     total: Coin[];
 }
 export interface SupplyProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Supply";
+    type_url: "/cosmos.bank.v1beta1.Supply";
     value: Uint8Array;
 }
 /**
@@ -158,7 +158,7 @@ export interface DenomUnit {
     aliases: string[];
 }
 export interface DenomUnitProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.DenomUnit";
+    type_url: "/cosmos.bank.v1beta1.DenomUnit";
     value: Uint8Array;
 }
 /**
@@ -199,7 +199,7 @@ export interface DenomUnitSDKType {
 export interface Metadata {
     description: string;
     /** denom_units represents the list of DenomUnit's for a given coin */
-    denomUnits: DenomUnit[];
+    denom_units: DenomUnit[];
     /** base represents the base denom (should be the DenomUnit with exponent = 0). */
     base: string;
     /**
@@ -232,10 +232,10 @@ export interface Metadata {
      *
      * Since: cosmos-sdk 0.46
      */
-    uriHash: string;
+    uri_hash: string;
 }
 export interface MetadataProtoMsg {
-    typeUrl: "/cosmos.bank.v1beta1.Metadata";
+    type_url: "/cosmos.bank.v1beta1.Metadata";
     value: Uint8Array;
 }
 /**

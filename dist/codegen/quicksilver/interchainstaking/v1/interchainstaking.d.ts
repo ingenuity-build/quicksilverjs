@@ -2,40 +2,40 @@ import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin"
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Zone {
-    connectionId: string;
-    chainId: string;
-    depositAddress: ICAAccount;
-    withdrawalAddress: ICAAccount;
-    performanceAddress: ICAAccount;
-    delegationAddress: ICAAccount;
-    accountPrefix: string;
-    localDenom: string;
-    baseDenom: string;
-    redemptionRate: string;
-    lastRedemptionRate: string;
+    connection_id: string;
+    chain_id: string;
+    deposit_address: ICAAccount;
+    withdrawal_address: ICAAccount;
+    performance_address: ICAAccount;
+    delegation_address: ICAAccount;
+    account_prefix: string;
+    local_denom: string;
+    base_denom: string;
+    redemption_rate: string;
+    last_redemption_rate: string;
     validators: Validator[];
-    aggregateIntent: ValidatorIntent[];
+    aggregate_intent: ValidatorIntent[];
     /** deprecated */
-    multiSend: boolean;
-    liquidityModule: boolean;
-    withdrawalWaitgroup: number;
-    ibcNextValidatorsHash: Uint8Array;
-    validatorSelectionAllocation: Long;
-    holdingsAllocation: Long;
+    multi_send: boolean;
+    liquidity_module: boolean;
+    withdrawal_waitgroup: number;
+    ibc_next_validators_hash: Uint8Array;
+    validator_selection_allocation: Long;
+    holdings_allocation: Long;
     /** deprecated */
-    lastEpochHeight: Long;
+    last_epoch_height: Long;
     tvl: string;
-    unbondingPeriod: Long;
-    messagesPerTx: Long;
+    unbonding_period: Long;
+    messages_per_tx: Long;
     decimals: Long;
-    unbondingEnabled: boolean;
-    depositsEnabled: boolean;
-    returnToSender: boolean;
+    unbonding_enabled: boolean;
+    deposits_enabled: boolean;
+    return_to_sender: boolean;
     is118: boolean;
     subzoneInfo: SubzoneInfo;
 }
 export interface ZoneProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Zone";
+    type_url: "/quicksilver.interchainstaking.v1.Zone";
     value: Uint8Array;
 }
 export interface ZoneAmino {
@@ -108,10 +108,10 @@ export interface ZoneSDKType {
 }
 export interface SubzoneInfo {
     authority: string;
-    baseChainID: string;
+    base_chainID: string;
 }
 export interface SubzoneInfoProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.SubzoneInfo";
+    type_url: "/quicksilver.interchainstaking.v1.SubzoneInfo";
     value: Uint8Array;
 }
 export interface SubzoneInfoAmino {
@@ -127,12 +127,12 @@ export interface SubzoneInfoSDKType {
     base_chainID: string;
 }
 export interface LsmCaps {
-    validatorCap: string;
-    validatorBondCap: string;
-    globalCap: string;
+    validator_cap: string;
+    validator_bond_cap: string;
+    global_cap: string;
 }
 export interface LsmCapsProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.LsmCaps";
+    type_url: "/quicksilver.interchainstaking.v1.LsmCaps";
     value: Uint8Array;
 }
 export interface LsmCapsAmino {
@@ -153,12 +153,12 @@ export interface ICAAccount {
     address: string;
     /** balance defines the different coins this balance holds. */
     balance: Coin[];
-    portName: string;
-    withdrawalAddress: string;
-    balanceWaitgroup: number;
+    port_name: string;
+    withdrawal_address: string;
+    balance_waitgroup: number;
 }
 export interface ICAAccountProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.ICAAccount";
+    type_url: "/quicksilver.interchainstaking.v1.ICAAccount";
     value: Uint8Array;
 }
 export interface ICAAccountAmino {
@@ -185,7 +185,7 @@ export interface Distribution {
     amount: Long;
 }
 export interface DistributionProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Distribution";
+    type_url: "/quicksilver.interchainstaking.v1.Distribution";
     value: Uint8Array;
 }
 export interface DistributionAmino {
@@ -201,21 +201,21 @@ export interface DistributionSDKType {
     amount: Long;
 }
 export interface WithdrawalRecord {
-    chainId: string;
+    chain_id: string;
     delegator: string;
     distribution: Distribution[];
     recipient: string;
     amount: Coin[];
-    burnAmount: Coin;
+    burn_amount: Coin;
     txhash: string;
     status: number;
-    completionTime: Date;
+    completion_time: Date;
     requeued: boolean;
     acknowledged: boolean;
-    epochNumber: Long;
+    epoch_number: Long;
 }
 export interface WithdrawalRecordProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.WithdrawalRecord";
+    type_url: "/quicksilver.interchainstaking.v1.WithdrawalRecord";
     value: Uint8Array;
 }
 export interface WithdrawalRecordAmino {
@@ -251,13 +251,13 @@ export interface WithdrawalRecordSDKType {
     epoch_number: Long;
 }
 export interface UnbondingRecord {
-    chainId: string;
-    epochNumber: Long;
+    chain_id: string;
+    epoch_number: Long;
     validator: string;
-    relatedTxhash: string[];
+    related_txhash: string[];
 }
 export interface UnbondingRecordProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.UnbondingRecord";
+    type_url: "/quicksilver.interchainstaking.v1.UnbondingRecord";
     value: Uint8Array;
 }
 export interface UnbondingRecordAmino {
@@ -277,15 +277,15 @@ export interface UnbondingRecordSDKType {
     related_txhash: string[];
 }
 export interface RedelegationRecord {
-    chainId: string;
-    epochNumber: Long;
+    chain_id: string;
+    epoch_number: Long;
     source: string;
     destination: string;
     amount: Long;
-    completionTime: Date;
+    completion_time: Date;
 }
 export interface RedelegationRecordProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.RedelegationRecord";
+    type_url: "/quicksilver.interchainstaking.v1.RedelegationRecord";
     value: Uint8Array;
 }
 export interface RedelegationRecordAmino {
@@ -314,7 +314,7 @@ export interface TransferRecord {
     amount: Coin;
 }
 export interface TransferRecordProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.TransferRecord";
+    type_url: "/quicksilver.interchainstaking.v1.TransferRecord";
     value: Uint8Array;
 }
 export interface TransferRecordAmino {
@@ -332,22 +332,22 @@ export interface TransferRecordSDKType {
     amount: CoinSDKType;
 }
 export interface Validator {
-    valoperAddress: string;
-    commissionRate: string;
-    delegatorShares: string;
-    votingPower: string;
+    valoper_address: string;
+    commission_rate: string;
+    delegator_shares: string;
+    voting_power: string;
     score: string;
     status: string;
     jailed: boolean;
     tombstoned: boolean;
-    jailedSince: Date;
+    jailed_since: Date;
     /** Number of shares self bonded from the validator */
-    validatorBondShares: string;
+    validator_bond_shares: string;
     /** Number of shares either tokenized or owned by a liquid staking provider */
-    liquidShares: string;
+    liquid_shares: string;
 }
 export interface ValidatorProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Validator";
+    type_url: "/quicksilver.interchainstaking.v1.Validator";
     value: Uint8Array;
 }
 export interface ValidatorAmino {
@@ -387,7 +387,7 @@ export interface DelegatorIntent {
     intents: ValidatorIntent[];
 }
 export interface DelegatorIntentProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntent";
+    type_url: "/quicksilver.interchainstaking.v1.DelegatorIntent";
     value: Uint8Array;
 }
 export interface DelegatorIntentAmino {
@@ -403,11 +403,11 @@ export interface DelegatorIntentSDKType {
     intents: ValidatorIntentSDKType[];
 }
 export interface ValidatorIntent {
-    valoperAddress: string;
+    valoper_address: string;
     weight: string;
 }
 export interface ValidatorIntentProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.ValidatorIntent";
+    type_url: "/quicksilver.interchainstaking.v1.ValidatorIntent";
     value: Uint8Array;
 }
 export interface ValidatorIntentAmino {
@@ -423,14 +423,14 @@ export interface ValidatorIntentSDKType {
     weight: string;
 }
 export interface Delegation {
-    delegationAddress: string;
-    validatorAddress: string;
+    delegation_address: string;
+    validator_address: string;
     amount: Coin;
     height: Long;
-    redelegationEnd: Long;
+    redelegation_end: Long;
 }
 export interface DelegationProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Delegation";
+    type_url: "/quicksilver.interchainstaking.v1.Delegation";
     value: Uint8Array;
 }
 export interface DelegationAmino {
@@ -452,11 +452,11 @@ export interface DelegationSDKType {
     redelegation_end: Long;
 }
 export interface PortConnectionTuple {
-    connectionId: string;
-    portId: string;
+    connection_id: string;
+    port_id: string;
 }
 export interface PortConnectionTupleProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.PortConnectionTuple";
+    type_url: "/quicksilver.interchainstaking.v1.PortConnectionTuple";
     value: Uint8Array;
 }
 export interface PortConnectionTupleAmino {
@@ -472,15 +472,15 @@ export interface PortConnectionTupleSDKType {
     port_id: string;
 }
 export interface Receipt {
-    chainId: string;
+    chain_id: string;
     sender: string;
     txhash: string;
     amount: Coin[];
-    firstSeen?: Date;
+    first_seen?: Date;
     completed?: Date;
 }
 export interface ReceiptProtoMsg {
-    typeUrl: "/quicksilver.interchainstaking.v1.Receipt";
+    type_url: "/quicksilver.interchainstaking.v1.Receipt";
     value: Uint8Array;
 }
 export interface ReceiptAmino {

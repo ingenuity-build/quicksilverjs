@@ -2,15 +2,15 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 function createBaseMsgUnjail() {
     return {
-        validatorAddr: ""
+        validator_addr: ""
     };
 }
 export const MsgUnjail = {
     typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
     aminoType: "cosmos-sdk/MsgUnjail",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorAddr !== "") {
-            writer.uint32(10).string(message.validatorAddr);
+        if (message.validator_addr !== "") {
+            writer.uint32(10).string(message.validator_addr);
         }
         return writer;
     },
@@ -22,7 +22,7 @@ export const MsgUnjail = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorAddr = reader.string();
+                    message.validator_addr = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -33,27 +33,27 @@ export const MsgUnjail = {
     },
     fromJSON(object) {
         return {
-            validatorAddr: isSet(object.validatorAddr) ? String(object.validatorAddr) : ""
+            validator_addr: isSet(object.validator_addr) ? String(object.validator_addr) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorAddr !== undefined && (obj.validatorAddr = message.validatorAddr);
+        message.validator_addr !== undefined && (obj.validator_addr = message.validator_addr);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseMsgUnjail();
-        message.validatorAddr = object.validatorAddr ?? "";
+        message.validator_addr = object.validator_addr ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorAddr: object.validator_addr
+            validator_addr: object.validator_addr
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_addr = message.validatorAddr;
+        obj.validator_addr = message.validator_addr;
         return obj;
     },
     fromAminoMsg(object) {

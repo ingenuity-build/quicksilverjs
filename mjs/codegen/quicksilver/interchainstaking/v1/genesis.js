@@ -3,22 +3,22 @@ import { Long, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 function createBaseParams_v1() {
     return {
-        depositInterval: Long.UZERO,
-        validatorsetInterval: Long.UZERO,
-        commissionRate: ""
+        deposit_interval: Long.UZERO,
+        validatorset_interval: Long.UZERO,
+        commission_rate: ""
     };
 }
 export const Params_v1 = {
     typeUrl: "/quicksilver.interchainstaking.v1.Params_v1",
     encode(message, writer = _m0.Writer.create()) {
-        if (!message.depositInterval.isZero()) {
-            writer.uint32(8).uint64(message.depositInterval);
+        if (!message.deposit_interval.isZero()) {
+            writer.uint32(8).uint64(message.deposit_interval);
         }
-        if (!message.validatorsetInterval.isZero()) {
-            writer.uint32(16).uint64(message.validatorsetInterval);
+        if (!message.validatorset_interval.isZero()) {
+            writer.uint32(16).uint64(message.validatorset_interval);
         }
-        if (message.commissionRate !== "") {
-            writer.uint32(26).string(message.commissionRate);
+        if (message.commission_rate !== "") {
+            writer.uint32(26).string(message.commission_rate);
         }
         return writer;
     },
@@ -30,13 +30,13 @@ export const Params_v1 = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.depositInterval = reader.uint64();
+                    message.deposit_interval = reader.uint64();
                     break;
                 case 2:
-                    message.validatorsetInterval = reader.uint64();
+                    message.validatorset_interval = reader.uint64();
                     break;
                 case 3:
-                    message.commissionRate = reader.string();
+                    message.commission_rate = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -47,37 +47,37 @@ export const Params_v1 = {
     },
     fromJSON(object) {
         return {
-            depositInterval: isSet(object.depositInterval) ? Long.fromValue(object.depositInterval) : Long.UZERO,
-            validatorsetInterval: isSet(object.validatorsetInterval) ? Long.fromValue(object.validatorsetInterval) : Long.UZERO,
-            commissionRate: isSet(object.commissionRate) ? String(object.commissionRate) : ""
+            deposit_interval: isSet(object.deposit_interval) ? Long.fromValue(object.deposit_interval) : Long.UZERO,
+            validatorset_interval: isSet(object.validatorset_interval) ? Long.fromValue(object.validatorset_interval) : Long.UZERO,
+            commission_rate: isSet(object.commission_rate) ? String(object.commission_rate) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.depositInterval !== undefined && (obj.depositInterval = (message.depositInterval || Long.UZERO).toString());
-        message.validatorsetInterval !== undefined && (obj.validatorsetInterval = (message.validatorsetInterval || Long.UZERO).toString());
-        message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
+        message.deposit_interval !== undefined && (obj.deposit_interval = (message.deposit_interval || Long.UZERO).toString());
+        message.validatorset_interval !== undefined && (obj.validatorset_interval = (message.validatorset_interval || Long.UZERO).toString());
+        message.commission_rate !== undefined && (obj.commission_rate = message.commission_rate);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams_v1();
-        message.depositInterval = object.depositInterval !== undefined && object.depositInterval !== null ? Long.fromValue(object.depositInterval) : Long.UZERO;
-        message.validatorsetInterval = object.validatorsetInterval !== undefined && object.validatorsetInterval !== null ? Long.fromValue(object.validatorsetInterval) : Long.UZERO;
-        message.commissionRate = object.commissionRate ?? "";
+        message.deposit_interval = object.deposit_interval !== undefined && object.deposit_interval !== null ? Long.fromValue(object.deposit_interval) : Long.UZERO;
+        message.validatorset_interval = object.validatorset_interval !== undefined && object.validatorset_interval !== null ? Long.fromValue(object.validatorset_interval) : Long.UZERO;
+        message.commission_rate = object.commission_rate ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            depositInterval: Long.fromString(object.deposit_interval),
-            validatorsetInterval: Long.fromString(object.validatorset_interval),
-            commissionRate: object.commission_rate
+            deposit_interval: Long.fromString(object.deposit_interval),
+            validatorset_interval: Long.fromString(object.validatorset_interval),
+            commission_rate: object.commission_rate
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.deposit_interval = message.depositInterval ? message.depositInterval.toString() : undefined;
-        obj.validatorset_interval = message.validatorsetInterval ? message.validatorsetInterval.toString() : undefined;
-        obj.commission_rate = message.commissionRate;
+        obj.deposit_interval = message.deposit_interval ? message.deposit_interval.toString() : undefined;
+        obj.validatorset_interval = message.validatorset_interval ? message.validatorset_interval.toString() : undefined;
+        obj.commission_rate = message.commission_rate;
         return obj;
     },
     fromAminoMsg(object) {
@@ -98,26 +98,26 @@ export const Params_v1 = {
 };
 function createBaseParams() {
     return {
-        depositInterval: Long.UZERO,
-        validatorsetInterval: Long.UZERO,
-        commissionRate: "",
-        unbondingEnabled: false
+        deposit_interval: Long.UZERO,
+        validatorset_interval: Long.UZERO,
+        commission_rate: "",
+        unbonding_enabled: false
     };
 }
 export const Params = {
     typeUrl: "/quicksilver.interchainstaking.v1.Params",
     encode(message, writer = _m0.Writer.create()) {
-        if (!message.depositInterval.isZero()) {
-            writer.uint32(8).uint64(message.depositInterval);
+        if (!message.deposit_interval.isZero()) {
+            writer.uint32(8).uint64(message.deposit_interval);
         }
-        if (!message.validatorsetInterval.isZero()) {
-            writer.uint32(16).uint64(message.validatorsetInterval);
+        if (!message.validatorset_interval.isZero()) {
+            writer.uint32(16).uint64(message.validatorset_interval);
         }
-        if (message.commissionRate !== "") {
-            writer.uint32(26).string(message.commissionRate);
+        if (message.commission_rate !== "") {
+            writer.uint32(26).string(message.commission_rate);
         }
-        if (message.unbondingEnabled === true) {
-            writer.uint32(32).bool(message.unbondingEnabled);
+        if (message.unbonding_enabled === true) {
+            writer.uint32(32).bool(message.unbonding_enabled);
         }
         return writer;
     },
@@ -129,16 +129,16 @@ export const Params = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.depositInterval = reader.uint64();
+                    message.deposit_interval = reader.uint64();
                     break;
                 case 2:
-                    message.validatorsetInterval = reader.uint64();
+                    message.validatorset_interval = reader.uint64();
                     break;
                 case 3:
-                    message.commissionRate = reader.string();
+                    message.commission_rate = reader.string();
                     break;
                 case 4:
-                    message.unbondingEnabled = reader.bool();
+                    message.unbonding_enabled = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -149,42 +149,42 @@ export const Params = {
     },
     fromJSON(object) {
         return {
-            depositInterval: isSet(object.depositInterval) ? Long.fromValue(object.depositInterval) : Long.UZERO,
-            validatorsetInterval: isSet(object.validatorsetInterval) ? Long.fromValue(object.validatorsetInterval) : Long.UZERO,
-            commissionRate: isSet(object.commissionRate) ? String(object.commissionRate) : "",
-            unbondingEnabled: isSet(object.unbondingEnabled) ? Boolean(object.unbondingEnabled) : false
+            deposit_interval: isSet(object.deposit_interval) ? Long.fromValue(object.deposit_interval) : Long.UZERO,
+            validatorset_interval: isSet(object.validatorset_interval) ? Long.fromValue(object.validatorset_interval) : Long.UZERO,
+            commission_rate: isSet(object.commission_rate) ? String(object.commission_rate) : "",
+            unbonding_enabled: isSet(object.unbonding_enabled) ? Boolean(object.unbonding_enabled) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        message.depositInterval !== undefined && (obj.depositInterval = (message.depositInterval || Long.UZERO).toString());
-        message.validatorsetInterval !== undefined && (obj.validatorsetInterval = (message.validatorsetInterval || Long.UZERO).toString());
-        message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
-        message.unbondingEnabled !== undefined && (obj.unbondingEnabled = message.unbondingEnabled);
+        message.deposit_interval !== undefined && (obj.deposit_interval = (message.deposit_interval || Long.UZERO).toString());
+        message.validatorset_interval !== undefined && (obj.validatorset_interval = (message.validatorset_interval || Long.UZERO).toString());
+        message.commission_rate !== undefined && (obj.commission_rate = message.commission_rate);
+        message.unbonding_enabled !== undefined && (obj.unbonding_enabled = message.unbonding_enabled);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseParams();
-        message.depositInterval = object.depositInterval !== undefined && object.depositInterval !== null ? Long.fromValue(object.depositInterval) : Long.UZERO;
-        message.validatorsetInterval = object.validatorsetInterval !== undefined && object.validatorsetInterval !== null ? Long.fromValue(object.validatorsetInterval) : Long.UZERO;
-        message.commissionRate = object.commissionRate ?? "";
-        message.unbondingEnabled = object.unbondingEnabled ?? false;
+        message.deposit_interval = object.deposit_interval !== undefined && object.deposit_interval !== null ? Long.fromValue(object.deposit_interval) : Long.UZERO;
+        message.validatorset_interval = object.validatorset_interval !== undefined && object.validatorset_interval !== null ? Long.fromValue(object.validatorset_interval) : Long.UZERO;
+        message.commission_rate = object.commission_rate ?? "";
+        message.unbonding_enabled = object.unbonding_enabled ?? false;
         return message;
     },
     fromAmino(object) {
         return {
-            depositInterval: Long.fromString(object.deposit_interval),
-            validatorsetInterval: Long.fromString(object.validatorset_interval),
-            commissionRate: object.commission_rate,
-            unbondingEnabled: object.unbonding_enabled
+            deposit_interval: Long.fromString(object.deposit_interval),
+            validatorset_interval: Long.fromString(object.validatorset_interval),
+            commission_rate: object.commission_rate,
+            unbonding_enabled: object.unbonding_enabled
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.deposit_interval = message.depositInterval ? message.depositInterval.toString() : undefined;
-        obj.validatorset_interval = message.validatorsetInterval ? message.validatorsetInterval.toString() : undefined;
-        obj.commission_rate = message.commissionRate;
-        obj.unbonding_enabled = message.unbondingEnabled;
+        obj.deposit_interval = message.deposit_interval ? message.deposit_interval.toString() : undefined;
+        obj.validatorset_interval = message.validatorset_interval ? message.validatorset_interval.toString() : undefined;
+        obj.commission_rate = message.commission_rate;
+        obj.unbonding_enabled = message.unbonding_enabled;
         return obj;
     },
     fromAminoMsg(object) {
@@ -205,15 +205,15 @@ export const Params = {
 };
 function createBaseDelegationsForZone() {
     return {
-        chainId: "",
+        chain_id: "",
         delegations: []
     };
 }
 export const DelegationsForZone = {
     typeUrl: "/quicksilver.interchainstaking.v1.DelegationsForZone",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
         for (const v of message.delegations) {
             Delegation.encode(v, writer.uint32(18).fork()).ldelim();
@@ -228,7 +228,7 @@ export const DelegationsForZone = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
                     message.delegations.push(Delegation.decode(reader, reader.uint32()));
@@ -242,13 +242,13 @@ export const DelegationsForZone = {
     },
     fromJSON(object) {
         return {
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => Delegation.fromJSON(e)) : []
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
         if (message.delegations) {
             obj.delegations = message.delegations.map(e => e ? Delegation.toJSON(e) : undefined);
         }
@@ -259,19 +259,19 @@ export const DelegationsForZone = {
     },
     fromPartial(object) {
         const message = createBaseDelegationsForZone();
-        message.chainId = object.chainId ?? "";
+        message.chain_id = object.chain_id ?? "";
         message.delegations = object.delegations?.map(e => Delegation.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
+            chain_id: object.chain_id,
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => Delegation.fromAmino(e)) : []
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
+        obj.chain_id = message.chain_id;
         if (message.delegations) {
             obj.delegations = message.delegations.map(e => e ? Delegation.toAmino(e) : undefined);
         }
@@ -298,18 +298,18 @@ export const DelegationsForZone = {
 };
 function createBaseDelegatorIntentsForZone() {
     return {
-        chainId: "",
-        delegationIntent: [],
+        chain_id: "",
+        delegation_intent: [],
         snapshot: false
     };
 }
 export const DelegatorIntentsForZone = {
     typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntentsForZone",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.chainId !== "") {
-            writer.uint32(10).string(message.chainId);
+        if (message.chain_id !== "") {
+            writer.uint32(10).string(message.chain_id);
         }
-        for (const v of message.delegationIntent) {
+        for (const v of message.delegation_intent) {
             DelegatorIntent.encode(v, writer.uint32(18).fork()).ldelim();
         }
         if (message.snapshot === true) {
@@ -325,10 +325,10 @@ export const DelegatorIntentsForZone = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.chainId = reader.string();
+                    message.chain_id = reader.string();
                     break;
                 case 2:
-                    message.delegationIntent.push(DelegatorIntent.decode(reader, reader.uint32()));
+                    message.delegation_intent.push(DelegatorIntent.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.snapshot = reader.bool();
@@ -342,42 +342,42 @@ export const DelegatorIntentsForZone = {
     },
     fromJSON(object) {
         return {
-            chainId: isSet(object.chainId) ? String(object.chainId) : "",
-            delegationIntent: Array.isArray(object?.delegationIntent) ? object.delegationIntent.map((e) => DelegatorIntent.fromJSON(e)) : [],
+            chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+            delegation_intent: Array.isArray(object?.delegation_intent) ? object.delegation_intent.map((e) => DelegatorIntent.fromJSON(e)) : [],
             snapshot: isSet(object.snapshot) ? Boolean(object.snapshot) : false
         };
     },
     toJSON(message) {
         const obj = {};
-        message.chainId !== undefined && (obj.chainId = message.chainId);
-        if (message.delegationIntent) {
-            obj.delegationIntent = message.delegationIntent.map(e => e ? DelegatorIntent.toJSON(e) : undefined);
+        message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+        if (message.delegation_intent) {
+            obj.delegation_intent = message.delegation_intent.map(e => e ? DelegatorIntent.toJSON(e) : undefined);
         }
         else {
-            obj.delegationIntent = [];
+            obj.delegation_intent = [];
         }
         message.snapshot !== undefined && (obj.snapshot = message.snapshot);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseDelegatorIntentsForZone();
-        message.chainId = object.chainId ?? "";
-        message.delegationIntent = object.delegationIntent?.map(e => DelegatorIntent.fromPartial(e)) || [];
+        message.chain_id = object.chain_id ?? "";
+        message.delegation_intent = object.delegation_intent?.map(e => DelegatorIntent.fromPartial(e)) || [];
         message.snapshot = object.snapshot ?? false;
         return message;
     },
     fromAmino(object) {
         return {
-            chainId: object.chain_id,
-            delegationIntent: Array.isArray(object?.delegation_intent) ? object.delegation_intent.map((e) => DelegatorIntent.fromAmino(e)) : [],
+            chain_id: object.chain_id,
+            delegation_intent: Array.isArray(object?.delegation_intent) ? object.delegation_intent.map((e) => DelegatorIntent.fromAmino(e)) : [],
             snapshot: object.snapshot
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.chain_id = message.chainId;
-        if (message.delegationIntent) {
-            obj.delegation_intent = message.delegationIntent.map(e => e ? DelegatorIntent.toAmino(e) : undefined);
+        obj.chain_id = message.chain_id;
+        if (message.delegation_intent) {
+            obj.delegation_intent = message.delegation_intent.map(e => e ? DelegatorIntent.toAmino(e) : undefined);
         }
         else {
             obj.delegation_intent = [];
@@ -407,10 +407,10 @@ function createBaseGenesisState() {
         zones: [],
         receipts: [],
         delegations: [],
-        performanceDelegations: [],
-        delegatorIntents: [],
-        portConnections: [],
-        withdrawalRecords: []
+        performance_delegations: [],
+        delegator_intents: [],
+        port_connections: [],
+        withdrawal_records: []
     };
 }
 export const GenesisState = {
@@ -428,16 +428,16 @@ export const GenesisState = {
         for (const v of message.delegations) {
             DelegationsForZone.encode(v, writer.uint32(34).fork()).ldelim();
         }
-        for (const v of message.performanceDelegations) {
+        for (const v of message.performance_delegations) {
             DelegationsForZone.encode(v, writer.uint32(42).fork()).ldelim();
         }
-        for (const v of message.delegatorIntents) {
+        for (const v of message.delegator_intents) {
             DelegatorIntentsForZone.encode(v, writer.uint32(50).fork()).ldelim();
         }
-        for (const v of message.portConnections) {
+        for (const v of message.port_connections) {
             PortConnectionTuple.encode(v, writer.uint32(58).fork()).ldelim();
         }
-        for (const v of message.withdrawalRecords) {
+        for (const v of message.withdrawal_records) {
             WithdrawalRecord.encode(v, writer.uint32(66).fork()).ldelim();
         }
         return writer;
@@ -462,16 +462,16 @@ export const GenesisState = {
                     message.delegations.push(DelegationsForZone.decode(reader, reader.uint32()));
                     break;
                 case 5:
-                    message.performanceDelegations.push(DelegationsForZone.decode(reader, reader.uint32()));
+                    message.performance_delegations.push(DelegationsForZone.decode(reader, reader.uint32()));
                     break;
                 case 6:
-                    message.delegatorIntents.push(DelegatorIntentsForZone.decode(reader, reader.uint32()));
+                    message.delegator_intents.push(DelegatorIntentsForZone.decode(reader, reader.uint32()));
                     break;
                 case 7:
-                    message.portConnections.push(PortConnectionTuple.decode(reader, reader.uint32()));
+                    message.port_connections.push(PortConnectionTuple.decode(reader, reader.uint32()));
                     break;
                 case 8:
-                    message.withdrawalRecords.push(WithdrawalRecord.decode(reader, reader.uint32()));
+                    message.withdrawal_records.push(WithdrawalRecord.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -486,10 +486,10 @@ export const GenesisState = {
             zones: Array.isArray(object?.zones) ? object.zones.map((e) => Zone.fromJSON(e)) : [],
             receipts: Array.isArray(object?.receipts) ? object.receipts.map((e) => Receipt.fromJSON(e)) : [],
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => DelegationsForZone.fromJSON(e)) : [],
-            performanceDelegations: Array.isArray(object?.performanceDelegations) ? object.performanceDelegations.map((e) => DelegationsForZone.fromJSON(e)) : [],
-            delegatorIntents: Array.isArray(object?.delegatorIntents) ? object.delegatorIntents.map((e) => DelegatorIntentsForZone.fromJSON(e)) : [],
-            portConnections: Array.isArray(object?.portConnections) ? object.portConnections.map((e) => PortConnectionTuple.fromJSON(e)) : [],
-            withdrawalRecords: Array.isArray(object?.withdrawalRecords) ? object.withdrawalRecords.map((e) => WithdrawalRecord.fromJSON(e)) : []
+            performance_delegations: Array.isArray(object?.performance_delegations) ? object.performance_delegations.map((e) => DelegationsForZone.fromJSON(e)) : [],
+            delegator_intents: Array.isArray(object?.delegator_intents) ? object.delegator_intents.map((e) => DelegatorIntentsForZone.fromJSON(e)) : [],
+            port_connections: Array.isArray(object?.port_connections) ? object.port_connections.map((e) => PortConnectionTuple.fromJSON(e)) : [],
+            withdrawal_records: Array.isArray(object?.withdrawal_records) ? object.withdrawal_records.map((e) => WithdrawalRecord.fromJSON(e)) : []
         };
     },
     toJSON(message) {
@@ -513,29 +513,29 @@ export const GenesisState = {
         else {
             obj.delegations = [];
         }
-        if (message.performanceDelegations) {
-            obj.performanceDelegations = message.performanceDelegations.map(e => e ? DelegationsForZone.toJSON(e) : undefined);
+        if (message.performance_delegations) {
+            obj.performance_delegations = message.performance_delegations.map(e => e ? DelegationsForZone.toJSON(e) : undefined);
         }
         else {
-            obj.performanceDelegations = [];
+            obj.performance_delegations = [];
         }
-        if (message.delegatorIntents) {
-            obj.delegatorIntents = message.delegatorIntents.map(e => e ? DelegatorIntentsForZone.toJSON(e) : undefined);
-        }
-        else {
-            obj.delegatorIntents = [];
-        }
-        if (message.portConnections) {
-            obj.portConnections = message.portConnections.map(e => e ? PortConnectionTuple.toJSON(e) : undefined);
+        if (message.delegator_intents) {
+            obj.delegator_intents = message.delegator_intents.map(e => e ? DelegatorIntentsForZone.toJSON(e) : undefined);
         }
         else {
-            obj.portConnections = [];
+            obj.delegator_intents = [];
         }
-        if (message.withdrawalRecords) {
-            obj.withdrawalRecords = message.withdrawalRecords.map(e => e ? WithdrawalRecord.toJSON(e) : undefined);
+        if (message.port_connections) {
+            obj.port_connections = message.port_connections.map(e => e ? PortConnectionTuple.toJSON(e) : undefined);
         }
         else {
-            obj.withdrawalRecords = [];
+            obj.port_connections = [];
+        }
+        if (message.withdrawal_records) {
+            obj.withdrawal_records = message.withdrawal_records.map(e => e ? WithdrawalRecord.toJSON(e) : undefined);
+        }
+        else {
+            obj.withdrawal_records = [];
         }
         return obj;
     },
@@ -545,10 +545,10 @@ export const GenesisState = {
         message.zones = object.zones?.map(e => Zone.fromPartial(e)) || [];
         message.receipts = object.receipts?.map(e => Receipt.fromPartial(e)) || [];
         message.delegations = object.delegations?.map(e => DelegationsForZone.fromPartial(e)) || [];
-        message.performanceDelegations = object.performanceDelegations?.map(e => DelegationsForZone.fromPartial(e)) || [];
-        message.delegatorIntents = object.delegatorIntents?.map(e => DelegatorIntentsForZone.fromPartial(e)) || [];
-        message.portConnections = object.portConnections?.map(e => PortConnectionTuple.fromPartial(e)) || [];
-        message.withdrawalRecords = object.withdrawalRecords?.map(e => WithdrawalRecord.fromPartial(e)) || [];
+        message.performance_delegations = object.performance_delegations?.map(e => DelegationsForZone.fromPartial(e)) || [];
+        message.delegator_intents = object.delegator_intents?.map(e => DelegatorIntentsForZone.fromPartial(e)) || [];
+        message.port_connections = object.port_connections?.map(e => PortConnectionTuple.fromPartial(e)) || [];
+        message.withdrawal_records = object.withdrawal_records?.map(e => WithdrawalRecord.fromPartial(e)) || [];
         return message;
     },
     fromAmino(object) {
@@ -557,10 +557,10 @@ export const GenesisState = {
             zones: Array.isArray(object?.zones) ? object.zones.map((e) => Zone.fromAmino(e)) : [],
             receipts: Array.isArray(object?.receipts) ? object.receipts.map((e) => Receipt.fromAmino(e)) : [],
             delegations: Array.isArray(object?.delegations) ? object.delegations.map((e) => DelegationsForZone.fromAmino(e)) : [],
-            performanceDelegations: Array.isArray(object?.performance_delegations) ? object.performance_delegations.map((e) => DelegationsForZone.fromAmino(e)) : [],
-            delegatorIntents: Array.isArray(object?.delegator_intents) ? object.delegator_intents.map((e) => DelegatorIntentsForZone.fromAmino(e)) : [],
-            portConnections: Array.isArray(object?.port_connections) ? object.port_connections.map((e) => PortConnectionTuple.fromAmino(e)) : [],
-            withdrawalRecords: Array.isArray(object?.withdrawal_records) ? object.withdrawal_records.map((e) => WithdrawalRecord.fromAmino(e)) : []
+            performance_delegations: Array.isArray(object?.performance_delegations) ? object.performance_delegations.map((e) => DelegationsForZone.fromAmino(e)) : [],
+            delegator_intents: Array.isArray(object?.delegator_intents) ? object.delegator_intents.map((e) => DelegatorIntentsForZone.fromAmino(e)) : [],
+            port_connections: Array.isArray(object?.port_connections) ? object.port_connections.map((e) => PortConnectionTuple.fromAmino(e)) : [],
+            withdrawal_records: Array.isArray(object?.withdrawal_records) ? object.withdrawal_records.map((e) => WithdrawalRecord.fromAmino(e)) : []
         };
     },
     toAmino(message) {
@@ -584,26 +584,26 @@ export const GenesisState = {
         else {
             obj.delegations = [];
         }
-        if (message.performanceDelegations) {
-            obj.performance_delegations = message.performanceDelegations.map(e => e ? DelegationsForZone.toAmino(e) : undefined);
+        if (message.performance_delegations) {
+            obj.performance_delegations = message.performance_delegations.map(e => e ? DelegationsForZone.toAmino(e) : undefined);
         }
         else {
             obj.performance_delegations = [];
         }
-        if (message.delegatorIntents) {
-            obj.delegator_intents = message.delegatorIntents.map(e => e ? DelegatorIntentsForZone.toAmino(e) : undefined);
+        if (message.delegator_intents) {
+            obj.delegator_intents = message.delegator_intents.map(e => e ? DelegatorIntentsForZone.toAmino(e) : undefined);
         }
         else {
             obj.delegator_intents = [];
         }
-        if (message.portConnections) {
-            obj.port_connections = message.portConnections.map(e => e ? PortConnectionTuple.toAmino(e) : undefined);
+        if (message.port_connections) {
+            obj.port_connections = message.port_connections.map(e => e ? PortConnectionTuple.toAmino(e) : undefined);
         }
         else {
             obj.port_connections = [];
         }
-        if (message.withdrawalRecords) {
-            obj.withdrawal_records = message.withdrawalRecords.map(e => e ? WithdrawalRecord.toAmino(e) : undefined);
+        if (message.withdrawal_records) {
+            obj.withdrawal_records = message.withdrawal_records.map(e => e ? WithdrawalRecord.toAmino(e) : undefined);
         }
         else {
             obj.withdrawal_records = [];

@@ -10,7 +10,7 @@ export interface QueryValidatorsRequest {
     pagination: PageRequest;
 }
 export interface QueryValidatorsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorsRequest";
     value: Uint8Array;
 }
 /** QueryValidatorsRequest is request type for Query/Validators RPC method. */
@@ -37,7 +37,7 @@ export interface QueryValidatorsResponse {
     pagination: PageResponse;
 }
 export interface QueryValidatorsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorsResponse";
     value: Uint8Array;
 }
 /** QueryValidatorsResponse is response type for the Query/Validators RPC method */
@@ -59,10 +59,10 @@ export interface QueryValidatorsResponseSDKType {
 /** QueryValidatorRequest is response type for the Query/Validator RPC method */
 export interface QueryValidatorRequest {
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
 }
 export interface QueryValidatorRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorRequest";
     value: Uint8Array;
 }
 /** QueryValidatorRequest is response type for the Query/Validator RPC method */
@@ -84,7 +84,7 @@ export interface QueryValidatorResponse {
     validator: Validator;
 }
 export interface QueryValidatorResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorResponse";
     value: Uint8Array;
 }
 /** QueryValidatorResponse is response type for the Query/Validator RPC method */
@@ -106,12 +106,12 @@ export interface QueryValidatorResponseSDKType {
  */
 export interface QueryValidatorDelegationsRequest {
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryValidatorDelegationsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorDelegationsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorDelegationsRequest";
     value: Uint8Array;
 }
 /**
@@ -141,12 +141,12 @@ export interface QueryValidatorDelegationsRequestSDKType {
  * Query/ValidatorDelegations RPC method
  */
 export interface QueryValidatorDelegationsResponse {
-    delegationResponses: DelegationResponse[];
+    delegation_responses: DelegationResponse[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryValidatorDelegationsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorDelegationsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorDelegationsResponse";
     value: Uint8Array;
 }
 /**
@@ -176,12 +176,12 @@ export interface QueryValidatorDelegationsResponseSDKType {
  */
 export interface QueryValidatorUnbondingDelegationsRequest {
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryValidatorUnbondingDelegationsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest";
     value: Uint8Array;
 }
 /**
@@ -211,12 +211,12 @@ export interface QueryValidatorUnbondingDelegationsRequestSDKType {
  * Query/ValidatorUnbondingDelegations RPC method.
  */
 export interface QueryValidatorUnbondingDelegationsResponse {
-    unbondingResponses: UnbondingDelegation[];
+    unbonding_responses: UnbondingDelegation[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryValidatorUnbondingDelegationsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse";
     value: Uint8Array;
 }
 /**
@@ -243,12 +243,12 @@ export interface QueryValidatorUnbondingDelegationsResponseSDKType {
 /** QueryDelegationRequest is request type for the Query/Delegation RPC method. */
 export interface QueryDelegationRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
 }
 export interface QueryDelegationRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegationRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegationRequest";
     value: Uint8Array;
 }
 /** QueryDelegationRequest is request type for the Query/Delegation RPC method. */
@@ -270,10 +270,10 @@ export interface QueryDelegationRequestSDKType {
 /** QueryDelegationResponse is response type for the Query/Delegation RPC method. */
 export interface QueryDelegationResponse {
     /** delegation_responses defines the delegation info of a delegation. */
-    delegationResponse: DelegationResponse;
+    delegation_response: DelegationResponse;
 }
 export interface QueryDelegationResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegationResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegationResponse";
     value: Uint8Array;
 }
 /** QueryDelegationResponse is response type for the Query/Delegation RPC method. */
@@ -295,12 +295,12 @@ export interface QueryDelegationResponseSDKType {
  */
 export interface QueryUnbondingDelegationRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
 }
 export interface QueryUnbondingDelegationRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryUnbondingDelegationRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryUnbondingDelegationRequest";
     value: Uint8Array;
 }
 /**
@@ -334,7 +334,7 @@ export interface QueryUnbondingDelegationResponse {
     unbond: UnbondingDelegation;
 }
 export interface QueryUnbondingDelegationResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryUnbondingDelegationResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryUnbondingDelegationResponse";
     value: Uint8Array;
 }
 /**
@@ -362,12 +362,12 @@ export interface QueryUnbondingDelegationResponseSDKType {
  */
 export interface QueryDelegatorDelegationsRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryDelegatorDelegationsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest";
     value: Uint8Array;
 }
 /**
@@ -398,12 +398,12 @@ export interface QueryDelegatorDelegationsRequestSDKType {
  */
 export interface QueryDelegatorDelegationsResponse {
     /** delegation_responses defines all the delegations' info of a delegator. */
-    delegationResponses: DelegationResponse[];
+    delegation_responses: DelegationResponse[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryDelegatorDelegationsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse";
     value: Uint8Array;
 }
 /**
@@ -434,12 +434,12 @@ export interface QueryDelegatorDelegationsResponseSDKType {
  */
 export interface QueryDelegatorUnbondingDelegationsRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryDelegatorUnbondingDelegationsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest";
     value: Uint8Array;
 }
 /**
@@ -469,12 +469,12 @@ export interface QueryDelegatorUnbondingDelegationsRequestSDKType {
  * Query/UnbondingDelegatorDelegations RPC method.
  */
 export interface QueryDelegatorUnbondingDelegationsResponse {
-    unbondingResponses: UnbondingDelegation[];
+    unbonding_responses: UnbondingDelegation[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryDelegatorUnbondingDelegationsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse";
     value: Uint8Array;
 }
 /**
@@ -504,16 +504,16 @@ export interface QueryDelegatorUnbondingDelegationsResponseSDKType {
  */
 export interface QueryRedelegationsRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** src_validator_addr defines the validator address to redelegate from. */
-    srcValidatorAddr: string;
+    src_validator_addr: string;
     /** dst_validator_addr defines the validator address to redelegate to. */
-    dstValidatorAddr: string;
+    dst_validator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryRedelegationsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryRedelegationsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryRedelegationsRequest";
     value: Uint8Array;
 }
 /**
@@ -549,12 +549,12 @@ export interface QueryRedelegationsRequestSDKType {
  * method.
  */
 export interface QueryRedelegationsResponse {
-    redelegationResponses: RedelegationResponse[];
+    redelegation_responses: RedelegationResponse[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
 export interface QueryRedelegationsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryRedelegationsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryRedelegationsResponse";
     value: Uint8Array;
 }
 /**
@@ -584,12 +584,12 @@ export interface QueryRedelegationsResponseSDKType {
  */
 export interface QueryDelegatorValidatorsRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
 export interface QueryDelegatorValidatorsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest";
     value: Uint8Array;
 }
 /**
@@ -625,7 +625,7 @@ export interface QueryDelegatorValidatorsResponse {
     pagination: PageResponse;
 }
 export interface QueryDelegatorValidatorsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse";
     value: Uint8Array;
 }
 /**
@@ -656,12 +656,12 @@ export interface QueryDelegatorValidatorsResponseSDKType {
  */
 export interface QueryDelegatorValidatorRequest {
     /** delegator_addr defines the delegator address to query for. */
-    delegatorAddr: string;
+    delegator_addr: string;
     /** validator_addr defines the validator address to query for. */
-    validatorAddr: string;
+    validator_addr: string;
 }
 export interface QueryDelegatorValidatorRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorValidatorRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorValidatorRequest";
     value: Uint8Array;
 }
 /**
@@ -695,7 +695,7 @@ export interface QueryDelegatorValidatorResponse {
     validator: Validator;
 }
 export interface QueryDelegatorValidatorResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryDelegatorValidatorResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryDelegatorValidatorResponse";
     value: Uint8Array;
 }
 /**
@@ -726,7 +726,7 @@ export interface QueryHistoricalInfoRequest {
     height: Long;
 }
 export interface QueryHistoricalInfoRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryHistoricalInfoRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryHistoricalInfoRequest";
     value: Uint8Array;
 }
 /**
@@ -757,7 +757,7 @@ export interface QueryHistoricalInfoResponse {
     hist: HistoricalInfo;
 }
 export interface QueryHistoricalInfoResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryHistoricalInfoResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryHistoricalInfoResponse";
     value: Uint8Array;
 }
 /**
@@ -783,7 +783,7 @@ export interface QueryHistoricalInfoResponseSDKType {
 export interface QueryPoolRequest {
 }
 export interface QueryPoolRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryPoolRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryPoolRequest";
     value: Uint8Array;
 }
 /** QueryPoolRequest is request type for the Query/Pool RPC method. */
@@ -802,7 +802,7 @@ export interface QueryPoolResponse {
     pool: Pool;
 }
 export interface QueryPoolResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryPoolResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryPoolResponse";
     value: Uint8Array;
 }
 /** QueryPoolResponse is response type for the Query/Pool RPC method. */
@@ -822,7 +822,7 @@ export interface QueryPoolResponseSDKType {
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryParamsRequest";
+    type_url: "/cosmos.staking.v1beta1.QueryParamsRequest";
     value: Uint8Array;
 }
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
@@ -841,7 +841,7 @@ export interface QueryParamsResponse {
     params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-    typeUrl: "/cosmos.staking.v1beta1.QueryParamsResponse";
+    type_url: "/cosmos.staking.v1beta1.QueryParamsResponse";
     value: Uint8Array;
 }
 /** QueryParamsResponse is response type for the Query/Params RPC method. */

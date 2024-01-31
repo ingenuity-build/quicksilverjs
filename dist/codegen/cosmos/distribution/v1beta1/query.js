@@ -172,15 +172,15 @@ exports.QueryParamsResponse = {
 };
 function createBaseQueryValidatorOutstandingRewardsRequest() {
     return {
-        validatorAddress: ""
+        validator_address: ""
     };
 }
 exports.QueryValidatorOutstandingRewardsRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest",
     aminoType: "cosmos-sdk/QueryValidatorOutstandingRewardsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorAddress !== "") {
-            writer.uint32(10).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(10).string(message.validator_address);
         }
         return writer;
     },
@@ -192,7 +192,7 @@ exports.QueryValidatorOutstandingRewardsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -203,27 +203,27 @@ exports.QueryValidatorOutstandingRewardsRequest = {
     },
     fromJSON(object) {
         return {
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : ""
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryValidatorOutstandingRewardsRequest();
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.validator_address = object.validator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorAddress: object.validator_address
+            validator_address: object.validator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_address = message.validatorAddress;
+        obj.validator_address = message.validator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -328,15 +328,15 @@ exports.QueryValidatorOutstandingRewardsResponse = {
 };
 function createBaseQueryValidatorCommissionRequest() {
     return {
-        validatorAddress: ""
+        validator_address: ""
     };
 }
 exports.QueryValidatorCommissionRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest",
     aminoType: "cosmos-sdk/QueryValidatorCommissionRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorAddress !== "") {
-            writer.uint32(10).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(10).string(message.validator_address);
         }
         return writer;
     },
@@ -348,7 +348,7 @@ exports.QueryValidatorCommissionRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -359,27 +359,27 @@ exports.QueryValidatorCommissionRequest = {
     },
     fromJSON(object) {
         return {
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : ""
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryValidatorCommissionRequest();
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.validator_address = object.validator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            validatorAddress: object.validator_address
+            validator_address: object.validator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_address = message.validatorAddress;
+        obj.validator_address = message.validator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -484,9 +484,9 @@ exports.QueryValidatorCommissionResponse = {
 };
 function createBaseQueryValidatorSlashesRequest() {
     return {
-        validatorAddress: "",
-        startingHeight: helpers_1.Long.UZERO,
-        endingHeight: helpers_1.Long.UZERO,
+        validator_address: "",
+        starting_height: helpers_1.Long.UZERO,
+        ending_height: helpers_1.Long.UZERO,
         pagination: pagination_1.PageRequest.fromPartial({})
     };
 }
@@ -494,14 +494,14 @@ exports.QueryValidatorSlashesRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest",
     aminoType: "cosmos-sdk/QueryValidatorSlashesRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.validatorAddress !== "") {
-            writer.uint32(10).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(10).string(message.validator_address);
         }
-        if (!message.startingHeight.isZero()) {
-            writer.uint32(16).uint64(message.startingHeight);
+        if (!message.starting_height.isZero()) {
+            writer.uint32(16).uint64(message.starting_height);
         }
-        if (!message.endingHeight.isZero()) {
-            writer.uint32(24).uint64(message.endingHeight);
+        if (!message.ending_height.isZero()) {
+            writer.uint32(24).uint64(message.ending_height);
         }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(34).fork()).ldelim();
@@ -516,13 +516,13 @@ exports.QueryValidatorSlashesRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 case 2:
-                    message.startingHeight = reader.uint64();
+                    message.starting_height = reader.uint64();
                     break;
                 case 3:
-                    message.endingHeight = reader.uint64();
+                    message.ending_height = reader.uint64();
                     break;
                 case 4:
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
@@ -536,41 +536,41 @@ exports.QueryValidatorSlashesRequest = {
     },
     fromJSON(object) {
         return {
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : "",
-            startingHeight: (0, helpers_1.isSet)(object.startingHeight) ? helpers_1.Long.fromValue(object.startingHeight) : helpers_1.Long.UZERO,
-            endingHeight: (0, helpers_1.isSet)(object.endingHeight) ? helpers_1.Long.fromValue(object.endingHeight) : helpers_1.Long.UZERO,
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : "",
+            starting_height: (0, helpers_1.isSet)(object.starting_height) ? helpers_1.Long.fromValue(object.starting_height) : helpers_1.Long.UZERO,
+            ending_height: (0, helpers_1.isSet)(object.ending_height) ? helpers_1.Long.fromValue(object.ending_height) : helpers_1.Long.UZERO,
             pagination: (0, helpers_1.isSet)(object.pagination) ? pagination_1.PageRequest.fromJSON(object.pagination) : undefined
         };
     },
     toJSON(message) {
         const obj = {};
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
-        message.startingHeight !== undefined && (obj.startingHeight = (message.startingHeight || helpers_1.Long.UZERO).toString());
-        message.endingHeight !== undefined && (obj.endingHeight = (message.endingHeight || helpers_1.Long.UZERO).toString());
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
+        message.starting_height !== undefined && (obj.starting_height = (message.starting_height || helpers_1.Long.UZERO).toString());
+        message.ending_height !== undefined && (obj.ending_height = (message.ending_height || helpers_1.Long.UZERO).toString());
         message.pagination !== undefined && (obj.pagination = message.pagination ? pagination_1.PageRequest.toJSON(message.pagination) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryValidatorSlashesRequest();
-        message.validatorAddress = object.validatorAddress ?? "";
-        message.startingHeight = object.startingHeight !== undefined && object.startingHeight !== null ? helpers_1.Long.fromValue(object.startingHeight) : helpers_1.Long.UZERO;
-        message.endingHeight = object.endingHeight !== undefined && object.endingHeight !== null ? helpers_1.Long.fromValue(object.endingHeight) : helpers_1.Long.UZERO;
+        message.validator_address = object.validator_address ?? "";
+        message.starting_height = object.starting_height !== undefined && object.starting_height !== null ? helpers_1.Long.fromValue(object.starting_height) : helpers_1.Long.UZERO;
+        message.ending_height = object.ending_height !== undefined && object.ending_height !== null ? helpers_1.Long.fromValue(object.ending_height) : helpers_1.Long.UZERO;
         message.pagination = object.pagination !== undefined && object.pagination !== null ? pagination_1.PageRequest.fromPartial(object.pagination) : undefined;
         return message;
     },
     fromAmino(object) {
         return {
-            validatorAddress: object.validator_address,
-            startingHeight: helpers_1.Long.fromString(object.starting_height),
-            endingHeight: helpers_1.Long.fromString(object.ending_height),
+            validator_address: object.validator_address,
+            starting_height: helpers_1.Long.fromString(object.starting_height),
+            ending_height: helpers_1.Long.fromString(object.ending_height),
             pagination: object?.pagination ? pagination_1.PageRequest.fromAmino(object.pagination) : undefined
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.validator_address = message.validatorAddress;
-        obj.starting_height = message.startingHeight ? message.startingHeight.toString() : undefined;
-        obj.ending_height = message.endingHeight ? message.endingHeight.toString() : undefined;
+        obj.validator_address = message.validator_address;
+        obj.starting_height = message.starting_height ? message.starting_height.toString() : undefined;
+        obj.ending_height = message.ending_height ? message.ending_height.toString() : undefined;
         obj.pagination = message.pagination ? pagination_1.PageRequest.toAmino(message.pagination) : undefined;
         return obj;
     },
@@ -698,19 +698,19 @@ exports.QueryValidatorSlashesResponse = {
 };
 function createBaseQueryDelegationRewardsRequest() {
     return {
-        delegatorAddress: "",
-        validatorAddress: ""
+        delegator_address: "",
+        validator_address: ""
     };
 }
 exports.QueryDelegationRewardsRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest",
     aminoType: "cosmos-sdk/QueryDelegationRewardsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
-        if (message.validatorAddress !== "") {
-            writer.uint32(18).string(message.validatorAddress);
+        if (message.validator_address !== "") {
+            writer.uint32(18).string(message.validator_address);
         }
         return writer;
     },
@@ -722,10 +722,10 @@ exports.QueryDelegationRewardsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 case 2:
-                    message.validatorAddress = reader.string();
+                    message.validator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -736,32 +736,32 @@ exports.QueryDelegationRewardsRequest = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-            validatorAddress: (0, helpers_1.isSet)(object.validatorAddress) ? String(object.validatorAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : "",
+            validator_address: (0, helpers_1.isSet)(object.validator_address) ? String(object.validator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+        message.validator_address !== undefined && (obj.validator_address = message.validator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDelegationRewardsRequest();
-        message.delegatorAddress = object.delegatorAddress ?? "";
-        message.validatorAddress = object.validatorAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
+        message.validator_address = object.validator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address,
-            validatorAddress: object.validator_address
+            delegator_address: object.delegator_address,
+            validator_address: object.validator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
-        obj.validator_address = message.validatorAddress;
+        obj.delegator_address = message.delegator_address;
+        obj.validator_address = message.validator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -876,15 +876,15 @@ exports.QueryDelegationRewardsResponse = {
 };
 function createBaseQueryDelegationTotalRewardsRequest() {
     return {
-        delegatorAddress: ""
+        delegator_address: ""
     };
 }
 exports.QueryDelegationTotalRewardsRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest",
     aminoType: "cosmos-sdk/QueryDelegationTotalRewardsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
         return writer;
     },
@@ -896,7 +896,7 @@ exports.QueryDelegationTotalRewardsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -907,27 +907,27 @@ exports.QueryDelegationTotalRewardsRequest = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDelegationTotalRewardsRequest();
-        message.delegatorAddress = object.delegatorAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address
+            delegator_address: object.delegator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
+        obj.delegator_address = message.delegator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1064,15 +1064,15 @@ exports.QueryDelegationTotalRewardsResponse = {
 };
 function createBaseQueryDelegatorValidatorsRequest() {
     return {
-        delegatorAddress: ""
+        delegator_address: ""
     };
 }
 exports.QueryDelegatorValidatorsRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest",
     aminoType: "cosmos-sdk/QueryDelegatorValidatorsRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
         return writer;
     },
@@ -1084,7 +1084,7 @@ exports.QueryDelegatorValidatorsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1095,27 +1095,27 @@ exports.QueryDelegatorValidatorsRequest = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDelegatorValidatorsRequest();
-        message.delegatorAddress = object.delegatorAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address
+            delegator_address: object.delegator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
+        obj.delegator_address = message.delegator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1230,15 +1230,15 @@ exports.QueryDelegatorValidatorsResponse = {
 };
 function createBaseQueryDelegatorWithdrawAddressRequest() {
     return {
-        delegatorAddress: ""
+        delegator_address: ""
     };
 }
 exports.QueryDelegatorWithdrawAddressRequest = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest",
     aminoType: "cosmos-sdk/QueryDelegatorWithdrawAddressRequest",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.delegatorAddress !== "") {
-            writer.uint32(10).string(message.delegatorAddress);
+        if (message.delegator_address !== "") {
+            writer.uint32(10).string(message.delegator_address);
         }
         return writer;
     },
@@ -1250,7 +1250,7 @@ exports.QueryDelegatorWithdrawAddressRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.delegatorAddress = reader.string();
+                    message.delegator_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1261,27 +1261,27 @@ exports.QueryDelegatorWithdrawAddressRequest = {
     },
     fromJSON(object) {
         return {
-            delegatorAddress: (0, helpers_1.isSet)(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+            delegator_address: (0, helpers_1.isSet)(object.delegator_address) ? String(object.delegator_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+        message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDelegatorWithdrawAddressRequest();
-        message.delegatorAddress = object.delegatorAddress ?? "";
+        message.delegator_address = object.delegator_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            delegatorAddress: object.delegator_address
+            delegator_address: object.delegator_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.delegator_address = message.delegatorAddress;
+        obj.delegator_address = message.delegator_address;
         return obj;
     },
     fromAminoMsg(object) {
@@ -1308,15 +1308,15 @@ exports.QueryDelegatorWithdrawAddressRequest = {
 };
 function createBaseQueryDelegatorWithdrawAddressResponse() {
     return {
-        withdrawAddress: ""
+        withdraw_address: ""
     };
 }
 exports.QueryDelegatorWithdrawAddressResponse = {
     typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse",
     aminoType: "cosmos-sdk/QueryDelegatorWithdrawAddressResponse",
     encode(message, writer = _m0.Writer.create()) {
-        if (message.withdrawAddress !== "") {
-            writer.uint32(10).string(message.withdrawAddress);
+        if (message.withdraw_address !== "") {
+            writer.uint32(10).string(message.withdraw_address);
         }
         return writer;
     },
@@ -1328,7 +1328,7 @@ exports.QueryDelegatorWithdrawAddressResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.withdrawAddress = reader.string();
+                    message.withdraw_address = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1339,27 +1339,27 @@ exports.QueryDelegatorWithdrawAddressResponse = {
     },
     fromJSON(object) {
         return {
-            withdrawAddress: (0, helpers_1.isSet)(object.withdrawAddress) ? String(object.withdrawAddress) : ""
+            withdraw_address: (0, helpers_1.isSet)(object.withdraw_address) ? String(object.withdraw_address) : ""
         };
     },
     toJSON(message) {
         const obj = {};
-        message.withdrawAddress !== undefined && (obj.withdrawAddress = message.withdrawAddress);
+        message.withdraw_address !== undefined && (obj.withdraw_address = message.withdraw_address);
         return obj;
     },
     fromPartial(object) {
         const message = createBaseQueryDelegatorWithdrawAddressResponse();
-        message.withdrawAddress = object.withdrawAddress ?? "";
+        message.withdraw_address = object.withdraw_address ?? "";
         return message;
     },
     fromAmino(object) {
         return {
-            withdrawAddress: object.withdraw_address
+            withdraw_address: object.withdraw_address
         };
     },
     toAmino(message) {
         const obj = {};
-        obj.withdraw_address = message.withdrawAddress;
+        obj.withdraw_address = message.withdraw_address;
         return obj;
     },
     fromAminoMsg(object) {

@@ -8,7 +8,7 @@ export interface AddProtocolDataProposal {
     key: string;
 }
 export interface AddProtocolDataProposalProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.AddProtocolDataProposal";
+    type_url: "/quicksilver.participationrewards.v1.AddProtocolDataProposal";
     value: Uint8Array;
 }
 export interface AddProtocolDataProposalAmino {
@@ -39,7 +39,7 @@ export interface AddProtocolDataProposalWithDeposit {
     deposit: string;
 }
 export interface AddProtocolDataProposalWithDepositProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.AddProtocolDataProposalWithDeposit";
+    type_url: "/quicksilver.participationrewards.v1.AddProtocolDataProposalWithDeposit";
     value: Uint8Array;
 }
 export interface AddProtocolDataProposalWithDepositAmino {
@@ -71,7 +71,7 @@ export interface MsgGovRemoveProtocolData {
     authority: string;
 }
 export interface MsgGovRemoveProtocolDataProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.MsgGovRemoveProtocolData";
+    type_url: "/quicksilver.participationrewards.v1.MsgGovRemoveProtocolData";
     value: Uint8Array;
 }
 export interface MsgGovRemoveProtocolDataAmino {
@@ -97,7 +97,7 @@ export interface MsgGovRemoveProtocolDataSDKType {
 export interface MsgGovRemoveProtocolDataResponse {
 }
 export interface MsgGovRemoveProtocolDataResponseProtoMsg {
-    typeUrl: "/quicksilver.participationrewards.v1.MsgGovRemoveProtocolDataResponse";
+    type_url: "/quicksilver.participationrewards.v1.MsgGovRemoveProtocolDataResponse";
     value: Uint8Array;
 }
 /**

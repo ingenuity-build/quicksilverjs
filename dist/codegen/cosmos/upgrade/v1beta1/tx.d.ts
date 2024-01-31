@@ -13,7 +13,7 @@ export interface MsgSoftwareUpgrade {
     plan: Plan;
 }
 export interface MsgSoftwareUpgradeProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade";
+    type_url: "/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade";
     value: Uint8Array;
 }
 /**
@@ -48,7 +48,7 @@ export interface MsgSoftwareUpgradeSDKType {
 export interface MsgSoftwareUpgradeResponse {
 }
 export interface MsgSoftwareUpgradeResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.MsgSoftwareUpgradeResponse";
+    type_url: "/cosmos.upgrade.v1beta1.MsgSoftwareUpgradeResponse";
     value: Uint8Array;
 }
 /**
@@ -79,7 +79,7 @@ export interface MsgCancelUpgrade {
     authority: string;
 }
 export interface MsgCancelUpgradeProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.MsgCancelUpgrade";
+    type_url: "/cosmos.upgrade.v1beta1.MsgCancelUpgrade";
     value: Uint8Array;
 }
 /**
@@ -111,7 +111,7 @@ export interface MsgCancelUpgradeSDKType {
 export interface MsgCancelUpgradeResponse {
 }
 export interface MsgCancelUpgradeResponseProtoMsg {
-    typeUrl: "/cosmos.upgrade.v1beta1.MsgCancelUpgradeResponse";
+    type_url: "/cosmos.upgrade.v1beta1.MsgCancelUpgradeResponse";
     value: Uint8Array;
 }
 /**

@@ -47,16 +47,16 @@ export declare function statusFromJSON(object: any): Status;
 export declare function statusToJSON(object: Status): string;
 /** ZoneDrop represents an airdrop for a specific zone. */
 export interface ZoneDrop {
-    chainId: string;
-    startTime: Date;
+    chain_id: string;
+    start_time: Date;
     duration: Duration;
     decay: Duration;
     allocation: Long;
     actions: string[];
-    isConcluded: boolean;
+    is_concluded: boolean;
 }
 export interface ZoneDropProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.ZoneDrop";
+    type_url: "/quicksilver.airdrop.v1.ZoneDrop";
     value: Uint8Array;
 }
 /** ZoneDrop represents an airdrop for a specific zone. */
@@ -88,7 +88,7 @@ export interface ClaimRecord_ActionsCompletedEntry {
     value: CompletedAction;
 }
 export interface ClaimRecord_ActionsCompletedEntryProtoMsg {
-    typeUrl: string;
+    type_url: string;
     value: Uint8Array;
 }
 export interface ClaimRecord_ActionsCompletedEntryAmino {
@@ -108,17 +108,17 @@ export interface ClaimRecord_ActionsCompletedEntrySDKType {
  * given zone.
  */
 export interface ClaimRecord {
-    chainId: string;
+    chain_id: string;
     address: string;
     /** Protobuf3 does not allow enum as map key */
-    actionsCompleted: {
+    actions_completed: {
         [key: number]: CompletedAction;
     };
-    maxAllocation: Long;
-    baseValue: Long;
+    max_allocation: Long;
+    base_value: Long;
 }
 export interface ClaimRecordProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.ClaimRecord";
+    type_url: "/quicksilver.airdrop.v1.ClaimRecord";
     value: Uint8Array;
 }
 /**
@@ -154,11 +154,11 @@ export interface ClaimRecordSDKType {
 }
 /** CompletedAction represents a claim action completed by the user. */
 export interface CompletedAction {
-    completeTime: Date;
-    claimAmount: Long;
+    complete_time: Date;
+    claim_amount: Long;
 }
 export interface CompletedActionProtoMsg {
-    typeUrl: "/quicksilver.airdrop.v1.CompletedAction";
+    type_url: "/quicksilver.airdrop.v1.CompletedAction";
     value: Uint8Array;
 }
 /** CompletedAction represents a claim action completed by the user. */
