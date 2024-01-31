@@ -11,7 +11,7 @@ export interface QueryBalanceRequest {
   denom: string;
 }
 export interface QueryBalanceRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryBalanceRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryBalanceRequest";
   value: Uint8Array;
 }
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method. */
@@ -36,7 +36,7 @@ export interface QueryBalanceResponse {
   balance: Coin;
 }
 export interface QueryBalanceResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryBalanceResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryBalanceResponse";
   value: Uint8Array;
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method. */
@@ -60,7 +60,7 @@ export interface QueryAllBalancesRequest {
   pagination: PageRequest;
 }
 export interface QueryAllBalancesRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryAllBalancesRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryAllBalancesRequest";
   value: Uint8Array;
 }
 /** QueryBalanceRequest is the request type for the Query/AllBalances RPC method. */
@@ -90,7 +90,7 @@ export interface QueryAllBalancesResponse {
   pagination: PageResponse;
 }
 export interface QueryAllBalancesResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryAllBalancesResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryAllBalancesResponse";
   value: Uint8Array;
 }
 /**
@@ -126,7 +126,7 @@ export interface QuerySpendableBalancesRequest {
   pagination: PageRequest;
 }
 export interface QuerySpendableBalancesRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QuerySpendableBalancesRequest";
+  type_url: "/cosmos.bank.v1beta1.QuerySpendableBalancesRequest";
   value: Uint8Array;
 }
 /**
@@ -162,7 +162,7 @@ export interface QuerySpendableBalancesResponse {
   pagination: PageResponse;
 }
 export interface QuerySpendableBalancesResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QuerySpendableBalancesResponse";
+  type_url: "/cosmos.bank.v1beta1.QuerySpendableBalancesResponse";
   value: Uint8Array;
 }
 /**
@@ -200,7 +200,7 @@ export interface QueryTotalSupplyRequest {
   pagination: PageRequest;
 }
 export interface QueryTotalSupplyRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryTotalSupplyRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryTotalSupplyRequest";
   value: Uint8Array;
 }
 /**
@@ -241,7 +241,7 @@ export interface QueryTotalSupplyResponse {
   pagination: PageResponse;
 }
 export interface QueryTotalSupplyResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryTotalSupplyResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryTotalSupplyResponse";
   value: Uint8Array;
 }
 /**
@@ -276,7 +276,7 @@ export interface QuerySupplyOfRequest {
   denom: string;
 }
 export interface QuerySupplyOfRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QuerySupplyOfRequest";
+  type_url: "/cosmos.bank.v1beta1.QuerySupplyOfRequest";
   value: Uint8Array;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
@@ -298,7 +298,7 @@ export interface QuerySupplyOfResponse {
   amount: Coin;
 }
 export interface QuerySupplyOfResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QuerySupplyOfResponse";
+  type_url: "/cosmos.bank.v1beta1.QuerySupplyOfResponse";
   value: Uint8Array;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
@@ -317,7 +317,7 @@ export interface QuerySupplyOfResponseSDKType {
 /** QueryParamsRequest defines the request type for querying x/bank parameters. */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryParamsRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest defines the request type for querying x/bank parameters. */
@@ -333,7 +333,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryParamsResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse defines the response type for querying x/bank parameters. */
@@ -354,7 +354,7 @@ export interface QueryDenomsMetadataRequest {
   pagination: PageRequest;
 }
 export interface QueryDenomsMetadataRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomsMetadataRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomsMetadataRequest";
   value: Uint8Array;
 }
 /** QueryDenomsMetadataRequest is the request type for the Query/DenomsMetadata RPC method. */
@@ -381,7 +381,7 @@ export interface QueryDenomsMetadataResponse {
   pagination: PageResponse;
 }
 export interface QueryDenomsMetadataResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomsMetadataResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomsMetadataResponse";
   value: Uint8Array;
 }
 /**
@@ -412,7 +412,7 @@ export interface QueryDenomMetadataRequest {
   denom: string;
 }
 export interface QueryDenomMetadataRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomMetadataRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomMetadataRequest";
   value: Uint8Array;
 }
 /** QueryDenomMetadataRequest is the request type for the Query/DenomMetadata RPC method. */
@@ -437,7 +437,7 @@ export interface QueryDenomMetadataResponse {
   metadata: Metadata;
 }
 export interface QueryDenomMetadataResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomMetadataResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomMetadataResponse";
   value: Uint8Array;
 }
 /**
@@ -471,7 +471,7 @@ export interface QueryDenomOwnersRequest {
   pagination: PageRequest;
 }
 export interface QueryDenomOwnersRequestProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomOwnersRequest";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomOwnersRequest";
   value: Uint8Array;
 }
 /**
@@ -510,7 +510,7 @@ export interface DenomOwner {
   balance: Coin;
 }
 export interface DenomOwnerProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.DenomOwner";
+  type_url: "/cosmos.bank.v1beta1.DenomOwner";
   value: Uint8Array;
 }
 /**
@@ -539,12 +539,12 @@ export interface DenomOwnerSDKType {
 }
 /** QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query. */
 export interface QueryDenomOwnersResponse {
-  denomOwners: DenomOwner[];
+  denom_owners: DenomOwner[];
   /** pagination defines the pagination in the response. */
   pagination: PageResponse;
 }
 export interface QueryDenomOwnersResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.QueryDenomOwnersResponse";
+  type_url: "/cosmos.bank.v1beta1.QueryDenomOwnersResponse";
   value: Uint8Array;
 }
 /** QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query. */
@@ -2093,7 +2093,7 @@ export const DenomOwner = {
 };
 function createBaseQueryDenomOwnersResponse(): QueryDenomOwnersResponse {
   return {
-    denomOwners: [],
+    denom_owners: [],
     pagination: PageResponse.fromPartial({})
   };
 }
@@ -2101,7 +2101,7 @@ export const QueryDenomOwnersResponse = {
   typeUrl: "/cosmos.bank.v1beta1.QueryDenomOwnersResponse",
   aminoType: "cosmos-sdk/QueryDenomOwnersResponse",
   encode(message: QueryDenomOwnersResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.denomOwners) {
+    for (const v of message.denom_owners) {
       DenomOwner.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     if (message.pagination !== undefined) {
@@ -2117,7 +2117,7 @@ export const QueryDenomOwnersResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.denomOwners.push(DenomOwner.decode(reader, reader.uint32()));
+          message.denom_owners.push(DenomOwner.decode(reader, reader.uint32()));
           break;
         case 2:
           message.pagination = PageResponse.decode(reader, reader.uint32());
@@ -2131,36 +2131,36 @@ export const QueryDenomOwnersResponse = {
   },
   fromJSON(object: any): QueryDenomOwnersResponse {
     return {
-      denomOwners: Array.isArray(object?.denomOwners) ? object.denomOwners.map((e: any) => DenomOwner.fromJSON(e)) : [],
+      denom_owners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e: any) => DenomOwner.fromJSON(e)) : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryDenomOwnersResponse): unknown {
     const obj: any = {};
-    if (message.denomOwners) {
-      obj.denomOwners = message.denomOwners.map(e => e ? DenomOwner.toJSON(e) : undefined);
+    if (message.denom_owners) {
+      obj.denom_owners = message.denom_owners.map(e => e ? DenomOwner.toJSON(e) : undefined);
     } else {
-      obj.denomOwners = [];
+      obj.denom_owners = [];
     }
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDenomOwnersResponse>): QueryDenomOwnersResponse {
     const message = createBaseQueryDenomOwnersResponse();
-    message.denomOwners = object.denomOwners?.map(e => DenomOwner.fromPartial(e)) || [];
+    message.denom_owners = object.denom_owners?.map(e => DenomOwner.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryDenomOwnersResponseAmino): QueryDenomOwnersResponse {
     return {
-      denomOwners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e: any) => DenomOwner.fromAmino(e)) : [],
+      denom_owners: Array.isArray(object?.denom_owners) ? object.denom_owners.map((e: any) => DenomOwner.fromAmino(e)) : [],
       pagination: object?.pagination ? PageResponse.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryDenomOwnersResponse): QueryDenomOwnersResponseAmino {
     const obj: any = {};
-    if (message.denomOwners) {
-      obj.denom_owners = message.denomOwners.map(e => e ? DenomOwner.toAmino(e) : undefined);
+    if (message.denom_owners) {
+      obj.denom_owners = message.denom_owners.map(e => e ? DenomOwner.toAmino(e) : undefined);
     } else {
       obj.denom_owners = [];
     }

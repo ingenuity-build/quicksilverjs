@@ -60,11 +60,11 @@ export function tokenizeShareLockStatusToJSON(object: TokenizeShareLockStatus): 
 }
 /** TokenizeShareRecordReward represents the properties of tokenize share */
 export interface TokenizeShareRecordReward {
-  recordId: Long;
+  record_id: Long;
   reward: DecCoin[];
 }
 export interface TokenizeShareRecordRewardProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.TokenizeShareRecordReward";
+  type_url: "/cosmos.staking.v1beta1.TokenizeShareRecordReward";
   value: Uint8Array;
 }
 /** TokenizeShareRecordReward represents the properties of tokenize share */
@@ -87,10 +87,10 @@ export interface TokenizeShareRecordRewardSDKType {
  * method.
  */
 export interface QueryTokenizeShareRecordRewardRequest {
-  ownerAddress: string;
+  owner_address: string;
 }
 export interface QueryTokenizeShareRecordRewardRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardRequest";
   value: Uint8Array;
 }
 /**
@@ -124,7 +124,7 @@ export interface QueryTokenizeShareRecordRewardResponse {
   total: DecCoin[];
 }
 export interface QueryTokenizeShareRecordRewardResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardResponse";
   value: Uint8Array;
 }
 /**
@@ -154,11 +154,11 @@ export interface QueryTokenizeShareRecordRewardResponseSDKType {
  * specific record
  */
 export interface MsgWithdrawTokenizeShareRecordReward {
-  ownerAddress: string;
-  recordId: Long;
+  owner_address: string;
+  record_id: Long;
 }
 export interface MsgWithdrawTokenizeShareRecordRewardProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordReward";
+  type_url: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordReward";
   value: Uint8Array;
 }
 /**
@@ -187,7 +187,7 @@ export interface MsgWithdrawTokenizeShareRecordRewardSDKType {
  */
 export interface MsgWithdrawTokenizeShareRecordRewardResponse {}
 export interface MsgWithdrawTokenizeShareRecordRewardResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordRewardResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordRewardResponse";
   value: Uint8Array;
 }
 /**
@@ -209,10 +209,10 @@ export interface MsgWithdrawTokenizeShareRecordRewardResponseSDKType {}
  * all records owned by the designated owner
  */
 export interface MsgWithdrawAllTokenizeShareRecordReward {
-  ownerAddress: string;
+  owner_address: string;
 }
 export interface MsgWithdrawAllTokenizeShareRecordRewardProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordReward";
+  type_url: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordReward";
   value: Uint8Array;
 }
 /**
@@ -239,7 +239,7 @@ export interface MsgWithdrawAllTokenizeShareRecordRewardSDKType {
  */
 export interface MsgWithdrawAllTokenizeShareRecordRewardResponse {}
 export interface MsgWithdrawAllTokenizeShareRecordRewardResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordRewardResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordRewardResponse";
   value: Uint8Array;
 }
 /**
@@ -264,7 +264,7 @@ export interface QueryTokenizeShareRecordByIdRequest {
   id: Long;
 }
 export interface QueryTokenizeShareRecordByIdRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdRequest";
   value: Uint8Array;
 }
 /**
@@ -293,7 +293,7 @@ export interface QueryTokenizeShareRecordByIdResponse {
   record: TokenizeShareRecord;
 }
 export interface QueryTokenizeShareRecordByIdResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByIdResponse";
   value: Uint8Array;
 }
 /**
@@ -322,7 +322,7 @@ export interface QueryTokenizeShareRecordByDenomRequest {
   denom: string;
 }
 export interface QueryTokenizeShareRecordByDenomRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomRequest";
   value: Uint8Array;
 }
 /**
@@ -351,7 +351,7 @@ export interface QueryTokenizeShareRecordByDenomResponse {
   record: TokenizeShareRecord;
 }
 export interface QueryTokenizeShareRecordByDenomResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordByDenomResponse";
   value: Uint8Array;
 }
 /**
@@ -380,7 +380,7 @@ export interface QueryTokenizeShareRecordsOwnedRequest {
   owner: string;
 }
 export interface QueryTokenizeShareRecordsOwnedRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedRequest";
   value: Uint8Array;
 }
 /**
@@ -409,7 +409,7 @@ export interface QueryTokenizeShareRecordsOwnedResponse {
   records: TokenizeShareRecord[];
 }
 export interface QueryTokenizeShareRecordsOwnedResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordsOwnedResponse";
   value: Uint8Array;
 }
 /**
@@ -439,7 +439,7 @@ export interface QueryAllTokenizeShareRecordsRequest {
   pagination: PageRequest;
 }
 export interface QueryAllTokenizeShareRecordsRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsRequest";
   value: Uint8Array;
 }
 /**
@@ -471,7 +471,7 @@ export interface QueryAllTokenizeShareRecordsResponse {
   pagination: PageResponse;
 }
 export interface QueryAllTokenizeShareRecordsResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryAllTokenizeShareRecordsResponse";
   value: Uint8Array;
 }
 /**
@@ -501,7 +501,7 @@ export interface QueryAllTokenizeShareRecordsResponseSDKType {
  */
 export interface QueryLastTokenizeShareRecordIdRequest {}
 export interface QueryLastTokenizeShareRecordIdRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdRequest";
   value: Uint8Array;
 }
 /**
@@ -526,7 +526,7 @@ export interface QueryLastTokenizeShareRecordIdResponse {
   id: Long;
 }
 export interface QueryLastTokenizeShareRecordIdResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryLastTokenizeShareRecordIdResponse";
   value: Uint8Array;
 }
 /**
@@ -553,7 +553,7 @@ export interface QueryLastTokenizeShareRecordIdResponseSDKType {
  */
 export interface QueryTotalTokenizeSharedAssetsRequest {}
 export interface QueryTotalTokenizeSharedAssetsRequestProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsRequest";
+  type_url: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsRequest";
   value: Uint8Array;
 }
 /**
@@ -578,7 +578,7 @@ export interface QueryTotalTokenizeSharedAssetsResponse {
   value: Coin;
 }
 export interface QueryTotalTokenizeSharedAssetsResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTotalTokenizeSharedAssetsResponse";
   value: Uint8Array;
 }
 /**
@@ -605,7 +605,7 @@ export interface QueryTotalTokenizeSharedAssetsResponseSDKType {
  */
 export interface QueryTotalLiquidStaked {}
 export interface QueryTotalLiquidStakedProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTotalLiquidStaked";
+  type_url: "/cosmos.staking.v1beta1.QueryTotalLiquidStaked";
   value: Uint8Array;
 }
 /**
@@ -630,7 +630,7 @@ export interface QueryTotalLiquidStakedResponse {
   tokens: string;
 }
 export interface QueryTotalLiquidStakedResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTotalLiquidStakedResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTotalLiquidStakedResponse";
   value: Uint8Array;
 }
 /**
@@ -659,7 +659,7 @@ export interface QueryTokenizeShareLockInfo {
   address: string;
 }
 export interface QueryTokenizeShareLockInfoProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfo";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfo";
   value: Uint8Array;
 }
 /**
@@ -686,10 +686,10 @@ export interface QueryTokenizeShareLockInfoSDKType {
  */
 export interface QueryTokenizeShareLockInfoResponse {
   status: string;
-  expirationTime: string;
+  expiration_time: string;
 }
 export interface QueryTokenizeShareLockInfoResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfoResponse";
+  type_url: "/cosmos.staking.v1beta1.QueryTokenizeShareLockInfoResponse";
   value: Uint8Array;
 }
 /**
@@ -717,12 +717,12 @@ export interface TokenizeShareRecord {
   id: Long;
   owner: string;
   /** module account take the role of delegator */
-  moduleAccount: string;
+  module_account: string;
   /** validator delegated to for tokenize share record creation */
   validator: string;
 }
 export interface TokenizeShareRecordProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.TokenizeShareRecord";
+  type_url: "/cosmos.staking.v1beta1.TokenizeShareRecord";
   value: Uint8Array;
 }
 /** TokenizeShareRecord represents a tokenized delegation */
@@ -753,7 +753,7 @@ export interface PendingTokenizeShareAuthorizations {
   addresses: string[];
 }
 export interface PendingTokenizeShareAuthorizationsProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.PendingTokenizeShareAuthorizations";
+  type_url: "/cosmos.staking.v1beta1.PendingTokenizeShareAuthorizations";
   value: Uint8Array;
 }
 /**
@@ -779,10 +779,10 @@ export interface PendingTokenizeShareAuthorizationsSDKType {
  * a validator from bonded to unbonded
  */
 export interface MsgUnbondValidator {
-  validatorAddress: string;
+  validator_address: string;
 }
 export interface MsgUnbondValidatorProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgUnbondValidator";
+  type_url: "/cosmos.staking.v1beta1.MsgUnbondValidator";
   value: Uint8Array;
 }
 /**
@@ -806,7 +806,7 @@ export interface MsgUnbondValidatorSDKType {
 /** MsgUnbondValidatorResponse defines the Msg/UnbondValidator response type. */
 export interface MsgUnbondValidatorResponse {}
 export interface MsgUnbondValidatorResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgUnbondValidatorResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgUnbondValidatorResponse";
   value: Uint8Array;
 }
 /** MsgUnbondValidatorResponse defines the Msg/UnbondValidator response type. */
@@ -819,13 +819,13 @@ export interface MsgUnbondValidatorResponseAminoMsg {
 export interface MsgUnbondValidatorResponseSDKType {}
 /** MsgTokenizeShares tokenizes a delegation */
 export interface MsgTokenizeShares {
-  delegatorAddress: string;
-  validatorAddress: string;
+  delegator_address: string;
+  validator_address: string;
   amount: Coin;
-  tokenizedShareOwner: string;
+  tokenized_share_owner: string;
 }
 export interface MsgTokenizeSharesProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgTokenizeShares";
+  type_url: "/cosmos.staking.v1beta1.MsgTokenizeShares";
   value: Uint8Array;
 }
 /** MsgTokenizeShares tokenizes a delegation */
@@ -851,7 +851,7 @@ export interface MsgTokenizeSharesResponse {
   amount: Coin;
 }
 export interface MsgTokenizeSharesResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgTokenizeSharesResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgTokenizeSharesResponse";
   value: Uint8Array;
 }
 /** MsgTokenizeSharesResponse defines the Msg/MsgTokenizeShares response type. */
@@ -871,11 +871,11 @@ export interface MsgTokenizeSharesResponseSDKType {
  * delegation
  */
 export interface MsgRedeemTokensForShares {
-  delegatorAddress: string;
+  delegator_address: string;
   amount: Coin;
 }
 export interface MsgRedeemTokensForSharesProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares";
+  type_url: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares";
   value: Uint8Array;
 }
 /**
@@ -906,7 +906,7 @@ export interface MsgRedeemTokensForSharesResponse {
   amount: Coin;
 }
 export interface MsgRedeemTokensForSharesResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForSharesResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgRedeemTokensForSharesResponse";
   value: Uint8Array;
 }
 /**
@@ -929,12 +929,12 @@ export interface MsgRedeemTokensForSharesResponseSDKType {
 }
 /** MsgTransferTokenizeShareRecord transfer a tokenize share record */
 export interface MsgTransferTokenizeShareRecord {
-  tokenizeShareRecordId: Long;
+  tokenize_share_record_id: Long;
   sender: string;
-  newOwner: string;
+  new_owner: string;
 }
 export interface MsgTransferTokenizeShareRecordProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecord";
+  type_url: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecord";
   value: Uint8Array;
 }
 /** MsgTransferTokenizeShareRecord transfer a tokenize share record */
@@ -959,7 +959,7 @@ export interface MsgTransferTokenizeShareRecordSDKType {
  */
 export interface MsgTransferTokenizeShareRecordResponse {}
 export interface MsgTransferTokenizeShareRecordResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecordResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecordResponse";
   value: Uint8Array;
 }
 /**
@@ -981,10 +981,10 @@ export interface MsgTransferTokenizeShareRecordResponseSDKType {}
  * address
  */
 export interface MsgDisableTokenizeShares {
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface MsgDisableTokenizeSharesProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares";
+  type_url: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares";
   value: Uint8Array;
 }
 /**
@@ -1011,7 +1011,7 @@ export interface MsgDisableTokenizeSharesSDKType {
  */
 export interface MsgDisableTokenizeSharesResponse {}
 export interface MsgDisableTokenizeSharesResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeSharesResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgDisableTokenizeSharesResponse";
   value: Uint8Array;
 }
 /**
@@ -1030,10 +1030,10 @@ export interface MsgDisableTokenizeSharesResponseAminoMsg {
 export interface MsgDisableTokenizeSharesResponseSDKType {}
 /** MsgEnableTokenizeShares re-enables tokenization of shares for a given address */
 export interface MsgEnableTokenizeShares {
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface MsgEnableTokenizeSharesProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares";
+  type_url: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares";
   value: Uint8Array;
 }
 /** MsgEnableTokenizeShares re-enables tokenization of shares for a given address */
@@ -1053,10 +1053,10 @@ export interface MsgEnableTokenizeSharesSDKType {
  * type.
  */
 export interface MsgEnableTokenizeSharesResponse {
-  completionTime: Date;
+  completion_time: Date;
 }
 export interface MsgEnableTokenizeSharesResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeSharesResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgEnableTokenizeSharesResponse";
   value: Uint8Array;
 }
 /**
@@ -1082,11 +1082,11 @@ export interface MsgEnableTokenizeSharesResponseSDKType {
  * delegated coins from a delegator to a validator.
  */
 export interface MsgValidatorBond {
-  delegatorAddress: string;
-  validatorAddress: string;
+  delegator_address: string;
+  validator_address: string;
 }
 export interface MsgValidatorBondProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgValidatorBond";
+  type_url: "/cosmos.staking.v1beta1.MsgValidatorBond";
   value: Uint8Array;
 }
 /**
@@ -1112,7 +1112,7 @@ export interface MsgValidatorBondSDKType {
 /** MsgValidatorBondResponse defines the Msg/ValidatorBond response type. */
 export interface MsgValidatorBondResponse {}
 export interface MsgValidatorBondResponseProtoMsg {
-  typeUrl: "/cosmos.staking.v1beta1.MsgValidatorBondResponse";
+  type_url: "/cosmos.staking.v1beta1.MsgValidatorBondResponse";
   value: Uint8Array;
 }
 /** MsgValidatorBondResponse defines the Msg/ValidatorBond response type. */
@@ -1125,7 +1125,7 @@ export interface MsgValidatorBondResponseAminoMsg {
 export interface MsgValidatorBondResponseSDKType {}
 function createBaseTokenizeShareRecordReward(): TokenizeShareRecordReward {
   return {
-    recordId: Long.UZERO,
+    record_id: Long.UZERO,
     reward: []
   };
 }
@@ -1133,8 +1133,8 @@ export const TokenizeShareRecordReward = {
   typeUrl: "/cosmos.staking.v1beta1.TokenizeShareRecordReward",
   aminoType: "cosmos-sdk/TokenizeShareRecordReward",
   encode(message: TokenizeShareRecordReward, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.recordId.isZero()) {
-      writer.uint32(8).uint64(message.recordId);
+    if (!message.record_id.isZero()) {
+      writer.uint32(8).uint64(message.record_id);
     }
     for (const v of message.reward) {
       DecCoin.encode(v!, writer.uint32(18).fork()).ldelim();
@@ -1149,7 +1149,7 @@ export const TokenizeShareRecordReward = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.recordId = (reader.uint64() as Long);
+          message.record_id = (reader.uint64() as Long);
           break;
         case 2:
           message.reward.push(DecCoin.decode(reader, reader.uint32()));
@@ -1163,13 +1163,13 @@ export const TokenizeShareRecordReward = {
   },
   fromJSON(object: any): TokenizeShareRecordReward {
     return {
-      recordId: isSet(object.recordId) ? Long.fromValue(object.recordId) : Long.UZERO,
+      record_id: isSet(object.record_id) ? Long.fromValue(object.record_id) : Long.UZERO,
       reward: Array.isArray(object?.reward) ? object.reward.map((e: any) => DecCoin.fromJSON(e)) : []
     };
   },
   toJSON(message: TokenizeShareRecordReward): unknown {
     const obj: any = {};
-    message.recordId !== undefined && (obj.recordId = (message.recordId || Long.UZERO).toString());
+    message.record_id !== undefined && (obj.record_id = (message.record_id || Long.UZERO).toString());
     if (message.reward) {
       obj.reward = message.reward.map(e => e ? DecCoin.toJSON(e) : undefined);
     } else {
@@ -1179,19 +1179,19 @@ export const TokenizeShareRecordReward = {
   },
   fromPartial(object: DeepPartial<TokenizeShareRecordReward>): TokenizeShareRecordReward {
     const message = createBaseTokenizeShareRecordReward();
-    message.recordId = object.recordId !== undefined && object.recordId !== null ? Long.fromValue(object.recordId) : Long.UZERO;
+    message.record_id = object.record_id !== undefined && object.record_id !== null ? Long.fromValue(object.record_id) : Long.UZERO;
     message.reward = object.reward?.map(e => DecCoin.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: TokenizeShareRecordRewardAmino): TokenizeShareRecordReward {
     return {
-      recordId: Long.fromString(object.record_id),
+      record_id: Long.fromString(object.record_id),
       reward: Array.isArray(object?.reward) ? object.reward.map((e: any) => DecCoin.fromAmino(e)) : []
     };
   },
   toAmino(message: TokenizeShareRecordReward): TokenizeShareRecordRewardAmino {
     const obj: any = {};
-    obj.record_id = message.recordId ? message.recordId.toString() : undefined;
+    obj.record_id = message.record_id ? message.record_id.toString() : undefined;
     if (message.reward) {
       obj.reward = message.reward.map(e => e ? DecCoin.toAmino(e) : undefined);
     } else {
@@ -1223,15 +1223,15 @@ export const TokenizeShareRecordReward = {
 };
 function createBaseQueryTokenizeShareRecordRewardRequest(): QueryTokenizeShareRecordRewardRequest {
   return {
-    ownerAddress: ""
+    owner_address: ""
   };
 }
 export const QueryTokenizeShareRecordRewardRequest = {
   typeUrl: "/cosmos.staking.v1beta1.QueryTokenizeShareRecordRewardRequest",
   aminoType: "cosmos-sdk/QueryTokenizeShareRecordRewardRequest",
   encode(message: QueryTokenizeShareRecordRewardRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.ownerAddress !== "") {
-      writer.uint32(10).string(message.ownerAddress);
+    if (message.owner_address !== "") {
+      writer.uint32(10).string(message.owner_address);
     }
     return writer;
   },
@@ -1243,7 +1243,7 @@ export const QueryTokenizeShareRecordRewardRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.ownerAddress = reader.string();
+          message.owner_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1254,27 +1254,27 @@ export const QueryTokenizeShareRecordRewardRequest = {
   },
   fromJSON(object: any): QueryTokenizeShareRecordRewardRequest {
     return {
-      ownerAddress: isSet(object.ownerAddress) ? String(object.ownerAddress) : ""
+      owner_address: isSet(object.owner_address) ? String(object.owner_address) : ""
     };
   },
   toJSON(message: QueryTokenizeShareRecordRewardRequest): unknown {
     const obj: any = {};
-    message.ownerAddress !== undefined && (obj.ownerAddress = message.ownerAddress);
+    message.owner_address !== undefined && (obj.owner_address = message.owner_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryTokenizeShareRecordRewardRequest>): QueryTokenizeShareRecordRewardRequest {
     const message = createBaseQueryTokenizeShareRecordRewardRequest();
-    message.ownerAddress = object.ownerAddress ?? "";
+    message.owner_address = object.owner_address ?? "";
     return message;
   },
   fromAmino(object: QueryTokenizeShareRecordRewardRequestAmino): QueryTokenizeShareRecordRewardRequest {
     return {
-      ownerAddress: object.owner_address
+      owner_address: object.owner_address
     };
   },
   toAmino(message: QueryTokenizeShareRecordRewardRequest): QueryTokenizeShareRecordRewardRequestAmino {
     const obj: any = {};
-    obj.owner_address = message.ownerAddress;
+    obj.owner_address = message.owner_address;
     return obj;
   },
   fromAminoMsg(object: QueryTokenizeShareRecordRewardRequestAminoMsg): QueryTokenizeShareRecordRewardRequest {
@@ -1407,19 +1407,19 @@ export const QueryTokenizeShareRecordRewardResponse = {
 };
 function createBaseMsgWithdrawTokenizeShareRecordReward(): MsgWithdrawTokenizeShareRecordReward {
   return {
-    ownerAddress: "",
-    recordId: Long.UZERO
+    owner_address: "",
+    record_id: Long.UZERO
   };
 }
 export const MsgWithdrawTokenizeShareRecordReward = {
   typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawTokenizeShareRecordReward",
   aminoType: "cosmos-sdk/MsgWithdrawTokenizeShareRecordReward",
   encode(message: MsgWithdrawTokenizeShareRecordReward, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.ownerAddress !== "") {
-      writer.uint32(10).string(message.ownerAddress);
+    if (message.owner_address !== "") {
+      writer.uint32(10).string(message.owner_address);
     }
-    if (!message.recordId.isZero()) {
-      writer.uint32(16).uint64(message.recordId);
+    if (!message.record_id.isZero()) {
+      writer.uint32(16).uint64(message.record_id);
     }
     return writer;
   },
@@ -1431,10 +1431,10 @@ export const MsgWithdrawTokenizeShareRecordReward = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.ownerAddress = reader.string();
+          message.owner_address = reader.string();
           break;
         case 2:
-          message.recordId = (reader.uint64() as Long);
+          message.record_id = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1445,32 +1445,32 @@ export const MsgWithdrawTokenizeShareRecordReward = {
   },
   fromJSON(object: any): MsgWithdrawTokenizeShareRecordReward {
     return {
-      ownerAddress: isSet(object.ownerAddress) ? String(object.ownerAddress) : "",
-      recordId: isSet(object.recordId) ? Long.fromValue(object.recordId) : Long.UZERO
+      owner_address: isSet(object.owner_address) ? String(object.owner_address) : "",
+      record_id: isSet(object.record_id) ? Long.fromValue(object.record_id) : Long.UZERO
     };
   },
   toJSON(message: MsgWithdrawTokenizeShareRecordReward): unknown {
     const obj: any = {};
-    message.ownerAddress !== undefined && (obj.ownerAddress = message.ownerAddress);
-    message.recordId !== undefined && (obj.recordId = (message.recordId || Long.UZERO).toString());
+    message.owner_address !== undefined && (obj.owner_address = message.owner_address);
+    message.record_id !== undefined && (obj.record_id = (message.record_id || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<MsgWithdrawTokenizeShareRecordReward>): MsgWithdrawTokenizeShareRecordReward {
     const message = createBaseMsgWithdrawTokenizeShareRecordReward();
-    message.ownerAddress = object.ownerAddress ?? "";
-    message.recordId = object.recordId !== undefined && object.recordId !== null ? Long.fromValue(object.recordId) : Long.UZERO;
+    message.owner_address = object.owner_address ?? "";
+    message.record_id = object.record_id !== undefined && object.record_id !== null ? Long.fromValue(object.record_id) : Long.UZERO;
     return message;
   },
   fromAmino(object: MsgWithdrawTokenizeShareRecordRewardAmino): MsgWithdrawTokenizeShareRecordReward {
     return {
-      ownerAddress: object.owner_address,
-      recordId: Long.fromString(object.record_id)
+      owner_address: object.owner_address,
+      record_id: Long.fromString(object.record_id)
     };
   },
   toAmino(message: MsgWithdrawTokenizeShareRecordReward): MsgWithdrawTokenizeShareRecordRewardAmino {
     const obj: any = {};
-    obj.owner_address = message.ownerAddress;
-    obj.record_id = message.recordId ? message.recordId.toString() : undefined;
+    obj.owner_address = message.owner_address;
+    obj.record_id = message.record_id ? message.record_id.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgWithdrawTokenizeShareRecordRewardAminoMsg): MsgWithdrawTokenizeShareRecordReward {
@@ -1560,15 +1560,15 @@ export const MsgWithdrawTokenizeShareRecordRewardResponse = {
 };
 function createBaseMsgWithdrawAllTokenizeShareRecordReward(): MsgWithdrawAllTokenizeShareRecordReward {
   return {
-    ownerAddress: ""
+    owner_address: ""
   };
 }
 export const MsgWithdrawAllTokenizeShareRecordReward = {
   typeUrl: "/cosmos.staking.v1beta1.MsgWithdrawAllTokenizeShareRecordReward",
   aminoType: "cosmos-sdk/MsgWithdrawAllTokenizeShareRecordReward",
   encode(message: MsgWithdrawAllTokenizeShareRecordReward, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.ownerAddress !== "") {
-      writer.uint32(10).string(message.ownerAddress);
+    if (message.owner_address !== "") {
+      writer.uint32(10).string(message.owner_address);
     }
     return writer;
   },
@@ -1580,7 +1580,7 @@ export const MsgWithdrawAllTokenizeShareRecordReward = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.ownerAddress = reader.string();
+          message.owner_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1591,27 +1591,27 @@ export const MsgWithdrawAllTokenizeShareRecordReward = {
   },
   fromJSON(object: any): MsgWithdrawAllTokenizeShareRecordReward {
     return {
-      ownerAddress: isSet(object.ownerAddress) ? String(object.ownerAddress) : ""
+      owner_address: isSet(object.owner_address) ? String(object.owner_address) : ""
     };
   },
   toJSON(message: MsgWithdrawAllTokenizeShareRecordReward): unknown {
     const obj: any = {};
-    message.ownerAddress !== undefined && (obj.ownerAddress = message.ownerAddress);
+    message.owner_address !== undefined && (obj.owner_address = message.owner_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgWithdrawAllTokenizeShareRecordReward>): MsgWithdrawAllTokenizeShareRecordReward {
     const message = createBaseMsgWithdrawAllTokenizeShareRecordReward();
-    message.ownerAddress = object.ownerAddress ?? "";
+    message.owner_address = object.owner_address ?? "";
     return message;
   },
   fromAmino(object: MsgWithdrawAllTokenizeShareRecordRewardAmino): MsgWithdrawAllTokenizeShareRecordReward {
     return {
-      ownerAddress: object.owner_address
+      owner_address: object.owner_address
     };
   },
   toAmino(message: MsgWithdrawAllTokenizeShareRecordReward): MsgWithdrawAllTokenizeShareRecordRewardAmino {
     const obj: any = {};
-    obj.owner_address = message.ownerAddress;
+    obj.owner_address = message.owner_address;
     return obj;
   },
   fromAminoMsg(object: MsgWithdrawAllTokenizeShareRecordRewardAminoMsg): MsgWithdrawAllTokenizeShareRecordReward {
@@ -2855,7 +2855,7 @@ export const QueryTokenizeShareLockInfo = {
 function createBaseQueryTokenizeShareLockInfoResponse(): QueryTokenizeShareLockInfoResponse {
   return {
     status: "",
-    expirationTime: ""
+    expiration_time: ""
   };
 }
 export const QueryTokenizeShareLockInfoResponse = {
@@ -2865,8 +2865,8 @@ export const QueryTokenizeShareLockInfoResponse = {
     if (message.status !== "") {
       writer.uint32(10).string(message.status);
     }
-    if (message.expirationTime !== "") {
-      writer.uint32(18).string(message.expirationTime);
+    if (message.expiration_time !== "") {
+      writer.uint32(18).string(message.expiration_time);
     }
     return writer;
   },
@@ -2881,7 +2881,7 @@ export const QueryTokenizeShareLockInfoResponse = {
           message.status = reader.string();
           break;
         case 2:
-          message.expirationTime = reader.string();
+          message.expiration_time = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2893,31 +2893,31 @@ export const QueryTokenizeShareLockInfoResponse = {
   fromJSON(object: any): QueryTokenizeShareLockInfoResponse {
     return {
       status: isSet(object.status) ? String(object.status) : "",
-      expirationTime: isSet(object.expirationTime) ? String(object.expirationTime) : ""
+      expiration_time: isSet(object.expiration_time) ? String(object.expiration_time) : ""
     };
   },
   toJSON(message: QueryTokenizeShareLockInfoResponse): unknown {
     const obj: any = {};
     message.status !== undefined && (obj.status = message.status);
-    message.expirationTime !== undefined && (obj.expirationTime = message.expirationTime);
+    message.expiration_time !== undefined && (obj.expiration_time = message.expiration_time);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryTokenizeShareLockInfoResponse>): QueryTokenizeShareLockInfoResponse {
     const message = createBaseQueryTokenizeShareLockInfoResponse();
     message.status = object.status ?? "";
-    message.expirationTime = object.expirationTime ?? "";
+    message.expiration_time = object.expiration_time ?? "";
     return message;
   },
   fromAmino(object: QueryTokenizeShareLockInfoResponseAmino): QueryTokenizeShareLockInfoResponse {
     return {
       status: object.status,
-      expirationTime: object.expiration_time
+      expiration_time: object.expiration_time
     };
   },
   toAmino(message: QueryTokenizeShareLockInfoResponse): QueryTokenizeShareLockInfoResponseAmino {
     const obj: any = {};
     obj.status = message.status;
-    obj.expiration_time = message.expirationTime;
+    obj.expiration_time = message.expiration_time;
     return obj;
   },
   fromAminoMsg(object: QueryTokenizeShareLockInfoResponseAminoMsg): QueryTokenizeShareLockInfoResponse {
@@ -2946,7 +2946,7 @@ function createBaseTokenizeShareRecord(): TokenizeShareRecord {
   return {
     id: Long.UZERO,
     owner: "",
-    moduleAccount: "",
+    module_account: "",
     validator: ""
   };
 }
@@ -2960,8 +2960,8 @@ export const TokenizeShareRecord = {
     if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
-    if (message.moduleAccount !== "") {
-      writer.uint32(26).string(message.moduleAccount);
+    if (message.module_account !== "") {
+      writer.uint32(26).string(message.module_account);
     }
     if (message.validator !== "") {
       writer.uint32(34).string(message.validator);
@@ -2982,7 +2982,7 @@ export const TokenizeShareRecord = {
           message.owner = reader.string();
           break;
         case 3:
-          message.moduleAccount = reader.string();
+          message.module_account = reader.string();
           break;
         case 4:
           message.validator = reader.string();
@@ -2998,7 +2998,7 @@ export const TokenizeShareRecord = {
     return {
       id: isSet(object.id) ? Long.fromValue(object.id) : Long.UZERO,
       owner: isSet(object.owner) ? String(object.owner) : "",
-      moduleAccount: isSet(object.moduleAccount) ? String(object.moduleAccount) : "",
+      module_account: isSet(object.module_account) ? String(object.module_account) : "",
       validator: isSet(object.validator) ? String(object.validator) : ""
     };
   },
@@ -3006,7 +3006,7 @@ export const TokenizeShareRecord = {
     const obj: any = {};
     message.id !== undefined && (obj.id = (message.id || Long.UZERO).toString());
     message.owner !== undefined && (obj.owner = message.owner);
-    message.moduleAccount !== undefined && (obj.moduleAccount = message.moduleAccount);
+    message.module_account !== undefined && (obj.module_account = message.module_account);
     message.validator !== undefined && (obj.validator = message.validator);
     return obj;
   },
@@ -3014,7 +3014,7 @@ export const TokenizeShareRecord = {
     const message = createBaseTokenizeShareRecord();
     message.id = object.id !== undefined && object.id !== null ? Long.fromValue(object.id) : Long.UZERO;
     message.owner = object.owner ?? "";
-    message.moduleAccount = object.moduleAccount ?? "";
+    message.module_account = object.module_account ?? "";
     message.validator = object.validator ?? "";
     return message;
   },
@@ -3022,7 +3022,7 @@ export const TokenizeShareRecord = {
     return {
       id: Long.fromString(object.id),
       owner: object.owner,
-      moduleAccount: object.module_account,
+      module_account: object.module_account,
       validator: object.validator
     };
   },
@@ -3030,7 +3030,7 @@ export const TokenizeShareRecord = {
     const obj: any = {};
     obj.id = message.id ? message.id.toString() : undefined;
     obj.owner = message.owner;
-    obj.module_account = message.moduleAccount;
+    obj.module_account = message.module_account;
     obj.validator = message.validator;
     return obj;
   },
@@ -3144,15 +3144,15 @@ export const PendingTokenizeShareAuthorizations = {
 };
 function createBaseMsgUnbondValidator(): MsgUnbondValidator {
   return {
-    validatorAddress: ""
+    validator_address: ""
   };
 }
 export const MsgUnbondValidator = {
   typeUrl: "/cosmos.staking.v1beta1.MsgUnbondValidator",
   aminoType: "cosmos-sdk/MsgUnbondValidator",
   encode(message: MsgUnbondValidator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorAddress !== "") {
-      writer.uint32(10).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(10).string(message.validator_address);
     }
     return writer;
   },
@@ -3164,7 +3164,7 @@ export const MsgUnbondValidator = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -3175,27 +3175,27 @@ export const MsgUnbondValidator = {
   },
   fromJSON(object: any): MsgUnbondValidator {
     return {
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : ""
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : ""
     };
   },
   toJSON(message: MsgUnbondValidator): unknown {
     const obj: any = {};
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgUnbondValidator>): MsgUnbondValidator {
     const message = createBaseMsgUnbondValidator();
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.validator_address = object.validator_address ?? "";
     return message;
   },
   fromAmino(object: MsgUnbondValidatorAmino): MsgUnbondValidator {
     return {
-      validatorAddress: object.validator_address
+      validator_address: object.validator_address
     };
   },
   toAmino(message: MsgUnbondValidator): MsgUnbondValidatorAmino {
     const obj: any = {};
-    obj.validator_address = message.validatorAddress;
+    obj.validator_address = message.validator_address;
     return obj;
   },
   fromAminoMsg(object: MsgUnbondValidatorAminoMsg): MsgUnbondValidator {
@@ -3285,27 +3285,27 @@ export const MsgUnbondValidatorResponse = {
 };
 function createBaseMsgTokenizeShares(): MsgTokenizeShares {
   return {
-    delegatorAddress: "",
-    validatorAddress: "",
+    delegator_address: "",
+    validator_address: "",
     amount: Coin.fromPartial({}),
-    tokenizedShareOwner: ""
+    tokenized_share_owner: ""
   };
 }
 export const MsgTokenizeShares = {
   typeUrl: "/cosmos.staking.v1beta1.MsgTokenizeShares",
   aminoType: "cosmos-sdk/MsgTokenizeShares",
   encode(message: MsgTokenizeShares, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
-    if (message.validatorAddress !== "") {
-      writer.uint32(18).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(18).string(message.validator_address);
     }
     if (message.amount !== undefined) {
       Coin.encode(message.amount, writer.uint32(26).fork()).ldelim();
     }
-    if (message.tokenizedShareOwner !== "") {
-      writer.uint32(34).string(message.tokenizedShareOwner);
+    if (message.tokenized_share_owner !== "") {
+      writer.uint32(34).string(message.tokenized_share_owner);
     }
     return writer;
   },
@@ -3317,16 +3317,16 @@ export const MsgTokenizeShares = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         case 2:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         case 3:
           message.amount = Coin.decode(reader, reader.uint32());
           break;
         case 4:
-          message.tokenizedShareOwner = reader.string();
+          message.tokenized_share_owner = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -3337,42 +3337,42 @@ export const MsgTokenizeShares = {
   },
   fromJSON(object: any): MsgTokenizeShares {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : "",
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : "",
       amount: isSet(object.amount) ? Coin.fromJSON(object.amount) : undefined,
-      tokenizedShareOwner: isSet(object.tokenizedShareOwner) ? String(object.tokenizedShareOwner) : ""
+      tokenized_share_owner: isSet(object.tokenized_share_owner) ? String(object.tokenized_share_owner) : ""
     };
   },
   toJSON(message: MsgTokenizeShares): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     message.amount !== undefined && (obj.amount = message.amount ? Coin.toJSON(message.amount) : undefined);
-    message.tokenizedShareOwner !== undefined && (obj.tokenizedShareOwner = message.tokenizedShareOwner);
+    message.tokenized_share_owner !== undefined && (obj.tokenized_share_owner = message.tokenized_share_owner);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgTokenizeShares>): MsgTokenizeShares {
     const message = createBaseMsgTokenizeShares();
-    message.delegatorAddress = object.delegatorAddress ?? "";
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
+    message.validator_address = object.validator_address ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
-    message.tokenizedShareOwner = object.tokenizedShareOwner ?? "";
+    message.tokenized_share_owner = object.tokenized_share_owner ?? "";
     return message;
   },
   fromAmino(object: MsgTokenizeSharesAmino): MsgTokenizeShares {
     return {
-      delegatorAddress: object.delegator_address,
-      validatorAddress: object.validator_address,
+      delegator_address: object.delegator_address,
+      validator_address: object.validator_address,
       amount: object?.amount ? Coin.fromAmino(object.amount) : undefined,
-      tokenizedShareOwner: object.tokenized_share_owner
+      tokenized_share_owner: object.tokenized_share_owner
     };
   },
   toAmino(message: MsgTokenizeShares): MsgTokenizeSharesAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
-    obj.validator_address = message.validatorAddress;
+    obj.delegator_address = message.delegator_address;
+    obj.validator_address = message.validator_address;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
-    obj.tokenized_share_owner = message.tokenizedShareOwner;
+    obj.tokenized_share_owner = message.tokenized_share_owner;
     return obj;
   },
   fromAminoMsg(object: MsgTokenizeSharesAminoMsg): MsgTokenizeShares {
@@ -3477,7 +3477,7 @@ export const MsgTokenizeSharesResponse = {
 };
 function createBaseMsgRedeemTokensForShares(): MsgRedeemTokensForShares {
   return {
-    delegatorAddress: "",
+    delegator_address: "",
     amount: Coin.fromPartial({})
   };
 }
@@ -3485,8 +3485,8 @@ export const MsgRedeemTokensForShares = {
   typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
   aminoType: "cosmos-sdk/MsgRedeemTokensForShares",
   encode(message: MsgRedeemTokensForShares, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     if (message.amount !== undefined) {
       Coin.encode(message.amount, writer.uint32(18).fork()).ldelim();
@@ -3501,7 +3501,7 @@ export const MsgRedeemTokensForShares = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         case 2:
           message.amount = Coin.decode(reader, reader.uint32());
@@ -3515,31 +3515,31 @@ export const MsgRedeemTokensForShares = {
   },
   fromJSON(object: any): MsgRedeemTokensForShares {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : "",
       amount: isSet(object.amount) ? Coin.fromJSON(object.amount) : undefined
     };
   },
   toJSON(message: MsgRedeemTokensForShares): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     message.amount !== undefined && (obj.amount = message.amount ? Coin.toJSON(message.amount) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgRedeemTokensForShares>): MsgRedeemTokensForShares {
     const message = createBaseMsgRedeemTokensForShares();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
   fromAmino(object: MsgRedeemTokensForSharesAmino): MsgRedeemTokensForShares {
     return {
-      delegatorAddress: object.delegator_address,
+      delegator_address: object.delegator_address,
       amount: object?.amount ? Coin.fromAmino(object.amount) : undefined
     };
   },
   toAmino(message: MsgRedeemTokensForShares): MsgRedeemTokensForSharesAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -3645,23 +3645,23 @@ export const MsgRedeemTokensForSharesResponse = {
 };
 function createBaseMsgTransferTokenizeShareRecord(): MsgTransferTokenizeShareRecord {
   return {
-    tokenizeShareRecordId: Long.UZERO,
+    tokenize_share_record_id: Long.UZERO,
     sender: "",
-    newOwner: ""
+    new_owner: ""
   };
 }
 export const MsgTransferTokenizeShareRecord = {
   typeUrl: "/cosmos.staking.v1beta1.MsgTransferTokenizeShareRecord",
   aminoType: "cosmos-sdk/MsgTransferTokenizeShareRecord",
   encode(message: MsgTransferTokenizeShareRecord, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.tokenizeShareRecordId.isZero()) {
-      writer.uint32(8).uint64(message.tokenizeShareRecordId);
+    if (!message.tokenize_share_record_id.isZero()) {
+      writer.uint32(8).uint64(message.tokenize_share_record_id);
     }
     if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
-    if (message.newOwner !== "") {
-      writer.uint32(26).string(message.newOwner);
+    if (message.new_owner !== "") {
+      writer.uint32(26).string(message.new_owner);
     }
     return writer;
   },
@@ -3673,13 +3673,13 @@ export const MsgTransferTokenizeShareRecord = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.tokenizeShareRecordId = (reader.uint64() as Long);
+          message.tokenize_share_record_id = (reader.uint64() as Long);
           break;
         case 2:
           message.sender = reader.string();
           break;
         case 3:
-          message.newOwner = reader.string();
+          message.new_owner = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -3690,37 +3690,37 @@ export const MsgTransferTokenizeShareRecord = {
   },
   fromJSON(object: any): MsgTransferTokenizeShareRecord {
     return {
-      tokenizeShareRecordId: isSet(object.tokenizeShareRecordId) ? Long.fromValue(object.tokenizeShareRecordId) : Long.UZERO,
+      tokenize_share_record_id: isSet(object.tokenize_share_record_id) ? Long.fromValue(object.tokenize_share_record_id) : Long.UZERO,
       sender: isSet(object.sender) ? String(object.sender) : "",
-      newOwner: isSet(object.newOwner) ? String(object.newOwner) : ""
+      new_owner: isSet(object.new_owner) ? String(object.new_owner) : ""
     };
   },
   toJSON(message: MsgTransferTokenizeShareRecord): unknown {
     const obj: any = {};
-    message.tokenizeShareRecordId !== undefined && (obj.tokenizeShareRecordId = (message.tokenizeShareRecordId || Long.UZERO).toString());
+    message.tokenize_share_record_id !== undefined && (obj.tokenize_share_record_id = (message.tokenize_share_record_id || Long.UZERO).toString());
     message.sender !== undefined && (obj.sender = message.sender);
-    message.newOwner !== undefined && (obj.newOwner = message.newOwner);
+    message.new_owner !== undefined && (obj.new_owner = message.new_owner);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgTransferTokenizeShareRecord>): MsgTransferTokenizeShareRecord {
     const message = createBaseMsgTransferTokenizeShareRecord();
-    message.tokenizeShareRecordId = object.tokenizeShareRecordId !== undefined && object.tokenizeShareRecordId !== null ? Long.fromValue(object.tokenizeShareRecordId) : Long.UZERO;
+    message.tokenize_share_record_id = object.tokenize_share_record_id !== undefined && object.tokenize_share_record_id !== null ? Long.fromValue(object.tokenize_share_record_id) : Long.UZERO;
     message.sender = object.sender ?? "";
-    message.newOwner = object.newOwner ?? "";
+    message.new_owner = object.new_owner ?? "";
     return message;
   },
   fromAmino(object: MsgTransferTokenizeShareRecordAmino): MsgTransferTokenizeShareRecord {
     return {
-      tokenizeShareRecordId: Long.fromString(object.tokenize_share_record_id),
+      tokenize_share_record_id: Long.fromString(object.tokenize_share_record_id),
       sender: object.sender,
-      newOwner: object.new_owner
+      new_owner: object.new_owner
     };
   },
   toAmino(message: MsgTransferTokenizeShareRecord): MsgTransferTokenizeShareRecordAmino {
     const obj: any = {};
-    obj.tokenize_share_record_id = message.tokenizeShareRecordId ? message.tokenizeShareRecordId.toString() : undefined;
+    obj.tokenize_share_record_id = message.tokenize_share_record_id ? message.tokenize_share_record_id.toString() : undefined;
     obj.sender = message.sender;
-    obj.new_owner = message.newOwner;
+    obj.new_owner = message.new_owner;
     return obj;
   },
   fromAminoMsg(object: MsgTransferTokenizeShareRecordAminoMsg): MsgTransferTokenizeShareRecord {
@@ -3810,15 +3810,15 @@ export const MsgTransferTokenizeShareRecordResponse = {
 };
 function createBaseMsgDisableTokenizeShares(): MsgDisableTokenizeShares {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const MsgDisableTokenizeShares = {
   typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
   aminoType: "cosmos-sdk/MsgDisableTokenizeShares",
   encode(message: MsgDisableTokenizeShares, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -3830,7 +3830,7 @@ export const MsgDisableTokenizeShares = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -3841,27 +3841,27 @@ export const MsgDisableTokenizeShares = {
   },
   fromJSON(object: any): MsgDisableTokenizeShares {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: MsgDisableTokenizeShares): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgDisableTokenizeShares>): MsgDisableTokenizeShares {
     const message = createBaseMsgDisableTokenizeShares();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: MsgDisableTokenizeSharesAmino): MsgDisableTokenizeShares {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: MsgDisableTokenizeShares): MsgDisableTokenizeSharesAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: MsgDisableTokenizeSharesAminoMsg): MsgDisableTokenizeShares {
@@ -3951,15 +3951,15 @@ export const MsgDisableTokenizeSharesResponse = {
 };
 function createBaseMsgEnableTokenizeShares(): MsgEnableTokenizeShares {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const MsgEnableTokenizeShares = {
   typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
   aminoType: "cosmos-sdk/MsgEnableTokenizeShares",
   encode(message: MsgEnableTokenizeShares, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -3971,7 +3971,7 @@ export const MsgEnableTokenizeShares = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -3982,27 +3982,27 @@ export const MsgEnableTokenizeShares = {
   },
   fromJSON(object: any): MsgEnableTokenizeShares {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: MsgEnableTokenizeShares): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgEnableTokenizeShares>): MsgEnableTokenizeShares {
     const message = createBaseMsgEnableTokenizeShares();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: MsgEnableTokenizeSharesAmino): MsgEnableTokenizeShares {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: MsgEnableTokenizeShares): MsgEnableTokenizeSharesAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: MsgEnableTokenizeSharesAminoMsg): MsgEnableTokenizeShares {
@@ -4029,15 +4029,15 @@ export const MsgEnableTokenizeShares = {
 };
 function createBaseMsgEnableTokenizeSharesResponse(): MsgEnableTokenizeSharesResponse {
   return {
-    completionTime: new Date()
+    completion_time: new Date()
   };
 }
 export const MsgEnableTokenizeSharesResponse = {
   typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeSharesResponse",
   aminoType: "cosmos-sdk/MsgEnableTokenizeSharesResponse",
   encode(message: MsgEnableTokenizeSharesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(10).fork()).ldelim();
+    if (message.completion_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.completion_time), writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -4049,7 +4049,7 @@ export const MsgEnableTokenizeSharesResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completion_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -4060,27 +4060,27 @@ export const MsgEnableTokenizeSharesResponse = {
   },
   fromJSON(object: any): MsgEnableTokenizeSharesResponse {
     return {
-      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined
+      completion_time: isSet(object.completion_time) ? fromJsonTimestamp(object.completion_time) : undefined
     };
   },
   toJSON(message: MsgEnableTokenizeSharesResponse): unknown {
     const obj: any = {};
-    message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
+    message.completion_time !== undefined && (obj.completion_time = message.completion_time.toISOString());
     return obj;
   },
   fromPartial(object: DeepPartial<MsgEnableTokenizeSharesResponse>): MsgEnableTokenizeSharesResponse {
     const message = createBaseMsgEnableTokenizeSharesResponse();
-    message.completionTime = object.completionTime ?? undefined;
+    message.completion_time = object.completion_time ?? undefined;
     return message;
   },
   fromAmino(object: MsgEnableTokenizeSharesResponseAmino): MsgEnableTokenizeSharesResponse {
     return {
-      completionTime: object.completion_time
+      completion_time: object.completion_time
     };
   },
   toAmino(message: MsgEnableTokenizeSharesResponse): MsgEnableTokenizeSharesResponseAmino {
     const obj: any = {};
-    obj.completion_time = message.completionTime;
+    obj.completion_time = message.completion_time;
     return obj;
   },
   fromAminoMsg(object: MsgEnableTokenizeSharesResponseAminoMsg): MsgEnableTokenizeSharesResponse {
@@ -4107,19 +4107,19 @@ export const MsgEnableTokenizeSharesResponse = {
 };
 function createBaseMsgValidatorBond(): MsgValidatorBond {
   return {
-    delegatorAddress: "",
-    validatorAddress: ""
+    delegator_address: "",
+    validator_address: ""
   };
 }
 export const MsgValidatorBond = {
   typeUrl: "/cosmos.staking.v1beta1.MsgValidatorBond",
   aminoType: "cosmos-sdk/MsgValidatorBond",
   encode(message: MsgValidatorBond, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
-    if (message.validatorAddress !== "") {
-      writer.uint32(18).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(18).string(message.validator_address);
     }
     return writer;
   },
@@ -4131,10 +4131,10 @@ export const MsgValidatorBond = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         case 2:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -4145,32 +4145,32 @@ export const MsgValidatorBond = {
   },
   fromJSON(object: any): MsgValidatorBond {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : "",
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : ""
     };
   },
   toJSON(message: MsgValidatorBond): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgValidatorBond>): MsgValidatorBond {
     const message = createBaseMsgValidatorBond();
-    message.delegatorAddress = object.delegatorAddress ?? "";
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
+    message.validator_address = object.validator_address ?? "";
     return message;
   },
   fromAmino(object: MsgValidatorBondAmino): MsgValidatorBond {
     return {
-      delegatorAddress: object.delegator_address,
-      validatorAddress: object.validator_address
+      delegator_address: object.delegator_address,
+      validator_address: object.validator_address
     };
   },
   toAmino(message: MsgValidatorBond): MsgValidatorBondAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
-    obj.validator_address = message.validatorAddress;
+    obj.delegator_address = message.delegator_address;
+    obj.validator_address = message.validator_address;
     return obj;
   },
   fromAminoMsg(object: MsgValidatorBondAminoMsg): MsgValidatorBond {

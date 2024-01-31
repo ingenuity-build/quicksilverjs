@@ -7,11 +7,11 @@ import { isSet, DeepPartial } from "../../../helpers";
  */
 export interface MsgRequestRedemption {
   value: Coin;
-  destinationAddress: string;
-  fromAddress: string;
+  destination_address: string;
+  from_address: string;
 }
 export interface MsgRequestRedemptionProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
+  type_url: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
   value: Uint8Array;
 }
 /**
@@ -39,7 +39,7 @@ export interface MsgRequestRedemptionSDKType {
 /** MsgRequestRedemptionResponse defines the MsgRequestRedemption response type. */
 export interface MsgRequestRedemptionResponse {}
 export interface MsgRequestRedemptionResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemptionResponse";
+  type_url: "/quicksilver.interchainstaking.v1.MsgRequestRedemptionResponse";
   value: Uint8Array;
 }
 /** MsgRequestRedemptionResponse defines the MsgRequestRedemption response type. */
@@ -55,12 +55,12 @@ export interface MsgRequestRedemptionResponseSDKType {}
  * one or more validators.
  */
 export interface MsgSignalIntent {
-  chainId: string;
+  chain_id: string;
   intents: string;
-  fromAddress: string;
+  from_address: string;
 }
 export interface MsgSignalIntentProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
+  type_url: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
   value: Uint8Array;
 }
 /**
@@ -88,7 +88,7 @@ export interface MsgSignalIntentSDKType {
 /** MsgSignalIntentResponse defines the MsgSignalIntent response type. */
 export interface MsgSignalIntentResponse {}
 export interface MsgSignalIntentResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntentResponse";
+  type_url: "/quicksilver.interchainstaking.v1.MsgSignalIntentResponse";
   value: Uint8Array;
 }
 /** MsgSignalIntentResponse defines the MsgSignalIntent response type. */
@@ -102,8 +102,8 @@ export interface MsgSignalIntentResponseSDKType {}
 function createBaseMsgRequestRedemption(): MsgRequestRedemption {
   return {
     value: Coin.fromPartial({}),
-    destinationAddress: "",
-    fromAddress: ""
+    destination_address: "",
+    from_address: ""
   };
 }
 export const MsgRequestRedemption = {
@@ -113,11 +113,11 @@ export const MsgRequestRedemption = {
     if (message.value !== undefined) {
       Coin.encode(message.value, writer.uint32(10).fork()).ldelim();
     }
-    if (message.destinationAddress !== "") {
-      writer.uint32(18).string(message.destinationAddress);
+    if (message.destination_address !== "") {
+      writer.uint32(18).string(message.destination_address);
     }
-    if (message.fromAddress !== "") {
-      writer.uint32(26).string(message.fromAddress);
+    if (message.from_address !== "") {
+      writer.uint32(26).string(message.from_address);
     }
     return writer;
   },
@@ -132,10 +132,10 @@ export const MsgRequestRedemption = {
           message.value = Coin.decode(reader, reader.uint32());
           break;
         case 2:
-          message.destinationAddress = reader.string();
+          message.destination_address = reader.string();
           break;
         case 3:
-          message.fromAddress = reader.string();
+          message.from_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -147,36 +147,36 @@ export const MsgRequestRedemption = {
   fromJSON(object: any): MsgRequestRedemption {
     return {
       value: isSet(object.value) ? Coin.fromJSON(object.value) : undefined,
-      destinationAddress: isSet(object.destinationAddress) ? String(object.destinationAddress) : "",
-      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : ""
+      destination_address: isSet(object.destination_address) ? String(object.destination_address) : "",
+      from_address: isSet(object.from_address) ? String(object.from_address) : ""
     };
   },
   toJSON(message: MsgRequestRedemption): unknown {
     const obj: any = {};
     message.value !== undefined && (obj.value = message.value ? Coin.toJSON(message.value) : undefined);
-    message.destinationAddress !== undefined && (obj.destinationAddress = message.destinationAddress);
-    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    message.destination_address !== undefined && (obj.destination_address = message.destination_address);
+    message.from_address !== undefined && (obj.from_address = message.from_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgRequestRedemption>): MsgRequestRedemption {
     const message = createBaseMsgRequestRedemption();
     message.value = object.value !== undefined && object.value !== null ? Coin.fromPartial(object.value) : undefined;
-    message.destinationAddress = object.destinationAddress ?? "";
-    message.fromAddress = object.fromAddress ?? "";
+    message.destination_address = object.destination_address ?? "";
+    message.from_address = object.from_address ?? "";
     return message;
   },
   fromAmino(object: MsgRequestRedemptionAmino): MsgRequestRedemption {
     return {
       value: object?.value ? Coin.fromAmino(object.value) : undefined,
-      destinationAddress: object.destination_address,
-      fromAddress: object.from_address
+      destination_address: object.destination_address,
+      from_address: object.from_address
     };
   },
   toAmino(message: MsgRequestRedemption): MsgRequestRedemptionAmino {
     const obj: any = {};
     obj.value = message.value ? Coin.toAmino(message.value) : undefined;
-    obj.destination_address = message.destinationAddress;
-    obj.from_address = message.fromAddress;
+    obj.destination_address = message.destination_address;
+    obj.from_address = message.from_address;
     return obj;
   },
   fromAminoMsg(object: MsgRequestRedemptionAminoMsg): MsgRequestRedemption {
@@ -259,23 +259,23 @@ export const MsgRequestRedemptionResponse = {
 };
 function createBaseMsgSignalIntent(): MsgSignalIntent {
   return {
-    chainId: "",
+    chain_id: "",
     intents: "",
-    fromAddress: ""
+    from_address: ""
   };
 }
 export const MsgSignalIntent = {
   typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
   aminoType: "quicksilver/MsgSignalIntent",
   encode(message: MsgSignalIntent, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.intents !== "") {
       writer.uint32(18).string(message.intents);
     }
-    if (message.fromAddress !== "") {
-      writer.uint32(26).string(message.fromAddress);
+    if (message.from_address !== "") {
+      writer.uint32(26).string(message.from_address);
     }
     return writer;
   },
@@ -287,13 +287,13 @@ export const MsgSignalIntent = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.intents = reader.string();
           break;
         case 3:
-          message.fromAddress = reader.string();
+          message.from_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -304,37 +304,37 @@ export const MsgSignalIntent = {
   },
   fromJSON(object: any): MsgSignalIntent {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       intents: isSet(object.intents) ? String(object.intents) : "",
-      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : ""
+      from_address: isSet(object.from_address) ? String(object.from_address) : ""
     };
   },
   toJSON(message: MsgSignalIntent): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.intents !== undefined && (obj.intents = message.intents);
-    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    message.from_address !== undefined && (obj.from_address = message.from_address);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgSignalIntent>): MsgSignalIntent {
     const message = createBaseMsgSignalIntent();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.intents = object.intents ?? "";
-    message.fromAddress = object.fromAddress ?? "";
+    message.from_address = object.from_address ?? "";
     return message;
   },
   fromAmino(object: MsgSignalIntentAmino): MsgSignalIntent {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       intents: object.intents,
-      fromAddress: object.from_address
+      from_address: object.from_address
     };
   },
   toAmino(message: MsgSignalIntent): MsgSignalIntentAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.intents = message.intents;
-    obj.from_address = message.fromAddress;
+    obj.from_address = message.from_address;
     return obj;
   },
   fromAminoMsg(object: MsgSignalIntentAminoMsg): MsgSignalIntent {

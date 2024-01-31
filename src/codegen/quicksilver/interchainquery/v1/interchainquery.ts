@@ -2,19 +2,19 @@ import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../.
 import * as _m0 from "protobufjs/minimal";
 export interface Query {
   id: string;
-  connectionId: string;
-  chainId: string;
-  queryType: string;
+  connection_id: string;
+  chain_id: string;
+  query_type: string;
   request: Uint8Array;
   /** change these to uint64 in v0.5.0 */
   period: string;
-  lastHeight: string;
-  callbackId: string;
+  last_height: string;
+  callback_id: string;
   ttl: Long;
-  lastEmission: string;
+  last_emission: string;
 }
 export interface QueryProtoMsg {
-  typeUrl: "/quicksilver.interchainquery.v1.Query";
+  type_url: "/quicksilver.interchainquery.v1.Query";
   value: Uint8Array;
 }
 export interface QueryAmino {
@@ -49,12 +49,12 @@ export interface QuerySDKType {
 export interface DataPoint {
   id: string;
   /** change these to uint64 in v0.5.0 */
-  remoteHeight: string;
-  localHeight: string;
+  remote_height: string;
+  local_height: string;
   value: Uint8Array;
 }
 export interface DataPointProtoMsg {
-  typeUrl: "/quicksilver.interchainquery.v1.DataPoint";
+  type_url: "/quicksilver.interchainquery.v1.DataPoint";
   value: Uint8Array;
 }
 export interface DataPointAmino {
@@ -77,15 +77,15 @@ export interface DataPointSDKType {
 function createBaseQuery(): Query {
   return {
     id: "",
-    connectionId: "",
-    chainId: "",
-    queryType: "",
+    connection_id: "",
+    chain_id: "",
+    query_type: "",
     request: new Uint8Array(),
     period: "",
-    lastHeight: "",
-    callbackId: "",
+    last_height: "",
+    callback_id: "",
     ttl: Long.UZERO,
-    lastEmission: ""
+    last_emission: ""
   };
 }
 export const Query = {
@@ -94,14 +94,14 @@ export const Query = {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.connectionId !== "") {
-      writer.uint32(18).string(message.connectionId);
+    if (message.connection_id !== "") {
+      writer.uint32(18).string(message.connection_id);
     }
-    if (message.chainId !== "") {
-      writer.uint32(26).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(26).string(message.chain_id);
     }
-    if (message.queryType !== "") {
-      writer.uint32(34).string(message.queryType);
+    if (message.query_type !== "") {
+      writer.uint32(34).string(message.query_type);
     }
     if (message.request.length !== 0) {
       writer.uint32(42).bytes(message.request);
@@ -109,17 +109,17 @@ export const Query = {
     if (message.period !== "") {
       writer.uint32(50).string(message.period);
     }
-    if (message.lastHeight !== "") {
-      writer.uint32(58).string(message.lastHeight);
+    if (message.last_height !== "") {
+      writer.uint32(58).string(message.last_height);
     }
-    if (message.callbackId !== "") {
-      writer.uint32(66).string(message.callbackId);
+    if (message.callback_id !== "") {
+      writer.uint32(66).string(message.callback_id);
     }
     if (!message.ttl.isZero()) {
       writer.uint32(72).uint64(message.ttl);
     }
-    if (message.lastEmission !== "") {
-      writer.uint32(82).string(message.lastEmission);
+    if (message.last_emission !== "") {
+      writer.uint32(82).string(message.last_emission);
     }
     return writer;
   },
@@ -134,13 +134,13 @@ export const Query = {
           message.id = reader.string();
           break;
         case 2:
-          message.connectionId = reader.string();
+          message.connection_id = reader.string();
           break;
         case 3:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 4:
-          message.queryType = reader.string();
+          message.query_type = reader.string();
           break;
         case 5:
           message.request = reader.bytes();
@@ -149,16 +149,16 @@ export const Query = {
           message.period = reader.string();
           break;
         case 7:
-          message.lastHeight = reader.string();
+          message.last_height = reader.string();
           break;
         case 8:
-          message.callbackId = reader.string();
+          message.callback_id = reader.string();
           break;
         case 9:
           message.ttl = (reader.uint64() as Long);
           break;
         case 10:
-          message.lastEmission = reader.string();
+          message.last_emission = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -170,71 +170,71 @@ export const Query = {
   fromJSON(object: any): Query {
     return {
       id: isSet(object.id) ? String(object.id) : "",
-      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      queryType: isSet(object.queryType) ? String(object.queryType) : "",
+      connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      query_type: isSet(object.query_type) ? String(object.query_type) : "",
       request: isSet(object.request) ? bytesFromBase64(object.request) : new Uint8Array(),
       period: isSet(object.period) ? String(object.period) : "",
-      lastHeight: isSet(object.lastHeight) ? String(object.lastHeight) : "",
-      callbackId: isSet(object.callbackId) ? String(object.callbackId) : "",
+      last_height: isSet(object.last_height) ? String(object.last_height) : "",
+      callback_id: isSet(object.callback_id) ? String(object.callback_id) : "",
       ttl: isSet(object.ttl) ? Long.fromValue(object.ttl) : Long.UZERO,
-      lastEmission: isSet(object.lastEmission) ? String(object.lastEmission) : ""
+      last_emission: isSet(object.last_emission) ? String(object.last_emission) : ""
     };
   },
   toJSON(message: Query): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.queryType !== undefined && (obj.queryType = message.queryType);
+    message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.query_type !== undefined && (obj.query_type = message.query_type);
     message.request !== undefined && (obj.request = base64FromBytes(message.request !== undefined ? message.request : new Uint8Array()));
     message.period !== undefined && (obj.period = message.period);
-    message.lastHeight !== undefined && (obj.lastHeight = message.lastHeight);
-    message.callbackId !== undefined && (obj.callbackId = message.callbackId);
+    message.last_height !== undefined && (obj.last_height = message.last_height);
+    message.callback_id !== undefined && (obj.callback_id = message.callback_id);
     message.ttl !== undefined && (obj.ttl = (message.ttl || Long.UZERO).toString());
-    message.lastEmission !== undefined && (obj.lastEmission = message.lastEmission);
+    message.last_emission !== undefined && (obj.last_emission = message.last_emission);
     return obj;
   },
   fromPartial(object: DeepPartial<Query>): Query {
     const message = createBaseQuery();
     message.id = object.id ?? "";
-    message.connectionId = object.connectionId ?? "";
-    message.chainId = object.chainId ?? "";
-    message.queryType = object.queryType ?? "";
+    message.connection_id = object.connection_id ?? "";
+    message.chain_id = object.chain_id ?? "";
+    message.query_type = object.query_type ?? "";
     message.request = object.request ?? new Uint8Array();
     message.period = object.period ?? "";
-    message.lastHeight = object.lastHeight ?? "";
-    message.callbackId = object.callbackId ?? "";
+    message.last_height = object.last_height ?? "";
+    message.callback_id = object.callback_id ?? "";
     message.ttl = object.ttl !== undefined && object.ttl !== null ? Long.fromValue(object.ttl) : Long.UZERO;
-    message.lastEmission = object.lastEmission ?? "";
+    message.last_emission = object.last_emission ?? "";
     return message;
   },
   fromAmino(object: QueryAmino): Query {
     return {
       id: object.id,
-      connectionId: object.connection_id,
-      chainId: object.chain_id,
-      queryType: object.query_type,
+      connection_id: object.connection_id,
+      chain_id: object.chain_id,
+      query_type: object.query_type,
       request: object.request,
       period: object.period,
-      lastHeight: object.last_height,
-      callbackId: object.callback_id,
+      last_height: object.last_height,
+      callback_id: object.callback_id,
       ttl: Long.fromString(object.ttl),
-      lastEmission: object.last_emission
+      last_emission: object.last_emission
     };
   },
   toAmino(message: Query): QueryAmino {
     const obj: any = {};
     obj.id = message.id;
-    obj.connection_id = message.connectionId;
-    obj.chain_id = message.chainId;
-    obj.query_type = message.queryType;
+    obj.connection_id = message.connection_id;
+    obj.chain_id = message.chain_id;
+    obj.query_type = message.query_type;
     obj.request = message.request;
     obj.period = message.period;
-    obj.last_height = message.lastHeight;
-    obj.callback_id = message.callbackId;
+    obj.last_height = message.last_height;
+    obj.callback_id = message.callback_id;
     obj.ttl = message.ttl ? message.ttl.toString() : undefined;
-    obj.last_emission = message.lastEmission;
+    obj.last_emission = message.last_emission;
     return obj;
   },
   fromAminoMsg(object: QueryAminoMsg): Query {
@@ -256,8 +256,8 @@ export const Query = {
 function createBaseDataPoint(): DataPoint {
   return {
     id: "",
-    remoteHeight: "",
-    localHeight: "",
+    remote_height: "",
+    local_height: "",
     value: new Uint8Array()
   };
 }
@@ -267,11 +267,11 @@ export const DataPoint = {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.remoteHeight !== "") {
-      writer.uint32(18).string(message.remoteHeight);
+    if (message.remote_height !== "") {
+      writer.uint32(18).string(message.remote_height);
     }
-    if (message.localHeight !== "") {
-      writer.uint32(26).string(message.localHeight);
+    if (message.local_height !== "") {
+      writer.uint32(26).string(message.local_height);
     }
     if (message.value.length !== 0) {
       writer.uint32(34).bytes(message.value);
@@ -289,10 +289,10 @@ export const DataPoint = {
           message.id = reader.string();
           break;
         case 2:
-          message.remoteHeight = reader.string();
+          message.remote_height = reader.string();
           break;
         case 3:
-          message.localHeight = reader.string();
+          message.local_height = reader.string();
           break;
         case 4:
           message.value = reader.bytes();
@@ -307,40 +307,40 @@ export const DataPoint = {
   fromJSON(object: any): DataPoint {
     return {
       id: isSet(object.id) ? String(object.id) : "",
-      remoteHeight: isSet(object.remoteHeight) ? String(object.remoteHeight) : "",
-      localHeight: isSet(object.localHeight) ? String(object.localHeight) : "",
+      remote_height: isSet(object.remote_height) ? String(object.remote_height) : "",
+      local_height: isSet(object.local_height) ? String(object.local_height) : "",
       value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array()
     };
   },
   toJSON(message: DataPoint): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.remoteHeight !== undefined && (obj.remoteHeight = message.remoteHeight);
-    message.localHeight !== undefined && (obj.localHeight = message.localHeight);
+    message.remote_height !== undefined && (obj.remote_height = message.remote_height);
+    message.local_height !== undefined && (obj.local_height = message.local_height);
     message.value !== undefined && (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
     return obj;
   },
   fromPartial(object: DeepPartial<DataPoint>): DataPoint {
     const message = createBaseDataPoint();
     message.id = object.id ?? "";
-    message.remoteHeight = object.remoteHeight ?? "";
-    message.localHeight = object.localHeight ?? "";
+    message.remote_height = object.remote_height ?? "";
+    message.local_height = object.local_height ?? "";
     message.value = object.value ?? new Uint8Array();
     return message;
   },
   fromAmino(object: DataPointAmino): DataPoint {
     return {
       id: object.id,
-      remoteHeight: object.remote_height,
-      localHeight: object.local_height,
+      remote_height: object.remote_height,
+      local_height: object.local_height,
       value: object.value
     };
   },
   toAmino(message: DataPoint): DataPointAmino {
     const obj: any = {};
     obj.id = message.id;
-    obj.remote_height = message.remoteHeight;
-    obj.local_height = message.localHeight;
+    obj.remote_height = message.remote_height;
+    obj.local_height = message.local_height;
     obj.value = message.value;
     return obj;
   },

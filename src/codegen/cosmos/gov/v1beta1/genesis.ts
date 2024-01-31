@@ -4,7 +4,7 @@ import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
   /** starting_proposal_id is the ID of the starting proposal. */
-  startingProposalId: Long;
+  starting_proposal_id: Long;
   /** deposits defines all the deposits present at genesis. */
   deposits: Deposit[];
   /** votes defines all the votes present at genesis. */
@@ -12,14 +12,14 @@ export interface GenesisState {
   /** proposals defines all the proposals present at genesis. */
   proposals: Proposal[];
   /** params defines all the paramaters of related to deposit. */
-  depositParams: DepositParams;
+  deposit_params: DepositParams;
   /** params defines all the paramaters of related to voting. */
-  votingParams: VotingParams;
+  voting_params: VotingParams;
   /** params defines all the paramaters of related to tally. */
-  tallyParams: TallyParams;
+  tally_params: TallyParams;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/cosmos.gov.v1beta1.GenesisState";
+  type_url: "/cosmos.gov.v1beta1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the gov module's genesis state. */
@@ -55,21 +55,21 @@ export interface GenesisStateSDKType {
 }
 function createBaseGenesisState(): GenesisState {
   return {
-    startingProposalId: Long.UZERO,
+    starting_proposal_id: Long.UZERO,
     deposits: [],
     votes: [],
     proposals: [],
-    depositParams: DepositParams.fromPartial({}),
-    votingParams: VotingParams.fromPartial({}),
-    tallyParams: TallyParams.fromPartial({})
+    deposit_params: DepositParams.fromPartial({}),
+    voting_params: VotingParams.fromPartial({}),
+    tally_params: TallyParams.fromPartial({})
   };
 }
 export const GenesisState = {
   typeUrl: "/cosmos.gov.v1beta1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.startingProposalId.isZero()) {
-      writer.uint32(8).uint64(message.startingProposalId);
+    if (!message.starting_proposal_id.isZero()) {
+      writer.uint32(8).uint64(message.starting_proposal_id);
     }
     for (const v of message.deposits) {
       Deposit.encode(v!, writer.uint32(18).fork()).ldelim();
@@ -80,14 +80,14 @@ export const GenesisState = {
     for (const v of message.proposals) {
       Proposal.encode(v!, writer.uint32(34).fork()).ldelim();
     }
-    if (message.depositParams !== undefined) {
-      DepositParams.encode(message.depositParams, writer.uint32(42).fork()).ldelim();
+    if (message.deposit_params !== undefined) {
+      DepositParams.encode(message.deposit_params, writer.uint32(42).fork()).ldelim();
     }
-    if (message.votingParams !== undefined) {
-      VotingParams.encode(message.votingParams, writer.uint32(50).fork()).ldelim();
+    if (message.voting_params !== undefined) {
+      VotingParams.encode(message.voting_params, writer.uint32(50).fork()).ldelim();
     }
-    if (message.tallyParams !== undefined) {
-      TallyParams.encode(message.tallyParams, writer.uint32(58).fork()).ldelim();
+    if (message.tally_params !== undefined) {
+      TallyParams.encode(message.tally_params, writer.uint32(58).fork()).ldelim();
     }
     return writer;
   },
@@ -99,7 +99,7 @@ export const GenesisState = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.startingProposalId = (reader.uint64() as Long);
+          message.starting_proposal_id = (reader.uint64() as Long);
           break;
         case 2:
           message.deposits.push(Deposit.decode(reader, reader.uint32()));
@@ -111,13 +111,13 @@ export const GenesisState = {
           message.proposals.push(Proposal.decode(reader, reader.uint32()));
           break;
         case 5:
-          message.depositParams = DepositParams.decode(reader, reader.uint32());
+          message.deposit_params = DepositParams.decode(reader, reader.uint32());
           break;
         case 6:
-          message.votingParams = VotingParams.decode(reader, reader.uint32());
+          message.voting_params = VotingParams.decode(reader, reader.uint32());
           break;
         case 7:
-          message.tallyParams = TallyParams.decode(reader, reader.uint32());
+          message.tally_params = TallyParams.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -128,18 +128,18 @@ export const GenesisState = {
   },
   fromJSON(object: any): GenesisState {
     return {
-      startingProposalId: isSet(object.startingProposalId) ? Long.fromValue(object.startingProposalId) : Long.UZERO,
+      starting_proposal_id: isSet(object.starting_proposal_id) ? Long.fromValue(object.starting_proposal_id) : Long.UZERO,
       deposits: Array.isArray(object?.deposits) ? object.deposits.map((e: any) => Deposit.fromJSON(e)) : [],
       votes: Array.isArray(object?.votes) ? object.votes.map((e: any) => Vote.fromJSON(e)) : [],
       proposals: Array.isArray(object?.proposals) ? object.proposals.map((e: any) => Proposal.fromJSON(e)) : [],
-      depositParams: isSet(object.depositParams) ? DepositParams.fromJSON(object.depositParams) : undefined,
-      votingParams: isSet(object.votingParams) ? VotingParams.fromJSON(object.votingParams) : undefined,
-      tallyParams: isSet(object.tallyParams) ? TallyParams.fromJSON(object.tallyParams) : undefined
+      deposit_params: isSet(object.deposit_params) ? DepositParams.fromJSON(object.deposit_params) : undefined,
+      voting_params: isSet(object.voting_params) ? VotingParams.fromJSON(object.voting_params) : undefined,
+      tally_params: isSet(object.tally_params) ? TallyParams.fromJSON(object.tally_params) : undefined
     };
   },
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
-    message.startingProposalId !== undefined && (obj.startingProposalId = (message.startingProposalId || Long.UZERO).toString());
+    message.starting_proposal_id !== undefined && (obj.starting_proposal_id = (message.starting_proposal_id || Long.UZERO).toString());
     if (message.deposits) {
       obj.deposits = message.deposits.map(e => e ? Deposit.toJSON(e) : undefined);
     } else {
@@ -155,36 +155,36 @@ export const GenesisState = {
     } else {
       obj.proposals = [];
     }
-    message.depositParams !== undefined && (obj.depositParams = message.depositParams ? DepositParams.toJSON(message.depositParams) : undefined);
-    message.votingParams !== undefined && (obj.votingParams = message.votingParams ? VotingParams.toJSON(message.votingParams) : undefined);
-    message.tallyParams !== undefined && (obj.tallyParams = message.tallyParams ? TallyParams.toJSON(message.tallyParams) : undefined);
+    message.deposit_params !== undefined && (obj.deposit_params = message.deposit_params ? DepositParams.toJSON(message.deposit_params) : undefined);
+    message.voting_params !== undefined && (obj.voting_params = message.voting_params ? VotingParams.toJSON(message.voting_params) : undefined);
+    message.tally_params !== undefined && (obj.tally_params = message.tally_params ? TallyParams.toJSON(message.tally_params) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.startingProposalId = object.startingProposalId !== undefined && object.startingProposalId !== null ? Long.fromValue(object.startingProposalId) : Long.UZERO;
+    message.starting_proposal_id = object.starting_proposal_id !== undefined && object.starting_proposal_id !== null ? Long.fromValue(object.starting_proposal_id) : Long.UZERO;
     message.deposits = object.deposits?.map(e => Deposit.fromPartial(e)) || [];
     message.votes = object.votes?.map(e => Vote.fromPartial(e)) || [];
     message.proposals = object.proposals?.map(e => Proposal.fromPartial(e)) || [];
-    message.depositParams = object.depositParams !== undefined && object.depositParams !== null ? DepositParams.fromPartial(object.depositParams) : undefined;
-    message.votingParams = object.votingParams !== undefined && object.votingParams !== null ? VotingParams.fromPartial(object.votingParams) : undefined;
-    message.tallyParams = object.tallyParams !== undefined && object.tallyParams !== null ? TallyParams.fromPartial(object.tallyParams) : undefined;
+    message.deposit_params = object.deposit_params !== undefined && object.deposit_params !== null ? DepositParams.fromPartial(object.deposit_params) : undefined;
+    message.voting_params = object.voting_params !== undefined && object.voting_params !== null ? VotingParams.fromPartial(object.voting_params) : undefined;
+    message.tally_params = object.tally_params !== undefined && object.tally_params !== null ? TallyParams.fromPartial(object.tally_params) : undefined;
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
     return {
-      startingProposalId: Long.fromString(object.starting_proposal_id),
+      starting_proposal_id: Long.fromString(object.starting_proposal_id),
       deposits: Array.isArray(object?.deposits) ? object.deposits.map((e: any) => Deposit.fromAmino(e)) : [],
       votes: Array.isArray(object?.votes) ? object.votes.map((e: any) => Vote.fromAmino(e)) : [],
       proposals: Array.isArray(object?.proposals) ? object.proposals.map((e: any) => Proposal.fromAmino(e)) : [],
-      depositParams: object?.deposit_params ? DepositParams.fromAmino(object.deposit_params) : undefined,
-      votingParams: object?.voting_params ? VotingParams.fromAmino(object.voting_params) : undefined,
-      tallyParams: object?.tally_params ? TallyParams.fromAmino(object.tally_params) : undefined
+      deposit_params: object?.deposit_params ? DepositParams.fromAmino(object.deposit_params) : undefined,
+      voting_params: object?.voting_params ? VotingParams.fromAmino(object.voting_params) : undefined,
+      tally_params: object?.tally_params ? TallyParams.fromAmino(object.tally_params) : undefined
     };
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
-    obj.starting_proposal_id = message.startingProposalId ? message.startingProposalId.toString() : undefined;
+    obj.starting_proposal_id = message.starting_proposal_id ? message.starting_proposal_id.toString() : undefined;
     if (message.deposits) {
       obj.deposits = message.deposits.map(e => e ? Deposit.toAmino(e) : undefined);
     } else {
@@ -200,9 +200,9 @@ export const GenesisState = {
     } else {
       obj.proposals = [];
     }
-    obj.deposit_params = message.depositParams ? DepositParams.toAmino(message.depositParams) : undefined;
-    obj.voting_params = message.votingParams ? VotingParams.toAmino(message.votingParams) : undefined;
-    obj.tally_params = message.tallyParams ? TallyParams.toAmino(message.tallyParams) : undefined;
+    obj.deposit_params = message.deposit_params ? DepositParams.toAmino(message.deposit_params) : undefined;
+    obj.voting_params = message.voting_params ? VotingParams.toAmino(message.voting_params) : undefined;
+    obj.tally_params = message.tally_params ? TallyParams.toAmino(message.tally_params) : undefined;
     return obj;
   },
   fromAminoMsg(object: GenesisStateAminoMsg): GenesisState {

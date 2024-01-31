@@ -19,7 +19,7 @@ export interface MsgCreateDenom {
   subdenom: string;
 }
 export interface MsgCreateDenomProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenom";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenom";
   value: Uint8Array;
 }
 /**
@@ -62,10 +62,10 @@ export interface MsgCreateDenomSDKType {
  * It returns the full string of the newly created denom
  */
 export interface MsgCreateDenomResponse {
-  newTokenDenom: string;
+  new_token_denom: string;
 }
 export interface MsgCreateDenomResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenomResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenomResponse";
   value: Uint8Array;
 }
 /**
@@ -95,7 +95,7 @@ export interface MsgMint {
   amount: Coin;
 }
 export interface MsgMintProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgMint";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgMint";
   value: Uint8Array;
 }
 /**
@@ -120,7 +120,7 @@ export interface MsgMintSDKType {
 }
 export interface MsgMintResponse {}
 export interface MsgMintResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgMintResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgMintResponse";
   value: Uint8Array;
 }
 export interface MsgMintResponseAmino {}
@@ -138,7 +138,7 @@ export interface MsgBurn {
   amount: Coin;
 }
 export interface MsgBurnProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgBurn";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgBurn";
   value: Uint8Array;
 }
 /**
@@ -163,7 +163,7 @@ export interface MsgBurnSDKType {
 }
 export interface MsgBurnResponse {}
 export interface MsgBurnResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgBurnResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgBurnResponse";
   value: Uint8Array;
 }
 export interface MsgBurnResponseAmino {}
@@ -179,10 +179,10 @@ export interface MsgBurnResponseSDKType {}
 export interface MsgChangeAdmin {
   sender: string;
   denom: string;
-  newAdmin: string;
+  new_admin: string;
 }
 export interface MsgChangeAdminProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgChangeAdmin";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgChangeAdmin";
   value: Uint8Array;
 }
 /**
@@ -213,7 +213,7 @@ export interface MsgChangeAdminSDKType {
  */
 export interface MsgChangeAdminResponse {}
 export interface MsgChangeAdminResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgChangeAdminResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgChangeAdminResponse";
   value: Uint8Array;
 }
 /**
@@ -239,7 +239,7 @@ export interface MsgSetDenomMetadata {
   metadata: Metadata;
 }
 export interface MsgSetDenomMetadataProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgSetDenomMetadata";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgSetDenomMetadata";
   value: Uint8Array;
 }
 /**
@@ -268,7 +268,7 @@ export interface MsgSetDenomMetadataSDKType {
  */
 export interface MsgSetDenomMetadataResponse {}
 export interface MsgSetDenomMetadataResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgSetDenomMetadataResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.MsgSetDenomMetadataResponse";
   value: Uint8Array;
 }
 /**
@@ -370,14 +370,14 @@ export const MsgCreateDenom = {
 };
 function createBaseMsgCreateDenomResponse(): MsgCreateDenomResponse {
   return {
-    newTokenDenom: ""
+    new_token_denom: ""
   };
 }
 export const MsgCreateDenomResponse = {
   typeUrl: "/quicksilver.tokenfactory.v1beta1.MsgCreateDenomResponse",
   encode(message: MsgCreateDenomResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.newTokenDenom !== "") {
-      writer.uint32(10).string(message.newTokenDenom);
+    if (message.new_token_denom !== "") {
+      writer.uint32(10).string(message.new_token_denom);
     }
     return writer;
   },
@@ -389,7 +389,7 @@ export const MsgCreateDenomResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.newTokenDenom = reader.string();
+          message.new_token_denom = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -400,27 +400,27 @@ export const MsgCreateDenomResponse = {
   },
   fromJSON(object: any): MsgCreateDenomResponse {
     return {
-      newTokenDenom: isSet(object.newTokenDenom) ? String(object.newTokenDenom) : ""
+      new_token_denom: isSet(object.new_token_denom) ? String(object.new_token_denom) : ""
     };
   },
   toJSON(message: MsgCreateDenomResponse): unknown {
     const obj: any = {};
-    message.newTokenDenom !== undefined && (obj.newTokenDenom = message.newTokenDenom);
+    message.new_token_denom !== undefined && (obj.new_token_denom = message.new_token_denom);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgCreateDenomResponse>): MsgCreateDenomResponse {
     const message = createBaseMsgCreateDenomResponse();
-    message.newTokenDenom = object.newTokenDenom ?? "";
+    message.new_token_denom = object.new_token_denom ?? "";
     return message;
   },
   fromAmino(object: MsgCreateDenomResponseAmino): MsgCreateDenomResponse {
     return {
-      newTokenDenom: object.new_token_denom
+      new_token_denom: object.new_token_denom
     };
   },
   toAmino(message: MsgCreateDenomResponse): MsgCreateDenomResponseAmino {
     const obj: any = {};
-    obj.new_token_denom = message.newTokenDenom;
+    obj.new_token_denom = message.new_token_denom;
     return obj;
   },
   fromAminoMsg(object: MsgCreateDenomResponseAminoMsg): MsgCreateDenomResponse {
@@ -721,7 +721,7 @@ function createBaseMsgChangeAdmin(): MsgChangeAdmin {
   return {
     sender: "",
     denom: "",
-    newAdmin: ""
+    new_admin: ""
   };
 }
 export const MsgChangeAdmin = {
@@ -733,8 +733,8 @@ export const MsgChangeAdmin = {
     if (message.denom !== "") {
       writer.uint32(18).string(message.denom);
     }
-    if (message.newAdmin !== "") {
-      writer.uint32(26).string(message.newAdmin);
+    if (message.new_admin !== "") {
+      writer.uint32(26).string(message.new_admin);
     }
     return writer;
   },
@@ -752,7 +752,7 @@ export const MsgChangeAdmin = {
           message.denom = reader.string();
           break;
         case 3:
-          message.newAdmin = reader.string();
+          message.new_admin = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -765,35 +765,35 @@ export const MsgChangeAdmin = {
     return {
       sender: isSet(object.sender) ? String(object.sender) : "",
       denom: isSet(object.denom) ? String(object.denom) : "",
-      newAdmin: isSet(object.newAdmin) ? String(object.newAdmin) : ""
+      new_admin: isSet(object.new_admin) ? String(object.new_admin) : ""
     };
   },
   toJSON(message: MsgChangeAdmin): unknown {
     const obj: any = {};
     message.sender !== undefined && (obj.sender = message.sender);
     message.denom !== undefined && (obj.denom = message.denom);
-    message.newAdmin !== undefined && (obj.newAdmin = message.newAdmin);
+    message.new_admin !== undefined && (obj.new_admin = message.new_admin);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgChangeAdmin>): MsgChangeAdmin {
     const message = createBaseMsgChangeAdmin();
     message.sender = object.sender ?? "";
     message.denom = object.denom ?? "";
-    message.newAdmin = object.newAdmin ?? "";
+    message.new_admin = object.new_admin ?? "";
     return message;
   },
   fromAmino(object: MsgChangeAdminAmino): MsgChangeAdmin {
     return {
       sender: object.sender,
       denom: object.denom,
-      newAdmin: object.new_admin
+      new_admin: object.new_admin
     };
   },
   toAmino(message: MsgChangeAdmin): MsgChangeAdminAmino {
     const obj: any = {};
     obj.sender = message.sender;
     obj.denom = message.denom;
-    obj.new_admin = message.newAdmin;
+    obj.new_admin = message.new_admin;
     return obj;
   },
   fromAminoMsg(object: MsgChangeAdminAminoMsg): MsgChangeAdmin {

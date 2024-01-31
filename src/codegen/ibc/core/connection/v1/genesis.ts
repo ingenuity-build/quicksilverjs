@@ -4,13 +4,13 @@ import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc connection submodule's genesis state. */
 export interface GenesisState {
   connections: IdentifiedConnection[];
-  clientConnectionPaths: ConnectionPaths[];
+  client_connection_paths: ConnectionPaths[];
   /** the sequence for the next generated connection identifier */
-  nextConnectionSequence: Long;
+  next_connection_sequence: Long;
   params: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/ibc.core.connection.v1.GenesisState";
+  type_url: "/ibc.core.connection.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the ibc connection submodule's genesis state. */
@@ -35,8 +35,8 @@ export interface GenesisStateSDKType {
 function createBaseGenesisState(): GenesisState {
   return {
     connections: [],
-    clientConnectionPaths: [],
-    nextConnectionSequence: Long.UZERO,
+    client_connection_paths: [],
+    next_connection_sequence: Long.UZERO,
     params: Params.fromPartial({})
   };
 }
@@ -47,11 +47,11 @@ export const GenesisState = {
     for (const v of message.connections) {
       IdentifiedConnection.encode(v!, writer.uint32(10).fork()).ldelim();
     }
-    for (const v of message.clientConnectionPaths) {
+    for (const v of message.client_connection_paths) {
       ConnectionPaths.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (!message.nextConnectionSequence.isZero()) {
-      writer.uint32(24).uint64(message.nextConnectionSequence);
+    if (!message.next_connection_sequence.isZero()) {
+      writer.uint32(24).uint64(message.next_connection_sequence);
     }
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(34).fork()).ldelim();
@@ -69,10 +69,10 @@ export const GenesisState = {
           message.connections.push(IdentifiedConnection.decode(reader, reader.uint32()));
           break;
         case 2:
-          message.clientConnectionPaths.push(ConnectionPaths.decode(reader, reader.uint32()));
+          message.client_connection_paths.push(ConnectionPaths.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.nextConnectionSequence = (reader.uint64() as Long);
+          message.next_connection_sequence = (reader.uint64() as Long);
           break;
         case 4:
           message.params = Params.decode(reader, reader.uint32());
@@ -87,8 +87,8 @@ export const GenesisState = {
   fromJSON(object: any): GenesisState {
     return {
       connections: Array.isArray(object?.connections) ? object.connections.map((e: any) => IdentifiedConnection.fromJSON(e)) : [],
-      clientConnectionPaths: Array.isArray(object?.clientConnectionPaths) ? object.clientConnectionPaths.map((e: any) => ConnectionPaths.fromJSON(e)) : [],
-      nextConnectionSequence: isSet(object.nextConnectionSequence) ? Long.fromValue(object.nextConnectionSequence) : Long.UZERO,
+      client_connection_paths: Array.isArray(object?.client_connection_paths) ? object.client_connection_paths.map((e: any) => ConnectionPaths.fromJSON(e)) : [],
+      next_connection_sequence: isSet(object.next_connection_sequence) ? Long.fromValue(object.next_connection_sequence) : Long.UZERO,
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
     };
   },
@@ -99,28 +99,28 @@ export const GenesisState = {
     } else {
       obj.connections = [];
     }
-    if (message.clientConnectionPaths) {
-      obj.clientConnectionPaths = message.clientConnectionPaths.map(e => e ? ConnectionPaths.toJSON(e) : undefined);
+    if (message.client_connection_paths) {
+      obj.client_connection_paths = message.client_connection_paths.map(e => e ? ConnectionPaths.toJSON(e) : undefined);
     } else {
-      obj.clientConnectionPaths = [];
+      obj.client_connection_paths = [];
     }
-    message.nextConnectionSequence !== undefined && (obj.nextConnectionSequence = (message.nextConnectionSequence || Long.UZERO).toString());
+    message.next_connection_sequence !== undefined && (obj.next_connection_sequence = (message.next_connection_sequence || Long.UZERO).toString());
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.connections = object.connections?.map(e => IdentifiedConnection.fromPartial(e)) || [];
-    message.clientConnectionPaths = object.clientConnectionPaths?.map(e => ConnectionPaths.fromPartial(e)) || [];
-    message.nextConnectionSequence = object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null ? Long.fromValue(object.nextConnectionSequence) : Long.UZERO;
+    message.client_connection_paths = object.client_connection_paths?.map(e => ConnectionPaths.fromPartial(e)) || [];
+    message.next_connection_sequence = object.next_connection_sequence !== undefined && object.next_connection_sequence !== null ? Long.fromValue(object.next_connection_sequence) : Long.UZERO;
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
     return {
       connections: Array.isArray(object?.connections) ? object.connections.map((e: any) => IdentifiedConnection.fromAmino(e)) : [],
-      clientConnectionPaths: Array.isArray(object?.client_connection_paths) ? object.client_connection_paths.map((e: any) => ConnectionPaths.fromAmino(e)) : [],
-      nextConnectionSequence: Long.fromString(object.next_connection_sequence),
+      client_connection_paths: Array.isArray(object?.client_connection_paths) ? object.client_connection_paths.map((e: any) => ConnectionPaths.fromAmino(e)) : [],
+      next_connection_sequence: Long.fromString(object.next_connection_sequence),
       params: object?.params ? Params.fromAmino(object.params) : undefined
     };
   },
@@ -131,12 +131,12 @@ export const GenesisState = {
     } else {
       obj.connections = [];
     }
-    if (message.clientConnectionPaths) {
-      obj.client_connection_paths = message.clientConnectionPaths.map(e => e ? ConnectionPaths.toAmino(e) : undefined);
+    if (message.client_connection_paths) {
+      obj.client_connection_paths = message.client_connection_paths.map(e => e ? ConnectionPaths.toAmino(e) : undefined);
     } else {
       obj.client_connection_paths = [];
     }
-    obj.next_connection_sequence = message.nextConnectionSequence ? message.nextConnectionSequence.toString() : undefined;
+    obj.next_connection_sequence = message.next_connection_sequence ? message.next_connection_sequence.toString() : undefined;
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
     return obj;
   },

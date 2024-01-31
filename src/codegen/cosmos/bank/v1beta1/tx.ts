@@ -4,12 +4,12 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "../../../helpers";
 /** MsgSend represents a message to send coins from one account to another. */
 export interface MsgSend {
-  fromAddress: string;
-  toAddress: string;
+  from_address: string;
+  to_address: string;
   amount: Coin[];
 }
 export interface MsgSendProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.MsgSend";
+  type_url: "/cosmos.bank.v1beta1.MsgSend";
   value: Uint8Array;
 }
 /** MsgSend represents a message to send coins from one account to another. */
@@ -31,7 +31,7 @@ export interface MsgSendSDKType {
 /** MsgSendResponse defines the Msg/Send response type. */
 export interface MsgSendResponse {}
 export interface MsgSendResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.MsgSendResponse";
+  type_url: "/cosmos.bank.v1beta1.MsgSendResponse";
   value: Uint8Array;
 }
 /** MsgSendResponse defines the Msg/Send response type. */
@@ -48,7 +48,7 @@ export interface MsgMultiSend {
   outputs: Output[];
 }
 export interface MsgMultiSendProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.MsgMultiSend";
+  type_url: "/cosmos.bank.v1beta1.MsgMultiSend";
   value: Uint8Array;
 }
 /** MsgMultiSend represents an arbitrary multi-in, multi-out send message. */
@@ -68,7 +68,7 @@ export interface MsgMultiSendSDKType {
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
 export interface MsgMultiSendResponse {}
 export interface MsgMultiSendResponseProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.MsgMultiSendResponse";
+  type_url: "/cosmos.bank.v1beta1.MsgMultiSendResponse";
   value: Uint8Array;
 }
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
@@ -81,8 +81,8 @@ export interface MsgMultiSendResponseAminoMsg {
 export interface MsgMultiSendResponseSDKType {}
 function createBaseMsgSend(): MsgSend {
   return {
-    fromAddress: "",
-    toAddress: "",
+    from_address: "",
+    to_address: "",
     amount: []
   };
 }
@@ -90,11 +90,11 @@ export const MsgSend = {
   typeUrl: "/cosmos.bank.v1beta1.MsgSend",
   aminoType: "cosmos-sdk/MsgSend",
   encode(message: MsgSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.fromAddress !== "") {
-      writer.uint32(10).string(message.fromAddress);
+    if (message.from_address !== "") {
+      writer.uint32(10).string(message.from_address);
     }
-    if (message.toAddress !== "") {
-      writer.uint32(18).string(message.toAddress);
+    if (message.to_address !== "") {
+      writer.uint32(18).string(message.to_address);
     }
     for (const v of message.amount) {
       Coin.encode(v!, writer.uint32(26).fork()).ldelim();
@@ -109,10 +109,10 @@ export const MsgSend = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.fromAddress = reader.string();
+          message.from_address = reader.string();
           break;
         case 2:
-          message.toAddress = reader.string();
+          message.to_address = reader.string();
           break;
         case 3:
           message.amount.push(Coin.decode(reader, reader.uint32()));
@@ -126,15 +126,15 @@ export const MsgSend = {
   },
   fromJSON(object: any): MsgSend {
     return {
-      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : "",
-      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+      from_address: isSet(object.from_address) ? String(object.from_address) : "",
+      to_address: isSet(object.to_address) ? String(object.to_address) : "",
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : []
     };
   },
   toJSON(message: MsgSend): unknown {
     const obj: any = {};
-    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
-    message.toAddress !== undefined && (obj.toAddress = message.toAddress);
+    message.from_address !== undefined && (obj.from_address = message.from_address);
+    message.to_address !== undefined && (obj.to_address = message.to_address);
     if (message.amount) {
       obj.amount = message.amount.map(e => e ? Coin.toJSON(e) : undefined);
     } else {
@@ -144,22 +144,22 @@ export const MsgSend = {
   },
   fromPartial(object: DeepPartial<MsgSend>): MsgSend {
     const message = createBaseMsgSend();
-    message.fromAddress = object.fromAddress ?? "";
-    message.toAddress = object.toAddress ?? "";
+    message.from_address = object.from_address ?? "";
+    message.to_address = object.to_address ?? "";
     message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: MsgSendAmino): MsgSend {
     return {
-      fromAddress: object.from_address,
-      toAddress: object.to_address,
+      from_address: object.from_address,
+      to_address: object.to_address,
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromAmino(e)) : []
     };
   },
   toAmino(message: MsgSend): MsgSendAmino {
     const obj: any = {};
-    obj.from_address = message.fromAddress;
-    obj.to_address = message.toAddress;
+    obj.from_address = message.from_address;
+    obj.to_address = message.to_address;
     if (message.amount) {
       obj.amount = message.amount.map(e => e ? Coin.toAmino(e) : undefined);
     } else {

@@ -4,15 +4,15 @@ import { Long, toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial
 import * as _m0 from "protobufjs/minimal";
 export interface EpochInfo {
   identifier: string;
-  startTime: Date;
+  start_time: Date;
   duration: Duration;
-  currentEpoch: Long;
-  currentEpochStartTime: Date;
-  epochCountingStarted: boolean;
-  currentEpochStartHeight: Long;
+  current_epoch: Long;
+  current_epoch_start_time: Date;
+  epoch_counting_started: boolean;
+  current_epoch_start_height: Long;
 }
 export interface EpochInfoProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.EpochInfo";
+  type_url: "/quicksilver.epochs.v1.EpochInfo";
   value: Uint8Array;
 }
 export interface EpochInfoAmino {
@@ -42,7 +42,7 @@ export interface GenesisState {
   epochs: EpochInfo[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.GenesisState";
+  type_url: "/quicksilver.epochs.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the epochs module's genesis state. */
@@ -60,12 +60,12 @@ export interface GenesisStateSDKType {
 function createBaseEpochInfo(): EpochInfo {
   return {
     identifier: "",
-    startTime: new Date(),
+    start_time: new Date(),
     duration: Duration.fromPartial({}),
-    currentEpoch: Long.ZERO,
-    currentEpochStartTime: new Date(),
-    epochCountingStarted: false,
-    currentEpochStartHeight: Long.ZERO
+    current_epoch: Long.ZERO,
+    current_epoch_start_time: new Date(),
+    epoch_counting_started: false,
+    current_epoch_start_height: Long.ZERO
   };
 }
 export const EpochInfo = {
@@ -74,23 +74,23 @@ export const EpochInfo = {
     if (message.identifier !== "") {
       writer.uint32(10).string(message.identifier);
     }
-    if (message.startTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.startTime), writer.uint32(18).fork()).ldelim();
+    if (message.start_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.start_time), writer.uint32(18).fork()).ldelim();
     }
     if (message.duration !== undefined) {
       Duration.encode(message.duration, writer.uint32(26).fork()).ldelim();
     }
-    if (!message.currentEpoch.isZero()) {
-      writer.uint32(32).int64(message.currentEpoch);
+    if (!message.current_epoch.isZero()) {
+      writer.uint32(32).int64(message.current_epoch);
     }
-    if (message.currentEpochStartTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.currentEpochStartTime), writer.uint32(42).fork()).ldelim();
+    if (message.current_epoch_start_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.current_epoch_start_time), writer.uint32(42).fork()).ldelim();
     }
-    if (message.epochCountingStarted === true) {
-      writer.uint32(48).bool(message.epochCountingStarted);
+    if (message.epoch_counting_started === true) {
+      writer.uint32(48).bool(message.epoch_counting_started);
     }
-    if (!message.currentEpochStartHeight.isZero()) {
-      writer.uint32(56).int64(message.currentEpochStartHeight);
+    if (!message.current_epoch_start_height.isZero()) {
+      writer.uint32(56).int64(message.current_epoch_start_height);
     }
     return writer;
   },
@@ -105,22 +105,22 @@ export const EpochInfo = {
           message.identifier = reader.string();
           break;
         case 2:
-          message.startTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.start_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 3:
           message.duration = Duration.decode(reader, reader.uint32());
           break;
         case 4:
-          message.currentEpoch = (reader.int64() as Long);
+          message.current_epoch = (reader.int64() as Long);
           break;
         case 5:
-          message.currentEpochStartTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.current_epoch_start_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 6:
-          message.epochCountingStarted = reader.bool();
+          message.epoch_counting_started = reader.bool();
           break;
         case 7:
-          message.currentEpochStartHeight = (reader.int64() as Long);
+          message.current_epoch_start_height = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -132,56 +132,56 @@ export const EpochInfo = {
   fromJSON(object: any): EpochInfo {
     return {
       identifier: isSet(object.identifier) ? String(object.identifier) : "",
-      startTime: isSet(object.startTime) ? fromJsonTimestamp(object.startTime) : undefined,
+      start_time: isSet(object.start_time) ? fromJsonTimestamp(object.start_time) : undefined,
       duration: isSet(object.duration) ? Duration.fromJSON(object.duration) : undefined,
-      currentEpoch: isSet(object.currentEpoch) ? Long.fromValue(object.currentEpoch) : Long.ZERO,
-      currentEpochStartTime: isSet(object.currentEpochStartTime) ? fromJsonTimestamp(object.currentEpochStartTime) : undefined,
-      epochCountingStarted: isSet(object.epochCountingStarted) ? Boolean(object.epochCountingStarted) : false,
-      currentEpochStartHeight: isSet(object.currentEpochStartHeight) ? Long.fromValue(object.currentEpochStartHeight) : Long.ZERO
+      current_epoch: isSet(object.current_epoch) ? Long.fromValue(object.current_epoch) : Long.ZERO,
+      current_epoch_start_time: isSet(object.current_epoch_start_time) ? fromJsonTimestamp(object.current_epoch_start_time) : undefined,
+      epoch_counting_started: isSet(object.epoch_counting_started) ? Boolean(object.epoch_counting_started) : false,
+      current_epoch_start_height: isSet(object.current_epoch_start_height) ? Long.fromValue(object.current_epoch_start_height) : Long.ZERO
     };
   },
   toJSON(message: EpochInfo): unknown {
     const obj: any = {};
     message.identifier !== undefined && (obj.identifier = message.identifier);
-    message.startTime !== undefined && (obj.startTime = message.startTime.toISOString());
+    message.start_time !== undefined && (obj.start_time = message.start_time.toISOString());
     message.duration !== undefined && (obj.duration = message.duration ? Duration.toJSON(message.duration) : undefined);
-    message.currentEpoch !== undefined && (obj.currentEpoch = (message.currentEpoch || Long.ZERO).toString());
-    message.currentEpochStartTime !== undefined && (obj.currentEpochStartTime = message.currentEpochStartTime.toISOString());
-    message.epochCountingStarted !== undefined && (obj.epochCountingStarted = message.epochCountingStarted);
-    message.currentEpochStartHeight !== undefined && (obj.currentEpochStartHeight = (message.currentEpochStartHeight || Long.ZERO).toString());
+    message.current_epoch !== undefined && (obj.current_epoch = (message.current_epoch || Long.ZERO).toString());
+    message.current_epoch_start_time !== undefined && (obj.current_epoch_start_time = message.current_epoch_start_time.toISOString());
+    message.epoch_counting_started !== undefined && (obj.epoch_counting_started = message.epoch_counting_started);
+    message.current_epoch_start_height !== undefined && (obj.current_epoch_start_height = (message.current_epoch_start_height || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<EpochInfo>): EpochInfo {
     const message = createBaseEpochInfo();
     message.identifier = object.identifier ?? "";
-    message.startTime = object.startTime ?? undefined;
+    message.start_time = object.start_time ?? undefined;
     message.duration = object.duration !== undefined && object.duration !== null ? Duration.fromPartial(object.duration) : undefined;
-    message.currentEpoch = object.currentEpoch !== undefined && object.currentEpoch !== null ? Long.fromValue(object.currentEpoch) : Long.ZERO;
-    message.currentEpochStartTime = object.currentEpochStartTime ?? undefined;
-    message.epochCountingStarted = object.epochCountingStarted ?? false;
-    message.currentEpochStartHeight = object.currentEpochStartHeight !== undefined && object.currentEpochStartHeight !== null ? Long.fromValue(object.currentEpochStartHeight) : Long.ZERO;
+    message.current_epoch = object.current_epoch !== undefined && object.current_epoch !== null ? Long.fromValue(object.current_epoch) : Long.ZERO;
+    message.current_epoch_start_time = object.current_epoch_start_time ?? undefined;
+    message.epoch_counting_started = object.epoch_counting_started ?? false;
+    message.current_epoch_start_height = object.current_epoch_start_height !== undefined && object.current_epoch_start_height !== null ? Long.fromValue(object.current_epoch_start_height) : Long.ZERO;
     return message;
   },
   fromAmino(object: EpochInfoAmino): EpochInfo {
     return {
       identifier: object.identifier,
-      startTime: object.start_time,
+      start_time: object.start_time,
       duration: object?.duration ? Duration.fromAmino(object.duration) : undefined,
-      currentEpoch: Long.fromString(object.current_epoch),
-      currentEpochStartTime: object.current_epoch_start_time,
-      epochCountingStarted: object.epoch_counting_started,
-      currentEpochStartHeight: Long.fromString(object.current_epoch_start_height)
+      current_epoch: Long.fromString(object.current_epoch),
+      current_epoch_start_time: object.current_epoch_start_time,
+      epoch_counting_started: object.epoch_counting_started,
+      current_epoch_start_height: Long.fromString(object.current_epoch_start_height)
     };
   },
   toAmino(message: EpochInfo): EpochInfoAmino {
     const obj: any = {};
     obj.identifier = message.identifier;
-    obj.start_time = message.startTime;
+    obj.start_time = message.start_time;
     obj.duration = message.duration ? Duration.toAmino(message.duration) : undefined;
-    obj.current_epoch = message.currentEpoch ? message.currentEpoch.toString() : undefined;
-    obj.current_epoch_start_time = message.currentEpochStartTime;
-    obj.epoch_counting_started = message.epochCountingStarted;
-    obj.current_epoch_start_height = message.currentEpochStartHeight ? message.currentEpochStartHeight.toString() : undefined;
+    obj.current_epoch = message.current_epoch ? message.current_epoch.toString() : undefined;
+    obj.current_epoch_start_time = message.current_epoch_start_time;
+    obj.epoch_counting_started = message.epoch_counting_started;
+    obj.current_epoch_start_height = message.current_epoch_start_height ? message.current_epoch_start_height.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EpochInfoAminoMsg): EpochInfo {

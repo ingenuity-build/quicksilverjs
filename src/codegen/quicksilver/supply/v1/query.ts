@@ -2,7 +2,7 @@ import { Long, DeepPartial, isSet } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface QuerySupplyRequest {}
 export interface QuerySupplyRequestProtoMsg {
-  typeUrl: "/quicksilver.supply.v1.QuerySupplyRequest";
+  type_url: "/quicksilver.supply.v1.QuerySupplyRequest";
   value: Uint8Array;
 }
 export interface QuerySupplyRequestAmino {}
@@ -13,10 +13,10 @@ export interface QuerySupplyRequestAminoMsg {
 export interface QuerySupplyRequestSDKType {}
 export interface QuerySupplyResponse {
   supply: Long;
-  circulatingSupply: Long;
+  circulating_supply: Long;
 }
 export interface QuerySupplyResponseProtoMsg {
-  typeUrl: "/quicksilver.supply.v1.QuerySupplyResponse";
+  type_url: "/quicksilver.supply.v1.QuerySupplyResponse";
   value: Uint8Array;
 }
 export interface QuerySupplyResponseAmino {
@@ -90,7 +90,7 @@ export const QuerySupplyRequest = {
 function createBaseQuerySupplyResponse(): QuerySupplyResponse {
   return {
     supply: Long.UZERO,
-    circulatingSupply: Long.UZERO
+    circulating_supply: Long.UZERO
   };
 }
 export const QuerySupplyResponse = {
@@ -99,8 +99,8 @@ export const QuerySupplyResponse = {
     if (!message.supply.isZero()) {
       writer.uint32(8).uint64(message.supply);
     }
-    if (!message.circulatingSupply.isZero()) {
-      writer.uint32(16).uint64(message.circulatingSupply);
+    if (!message.circulating_supply.isZero()) {
+      writer.uint32(16).uint64(message.circulating_supply);
     }
     return writer;
   },
@@ -115,7 +115,7 @@ export const QuerySupplyResponse = {
           message.supply = (reader.uint64() as Long);
           break;
         case 2:
-          message.circulatingSupply = (reader.uint64() as Long);
+          message.circulating_supply = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -127,31 +127,31 @@ export const QuerySupplyResponse = {
   fromJSON(object: any): QuerySupplyResponse {
     return {
       supply: isSet(object.supply) ? Long.fromValue(object.supply) : Long.UZERO,
-      circulatingSupply: isSet(object.circulatingSupply) ? Long.fromValue(object.circulatingSupply) : Long.UZERO
+      circulating_supply: isSet(object.circulating_supply) ? Long.fromValue(object.circulating_supply) : Long.UZERO
     };
   },
   toJSON(message: QuerySupplyResponse): unknown {
     const obj: any = {};
     message.supply !== undefined && (obj.supply = (message.supply || Long.UZERO).toString());
-    message.circulatingSupply !== undefined && (obj.circulatingSupply = (message.circulatingSupply || Long.UZERO).toString());
+    message.circulating_supply !== undefined && (obj.circulating_supply = (message.circulating_supply || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<QuerySupplyResponse>): QuerySupplyResponse {
     const message = createBaseQuerySupplyResponse();
     message.supply = object.supply !== undefined && object.supply !== null ? Long.fromValue(object.supply) : Long.UZERO;
-    message.circulatingSupply = object.circulatingSupply !== undefined && object.circulatingSupply !== null ? Long.fromValue(object.circulatingSupply) : Long.UZERO;
+    message.circulating_supply = object.circulating_supply !== undefined && object.circulating_supply !== null ? Long.fromValue(object.circulating_supply) : Long.UZERO;
     return message;
   },
   fromAmino(object: QuerySupplyResponseAmino): QuerySupplyResponse {
     return {
       supply: Long.fromString(object.supply),
-      circulatingSupply: Long.fromString(object.circulating_supply)
+      circulating_supply: Long.fromString(object.circulating_supply)
     };
   },
   toAmino(message: QuerySupplyResponse): QuerySupplyResponseAmino {
     const obj: any = {};
     obj.supply = message.supply ? message.supply.toString() : undefined;
-    obj.circulating_supply = message.circulatingSupply ? message.circulatingSupply.toString() : undefined;
+    obj.circulating_supply = message.circulating_supply ? message.circulating_supply.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QuerySupplyResponseAminoMsg): QuerySupplyResponse {

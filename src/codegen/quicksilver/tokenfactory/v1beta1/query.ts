@@ -5,7 +5,7 @@ import { DeepPartial, isSet } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryParamsRequest";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -22,7 +22,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryParamsResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -46,7 +46,7 @@ export interface QueryDenomAuthorityMetadataRequest {
   denom: string;
 }
 export interface QueryDenomAuthorityMetadataRequestProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest";
   value: Uint8Array;
 }
 /**
@@ -72,10 +72,10 @@ export interface QueryDenomAuthorityMetadataRequestSDKType {
  * DenomAuthorityMetadata gRPC query.
  */
 export interface QueryDenomAuthorityMetadataResponse {
-  authorityMetadata: DenomAuthorityMetadata;
+  authority_metadata: DenomAuthorityMetadata;
 }
 export interface QueryDenomAuthorityMetadataResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse";
   value: Uint8Array;
 }
 /**
@@ -104,7 +104,7 @@ export interface QueryDenomsFromCreatorRequest {
   creator: string;
 }
 export interface QueryDenomsFromCreatorRequestProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest";
   value: Uint8Array;
 }
 /**
@@ -133,7 +133,7 @@ export interface QueryDenomsFromCreatorResponse {
   denoms: string[];
 }
 export interface QueryDenomsFromCreatorResponseProtoMsg {
-  typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse";
+  type_url: "/quicksilver.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse";
   value: Uint8Array;
 }
 /**
@@ -354,14 +354,14 @@ export const QueryDenomAuthorityMetadataRequest = {
 };
 function createBaseQueryDenomAuthorityMetadataResponse(): QueryDenomAuthorityMetadataResponse {
   return {
-    authorityMetadata: DenomAuthorityMetadata.fromPartial({})
+    authority_metadata: DenomAuthorityMetadata.fromPartial({})
   };
 }
 export const QueryDenomAuthorityMetadataResponse = {
   typeUrl: "/quicksilver.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse",
   encode(message: QueryDenomAuthorityMetadataResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.authorityMetadata !== undefined) {
-      DenomAuthorityMetadata.encode(message.authorityMetadata, writer.uint32(10).fork()).ldelim();
+    if (message.authority_metadata !== undefined) {
+      DenomAuthorityMetadata.encode(message.authority_metadata, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -373,7 +373,7 @@ export const QueryDenomAuthorityMetadataResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.authorityMetadata = DenomAuthorityMetadata.decode(reader, reader.uint32());
+          message.authority_metadata = DenomAuthorityMetadata.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -384,27 +384,27 @@ export const QueryDenomAuthorityMetadataResponse = {
   },
   fromJSON(object: any): QueryDenomAuthorityMetadataResponse {
     return {
-      authorityMetadata: isSet(object.authorityMetadata) ? DenomAuthorityMetadata.fromJSON(object.authorityMetadata) : undefined
+      authority_metadata: isSet(object.authority_metadata) ? DenomAuthorityMetadata.fromJSON(object.authority_metadata) : undefined
     };
   },
   toJSON(message: QueryDenomAuthorityMetadataResponse): unknown {
     const obj: any = {};
-    message.authorityMetadata !== undefined && (obj.authorityMetadata = message.authorityMetadata ? DenomAuthorityMetadata.toJSON(message.authorityMetadata) : undefined);
+    message.authority_metadata !== undefined && (obj.authority_metadata = message.authority_metadata ? DenomAuthorityMetadata.toJSON(message.authority_metadata) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDenomAuthorityMetadataResponse>): QueryDenomAuthorityMetadataResponse {
     const message = createBaseQueryDenomAuthorityMetadataResponse();
-    message.authorityMetadata = object.authorityMetadata !== undefined && object.authorityMetadata !== null ? DenomAuthorityMetadata.fromPartial(object.authorityMetadata) : undefined;
+    message.authority_metadata = object.authority_metadata !== undefined && object.authority_metadata !== null ? DenomAuthorityMetadata.fromPartial(object.authority_metadata) : undefined;
     return message;
   },
   fromAmino(object: QueryDenomAuthorityMetadataResponseAmino): QueryDenomAuthorityMetadataResponse {
     return {
-      authorityMetadata: object?.authority_metadata ? DenomAuthorityMetadata.fromAmino(object.authority_metadata) : undefined
+      authority_metadata: object?.authority_metadata ? DenomAuthorityMetadata.fromAmino(object.authority_metadata) : undefined
     };
   },
   toAmino(message: QueryDenomAuthorityMetadataResponse): QueryDenomAuthorityMetadataResponseAmino {
     const obj: any = {};
-    obj.authority_metadata = message.authorityMetadata ? DenomAuthorityMetadata.toAmino(message.authorityMetadata) : undefined;
+    obj.authority_metadata = message.authority_metadata ? DenomAuthorityMetadata.toAmino(message.authority_metadata) : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryDenomAuthorityMetadataResponseAminoMsg): QueryDenomAuthorityMetadataResponse {

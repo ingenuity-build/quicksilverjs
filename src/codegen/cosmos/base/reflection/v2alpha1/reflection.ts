@@ -14,12 +14,12 @@ export interface AppDescriptor {
   /** configuration provides metadata information regarding the sdk.Config type */
   configuration: ConfigurationDescriptor;
   /** query_services provides metadata information regarding the available queriable endpoints */
-  queryServices: QueryServicesDescriptor;
+  query_services: QueryServicesDescriptor;
   /** tx provides metadata information regarding how to send transactions to the given application */
   tx: TxDescriptor;
 }
 export interface AppDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.AppDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.AppDescriptor";
   value: Uint8Array;
 }
 /** AppDescriptor describes a cosmos-sdk based application */
@@ -65,7 +65,7 @@ export interface TxDescriptor {
   msgs: MsgDescriptor[];
 }
 export interface TxDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.TxDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.TxDescriptor";
   value: Uint8Array;
 }
 /** TxDescriptor describes the accepted transaction type */
@@ -94,10 +94,10 @@ export interface TxDescriptorSDKType {
  */
 export interface AuthnDescriptor {
   /** sign_modes defines the supported signature algorithm */
-  signModes: SigningModeDescriptor[];
+  sign_modes: SigningModeDescriptor[];
 }
 export interface AuthnDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.AuthnDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.AuthnDescriptor";
   value: Uint8Array;
 }
 /**
@@ -134,10 +134,10 @@ export interface SigningModeDescriptor {
    * authn_info_provider_method_fullname defines the fullname of the method to call to get
    * the metadata required to authenticate using the provided sign_modes
    */
-  authnInfoProviderMethodFullname: string;
+  authn_info_provider_method_fullname: string;
 }
 export interface SigningModeDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.SigningModeDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.SigningModeDescriptor";
   value: Uint8Array;
 }
 /**
@@ -178,7 +178,7 @@ export interface ChainDescriptor {
   id: string;
 }
 export interface ChainDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.ChainDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.ChainDescriptor";
   value: Uint8Array;
 }
 /** ChainDescriptor describes chain information of the application */
@@ -200,7 +200,7 @@ export interface CodecDescriptor {
   interfaces: InterfaceDescriptor[];
 }
 export interface CodecDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.CodecDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.CodecDescriptor";
   value: Uint8Array;
 }
 /** CodecDescriptor describes the registered interfaces and provides metadata information on the types */
@@ -224,12 +224,12 @@ export interface InterfaceDescriptor {
    * interface_accepting_messages contains information regarding the proto messages which contain the interface as
    * google.protobuf.Any field
    */
-  interfaceAcceptingMessages: InterfaceAcceptingMessageDescriptor[];
+  interface_accepting_messages: InterfaceAcceptingMessageDescriptor[];
   /** interface_implementers is a list of the descriptors of the interface implementers */
-  interfaceImplementers: InterfaceImplementerDescriptor[];
+  interface_implementers: InterfaceImplementerDescriptor[];
 }
 export interface InterfaceDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.InterfaceDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.InterfaceDescriptor";
   value: Uint8Array;
 }
 /** InterfaceDescriptor describes the implementation of an interface */
@@ -264,10 +264,10 @@ export interface InterfaceImplementerDescriptor {
    * unmarshalling, making sure that we don't accept just 'any' type
    * in our interface fields
    */
-  typeUrl: string;
+  type_url: string;
 }
 export interface InterfaceImplementerDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.InterfaceImplementerDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.InterfaceImplementerDescriptor";
   value: Uint8Array;
 }
 /** InterfaceImplementerDescriptor describes an interface implementer */
@@ -303,10 +303,10 @@ export interface InterfaceAcceptingMessageDescriptor {
    * which contains the interface as google.protobuf.Any (the interface is the same, but
    * it can be in multiple fields of the same proto message)
    */
-  fieldDescriptorNames: string[];
+  field_descriptor_names: string[];
 }
 export interface InterfaceAcceptingMessageDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.InterfaceAcceptingMessageDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.InterfaceAcceptingMessageDescriptor";
   value: Uint8Array;
 }
 /**
@@ -338,10 +338,10 @@ export interface InterfaceAcceptingMessageDescriptorSDKType {
 /** ConfigurationDescriptor contains metadata information on the sdk.Config */
 export interface ConfigurationDescriptor {
   /** bech32_account_address_prefix is the account address prefix */
-  bech32AccountAddressPrefix: string;
+  bech32_account_address_prefix: string;
 }
 export interface ConfigurationDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.ConfigurationDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.ConfigurationDescriptor";
   value: Uint8Array;
 }
 /** ConfigurationDescriptor contains metadata information on the sdk.Config */
@@ -360,10 +360,10 @@ export interface ConfigurationDescriptorSDKType {
 /** MsgDescriptor describes a cosmos-sdk message that can be delivered with a transaction */
 export interface MsgDescriptor {
   /** msg_type_url contains the TypeURL of a sdk.Msg. */
-  msgTypeUrl: string;
+  msg_type_url: string;
 }
 export interface MsgDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.MsgDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.MsgDescriptor";
   value: Uint8Array;
 }
 /** MsgDescriptor describes a cosmos-sdk message that can be delivered with a transaction */
@@ -382,7 +382,7 @@ export interface MsgDescriptorSDKType {
 /** GetAuthnDescriptorRequest is the request used for the GetAuthnDescriptor RPC */
 export interface GetAuthnDescriptorRequest {}
 export interface GetAuthnDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequest";
   value: Uint8Array;
 }
 /** GetAuthnDescriptorRequest is the request used for the GetAuthnDescriptor RPC */
@@ -399,7 +399,7 @@ export interface GetAuthnDescriptorResponse {
   authn: AuthnDescriptor;
 }
 export interface GetAuthnDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponse";
   value: Uint8Array;
 }
 /** GetAuthnDescriptorResponse is the response returned by the GetAuthnDescriptor RPC */
@@ -418,7 +418,7 @@ export interface GetAuthnDescriptorResponseSDKType {
 /** GetChainDescriptorRequest is the request used for the GetChainDescriptor RPC */
 export interface GetChainDescriptorRequest {}
 export interface GetChainDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetChainDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetChainDescriptorRequest";
   value: Uint8Array;
 }
 /** GetChainDescriptorRequest is the request used for the GetChainDescriptor RPC */
@@ -435,7 +435,7 @@ export interface GetChainDescriptorResponse {
   chain: ChainDescriptor;
 }
 export interface GetChainDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetChainDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetChainDescriptorResponse";
   value: Uint8Array;
 }
 /** GetChainDescriptorResponse is the response returned by the GetChainDescriptor RPC */
@@ -454,7 +454,7 @@ export interface GetChainDescriptorResponseSDKType {
 /** GetCodecDescriptorRequest is the request used for the GetCodecDescriptor RPC */
 export interface GetCodecDescriptorRequest {}
 export interface GetCodecDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequest";
   value: Uint8Array;
 }
 /** GetCodecDescriptorRequest is the request used for the GetCodecDescriptor RPC */
@@ -471,7 +471,7 @@ export interface GetCodecDescriptorResponse {
   codec: CodecDescriptor;
 }
 export interface GetCodecDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetCodecDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetCodecDescriptorResponse";
   value: Uint8Array;
 }
 /** GetCodecDescriptorResponse is the response returned by the GetCodecDescriptor RPC */
@@ -490,7 +490,7 @@ export interface GetCodecDescriptorResponseSDKType {
 /** GetConfigurationDescriptorRequest is the request used for the GetConfigurationDescriptor RPC */
 export interface GetConfigurationDescriptorRequest {}
 export interface GetConfigurationDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorRequest";
   value: Uint8Array;
 }
 /** GetConfigurationDescriptorRequest is the request used for the GetConfigurationDescriptor RPC */
@@ -507,7 +507,7 @@ export interface GetConfigurationDescriptorResponse {
   config: ConfigurationDescriptor;
 }
 export interface GetConfigurationDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponse";
   value: Uint8Array;
 }
 /** GetConfigurationDescriptorResponse is the response returned by the GetConfigurationDescriptor RPC */
@@ -526,7 +526,7 @@ export interface GetConfigurationDescriptorResponseSDKType {
 /** GetQueryServicesDescriptorRequest is the request used for the GetQueryServicesDescriptor RPC */
 export interface GetQueryServicesDescriptorRequest {}
 export interface GetQueryServicesDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorRequest";
   value: Uint8Array;
 }
 /** GetQueryServicesDescriptorRequest is the request used for the GetQueryServicesDescriptor RPC */
@@ -543,7 +543,7 @@ export interface GetQueryServicesDescriptorResponse {
   queries: QueryServicesDescriptor;
 }
 export interface GetQueryServicesDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponse";
   value: Uint8Array;
 }
 /** GetQueryServicesDescriptorResponse is the response returned by the GetQueryServicesDescriptor RPC */
@@ -562,7 +562,7 @@ export interface GetQueryServicesDescriptorResponseSDKType {
 /** GetTxDescriptorRequest is the request used for the GetTxDescriptor RPC */
 export interface GetTxDescriptorRequest {}
 export interface GetTxDescriptorRequestProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetTxDescriptorRequest";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetTxDescriptorRequest";
   value: Uint8Array;
 }
 /** GetTxDescriptorRequest is the request used for the GetTxDescriptor RPC */
@@ -582,7 +582,7 @@ export interface GetTxDescriptorResponse {
   tx: TxDescriptor;
 }
 export interface GetTxDescriptorResponseProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.GetTxDescriptorResponse";
+  type_url: "/cosmos.base.reflection.v2alpha1.GetTxDescriptorResponse";
   value: Uint8Array;
 }
 /** GetTxDescriptorResponse is the response returned by the GetTxDescriptor RPC */
@@ -604,10 +604,10 @@ export interface GetTxDescriptorResponseSDKType {
 /** QueryServicesDescriptor contains the list of cosmos-sdk queriable services */
 export interface QueryServicesDescriptor {
   /** query_services is a list of cosmos-sdk QueryServiceDescriptor */
-  queryServices: QueryServiceDescriptor[];
+  query_services: QueryServiceDescriptor[];
 }
 export interface QueryServicesDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.QueryServicesDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.QueryServicesDescriptor";
   value: Uint8Array;
 }
 /** QueryServicesDescriptor contains the list of cosmos-sdk queriable services */
@@ -628,12 +628,12 @@ export interface QueryServiceDescriptor {
   /** fullname is the protobuf fullname of the service descriptor */
   fullname: string;
   /** is_module describes if this service is actually exposed by an application's module */
-  isModule: boolean;
+  is_module: boolean;
   /** methods provides a list of query service methods */
   methods: QueryMethodDescriptor[];
 }
 export interface QueryServiceDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.QueryServiceDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.QueryServiceDescriptor";
   value: Uint8Array;
 }
 /** QueryServiceDescriptor describes a cosmos-sdk queryable service */
@@ -667,10 +667,10 @@ export interface QueryMethodDescriptor {
    * full_query_path is the path that can be used to query
    * this method via tendermint abci.Query
    */
-  fullQueryPath: string;
+  full_query_path: string;
 }
 export interface QueryMethodDescriptorProtoMsg {
-  typeUrl: "/cosmos.base.reflection.v2alpha1.QueryMethodDescriptor";
+  type_url: "/cosmos.base.reflection.v2alpha1.QueryMethodDescriptor";
   value: Uint8Array;
 }
 /**
@@ -706,7 +706,7 @@ function createBaseAppDescriptor(): AppDescriptor {
     chain: ChainDescriptor.fromPartial({}),
     codec: CodecDescriptor.fromPartial({}),
     configuration: ConfigurationDescriptor.fromPartial({}),
-    queryServices: QueryServicesDescriptor.fromPartial({}),
+    query_services: QueryServicesDescriptor.fromPartial({}),
     tx: TxDescriptor.fromPartial({})
   };
 }
@@ -726,8 +726,8 @@ export const AppDescriptor = {
     if (message.configuration !== undefined) {
       ConfigurationDescriptor.encode(message.configuration, writer.uint32(34).fork()).ldelim();
     }
-    if (message.queryServices !== undefined) {
-      QueryServicesDescriptor.encode(message.queryServices, writer.uint32(42).fork()).ldelim();
+    if (message.query_services !== undefined) {
+      QueryServicesDescriptor.encode(message.query_services, writer.uint32(42).fork()).ldelim();
     }
     if (message.tx !== undefined) {
       TxDescriptor.encode(message.tx, writer.uint32(50).fork()).ldelim();
@@ -754,7 +754,7 @@ export const AppDescriptor = {
           message.configuration = ConfigurationDescriptor.decode(reader, reader.uint32());
           break;
         case 5:
-          message.queryServices = QueryServicesDescriptor.decode(reader, reader.uint32());
+          message.query_services = QueryServicesDescriptor.decode(reader, reader.uint32());
           break;
         case 6:
           message.tx = TxDescriptor.decode(reader, reader.uint32());
@@ -772,7 +772,7 @@ export const AppDescriptor = {
       chain: isSet(object.chain) ? ChainDescriptor.fromJSON(object.chain) : undefined,
       codec: isSet(object.codec) ? CodecDescriptor.fromJSON(object.codec) : undefined,
       configuration: isSet(object.configuration) ? ConfigurationDescriptor.fromJSON(object.configuration) : undefined,
-      queryServices: isSet(object.queryServices) ? QueryServicesDescriptor.fromJSON(object.queryServices) : undefined,
+      query_services: isSet(object.query_services) ? QueryServicesDescriptor.fromJSON(object.query_services) : undefined,
       tx: isSet(object.tx) ? TxDescriptor.fromJSON(object.tx) : undefined
     };
   },
@@ -782,7 +782,7 @@ export const AppDescriptor = {
     message.chain !== undefined && (obj.chain = message.chain ? ChainDescriptor.toJSON(message.chain) : undefined);
     message.codec !== undefined && (obj.codec = message.codec ? CodecDescriptor.toJSON(message.codec) : undefined);
     message.configuration !== undefined && (obj.configuration = message.configuration ? ConfigurationDescriptor.toJSON(message.configuration) : undefined);
-    message.queryServices !== undefined && (obj.queryServices = message.queryServices ? QueryServicesDescriptor.toJSON(message.queryServices) : undefined);
+    message.query_services !== undefined && (obj.query_services = message.query_services ? QueryServicesDescriptor.toJSON(message.query_services) : undefined);
     message.tx !== undefined && (obj.tx = message.tx ? TxDescriptor.toJSON(message.tx) : undefined);
     return obj;
   },
@@ -792,7 +792,7 @@ export const AppDescriptor = {
     message.chain = object.chain !== undefined && object.chain !== null ? ChainDescriptor.fromPartial(object.chain) : undefined;
     message.codec = object.codec !== undefined && object.codec !== null ? CodecDescriptor.fromPartial(object.codec) : undefined;
     message.configuration = object.configuration !== undefined && object.configuration !== null ? ConfigurationDescriptor.fromPartial(object.configuration) : undefined;
-    message.queryServices = object.queryServices !== undefined && object.queryServices !== null ? QueryServicesDescriptor.fromPartial(object.queryServices) : undefined;
+    message.query_services = object.query_services !== undefined && object.query_services !== null ? QueryServicesDescriptor.fromPartial(object.query_services) : undefined;
     message.tx = object.tx !== undefined && object.tx !== null ? TxDescriptor.fromPartial(object.tx) : undefined;
     return message;
   },
@@ -802,7 +802,7 @@ export const AppDescriptor = {
       chain: object?.chain ? ChainDescriptor.fromAmino(object.chain) : undefined,
       codec: object?.codec ? CodecDescriptor.fromAmino(object.codec) : undefined,
       configuration: object?.configuration ? ConfigurationDescriptor.fromAmino(object.configuration) : undefined,
-      queryServices: object?.query_services ? QueryServicesDescriptor.fromAmino(object.query_services) : undefined,
+      query_services: object?.query_services ? QueryServicesDescriptor.fromAmino(object.query_services) : undefined,
       tx: object?.tx ? TxDescriptor.fromAmino(object.tx) : undefined
     };
   },
@@ -812,7 +812,7 @@ export const AppDescriptor = {
     obj.chain = message.chain ? ChainDescriptor.toAmino(message.chain) : undefined;
     obj.codec = message.codec ? CodecDescriptor.toAmino(message.codec) : undefined;
     obj.configuration = message.configuration ? ConfigurationDescriptor.toAmino(message.configuration) : undefined;
-    obj.query_services = message.queryServices ? QueryServicesDescriptor.toAmino(message.queryServices) : undefined;
+    obj.query_services = message.query_services ? QueryServicesDescriptor.toAmino(message.query_services) : undefined;
     obj.tx = message.tx ? TxDescriptor.toAmino(message.tx) : undefined;
     return obj;
   },
@@ -938,14 +938,14 @@ export const TxDescriptor = {
 };
 function createBaseAuthnDescriptor(): AuthnDescriptor {
   return {
-    signModes: []
+    sign_modes: []
   };
 }
 export const AuthnDescriptor = {
   typeUrl: "/cosmos.base.reflection.v2alpha1.AuthnDescriptor",
   aminoType: "cosmos-sdk/AuthnDescriptor",
   encode(message: AuthnDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.signModes) {
+    for (const v of message.sign_modes) {
       SigningModeDescriptor.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
@@ -958,7 +958,7 @@ export const AuthnDescriptor = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.signModes.push(SigningModeDescriptor.decode(reader, reader.uint32()));
+          message.sign_modes.push(SigningModeDescriptor.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -969,32 +969,32 @@ export const AuthnDescriptor = {
   },
   fromJSON(object: any): AuthnDescriptor {
     return {
-      signModes: Array.isArray(object?.signModes) ? object.signModes.map((e: any) => SigningModeDescriptor.fromJSON(e)) : []
+      sign_modes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e: any) => SigningModeDescriptor.fromJSON(e)) : []
     };
   },
   toJSON(message: AuthnDescriptor): unknown {
     const obj: any = {};
-    if (message.signModes) {
-      obj.signModes = message.signModes.map(e => e ? SigningModeDescriptor.toJSON(e) : undefined);
+    if (message.sign_modes) {
+      obj.sign_modes = message.sign_modes.map(e => e ? SigningModeDescriptor.toJSON(e) : undefined);
     } else {
-      obj.signModes = [];
+      obj.sign_modes = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<AuthnDescriptor>): AuthnDescriptor {
     const message = createBaseAuthnDescriptor();
-    message.signModes = object.signModes?.map(e => SigningModeDescriptor.fromPartial(e)) || [];
+    message.sign_modes = object.sign_modes?.map(e => SigningModeDescriptor.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: AuthnDescriptorAmino): AuthnDescriptor {
     return {
-      signModes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e: any) => SigningModeDescriptor.fromAmino(e)) : []
+      sign_modes: Array.isArray(object?.sign_modes) ? object.sign_modes.map((e: any) => SigningModeDescriptor.fromAmino(e)) : []
     };
   },
   toAmino(message: AuthnDescriptor): AuthnDescriptorAmino {
     const obj: any = {};
-    if (message.signModes) {
-      obj.sign_modes = message.signModes.map(e => e ? SigningModeDescriptor.toAmino(e) : undefined);
+    if (message.sign_modes) {
+      obj.sign_modes = message.sign_modes.map(e => e ? SigningModeDescriptor.toAmino(e) : undefined);
     } else {
       obj.sign_modes = [];
     }
@@ -1026,7 +1026,7 @@ function createBaseSigningModeDescriptor(): SigningModeDescriptor {
   return {
     name: "",
     number: 0,
-    authnInfoProviderMethodFullname: ""
+    authn_info_provider_method_fullname: ""
   };
 }
 export const SigningModeDescriptor = {
@@ -1039,8 +1039,8 @@ export const SigningModeDescriptor = {
     if (message.number !== 0) {
       writer.uint32(16).int32(message.number);
     }
-    if (message.authnInfoProviderMethodFullname !== "") {
-      writer.uint32(26).string(message.authnInfoProviderMethodFullname);
+    if (message.authn_info_provider_method_fullname !== "") {
+      writer.uint32(26).string(message.authn_info_provider_method_fullname);
     }
     return writer;
   },
@@ -1058,7 +1058,7 @@ export const SigningModeDescriptor = {
           message.number = reader.int32();
           break;
         case 3:
-          message.authnInfoProviderMethodFullname = reader.string();
+          message.authn_info_provider_method_fullname = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1071,35 +1071,35 @@ export const SigningModeDescriptor = {
     return {
       name: isSet(object.name) ? String(object.name) : "",
       number: isSet(object.number) ? Number(object.number) : 0,
-      authnInfoProviderMethodFullname: isSet(object.authnInfoProviderMethodFullname) ? String(object.authnInfoProviderMethodFullname) : ""
+      authn_info_provider_method_fullname: isSet(object.authn_info_provider_method_fullname) ? String(object.authn_info_provider_method_fullname) : ""
     };
   },
   toJSON(message: SigningModeDescriptor): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
     message.number !== undefined && (obj.number = Math.round(message.number));
-    message.authnInfoProviderMethodFullname !== undefined && (obj.authnInfoProviderMethodFullname = message.authnInfoProviderMethodFullname);
+    message.authn_info_provider_method_fullname !== undefined && (obj.authn_info_provider_method_fullname = message.authn_info_provider_method_fullname);
     return obj;
   },
   fromPartial(object: DeepPartial<SigningModeDescriptor>): SigningModeDescriptor {
     const message = createBaseSigningModeDescriptor();
     message.name = object.name ?? "";
     message.number = object.number ?? 0;
-    message.authnInfoProviderMethodFullname = object.authnInfoProviderMethodFullname ?? "";
+    message.authn_info_provider_method_fullname = object.authn_info_provider_method_fullname ?? "";
     return message;
   },
   fromAmino(object: SigningModeDescriptorAmino): SigningModeDescriptor {
     return {
       name: object.name,
       number: object.number,
-      authnInfoProviderMethodFullname: object.authn_info_provider_method_fullname
+      authn_info_provider_method_fullname: object.authn_info_provider_method_fullname
     };
   },
   toAmino(message: SigningModeDescriptor): SigningModeDescriptorAmino {
     const obj: any = {};
     obj.name = message.name;
     obj.number = message.number;
-    obj.authn_info_provider_method_fullname = message.authnInfoProviderMethodFullname;
+    obj.authn_info_provider_method_fullname = message.authn_info_provider_method_fullname;
     return obj;
   },
   fromAminoMsg(object: SigningModeDescriptorAminoMsg): SigningModeDescriptor {
@@ -1291,8 +1291,8 @@ export const CodecDescriptor = {
 function createBaseInterfaceDescriptor(): InterfaceDescriptor {
   return {
     fullname: "",
-    interfaceAcceptingMessages: [],
-    interfaceImplementers: []
+    interface_accepting_messages: [],
+    interface_implementers: []
   };
 }
 export const InterfaceDescriptor = {
@@ -1302,10 +1302,10 @@ export const InterfaceDescriptor = {
     if (message.fullname !== "") {
       writer.uint32(10).string(message.fullname);
     }
-    for (const v of message.interfaceAcceptingMessages) {
+    for (const v of message.interface_accepting_messages) {
       InterfaceAcceptingMessageDescriptor.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    for (const v of message.interfaceImplementers) {
+    for (const v of message.interface_implementers) {
       InterfaceImplementerDescriptor.encode(v!, writer.uint32(26).fork()).ldelim();
     }
     return writer;
@@ -1321,10 +1321,10 @@ export const InterfaceDescriptor = {
           message.fullname = reader.string();
           break;
         case 2:
-          message.interfaceAcceptingMessages.push(InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()));
+          message.interface_accepting_messages.push(InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.interfaceImplementers.push(InterfaceImplementerDescriptor.decode(reader, reader.uint32()));
+          message.interface_implementers.push(InterfaceImplementerDescriptor.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -1336,49 +1336,49 @@ export const InterfaceDescriptor = {
   fromJSON(object: any): InterfaceDescriptor {
     return {
       fullname: isSet(object.fullname) ? String(object.fullname) : "",
-      interfaceAcceptingMessages: Array.isArray(object?.interfaceAcceptingMessages) ? object.interfaceAcceptingMessages.map((e: any) => InterfaceAcceptingMessageDescriptor.fromJSON(e)) : [],
-      interfaceImplementers: Array.isArray(object?.interfaceImplementers) ? object.interfaceImplementers.map((e: any) => InterfaceImplementerDescriptor.fromJSON(e)) : []
+      interface_accepting_messages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e: any) => InterfaceAcceptingMessageDescriptor.fromJSON(e)) : [],
+      interface_implementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e: any) => InterfaceImplementerDescriptor.fromJSON(e)) : []
     };
   },
   toJSON(message: InterfaceDescriptor): unknown {
     const obj: any = {};
     message.fullname !== undefined && (obj.fullname = message.fullname);
-    if (message.interfaceAcceptingMessages) {
-      obj.interfaceAcceptingMessages = message.interfaceAcceptingMessages.map(e => e ? InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined);
+    if (message.interface_accepting_messages) {
+      obj.interface_accepting_messages = message.interface_accepting_messages.map(e => e ? InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined);
     } else {
-      obj.interfaceAcceptingMessages = [];
+      obj.interface_accepting_messages = [];
     }
-    if (message.interfaceImplementers) {
-      obj.interfaceImplementers = message.interfaceImplementers.map(e => e ? InterfaceImplementerDescriptor.toJSON(e) : undefined);
+    if (message.interface_implementers) {
+      obj.interface_implementers = message.interface_implementers.map(e => e ? InterfaceImplementerDescriptor.toJSON(e) : undefined);
     } else {
-      obj.interfaceImplementers = [];
+      obj.interface_implementers = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<InterfaceDescriptor>): InterfaceDescriptor {
     const message = createBaseInterfaceDescriptor();
     message.fullname = object.fullname ?? "";
-    message.interfaceAcceptingMessages = object.interfaceAcceptingMessages?.map(e => InterfaceAcceptingMessageDescriptor.fromPartial(e)) || [];
-    message.interfaceImplementers = object.interfaceImplementers?.map(e => InterfaceImplementerDescriptor.fromPartial(e)) || [];
+    message.interface_accepting_messages = object.interface_accepting_messages?.map(e => InterfaceAcceptingMessageDescriptor.fromPartial(e)) || [];
+    message.interface_implementers = object.interface_implementers?.map(e => InterfaceImplementerDescriptor.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: InterfaceDescriptorAmino): InterfaceDescriptor {
     return {
       fullname: object.fullname,
-      interfaceAcceptingMessages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e: any) => InterfaceAcceptingMessageDescriptor.fromAmino(e)) : [],
-      interfaceImplementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e: any) => InterfaceImplementerDescriptor.fromAmino(e)) : []
+      interface_accepting_messages: Array.isArray(object?.interface_accepting_messages) ? object.interface_accepting_messages.map((e: any) => InterfaceAcceptingMessageDescriptor.fromAmino(e)) : [],
+      interface_implementers: Array.isArray(object?.interface_implementers) ? object.interface_implementers.map((e: any) => InterfaceImplementerDescriptor.fromAmino(e)) : []
     };
   },
   toAmino(message: InterfaceDescriptor): InterfaceDescriptorAmino {
     const obj: any = {};
     obj.fullname = message.fullname;
-    if (message.interfaceAcceptingMessages) {
-      obj.interface_accepting_messages = message.interfaceAcceptingMessages.map(e => e ? InterfaceAcceptingMessageDescriptor.toAmino(e) : undefined);
+    if (message.interface_accepting_messages) {
+      obj.interface_accepting_messages = message.interface_accepting_messages.map(e => e ? InterfaceAcceptingMessageDescriptor.toAmino(e) : undefined);
     } else {
       obj.interface_accepting_messages = [];
     }
-    if (message.interfaceImplementers) {
-      obj.interface_implementers = message.interfaceImplementers.map(e => e ? InterfaceImplementerDescriptor.toAmino(e) : undefined);
+    if (message.interface_implementers) {
+      obj.interface_implementers = message.interface_implementers.map(e => e ? InterfaceImplementerDescriptor.toAmino(e) : undefined);
     } else {
       obj.interface_implementers = [];
     }
@@ -1409,7 +1409,7 @@ export const InterfaceDescriptor = {
 function createBaseInterfaceImplementerDescriptor(): InterfaceImplementerDescriptor {
   return {
     fullname: "",
-    typeUrl: ""
+    type_url: ""
   };
 }
 export const InterfaceImplementerDescriptor = {
@@ -1419,8 +1419,8 @@ export const InterfaceImplementerDescriptor = {
     if (message.fullname !== "") {
       writer.uint32(10).string(message.fullname);
     }
-    if (message.typeUrl !== "") {
-      writer.uint32(18).string(message.typeUrl);
+    if (message.type_url !== "") {
+      writer.uint32(18).string(message.type_url);
     }
     return writer;
   },
@@ -1435,7 +1435,7 @@ export const InterfaceImplementerDescriptor = {
           message.fullname = reader.string();
           break;
         case 2:
-          message.typeUrl = reader.string();
+          message.type_url = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1447,31 +1447,31 @@ export const InterfaceImplementerDescriptor = {
   fromJSON(object: any): InterfaceImplementerDescriptor {
     return {
       fullname: isSet(object.fullname) ? String(object.fullname) : "",
-      typeUrl: isSet(object.typeUrl) ? String(object.typeUrl) : ""
+      type_url: isSet(object.type_url) ? String(object.type_url) : ""
     };
   },
   toJSON(message: InterfaceImplementerDescriptor): unknown {
     const obj: any = {};
     message.fullname !== undefined && (obj.fullname = message.fullname);
-    message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
+    message.type_url !== undefined && (obj.type_url = message.type_url);
     return obj;
   },
   fromPartial(object: DeepPartial<InterfaceImplementerDescriptor>): InterfaceImplementerDescriptor {
     const message = createBaseInterfaceImplementerDescriptor();
     message.fullname = object.fullname ?? "";
-    message.typeUrl = object.typeUrl ?? "";
+    message.type_url = object.type_url ?? "";
     return message;
   },
   fromAmino(object: InterfaceImplementerDescriptorAmino): InterfaceImplementerDescriptor {
     return {
       fullname: object.fullname,
-      typeUrl: object.type_url
+      type_url: object.type_url
     };
   },
   toAmino(message: InterfaceImplementerDescriptor): InterfaceImplementerDescriptorAmino {
     const obj: any = {};
     obj.fullname = message.fullname;
-    obj.type_url = message.typeUrl;
+    obj.type_url = message.type_url;
     return obj;
   },
   fromAminoMsg(object: InterfaceImplementerDescriptorAminoMsg): InterfaceImplementerDescriptor {
@@ -1499,7 +1499,7 @@ export const InterfaceImplementerDescriptor = {
 function createBaseInterfaceAcceptingMessageDescriptor(): InterfaceAcceptingMessageDescriptor {
   return {
     fullname: "",
-    fieldDescriptorNames: []
+    field_descriptor_names: []
   };
 }
 export const InterfaceAcceptingMessageDescriptor = {
@@ -1509,7 +1509,7 @@ export const InterfaceAcceptingMessageDescriptor = {
     if (message.fullname !== "") {
       writer.uint32(10).string(message.fullname);
     }
-    for (const v of message.fieldDescriptorNames) {
+    for (const v of message.field_descriptor_names) {
       writer.uint32(18).string(v!);
     }
     return writer;
@@ -1525,7 +1525,7 @@ export const InterfaceAcceptingMessageDescriptor = {
           message.fullname = reader.string();
           break;
         case 2:
-          message.fieldDescriptorNames.push(reader.string());
+          message.field_descriptor_names.push(reader.string());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1537,36 +1537,36 @@ export const InterfaceAcceptingMessageDescriptor = {
   fromJSON(object: any): InterfaceAcceptingMessageDescriptor {
     return {
       fullname: isSet(object.fullname) ? String(object.fullname) : "",
-      fieldDescriptorNames: Array.isArray(object?.fieldDescriptorNames) ? object.fieldDescriptorNames.map((e: any) => String(e)) : []
+      field_descriptor_names: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e: any) => String(e)) : []
     };
   },
   toJSON(message: InterfaceAcceptingMessageDescriptor): unknown {
     const obj: any = {};
     message.fullname !== undefined && (obj.fullname = message.fullname);
-    if (message.fieldDescriptorNames) {
-      obj.fieldDescriptorNames = message.fieldDescriptorNames.map(e => e);
+    if (message.field_descriptor_names) {
+      obj.field_descriptor_names = message.field_descriptor_names.map(e => e);
     } else {
-      obj.fieldDescriptorNames = [];
+      obj.field_descriptor_names = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<InterfaceAcceptingMessageDescriptor>): InterfaceAcceptingMessageDescriptor {
     const message = createBaseInterfaceAcceptingMessageDescriptor();
     message.fullname = object.fullname ?? "";
-    message.fieldDescriptorNames = object.fieldDescriptorNames?.map(e => e) || [];
+    message.field_descriptor_names = object.field_descriptor_names?.map(e => e) || [];
     return message;
   },
   fromAmino(object: InterfaceAcceptingMessageDescriptorAmino): InterfaceAcceptingMessageDescriptor {
     return {
       fullname: object.fullname,
-      fieldDescriptorNames: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e: any) => e) : []
+      field_descriptor_names: Array.isArray(object?.field_descriptor_names) ? object.field_descriptor_names.map((e: any) => e) : []
     };
   },
   toAmino(message: InterfaceAcceptingMessageDescriptor): InterfaceAcceptingMessageDescriptorAmino {
     const obj: any = {};
     obj.fullname = message.fullname;
-    if (message.fieldDescriptorNames) {
-      obj.field_descriptor_names = message.fieldDescriptorNames.map(e => e);
+    if (message.field_descriptor_names) {
+      obj.field_descriptor_names = message.field_descriptor_names.map(e => e);
     } else {
       obj.field_descriptor_names = [];
     }
@@ -1596,15 +1596,15 @@ export const InterfaceAcceptingMessageDescriptor = {
 };
 function createBaseConfigurationDescriptor(): ConfigurationDescriptor {
   return {
-    bech32AccountAddressPrefix: ""
+    bech32_account_address_prefix: ""
   };
 }
 export const ConfigurationDescriptor = {
   typeUrl: "/cosmos.base.reflection.v2alpha1.ConfigurationDescriptor",
   aminoType: "cosmos-sdk/ConfigurationDescriptor",
   encode(message: ConfigurationDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.bech32AccountAddressPrefix !== "") {
-      writer.uint32(10).string(message.bech32AccountAddressPrefix);
+    if (message.bech32_account_address_prefix !== "") {
+      writer.uint32(10).string(message.bech32_account_address_prefix);
     }
     return writer;
   },
@@ -1616,7 +1616,7 @@ export const ConfigurationDescriptor = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.bech32AccountAddressPrefix = reader.string();
+          message.bech32_account_address_prefix = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1627,27 +1627,27 @@ export const ConfigurationDescriptor = {
   },
   fromJSON(object: any): ConfigurationDescriptor {
     return {
-      bech32AccountAddressPrefix: isSet(object.bech32AccountAddressPrefix) ? String(object.bech32AccountAddressPrefix) : ""
+      bech32_account_address_prefix: isSet(object.bech32_account_address_prefix) ? String(object.bech32_account_address_prefix) : ""
     };
   },
   toJSON(message: ConfigurationDescriptor): unknown {
     const obj: any = {};
-    message.bech32AccountAddressPrefix !== undefined && (obj.bech32AccountAddressPrefix = message.bech32AccountAddressPrefix);
+    message.bech32_account_address_prefix !== undefined && (obj.bech32_account_address_prefix = message.bech32_account_address_prefix);
     return obj;
   },
   fromPartial(object: DeepPartial<ConfigurationDescriptor>): ConfigurationDescriptor {
     const message = createBaseConfigurationDescriptor();
-    message.bech32AccountAddressPrefix = object.bech32AccountAddressPrefix ?? "";
+    message.bech32_account_address_prefix = object.bech32_account_address_prefix ?? "";
     return message;
   },
   fromAmino(object: ConfigurationDescriptorAmino): ConfigurationDescriptor {
     return {
-      bech32AccountAddressPrefix: object.bech32_account_address_prefix
+      bech32_account_address_prefix: object.bech32_account_address_prefix
     };
   },
   toAmino(message: ConfigurationDescriptor): ConfigurationDescriptorAmino {
     const obj: any = {};
-    obj.bech32_account_address_prefix = message.bech32AccountAddressPrefix;
+    obj.bech32_account_address_prefix = message.bech32_account_address_prefix;
     return obj;
   },
   fromAminoMsg(object: ConfigurationDescriptorAminoMsg): ConfigurationDescriptor {
@@ -1674,15 +1674,15 @@ export const ConfigurationDescriptor = {
 };
 function createBaseMsgDescriptor(): MsgDescriptor {
   return {
-    msgTypeUrl: ""
+    msg_type_url: ""
   };
 }
 export const MsgDescriptor = {
   typeUrl: "/cosmos.base.reflection.v2alpha1.MsgDescriptor",
   aminoType: "cosmos-sdk/MsgDescriptor",
   encode(message: MsgDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.msgTypeUrl !== "") {
-      writer.uint32(10).string(message.msgTypeUrl);
+    if (message.msg_type_url !== "") {
+      writer.uint32(10).string(message.msg_type_url);
     }
     return writer;
   },
@@ -1694,7 +1694,7 @@ export const MsgDescriptor = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.msgTypeUrl = reader.string();
+          message.msg_type_url = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1705,27 +1705,27 @@ export const MsgDescriptor = {
   },
   fromJSON(object: any): MsgDescriptor {
     return {
-      msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : ""
+      msg_type_url: isSet(object.msg_type_url) ? String(object.msg_type_url) : ""
     };
   },
   toJSON(message: MsgDescriptor): unknown {
     const obj: any = {};
-    message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+    message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgDescriptor>): MsgDescriptor {
     const message = createBaseMsgDescriptor();
-    message.msgTypeUrl = object.msgTypeUrl ?? "";
+    message.msg_type_url = object.msg_type_url ?? "";
     return message;
   },
   fromAmino(object: MsgDescriptorAmino): MsgDescriptor {
     return {
-      msgTypeUrl: object.msg_type_url
+      msg_type_url: object.msg_type_url
     };
   },
   toAmino(message: MsgDescriptor): MsgDescriptorAmino {
     const obj: any = {};
-    obj.msg_type_url = message.msgTypeUrl;
+    obj.msg_type_url = message.msg_type_url;
     return obj;
   },
   fromAminoMsg(object: MsgDescriptorAminoMsg): MsgDescriptor {
@@ -2598,14 +2598,14 @@ export const GetTxDescriptorResponse = {
 };
 function createBaseQueryServicesDescriptor(): QueryServicesDescriptor {
   return {
-    queryServices: []
+    query_services: []
   };
 }
 export const QueryServicesDescriptor = {
   typeUrl: "/cosmos.base.reflection.v2alpha1.QueryServicesDescriptor",
   aminoType: "cosmos-sdk/QueryServicesDescriptor",
   encode(message: QueryServicesDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.queryServices) {
+    for (const v of message.query_services) {
       QueryServiceDescriptor.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
@@ -2618,7 +2618,7 @@ export const QueryServicesDescriptor = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.queryServices.push(QueryServiceDescriptor.decode(reader, reader.uint32()));
+          message.query_services.push(QueryServiceDescriptor.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -2629,32 +2629,32 @@ export const QueryServicesDescriptor = {
   },
   fromJSON(object: any): QueryServicesDescriptor {
     return {
-      queryServices: Array.isArray(object?.queryServices) ? object.queryServices.map((e: any) => QueryServiceDescriptor.fromJSON(e)) : []
+      query_services: Array.isArray(object?.query_services) ? object.query_services.map((e: any) => QueryServiceDescriptor.fromJSON(e)) : []
     };
   },
   toJSON(message: QueryServicesDescriptor): unknown {
     const obj: any = {};
-    if (message.queryServices) {
-      obj.queryServices = message.queryServices.map(e => e ? QueryServiceDescriptor.toJSON(e) : undefined);
+    if (message.query_services) {
+      obj.query_services = message.query_services.map(e => e ? QueryServiceDescriptor.toJSON(e) : undefined);
     } else {
-      obj.queryServices = [];
+      obj.query_services = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<QueryServicesDescriptor>): QueryServicesDescriptor {
     const message = createBaseQueryServicesDescriptor();
-    message.queryServices = object.queryServices?.map(e => QueryServiceDescriptor.fromPartial(e)) || [];
+    message.query_services = object.query_services?.map(e => QueryServiceDescriptor.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: QueryServicesDescriptorAmino): QueryServicesDescriptor {
     return {
-      queryServices: Array.isArray(object?.query_services) ? object.query_services.map((e: any) => QueryServiceDescriptor.fromAmino(e)) : []
+      query_services: Array.isArray(object?.query_services) ? object.query_services.map((e: any) => QueryServiceDescriptor.fromAmino(e)) : []
     };
   },
   toAmino(message: QueryServicesDescriptor): QueryServicesDescriptorAmino {
     const obj: any = {};
-    if (message.queryServices) {
-      obj.query_services = message.queryServices.map(e => e ? QueryServiceDescriptor.toAmino(e) : undefined);
+    if (message.query_services) {
+      obj.query_services = message.query_services.map(e => e ? QueryServiceDescriptor.toAmino(e) : undefined);
     } else {
       obj.query_services = [];
     }
@@ -2685,7 +2685,7 @@ export const QueryServicesDescriptor = {
 function createBaseQueryServiceDescriptor(): QueryServiceDescriptor {
   return {
     fullname: "",
-    isModule: false,
+    is_module: false,
     methods: []
   };
 }
@@ -2696,8 +2696,8 @@ export const QueryServiceDescriptor = {
     if (message.fullname !== "") {
       writer.uint32(10).string(message.fullname);
     }
-    if (message.isModule === true) {
-      writer.uint32(16).bool(message.isModule);
+    if (message.is_module === true) {
+      writer.uint32(16).bool(message.is_module);
     }
     for (const v of message.methods) {
       QueryMethodDescriptor.encode(v!, writer.uint32(26).fork()).ldelim();
@@ -2715,7 +2715,7 @@ export const QueryServiceDescriptor = {
           message.fullname = reader.string();
           break;
         case 2:
-          message.isModule = reader.bool();
+          message.is_module = reader.bool();
           break;
         case 3:
           message.methods.push(QueryMethodDescriptor.decode(reader, reader.uint32()));
@@ -2730,14 +2730,14 @@ export const QueryServiceDescriptor = {
   fromJSON(object: any): QueryServiceDescriptor {
     return {
       fullname: isSet(object.fullname) ? String(object.fullname) : "",
-      isModule: isSet(object.isModule) ? Boolean(object.isModule) : false,
+      is_module: isSet(object.is_module) ? Boolean(object.is_module) : false,
       methods: Array.isArray(object?.methods) ? object.methods.map((e: any) => QueryMethodDescriptor.fromJSON(e)) : []
     };
   },
   toJSON(message: QueryServiceDescriptor): unknown {
     const obj: any = {};
     message.fullname !== undefined && (obj.fullname = message.fullname);
-    message.isModule !== undefined && (obj.isModule = message.isModule);
+    message.is_module !== undefined && (obj.is_module = message.is_module);
     if (message.methods) {
       obj.methods = message.methods.map(e => e ? QueryMethodDescriptor.toJSON(e) : undefined);
     } else {
@@ -2748,21 +2748,21 @@ export const QueryServiceDescriptor = {
   fromPartial(object: DeepPartial<QueryServiceDescriptor>): QueryServiceDescriptor {
     const message = createBaseQueryServiceDescriptor();
     message.fullname = object.fullname ?? "";
-    message.isModule = object.isModule ?? false;
+    message.is_module = object.is_module ?? false;
     message.methods = object.methods?.map(e => QueryMethodDescriptor.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: QueryServiceDescriptorAmino): QueryServiceDescriptor {
     return {
       fullname: object.fullname,
-      isModule: object.is_module,
+      is_module: object.is_module,
       methods: Array.isArray(object?.methods) ? object.methods.map((e: any) => QueryMethodDescriptor.fromAmino(e)) : []
     };
   },
   toAmino(message: QueryServiceDescriptor): QueryServiceDescriptorAmino {
     const obj: any = {};
     obj.fullname = message.fullname;
-    obj.is_module = message.isModule;
+    obj.is_module = message.is_module;
     if (message.methods) {
       obj.methods = message.methods.map(e => e ? QueryMethodDescriptor.toAmino(e) : undefined);
     } else {
@@ -2795,7 +2795,7 @@ export const QueryServiceDescriptor = {
 function createBaseQueryMethodDescriptor(): QueryMethodDescriptor {
   return {
     name: "",
-    fullQueryPath: ""
+    full_query_path: ""
   };
 }
 export const QueryMethodDescriptor = {
@@ -2805,8 +2805,8 @@ export const QueryMethodDescriptor = {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.fullQueryPath !== "") {
-      writer.uint32(18).string(message.fullQueryPath);
+    if (message.full_query_path !== "") {
+      writer.uint32(18).string(message.full_query_path);
     }
     return writer;
   },
@@ -2821,7 +2821,7 @@ export const QueryMethodDescriptor = {
           message.name = reader.string();
           break;
         case 2:
-          message.fullQueryPath = reader.string();
+          message.full_query_path = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2833,31 +2833,31 @@ export const QueryMethodDescriptor = {
   fromJSON(object: any): QueryMethodDescriptor {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      fullQueryPath: isSet(object.fullQueryPath) ? String(object.fullQueryPath) : ""
+      full_query_path: isSet(object.full_query_path) ? String(object.full_query_path) : ""
     };
   },
   toJSON(message: QueryMethodDescriptor): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.fullQueryPath !== undefined && (obj.fullQueryPath = message.fullQueryPath);
+    message.full_query_path !== undefined && (obj.full_query_path = message.full_query_path);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryMethodDescriptor>): QueryMethodDescriptor {
     const message = createBaseQueryMethodDescriptor();
     message.name = object.name ?? "";
-    message.fullQueryPath = object.fullQueryPath ?? "";
+    message.full_query_path = object.full_query_path ?? "";
     return message;
   },
   fromAmino(object: QueryMethodDescriptorAmino): QueryMethodDescriptor {
     return {
       name: object.name,
-      fullQueryPath: object.full_query_path
+      full_query_path: object.full_query_path
     };
   },
   toAmino(message: QueryMethodDescriptor): QueryMethodDescriptorAmino {
     const obj: any = {};
     obj.name = message.name;
-    obj.full_query_path = message.fullQueryPath;
+    obj.full_query_path = message.full_query_path;
     return obj;
   },
   fromAminoMsg(object: QueryMethodDescriptorAminoMsg): QueryMethodDescriptor {

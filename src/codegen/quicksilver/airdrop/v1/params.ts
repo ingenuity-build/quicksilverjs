@@ -3,7 +3,7 @@ import { DeepPartial } from "../../../helpers";
 /** Params holds parameters for the airdrop module. */
 export interface Params {}
 export interface ParamsProtoMsg {
-  typeUrl: "/quicksilver.airdrop.v1.Params";
+  type_url: "/quicksilver.airdrop.v1.Params";
   value: Uint8Array;
 }
 /** Params holds parameters for the airdrop module. */

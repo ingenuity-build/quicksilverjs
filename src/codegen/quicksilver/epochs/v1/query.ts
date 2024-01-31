@@ -6,7 +6,7 @@ export interface QueryEpochsInfoRequest {
   pagination: PageRequest;
 }
 export interface QueryEpochsInfoRequestProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.QueryEpochsInfoRequest";
+  type_url: "/quicksilver.epochs.v1.QueryEpochsInfoRequest";
   value: Uint8Array;
 }
 export interface QueryEpochsInfoRequestAmino {
@@ -24,7 +24,7 @@ export interface QueryEpochsInfoResponse {
   pagination: PageResponse;
 }
 export interface QueryEpochsInfoResponseProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.QueryEpochsInfoResponse";
+  type_url: "/quicksilver.epochs.v1.QueryEpochsInfoResponse";
   value: Uint8Array;
 }
 export interface QueryEpochsInfoResponseAmino {
@@ -43,7 +43,7 @@ export interface QueryCurrentEpochRequest {
   identifier: string;
 }
 export interface QueryCurrentEpochRequestProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochRequest";
+  type_url: "/quicksilver.epochs.v1.QueryCurrentEpochRequest";
   value: Uint8Array;
 }
 export interface QueryCurrentEpochRequestAmino {
@@ -57,10 +57,10 @@ export interface QueryCurrentEpochRequestSDKType {
   identifier: string;
 }
 export interface QueryCurrentEpochResponse {
-  currentEpoch: Long;
+  current_epoch: Long;
 }
 export interface QueryCurrentEpochResponseProtoMsg {
-  typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochResponse";
+  type_url: "/quicksilver.epochs.v1.QueryCurrentEpochResponse";
   value: Uint8Array;
 }
 export interface QueryCurrentEpochResponseAmino {
@@ -308,14 +308,14 @@ export const QueryCurrentEpochRequest = {
 };
 function createBaseQueryCurrentEpochResponse(): QueryCurrentEpochResponse {
   return {
-    currentEpoch: Long.ZERO
+    current_epoch: Long.ZERO
   };
 }
 export const QueryCurrentEpochResponse = {
   typeUrl: "/quicksilver.epochs.v1.QueryCurrentEpochResponse",
   encode(message: QueryCurrentEpochResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.currentEpoch.isZero()) {
-      writer.uint32(8).int64(message.currentEpoch);
+    if (!message.current_epoch.isZero()) {
+      writer.uint32(8).int64(message.current_epoch);
     }
     return writer;
   },
@@ -327,7 +327,7 @@ export const QueryCurrentEpochResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.currentEpoch = (reader.int64() as Long);
+          message.current_epoch = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -338,27 +338,27 @@ export const QueryCurrentEpochResponse = {
   },
   fromJSON(object: any): QueryCurrentEpochResponse {
     return {
-      currentEpoch: isSet(object.currentEpoch) ? Long.fromValue(object.currentEpoch) : Long.ZERO
+      current_epoch: isSet(object.current_epoch) ? Long.fromValue(object.current_epoch) : Long.ZERO
     };
   },
   toJSON(message: QueryCurrentEpochResponse): unknown {
     const obj: any = {};
-    message.currentEpoch !== undefined && (obj.currentEpoch = (message.currentEpoch || Long.ZERO).toString());
+    message.current_epoch !== undefined && (obj.current_epoch = (message.current_epoch || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<QueryCurrentEpochResponse>): QueryCurrentEpochResponse {
     const message = createBaseQueryCurrentEpochResponse();
-    message.currentEpoch = object.currentEpoch !== undefined && object.currentEpoch !== null ? Long.fromValue(object.currentEpoch) : Long.ZERO;
+    message.current_epoch = object.current_epoch !== undefined && object.current_epoch !== null ? Long.fromValue(object.current_epoch) : Long.ZERO;
     return message;
   },
   fromAmino(object: QueryCurrentEpochResponseAmino): QueryCurrentEpochResponse {
     return {
-      currentEpoch: Long.fromString(object.current_epoch)
+      current_epoch: Long.fromString(object.current_epoch)
     };
   },
   toAmino(message: QueryCurrentEpochResponse): QueryCurrentEpochResponseAmino {
     const obj: any = {};
-    obj.current_epoch = message.currentEpoch ? message.currentEpoch.toString() : undefined;
+    obj.current_epoch = message.current_epoch ? message.current_epoch.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryCurrentEpochResponseAminoMsg): QueryCurrentEpochResponse {

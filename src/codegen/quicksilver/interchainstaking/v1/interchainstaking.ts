@@ -3,40 +3,40 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Zone {
-  connectionId: string;
-  chainId: string;
-  depositAddress: ICAAccount;
-  withdrawalAddress: ICAAccount;
-  performanceAddress: ICAAccount;
-  delegationAddress: ICAAccount;
-  accountPrefix: string;
-  localDenom: string;
-  baseDenom: string;
-  redemptionRate: string;
-  lastRedemptionRate: string;
+  connection_id: string;
+  chain_id: string;
+  deposit_address: ICAAccount;
+  withdrawal_address: ICAAccount;
+  performance_address: ICAAccount;
+  delegation_address: ICAAccount;
+  account_prefix: string;
+  local_denom: string;
+  base_denom: string;
+  redemption_rate: string;
+  last_redemption_rate: string;
   validators: Validator[];
-  aggregateIntent: ValidatorIntent[];
+  aggregate_intent: ValidatorIntent[];
   /** deprecated */
-  multiSend: boolean;
-  liquidityModule: boolean;
-  withdrawalWaitgroup: number;
-  ibcNextValidatorsHash: Uint8Array;
-  validatorSelectionAllocation: Long;
-  holdingsAllocation: Long;
+  multi_send: boolean;
+  liquidity_module: boolean;
+  withdrawal_waitgroup: number;
+  ibc_next_validators_hash: Uint8Array;
+  validator_selection_allocation: Long;
+  holdings_allocation: Long;
   /** deprecated */
-  lastEpochHeight: Long;
+  last_epoch_height: Long;
   tvl: string;
-  unbondingPeriod: Long;
-  messagesPerTx: Long;
+  unbonding_period: Long;
+  messages_per_tx: Long;
   decimals: Long;
-  unbondingEnabled: boolean;
-  depositsEnabled: boolean;
-  returnToSender: boolean;
+  unbonding_enabled: boolean;
+  deposits_enabled: boolean;
+  return_to_sender: boolean;
   is118: boolean;
   subzoneInfo: SubzoneInfo;
 }
 export interface ZoneProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Zone";
+  type_url: "/quicksilver.interchainstaking.v1.Zone";
   value: Uint8Array;
 }
 export interface ZoneAmino {
@@ -109,10 +109,10 @@ export interface ZoneSDKType {
 }
 export interface SubzoneInfo {
   authority: string;
-  baseChainID: string;
+  base_chainID: string;
 }
 export interface SubzoneInfoProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.SubzoneInfo";
+  type_url: "/quicksilver.interchainstaking.v1.SubzoneInfo";
   value: Uint8Array;
 }
 export interface SubzoneInfoAmino {
@@ -128,12 +128,12 @@ export interface SubzoneInfoSDKType {
   base_chainID: string;
 }
 export interface LsmCaps {
-  validatorCap: string;
-  validatorBondCap: string;
-  globalCap: string;
+  validator_cap: string;
+  validator_bond_cap: string;
+  global_cap: string;
 }
 export interface LsmCapsProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.LsmCaps";
+  type_url: "/quicksilver.interchainstaking.v1.LsmCaps";
   value: Uint8Array;
 }
 export interface LsmCapsAmino {
@@ -154,12 +154,12 @@ export interface ICAAccount {
   address: string;
   /** balance defines the different coins this balance holds. */
   balance: Coin[];
-  portName: string;
-  withdrawalAddress: string;
-  balanceWaitgroup: number;
+  port_name: string;
+  withdrawal_address: string;
+  balance_waitgroup: number;
 }
 export interface ICAAccountProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.ICAAccount";
+  type_url: "/quicksilver.interchainstaking.v1.ICAAccount";
   value: Uint8Array;
 }
 export interface ICAAccountAmino {
@@ -186,7 +186,7 @@ export interface Distribution {
   amount: Long;
 }
 export interface DistributionProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Distribution";
+  type_url: "/quicksilver.interchainstaking.v1.Distribution";
   value: Uint8Array;
 }
 export interface DistributionAmino {
@@ -202,21 +202,21 @@ export interface DistributionSDKType {
   amount: Long;
 }
 export interface WithdrawalRecord {
-  chainId: string;
+  chain_id: string;
   delegator: string;
   distribution: Distribution[];
   recipient: string;
   amount: Coin[];
-  burnAmount: Coin;
+  burn_amount: Coin;
   txhash: string;
   status: number;
-  completionTime: Date;
+  completion_time: Date;
   requeued: boolean;
   acknowledged: boolean;
-  epochNumber: Long;
+  epoch_number: Long;
 }
 export interface WithdrawalRecordProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.WithdrawalRecord";
+  type_url: "/quicksilver.interchainstaking.v1.WithdrawalRecord";
   value: Uint8Array;
 }
 export interface WithdrawalRecordAmino {
@@ -252,13 +252,13 @@ export interface WithdrawalRecordSDKType {
   epoch_number: Long;
 }
 export interface UnbondingRecord {
-  chainId: string;
-  epochNumber: Long;
+  chain_id: string;
+  epoch_number: Long;
   validator: string;
-  relatedTxhash: string[];
+  related_txhash: string[];
 }
 export interface UnbondingRecordProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.UnbondingRecord";
+  type_url: "/quicksilver.interchainstaking.v1.UnbondingRecord";
   value: Uint8Array;
 }
 export interface UnbondingRecordAmino {
@@ -278,15 +278,15 @@ export interface UnbondingRecordSDKType {
   related_txhash: string[];
 }
 export interface RedelegationRecord {
-  chainId: string;
-  epochNumber: Long;
+  chain_id: string;
+  epoch_number: Long;
   source: string;
   destination: string;
   amount: Long;
-  completionTime: Date;
+  completion_time: Date;
 }
 export interface RedelegationRecordProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.RedelegationRecord";
+  type_url: "/quicksilver.interchainstaking.v1.RedelegationRecord";
   value: Uint8Array;
 }
 export interface RedelegationRecordAmino {
@@ -315,7 +315,7 @@ export interface TransferRecord {
   amount: Coin;
 }
 export interface TransferRecordProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.TransferRecord";
+  type_url: "/quicksilver.interchainstaking.v1.TransferRecord";
   value: Uint8Array;
 }
 export interface TransferRecordAmino {
@@ -333,22 +333,22 @@ export interface TransferRecordSDKType {
   amount: CoinSDKType;
 }
 export interface Validator {
-  valoperAddress: string;
-  commissionRate: string;
-  delegatorShares: string;
-  votingPower: string;
+  valoper_address: string;
+  commission_rate: string;
+  delegator_shares: string;
+  voting_power: string;
   score: string;
   status: string;
   jailed: boolean;
   tombstoned: boolean;
-  jailedSince: Date;
+  jailed_since: Date;
   /** Number of shares self bonded from the validator */
-  validatorBondShares: string;
+  validator_bond_shares: string;
   /** Number of shares either tokenized or owned by a liquid staking provider */
-  liquidShares: string;
+  liquid_shares: string;
 }
 export interface ValidatorProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Validator";
+  type_url: "/quicksilver.interchainstaking.v1.Validator";
   value: Uint8Array;
 }
 export interface ValidatorAmino {
@@ -388,7 +388,7 @@ export interface DelegatorIntent {
   intents: ValidatorIntent[];
 }
 export interface DelegatorIntentProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntent";
+  type_url: "/quicksilver.interchainstaking.v1.DelegatorIntent";
   value: Uint8Array;
 }
 export interface DelegatorIntentAmino {
@@ -404,11 +404,11 @@ export interface DelegatorIntentSDKType {
   intents: ValidatorIntentSDKType[];
 }
 export interface ValidatorIntent {
-  valoperAddress: string;
+  valoper_address: string;
   weight: string;
 }
 export interface ValidatorIntentProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.ValidatorIntent";
+  type_url: "/quicksilver.interchainstaking.v1.ValidatorIntent";
   value: Uint8Array;
 }
 export interface ValidatorIntentAmino {
@@ -424,14 +424,14 @@ export interface ValidatorIntentSDKType {
   weight: string;
 }
 export interface Delegation {
-  delegationAddress: string;
-  validatorAddress: string;
+  delegation_address: string;
+  validator_address: string;
   amount: Coin;
   height: Long;
-  redelegationEnd: Long;
+  redelegation_end: Long;
 }
 export interface DelegationProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Delegation";
+  type_url: "/quicksilver.interchainstaking.v1.Delegation";
   value: Uint8Array;
 }
 export interface DelegationAmino {
@@ -453,11 +453,11 @@ export interface DelegationSDKType {
   redelegation_end: Long;
 }
 export interface PortConnectionTuple {
-  connectionId: string;
-  portId: string;
+  connection_id: string;
+  port_id: string;
 }
 export interface PortConnectionTupleProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.PortConnectionTuple";
+  type_url: "/quicksilver.interchainstaking.v1.PortConnectionTuple";
   value: Uint8Array;
 }
 export interface PortConnectionTupleAmino {
@@ -473,15 +473,15 @@ export interface PortConnectionTupleSDKType {
   port_id: string;
 }
 export interface Receipt {
-  chainId: string;
+  chain_id: string;
   sender: string;
   txhash: string;
   amount: Coin[];
-  firstSeen?: Date;
+  first_seen?: Date;
   completed?: Date;
 }
 export interface ReceiptProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Receipt";
+  type_url: "/quicksilver.interchainstaking.v1.Receipt";
   value: Uint8Array;
 }
 export interface ReceiptAmino {
@@ -506,33 +506,33 @@ export interface ReceiptSDKType {
 }
 function createBaseZone(): Zone {
   return {
-    connectionId: "",
-    chainId: "",
-    depositAddress: ICAAccount.fromPartial({}),
-    withdrawalAddress: ICAAccount.fromPartial({}),
-    performanceAddress: ICAAccount.fromPartial({}),
-    delegationAddress: ICAAccount.fromPartial({}),
-    accountPrefix: "",
-    localDenom: "",
-    baseDenom: "",
-    redemptionRate: "",
-    lastRedemptionRate: "",
+    connection_id: "",
+    chain_id: "",
+    deposit_address: ICAAccount.fromPartial({}),
+    withdrawal_address: ICAAccount.fromPartial({}),
+    performance_address: ICAAccount.fromPartial({}),
+    delegation_address: ICAAccount.fromPartial({}),
+    account_prefix: "",
+    local_denom: "",
+    base_denom: "",
+    redemption_rate: "",
+    last_redemption_rate: "",
     validators: [],
-    aggregateIntent: [],
-    multiSend: false,
-    liquidityModule: false,
-    withdrawalWaitgroup: 0,
-    ibcNextValidatorsHash: new Uint8Array(),
-    validatorSelectionAllocation: Long.UZERO,
-    holdingsAllocation: Long.UZERO,
-    lastEpochHeight: Long.ZERO,
+    aggregate_intent: [],
+    multi_send: false,
+    liquidity_module: false,
+    withdrawal_waitgroup: 0,
+    ibc_next_validators_hash: new Uint8Array(),
+    validator_selection_allocation: Long.UZERO,
+    holdings_allocation: Long.UZERO,
+    last_epoch_height: Long.ZERO,
     tvl: "",
-    unbondingPeriod: Long.ZERO,
-    messagesPerTx: Long.ZERO,
+    unbonding_period: Long.ZERO,
+    messages_per_tx: Long.ZERO,
     decimals: Long.ZERO,
-    unbondingEnabled: false,
-    depositsEnabled: false,
-    returnToSender: false,
+    unbonding_enabled: false,
+    deposits_enabled: false,
+    return_to_sender: false,
     is118: false,
     subzoneInfo: SubzoneInfo.fromPartial({})
   };
@@ -540,86 +540,86 @@ function createBaseZone(): Zone {
 export const Zone = {
   typeUrl: "/quicksilver.interchainstaking.v1.Zone",
   encode(message: Zone, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.connectionId !== "") {
-      writer.uint32(10).string(message.connectionId);
+    if (message.connection_id !== "") {
+      writer.uint32(10).string(message.connection_id);
     }
-    if (message.chainId !== "") {
-      writer.uint32(18).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(18).string(message.chain_id);
     }
-    if (message.depositAddress !== undefined) {
-      ICAAccount.encode(message.depositAddress, writer.uint32(26).fork()).ldelim();
+    if (message.deposit_address !== undefined) {
+      ICAAccount.encode(message.deposit_address, writer.uint32(26).fork()).ldelim();
     }
-    if (message.withdrawalAddress !== undefined) {
-      ICAAccount.encode(message.withdrawalAddress, writer.uint32(34).fork()).ldelim();
+    if (message.withdrawal_address !== undefined) {
+      ICAAccount.encode(message.withdrawal_address, writer.uint32(34).fork()).ldelim();
     }
-    if (message.performanceAddress !== undefined) {
-      ICAAccount.encode(message.performanceAddress, writer.uint32(42).fork()).ldelim();
+    if (message.performance_address !== undefined) {
+      ICAAccount.encode(message.performance_address, writer.uint32(42).fork()).ldelim();
     }
-    if (message.delegationAddress !== undefined) {
-      ICAAccount.encode(message.delegationAddress, writer.uint32(50).fork()).ldelim();
+    if (message.delegation_address !== undefined) {
+      ICAAccount.encode(message.delegation_address, writer.uint32(50).fork()).ldelim();
     }
-    if (message.accountPrefix !== "") {
-      writer.uint32(58).string(message.accountPrefix);
+    if (message.account_prefix !== "") {
+      writer.uint32(58).string(message.account_prefix);
     }
-    if (message.localDenom !== "") {
-      writer.uint32(66).string(message.localDenom);
+    if (message.local_denom !== "") {
+      writer.uint32(66).string(message.local_denom);
     }
-    if (message.baseDenom !== "") {
-      writer.uint32(74).string(message.baseDenom);
+    if (message.base_denom !== "") {
+      writer.uint32(74).string(message.base_denom);
     }
-    if (message.redemptionRate !== "") {
-      writer.uint32(82).string(message.redemptionRate);
+    if (message.redemption_rate !== "") {
+      writer.uint32(82).string(message.redemption_rate);
     }
-    if (message.lastRedemptionRate !== "") {
-      writer.uint32(90).string(message.lastRedemptionRate);
+    if (message.last_redemption_rate !== "") {
+      writer.uint32(90).string(message.last_redemption_rate);
     }
     for (const v of message.validators) {
       Validator.encode(v!, writer.uint32(98).fork()).ldelim();
     }
-    for (const v of message.aggregateIntent) {
+    for (const v of message.aggregate_intent) {
       ValidatorIntent.encode(v!, writer.uint32(106).fork()).ldelim();
     }
-    if (message.multiSend === true) {
-      writer.uint32(112).bool(message.multiSend);
+    if (message.multi_send === true) {
+      writer.uint32(112).bool(message.multi_send);
     }
-    if (message.liquidityModule === true) {
-      writer.uint32(120).bool(message.liquidityModule);
+    if (message.liquidity_module === true) {
+      writer.uint32(120).bool(message.liquidity_module);
     }
-    if (message.withdrawalWaitgroup !== 0) {
-      writer.uint32(128).uint32(message.withdrawalWaitgroup);
+    if (message.withdrawal_waitgroup !== 0) {
+      writer.uint32(128).uint32(message.withdrawal_waitgroup);
     }
-    if (message.ibcNextValidatorsHash.length !== 0) {
-      writer.uint32(138).bytes(message.ibcNextValidatorsHash);
+    if (message.ibc_next_validators_hash.length !== 0) {
+      writer.uint32(138).bytes(message.ibc_next_validators_hash);
     }
-    if (!message.validatorSelectionAllocation.isZero()) {
-      writer.uint32(144).uint64(message.validatorSelectionAllocation);
+    if (!message.validator_selection_allocation.isZero()) {
+      writer.uint32(144).uint64(message.validator_selection_allocation);
     }
-    if (!message.holdingsAllocation.isZero()) {
-      writer.uint32(152).uint64(message.holdingsAllocation);
+    if (!message.holdings_allocation.isZero()) {
+      writer.uint32(152).uint64(message.holdings_allocation);
     }
-    if (!message.lastEpochHeight.isZero()) {
-      writer.uint32(160).int64(message.lastEpochHeight);
+    if (!message.last_epoch_height.isZero()) {
+      writer.uint32(160).int64(message.last_epoch_height);
     }
     if (message.tvl !== "") {
       writer.uint32(170).string(message.tvl);
     }
-    if (!message.unbondingPeriod.isZero()) {
-      writer.uint32(176).int64(message.unbondingPeriod);
+    if (!message.unbonding_period.isZero()) {
+      writer.uint32(176).int64(message.unbonding_period);
     }
-    if (!message.messagesPerTx.isZero()) {
-      writer.uint32(184).int64(message.messagesPerTx);
+    if (!message.messages_per_tx.isZero()) {
+      writer.uint32(184).int64(message.messages_per_tx);
     }
     if (!message.decimals.isZero()) {
       writer.uint32(192).int64(message.decimals);
     }
-    if (message.unbondingEnabled === true) {
-      writer.uint32(200).bool(message.unbondingEnabled);
+    if (message.unbonding_enabled === true) {
+      writer.uint32(200).bool(message.unbonding_enabled);
     }
-    if (message.depositsEnabled === true) {
-      writer.uint32(208).bool(message.depositsEnabled);
+    if (message.deposits_enabled === true) {
+      writer.uint32(208).bool(message.deposits_enabled);
     }
-    if (message.returnToSender === true) {
-      writer.uint32(216).bool(message.returnToSender);
+    if (message.return_to_sender === true) {
+      writer.uint32(216).bool(message.return_to_sender);
     }
     if (message.is118 === true) {
       writer.uint32(224).bool(message.is118);
@@ -637,85 +637,85 @@ export const Zone = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.connectionId = reader.string();
+          message.connection_id = reader.string();
           break;
         case 2:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 3:
-          message.depositAddress = ICAAccount.decode(reader, reader.uint32());
+          message.deposit_address = ICAAccount.decode(reader, reader.uint32());
           break;
         case 4:
-          message.withdrawalAddress = ICAAccount.decode(reader, reader.uint32());
+          message.withdrawal_address = ICAAccount.decode(reader, reader.uint32());
           break;
         case 5:
-          message.performanceAddress = ICAAccount.decode(reader, reader.uint32());
+          message.performance_address = ICAAccount.decode(reader, reader.uint32());
           break;
         case 6:
-          message.delegationAddress = ICAAccount.decode(reader, reader.uint32());
+          message.delegation_address = ICAAccount.decode(reader, reader.uint32());
           break;
         case 7:
-          message.accountPrefix = reader.string();
+          message.account_prefix = reader.string();
           break;
         case 8:
-          message.localDenom = reader.string();
+          message.local_denom = reader.string();
           break;
         case 9:
-          message.baseDenom = reader.string();
+          message.base_denom = reader.string();
           break;
         case 10:
-          message.redemptionRate = reader.string();
+          message.redemption_rate = reader.string();
           break;
         case 11:
-          message.lastRedemptionRate = reader.string();
+          message.last_redemption_rate = reader.string();
           break;
         case 12:
           message.validators.push(Validator.decode(reader, reader.uint32()));
           break;
         case 13:
-          message.aggregateIntent.push(ValidatorIntent.decode(reader, reader.uint32()));
+          message.aggregate_intent.push(ValidatorIntent.decode(reader, reader.uint32()));
           break;
         case 14:
-          message.multiSend = reader.bool();
+          message.multi_send = reader.bool();
           break;
         case 15:
-          message.liquidityModule = reader.bool();
+          message.liquidity_module = reader.bool();
           break;
         case 16:
-          message.withdrawalWaitgroup = reader.uint32();
+          message.withdrawal_waitgroup = reader.uint32();
           break;
         case 17:
-          message.ibcNextValidatorsHash = reader.bytes();
+          message.ibc_next_validators_hash = reader.bytes();
           break;
         case 18:
-          message.validatorSelectionAllocation = (reader.uint64() as Long);
+          message.validator_selection_allocation = (reader.uint64() as Long);
           break;
         case 19:
-          message.holdingsAllocation = (reader.uint64() as Long);
+          message.holdings_allocation = (reader.uint64() as Long);
           break;
         case 20:
-          message.lastEpochHeight = (reader.int64() as Long);
+          message.last_epoch_height = (reader.int64() as Long);
           break;
         case 21:
           message.tvl = reader.string();
           break;
         case 22:
-          message.unbondingPeriod = (reader.int64() as Long);
+          message.unbonding_period = (reader.int64() as Long);
           break;
         case 23:
-          message.messagesPerTx = (reader.int64() as Long);
+          message.messages_per_tx = (reader.int64() as Long);
           break;
         case 24:
           message.decimals = (reader.int64() as Long);
           break;
         case 25:
-          message.unbondingEnabled = reader.bool();
+          message.unbonding_enabled = reader.bool();
           break;
         case 26:
-          message.depositsEnabled = reader.bool();
+          message.deposits_enabled = reader.bool();
           break;
         case 27:
-          message.returnToSender = reader.bool();
+          message.return_to_sender = reader.bool();
           break;
         case 28:
           message.is118 = reader.bool();
@@ -732,182 +732,182 @@ export const Zone = {
   },
   fromJSON(object: any): Zone {
     return {
-      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      depositAddress: isSet(object.depositAddress) ? ICAAccount.fromJSON(object.depositAddress) : undefined,
-      withdrawalAddress: isSet(object.withdrawalAddress) ? ICAAccount.fromJSON(object.withdrawalAddress) : undefined,
-      performanceAddress: isSet(object.performanceAddress) ? ICAAccount.fromJSON(object.performanceAddress) : undefined,
-      delegationAddress: isSet(object.delegationAddress) ? ICAAccount.fromJSON(object.delegationAddress) : undefined,
-      accountPrefix: isSet(object.accountPrefix) ? String(object.accountPrefix) : "",
-      localDenom: isSet(object.localDenom) ? String(object.localDenom) : "",
-      baseDenom: isSet(object.baseDenom) ? String(object.baseDenom) : "",
-      redemptionRate: isSet(object.redemptionRate) ? String(object.redemptionRate) : "",
-      lastRedemptionRate: isSet(object.lastRedemptionRate) ? String(object.lastRedemptionRate) : "",
+      connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      deposit_address: isSet(object.deposit_address) ? ICAAccount.fromJSON(object.deposit_address) : undefined,
+      withdrawal_address: isSet(object.withdrawal_address) ? ICAAccount.fromJSON(object.withdrawal_address) : undefined,
+      performance_address: isSet(object.performance_address) ? ICAAccount.fromJSON(object.performance_address) : undefined,
+      delegation_address: isSet(object.delegation_address) ? ICAAccount.fromJSON(object.delegation_address) : undefined,
+      account_prefix: isSet(object.account_prefix) ? String(object.account_prefix) : "",
+      local_denom: isSet(object.local_denom) ? String(object.local_denom) : "",
+      base_denom: isSet(object.base_denom) ? String(object.base_denom) : "",
+      redemption_rate: isSet(object.redemption_rate) ? String(object.redemption_rate) : "",
+      last_redemption_rate: isSet(object.last_redemption_rate) ? String(object.last_redemption_rate) : "",
       validators: Array.isArray(object?.validators) ? object.validators.map((e: any) => Validator.fromJSON(e)) : [],
-      aggregateIntent: Array.isArray(object?.aggregateIntent) ? object.aggregateIntent.map((e: any) => ValidatorIntent.fromJSON(e)) : [],
-      multiSend: isSet(object.multiSend) ? Boolean(object.multiSend) : false,
-      liquidityModule: isSet(object.liquidityModule) ? Boolean(object.liquidityModule) : false,
-      withdrawalWaitgroup: isSet(object.withdrawalWaitgroup) ? Number(object.withdrawalWaitgroup) : 0,
-      ibcNextValidatorsHash: isSet(object.ibcNextValidatorsHash) ? bytesFromBase64(object.ibcNextValidatorsHash) : new Uint8Array(),
-      validatorSelectionAllocation: isSet(object.validatorSelectionAllocation) ? Long.fromValue(object.validatorSelectionAllocation) : Long.UZERO,
-      holdingsAllocation: isSet(object.holdingsAllocation) ? Long.fromValue(object.holdingsAllocation) : Long.UZERO,
-      lastEpochHeight: isSet(object.lastEpochHeight) ? Long.fromValue(object.lastEpochHeight) : Long.ZERO,
+      aggregate_intent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e: any) => ValidatorIntent.fromJSON(e)) : [],
+      multi_send: isSet(object.multi_send) ? Boolean(object.multi_send) : false,
+      liquidity_module: isSet(object.liquidity_module) ? Boolean(object.liquidity_module) : false,
+      withdrawal_waitgroup: isSet(object.withdrawal_waitgroup) ? Number(object.withdrawal_waitgroup) : 0,
+      ibc_next_validators_hash: isSet(object.ibc_next_validators_hash) ? bytesFromBase64(object.ibc_next_validators_hash) : new Uint8Array(),
+      validator_selection_allocation: isSet(object.validator_selection_allocation) ? Long.fromValue(object.validator_selection_allocation) : Long.UZERO,
+      holdings_allocation: isSet(object.holdings_allocation) ? Long.fromValue(object.holdings_allocation) : Long.UZERO,
+      last_epoch_height: isSet(object.last_epoch_height) ? Long.fromValue(object.last_epoch_height) : Long.ZERO,
       tvl: isSet(object.tvl) ? String(object.tvl) : "",
-      unbondingPeriod: isSet(object.unbondingPeriod) ? Long.fromValue(object.unbondingPeriod) : Long.ZERO,
-      messagesPerTx: isSet(object.messagesPerTx) ? Long.fromValue(object.messagesPerTx) : Long.ZERO,
+      unbonding_period: isSet(object.unbonding_period) ? Long.fromValue(object.unbonding_period) : Long.ZERO,
+      messages_per_tx: isSet(object.messages_per_tx) ? Long.fromValue(object.messages_per_tx) : Long.ZERO,
       decimals: isSet(object.decimals) ? Long.fromValue(object.decimals) : Long.ZERO,
-      unbondingEnabled: isSet(object.unbondingEnabled) ? Boolean(object.unbondingEnabled) : false,
-      depositsEnabled: isSet(object.depositsEnabled) ? Boolean(object.depositsEnabled) : false,
-      returnToSender: isSet(object.returnToSender) ? Boolean(object.returnToSender) : false,
+      unbonding_enabled: isSet(object.unbonding_enabled) ? Boolean(object.unbonding_enabled) : false,
+      deposits_enabled: isSet(object.deposits_enabled) ? Boolean(object.deposits_enabled) : false,
+      return_to_sender: isSet(object.return_to_sender) ? Boolean(object.return_to_sender) : false,
       is118: isSet(object.is118) ? Boolean(object.is118) : false,
       subzoneInfo: isSet(object.subzoneInfo) ? SubzoneInfo.fromJSON(object.subzoneInfo) : undefined
     };
   },
   toJSON(message: Zone): unknown {
     const obj: any = {};
-    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.depositAddress !== undefined && (obj.depositAddress = message.depositAddress ? ICAAccount.toJSON(message.depositAddress) : undefined);
-    message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress ? ICAAccount.toJSON(message.withdrawalAddress) : undefined);
-    message.performanceAddress !== undefined && (obj.performanceAddress = message.performanceAddress ? ICAAccount.toJSON(message.performanceAddress) : undefined);
-    message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress ? ICAAccount.toJSON(message.delegationAddress) : undefined);
-    message.accountPrefix !== undefined && (obj.accountPrefix = message.accountPrefix);
-    message.localDenom !== undefined && (obj.localDenom = message.localDenom);
-    message.baseDenom !== undefined && (obj.baseDenom = message.baseDenom);
-    message.redemptionRate !== undefined && (obj.redemptionRate = message.redemptionRate);
-    message.lastRedemptionRate !== undefined && (obj.lastRedemptionRate = message.lastRedemptionRate);
+    message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.deposit_address !== undefined && (obj.deposit_address = message.deposit_address ? ICAAccount.toJSON(message.deposit_address) : undefined);
+    message.withdrawal_address !== undefined && (obj.withdrawal_address = message.withdrawal_address ? ICAAccount.toJSON(message.withdrawal_address) : undefined);
+    message.performance_address !== undefined && (obj.performance_address = message.performance_address ? ICAAccount.toJSON(message.performance_address) : undefined);
+    message.delegation_address !== undefined && (obj.delegation_address = message.delegation_address ? ICAAccount.toJSON(message.delegation_address) : undefined);
+    message.account_prefix !== undefined && (obj.account_prefix = message.account_prefix);
+    message.local_denom !== undefined && (obj.local_denom = message.local_denom);
+    message.base_denom !== undefined && (obj.base_denom = message.base_denom);
+    message.redemption_rate !== undefined && (obj.redemption_rate = message.redemption_rate);
+    message.last_redemption_rate !== undefined && (obj.last_redemption_rate = message.last_redemption_rate);
     if (message.validators) {
       obj.validators = message.validators.map(e => e ? Validator.toJSON(e) : undefined);
     } else {
       obj.validators = [];
     }
-    if (message.aggregateIntent) {
-      obj.aggregateIntent = message.aggregateIntent.map(e => e ? ValidatorIntent.toJSON(e) : undefined);
+    if (message.aggregate_intent) {
+      obj.aggregate_intent = message.aggregate_intent.map(e => e ? ValidatorIntent.toJSON(e) : undefined);
     } else {
-      obj.aggregateIntent = [];
+      obj.aggregate_intent = [];
     }
-    message.multiSend !== undefined && (obj.multiSend = message.multiSend);
-    message.liquidityModule !== undefined && (obj.liquidityModule = message.liquidityModule);
-    message.withdrawalWaitgroup !== undefined && (obj.withdrawalWaitgroup = Math.round(message.withdrawalWaitgroup));
-    message.ibcNextValidatorsHash !== undefined && (obj.ibcNextValidatorsHash = base64FromBytes(message.ibcNextValidatorsHash !== undefined ? message.ibcNextValidatorsHash : new Uint8Array()));
-    message.validatorSelectionAllocation !== undefined && (obj.validatorSelectionAllocation = (message.validatorSelectionAllocation || Long.UZERO).toString());
-    message.holdingsAllocation !== undefined && (obj.holdingsAllocation = (message.holdingsAllocation || Long.UZERO).toString());
-    message.lastEpochHeight !== undefined && (obj.lastEpochHeight = (message.lastEpochHeight || Long.ZERO).toString());
+    message.multi_send !== undefined && (obj.multi_send = message.multi_send);
+    message.liquidity_module !== undefined && (obj.liquidity_module = message.liquidity_module);
+    message.withdrawal_waitgroup !== undefined && (obj.withdrawal_waitgroup = Math.round(message.withdrawal_waitgroup));
+    message.ibc_next_validators_hash !== undefined && (obj.ibc_next_validators_hash = base64FromBytes(message.ibc_next_validators_hash !== undefined ? message.ibc_next_validators_hash : new Uint8Array()));
+    message.validator_selection_allocation !== undefined && (obj.validator_selection_allocation = (message.validator_selection_allocation || Long.UZERO).toString());
+    message.holdings_allocation !== undefined && (obj.holdings_allocation = (message.holdings_allocation || Long.UZERO).toString());
+    message.last_epoch_height !== undefined && (obj.last_epoch_height = (message.last_epoch_height || Long.ZERO).toString());
     message.tvl !== undefined && (obj.tvl = message.tvl);
-    message.unbondingPeriod !== undefined && (obj.unbondingPeriod = (message.unbondingPeriod || Long.ZERO).toString());
-    message.messagesPerTx !== undefined && (obj.messagesPerTx = (message.messagesPerTx || Long.ZERO).toString());
+    message.unbonding_period !== undefined && (obj.unbonding_period = (message.unbonding_period || Long.ZERO).toString());
+    message.messages_per_tx !== undefined && (obj.messages_per_tx = (message.messages_per_tx || Long.ZERO).toString());
     message.decimals !== undefined && (obj.decimals = (message.decimals || Long.ZERO).toString());
-    message.unbondingEnabled !== undefined && (obj.unbondingEnabled = message.unbondingEnabled);
-    message.depositsEnabled !== undefined && (obj.depositsEnabled = message.depositsEnabled);
-    message.returnToSender !== undefined && (obj.returnToSender = message.returnToSender);
+    message.unbonding_enabled !== undefined && (obj.unbonding_enabled = message.unbonding_enabled);
+    message.deposits_enabled !== undefined && (obj.deposits_enabled = message.deposits_enabled);
+    message.return_to_sender !== undefined && (obj.return_to_sender = message.return_to_sender);
     message.is118 !== undefined && (obj.is118 = message.is118);
     message.subzoneInfo !== undefined && (obj.subzoneInfo = message.subzoneInfo ? SubzoneInfo.toJSON(message.subzoneInfo) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<Zone>): Zone {
     const message = createBaseZone();
-    message.connectionId = object.connectionId ?? "";
-    message.chainId = object.chainId ?? "";
-    message.depositAddress = object.depositAddress !== undefined && object.depositAddress !== null ? ICAAccount.fromPartial(object.depositAddress) : undefined;
-    message.withdrawalAddress = object.withdrawalAddress !== undefined && object.withdrawalAddress !== null ? ICAAccount.fromPartial(object.withdrawalAddress) : undefined;
-    message.performanceAddress = object.performanceAddress !== undefined && object.performanceAddress !== null ? ICAAccount.fromPartial(object.performanceAddress) : undefined;
-    message.delegationAddress = object.delegationAddress !== undefined && object.delegationAddress !== null ? ICAAccount.fromPartial(object.delegationAddress) : undefined;
-    message.accountPrefix = object.accountPrefix ?? "";
-    message.localDenom = object.localDenom ?? "";
-    message.baseDenom = object.baseDenom ?? "";
-    message.redemptionRate = object.redemptionRate ?? "";
-    message.lastRedemptionRate = object.lastRedemptionRate ?? "";
+    message.connection_id = object.connection_id ?? "";
+    message.chain_id = object.chain_id ?? "";
+    message.deposit_address = object.deposit_address !== undefined && object.deposit_address !== null ? ICAAccount.fromPartial(object.deposit_address) : undefined;
+    message.withdrawal_address = object.withdrawal_address !== undefined && object.withdrawal_address !== null ? ICAAccount.fromPartial(object.withdrawal_address) : undefined;
+    message.performance_address = object.performance_address !== undefined && object.performance_address !== null ? ICAAccount.fromPartial(object.performance_address) : undefined;
+    message.delegation_address = object.delegation_address !== undefined && object.delegation_address !== null ? ICAAccount.fromPartial(object.delegation_address) : undefined;
+    message.account_prefix = object.account_prefix ?? "";
+    message.local_denom = object.local_denom ?? "";
+    message.base_denom = object.base_denom ?? "";
+    message.redemption_rate = object.redemption_rate ?? "";
+    message.last_redemption_rate = object.last_redemption_rate ?? "";
     message.validators = object.validators?.map(e => Validator.fromPartial(e)) || [];
-    message.aggregateIntent = object.aggregateIntent?.map(e => ValidatorIntent.fromPartial(e)) || [];
-    message.multiSend = object.multiSend ?? false;
-    message.liquidityModule = object.liquidityModule ?? false;
-    message.withdrawalWaitgroup = object.withdrawalWaitgroup ?? 0;
-    message.ibcNextValidatorsHash = object.ibcNextValidatorsHash ?? new Uint8Array();
-    message.validatorSelectionAllocation = object.validatorSelectionAllocation !== undefined && object.validatorSelectionAllocation !== null ? Long.fromValue(object.validatorSelectionAllocation) : Long.UZERO;
-    message.holdingsAllocation = object.holdingsAllocation !== undefined && object.holdingsAllocation !== null ? Long.fromValue(object.holdingsAllocation) : Long.UZERO;
-    message.lastEpochHeight = object.lastEpochHeight !== undefined && object.lastEpochHeight !== null ? Long.fromValue(object.lastEpochHeight) : Long.ZERO;
+    message.aggregate_intent = object.aggregate_intent?.map(e => ValidatorIntent.fromPartial(e)) || [];
+    message.multi_send = object.multi_send ?? false;
+    message.liquidity_module = object.liquidity_module ?? false;
+    message.withdrawal_waitgroup = object.withdrawal_waitgroup ?? 0;
+    message.ibc_next_validators_hash = object.ibc_next_validators_hash ?? new Uint8Array();
+    message.validator_selection_allocation = object.validator_selection_allocation !== undefined && object.validator_selection_allocation !== null ? Long.fromValue(object.validator_selection_allocation) : Long.UZERO;
+    message.holdings_allocation = object.holdings_allocation !== undefined && object.holdings_allocation !== null ? Long.fromValue(object.holdings_allocation) : Long.UZERO;
+    message.last_epoch_height = object.last_epoch_height !== undefined && object.last_epoch_height !== null ? Long.fromValue(object.last_epoch_height) : Long.ZERO;
     message.tvl = object.tvl ?? "";
-    message.unbondingPeriod = object.unbondingPeriod !== undefined && object.unbondingPeriod !== null ? Long.fromValue(object.unbondingPeriod) : Long.ZERO;
-    message.messagesPerTx = object.messagesPerTx !== undefined && object.messagesPerTx !== null ? Long.fromValue(object.messagesPerTx) : Long.ZERO;
+    message.unbonding_period = object.unbonding_period !== undefined && object.unbonding_period !== null ? Long.fromValue(object.unbonding_period) : Long.ZERO;
+    message.messages_per_tx = object.messages_per_tx !== undefined && object.messages_per_tx !== null ? Long.fromValue(object.messages_per_tx) : Long.ZERO;
     message.decimals = object.decimals !== undefined && object.decimals !== null ? Long.fromValue(object.decimals) : Long.ZERO;
-    message.unbondingEnabled = object.unbondingEnabled ?? false;
-    message.depositsEnabled = object.depositsEnabled ?? false;
-    message.returnToSender = object.returnToSender ?? false;
+    message.unbonding_enabled = object.unbonding_enabled ?? false;
+    message.deposits_enabled = object.deposits_enabled ?? false;
+    message.return_to_sender = object.return_to_sender ?? false;
     message.is118 = object.is118 ?? false;
     message.subzoneInfo = object.subzoneInfo !== undefined && object.subzoneInfo !== null ? SubzoneInfo.fromPartial(object.subzoneInfo) : undefined;
     return message;
   },
   fromAmino(object: ZoneAmino): Zone {
     return {
-      connectionId: object.connection_id,
-      chainId: object.chain_id,
-      depositAddress: object?.deposit_address ? ICAAccount.fromAmino(object.deposit_address) : undefined,
-      withdrawalAddress: object?.withdrawal_address ? ICAAccount.fromAmino(object.withdrawal_address) : undefined,
-      performanceAddress: object?.performance_address ? ICAAccount.fromAmino(object.performance_address) : undefined,
-      delegationAddress: object?.delegation_address ? ICAAccount.fromAmino(object.delegation_address) : undefined,
-      accountPrefix: object.account_prefix,
-      localDenom: object.local_denom,
-      baseDenom: object.base_denom,
-      redemptionRate: object.redemption_rate,
-      lastRedemptionRate: object.last_redemption_rate,
+      connection_id: object.connection_id,
+      chain_id: object.chain_id,
+      deposit_address: object?.deposit_address ? ICAAccount.fromAmino(object.deposit_address) : undefined,
+      withdrawal_address: object?.withdrawal_address ? ICAAccount.fromAmino(object.withdrawal_address) : undefined,
+      performance_address: object?.performance_address ? ICAAccount.fromAmino(object.performance_address) : undefined,
+      delegation_address: object?.delegation_address ? ICAAccount.fromAmino(object.delegation_address) : undefined,
+      account_prefix: object.account_prefix,
+      local_denom: object.local_denom,
+      base_denom: object.base_denom,
+      redemption_rate: object.redemption_rate,
+      last_redemption_rate: object.last_redemption_rate,
       validators: Array.isArray(object?.validators) ? object.validators.map((e: any) => Validator.fromAmino(e)) : [],
-      aggregateIntent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e: any) => ValidatorIntent.fromAmino(e)) : [],
-      multiSend: object.multi_send,
-      liquidityModule: object.liquidity_module,
-      withdrawalWaitgroup: object.withdrawal_waitgroup,
-      ibcNextValidatorsHash: object.ibc_next_validators_hash,
-      validatorSelectionAllocation: Long.fromString(object.validator_selection_allocation),
-      holdingsAllocation: Long.fromString(object.holdings_allocation),
-      lastEpochHeight: Long.fromString(object.last_epoch_height),
+      aggregate_intent: Array.isArray(object?.aggregate_intent) ? object.aggregate_intent.map((e: any) => ValidatorIntent.fromAmino(e)) : [],
+      multi_send: object.multi_send,
+      liquidity_module: object.liquidity_module,
+      withdrawal_waitgroup: object.withdrawal_waitgroup,
+      ibc_next_validators_hash: object.ibc_next_validators_hash,
+      validator_selection_allocation: Long.fromString(object.validator_selection_allocation),
+      holdings_allocation: Long.fromString(object.holdings_allocation),
+      last_epoch_height: Long.fromString(object.last_epoch_height),
       tvl: object.tvl,
-      unbondingPeriod: Long.fromString(object.unbonding_period),
-      messagesPerTx: Long.fromString(object.messages_per_tx),
+      unbonding_period: Long.fromString(object.unbonding_period),
+      messages_per_tx: Long.fromString(object.messages_per_tx),
       decimals: Long.fromString(object.decimals),
-      unbondingEnabled: object.unbonding_enabled,
-      depositsEnabled: object.deposits_enabled,
-      returnToSender: object.return_to_sender,
-      is118: object.is_118,
+      unbonding_enabled: object.unbonding_enabled,
+      deposits_enabled: object.deposits_enabled,
+      return_to_sender: object.return_to_sender,
+      is_118: object.is_118,
       subzoneInfo: object?.subzoneInfo ? SubzoneInfo.fromAmino(object.subzoneInfo) : undefined
     };
   },
   toAmino(message: Zone): ZoneAmino {
     const obj: any = {};
-    obj.connection_id = message.connectionId;
-    obj.chain_id = message.chainId;
-    obj.deposit_address = message.depositAddress ? ICAAccount.toAmino(message.depositAddress) : undefined;
-    obj.withdrawal_address = message.withdrawalAddress ? ICAAccount.toAmino(message.withdrawalAddress) : undefined;
-    obj.performance_address = message.performanceAddress ? ICAAccount.toAmino(message.performanceAddress) : undefined;
-    obj.delegation_address = message.delegationAddress ? ICAAccount.toAmino(message.delegationAddress) : undefined;
-    obj.account_prefix = message.accountPrefix;
-    obj.local_denom = message.localDenom;
-    obj.base_denom = message.baseDenom;
-    obj.redemption_rate = message.redemptionRate;
-    obj.last_redemption_rate = message.lastRedemptionRate;
+    obj.connection_id = message.connection_id;
+    obj.chain_id = message.chain_id;
+    obj.deposit_address = message.deposit_address ? ICAAccount.toAmino(message.deposit_address) : undefined;
+    obj.withdrawal_address = message.withdrawal_address ? ICAAccount.toAmino(message.withdrawal_address) : undefined;
+    obj.performance_address = message.performance_address ? ICAAccount.toAmino(message.performance_address) : undefined;
+    obj.delegation_address = message.delegation_address ? ICAAccount.toAmino(message.delegation_address) : undefined;
+    obj.account_prefix = message.account_prefix;
+    obj.local_denom = message.local_denom;
+    obj.base_denom = message.base_denom;
+    obj.redemption_rate = message.redemption_rate;
+    obj.last_redemption_rate = message.last_redemption_rate;
     if (message.validators) {
       obj.validators = message.validators.map(e => e ? Validator.toAmino(e) : undefined);
     } else {
       obj.validators = [];
     }
-    if (message.aggregateIntent) {
-      obj.aggregate_intent = message.aggregateIntent.map(e => e ? ValidatorIntent.toAmino(e) : undefined);
+    if (message.aggregate_intent) {
+      obj.aggregate_intent = message.aggregate_intent.map(e => e ? ValidatorIntent.toAmino(e) : undefined);
     } else {
       obj.aggregate_intent = [];
     }
-    obj.multi_send = message.multiSend;
-    obj.liquidity_module = message.liquidityModule;
-    obj.withdrawal_waitgroup = message.withdrawalWaitgroup;
-    obj.ibc_next_validators_hash = message.ibcNextValidatorsHash;
-    obj.validator_selection_allocation = message.validatorSelectionAllocation ? message.validatorSelectionAllocation.toString() : undefined;
-    obj.holdings_allocation = message.holdingsAllocation ? message.holdingsAllocation.toString() : undefined;
-    obj.last_epoch_height = message.lastEpochHeight ? message.lastEpochHeight.toString() : undefined;
+    obj.multi_send = message.multi_send;
+    obj.liquidity_module = message.liquidity_module;
+    obj.withdrawal_waitgroup = message.withdrawal_waitgroup;
+    obj.ibc_next_validators_hash = message.ibc_next_validators_hash;
+    obj.validator_selection_allocation = message.validator_selection_allocation ? message.validator_selection_allocation.toString() : undefined;
+    obj.holdings_allocation = message.holdings_allocation ? message.holdings_allocation.toString() : undefined;
+    obj.last_epoch_height = message.last_epoch_height ? message.last_epoch_height.toString() : undefined;
     obj.tvl = message.tvl;
-    obj.unbonding_period = message.unbondingPeriod ? message.unbondingPeriod.toString() : undefined;
-    obj.messages_per_tx = message.messagesPerTx ? message.messagesPerTx.toString() : undefined;
+    obj.unbonding_period = message.unbonding_period ? message.unbonding_period.toString() : undefined;
+    obj.messages_per_tx = message.messages_per_tx ? message.messages_per_tx.toString() : undefined;
     obj.decimals = message.decimals ? message.decimals.toString() : undefined;
-    obj.unbonding_enabled = message.unbondingEnabled;
-    obj.deposits_enabled = message.depositsEnabled;
-    obj.return_to_sender = message.returnToSender;
-    obj.is_118 = message.is118;
+    obj.unbonding_enabled = message.unbonding_enabled;
+    obj.deposits_enabled = message.deposits_enabled;
+    obj.return_to_sender = message.return_to_sender;
+    obj.is_118 = message.is_118;
     obj.subzoneInfo = message.subzoneInfo ? SubzoneInfo.toAmino(message.subzoneInfo) : undefined;
     return obj;
   },
@@ -930,7 +930,7 @@ export const Zone = {
 function createBaseSubzoneInfo(): SubzoneInfo {
   return {
     authority: "",
-    baseChainID: ""
+    base_chainID: ""
   };
 }
 export const SubzoneInfo = {
@@ -939,8 +939,8 @@ export const SubzoneInfo = {
     if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
-    if (message.baseChainID !== "") {
-      writer.uint32(18).string(message.baseChainID);
+    if (message.base_chainID !== "") {
+      writer.uint32(18).string(message.base_chainID);
     }
     return writer;
   },
@@ -955,7 +955,7 @@ export const SubzoneInfo = {
           message.authority = reader.string();
           break;
         case 2:
-          message.baseChainID = reader.string();
+          message.base_chainID = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -967,31 +967,31 @@ export const SubzoneInfo = {
   fromJSON(object: any): SubzoneInfo {
     return {
       authority: isSet(object.authority) ? String(object.authority) : "",
-      baseChainID: isSet(object.baseChainID) ? String(object.baseChainID) : ""
+      base_chainID: isSet(object.base_chainID) ? String(object.base_chainID) : ""
     };
   },
   toJSON(message: SubzoneInfo): unknown {
     const obj: any = {};
     message.authority !== undefined && (obj.authority = message.authority);
-    message.baseChainID !== undefined && (obj.baseChainID = message.baseChainID);
+    message.base_chainID !== undefined && (obj.base_chainID = message.base_chainID);
     return obj;
   },
   fromPartial(object: DeepPartial<SubzoneInfo>): SubzoneInfo {
     const message = createBaseSubzoneInfo();
     message.authority = object.authority ?? "";
-    message.baseChainID = object.baseChainID ?? "";
+    message.base_chainID = object.base_chainID ?? "";
     return message;
   },
   fromAmino(object: SubzoneInfoAmino): SubzoneInfo {
     return {
       authority: object.authority,
-      baseChainID: object.base_chainID
+      base_chainID: object.base_chainID
     };
   },
   toAmino(message: SubzoneInfo): SubzoneInfoAmino {
     const obj: any = {};
     obj.authority = message.authority;
-    obj.base_chainID = message.baseChainID;
+    obj.base_chainID = message.base_chainID;
     return obj;
   },
   fromAminoMsg(object: SubzoneInfoAminoMsg): SubzoneInfo {
@@ -1012,22 +1012,22 @@ export const SubzoneInfo = {
 };
 function createBaseLsmCaps(): LsmCaps {
   return {
-    validatorCap: "",
-    validatorBondCap: "",
-    globalCap: ""
+    validator_cap: "",
+    validator_bond_cap: "",
+    global_cap: ""
   };
 }
 export const LsmCaps = {
   typeUrl: "/quicksilver.interchainstaking.v1.LsmCaps",
   encode(message: LsmCaps, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorCap !== "") {
-      writer.uint32(10).string(message.validatorCap);
+    if (message.validator_cap !== "") {
+      writer.uint32(10).string(message.validator_cap);
     }
-    if (message.validatorBondCap !== "") {
-      writer.uint32(18).string(message.validatorBondCap);
+    if (message.validator_bond_cap !== "") {
+      writer.uint32(18).string(message.validator_bond_cap);
     }
-    if (message.globalCap !== "") {
-      writer.uint32(26).string(message.globalCap);
+    if (message.global_cap !== "") {
+      writer.uint32(26).string(message.global_cap);
     }
     return writer;
   },
@@ -1039,13 +1039,13 @@ export const LsmCaps = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorCap = reader.string();
+          message.validator_cap = reader.string();
           break;
         case 2:
-          message.validatorBondCap = reader.string();
+          message.validator_bond_cap = reader.string();
           break;
         case 3:
-          message.globalCap = reader.string();
+          message.global_cap = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1056,37 +1056,37 @@ export const LsmCaps = {
   },
   fromJSON(object: any): LsmCaps {
     return {
-      validatorCap: isSet(object.validatorCap) ? String(object.validatorCap) : "",
-      validatorBondCap: isSet(object.validatorBondCap) ? String(object.validatorBondCap) : "",
-      globalCap: isSet(object.globalCap) ? String(object.globalCap) : ""
+      validator_cap: isSet(object.validator_cap) ? String(object.validator_cap) : "",
+      validator_bond_cap: isSet(object.validator_bond_cap) ? String(object.validator_bond_cap) : "",
+      global_cap: isSet(object.global_cap) ? String(object.global_cap) : ""
     };
   },
   toJSON(message: LsmCaps): unknown {
     const obj: any = {};
-    message.validatorCap !== undefined && (obj.validatorCap = message.validatorCap);
-    message.validatorBondCap !== undefined && (obj.validatorBondCap = message.validatorBondCap);
-    message.globalCap !== undefined && (obj.globalCap = message.globalCap);
+    message.validator_cap !== undefined && (obj.validator_cap = message.validator_cap);
+    message.validator_bond_cap !== undefined && (obj.validator_bond_cap = message.validator_bond_cap);
+    message.global_cap !== undefined && (obj.global_cap = message.global_cap);
     return obj;
   },
   fromPartial(object: DeepPartial<LsmCaps>): LsmCaps {
     const message = createBaseLsmCaps();
-    message.validatorCap = object.validatorCap ?? "";
-    message.validatorBondCap = object.validatorBondCap ?? "";
-    message.globalCap = object.globalCap ?? "";
+    message.validator_cap = object.validator_cap ?? "";
+    message.validator_bond_cap = object.validator_bond_cap ?? "";
+    message.global_cap = object.global_cap ?? "";
     return message;
   },
   fromAmino(object: LsmCapsAmino): LsmCaps {
     return {
-      validatorCap: object.validator_cap,
-      validatorBondCap: object.validator_bond_cap,
-      globalCap: object.global_cap
+      validator_cap: object.validator_cap,
+      validator_bond_cap: object.validator_bond_cap,
+      global_cap: object.global_cap
     };
   },
   toAmino(message: LsmCaps): LsmCapsAmino {
     const obj: any = {};
-    obj.validator_cap = message.validatorCap;
-    obj.validator_bond_cap = message.validatorBondCap;
-    obj.global_cap = message.globalCap;
+    obj.validator_cap = message.validator_cap;
+    obj.validator_bond_cap = message.validator_bond_cap;
+    obj.global_cap = message.global_cap;
     return obj;
   },
   fromAminoMsg(object: LsmCapsAminoMsg): LsmCaps {
@@ -1109,9 +1109,9 @@ function createBaseICAAccount(): ICAAccount {
   return {
     address: "",
     balance: [],
-    portName: "",
-    withdrawalAddress: "",
-    balanceWaitgroup: 0
+    port_name: "",
+    withdrawal_address: "",
+    balance_waitgroup: 0
   };
 }
 export const ICAAccount = {
@@ -1123,14 +1123,14 @@ export const ICAAccount = {
     for (const v of message.balance) {
       Coin.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.portName !== "") {
-      writer.uint32(26).string(message.portName);
+    if (message.port_name !== "") {
+      writer.uint32(26).string(message.port_name);
     }
-    if (message.withdrawalAddress !== "") {
-      writer.uint32(34).string(message.withdrawalAddress);
+    if (message.withdrawal_address !== "") {
+      writer.uint32(34).string(message.withdrawal_address);
     }
-    if (message.balanceWaitgroup !== 0) {
-      writer.uint32(40).uint32(message.balanceWaitgroup);
+    if (message.balance_waitgroup !== 0) {
+      writer.uint32(40).uint32(message.balance_waitgroup);
     }
     return writer;
   },
@@ -1148,13 +1148,13 @@ export const ICAAccount = {
           message.balance.push(Coin.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.portName = reader.string();
+          message.port_name = reader.string();
           break;
         case 4:
-          message.withdrawalAddress = reader.string();
+          message.withdrawal_address = reader.string();
           break;
         case 5:
-          message.balanceWaitgroup = reader.uint32();
+          message.balance_waitgroup = reader.uint32();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1167,9 +1167,9 @@ export const ICAAccount = {
     return {
       address: isSet(object.address) ? String(object.address) : "",
       balance: Array.isArray(object?.balance) ? object.balance.map((e: any) => Coin.fromJSON(e)) : [],
-      portName: isSet(object.portName) ? String(object.portName) : "",
-      withdrawalAddress: isSet(object.withdrawalAddress) ? String(object.withdrawalAddress) : "",
-      balanceWaitgroup: isSet(object.balanceWaitgroup) ? Number(object.balanceWaitgroup) : 0
+      port_name: isSet(object.port_name) ? String(object.port_name) : "",
+      withdrawal_address: isSet(object.withdrawal_address) ? String(object.withdrawal_address) : "",
+      balance_waitgroup: isSet(object.balance_waitgroup) ? Number(object.balance_waitgroup) : 0
     };
   },
   toJSON(message: ICAAccount): unknown {
@@ -1180,27 +1180,27 @@ export const ICAAccount = {
     } else {
       obj.balance = [];
     }
-    message.portName !== undefined && (obj.portName = message.portName);
-    message.withdrawalAddress !== undefined && (obj.withdrawalAddress = message.withdrawalAddress);
-    message.balanceWaitgroup !== undefined && (obj.balanceWaitgroup = Math.round(message.balanceWaitgroup));
+    message.port_name !== undefined && (obj.port_name = message.port_name);
+    message.withdrawal_address !== undefined && (obj.withdrawal_address = message.withdrawal_address);
+    message.balance_waitgroup !== undefined && (obj.balance_waitgroup = Math.round(message.balance_waitgroup));
     return obj;
   },
   fromPartial(object: DeepPartial<ICAAccount>): ICAAccount {
     const message = createBaseICAAccount();
     message.address = object.address ?? "";
     message.balance = object.balance?.map(e => Coin.fromPartial(e)) || [];
-    message.portName = object.portName ?? "";
-    message.withdrawalAddress = object.withdrawalAddress ?? "";
-    message.balanceWaitgroup = object.balanceWaitgroup ?? 0;
+    message.port_name = object.port_name ?? "";
+    message.withdrawal_address = object.withdrawal_address ?? "";
+    message.balance_waitgroup = object.balance_waitgroup ?? 0;
     return message;
   },
   fromAmino(object: ICAAccountAmino): ICAAccount {
     return {
       address: object.address,
       balance: Array.isArray(object?.balance) ? object.balance.map((e: any) => Coin.fromAmino(e)) : [],
-      portName: object.port_name,
-      withdrawalAddress: object.withdrawal_address,
-      balanceWaitgroup: object.balance_waitgroup
+      port_name: object.port_name,
+      withdrawal_address: object.withdrawal_address,
+      balance_waitgroup: object.balance_waitgroup
     };
   },
   toAmino(message: ICAAccount): ICAAccountAmino {
@@ -1211,9 +1211,9 @@ export const ICAAccount = {
     } else {
       obj.balance = [];
     }
-    obj.port_name = message.portName;
-    obj.withdrawal_address = message.withdrawalAddress;
-    obj.balance_waitgroup = message.balanceWaitgroup;
+    obj.port_name = message.port_name;
+    obj.withdrawal_address = message.withdrawal_address;
+    obj.balance_waitgroup = message.balance_waitgroup;
     return obj;
   },
   fromAminoMsg(object: ICAAccountAminoMsg): ICAAccount {
@@ -1317,25 +1317,25 @@ export const Distribution = {
 };
 function createBaseWithdrawalRecord(): WithdrawalRecord {
   return {
-    chainId: "",
+    chain_id: "",
     delegator: "",
     distribution: [],
     recipient: "",
     amount: [],
-    burnAmount: Coin.fromPartial({}),
+    burn_amount: Coin.fromPartial({}),
     txhash: "",
     status: 0,
-    completionTime: new Date(),
+    completion_time: new Date(),
     requeued: false,
     acknowledged: false,
-    epochNumber: Long.ZERO
+    epoch_number: Long.ZERO
   };
 }
 export const WithdrawalRecord = {
   typeUrl: "/quicksilver.interchainstaking.v1.WithdrawalRecord",
   encode(message: WithdrawalRecord, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.delegator !== "") {
       writer.uint32(18).string(message.delegator);
@@ -1349,8 +1349,8 @@ export const WithdrawalRecord = {
     for (const v of message.amount) {
       Coin.encode(v!, writer.uint32(42).fork()).ldelim();
     }
-    if (message.burnAmount !== undefined) {
-      Coin.encode(message.burnAmount, writer.uint32(50).fork()).ldelim();
+    if (message.burn_amount !== undefined) {
+      Coin.encode(message.burn_amount, writer.uint32(50).fork()).ldelim();
     }
     if (message.txhash !== "") {
       writer.uint32(58).string(message.txhash);
@@ -1358,8 +1358,8 @@ export const WithdrawalRecord = {
     if (message.status !== 0) {
       writer.uint32(64).int32(message.status);
     }
-    if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(74).fork()).ldelim();
+    if (message.completion_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.completion_time), writer.uint32(74).fork()).ldelim();
     }
     if (message.requeued === true) {
       writer.uint32(80).bool(message.requeued);
@@ -1367,8 +1367,8 @@ export const WithdrawalRecord = {
     if (message.acknowledged === true) {
       writer.uint32(88).bool(message.acknowledged);
     }
-    if (!message.epochNumber.isZero()) {
-      writer.uint32(96).int64(message.epochNumber);
+    if (!message.epoch_number.isZero()) {
+      writer.uint32(96).int64(message.epoch_number);
     }
     return writer;
   },
@@ -1380,7 +1380,7 @@ export const WithdrawalRecord = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.delegator = reader.string();
@@ -1395,7 +1395,7 @@ export const WithdrawalRecord = {
           message.amount.push(Coin.decode(reader, reader.uint32()));
           break;
         case 6:
-          message.burnAmount = Coin.decode(reader, reader.uint32());
+          message.burn_amount = Coin.decode(reader, reader.uint32());
           break;
         case 7:
           message.txhash = reader.string();
@@ -1404,7 +1404,7 @@ export const WithdrawalRecord = {
           message.status = reader.int32();
           break;
         case 9:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completion_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 10:
           message.requeued = reader.bool();
@@ -1413,7 +1413,7 @@ export const WithdrawalRecord = {
           message.acknowledged = reader.bool();
           break;
         case 12:
-          message.epochNumber = (reader.int64() as Long);
+          message.epoch_number = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1424,23 +1424,23 @@ export const WithdrawalRecord = {
   },
   fromJSON(object: any): WithdrawalRecord {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
       distribution: Array.isArray(object?.distribution) ? object.distribution.map((e: any) => Distribution.fromJSON(e)) : [],
       recipient: isSet(object.recipient) ? String(object.recipient) : "",
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : [],
-      burnAmount: isSet(object.burnAmount) ? Coin.fromJSON(object.burnAmount) : undefined,
+      burn_amount: isSet(object.burn_amount) ? Coin.fromJSON(object.burn_amount) : undefined,
       txhash: isSet(object.txhash) ? String(object.txhash) : "",
       status: isSet(object.status) ? Number(object.status) : 0,
-      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined,
+      completion_time: isSet(object.completion_time) ? fromJsonTimestamp(object.completion_time) : undefined,
       requeued: isSet(object.requeued) ? Boolean(object.requeued) : false,
       acknowledged: isSet(object.acknowledged) ? Boolean(object.acknowledged) : false,
-      epochNumber: isSet(object.epochNumber) ? Long.fromValue(object.epochNumber) : Long.ZERO
+      epoch_number: isSet(object.epoch_number) ? Long.fromValue(object.epoch_number) : Long.ZERO
     };
   },
   toJSON(message: WithdrawalRecord): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.delegator !== undefined && (obj.delegator = message.delegator);
     if (message.distribution) {
       obj.distribution = message.distribution.map(e => e ? Distribution.toJSON(e) : undefined);
@@ -1453,50 +1453,50 @@ export const WithdrawalRecord = {
     } else {
       obj.amount = [];
     }
-    message.burnAmount !== undefined && (obj.burnAmount = message.burnAmount ? Coin.toJSON(message.burnAmount) : undefined);
+    message.burn_amount !== undefined && (obj.burn_amount = message.burn_amount ? Coin.toJSON(message.burn_amount) : undefined);
     message.txhash !== undefined && (obj.txhash = message.txhash);
     message.status !== undefined && (obj.status = Math.round(message.status));
-    message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
+    message.completion_time !== undefined && (obj.completion_time = message.completion_time.toISOString());
     message.requeued !== undefined && (obj.requeued = message.requeued);
     message.acknowledged !== undefined && (obj.acknowledged = message.acknowledged);
-    message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || Long.ZERO).toString());
+    message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<WithdrawalRecord>): WithdrawalRecord {
     const message = createBaseWithdrawalRecord();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.delegator = object.delegator ?? "";
     message.distribution = object.distribution?.map(e => Distribution.fromPartial(e)) || [];
     message.recipient = object.recipient ?? "";
     message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
-    message.burnAmount = object.burnAmount !== undefined && object.burnAmount !== null ? Coin.fromPartial(object.burnAmount) : undefined;
+    message.burn_amount = object.burn_amount !== undefined && object.burn_amount !== null ? Coin.fromPartial(object.burn_amount) : undefined;
     message.txhash = object.txhash ?? "";
     message.status = object.status ?? 0;
-    message.completionTime = object.completionTime ?? undefined;
+    message.completion_time = object.completion_time ?? undefined;
     message.requeued = object.requeued ?? false;
     message.acknowledged = object.acknowledged ?? false;
-    message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? Long.fromValue(object.epochNumber) : Long.ZERO;
+    message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? Long.fromValue(object.epoch_number) : Long.ZERO;
     return message;
   },
   fromAmino(object: WithdrawalRecordAmino): WithdrawalRecord {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       delegator: object.delegator,
       distribution: Array.isArray(object?.distribution) ? object.distribution.map((e: any) => Distribution.fromAmino(e)) : [],
       recipient: object.recipient,
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromAmino(e)) : [],
-      burnAmount: object?.burn_amount ? Coin.fromAmino(object.burn_amount) : undefined,
+      burn_amount: object?.burn_amount ? Coin.fromAmino(object.burn_amount) : undefined,
       txhash: object.txhash,
       status: object.status,
-      completionTime: object.completion_time,
+      completion_time: object.completion_time,
       requeued: object.requeued,
       acknowledged: object.acknowledged,
-      epochNumber: Long.fromString(object.epoch_number)
+      epoch_number: Long.fromString(object.epoch_number)
     };
   },
   toAmino(message: WithdrawalRecord): WithdrawalRecordAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.delegator = message.delegator;
     if (message.distribution) {
       obj.distribution = message.distribution.map(e => e ? Distribution.toAmino(e) : undefined);
@@ -1509,13 +1509,13 @@ export const WithdrawalRecord = {
     } else {
       obj.amount = [];
     }
-    obj.burn_amount = message.burnAmount ? Coin.toAmino(message.burnAmount) : undefined;
+    obj.burn_amount = message.burn_amount ? Coin.toAmino(message.burn_amount) : undefined;
     obj.txhash = message.txhash;
     obj.status = message.status;
-    obj.completion_time = message.completionTime;
+    obj.completion_time = message.completion_time;
     obj.requeued = message.requeued;
     obj.acknowledged = message.acknowledged;
-    obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+    obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: WithdrawalRecordAminoMsg): WithdrawalRecord {
@@ -1536,25 +1536,25 @@ export const WithdrawalRecord = {
 };
 function createBaseUnbondingRecord(): UnbondingRecord {
   return {
-    chainId: "",
-    epochNumber: Long.ZERO,
+    chain_id: "",
+    epoch_number: Long.ZERO,
     validator: "",
-    relatedTxhash: []
+    related_txhash: []
   };
 }
 export const UnbondingRecord = {
   typeUrl: "/quicksilver.interchainstaking.v1.UnbondingRecord",
   encode(message: UnbondingRecord, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (!message.epochNumber.isZero()) {
-      writer.uint32(16).int64(message.epochNumber);
+    if (!message.epoch_number.isZero()) {
+      writer.uint32(16).int64(message.epoch_number);
     }
     if (message.validator !== "") {
       writer.uint32(26).string(message.validator);
     }
-    for (const v of message.relatedTxhash) {
+    for (const v of message.related_txhash) {
       writer.uint32(34).string(v!);
     }
     return writer;
@@ -1567,16 +1567,16 @@ export const UnbondingRecord = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.epochNumber = (reader.int64() as Long);
+          message.epoch_number = (reader.int64() as Long);
           break;
         case 3:
           message.validator = reader.string();
           break;
         case 4:
-          message.relatedTxhash.push(reader.string());
+          message.related_txhash.push(reader.string());
           break;
         default:
           reader.skipType(tag & 7);
@@ -1587,47 +1587,47 @@ export const UnbondingRecord = {
   },
   fromJSON(object: any): UnbondingRecord {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      epochNumber: isSet(object.epochNumber) ? Long.fromValue(object.epochNumber) : Long.ZERO,
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      epoch_number: isSet(object.epoch_number) ? Long.fromValue(object.epoch_number) : Long.ZERO,
       validator: isSet(object.validator) ? String(object.validator) : "",
-      relatedTxhash: Array.isArray(object?.relatedTxhash) ? object.relatedTxhash.map((e: any) => String(e)) : []
+      related_txhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e: any) => String(e)) : []
     };
   },
   toJSON(message: UnbondingRecord): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || Long.ZERO).toString());
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || Long.ZERO).toString());
     message.validator !== undefined && (obj.validator = message.validator);
-    if (message.relatedTxhash) {
-      obj.relatedTxhash = message.relatedTxhash.map(e => e);
+    if (message.related_txhash) {
+      obj.related_txhash = message.related_txhash.map(e => e);
     } else {
-      obj.relatedTxhash = [];
+      obj.related_txhash = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<UnbondingRecord>): UnbondingRecord {
     const message = createBaseUnbondingRecord();
-    message.chainId = object.chainId ?? "";
-    message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? Long.fromValue(object.epochNumber) : Long.ZERO;
+    message.chain_id = object.chain_id ?? "";
+    message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? Long.fromValue(object.epoch_number) : Long.ZERO;
     message.validator = object.validator ?? "";
-    message.relatedTxhash = object.relatedTxhash?.map(e => e) || [];
+    message.related_txhash = object.related_txhash?.map(e => e) || [];
     return message;
   },
   fromAmino(object: UnbondingRecordAmino): UnbondingRecord {
     return {
-      chainId: object.chain_id,
-      epochNumber: Long.fromString(object.epoch_number),
+      chain_id: object.chain_id,
+      epoch_number: Long.fromString(object.epoch_number),
       validator: object.validator,
-      relatedTxhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e: any) => e) : []
+      related_txhash: Array.isArray(object?.related_txhash) ? object.related_txhash.map((e: any) => e) : []
     };
   },
   toAmino(message: UnbondingRecord): UnbondingRecordAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+    obj.chain_id = message.chain_id;
+    obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
     obj.validator = message.validator;
-    if (message.relatedTxhash) {
-      obj.related_txhash = message.relatedTxhash.map(e => e);
+    if (message.related_txhash) {
+      obj.related_txhash = message.related_txhash.map(e => e);
     } else {
       obj.related_txhash = [];
     }
@@ -1651,22 +1651,22 @@ export const UnbondingRecord = {
 };
 function createBaseRedelegationRecord(): RedelegationRecord {
   return {
-    chainId: "",
-    epochNumber: Long.ZERO,
+    chain_id: "",
+    epoch_number: Long.ZERO,
     source: "",
     destination: "",
     amount: Long.ZERO,
-    completionTime: new Date()
+    completion_time: new Date()
   };
 }
 export const RedelegationRecord = {
   typeUrl: "/quicksilver.interchainstaking.v1.RedelegationRecord",
   encode(message: RedelegationRecord, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (!message.epochNumber.isZero()) {
-      writer.uint32(16).int64(message.epochNumber);
+    if (!message.epoch_number.isZero()) {
+      writer.uint32(16).int64(message.epoch_number);
     }
     if (message.source !== "") {
       writer.uint32(26).string(message.source);
@@ -1677,8 +1677,8 @@ export const RedelegationRecord = {
     if (!message.amount.isZero()) {
       writer.uint32(40).int64(message.amount);
     }
-    if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(50).fork()).ldelim();
+    if (message.completion_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.completion_time), writer.uint32(50).fork()).ldelim();
     }
     return writer;
   },
@@ -1690,10 +1690,10 @@ export const RedelegationRecord = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.epochNumber = (reader.int64() as Long);
+          message.epoch_number = (reader.int64() as Long);
           break;
         case 3:
           message.source = reader.string();
@@ -1705,7 +1705,7 @@ export const RedelegationRecord = {
           message.amount = (reader.int64() as Long);
           break;
         case 6:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.completion_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -1716,52 +1716,52 @@ export const RedelegationRecord = {
   },
   fromJSON(object: any): RedelegationRecord {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      epochNumber: isSet(object.epochNumber) ? Long.fromValue(object.epochNumber) : Long.ZERO,
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      epoch_number: isSet(object.epoch_number) ? Long.fromValue(object.epoch_number) : Long.ZERO,
       source: isSet(object.source) ? String(object.source) : "",
       destination: isSet(object.destination) ? String(object.destination) : "",
       amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.ZERO,
-      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined
+      completion_time: isSet(object.completion_time) ? fromJsonTimestamp(object.completion_time) : undefined
     };
   },
   toJSON(message: RedelegationRecord): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.epochNumber !== undefined && (obj.epochNumber = (message.epochNumber || Long.ZERO).toString());
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.epoch_number !== undefined && (obj.epoch_number = (message.epoch_number || Long.ZERO).toString());
     message.source !== undefined && (obj.source = message.source);
     message.destination !== undefined && (obj.destination = message.destination);
     message.amount !== undefined && (obj.amount = (message.amount || Long.ZERO).toString());
-    message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
+    message.completion_time !== undefined && (obj.completion_time = message.completion_time.toISOString());
     return obj;
   },
   fromPartial(object: DeepPartial<RedelegationRecord>): RedelegationRecord {
     const message = createBaseRedelegationRecord();
-    message.chainId = object.chainId ?? "";
-    message.epochNumber = object.epochNumber !== undefined && object.epochNumber !== null ? Long.fromValue(object.epochNumber) : Long.ZERO;
+    message.chain_id = object.chain_id ?? "";
+    message.epoch_number = object.epoch_number !== undefined && object.epoch_number !== null ? Long.fromValue(object.epoch_number) : Long.ZERO;
     message.source = object.source ?? "";
     message.destination = object.destination ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.ZERO;
-    message.completionTime = object.completionTime ?? undefined;
+    message.completion_time = object.completion_time ?? undefined;
     return message;
   },
   fromAmino(object: RedelegationRecordAmino): RedelegationRecord {
     return {
-      chainId: object.chain_id,
-      epochNumber: Long.fromString(object.epoch_number),
+      chain_id: object.chain_id,
+      epoch_number: Long.fromString(object.epoch_number),
       source: object.source,
       destination: object.destination,
       amount: Long.fromString(object.amount),
-      completionTime: object.completion_time
+      completion_time: object.completion_time
     };
   },
   toAmino(message: RedelegationRecord): RedelegationRecordAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.epoch_number = message.epochNumber ? message.epochNumber.toString() : undefined;
+    obj.chain_id = message.chain_id;
+    obj.epoch_number = message.epoch_number ? message.epoch_number.toString() : undefined;
     obj.source = message.source;
     obj.destination = message.destination;
     obj.amount = message.amount ? message.amount.toString() : undefined;
-    obj.completion_time = message.completionTime;
+    obj.completion_time = message.completion_time;
     return obj;
   },
   fromAminoMsg(object: RedelegationRecordAminoMsg): RedelegationRecord {
@@ -1877,33 +1877,33 @@ export const TransferRecord = {
 };
 function createBaseValidator(): Validator {
   return {
-    valoperAddress: "",
-    commissionRate: "",
-    delegatorShares: "",
-    votingPower: "",
+    valoper_address: "",
+    commission_rate: "",
+    delegator_shares: "",
+    voting_power: "",
     score: "",
     status: "",
     jailed: false,
     tombstoned: false,
-    jailedSince: new Date(),
-    validatorBondShares: "",
-    liquidShares: ""
+    jailed_since: new Date(),
+    validator_bond_shares: "",
+    liquid_shares: ""
   };
 }
 export const Validator = {
   typeUrl: "/quicksilver.interchainstaking.v1.Validator",
   encode(message: Validator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.valoperAddress !== "") {
-      writer.uint32(10).string(message.valoperAddress);
+    if (message.valoper_address !== "") {
+      writer.uint32(10).string(message.valoper_address);
     }
-    if (message.commissionRate !== "") {
-      writer.uint32(18).string(message.commissionRate);
+    if (message.commission_rate !== "") {
+      writer.uint32(18).string(message.commission_rate);
     }
-    if (message.delegatorShares !== "") {
-      writer.uint32(26).string(message.delegatorShares);
+    if (message.delegator_shares !== "") {
+      writer.uint32(26).string(message.delegator_shares);
     }
-    if (message.votingPower !== "") {
-      writer.uint32(34).string(message.votingPower);
+    if (message.voting_power !== "") {
+      writer.uint32(34).string(message.voting_power);
     }
     if (message.score !== "") {
       writer.uint32(42).string(message.score);
@@ -1917,14 +1917,14 @@ export const Validator = {
     if (message.tombstoned === true) {
       writer.uint32(64).bool(message.tombstoned);
     }
-    if (message.jailedSince !== undefined) {
-      Timestamp.encode(toTimestamp(message.jailedSince), writer.uint32(74).fork()).ldelim();
+    if (message.jailed_since !== undefined) {
+      Timestamp.encode(toTimestamp(message.jailed_since), writer.uint32(74).fork()).ldelim();
     }
-    if (message.validatorBondShares !== "") {
-      writer.uint32(82).string(message.validatorBondShares);
+    if (message.validator_bond_shares !== "") {
+      writer.uint32(82).string(message.validator_bond_shares);
     }
-    if (message.liquidShares !== "") {
-      writer.uint32(90).string(message.liquidShares);
+    if (message.liquid_shares !== "") {
+      writer.uint32(90).string(message.liquid_shares);
     }
     return writer;
   },
@@ -1936,16 +1936,16 @@ export const Validator = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.valoperAddress = reader.string();
+          message.valoper_address = reader.string();
           break;
         case 2:
-          message.commissionRate = reader.string();
+          message.commission_rate = reader.string();
           break;
         case 3:
-          message.delegatorShares = reader.string();
+          message.delegator_shares = reader.string();
           break;
         case 4:
-          message.votingPower = reader.string();
+          message.voting_power = reader.string();
           break;
         case 5:
           message.score = reader.string();
@@ -1960,13 +1960,13 @@ export const Validator = {
           message.tombstoned = reader.bool();
           break;
         case 9:
-          message.jailedSince = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.jailed_since = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 10:
-          message.validatorBondShares = reader.string();
+          message.validator_bond_shares = reader.string();
           break;
         case 11:
-          message.liquidShares = reader.string();
+          message.liquid_shares = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1977,77 +1977,77 @@ export const Validator = {
   },
   fromJSON(object: any): Validator {
     return {
-      valoperAddress: isSet(object.valoperAddress) ? String(object.valoperAddress) : "",
-      commissionRate: isSet(object.commissionRate) ? String(object.commissionRate) : "",
-      delegatorShares: isSet(object.delegatorShares) ? String(object.delegatorShares) : "",
-      votingPower: isSet(object.votingPower) ? String(object.votingPower) : "",
+      valoper_address: isSet(object.valoper_address) ? String(object.valoper_address) : "",
+      commission_rate: isSet(object.commission_rate) ? String(object.commission_rate) : "",
+      delegator_shares: isSet(object.delegator_shares) ? String(object.delegator_shares) : "",
+      voting_power: isSet(object.voting_power) ? String(object.voting_power) : "",
       score: isSet(object.score) ? String(object.score) : "",
       status: isSet(object.status) ? String(object.status) : "",
       jailed: isSet(object.jailed) ? Boolean(object.jailed) : false,
       tombstoned: isSet(object.tombstoned) ? Boolean(object.tombstoned) : false,
-      jailedSince: isSet(object.jailedSince) ? fromJsonTimestamp(object.jailedSince) : undefined,
-      validatorBondShares: isSet(object.validatorBondShares) ? String(object.validatorBondShares) : "",
-      liquidShares: isSet(object.liquidShares) ? String(object.liquidShares) : ""
+      jailed_since: isSet(object.jailed_since) ? fromJsonTimestamp(object.jailed_since) : undefined,
+      validator_bond_shares: isSet(object.validator_bond_shares) ? String(object.validator_bond_shares) : "",
+      liquid_shares: isSet(object.liquid_shares) ? String(object.liquid_shares) : ""
     };
   },
   toJSON(message: Validator): unknown {
     const obj: any = {};
-    message.valoperAddress !== undefined && (obj.valoperAddress = message.valoperAddress);
-    message.commissionRate !== undefined && (obj.commissionRate = message.commissionRate);
-    message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares);
-    message.votingPower !== undefined && (obj.votingPower = message.votingPower);
+    message.valoper_address !== undefined && (obj.valoper_address = message.valoper_address);
+    message.commission_rate !== undefined && (obj.commission_rate = message.commission_rate);
+    message.delegator_shares !== undefined && (obj.delegator_shares = message.delegator_shares);
+    message.voting_power !== undefined && (obj.voting_power = message.voting_power);
     message.score !== undefined && (obj.score = message.score);
     message.status !== undefined && (obj.status = message.status);
     message.jailed !== undefined && (obj.jailed = message.jailed);
     message.tombstoned !== undefined && (obj.tombstoned = message.tombstoned);
-    message.jailedSince !== undefined && (obj.jailedSince = message.jailedSince.toISOString());
-    message.validatorBondShares !== undefined && (obj.validatorBondShares = message.validatorBondShares);
-    message.liquidShares !== undefined && (obj.liquidShares = message.liquidShares);
+    message.jailed_since !== undefined && (obj.jailed_since = message.jailed_since.toISOString());
+    message.validator_bond_shares !== undefined && (obj.validator_bond_shares = message.validator_bond_shares);
+    message.liquid_shares !== undefined && (obj.liquid_shares = message.liquid_shares);
     return obj;
   },
   fromPartial(object: DeepPartial<Validator>): Validator {
     const message = createBaseValidator();
-    message.valoperAddress = object.valoperAddress ?? "";
-    message.commissionRate = object.commissionRate ?? "";
-    message.delegatorShares = object.delegatorShares ?? "";
-    message.votingPower = object.votingPower ?? "";
+    message.valoper_address = object.valoper_address ?? "";
+    message.commission_rate = object.commission_rate ?? "";
+    message.delegator_shares = object.delegator_shares ?? "";
+    message.voting_power = object.voting_power ?? "";
     message.score = object.score ?? "";
     message.status = object.status ?? "";
     message.jailed = object.jailed ?? false;
     message.tombstoned = object.tombstoned ?? false;
-    message.jailedSince = object.jailedSince ?? undefined;
-    message.validatorBondShares = object.validatorBondShares ?? "";
-    message.liquidShares = object.liquidShares ?? "";
+    message.jailed_since = object.jailed_since ?? undefined;
+    message.validator_bond_shares = object.validator_bond_shares ?? "";
+    message.liquid_shares = object.liquid_shares ?? "";
     return message;
   },
   fromAmino(object: ValidatorAmino): Validator {
     return {
-      valoperAddress: object.valoper_address,
-      commissionRate: object.commission_rate,
-      delegatorShares: object.delegator_shares,
-      votingPower: object.voting_power,
+      valoper_address: object.valoper_address,
+      commission_rate: object.commission_rate,
+      delegator_shares: object.delegator_shares,
+      voting_power: object.voting_power,
       score: object.score,
       status: object.status,
       jailed: object.jailed,
       tombstoned: object.tombstoned,
-      jailedSince: object.jailed_since,
-      validatorBondShares: object.validator_bond_shares,
-      liquidShares: object.liquid_shares
+      jailed_since: object.jailed_since,
+      validator_bond_shares: object.validator_bond_shares,
+      liquid_shares: object.liquid_shares
     };
   },
   toAmino(message: Validator): ValidatorAmino {
     const obj: any = {};
-    obj.valoper_address = message.valoperAddress;
-    obj.commission_rate = message.commissionRate;
-    obj.delegator_shares = message.delegatorShares;
-    obj.voting_power = message.votingPower;
+    obj.valoper_address = message.valoper_address;
+    obj.commission_rate = message.commission_rate;
+    obj.delegator_shares = message.delegator_shares;
+    obj.voting_power = message.voting_power;
     obj.score = message.score;
     obj.status = message.status;
     obj.jailed = message.jailed;
     obj.tombstoned = message.tombstoned;
-    obj.jailed_since = message.jailedSince;
-    obj.validator_bond_shares = message.validatorBondShares;
-    obj.liquid_shares = message.liquidShares;
+    obj.jailed_since = message.jailed_since;
+    obj.validator_bond_shares = message.validator_bond_shares;
+    obj.liquid_shares = message.liquid_shares;
     return obj;
   },
   fromAminoMsg(object: ValidatorAminoMsg): Validator {
@@ -2159,15 +2159,15 @@ export const DelegatorIntent = {
 };
 function createBaseValidatorIntent(): ValidatorIntent {
   return {
-    valoperAddress: "",
+    valoper_address: "",
     weight: ""
   };
 }
 export const ValidatorIntent = {
   typeUrl: "/quicksilver.interchainstaking.v1.ValidatorIntent",
   encode(message: ValidatorIntent, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.valoperAddress !== "") {
-      writer.uint32(10).string(message.valoperAddress);
+    if (message.valoper_address !== "") {
+      writer.uint32(10).string(message.valoper_address);
     }
     if (message.weight !== "") {
       writer.uint32(18).string(message.weight);
@@ -2182,7 +2182,7 @@ export const ValidatorIntent = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.valoperAddress = reader.string();
+          message.valoper_address = reader.string();
           break;
         case 2:
           message.weight = reader.string();
@@ -2196,31 +2196,31 @@ export const ValidatorIntent = {
   },
   fromJSON(object: any): ValidatorIntent {
     return {
-      valoperAddress: isSet(object.valoper_address) ? String(object.valoper_address) : "",
+      valoper_address: isSet(object.valoper_address) ? String(object.valoper_address) : "",
       weight: isSet(object.weight) ? String(object.weight) : ""
     };
   },
   toJSON(message: ValidatorIntent): unknown {
     const obj: any = {};
-    message.valoperAddress !== undefined && (obj.valoper_address = message.valoperAddress);
+    message.valoper_address !== undefined && (obj.valoper_address = message.valoper_address);
     message.weight !== undefined && (obj.weight = message.weight);
     return obj;
   },
   fromPartial(object: DeepPartial<ValidatorIntent>): ValidatorIntent {
     const message = createBaseValidatorIntent();
-    message.valoperAddress = object.valoperAddress ?? "";
+    message.valoper_address = object.valoper_address ?? "";
     message.weight = object.weight ?? "";
     return message;
   },
   fromAmino(object: ValidatorIntentAmino): ValidatorIntent {
     return {
-      valoperAddress: object.valoper_address,
+      valoper_address: object.valoper_address,
       weight: object.weight
     };
   },
   toAmino(message: ValidatorIntent): ValidatorIntentAmino {
     const obj: any = {};
-    obj.valoper_address = message.valoperAddress;
+    obj.valoper_address = message.valoper_address;
     obj.weight = message.weight;
     return obj;
   },
@@ -2242,21 +2242,21 @@ export const ValidatorIntent = {
 };
 function createBaseDelegation(): Delegation {
   return {
-    delegationAddress: "",
-    validatorAddress: "",
+    delegation_address: "",
+    validator_address: "",
     amount: Coin.fromPartial({}),
     height: Long.ZERO,
-    redelegationEnd: Long.ZERO
+    redelegation_end: Long.ZERO
   };
 }
 export const Delegation = {
   typeUrl: "/quicksilver.interchainstaking.v1.Delegation",
   encode(message: Delegation, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegationAddress !== "") {
-      writer.uint32(10).string(message.delegationAddress);
+    if (message.delegation_address !== "") {
+      writer.uint32(10).string(message.delegation_address);
     }
-    if (message.validatorAddress !== "") {
-      writer.uint32(18).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(18).string(message.validator_address);
     }
     if (message.amount !== undefined) {
       Coin.encode(message.amount, writer.uint32(26).fork()).ldelim();
@@ -2264,8 +2264,8 @@ export const Delegation = {
     if (!message.height.isZero()) {
       writer.uint32(32).int64(message.height);
     }
-    if (!message.redelegationEnd.isZero()) {
-      writer.uint32(40).int64(message.redelegationEnd);
+    if (!message.redelegation_end.isZero()) {
+      writer.uint32(40).int64(message.redelegation_end);
     }
     return writer;
   },
@@ -2277,10 +2277,10 @@ export const Delegation = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegationAddress = reader.string();
+          message.delegation_address = reader.string();
           break;
         case 2:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         case 3:
           message.amount = Coin.decode(reader, reader.uint32());
@@ -2289,7 +2289,7 @@ export const Delegation = {
           message.height = (reader.int64() as Long);
           break;
         case 5:
-          message.redelegationEnd = (reader.int64() as Long);
+          message.redelegation_end = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -2300,47 +2300,47 @@ export const Delegation = {
   },
   fromJSON(object: any): Delegation {
     return {
-      delegationAddress: isSet(object.delegationAddress) ? String(object.delegationAddress) : "",
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+      delegation_address: isSet(object.delegation_address) ? String(object.delegation_address) : "",
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : "",
       amount: isSet(object.amount) ? Coin.fromJSON(object.amount) : undefined,
       height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
-      redelegationEnd: isSet(object.redelegationEnd) ? Long.fromValue(object.redelegationEnd) : Long.ZERO
+      redelegation_end: isSet(object.redelegation_end) ? Long.fromValue(object.redelegation_end) : Long.ZERO
     };
   },
   toJSON(message: Delegation): unknown {
     const obj: any = {};
-    message.delegationAddress !== undefined && (obj.delegationAddress = message.delegationAddress);
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.delegation_address !== undefined && (obj.delegation_address = message.delegation_address);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     message.amount !== undefined && (obj.amount = message.amount ? Coin.toJSON(message.amount) : undefined);
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
-    message.redelegationEnd !== undefined && (obj.redelegationEnd = (message.redelegationEnd || Long.ZERO).toString());
+    message.redelegation_end !== undefined && (obj.redelegation_end = (message.redelegation_end || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<Delegation>): Delegation {
     const message = createBaseDelegation();
-    message.delegationAddress = object.delegationAddress ?? "";
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.delegation_address = object.delegation_address ?? "";
+    message.validator_address = object.validator_address ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
-    message.redelegationEnd = object.redelegationEnd !== undefined && object.redelegationEnd !== null ? Long.fromValue(object.redelegationEnd) : Long.ZERO;
+    message.redelegation_end = object.redelegation_end !== undefined && object.redelegation_end !== null ? Long.fromValue(object.redelegation_end) : Long.ZERO;
     return message;
   },
   fromAmino(object: DelegationAmino): Delegation {
     return {
-      delegationAddress: object.delegation_address,
-      validatorAddress: object.validator_address,
+      delegation_address: object.delegation_address,
+      validator_address: object.validator_address,
       amount: object?.amount ? Coin.fromAmino(object.amount) : undefined,
       height: Long.fromString(object.height),
-      redelegationEnd: Long.fromString(object.redelegation_end)
+      redelegation_end: Long.fromString(object.redelegation_end)
     };
   },
   toAmino(message: Delegation): DelegationAmino {
     const obj: any = {};
-    obj.delegation_address = message.delegationAddress;
-    obj.validator_address = message.validatorAddress;
+    obj.delegation_address = message.delegation_address;
+    obj.validator_address = message.validator_address;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     obj.height = message.height ? message.height.toString() : undefined;
-    obj.redelegation_end = message.redelegationEnd ? message.redelegationEnd.toString() : undefined;
+    obj.redelegation_end = message.redelegation_end ? message.redelegation_end.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: DelegationAminoMsg): Delegation {
@@ -2361,18 +2361,18 @@ export const Delegation = {
 };
 function createBasePortConnectionTuple(): PortConnectionTuple {
   return {
-    connectionId: "",
-    portId: ""
+    connection_id: "",
+    port_id: ""
   };
 }
 export const PortConnectionTuple = {
   typeUrl: "/quicksilver.interchainstaking.v1.PortConnectionTuple",
   encode(message: PortConnectionTuple, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.connectionId !== "") {
-      writer.uint32(10).string(message.connectionId);
+    if (message.connection_id !== "") {
+      writer.uint32(10).string(message.connection_id);
     }
-    if (message.portId !== "") {
-      writer.uint32(18).string(message.portId);
+    if (message.port_id !== "") {
+      writer.uint32(18).string(message.port_id);
     }
     return writer;
   },
@@ -2384,10 +2384,10 @@ export const PortConnectionTuple = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.connectionId = reader.string();
+          message.connection_id = reader.string();
           break;
         case 2:
-          message.portId = reader.string();
+          message.port_id = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2398,32 +2398,32 @@ export const PortConnectionTuple = {
   },
   fromJSON(object: any): PortConnectionTuple {
     return {
-      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
-      portId: isSet(object.portId) ? String(object.portId) : ""
+      connection_id: isSet(object.connection_id) ? String(object.connection_id) : "",
+      port_id: isSet(object.port_id) ? String(object.port_id) : ""
     };
   },
   toJSON(message: PortConnectionTuple): unknown {
     const obj: any = {};
-    message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-    message.portId !== undefined && (obj.portId = message.portId);
+    message.connection_id !== undefined && (obj.connection_id = message.connection_id);
+    message.port_id !== undefined && (obj.port_id = message.port_id);
     return obj;
   },
   fromPartial(object: DeepPartial<PortConnectionTuple>): PortConnectionTuple {
     const message = createBasePortConnectionTuple();
-    message.connectionId = object.connectionId ?? "";
-    message.portId = object.portId ?? "";
+    message.connection_id = object.connection_id ?? "";
+    message.port_id = object.port_id ?? "";
     return message;
   },
   fromAmino(object: PortConnectionTupleAmino): PortConnectionTuple {
     return {
-      connectionId: object.connection_id,
-      portId: object.port_id
+      connection_id: object.connection_id,
+      port_id: object.port_id
     };
   },
   toAmino(message: PortConnectionTuple): PortConnectionTupleAmino {
     const obj: any = {};
-    obj.connection_id = message.connectionId;
-    obj.port_id = message.portId;
+    obj.connection_id = message.connection_id;
+    obj.port_id = message.port_id;
     return obj;
   },
   fromAminoMsg(object: PortConnectionTupleAminoMsg): PortConnectionTuple {
@@ -2444,19 +2444,19 @@ export const PortConnectionTuple = {
 };
 function createBaseReceipt(): Receipt {
   return {
-    chainId: "",
+    chain_id: "",
     sender: "",
     txhash: "",
     amount: [],
-    firstSeen: undefined,
+    first_seen: undefined,
     completed: undefined
   };
 }
 export const Receipt = {
   typeUrl: "/quicksilver.interchainstaking.v1.Receipt",
   encode(message: Receipt, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
@@ -2467,8 +2467,8 @@ export const Receipt = {
     for (const v of message.amount) {
       Coin.encode(v!, writer.uint32(34).fork()).ldelim();
     }
-    if (message.firstSeen !== undefined) {
-      Timestamp.encode(toTimestamp(message.firstSeen), writer.uint32(42).fork()).ldelim();
+    if (message.first_seen !== undefined) {
+      Timestamp.encode(toTimestamp(message.first_seen), writer.uint32(42).fork()).ldelim();
     }
     if (message.completed !== undefined) {
       Timestamp.encode(toTimestamp(message.completed), writer.uint32(50).fork()).ldelim();
@@ -2483,7 +2483,7 @@ export const Receipt = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.sender = reader.string();
@@ -2495,7 +2495,7 @@ export const Receipt = {
           message.amount.push(Coin.decode(reader, reader.uint32()));
           break;
         case 5:
-          message.firstSeen = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.first_seen = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 6:
           message.completed = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
@@ -2509,17 +2509,17 @@ export const Receipt = {
   },
   fromJSON(object: any): Receipt {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       sender: isSet(object.sender) ? String(object.sender) : "",
       txhash: isSet(object.txhash) ? String(object.txhash) : "",
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : [],
-      firstSeen: isSet(object.firstSeen) ? fromJsonTimestamp(object.firstSeen) : undefined,
+      first_seen: isSet(object.first_seen) ? fromJsonTimestamp(object.first_seen) : undefined,
       completed: isSet(object.completed) ? fromJsonTimestamp(object.completed) : undefined
     };
   },
   toJSON(message: Receipt): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.sender !== undefined && (obj.sender = message.sender);
     message.txhash !== undefined && (obj.txhash = message.txhash);
     if (message.amount) {
@@ -2527,33 +2527,33 @@ export const Receipt = {
     } else {
       obj.amount = [];
     }
-    message.firstSeen !== undefined && (obj.firstSeen = message.firstSeen.toISOString());
+    message.first_seen !== undefined && (obj.first_seen = message.first_seen.toISOString());
     message.completed !== undefined && (obj.completed = message.completed.toISOString());
     return obj;
   },
   fromPartial(object: DeepPartial<Receipt>): Receipt {
     const message = createBaseReceipt();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.sender = object.sender ?? "";
     message.txhash = object.txhash ?? "";
     message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
-    message.firstSeen = object.firstSeen ?? undefined;
+    message.first_seen = object.first_seen ?? undefined;
     message.completed = object.completed ?? undefined;
     return message;
   },
   fromAmino(object: ReceiptAmino): Receipt {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       sender: object.sender,
       txhash: object.txhash,
       amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromAmino(e)) : [],
-      firstSeen: object?.first_seen,
+      first_seen: object?.first_seen,
       completed: object?.completed
     };
   },
   toAmino(message: Receipt): ReceiptAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.sender = message.sender;
     obj.txhash = message.txhash;
     if (message.amount) {
@@ -2561,7 +2561,7 @@ export const Receipt = {
     } else {
       obj.amount = [];
     }
-    obj.first_seen = message.firstSeen;
+    obj.first_seen = message.first_seen;
     obj.completed = message.completed;
     return obj;
   },

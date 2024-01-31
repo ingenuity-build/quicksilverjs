@@ -2,10 +2,10 @@ import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "../../../helpers";
 /** MsgUnjail defines the Msg/Unjail request type */
 export interface MsgUnjail {
-  validatorAddr: string;
+  validator_addr: string;
 }
 export interface MsgUnjailProtoMsg {
-  typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail";
+  type_url: "/cosmos.slashing.v1beta1.MsgUnjail";
   value: Uint8Array;
 }
 /** MsgUnjail defines the Msg/Unjail request type */
@@ -23,7 +23,7 @@ export interface MsgUnjailSDKType {
 /** MsgUnjailResponse defines the Msg/Unjail response type */
 export interface MsgUnjailResponse {}
 export interface MsgUnjailResponseProtoMsg {
-  typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse";
+  type_url: "/cosmos.slashing.v1beta1.MsgUnjailResponse";
   value: Uint8Array;
 }
 /** MsgUnjailResponse defines the Msg/Unjail response type */
@@ -36,15 +36,15 @@ export interface MsgUnjailResponseAminoMsg {
 export interface MsgUnjailResponseSDKType {}
 function createBaseMsgUnjail(): MsgUnjail {
   return {
-    validatorAddr: ""
+    validator_addr: ""
   };
 }
 export const MsgUnjail = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
   aminoType: "cosmos-sdk/MsgUnjail",
   encode(message: MsgUnjail, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorAddr !== "") {
-      writer.uint32(10).string(message.validatorAddr);
+    if (message.validator_addr !== "") {
+      writer.uint32(10).string(message.validator_addr);
     }
     return writer;
   },
@@ -56,7 +56,7 @@ export const MsgUnjail = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorAddr = reader.string();
+          message.validator_addr = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -67,27 +67,27 @@ export const MsgUnjail = {
   },
   fromJSON(object: any): MsgUnjail {
     return {
-      validatorAddr: isSet(object.validatorAddr) ? String(object.validatorAddr) : ""
+      validator_addr: isSet(object.validator_addr) ? String(object.validator_addr) : ""
     };
   },
   toJSON(message: MsgUnjail): unknown {
     const obj: any = {};
-    message.validatorAddr !== undefined && (obj.validatorAddr = message.validatorAddr);
+    message.validator_addr !== undefined && (obj.validator_addr = message.validator_addr);
     return obj;
   },
   fromPartial(object: DeepPartial<MsgUnjail>): MsgUnjail {
     const message = createBaseMsgUnjail();
-    message.validatorAddr = object.validatorAddr ?? "";
+    message.validator_addr = object.validator_addr ?? "";
     return message;
   },
   fromAmino(object: MsgUnjailAmino): MsgUnjail {
     return {
-      validatorAddr: object.validator_addr
+      validator_addr: object.validator_addr
     };
   },
   toAmino(message: MsgUnjail): MsgUnjailAmino {
     const obj: any = {};
-    obj.validator_addr = message.validatorAddr;
+    obj.validator_addr = message.validator_addr;
     return obj;
   },
   fromAminoMsg(object: MsgUnjailAminoMsg): MsgUnjail {

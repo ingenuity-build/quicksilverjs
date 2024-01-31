@@ -4,7 +4,7 @@ import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "../../../h
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.QueryParamsRequest";
+  type_url: "/quicksilver.mint.v1beta1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -21,7 +21,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.QueryParamsResponse";
+  type_url: "/quicksilver.mint.v1beta1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -43,7 +43,7 @@ export interface QueryParamsResponseSDKType {
  */
 export interface QueryEpochProvisionsRequest {}
 export interface QueryEpochProvisionsRequestProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsRequest";
+  type_url: "/quicksilver.mint.v1beta1.QueryEpochProvisionsRequest";
   value: Uint8Array;
 }
 /**
@@ -66,10 +66,10 @@ export interface QueryEpochProvisionsRequestSDKType {}
  */
 export interface QueryEpochProvisionsResponse {
   /** epoch_provisions is the current minting per epoch provisions value. */
-  epochProvisions: Uint8Array;
+  epoch_provisions: Uint8Array;
 }
 export interface QueryEpochProvisionsResponseProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse";
+  type_url: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse";
   value: Uint8Array;
 }
 /**
@@ -276,14 +276,14 @@ export const QueryEpochProvisionsRequest = {
 };
 function createBaseQueryEpochProvisionsResponse(): QueryEpochProvisionsResponse {
   return {
-    epochProvisions: new Uint8Array()
+    epoch_provisions: new Uint8Array()
   };
 }
 export const QueryEpochProvisionsResponse = {
   typeUrl: "/quicksilver.mint.v1beta1.QueryEpochProvisionsResponse",
   encode(message: QueryEpochProvisionsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.epochProvisions.length !== 0) {
-      writer.uint32(10).bytes(message.epochProvisions);
+    if (message.epoch_provisions.length !== 0) {
+      writer.uint32(10).bytes(message.epoch_provisions);
     }
     return writer;
   },
@@ -295,7 +295,7 @@ export const QueryEpochProvisionsResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.epochProvisions = reader.bytes();
+          message.epoch_provisions = reader.bytes();
           break;
         default:
           reader.skipType(tag & 7);
@@ -306,27 +306,27 @@ export const QueryEpochProvisionsResponse = {
   },
   fromJSON(object: any): QueryEpochProvisionsResponse {
     return {
-      epochProvisions: isSet(object.epochProvisions) ? bytesFromBase64(object.epochProvisions) : new Uint8Array()
+      epoch_provisions: isSet(object.epoch_provisions) ? bytesFromBase64(object.epoch_provisions) : new Uint8Array()
     };
   },
   toJSON(message: QueryEpochProvisionsResponse): unknown {
     const obj: any = {};
-    message.epochProvisions !== undefined && (obj.epochProvisions = base64FromBytes(message.epochProvisions !== undefined ? message.epochProvisions : new Uint8Array()));
+    message.epoch_provisions !== undefined && (obj.epoch_provisions = base64FromBytes(message.epoch_provisions !== undefined ? message.epoch_provisions : new Uint8Array()));
     return obj;
   },
   fromPartial(object: DeepPartial<QueryEpochProvisionsResponse>): QueryEpochProvisionsResponse {
     const message = createBaseQueryEpochProvisionsResponse();
-    message.epochProvisions = object.epochProvisions ?? new Uint8Array();
+    message.epoch_provisions = object.epoch_provisions ?? new Uint8Array();
     return message;
   },
   fromAmino(object: QueryEpochProvisionsResponseAmino): QueryEpochProvisionsResponse {
     return {
-      epochProvisions: object.epoch_provisions
+      epoch_provisions: object.epoch_provisions
     };
   },
   toAmino(message: QueryEpochProvisionsResponse): QueryEpochProvisionsResponseAmino {
     const obj: any = {};
-    obj.epoch_provisions = message.epochProvisions;
+    obj.epoch_provisions = message.epoch_provisions;
     return obj;
   },
   fromAminoMsg(object: QueryEpochProvisionsResponseAminoMsg): QueryEpochProvisionsResponse {

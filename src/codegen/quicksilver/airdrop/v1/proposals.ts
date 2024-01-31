@@ -4,11 +4,11 @@ import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../h
 export interface RegisterZoneDropProposal {
   title: string;
   description: string;
-  zoneDrop: ZoneDrop;
-  claimRecords: Uint8Array;
+  zone_drop: ZoneDrop;
+  claim_records: Uint8Array;
 }
 export interface RegisterZoneDropProposalProtoMsg {
-  typeUrl: "/quicksilver.airdrop.v1.RegisterZoneDropProposal";
+  type_url: "/quicksilver.airdrop.v1.RegisterZoneDropProposal";
   value: Uint8Array;
 }
 export interface RegisterZoneDropProposalAmino {
@@ -31,8 +31,8 @@ function createBaseRegisterZoneDropProposal(): RegisterZoneDropProposal {
   return {
     title: "",
     description: "",
-    zoneDrop: ZoneDrop.fromPartial({}),
-    claimRecords: new Uint8Array()
+    zone_drop: ZoneDrop.fromPartial({}),
+    claim_records: new Uint8Array()
   };
 }
 export const RegisterZoneDropProposal = {
@@ -44,11 +44,11 @@ export const RegisterZoneDropProposal = {
     if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
-    if (message.zoneDrop !== undefined) {
-      ZoneDrop.encode(message.zoneDrop, writer.uint32(26).fork()).ldelim();
+    if (message.zone_drop !== undefined) {
+      ZoneDrop.encode(message.zone_drop, writer.uint32(26).fork()).ldelim();
     }
-    if (message.claimRecords.length !== 0) {
-      writer.uint32(34).bytes(message.claimRecords);
+    if (message.claim_records.length !== 0) {
+      writer.uint32(34).bytes(message.claim_records);
     }
     return writer;
   },
@@ -66,10 +66,10 @@ export const RegisterZoneDropProposal = {
           message.description = reader.string();
           break;
         case 3:
-          message.zoneDrop = ZoneDrop.decode(reader, reader.uint32());
+          message.zone_drop = ZoneDrop.decode(reader, reader.uint32());
           break;
         case 4:
-          message.claimRecords = reader.bytes();
+          message.claim_records = reader.bytes();
           break;
         default:
           reader.skipType(tag & 7);
@@ -82,40 +82,40 @@ export const RegisterZoneDropProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      zoneDrop: isSet(object.zoneDrop) ? ZoneDrop.fromJSON(object.zoneDrop) : undefined,
-      claimRecords: isSet(object.claimRecords) ? bytesFromBase64(object.claimRecords) : new Uint8Array()
+      zone_drop: isSet(object.zone_drop) ? ZoneDrop.fromJSON(object.zone_drop) : undefined,
+      claim_records: isSet(object.claim_records) ? bytesFromBase64(object.claim_records) : new Uint8Array()
     };
   },
   toJSON(message: RegisterZoneDropProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
     message.description !== undefined && (obj.description = message.description);
-    message.zoneDrop !== undefined && (obj.zoneDrop = message.zoneDrop ? ZoneDrop.toJSON(message.zoneDrop) : undefined);
-    message.claimRecords !== undefined && (obj.claimRecords = base64FromBytes(message.claimRecords !== undefined ? message.claimRecords : new Uint8Array()));
+    message.zone_drop !== undefined && (obj.zone_drop = message.zone_drop ? ZoneDrop.toJSON(message.zone_drop) : undefined);
+    message.claim_records !== undefined && (obj.claim_records = base64FromBytes(message.claim_records !== undefined ? message.claim_records : new Uint8Array()));
     return obj;
   },
   fromPartial(object: DeepPartial<RegisterZoneDropProposal>): RegisterZoneDropProposal {
     const message = createBaseRegisterZoneDropProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.zoneDrop = object.zoneDrop !== undefined && object.zoneDrop !== null ? ZoneDrop.fromPartial(object.zoneDrop) : undefined;
-    message.claimRecords = object.claimRecords ?? new Uint8Array();
+    message.zone_drop = object.zone_drop !== undefined && object.zone_drop !== null ? ZoneDrop.fromPartial(object.zone_drop) : undefined;
+    message.claim_records = object.claim_records ?? new Uint8Array();
     return message;
   },
   fromAmino(object: RegisterZoneDropProposalAmino): RegisterZoneDropProposal {
     return {
       title: object.title,
       description: object.description,
-      zoneDrop: object?.zone_drop ? ZoneDrop.fromAmino(object.zone_drop) : undefined,
-      claimRecords: object.claim_records
+      zone_drop: object?.zone_drop ? ZoneDrop.fromAmino(object.zone_drop) : undefined,
+      claim_records: object.claim_records
     };
   },
   toAmino(message: RegisterZoneDropProposal): RegisterZoneDropProposalAmino {
     const obj: any = {};
     obj.title = message.title;
     obj.description = message.description;
-    obj.zone_drop = message.zoneDrop ? ZoneDrop.toAmino(message.zoneDrop) : undefined;
-    obj.claim_records = message.claimRecords;
+    obj.zone_drop = message.zone_drop ? ZoneDrop.toAmino(message.zone_drop) : undefined;
+    obj.claim_records = message.claim_records;
     return obj;
   },
   fromAminoMsg(object: RegisterZoneDropProposalAminoMsg): RegisterZoneDropProposal {

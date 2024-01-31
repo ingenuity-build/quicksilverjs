@@ -20,7 +20,7 @@ export class LCDQueryClient {
   }
   /* ClientState queries an IBC light client. */
   async clientState(params: QueryClientStateRequest): Promise<QueryClientStateResponseSDKType> {
-    const endpoint = `ibc/core/client/v1/client_states/${params.clientId}`;
+    const endpoint = `ibc/core/client/v1/client_states/${params.client_id}`;
     return await this.req.get<QueryClientStateResponseSDKType>(endpoint);
   }
   /* ClientStates queries all the IBC light clients of a chain. */
@@ -42,10 +42,10 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.latestHeight !== "undefined") {
-      options.params.latest_height = params.latestHeight;
+    if (typeof params?.latest_height !== "undefined") {
+      options.params.latest_height = params.latest_height;
     }
-    const endpoint = `ibc/core/client/v1/consensus_states/${params.clientId}/revision/${params.revisionNumber}/height/${params.revisionHeight}`;
+    const endpoint = `ibc/core/client/v1/consensus_states/${params.client_id}/revision/${params.revision_number}/height/${params.revision_height}`;
     return await this.req.get<QueryConsensusStateResponseSDKType>(endpoint, options);
   }
   /* ConsensusStates queries all the consensus state associated with a given
@@ -57,12 +57,12 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `ibc/core/client/v1/consensus_states/${params.clientId}`;
+    const endpoint = `ibc/core/client/v1/consensus_states/${params.client_id}`;
     return await this.req.get<QueryConsensusStatesResponseSDKType>(endpoint, options);
   }
   /* Status queries the status of an IBC client. */
   async clientStatus(params: QueryClientStatusRequest): Promise<QueryClientStatusResponseSDKType> {
-    const endpoint = `ibc/core/client/v1/client_status/${params.clientId}`;
+    const endpoint = `ibc/core/client/v1/client_status/${params.client_id}`;
     return await this.req.get<QueryClientStatusResponseSDKType>(endpoint);
   }
   /* ClientParams queries all parameters of the ibc client. */

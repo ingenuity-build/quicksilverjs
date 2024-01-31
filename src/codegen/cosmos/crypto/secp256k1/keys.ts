@@ -11,7 +11,7 @@ export interface PubKey {
   key: Uint8Array;
 }
 export interface PubKeyProtoMsg {
-  typeUrl: "/cosmos.crypto.secp256k1.PubKey";
+  type_url: "/cosmos.crypto.secp256k1.PubKey";
   value: Uint8Array;
 }
 /**
@@ -43,7 +43,7 @@ export interface PrivKey {
   key: Uint8Array;
 }
 export interface PrivKeyProtoMsg {
-  typeUrl: "/cosmos.crypto.secp256k1.PrivKey";
+  type_url: "/cosmos.crypto.secp256k1.PrivKey";
   value: Uint8Array;
 }
 /** PrivKey defines a secp256k1 private key. */

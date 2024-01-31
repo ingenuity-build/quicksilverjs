@@ -9,10 +9,10 @@ import { DeepPartial } from "../../../helpers";
  */
 export interface SendAuthorization {
   $typeUrl?: string;
-  spendLimit: Coin[];
+  spend_limit: Coin[];
 }
 export interface SendAuthorizationProtoMsg {
-  typeUrl: "/cosmos.bank.v1beta1.SendAuthorization";
+  type_url: "/cosmos.bank.v1beta1.SendAuthorization";
   value: Uint8Array;
 }
 /**
@@ -41,14 +41,14 @@ export interface SendAuthorizationSDKType {
 function createBaseSendAuthorization(): SendAuthorization {
   return {
     $typeUrl: "/cosmos.bank.v1beta1.SendAuthorization",
-    spendLimit: []
+    spend_limit: []
   };
 }
 export const SendAuthorization = {
   typeUrl: "/cosmos.bank.v1beta1.SendAuthorization",
   aminoType: "cosmos-sdk/SendAuthorization",
   encode(message: SendAuthorization, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.spendLimit) {
+    for (const v of message.spend_limit) {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
@@ -61,7 +61,7 @@ export const SendAuthorization = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.spendLimit.push(Coin.decode(reader, reader.uint32()));
+          message.spend_limit.push(Coin.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -72,32 +72,32 @@ export const SendAuthorization = {
   },
   fromJSON(object: any): SendAuthorization {
     return {
-      spendLimit: Array.isArray(object?.spendLimit) ? object.spendLimit.map((e: any) => Coin.fromJSON(e)) : []
+      spend_limit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e: any) => Coin.fromJSON(e)) : []
     };
   },
   toJSON(message: SendAuthorization): unknown {
     const obj: any = {};
-    if (message.spendLimit) {
-      obj.spendLimit = message.spendLimit.map(e => e ? Coin.toJSON(e) : undefined);
+    if (message.spend_limit) {
+      obj.spend_limit = message.spend_limit.map(e => e ? Coin.toJSON(e) : undefined);
     } else {
-      obj.spendLimit = [];
+      obj.spend_limit = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<SendAuthorization>): SendAuthorization {
     const message = createBaseSendAuthorization();
-    message.spendLimit = object.spendLimit?.map(e => Coin.fromPartial(e)) || [];
+    message.spend_limit = object.spend_limit?.map(e => Coin.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: SendAuthorizationAmino): SendAuthorization {
     return {
-      spendLimit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e: any) => Coin.fromAmino(e)) : []
+      spend_limit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e: any) => Coin.fromAmino(e)) : []
     };
   },
   toAmino(message: SendAuthorization): SendAuthorizationAmino {
     const obj: any = {};
-    if (message.spendLimit) {
-      obj.spend_limit = message.spendLimit.map(e => e ? Coin.toAmino(e) : undefined);
+    if (message.spend_limit) {
+      obj.spend_limit = message.spend_limit.map(e => e ? Coin.toAmino(e) : undefined);
     } else {
       obj.spend_limit = [];
     }

@@ -20,10 +20,10 @@ export interface Http {
    * The default behavior is to not decode RFC 6570 reserved characters in multi
    * segment matches.
    */
-  fullyDecodeReservedExpansion: boolean;
+  fully_decode_reserved_expansion: boolean;
 }
 export interface HttpProtoMsg {
-  typeUrl: "/google.api.Http";
+  type_url: "/google.api.Http";
   value: Uint8Array;
 }
 /**
@@ -376,16 +376,16 @@ export interface HttpRule {
    * NOTE: The referred field must be present at the top-level of the response
    * message type.
    */
-  responseBody: string;
+  response_body: string;
   /**
    * Additional HTTP bindings for the selector. Nested bindings must
    * not contain an `additional_bindings` field themselves (that is,
    * the nesting may only be one level deep).
    */
-  additionalBindings: HttpRule[];
+  additional_bindings: HttpRule[];
 }
 export interface HttpRuleProtoMsg {
-  typeUrl: "/google.api.HttpRule";
+  type_url: "/google.api.HttpRule";
   value: Uint8Array;
 }
 /**
@@ -1006,7 +1006,7 @@ export interface CustomHttpPattern {
   path: string;
 }
 export interface CustomHttpPatternProtoMsg {
-  typeUrl: "/google.api.CustomHttpPattern";
+  type_url: "/google.api.CustomHttpPattern";
   value: Uint8Array;
 }
 /** A custom pattern is used for defining custom HTTP verb. */
@@ -1028,7 +1028,7 @@ export interface CustomHttpPatternSDKType {
 function createBaseHttp(): Http {
   return {
     rules: [],
-    fullyDecodeReservedExpansion: false
+    fully_decode_reserved_expansion: false
   };
 }
 export const Http = {
@@ -1037,8 +1037,8 @@ export const Http = {
     for (const v of message.rules) {
       HttpRule.encode(v!, writer.uint32(10).fork()).ldelim();
     }
-    if (message.fullyDecodeReservedExpansion === true) {
-      writer.uint32(16).bool(message.fullyDecodeReservedExpansion);
+    if (message.fully_decode_reserved_expansion === true) {
+      writer.uint32(16).bool(message.fully_decode_reserved_expansion);
     }
     return writer;
   },
@@ -1053,7 +1053,7 @@ export const Http = {
           message.rules.push(HttpRule.decode(reader, reader.uint32()));
           break;
         case 2:
-          message.fullyDecodeReservedExpansion = reader.bool();
+          message.fully_decode_reserved_expansion = reader.bool();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1065,7 +1065,7 @@ export const Http = {
   fromJSON(object: any): Http {
     return {
       rules: Array.isArray(object?.rules) ? object.rules.map((e: any) => HttpRule.fromJSON(e)) : [],
-      fullyDecodeReservedExpansion: isSet(object.fullyDecodeReservedExpansion) ? Boolean(object.fullyDecodeReservedExpansion) : false
+      fully_decode_reserved_expansion: isSet(object.fully_decode_reserved_expansion) ? Boolean(object.fully_decode_reserved_expansion) : false
     };
   },
   toJSON(message: Http): unknown {
@@ -1075,19 +1075,19 @@ export const Http = {
     } else {
       obj.rules = [];
     }
-    message.fullyDecodeReservedExpansion !== undefined && (obj.fullyDecodeReservedExpansion = message.fullyDecodeReservedExpansion);
+    message.fully_decode_reserved_expansion !== undefined && (obj.fully_decode_reserved_expansion = message.fully_decode_reserved_expansion);
     return obj;
   },
   fromPartial(object: DeepPartial<Http>): Http {
     const message = createBaseHttp();
     message.rules = object.rules?.map(e => HttpRule.fromPartial(e)) || [];
-    message.fullyDecodeReservedExpansion = object.fullyDecodeReservedExpansion ?? false;
+    message.fully_decode_reserved_expansion = object.fully_decode_reserved_expansion ?? false;
     return message;
   },
   fromAmino(object: HttpAmino): Http {
     return {
       rules: Array.isArray(object?.rules) ? object.rules.map((e: any) => HttpRule.fromAmino(e)) : [],
-      fullyDecodeReservedExpansion: object.fully_decode_reserved_expansion
+      fully_decode_reserved_expansion: object.fully_decode_reserved_expansion
     };
   },
   toAmino(message: Http): HttpAmino {
@@ -1097,7 +1097,7 @@ export const Http = {
     } else {
       obj.rules = [];
     }
-    obj.fully_decode_reserved_expansion = message.fullyDecodeReservedExpansion;
+    obj.fully_decode_reserved_expansion = message.fully_decode_reserved_expansion;
     return obj;
   },
   fromAminoMsg(object: HttpAminoMsg): Http {
@@ -1126,8 +1126,8 @@ function createBaseHttpRule(): HttpRule {
     patch: undefined,
     custom: undefined,
     body: "",
-    responseBody: "",
-    additionalBindings: []
+    response_body: "",
+    additional_bindings: []
   };
 }
 export const HttpRule = {
@@ -1157,10 +1157,10 @@ export const HttpRule = {
     if (message.body !== "") {
       writer.uint32(58).string(message.body);
     }
-    if (message.responseBody !== "") {
-      writer.uint32(98).string(message.responseBody);
+    if (message.response_body !== "") {
+      writer.uint32(98).string(message.response_body);
     }
-    for (const v of message.additionalBindings) {
+    for (const v of message.additional_bindings) {
       HttpRule.encode(v!, writer.uint32(90).fork()).ldelim();
     }
     return writer;
@@ -1197,10 +1197,10 @@ export const HttpRule = {
           message.body = reader.string();
           break;
         case 12:
-          message.responseBody = reader.string();
+          message.response_body = reader.string();
           break;
         case 11:
-          message.additionalBindings.push(HttpRule.decode(reader, reader.uint32()));
+          message.additional_bindings.push(HttpRule.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -1219,8 +1219,8 @@ export const HttpRule = {
       patch: isSet(object.patch) ? String(object.patch) : undefined,
       custom: isSet(object.custom) ? CustomHttpPattern.fromJSON(object.custom) : undefined,
       body: isSet(object.body) ? String(object.body) : "",
-      responseBody: isSet(object.responseBody) ? String(object.responseBody) : "",
-      additionalBindings: Array.isArray(object?.additionalBindings) ? object.additionalBindings.map((e: any) => HttpRule.fromJSON(e)) : []
+      response_body: isSet(object.response_body) ? String(object.response_body) : "",
+      additional_bindings: Array.isArray(object?.additional_bindings) ? object.additional_bindings.map((e: any) => HttpRule.fromJSON(e)) : []
     };
   },
   toJSON(message: HttpRule): unknown {
@@ -1233,11 +1233,11 @@ export const HttpRule = {
     message.patch !== undefined && (obj.patch = message.patch);
     message.custom !== undefined && (obj.custom = message.custom ? CustomHttpPattern.toJSON(message.custom) : undefined);
     message.body !== undefined && (obj.body = message.body);
-    message.responseBody !== undefined && (obj.responseBody = message.responseBody);
-    if (message.additionalBindings) {
-      obj.additionalBindings = message.additionalBindings.map(e => e ? HttpRule.toJSON(e) : undefined);
+    message.response_body !== undefined && (obj.response_body = message.response_body);
+    if (message.additional_bindings) {
+      obj.additional_bindings = message.additional_bindings.map(e => e ? HttpRule.toJSON(e) : undefined);
     } else {
-      obj.additionalBindings = [];
+      obj.additional_bindings = [];
     }
     return obj;
   },
@@ -1251,8 +1251,8 @@ export const HttpRule = {
     message.patch = object.patch ?? undefined;
     message.custom = object.custom !== undefined && object.custom !== null ? CustomHttpPattern.fromPartial(object.custom) : undefined;
     message.body = object.body ?? "";
-    message.responseBody = object.responseBody ?? "";
-    message.additionalBindings = object.additionalBindings?.map(e => HttpRule.fromPartial(e)) || [];
+    message.response_body = object.response_body ?? "";
+    message.additional_bindings = object.additional_bindings?.map(e => HttpRule.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: HttpRuleAmino): HttpRule {
@@ -1265,8 +1265,8 @@ export const HttpRule = {
       patch: object?.patch,
       custom: object?.custom ? CustomHttpPattern.fromAmino(object.custom) : undefined,
       body: object.body,
-      responseBody: object.response_body,
-      additionalBindings: Array.isArray(object?.additional_bindings) ? object.additional_bindings.map((e: any) => HttpRule.fromAmino(e)) : []
+      response_body: object.response_body,
+      additional_bindings: Array.isArray(object?.additional_bindings) ? object.additional_bindings.map((e: any) => HttpRule.fromAmino(e)) : []
     };
   },
   toAmino(message: HttpRule): HttpRuleAmino {
@@ -1279,9 +1279,9 @@ export const HttpRule = {
     obj.patch = message.patch;
     obj.custom = message.custom ? CustomHttpPattern.toAmino(message.custom) : undefined;
     obj.body = message.body;
-    obj.response_body = message.responseBody;
-    if (message.additionalBindings) {
-      obj.additional_bindings = message.additionalBindings.map(e => e ? HttpRule.toAmino(e) : undefined);
+    obj.response_body = message.response_body;
+    if (message.additional_bindings) {
+      obj.additional_bindings = message.additional_bindings.map(e => e ? HttpRule.toAmino(e) : undefined);
     } else {
       obj.additional_bindings = [];
     }

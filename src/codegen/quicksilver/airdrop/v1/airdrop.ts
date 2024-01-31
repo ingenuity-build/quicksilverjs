@@ -154,16 +154,16 @@ export function statusToJSON(object: Status): string {
 }
 /** ZoneDrop represents an airdrop for a specific zone. */
 export interface ZoneDrop {
-  chainId: string;
-  startTime: Date;
+  chain_id: string;
+  start_time: Date;
   duration: Duration;
   decay: Duration;
   allocation: Long;
   actions: string[];
-  isConcluded: boolean;
+  is_concluded: boolean;
 }
 export interface ZoneDropProtoMsg {
-  typeUrl: "/quicksilver.airdrop.v1.ZoneDrop";
+  type_url: "/quicksilver.airdrop.v1.ZoneDrop";
   value: Uint8Array;
 }
 /** ZoneDrop represents an airdrop for a specific zone. */
@@ -195,7 +195,7 @@ export interface ClaimRecord_ActionsCompletedEntry {
   value: CompletedAction;
 }
 export interface ClaimRecord_ActionsCompletedEntryProtoMsg {
-  typeUrl: string;
+  type_url: string;
   value: Uint8Array;
 }
 export interface ClaimRecord_ActionsCompletedEntryAmino {
@@ -215,17 +215,17 @@ export interface ClaimRecord_ActionsCompletedEntrySDKType {
  * given zone.
  */
 export interface ClaimRecord {
-  chainId: string;
+  chain_id: string;
   address: string;
   /** Protobuf3 does not allow enum as map key */
-  actionsCompleted: {
+  actions_completed: {
     [key: number]: CompletedAction;
   };
-  maxAllocation: Long;
-  baseValue: Long;
+  max_allocation: Long;
+  base_value: Long;
 }
 export interface ClaimRecordProtoMsg {
-  typeUrl: "/quicksilver.airdrop.v1.ClaimRecord";
+  type_url: "/quicksilver.airdrop.v1.ClaimRecord";
   value: Uint8Array;
 }
 /**
@@ -261,11 +261,11 @@ export interface ClaimRecordSDKType {
 }
 /** CompletedAction represents a claim action completed by the user. */
 export interface CompletedAction {
-  completeTime: Date;
-  claimAmount: Long;
+  complete_time: Date;
+  claim_amount: Long;
 }
 export interface CompletedActionProtoMsg {
-  typeUrl: "/quicksilver.airdrop.v1.CompletedAction";
+  type_url: "/quicksilver.airdrop.v1.CompletedAction";
   value: Uint8Array;
 }
 /** CompletedAction represents a claim action completed by the user. */
@@ -284,23 +284,23 @@ export interface CompletedActionSDKType {
 }
 function createBaseZoneDrop(): ZoneDrop {
   return {
-    chainId: "",
-    startTime: new Date(),
+    chain_id: "",
+    start_time: new Date(),
     duration: Duration.fromPartial({}),
     decay: Duration.fromPartial({}),
     allocation: Long.UZERO,
     actions: [],
-    isConcluded: false
+    is_concluded: false
   };
 }
 export const ZoneDrop = {
   typeUrl: "/quicksilver.airdrop.v1.ZoneDrop",
   encode(message: ZoneDrop, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (message.startTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.startTime), writer.uint32(18).fork()).ldelim();
+    if (message.start_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.start_time), writer.uint32(18).fork()).ldelim();
     }
     if (message.duration !== undefined) {
       Duration.encode(message.duration, writer.uint32(26).fork()).ldelim();
@@ -314,8 +314,8 @@ export const ZoneDrop = {
     for (const v of message.actions) {
       writer.uint32(50).string(v!);
     }
-    if (message.isConcluded === true) {
-      writer.uint32(56).bool(message.isConcluded);
+    if (message.is_concluded === true) {
+      writer.uint32(56).bool(message.is_concluded);
     }
     return writer;
   },
@@ -327,10 +327,10 @@ export const ZoneDrop = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.startTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.start_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 3:
           message.duration = Duration.decode(reader, reader.uint32());
@@ -345,7 +345,7 @@ export const ZoneDrop = {
           message.actions.push(reader.string());
           break;
         case 7:
-          message.isConcluded = reader.bool();
+          message.is_concluded = reader.bool();
           break;
         default:
           reader.skipType(tag & 7);
@@ -356,19 +356,19 @@ export const ZoneDrop = {
   },
   fromJSON(object: any): ZoneDrop {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      startTime: isSet(object.startTime) ? fromJsonTimestamp(object.startTime) : undefined,
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      start_time: isSet(object.start_time) ? fromJsonTimestamp(object.start_time) : undefined,
       duration: isSet(object.duration) ? Duration.fromJSON(object.duration) : undefined,
       decay: isSet(object.decay) ? Duration.fromJSON(object.decay) : undefined,
       allocation: isSet(object.allocation) ? Long.fromValue(object.allocation) : Long.UZERO,
       actions: Array.isArray(object?.actions) ? object.actions.map((e: any) => String(e)) : [],
-      isConcluded: isSet(object.isConcluded) ? Boolean(object.isConcluded) : false
+      is_concluded: isSet(object.is_concluded) ? Boolean(object.is_concluded) : false
     };
   },
   toJSON(message: ZoneDrop): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.startTime !== undefined && (obj.startTime = message.startTime.toISOString());
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.start_time !== undefined && (obj.start_time = message.start_time.toISOString());
     message.duration !== undefined && (obj.duration = message.duration ? Duration.toJSON(message.duration) : undefined);
     message.decay !== undefined && (obj.decay = message.decay ? Duration.toJSON(message.decay) : undefined);
     message.allocation !== undefined && (obj.allocation = (message.allocation || Long.UZERO).toString());
@@ -377,35 +377,35 @@ export const ZoneDrop = {
     } else {
       obj.actions = [];
     }
-    message.isConcluded !== undefined && (obj.isConcluded = message.isConcluded);
+    message.is_concluded !== undefined && (obj.is_concluded = message.is_concluded);
     return obj;
   },
   fromPartial(object: DeepPartial<ZoneDrop>): ZoneDrop {
     const message = createBaseZoneDrop();
-    message.chainId = object.chainId ?? "";
-    message.startTime = object.startTime ?? undefined;
+    message.chain_id = object.chain_id ?? "";
+    message.start_time = object.start_time ?? undefined;
     message.duration = object.duration !== undefined && object.duration !== null ? Duration.fromPartial(object.duration) : undefined;
     message.decay = object.decay !== undefined && object.decay !== null ? Duration.fromPartial(object.decay) : undefined;
     message.allocation = object.allocation !== undefined && object.allocation !== null ? Long.fromValue(object.allocation) : Long.UZERO;
     message.actions = object.actions?.map(e => e) || [];
-    message.isConcluded = object.isConcluded ?? false;
+    message.is_concluded = object.is_concluded ?? false;
     return message;
   },
   fromAmino(object: ZoneDropAmino): ZoneDrop {
     return {
-      chainId: object.chain_id,
-      startTime: object.start_time,
+      chain_id: object.chain_id,
+      start_time: object.start_time,
       duration: object?.duration ? Duration.fromAmino(object.duration) : undefined,
       decay: object?.decay ? Duration.fromAmino(object.decay) : undefined,
       allocation: Long.fromString(object.allocation),
       actions: Array.isArray(object?.actions) ? object.actions.map((e: any) => e) : [],
-      isConcluded: object.is_concluded
+      is_concluded: object.is_concluded
     };
   },
   toAmino(message: ZoneDrop): ZoneDropAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.start_time = message.startTime;
+    obj.chain_id = message.chain_id;
+    obj.start_time = message.start_time;
     obj.duration = message.duration ? Duration.toAmino(message.duration) : undefined;
     obj.decay = message.decay ? Duration.toAmino(message.decay) : undefined;
     obj.allocation = message.allocation ? message.allocation.toString() : undefined;
@@ -414,7 +414,7 @@ export const ZoneDrop = {
     } else {
       obj.actions = [];
     }
-    obj.is_concluded = message.isConcluded;
+    obj.is_concluded = message.is_concluded;
     return obj;
   },
   fromAminoMsg(object: ZoneDropAminoMsg): ZoneDrop {
@@ -511,33 +511,33 @@ export const ClaimRecord_ActionsCompletedEntry = {
 };
 function createBaseClaimRecord(): ClaimRecord {
   return {
-    chainId: "",
+    chain_id: "",
     address: "",
-    actionsCompleted: {},
-    maxAllocation: Long.UZERO,
-    baseValue: Long.UZERO
+    actions_completed: {},
+    max_allocation: Long.UZERO,
+    base_value: Long.UZERO
   };
 }
 export const ClaimRecord = {
   typeUrl: "/quicksilver.airdrop.v1.ClaimRecord",
   encode(message: ClaimRecord, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-    Object.entries(message.actionsCompleted).forEach(([key, value]) => {
+    Object.entries(message.actions_completed).forEach(([key, value]) => {
       ClaimRecord_ActionsCompletedEntry.encode({
         key: (key as any),
         value
       }, writer.uint32(26).fork()).ldelim();
     });
-    if (!message.maxAllocation.isZero()) {
-      writer.uint32(32).uint64(message.maxAllocation);
+    if (!message.max_allocation.isZero()) {
+      writer.uint32(32).uint64(message.max_allocation);
     }
-    if (!message.baseValue.isZero()) {
-      writer.uint32(40).uint64(message.baseValue);
+    if (!message.base_value.isZero()) {
+      writer.uint32(40).uint64(message.base_value);
     }
     return writer;
   },
@@ -549,7 +549,7 @@ export const ClaimRecord = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.address = reader.string();
@@ -557,14 +557,14 @@ export const ClaimRecord = {
         case 3:
           const entry3 = ClaimRecord_ActionsCompletedEntry.decode(reader, reader.uint32());
           if (entry3.value !== undefined) {
-            message.actionsCompleted[entry3.key] = entry3.value;
+            message.actions_completed[entry3.key] = entry3.value;
           }
           break;
         case 4:
-          message.maxAllocation = (reader.uint64() as Long);
+          message.max_allocation = (reader.uint64() as Long);
           break;
         case 5:
-          message.baseValue = (reader.uint64() as Long);
+          message.base_value = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -575,37 +575,37 @@ export const ClaimRecord = {
   },
   fromJSON(object: any): ClaimRecord {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       address: isSet(object.address) ? String(object.address) : "",
-      actionsCompleted: isObject(object.actionsCompleted) ? Object.entries(object.actionsCompleted).reduce<{
+      actions_completed: isObject(object.actions_completed) ? Object.entries(object.actions_completed).reduce<{
         [key: number]: CompletedAction;
       }>((acc, [key, value]) => {
         acc[Number(key)] = CompletedAction.fromJSON(value);
         return acc;
       }, {}) : {},
-      maxAllocation: isSet(object.maxAllocation) ? Long.fromValue(object.maxAllocation) : Long.UZERO,
-      baseValue: isSet(object.baseValue) ? Long.fromValue(object.baseValue) : Long.UZERO
+      max_allocation: isSet(object.max_allocation) ? Long.fromValue(object.max_allocation) : Long.UZERO,
+      base_value: isSet(object.base_value) ? Long.fromValue(object.base_value) : Long.UZERO
     };
   },
   toJSON(message: ClaimRecord): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.address !== undefined && (obj.address = message.address);
-    obj.actionsCompleted = {};
-    if (message.actionsCompleted) {
-      Object.entries(message.actionsCompleted).forEach(([k, v]) => {
-        obj.actionsCompleted[k] = CompletedAction.toJSON(v);
+    obj.actions_completed = {};
+    if (message.actions_completed) {
+      Object.entries(message.actions_completed).forEach(([k, v]) => {
+        obj.actions_completed[k] = CompletedAction.toJSON(v);
       });
     }
-    message.maxAllocation !== undefined && (obj.maxAllocation = (message.maxAllocation || Long.UZERO).toString());
-    message.baseValue !== undefined && (obj.baseValue = (message.baseValue || Long.UZERO).toString());
+    message.max_allocation !== undefined && (obj.max_allocation = (message.max_allocation || Long.UZERO).toString());
+    message.base_value !== undefined && (obj.base_value = (message.base_value || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<ClaimRecord>): ClaimRecord {
     const message = createBaseClaimRecord();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.address = object.address ?? "";
-    message.actionsCompleted = Object.entries(object.actionsCompleted ?? {}).reduce<{
+    message.actions_completed = Object.entries(object.actions_completed ?? {}).reduce<{
       [key: number]: CompletedAction;
     }>((acc, [key, value]) => {
       if (value !== undefined) {
@@ -613,36 +613,36 @@ export const ClaimRecord = {
       }
       return acc;
     }, {});
-    message.maxAllocation = object.maxAllocation !== undefined && object.maxAllocation !== null ? Long.fromValue(object.maxAllocation) : Long.UZERO;
-    message.baseValue = object.baseValue !== undefined && object.baseValue !== null ? Long.fromValue(object.baseValue) : Long.UZERO;
+    message.max_allocation = object.max_allocation !== undefined && object.max_allocation !== null ? Long.fromValue(object.max_allocation) : Long.UZERO;
+    message.base_value = object.base_value !== undefined && object.base_value !== null ? Long.fromValue(object.base_value) : Long.UZERO;
     return message;
   },
   fromAmino(object: ClaimRecordAmino): ClaimRecord {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       address: object.address,
-      actionsCompleted: isObject(object.actions_completed) ? Object.entries(object.actions_completed).reduce<{
+      actions_completed: isObject(object.actions_completed) ? Object.entries(object.actions_completed).reduce<{
         [key: number]: CompletedAction;
       }>((acc, [key, value]) => {
         acc[Number(key)] = CompletedAction.fromAmino(value);
         return acc;
       }, {}) : {},
-      maxAllocation: Long.fromString(object.max_allocation),
-      baseValue: Long.fromString(object.base_value)
+      max_allocation: Long.fromString(object.max_allocation),
+      base_value: Long.fromString(object.base_value)
     };
   },
   toAmino(message: ClaimRecord): ClaimRecordAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.address = message.address;
     obj.actions_completed = {};
-    if (message.actionsCompleted) {
-      Object.entries(message.actionsCompleted).forEach(([k, v]) => {
+    if (message.actions_completed) {
+      Object.entries(message.actions_completed).forEach(([k, v]) => {
         obj.actions_completed[k] = CompletedAction.toAmino(v);
       });
     }
-    obj.max_allocation = message.maxAllocation ? message.maxAllocation.toString() : undefined;
-    obj.base_value = message.baseValue ? message.baseValue.toString() : undefined;
+    obj.max_allocation = message.max_allocation ? message.max_allocation.toString() : undefined;
+    obj.base_value = message.base_value ? message.base_value.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ClaimRecordAminoMsg): ClaimRecord {
@@ -663,18 +663,18 @@ export const ClaimRecord = {
 };
 function createBaseCompletedAction(): CompletedAction {
   return {
-    completeTime: new Date(),
-    claimAmount: Long.UZERO
+    complete_time: new Date(),
+    claim_amount: Long.UZERO
   };
 }
 export const CompletedAction = {
   typeUrl: "/quicksilver.airdrop.v1.CompletedAction",
   encode(message: CompletedAction, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.completeTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completeTime), writer.uint32(10).fork()).ldelim();
+    if (message.complete_time !== undefined) {
+      Timestamp.encode(toTimestamp(message.complete_time), writer.uint32(10).fork()).ldelim();
     }
-    if (!message.claimAmount.isZero()) {
-      writer.uint32(16).uint64(message.claimAmount);
+    if (!message.claim_amount.isZero()) {
+      writer.uint32(16).uint64(message.claim_amount);
     }
     return writer;
   },
@@ -686,10 +686,10 @@ export const CompletedAction = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.completeTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.complete_time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
         case 2:
-          message.claimAmount = (reader.uint64() as Long);
+          message.claim_amount = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -700,32 +700,32 @@ export const CompletedAction = {
   },
   fromJSON(object: any): CompletedAction {
     return {
-      completeTime: isSet(object.completeTime) ? fromJsonTimestamp(object.completeTime) : undefined,
-      claimAmount: isSet(object.claimAmount) ? Long.fromValue(object.claimAmount) : Long.UZERO
+      complete_time: isSet(object.complete_time) ? fromJsonTimestamp(object.complete_time) : undefined,
+      claim_amount: isSet(object.claim_amount) ? Long.fromValue(object.claim_amount) : Long.UZERO
     };
   },
   toJSON(message: CompletedAction): unknown {
     const obj: any = {};
-    message.completeTime !== undefined && (obj.completeTime = message.completeTime.toISOString());
-    message.claimAmount !== undefined && (obj.claimAmount = (message.claimAmount || Long.UZERO).toString());
+    message.complete_time !== undefined && (obj.complete_time = message.complete_time.toISOString());
+    message.claim_amount !== undefined && (obj.claim_amount = (message.claim_amount || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<CompletedAction>): CompletedAction {
     const message = createBaseCompletedAction();
-    message.completeTime = object.completeTime ?? undefined;
-    message.claimAmount = object.claimAmount !== undefined && object.claimAmount !== null ? Long.fromValue(object.claimAmount) : Long.UZERO;
+    message.complete_time = object.complete_time ?? undefined;
+    message.claim_amount = object.claim_amount !== undefined && object.claim_amount !== null ? Long.fromValue(object.claim_amount) : Long.UZERO;
     return message;
   },
   fromAmino(object: CompletedActionAmino): CompletedAction {
     return {
-      completeTime: object.complete_time,
-      claimAmount: Long.fromString(object.claim_amount)
+      complete_time: object.complete_time,
+      claim_amount: Long.fromString(object.claim_amount)
     };
   },
   toAmino(message: CompletedAction): CompletedActionAmino {
     const obj: any = {};
-    obj.complete_time = message.completeTime;
-    obj.claim_amount = message.claimAmount ? message.claimAmount.toString() : undefined;
+    obj.complete_time = message.complete_time;
+    obj.claim_amount = message.claim_amount ? message.claim_amount.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: CompletedActionAminoMsg): CompletedAction {

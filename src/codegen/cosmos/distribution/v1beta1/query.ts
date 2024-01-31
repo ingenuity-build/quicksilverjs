@@ -6,7 +6,7 @@ import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryParamsRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -23,7 +23,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryParamsResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
@@ -45,10 +45,10 @@ export interface QueryParamsResponseSDKType {
  */
 export interface QueryValidatorOutstandingRewardsRequest {
   /** validator_address defines the validator address to query for. */
-  validatorAddress: string;
+  validator_address: string;
 }
 export interface QueryValidatorOutstandingRewardsRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest";
   value: Uint8Array;
 }
 /**
@@ -78,7 +78,7 @@ export interface QueryValidatorOutstandingRewardsResponse {
   rewards: ValidatorOutstandingRewards;
 }
 export interface QueryValidatorOutstandingRewardsResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponse";
   value: Uint8Array;
 }
 /**
@@ -105,10 +105,10 @@ export interface QueryValidatorOutstandingRewardsResponseSDKType {
  */
 export interface QueryValidatorCommissionRequest {
   /** validator_address defines the validator address to query for. */
-  validatorAddress: string;
+  validator_address: string;
 }
 export interface QueryValidatorCommissionRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest";
   value: Uint8Array;
 }
 /**
@@ -139,7 +139,7 @@ export interface QueryValidatorCommissionResponse {
   commission: ValidatorAccumulatedCommission;
 }
 export interface QueryValidatorCommissionResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorCommissionResponse";
   value: Uint8Array;
 }
 /**
@@ -167,16 +167,16 @@ export interface QueryValidatorCommissionResponseSDKType {
  */
 export interface QueryValidatorSlashesRequest {
   /** validator_address defines the validator address to query for. */
-  validatorAddress: string;
+  validator_address: string;
   /** starting_height defines the optional starting height to query the slashes. */
-  startingHeight: Long;
+  starting_height: Long;
   /** starting_height defines the optional ending height to query the slashes. */
-  endingHeight: Long;
+  ending_height: Long;
   /** pagination defines an optional pagination for the request. */
   pagination: PageRequest;
 }
 export interface QueryValidatorSlashesRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest";
   value: Uint8Array;
 }
 /**
@@ -218,7 +218,7 @@ export interface QueryValidatorSlashesResponse {
   pagination: PageResponse;
 }
 export interface QueryValidatorSlashesResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryValidatorSlashesResponse";
   value: Uint8Array;
 }
 /**
@@ -249,12 +249,12 @@ export interface QueryValidatorSlashesResponseSDKType {
  */
 export interface QueryDelegationRewardsRequest {
   /** delegator_address defines the delegator address to query for. */
-  delegatorAddress: string;
+  delegator_address: string;
   /** validator_address defines the validator address to query for. */
-  validatorAddress: string;
+  validator_address: string;
 }
 export interface QueryDelegationRewardsRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest";
   value: Uint8Array;
 }
 /**
@@ -288,7 +288,7 @@ export interface QueryDelegationRewardsResponse {
   rewards: DecCoin[];
 }
 export interface QueryDelegationRewardsResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegationRewardsResponse";
   value: Uint8Array;
 }
 /**
@@ -316,10 +316,10 @@ export interface QueryDelegationRewardsResponseSDKType {
  */
 export interface QueryDelegationTotalRewardsRequest {
   /** delegator_address defines the delegator address to query for. */
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface QueryDelegationTotalRewardsRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest";
   value: Uint8Array;
 }
 /**
@@ -352,7 +352,7 @@ export interface QueryDelegationTotalRewardsResponse {
   total: DecCoin[];
 }
 export interface QueryDelegationTotalRewardsResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsResponse";
   value: Uint8Array;
 }
 /**
@@ -383,10 +383,10 @@ export interface QueryDelegationTotalRewardsResponseSDKType {
  */
 export interface QueryDelegatorValidatorsRequest {
   /** delegator_address defines the delegator address to query for. */
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface QueryDelegatorValidatorsRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest";
   value: Uint8Array;
 }
 /**
@@ -417,7 +417,7 @@ export interface QueryDelegatorValidatorsResponse {
   validators: string[];
 }
 export interface QueryDelegatorValidatorsResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsResponse";
   value: Uint8Array;
 }
 /**
@@ -445,10 +445,10 @@ export interface QueryDelegatorValidatorsResponseSDKType {
  */
 export interface QueryDelegatorWithdrawAddressRequest {
   /** delegator_address defines the delegator address to query for. */
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface QueryDelegatorWithdrawAddressRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest";
   value: Uint8Array;
 }
 /**
@@ -476,10 +476,10 @@ export interface QueryDelegatorWithdrawAddressRequestSDKType {
  */
 export interface QueryDelegatorWithdrawAddressResponse {
   /** withdraw_address defines the delegator address to query for. */
-  withdrawAddress: string;
+  withdraw_address: string;
 }
 export interface QueryDelegatorWithdrawAddressResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse";
   value: Uint8Array;
 }
 /**
@@ -507,7 +507,7 @@ export interface QueryDelegatorWithdrawAddressResponseSDKType {
  */
 export interface QueryCommunityPoolRequest {}
 export interface QueryCommunityPoolRequestProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryCommunityPoolRequest";
+  type_url: "/cosmos.distribution.v1beta1.QueryCommunityPoolRequest";
   value: Uint8Array;
 }
 /**
@@ -533,7 +533,7 @@ export interface QueryCommunityPoolResponse {
   pool: DecCoin[];
 }
 export interface QueryCommunityPoolResponseProtoMsg {
-  typeUrl: "/cosmos.distribution.v1beta1.QueryCommunityPoolResponse";
+  type_url: "/cosmos.distribution.v1beta1.QueryCommunityPoolResponse";
   value: Uint8Array;
 }
 /**
@@ -698,15 +698,15 @@ export const QueryParamsResponse = {
 };
 function createBaseQueryValidatorOutstandingRewardsRequest(): QueryValidatorOutstandingRewardsRequest {
   return {
-    validatorAddress: ""
+    validator_address: ""
   };
 }
 export const QueryValidatorOutstandingRewardsRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsRequest",
   aminoType: "cosmos-sdk/QueryValidatorOutstandingRewardsRequest",
   encode(message: QueryValidatorOutstandingRewardsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorAddress !== "") {
-      writer.uint32(10).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(10).string(message.validator_address);
     }
     return writer;
   },
@@ -718,7 +718,7 @@ export const QueryValidatorOutstandingRewardsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -729,27 +729,27 @@ export const QueryValidatorOutstandingRewardsRequest = {
   },
   fromJSON(object: any): QueryValidatorOutstandingRewardsRequest {
     return {
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : ""
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : ""
     };
   },
   toJSON(message: QueryValidatorOutstandingRewardsRequest): unknown {
     const obj: any = {};
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryValidatorOutstandingRewardsRequest>): QueryValidatorOutstandingRewardsRequest {
     const message = createBaseQueryValidatorOutstandingRewardsRequest();
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.validator_address = object.validator_address ?? "";
     return message;
   },
   fromAmino(object: QueryValidatorOutstandingRewardsRequestAmino): QueryValidatorOutstandingRewardsRequest {
     return {
-      validatorAddress: object.validator_address
+      validator_address: object.validator_address
     };
   },
   toAmino(message: QueryValidatorOutstandingRewardsRequest): QueryValidatorOutstandingRewardsRequestAmino {
     const obj: any = {};
-    obj.validator_address = message.validatorAddress;
+    obj.validator_address = message.validator_address;
     return obj;
   },
   fromAminoMsg(object: QueryValidatorOutstandingRewardsRequestAminoMsg): QueryValidatorOutstandingRewardsRequest {
@@ -854,15 +854,15 @@ export const QueryValidatorOutstandingRewardsResponse = {
 };
 function createBaseQueryValidatorCommissionRequest(): QueryValidatorCommissionRequest {
   return {
-    validatorAddress: ""
+    validator_address: ""
   };
 }
 export const QueryValidatorCommissionRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorCommissionRequest",
   aminoType: "cosmos-sdk/QueryValidatorCommissionRequest",
   encode(message: QueryValidatorCommissionRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorAddress !== "") {
-      writer.uint32(10).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(10).string(message.validator_address);
     }
     return writer;
   },
@@ -874,7 +874,7 @@ export const QueryValidatorCommissionRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -885,27 +885,27 @@ export const QueryValidatorCommissionRequest = {
   },
   fromJSON(object: any): QueryValidatorCommissionRequest {
     return {
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : ""
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : ""
     };
   },
   toJSON(message: QueryValidatorCommissionRequest): unknown {
     const obj: any = {};
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryValidatorCommissionRequest>): QueryValidatorCommissionRequest {
     const message = createBaseQueryValidatorCommissionRequest();
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.validator_address = object.validator_address ?? "";
     return message;
   },
   fromAmino(object: QueryValidatorCommissionRequestAmino): QueryValidatorCommissionRequest {
     return {
-      validatorAddress: object.validator_address
+      validator_address: object.validator_address
     };
   },
   toAmino(message: QueryValidatorCommissionRequest): QueryValidatorCommissionRequestAmino {
     const obj: any = {};
-    obj.validator_address = message.validatorAddress;
+    obj.validator_address = message.validator_address;
     return obj;
   },
   fromAminoMsg(object: QueryValidatorCommissionRequestAminoMsg): QueryValidatorCommissionRequest {
@@ -1010,9 +1010,9 @@ export const QueryValidatorCommissionResponse = {
 };
 function createBaseQueryValidatorSlashesRequest(): QueryValidatorSlashesRequest {
   return {
-    validatorAddress: "",
-    startingHeight: Long.UZERO,
-    endingHeight: Long.UZERO,
+    validator_address: "",
+    starting_height: Long.UZERO,
+    ending_height: Long.UZERO,
     pagination: PageRequest.fromPartial({})
   };
 }
@@ -1020,14 +1020,14 @@ export const QueryValidatorSlashesRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryValidatorSlashesRequest",
   aminoType: "cosmos-sdk/QueryValidatorSlashesRequest",
   encode(message: QueryValidatorSlashesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validatorAddress !== "") {
-      writer.uint32(10).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(10).string(message.validator_address);
     }
-    if (!message.startingHeight.isZero()) {
-      writer.uint32(16).uint64(message.startingHeight);
+    if (!message.starting_height.isZero()) {
+      writer.uint32(16).uint64(message.starting_height);
     }
-    if (!message.endingHeight.isZero()) {
-      writer.uint32(24).uint64(message.endingHeight);
+    if (!message.ending_height.isZero()) {
+      writer.uint32(24).uint64(message.ending_height);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(34).fork()).ldelim();
@@ -1042,13 +1042,13 @@ export const QueryValidatorSlashesRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         case 2:
-          message.startingHeight = (reader.uint64() as Long);
+          message.starting_height = (reader.uint64() as Long);
           break;
         case 3:
-          message.endingHeight = (reader.uint64() as Long);
+          message.ending_height = (reader.uint64() as Long);
           break;
         case 4:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -1062,41 +1062,41 @@ export const QueryValidatorSlashesRequest = {
   },
   fromJSON(object: any): QueryValidatorSlashesRequest {
     return {
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
-      startingHeight: isSet(object.startingHeight) ? Long.fromValue(object.startingHeight) : Long.UZERO,
-      endingHeight: isSet(object.endingHeight) ? Long.fromValue(object.endingHeight) : Long.UZERO,
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : "",
+      starting_height: isSet(object.starting_height) ? Long.fromValue(object.starting_height) : Long.UZERO,
+      ending_height: isSet(object.ending_height) ? Long.fromValue(object.ending_height) : Long.UZERO,
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryValidatorSlashesRequest): unknown {
     const obj: any = {};
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
-    message.startingHeight !== undefined && (obj.startingHeight = (message.startingHeight || Long.UZERO).toString());
-    message.endingHeight !== undefined && (obj.endingHeight = (message.endingHeight || Long.UZERO).toString());
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
+    message.starting_height !== undefined && (obj.starting_height = (message.starting_height || Long.UZERO).toString());
+    message.ending_height !== undefined && (obj.ending_height = (message.ending_height || Long.UZERO).toString());
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryValidatorSlashesRequest>): QueryValidatorSlashesRequest {
     const message = createBaseQueryValidatorSlashesRequest();
-    message.validatorAddress = object.validatorAddress ?? "";
-    message.startingHeight = object.startingHeight !== undefined && object.startingHeight !== null ? Long.fromValue(object.startingHeight) : Long.UZERO;
-    message.endingHeight = object.endingHeight !== undefined && object.endingHeight !== null ? Long.fromValue(object.endingHeight) : Long.UZERO;
+    message.validator_address = object.validator_address ?? "";
+    message.starting_height = object.starting_height !== undefined && object.starting_height !== null ? Long.fromValue(object.starting_height) : Long.UZERO;
+    message.ending_height = object.ending_height !== undefined && object.ending_height !== null ? Long.fromValue(object.ending_height) : Long.UZERO;
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryValidatorSlashesRequestAmino): QueryValidatorSlashesRequest {
     return {
-      validatorAddress: object.validator_address,
-      startingHeight: Long.fromString(object.starting_height),
-      endingHeight: Long.fromString(object.ending_height),
+      validator_address: object.validator_address,
+      starting_height: Long.fromString(object.starting_height),
+      ending_height: Long.fromString(object.ending_height),
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryValidatorSlashesRequest): QueryValidatorSlashesRequestAmino {
     const obj: any = {};
-    obj.validator_address = message.validatorAddress;
-    obj.starting_height = message.startingHeight ? message.startingHeight.toString() : undefined;
-    obj.ending_height = message.endingHeight ? message.endingHeight.toString() : undefined;
+    obj.validator_address = message.validator_address;
+    obj.starting_height = message.starting_height ? message.starting_height.toString() : undefined;
+    obj.ending_height = message.ending_height ? message.ending_height.toString() : undefined;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -1222,19 +1222,19 @@ export const QueryValidatorSlashesResponse = {
 };
 function createBaseQueryDelegationRewardsRequest(): QueryDelegationRewardsRequest {
   return {
-    delegatorAddress: "",
-    validatorAddress: ""
+    delegator_address: "",
+    validator_address: ""
   };
 }
 export const QueryDelegationRewardsRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationRewardsRequest",
   aminoType: "cosmos-sdk/QueryDelegationRewardsRequest",
   encode(message: QueryDelegationRewardsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
-    if (message.validatorAddress !== "") {
-      writer.uint32(18).string(message.validatorAddress);
+    if (message.validator_address !== "") {
+      writer.uint32(18).string(message.validator_address);
     }
     return writer;
   },
@@ -1246,10 +1246,10 @@ export const QueryDelegationRewardsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         case 2:
-          message.validatorAddress = reader.string();
+          message.validator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1260,32 +1260,32 @@ export const QueryDelegationRewardsRequest = {
   },
   fromJSON(object: any): QueryDelegationRewardsRequest {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
-      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : "",
+      validator_address: isSet(object.validator_address) ? String(object.validator_address) : ""
     };
   },
   toJSON(message: QueryDelegationRewardsRequest): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
+    message.validator_address !== undefined && (obj.validator_address = message.validator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegationRewardsRequest>): QueryDelegationRewardsRequest {
     const message = createBaseQueryDelegationRewardsRequest();
-    message.delegatorAddress = object.delegatorAddress ?? "";
-    message.validatorAddress = object.validatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
+    message.validator_address = object.validator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegationRewardsRequestAmino): QueryDelegationRewardsRequest {
     return {
-      delegatorAddress: object.delegator_address,
-      validatorAddress: object.validator_address
+      delegator_address: object.delegator_address,
+      validator_address: object.validator_address
     };
   },
   toAmino(message: QueryDelegationRewardsRequest): QueryDelegationRewardsRequestAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
-    obj.validator_address = message.validatorAddress;
+    obj.delegator_address = message.delegator_address;
+    obj.validator_address = message.validator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegationRewardsRequestAminoMsg): QueryDelegationRewardsRequest {
@@ -1398,15 +1398,15 @@ export const QueryDelegationRewardsResponse = {
 };
 function createBaseQueryDelegationTotalRewardsRequest(): QueryDelegationTotalRewardsRequest {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const QueryDelegationTotalRewardsRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryDelegationTotalRewardsRequest",
   aminoType: "cosmos-sdk/QueryDelegationTotalRewardsRequest",
   encode(message: QueryDelegationTotalRewardsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -1418,7 +1418,7 @@ export const QueryDelegationTotalRewardsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1429,27 +1429,27 @@ export const QueryDelegationTotalRewardsRequest = {
   },
   fromJSON(object: any): QueryDelegationTotalRewardsRequest {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: QueryDelegationTotalRewardsRequest): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegationTotalRewardsRequest>): QueryDelegationTotalRewardsRequest {
     const message = createBaseQueryDelegationTotalRewardsRequest();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegationTotalRewardsRequestAmino): QueryDelegationTotalRewardsRequest {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: QueryDelegationTotalRewardsRequest): QueryDelegationTotalRewardsRequestAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegationTotalRewardsRequestAminoMsg): QueryDelegationTotalRewardsRequest {
@@ -1582,15 +1582,15 @@ export const QueryDelegationTotalRewardsResponse = {
 };
 function createBaseQueryDelegatorValidatorsRequest(): QueryDelegatorValidatorsRequest {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const QueryDelegatorValidatorsRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequest",
   aminoType: "cosmos-sdk/QueryDelegatorValidatorsRequest",
   encode(message: QueryDelegatorValidatorsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -1602,7 +1602,7 @@ export const QueryDelegatorValidatorsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1613,27 +1613,27 @@ export const QueryDelegatorValidatorsRequest = {
   },
   fromJSON(object: any): QueryDelegatorValidatorsRequest {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: QueryDelegatorValidatorsRequest): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegatorValidatorsRequest>): QueryDelegatorValidatorsRequest {
     const message = createBaseQueryDelegatorValidatorsRequest();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegatorValidatorsRequestAmino): QueryDelegatorValidatorsRequest {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: QueryDelegatorValidatorsRequest): QueryDelegatorValidatorsRequestAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegatorValidatorsRequestAminoMsg): QueryDelegatorValidatorsRequest {
@@ -1746,15 +1746,15 @@ export const QueryDelegatorValidatorsResponse = {
 };
 function createBaseQueryDelegatorWithdrawAddressRequest(): QueryDelegatorWithdrawAddressRequest {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const QueryDelegatorWithdrawAddressRequest = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressRequest",
   aminoType: "cosmos-sdk/QueryDelegatorWithdrawAddressRequest",
   encode(message: QueryDelegatorWithdrawAddressRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -1766,7 +1766,7 @@ export const QueryDelegatorWithdrawAddressRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1777,27 +1777,27 @@ export const QueryDelegatorWithdrawAddressRequest = {
   },
   fromJSON(object: any): QueryDelegatorWithdrawAddressRequest {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: QueryDelegatorWithdrawAddressRequest): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegatorWithdrawAddressRequest>): QueryDelegatorWithdrawAddressRequest {
     const message = createBaseQueryDelegatorWithdrawAddressRequest();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegatorWithdrawAddressRequestAmino): QueryDelegatorWithdrawAddressRequest {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: QueryDelegatorWithdrawAddressRequest): QueryDelegatorWithdrawAddressRequestAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegatorWithdrawAddressRequestAminoMsg): QueryDelegatorWithdrawAddressRequest {
@@ -1824,15 +1824,15 @@ export const QueryDelegatorWithdrawAddressRequest = {
 };
 function createBaseQueryDelegatorWithdrawAddressResponse(): QueryDelegatorWithdrawAddressResponse {
   return {
-    withdrawAddress: ""
+    withdraw_address: ""
   };
 }
 export const QueryDelegatorWithdrawAddressResponse = {
   typeUrl: "/cosmos.distribution.v1beta1.QueryDelegatorWithdrawAddressResponse",
   aminoType: "cosmos-sdk/QueryDelegatorWithdrawAddressResponse",
   encode(message: QueryDelegatorWithdrawAddressResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.withdrawAddress !== "") {
-      writer.uint32(10).string(message.withdrawAddress);
+    if (message.withdraw_address !== "") {
+      writer.uint32(10).string(message.withdraw_address);
     }
     return writer;
   },
@@ -1844,7 +1844,7 @@ export const QueryDelegatorWithdrawAddressResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.withdrawAddress = reader.string();
+          message.withdraw_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1855,27 +1855,27 @@ export const QueryDelegatorWithdrawAddressResponse = {
   },
   fromJSON(object: any): QueryDelegatorWithdrawAddressResponse {
     return {
-      withdrawAddress: isSet(object.withdrawAddress) ? String(object.withdrawAddress) : ""
+      withdraw_address: isSet(object.withdraw_address) ? String(object.withdraw_address) : ""
     };
   },
   toJSON(message: QueryDelegatorWithdrawAddressResponse): unknown {
     const obj: any = {};
-    message.withdrawAddress !== undefined && (obj.withdrawAddress = message.withdrawAddress);
+    message.withdraw_address !== undefined && (obj.withdraw_address = message.withdraw_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegatorWithdrawAddressResponse>): QueryDelegatorWithdrawAddressResponse {
     const message = createBaseQueryDelegatorWithdrawAddressResponse();
-    message.withdrawAddress = object.withdrawAddress ?? "";
+    message.withdraw_address = object.withdraw_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegatorWithdrawAddressResponseAmino): QueryDelegatorWithdrawAddressResponse {
     return {
-      withdrawAddress: object.withdraw_address
+      withdraw_address: object.withdraw_address
     };
   },
   toAmino(message: QueryDelegatorWithdrawAddressResponse): QueryDelegatorWithdrawAddressResponseAmino {
     const obj: any = {};
-    obj.withdraw_address = message.withdrawAddress;
+    obj.withdraw_address = message.withdraw_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegatorWithdrawAddressResponseAminoMsg): QueryDelegatorWithdrawAddressResponse {

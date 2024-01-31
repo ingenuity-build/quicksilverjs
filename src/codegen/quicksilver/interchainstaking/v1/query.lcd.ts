@@ -40,7 +40,7 @@ export class LCDQueryClient {
   }
   /* Zone provides meta data on a specific zone. */
   async zone(params: QueryZoneRequest): Promise<QueryZoneResponseSDKType> {
-    const endpoint = `quicksilver/interchainstaking/v1/zone/${params.chainId}`;
+    const endpoint = `quicksilver/interchainstaking/v1/zone/${params.chain_id}`;
     return await this.req.get<QueryZoneResponseSDKType>(endpoint);
   }
   /* ZoneValidators */
@@ -54,23 +54,23 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/validators`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/validators`;
     return await this.req.get<QueryZoneValidatorsResponseSDKType>(endpoint, options);
   }
   /* DepositAccount provides data on the deposit address for a connected zone. */
   async depositAccount(params: QueryDepositAccountForChainRequest): Promise<QueryDepositAccountForChainResponseSDKType> {
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/deposit_address`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/deposit_address`;
     return await this.req.get<QueryDepositAccountForChainResponseSDKType>(endpoint);
   }
   /* DelegatorIntent provides data on the intent of the delegator for the given
    zone. */
   async delegatorIntent(params: QueryDelegatorIntentRequest): Promise<QueryDelegatorIntentResponseSDKType> {
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/delegator_intent/${params.delegatorAddress}`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/delegator_intent/${params.delegator_address}`;
     return await this.req.get<QueryDelegatorIntentResponseSDKType>(endpoint);
   }
   /* DelegatorIntents provides data on the intent of the delegator for all zones */
   async delegatorIntents(params: QueryDelegatorIntentsRequest): Promise<QueryDelegatorIntentsResponseSDKType> {
-    const endpoint = `quicksilver/interchainstaking/v1/delegator_intents/${params.delegatorAddress}`;
+    const endpoint = `quicksilver/interchainstaking/v1/delegator_intents/${params.delegator_address}`;
     return await this.req.get<QueryDelegatorIntentsResponseSDKType>(endpoint);
   }
   /* Delegations provides data on the delegations for the given zone. */
@@ -81,7 +81,7 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/delegations`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/delegations`;
     return await this.req.get<QueryDelegationsResponseSDKType>(endpoint, options);
   }
   /* Delegations provides data on the delegations for the given zone. */
@@ -92,12 +92,12 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/receipts`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/receipts`;
     return await this.req.get<QueryReceiptsResponseSDKType>(endpoint, options);
   }
   /* TxStatus */
   async txStatus(params: QueryTxStatusRequest): Promise<QueryTxStatusResponseSDKType> {
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/deposits/${params.txHash}`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/deposits/${params.tx_hash}`;
     return await this.req.get<QueryTxStatusResponseSDKType>(endpoint);
   }
   /* WithdrawalRecords provides data on the active withdrawals. */
@@ -108,7 +108,7 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/withdrawal_records/${params.delegatorAddress}`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/withdrawal_records/${params.delegator_address}`;
     return await this.req.get<QueryWithdrawalRecordsResponseSDKType>(endpoint, options);
   }
   /* WithdrawalRecords provides data on the active withdrawals. */
@@ -116,13 +116,13 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.delegatorAddress !== "undefined") {
-      options.params.delegator_address = params.delegatorAddress;
+    if (typeof params?.delegator_address !== "undefined") {
+      options.params.delegator_address = params.delegator_address;
     }
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/withdrawal_records`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/withdrawal_records`;
     return await this.req.get<QueryWithdrawalRecordsResponseSDKType>(endpoint, options);
   }
   /* WithdrawalRecords provides data on the active withdrawals. */
@@ -133,7 +133,7 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/users/${params.userAddress}/withdrawal_records`;
+    const endpoint = `quicksilver/interchainstaking/v1/users/${params.user_address}/withdrawal_records`;
     return await this.req.get<QueryWithdrawalRecordsResponseSDKType>(endpoint, options);
   }
   /* UnbondingRecords provides data on the active unbondings. */
@@ -144,7 +144,7 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/unbonding_records`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/unbonding_records`;
     return await this.req.get<QueryUnbondingRecordsResponseSDKType>(endpoint, options);
   }
   /* RedelegationRecords provides data on the active unbondings. */
@@ -155,7 +155,7 @@ export class LCDQueryClient {
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chainId}/redelegation_records`;
+    const endpoint = `quicksilver/interchainstaking/v1/zones/${params.chain_id}/redelegation_records`;
     return await this.req.get<QueryRedelegationRecordsResponseSDKType>(endpoint, options);
   }
   /* MappedAccounts provides data on the mapped accounts for a given user over different host chains. */

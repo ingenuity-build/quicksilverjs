@@ -4,10 +4,10 @@ import { isSet, DeepPartial } from "../../../helpers";
 /** GenesisState defines the participationrewards module's genesis state. */
 export interface GenesisState {
   params: Params;
-  protocolData: KeyedProtocolData[];
+  protocol_data: KeyedProtocolData[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/quicksilver.participationrewards.v1.GenesisState";
+  type_url: "/quicksilver.participationrewards.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the participationrewards module's genesis state. */
@@ -27,7 +27,7 @@ export interface GenesisStateSDKType {
 function createBaseGenesisState(): GenesisState {
   return {
     params: Params.fromPartial({}),
-    protocolData: []
+    protocol_data: []
   };
 }
 export const GenesisState = {
@@ -36,7 +36,7 @@ export const GenesisState = {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
-    for (const v of message.protocolData) {
+    for (const v of message.protocol_data) {
       KeyedProtocolData.encode(v!, writer.uint32(18).fork()).ldelim();
     }
     return writer;
@@ -52,7 +52,7 @@ export const GenesisState = {
           message.params = Params.decode(reader, reader.uint32());
           break;
         case 2:
-          message.protocolData.push(KeyedProtocolData.decode(reader, reader.uint32()));
+          message.protocol_data.push(KeyedProtocolData.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -64,36 +64,36 @@ export const GenesisState = {
   fromJSON(object: any): GenesisState {
     return {
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
-      protocolData: Array.isArray(object?.protocolData) ? object.protocolData.map((e: any) => KeyedProtocolData.fromJSON(e)) : []
+      protocol_data: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e: any) => KeyedProtocolData.fromJSON(e)) : []
     };
   },
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
-    if (message.protocolData) {
-      obj.protocolData = message.protocolData.map(e => e ? KeyedProtocolData.toJSON(e) : undefined);
+    if (message.protocol_data) {
+      obj.protocol_data = message.protocol_data.map(e => e ? KeyedProtocolData.toJSON(e) : undefined);
     } else {
-      obj.protocolData = [];
+      obj.protocol_data = [];
     }
     return obj;
   },
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
-    message.protocolData = object.protocolData?.map(e => KeyedProtocolData.fromPartial(e)) || [];
+    message.protocol_data = object.protocol_data?.map(e => KeyedProtocolData.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
     return {
       params: object?.params ? Params.fromAmino(object.params) : undefined,
-      protocolData: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e: any) => KeyedProtocolData.fromAmino(e)) : []
+      protocol_data: Array.isArray(object?.protocol_data) ? object.protocol_data.map((e: any) => KeyedProtocolData.fromAmino(e)) : []
     };
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
-    if (message.protocolData) {
-      obj.protocol_data = message.protocolData.map(e => e ? KeyedProtocolData.toAmino(e) : undefined);
+    if (message.protocol_data) {
+      obj.protocol_data = message.protocol_data.map(e => e ? KeyedProtocolData.toAmino(e) : undefined);
     } else {
       obj.protocol_data = [];
     }

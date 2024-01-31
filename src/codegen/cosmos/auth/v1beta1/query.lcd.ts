@@ -54,12 +54,12 @@ export class LCDQueryClient {
   }
   /* AddressBytesToString converts Account Address bytes to string */
   async addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponseSDKType> {
-    const endpoint = `cosmos/auth/v1beta1/bech32/${params.addressBytes}`;
+    const endpoint = `cosmos/auth/v1beta1/bech32/${params.address_bytes}`;
     return await this.req.get<AddressBytesToStringResponseSDKType>(endpoint);
   }
   /* AddressStringToBytes converts Address string to bytes */
   async addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponseSDKType> {
-    const endpoint = `cosmos/auth/v1beta1/bech32/${params.addressString}`;
+    const endpoint = `cosmos/auth/v1beta1/bech32/${params.address_string}`;
     return await this.req.get<AddressStringToBytesResponseSDKType>(endpoint);
   }
 }

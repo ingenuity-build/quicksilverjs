@@ -3,16 +3,16 @@ import { Zone, ZoneAmino, ZoneSDKType, Validator, ValidatorAmino, ValidatorSDKTy
 import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes, isObject } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface Statistics {
-  chainId: string;
+  chain_id: string;
   deposited: Long;
   deposits: Long;
   depositors: Long;
   delegated: Long;
   supply: Long;
-  distanceToTarget: string;
+  distance_to_target: string;
 }
 export interface StatisticsProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.Statistics";
+  type_url: "/quicksilver.interchainstaking.v1.Statistics";
   value: Uint8Array;
 }
 export interface StatisticsAmino {
@@ -41,7 +41,7 @@ export interface QueryZonesRequest {
   pagination: PageRequest;
 }
 export interface QueryZonesRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZonesRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZonesRequest";
   value: Uint8Array;
 }
 export interface QueryZonesRequestAmino {
@@ -60,7 +60,7 @@ export interface QueryZonesResponse {
   pagination: PageResponse;
 }
 export interface QueryZonesResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZonesResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZonesResponse";
   value: Uint8Array;
 }
 export interface QueryZonesResponseAmino {
@@ -78,10 +78,10 @@ export interface QueryZonesResponseSDKType {
   pagination: PageResponseSDKType;
 }
 export interface QueryZoneRequest {
-  chainId: string;
+  chain_id: string;
 }
 export interface QueryZoneRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZoneRequest";
   value: Uint8Array;
 }
 export interface QueryZoneRequestAmino {
@@ -99,7 +99,7 @@ export interface QueryZoneResponse {
   stats: Statistics;
 }
 export interface QueryZoneResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZoneResponse";
   value: Uint8Array;
 }
 export interface QueryZoneResponseAmino {
@@ -115,12 +115,12 @@ export interface QueryZoneResponseSDKType {
   stats: StatisticsSDKType;
 }
 export interface QueryZoneValidatorsRequest {
-  chainId: string;
+  chain_id: string;
   status: string;
   pagination: PageRequest;
 }
 export interface QueryZoneValidatorsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsRequest";
   value: Uint8Array;
 }
 export interface QueryZoneValidatorsRequestAmino {
@@ -142,7 +142,7 @@ export interface QueryZoneValidatorsResponse {
   pagination: PageResponse;
 }
 export interface QueryZoneValidatorsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsResponse";
   value: Uint8Array;
 }
 export interface QueryZoneValidatorsResponseAmino {
@@ -162,10 +162,10 @@ export interface QueryZoneValidatorsResponseSDKType {
  * Query/InterchainAccountAddress RPC
  */
 export interface QueryDepositAccountForChainRequest {
-  chainId: string;
+  chain_id: string;
 }
 export interface QueryDepositAccountForChainRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainRequest";
   value: Uint8Array;
 }
 /**
@@ -191,10 +191,10 @@ export interface QueryDepositAccountForChainRequestSDKType {
  * Query/InterchainAccountAddress RPC
  */
 export interface QueryDepositAccountForChainResponse {
-  depositAccountAddress: string;
+  deposit_account_address: string;
 }
 export interface QueryDepositAccountForChainResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainResponse";
   value: Uint8Array;
 }
 /**
@@ -216,11 +216,11 @@ export interface QueryDepositAccountForChainResponseSDKType {
   deposit_account_address: string;
 }
 export interface QueryDelegatorIntentRequest {
-  chainId: string;
-  delegatorAddress: string;
+  chain_id: string;
+  delegator_address: string;
 }
 export interface QueryDelegatorIntentRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentRequest";
   value: Uint8Array;
 }
 export interface QueryDelegatorIntentRequestAmino {
@@ -239,7 +239,7 @@ export interface QueryDelegatorIntentResponse {
   intent: DelegatorIntent;
 }
 export interface QueryDelegatorIntentResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentResponse";
   value: Uint8Array;
 }
 export interface QueryDelegatorIntentResponseAmino {
@@ -253,10 +253,10 @@ export interface QueryDelegatorIntentResponseSDKType {
   intent: DelegatorIntentSDKType;
 }
 export interface QueryDelegatorIntentsRequest {
-  delegatorAddress: string;
+  delegator_address: string;
 }
 export interface QueryDelegatorIntentsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsRequest";
   value: Uint8Array;
 }
 export interface QueryDelegatorIntentsRequestAmino {
@@ -270,11 +270,11 @@ export interface QueryDelegatorIntentsRequestSDKType {
   delegator_address: string;
 }
 export interface DelegatorIntentsResponse {
-  chainId: string;
+  chain_id: string;
   intent: DelegatorIntent;
 }
 export interface DelegatorIntentsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntentsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.DelegatorIntentsResponse";
   value: Uint8Array;
 }
 export interface DelegatorIntentsResponseAmino {
@@ -293,7 +293,7 @@ export interface QueryDelegatorIntentsResponse {
   intents: DelegatorIntentsResponse[];
 }
 export interface QueryDelegatorIntentsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsResponse";
   value: Uint8Array;
 }
 export interface QueryDelegatorIntentsResponseAmino {
@@ -307,11 +307,11 @@ export interface QueryDelegatorIntentsResponseSDKType {
   intents: DelegatorIntentsResponseSDKType[];
 }
 export interface QueryDelegationsRequest {
-  chainId: string;
+  chain_id: string;
   pagination: PageRequest;
 }
 export interface QueryDelegationsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegationsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegationsRequest";
   value: Uint8Array;
 }
 export interface QueryDelegationsRequestAmino {
@@ -332,7 +332,7 @@ export interface QueryDelegationsResponse {
   pagination: PageResponse;
 }
 export interface QueryDelegationsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegationsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryDelegationsResponse";
   value: Uint8Array;
 }
 export interface QueryDelegationsResponseAmino {
@@ -350,11 +350,11 @@ export interface QueryDelegationsResponseSDKType {
   pagination: PageResponseSDKType;
 }
 export interface QueryReceiptsRequest {
-  chainId: string;
+  chain_id: string;
   pagination: PageRequest;
 }
 export interface QueryReceiptsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryReceiptsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryReceiptsRequest";
   value: Uint8Array;
 }
 export interface QueryReceiptsRequestAmino {
@@ -374,7 +374,7 @@ export interface QueryReceiptsResponse {
   pagination: PageResponse;
 }
 export interface QueryReceiptsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryReceiptsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryReceiptsResponse";
   value: Uint8Array;
 }
 export interface QueryReceiptsResponseAmino {
@@ -390,11 +390,11 @@ export interface QueryReceiptsResponseSDKType {
   pagination: PageResponseSDKType;
 }
 export interface QueryTxStatusRequest {
-  chainId: string;
-  txHash: string;
+  chain_id: string;
+  tx_hash: string;
 }
 export interface QueryTxStatusRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryTxStatusRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryTxStatusRequest";
   value: Uint8Array;
 }
 export interface QueryTxStatusRequestAmino {
@@ -413,7 +413,7 @@ export interface QueryTxStatusResponse {
   receipt: Receipt;
 }
 export interface QueryTxStatusResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryTxStatusResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryTxStatusResponse";
   value: Uint8Array;
 }
 export interface QueryTxStatusResponseAmino {
@@ -427,12 +427,12 @@ export interface QueryTxStatusResponseSDKType {
   receipt: ReceiptSDKType;
 }
 export interface QueryWithdrawalRecordsRequest {
-  chainId: string;
-  delegatorAddress: string;
+  chain_id: string;
+  delegator_address: string;
   pagination: PageRequest;
 }
 export interface QueryWithdrawalRecordsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsRequest";
   value: Uint8Array;
 }
 export interface QueryWithdrawalRecordsRequestAmino {
@@ -454,7 +454,7 @@ export interface QueryWithdrawalRecordsResponse {
   pagination: PageResponse;
 }
 export interface QueryWithdrawalRecordsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsResponse";
   value: Uint8Array;
 }
 export interface QueryWithdrawalRecordsResponseAmino {
@@ -470,11 +470,11 @@ export interface QueryWithdrawalRecordsResponseSDKType {
   pagination: PageResponseSDKType;
 }
 export interface QueryUserWithdrawalRecordsRequest {
-  userAddress: string;
+  user_address: string;
   pagination: PageRequest;
 }
 export interface QueryUserWithdrawalRecordsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryUserWithdrawalRecordsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryUserWithdrawalRecordsRequest";
   value: Uint8Array;
 }
 export interface QueryUserWithdrawalRecordsRequestAmino {
@@ -490,11 +490,11 @@ export interface QueryUserWithdrawalRecordsRequestSDKType {
   pagination: PageRequestSDKType;
 }
 export interface QueryUnbondingRecordsRequest {
-  chainId: string;
+  chain_id: string;
   pagination: PageRequest;
 }
 export interface QueryUnbondingRecordsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsRequest";
   value: Uint8Array;
 }
 export interface QueryUnbondingRecordsRequestAmino {
@@ -514,7 +514,7 @@ export interface QueryUnbondingRecordsResponse {
   pagination: PageResponse;
 }
 export interface QueryUnbondingRecordsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsResponse";
   value: Uint8Array;
 }
 export interface QueryUnbondingRecordsResponseAmino {
@@ -530,11 +530,11 @@ export interface QueryUnbondingRecordsResponseSDKType {
   pagination: PageResponseSDKType;
 }
 export interface QueryRedelegationRecordsRequest {
-  chainId: string;
+  chain_id: string;
   pagination: PageRequest;
 }
 export interface QueryRedelegationRecordsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsRequest";
   value: Uint8Array;
 }
 export interface QueryRedelegationRecordsRequestAmino {
@@ -554,7 +554,7 @@ export interface QueryRedelegationRecordsResponse {
   pagination: PageResponse;
 }
 export interface QueryRedelegationRecordsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsResponse";
   value: Uint8Array;
 }
 export interface QueryRedelegationRecordsResponseAmino {
@@ -574,7 +574,7 @@ export interface QueryMappedAccountsRequest {
   pagination: PageRequest;
 }
 export interface QueryMappedAccountsRequestProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryMappedAccountsRequest";
+  type_url: "/quicksilver.interchainstaking.v1.QueryMappedAccountsRequest";
   value: Uint8Array;
 }
 export interface QueryMappedAccountsRequestAmino {
@@ -594,7 +594,7 @@ export interface QueryMappedAccountsResponse_RemoteAddressMapEntry {
   value: Uint8Array;
 }
 export interface QueryMappedAccountsResponse_RemoteAddressMapEntryProtoMsg {
-  typeUrl: string;
+  type_url: string;
   value: Uint8Array;
 }
 export interface QueryMappedAccountsResponse_RemoteAddressMapEntryAmino {
@@ -616,7 +616,7 @@ export interface QueryMappedAccountsResponse {
   pagination: PageResponse;
 }
 export interface QueryMappedAccountsResponseProtoMsg {
-  typeUrl: "/quicksilver.interchainstaking.v1.QueryMappedAccountsResponse";
+  type_url: "/quicksilver.interchainstaking.v1.QueryMappedAccountsResponse";
   value: Uint8Array;
 }
 export interface QueryMappedAccountsResponseAmino {
@@ -637,20 +637,20 @@ export interface QueryMappedAccountsResponseSDKType {
 }
 function createBaseStatistics(): Statistics {
   return {
-    chainId: "",
+    chain_id: "",
     deposited: Long.ZERO,
     deposits: Long.ZERO,
     depositors: Long.ZERO,
     delegated: Long.ZERO,
     supply: Long.ZERO,
-    distanceToTarget: ""
+    distance_to_target: ""
   };
 }
 export const Statistics = {
   typeUrl: "/quicksilver.interchainstaking.v1.Statistics",
   encode(message: Statistics, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (!message.deposited.isZero()) {
       writer.uint32(16).int64(message.deposited);
@@ -667,8 +667,8 @@ export const Statistics = {
     if (!message.supply.isZero()) {
       writer.uint32(48).int64(message.supply);
     }
-    if (message.distanceToTarget !== "") {
-      writer.uint32(58).string(message.distanceToTarget);
+    if (message.distance_to_target !== "") {
+      writer.uint32(58).string(message.distance_to_target);
     }
     return writer;
   },
@@ -680,7 +680,7 @@ export const Statistics = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.deposited = (reader.int64() as Long);
@@ -698,7 +698,7 @@ export const Statistics = {
           message.supply = (reader.int64() as Long);
           break;
         case 7:
-          message.distanceToTarget = reader.string();
+          message.distance_to_target = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -709,57 +709,57 @@ export const Statistics = {
   },
   fromJSON(object: any): Statistics {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       deposited: isSet(object.deposited) ? Long.fromValue(object.deposited) : Long.ZERO,
       deposits: isSet(object.deposits) ? Long.fromValue(object.deposits) : Long.ZERO,
       depositors: isSet(object.depositors) ? Long.fromValue(object.depositors) : Long.ZERO,
       delegated: isSet(object.delegated) ? Long.fromValue(object.delegated) : Long.ZERO,
       supply: isSet(object.supply) ? Long.fromValue(object.supply) : Long.ZERO,
-      distanceToTarget: isSet(object.distanceToTarget) ? String(object.distanceToTarget) : ""
+      distance_to_target: isSet(object.distance_to_target) ? String(object.distance_to_target) : ""
     };
   },
   toJSON(message: Statistics): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.deposited !== undefined && (obj.deposited = (message.deposited || Long.ZERO).toString());
     message.deposits !== undefined && (obj.deposits = (message.deposits || Long.ZERO).toString());
     message.depositors !== undefined && (obj.depositors = (message.depositors || Long.ZERO).toString());
     message.delegated !== undefined && (obj.delegated = (message.delegated || Long.ZERO).toString());
     message.supply !== undefined && (obj.supply = (message.supply || Long.ZERO).toString());
-    message.distanceToTarget !== undefined && (obj.distanceToTarget = message.distanceToTarget);
+    message.distance_to_target !== undefined && (obj.distance_to_target = message.distance_to_target);
     return obj;
   },
   fromPartial(object: DeepPartial<Statistics>): Statistics {
     const message = createBaseStatistics();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.deposited = object.deposited !== undefined && object.deposited !== null ? Long.fromValue(object.deposited) : Long.ZERO;
     message.deposits = object.deposits !== undefined && object.deposits !== null ? Long.fromValue(object.deposits) : Long.ZERO;
     message.depositors = object.depositors !== undefined && object.depositors !== null ? Long.fromValue(object.depositors) : Long.ZERO;
     message.delegated = object.delegated !== undefined && object.delegated !== null ? Long.fromValue(object.delegated) : Long.ZERO;
     message.supply = object.supply !== undefined && object.supply !== null ? Long.fromValue(object.supply) : Long.ZERO;
-    message.distanceToTarget = object.distanceToTarget ?? "";
+    message.distance_to_target = object.distance_to_target ?? "";
     return message;
   },
   fromAmino(object: StatisticsAmino): Statistics {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       deposited: Long.fromString(object.deposited),
       deposits: Long.fromString(object.deposits),
       depositors: Long.fromString(object.depositors),
       delegated: Long.fromString(object.delegated),
       supply: Long.fromString(object.supply),
-      distanceToTarget: object.distance_to_target
+      distance_to_target: object.distance_to_target
     };
   },
   toAmino(message: Statistics): StatisticsAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.deposited = message.deposited ? message.deposited.toString() : undefined;
     obj.deposits = message.deposits ? message.deposits.toString() : undefined;
     obj.depositors = message.depositors ? message.depositors.toString() : undefined;
     obj.delegated = message.delegated ? message.delegated.toString() : undefined;
     obj.supply = message.supply ? message.supply.toString() : undefined;
-    obj.distance_to_target = message.distanceToTarget;
+    obj.distance_to_target = message.distance_to_target;
     return obj;
   },
   fromAminoMsg(object: StatisticsAminoMsg): Statistics {
@@ -962,14 +962,14 @@ export const QueryZonesResponse = {
 };
 function createBaseQueryZoneRequest(): QueryZoneRequest {
   return {
-    chainId: ""
+    chain_id: ""
   };
 }
 export const QueryZoneRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneRequest",
   encode(message: QueryZoneRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     return writer;
   },
@@ -981,7 +981,7 @@ export const QueryZoneRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -992,27 +992,27 @@ export const QueryZoneRequest = {
   },
   fromJSON(object: any): QueryZoneRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : ""
     };
   },
   toJSON(message: QueryZoneRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryZoneRequest>): QueryZoneRequest {
     const message = createBaseQueryZoneRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     return message;
   },
   fromAmino(object: QueryZoneRequestAmino): QueryZoneRequest {
     return {
-      chainId: object.chain_id
+      chain_id: object.chain_id
     };
   },
   toAmino(message: QueryZoneRequest): QueryZoneRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     return obj;
   },
   fromAminoMsg(object: QueryZoneRequestAminoMsg): QueryZoneRequest {
@@ -1116,7 +1116,7 @@ export const QueryZoneResponse = {
 };
 function createBaseQueryZoneValidatorsRequest(): QueryZoneValidatorsRequest {
   return {
-    chainId: "",
+    chain_id: "",
     status: "",
     pagination: PageRequest.fromPartial({})
   };
@@ -1124,8 +1124,8 @@ function createBaseQueryZoneValidatorsRequest(): QueryZoneValidatorsRequest {
 export const QueryZoneValidatorsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryZoneValidatorsRequest",
   encode(message: QueryZoneValidatorsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.status !== "") {
       writer.uint32(18).string(message.status);
@@ -1143,7 +1143,7 @@ export const QueryZoneValidatorsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.status = reader.string();
@@ -1160,35 +1160,35 @@ export const QueryZoneValidatorsRequest = {
   },
   fromJSON(object: any): QueryZoneValidatorsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       status: isSet(object.status) ? String(object.status) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryZoneValidatorsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.status !== undefined && (obj.status = message.status);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryZoneValidatorsRequest>): QueryZoneValidatorsRequest {
     const message = createBaseQueryZoneValidatorsRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.status = object.status ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryZoneValidatorsRequestAmino): QueryZoneValidatorsRequest {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       status: object.status,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryZoneValidatorsRequest): QueryZoneValidatorsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.status = message.status;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
@@ -1302,14 +1302,14 @@ export const QueryZoneValidatorsResponse = {
 };
 function createBaseQueryDepositAccountForChainRequest(): QueryDepositAccountForChainRequest {
   return {
-    chainId: ""
+    chain_id: ""
   };
 }
 export const QueryDepositAccountForChainRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainRequest",
   encode(message: QueryDepositAccountForChainRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     return writer;
   },
@@ -1321,7 +1321,7 @@ export const QueryDepositAccountForChainRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1332,27 +1332,27 @@ export const QueryDepositAccountForChainRequest = {
   },
   fromJSON(object: any): QueryDepositAccountForChainRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : ""
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : ""
     };
   },
   toJSON(message: QueryDepositAccountForChainRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDepositAccountForChainRequest>): QueryDepositAccountForChainRequest {
     const message = createBaseQueryDepositAccountForChainRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     return message;
   },
   fromAmino(object: QueryDepositAccountForChainRequestAmino): QueryDepositAccountForChainRequest {
     return {
-      chainId: object.chain_id
+      chain_id: object.chain_id
     };
   },
   toAmino(message: QueryDepositAccountForChainRequest): QueryDepositAccountForChainRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     return obj;
   },
   fromAminoMsg(object: QueryDepositAccountForChainRequestAminoMsg): QueryDepositAccountForChainRequest {
@@ -1373,14 +1373,14 @@ export const QueryDepositAccountForChainRequest = {
 };
 function createBaseQueryDepositAccountForChainResponse(): QueryDepositAccountForChainResponse {
   return {
-    depositAccountAddress: ""
+    deposit_account_address: ""
   };
 }
 export const QueryDepositAccountForChainResponse = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryDepositAccountForChainResponse",
   encode(message: QueryDepositAccountForChainResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.depositAccountAddress !== "") {
-      writer.uint32(10).string(message.depositAccountAddress);
+    if (message.deposit_account_address !== "") {
+      writer.uint32(10).string(message.deposit_account_address);
     }
     return writer;
   },
@@ -1392,7 +1392,7 @@ export const QueryDepositAccountForChainResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.depositAccountAddress = reader.string();
+          message.deposit_account_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1403,27 +1403,27 @@ export const QueryDepositAccountForChainResponse = {
   },
   fromJSON(object: any): QueryDepositAccountForChainResponse {
     return {
-      depositAccountAddress: isSet(object.depositAccountAddress) ? String(object.depositAccountAddress) : ""
+      deposit_account_address: isSet(object.deposit_account_address) ? String(object.deposit_account_address) : ""
     };
   },
   toJSON(message: QueryDepositAccountForChainResponse): unknown {
     const obj: any = {};
-    message.depositAccountAddress !== undefined && (obj.depositAccountAddress = message.depositAccountAddress);
+    message.deposit_account_address !== undefined && (obj.deposit_account_address = message.deposit_account_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDepositAccountForChainResponse>): QueryDepositAccountForChainResponse {
     const message = createBaseQueryDepositAccountForChainResponse();
-    message.depositAccountAddress = object.depositAccountAddress ?? "";
+    message.deposit_account_address = object.deposit_account_address ?? "";
     return message;
   },
   fromAmino(object: QueryDepositAccountForChainResponseAmino): QueryDepositAccountForChainResponse {
     return {
-      depositAccountAddress: object.deposit_account_address
+      deposit_account_address: object.deposit_account_address
     };
   },
   toAmino(message: QueryDepositAccountForChainResponse): QueryDepositAccountForChainResponseAmino {
     const obj: any = {};
-    obj.deposit_account_address = message.depositAccountAddress;
+    obj.deposit_account_address = message.deposit_account_address;
     return obj;
   },
   fromAminoMsg(object: QueryDepositAccountForChainResponseAminoMsg): QueryDepositAccountForChainResponse {
@@ -1444,18 +1444,18 @@ export const QueryDepositAccountForChainResponse = {
 };
 function createBaseQueryDelegatorIntentRequest(): QueryDelegatorIntentRequest {
   return {
-    chainId: "",
-    delegatorAddress: ""
+    chain_id: "",
+    delegator_address: ""
   };
 }
 export const QueryDelegatorIntentRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentRequest",
   encode(message: QueryDelegatorIntentRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (message.delegatorAddress !== "") {
-      writer.uint32(18).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(18).string(message.delegator_address);
     }
     return writer;
   },
@@ -1467,10 +1467,10 @@ export const QueryDelegatorIntentRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1481,32 +1481,32 @@ export const QueryDelegatorIntentRequest = {
   },
   fromJSON(object: any): QueryDelegatorIntentRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: QueryDelegatorIntentRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegatorIntentRequest>): QueryDelegatorIntentRequest {
     const message = createBaseQueryDelegatorIntentRequest();
-    message.chainId = object.chainId ?? "";
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.chain_id = object.chain_id ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegatorIntentRequestAmino): QueryDelegatorIntentRequest {
     return {
-      chainId: object.chain_id,
-      delegatorAddress: object.delegator_address
+      chain_id: object.chain_id,
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: QueryDelegatorIntentRequest): QueryDelegatorIntentRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.delegator_address = message.delegatorAddress;
+    obj.chain_id = message.chain_id;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegatorIntentRequestAminoMsg): QueryDelegatorIntentRequest {
@@ -1598,14 +1598,14 @@ export const QueryDelegatorIntentResponse = {
 };
 function createBaseQueryDelegatorIntentsRequest(): QueryDelegatorIntentsRequest {
   return {
-    delegatorAddress: ""
+    delegator_address: ""
   };
 }
 export const QueryDelegatorIntentsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegatorIntentsRequest",
   encode(message: QueryDelegatorIntentsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.delegatorAddress !== "") {
-      writer.uint32(10).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(10).string(message.delegator_address);
     }
     return writer;
   },
@@ -1617,7 +1617,7 @@ export const QueryDelegatorIntentsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1628,27 +1628,27 @@ export const QueryDelegatorIntentsRequest = {
   },
   fromJSON(object: any): QueryDelegatorIntentsRequest {
     return {
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : ""
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : ""
     };
   },
   toJSON(message: QueryDelegatorIntentsRequest): unknown {
     const obj: any = {};
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegatorIntentsRequest>): QueryDelegatorIntentsRequest {
     const message = createBaseQueryDelegatorIntentsRequest();
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     return message;
   },
   fromAmino(object: QueryDelegatorIntentsRequestAmino): QueryDelegatorIntentsRequest {
     return {
-      delegatorAddress: object.delegator_address
+      delegator_address: object.delegator_address
     };
   },
   toAmino(message: QueryDelegatorIntentsRequest): QueryDelegatorIntentsRequestAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress;
+    obj.delegator_address = message.delegator_address;
     return obj;
   },
   fromAminoMsg(object: QueryDelegatorIntentsRequestAminoMsg): QueryDelegatorIntentsRequest {
@@ -1669,15 +1669,15 @@ export const QueryDelegatorIntentsRequest = {
 };
 function createBaseDelegatorIntentsResponse(): DelegatorIntentsResponse {
   return {
-    chainId: "",
+    chain_id: "",
     intent: DelegatorIntent.fromPartial({})
   };
 }
 export const DelegatorIntentsResponse = {
   typeUrl: "/quicksilver.interchainstaking.v1.DelegatorIntentsResponse",
   encode(message: DelegatorIntentsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.intent !== undefined) {
       DelegatorIntent.encode(message.intent, writer.uint32(18).fork()).ldelim();
@@ -1692,7 +1692,7 @@ export const DelegatorIntentsResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.intent = DelegatorIntent.decode(reader, reader.uint32());
@@ -1706,31 +1706,31 @@ export const DelegatorIntentsResponse = {
   },
   fromJSON(object: any): DelegatorIntentsResponse {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       intent: isSet(object.intent) ? DelegatorIntent.fromJSON(object.intent) : undefined
     };
   },
   toJSON(message: DelegatorIntentsResponse): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.intent !== undefined && (obj.intent = message.intent ? DelegatorIntent.toJSON(message.intent) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<DelegatorIntentsResponse>): DelegatorIntentsResponse {
     const message = createBaseDelegatorIntentsResponse();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.intent = object.intent !== undefined && object.intent !== null ? DelegatorIntent.fromPartial(object.intent) : undefined;
     return message;
   },
   fromAmino(object: DelegatorIntentsResponseAmino): DelegatorIntentsResponse {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       intent: object?.intent ? DelegatorIntent.fromAmino(object.intent) : undefined
     };
   },
   toAmino(message: DelegatorIntentsResponse): DelegatorIntentsResponseAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.intent = message.intent ? DelegatorIntent.toAmino(message.intent) : undefined;
     return obj;
   },
@@ -1831,15 +1831,15 @@ export const QueryDelegatorIntentsResponse = {
 };
 function createBaseQueryDelegationsRequest(): QueryDelegationsRequest {
   return {
-    chainId: "",
+    chain_id: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryDelegationsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryDelegationsRequest",
   encode(message: QueryDelegationsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -1854,7 +1854,7 @@ export const QueryDelegationsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -1868,31 +1868,31 @@ export const QueryDelegationsRequest = {
   },
   fromJSON(object: any): QueryDelegationsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryDelegationsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryDelegationsRequest>): QueryDelegationsRequest {
     const message = createBaseQueryDelegationsRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryDelegationsRequestAmino): QueryDelegationsRequest {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryDelegationsRequest): QueryDelegationsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2017,15 +2017,15 @@ export const QueryDelegationsResponse = {
 };
 function createBaseQueryReceiptsRequest(): QueryReceiptsRequest {
   return {
-    chainId: "",
+    chain_id: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryReceiptsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryReceiptsRequest",
   encode(message: QueryReceiptsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -2040,7 +2040,7 @@ export const QueryReceiptsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -2054,31 +2054,31 @@ export const QueryReceiptsRequest = {
   },
   fromJSON(object: any): QueryReceiptsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryReceiptsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryReceiptsRequest>): QueryReceiptsRequest {
     const message = createBaseQueryReceiptsRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryReceiptsRequestAmino): QueryReceiptsRequest {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryReceiptsRequest): QueryReceiptsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2191,18 +2191,18 @@ export const QueryReceiptsResponse = {
 };
 function createBaseQueryTxStatusRequest(): QueryTxStatusRequest {
   return {
-    chainId: "",
-    txHash: ""
+    chain_id: "",
+    tx_hash: ""
   };
 }
 export const QueryTxStatusRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryTxStatusRequest",
   encode(message: QueryTxStatusRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (message.txHash !== "") {
-      writer.uint32(18).string(message.txHash);
+    if (message.tx_hash !== "") {
+      writer.uint32(18).string(message.tx_hash);
     }
     return writer;
   },
@@ -2214,10 +2214,10 @@ export const QueryTxStatusRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.txHash = reader.string();
+          message.tx_hash = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2228,32 +2228,32 @@ export const QueryTxStatusRequest = {
   },
   fromJSON(object: any): QueryTxStatusRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      txHash: isSet(object.txHash) ? String(object.txHash) : ""
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      tx_hash: isSet(object.tx_hash) ? String(object.tx_hash) : ""
     };
   },
   toJSON(message: QueryTxStatusRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.txHash !== undefined && (obj.txHash = message.txHash);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.tx_hash !== undefined && (obj.tx_hash = message.tx_hash);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryTxStatusRequest>): QueryTxStatusRequest {
     const message = createBaseQueryTxStatusRequest();
-    message.chainId = object.chainId ?? "";
-    message.txHash = object.txHash ?? "";
+    message.chain_id = object.chain_id ?? "";
+    message.tx_hash = object.tx_hash ?? "";
     return message;
   },
   fromAmino(object: QueryTxStatusRequestAmino): QueryTxStatusRequest {
     return {
-      chainId: object.chain_id,
-      txHash: object.tx_hash
+      chain_id: object.chain_id,
+      tx_hash: object.tx_hash
     };
   },
   toAmino(message: QueryTxStatusRequest): QueryTxStatusRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.tx_hash = message.txHash;
+    obj.chain_id = message.chain_id;
+    obj.tx_hash = message.tx_hash;
     return obj;
   },
   fromAminoMsg(object: QueryTxStatusRequestAminoMsg): QueryTxStatusRequest {
@@ -2345,19 +2345,19 @@ export const QueryTxStatusResponse = {
 };
 function createBaseQueryWithdrawalRecordsRequest(): QueryWithdrawalRecordsRequest {
   return {
-    chainId: "",
-    delegatorAddress: "",
+    chain_id: "",
+    delegator_address: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryWithdrawalRecordsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryWithdrawalRecordsRequest",
   encode(message: QueryWithdrawalRecordsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
-    if (message.delegatorAddress !== "") {
-      writer.uint32(18).string(message.delegatorAddress);
+    if (message.delegator_address !== "") {
+      writer.uint32(18).string(message.delegator_address);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
@@ -2372,10 +2372,10 @@ export const QueryWithdrawalRecordsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
-          message.delegatorAddress = reader.string();
+          message.delegator_address = reader.string();
           break;
         case 3:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -2389,36 +2389,36 @@ export const QueryWithdrawalRecordsRequest = {
   },
   fromJSON(object: any): QueryWithdrawalRecordsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
-      delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
+      delegator_address: isSet(object.delegator_address) ? String(object.delegator_address) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryWithdrawalRecordsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
+    message.delegator_address !== undefined && (obj.delegator_address = message.delegator_address);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryWithdrawalRecordsRequest>): QueryWithdrawalRecordsRequest {
     const message = createBaseQueryWithdrawalRecordsRequest();
-    message.chainId = object.chainId ?? "";
-    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.chain_id = object.chain_id ?? "";
+    message.delegator_address = object.delegator_address ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryWithdrawalRecordsRequestAmino): QueryWithdrawalRecordsRequest {
     return {
-      chainId: object.chain_id,
-      delegatorAddress: object.delegator_address,
+      chain_id: object.chain_id,
+      delegator_address: object.delegator_address,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryWithdrawalRecordsRequest): QueryWithdrawalRecordsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
-    obj.delegator_address = message.delegatorAddress;
+    obj.chain_id = message.chain_id;
+    obj.delegator_address = message.delegator_address;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2531,15 +2531,15 @@ export const QueryWithdrawalRecordsResponse = {
 };
 function createBaseQueryUserWithdrawalRecordsRequest(): QueryUserWithdrawalRecordsRequest {
   return {
-    userAddress: "",
+    user_address: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryUserWithdrawalRecordsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryUserWithdrawalRecordsRequest",
   encode(message: QueryUserWithdrawalRecordsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.userAddress !== "") {
-      writer.uint32(10).string(message.userAddress);
+    if (message.user_address !== "") {
+      writer.uint32(10).string(message.user_address);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -2554,7 +2554,7 @@ export const QueryUserWithdrawalRecordsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.userAddress = reader.string();
+          message.user_address = reader.string();
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -2568,31 +2568,31 @@ export const QueryUserWithdrawalRecordsRequest = {
   },
   fromJSON(object: any): QueryUserWithdrawalRecordsRequest {
     return {
-      userAddress: isSet(object.userAddress) ? String(object.userAddress) : "",
+      user_address: isSet(object.user_address) ? String(object.user_address) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryUserWithdrawalRecordsRequest): unknown {
     const obj: any = {};
-    message.userAddress !== undefined && (obj.userAddress = message.userAddress);
+    message.user_address !== undefined && (obj.user_address = message.user_address);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryUserWithdrawalRecordsRequest>): QueryUserWithdrawalRecordsRequest {
     const message = createBaseQueryUserWithdrawalRecordsRequest();
-    message.userAddress = object.userAddress ?? "";
+    message.user_address = object.user_address ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryUserWithdrawalRecordsRequestAmino): QueryUserWithdrawalRecordsRequest {
     return {
-      userAddress: object.user_address,
+      user_address: object.user_address,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryUserWithdrawalRecordsRequest): QueryUserWithdrawalRecordsRequestAmino {
     const obj: any = {};
-    obj.user_address = message.userAddress;
+    obj.user_address = message.user_address;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2614,15 +2614,15 @@ export const QueryUserWithdrawalRecordsRequest = {
 };
 function createBaseQueryUnbondingRecordsRequest(): QueryUnbondingRecordsRequest {
   return {
-    chainId: "",
+    chain_id: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryUnbondingRecordsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryUnbondingRecordsRequest",
   encode(message: QueryUnbondingRecordsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -2637,7 +2637,7 @@ export const QueryUnbondingRecordsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -2651,31 +2651,31 @@ export const QueryUnbondingRecordsRequest = {
   },
   fromJSON(object: any): QueryUnbondingRecordsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryUnbondingRecordsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryUnbondingRecordsRequest>): QueryUnbondingRecordsRequest {
     const message = createBaseQueryUnbondingRecordsRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryUnbondingRecordsRequestAmino): QueryUnbondingRecordsRequest {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryUnbondingRecordsRequest): QueryUnbondingRecordsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2788,15 +2788,15 @@ export const QueryUnbondingRecordsResponse = {
 };
 function createBaseQueryRedelegationRecordsRequest(): QueryRedelegationRecordsRequest {
   return {
-    chainId: "",
+    chain_id: "",
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryRedelegationRecordsRequest = {
   typeUrl: "/quicksilver.interchainstaking.v1.QueryRedelegationRecordsRequest",
   encode(message: QueryRedelegationRecordsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.chainId !== "") {
-      writer.uint32(10).string(message.chainId);
+    if (message.chain_id !== "") {
+      writer.uint32(10).string(message.chain_id);
     }
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -2811,7 +2811,7 @@ export const QueryRedelegationRecordsRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.chainId = reader.string();
+          message.chain_id = reader.string();
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -2825,31 +2825,31 @@ export const QueryRedelegationRecordsRequest = {
   },
   fromJSON(object: any): QueryRedelegationRecordsRequest {
     return {
-      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryRedelegationRecordsRequest): unknown {
     const obj: any = {};
-    message.chainId !== undefined && (obj.chainId = message.chainId);
+    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: DeepPartial<QueryRedelegationRecordsRequest>): QueryRedelegationRecordsRequest {
     const message = createBaseQueryRedelegationRecordsRequest();
-    message.chainId = object.chainId ?? "";
+    message.chain_id = object.chain_id ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryRedelegationRecordsRequestAmino): QueryRedelegationRecordsRequest {
     return {
-      chainId: object.chain_id,
+      chain_id: object.chain_id,
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryRedelegationRecordsRequest): QueryRedelegationRecordsRequestAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId;
+    obj.chain_id = message.chain_id;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },

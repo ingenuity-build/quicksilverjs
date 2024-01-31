@@ -9,7 +9,7 @@ export interface PubKey {
   key: Uint8Array;
 }
 export interface PubKeyProtoMsg {
-  typeUrl: "/cosmos.crypto.secp256r1.PubKey";
+  type_url: "/cosmos.crypto.secp256r1.PubKey";
   value: Uint8Array;
 }
 /** PubKey defines a secp256r1 ECDSA public key. */
@@ -34,7 +34,7 @@ export interface PrivKey {
   secret: Uint8Array;
 }
 export interface PrivKeyProtoMsg {
-  typeUrl: "/cosmos.crypto.secp256r1.PrivKey";
+  type_url: "/cosmos.crypto.secp256r1.PrivKey";
   value: Uint8Array;
 }
 /** PrivKey defines a secp256r1 ECDSA private key. */

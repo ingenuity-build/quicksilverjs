@@ -3,10 +3,10 @@ import * as _m0 from "protobufjs/minimal";
 /** Minter represents the minting state. */
 export interface Minter {
   /** current epoch provisions */
-  epochProvisions: string;
+  epoch_provisions: string;
 }
 export interface MinterProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.Minter";
+  type_url: "/quicksilver.mint.v1beta1.Minter";
   value: Uint8Array;
 }
 /** Minter represents the minting state. */
@@ -32,20 +32,20 @@ export interface DistributionProportions {
    * pool_incentives defines the proportion of the minted minted_denom that is
    * to be allocated as pool incentives.
    */
-  poolIncentives: string;
+  pool_incentives: string;
   /**
    * participation_rewards defines the proportion of the minted minted_denom
    * that is to be allocated to participation rewards address.
    */
-  participationRewards: string;
+  participation_rewards: string;
   /**
    * community_pool defines the proportion of the minted minted_denom that is
    * to be allocated to the community pool.
    */
-  communityPool: string;
+  community_pool: string;
 }
 export interface DistributionProportionsProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.DistributionProportions";
+  type_url: "/quicksilver.mint.v1beta1.DistributionProportions";
   value: Uint8Array;
 }
 export interface DistributionProportionsAmino {
@@ -83,22 +83,22 @@ export interface DistributionProportionsSDKType {
 /** Params holds parameters for the mint module. */
 export interface Params {
   /** type of coin to mint */
-  mintDenom: string;
+  mint_denom: string;
   /** epoch provisions from the first epoch */
-  genesisEpochProvisions: string;
+  genesis_epoch_provisions: string;
   /** mint epoch identifier */
-  epochIdentifier: string;
+  epoch_identifier: string;
   /** number of epochs take to reduce rewards */
-  reductionPeriodInEpochs: Long;
+  reduction_period_in_epochs: Long;
   /** reduction multiplier to execute on each period */
-  reductionFactor: string;
+  reduction_factor: string;
   /** distribution_proportions defines the proportion of the minted denom */
-  distributionProportions: DistributionProportions;
+  distribution_proportions: DistributionProportions;
   /** start epoch to distribute minting rewards */
-  mintingRewardsDistributionStartEpoch: Long;
+  minting_rewards_distribution_start_epoch: Long;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/quicksilver.mint.v1beta1.Params";
+  type_url: "/quicksilver.mint.v1beta1.Params";
   value: Uint8Array;
 }
 /** Params holds parameters for the mint module. */
@@ -134,14 +134,14 @@ export interface ParamsSDKType {
 }
 function createBaseMinter(): Minter {
   return {
-    epochProvisions: ""
+    epoch_provisions: ""
   };
 }
 export const Minter = {
   typeUrl: "/quicksilver.mint.v1beta1.Minter",
   encode(message: Minter, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.epochProvisions !== "") {
-      writer.uint32(10).string(message.epochProvisions);
+    if (message.epoch_provisions !== "") {
+      writer.uint32(10).string(message.epoch_provisions);
     }
     return writer;
   },
@@ -153,7 +153,7 @@ export const Minter = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.epochProvisions = reader.string();
+          message.epoch_provisions = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -164,27 +164,27 @@ export const Minter = {
   },
   fromJSON(object: any): Minter {
     return {
-      epochProvisions: isSet(object.epochProvisions) ? String(object.epochProvisions) : ""
+      epoch_provisions: isSet(object.epoch_provisions) ? String(object.epoch_provisions) : ""
     };
   },
   toJSON(message: Minter): unknown {
     const obj: any = {};
-    message.epochProvisions !== undefined && (obj.epochProvisions = message.epochProvisions);
+    message.epoch_provisions !== undefined && (obj.epoch_provisions = message.epoch_provisions);
     return obj;
   },
   fromPartial(object: DeepPartial<Minter>): Minter {
     const message = createBaseMinter();
-    message.epochProvisions = object.epochProvisions ?? "";
+    message.epoch_provisions = object.epoch_provisions ?? "";
     return message;
   },
   fromAmino(object: MinterAmino): Minter {
     return {
-      epochProvisions: object.epoch_provisions
+      epoch_provisions: object.epoch_provisions
     };
   },
   toAmino(message: Minter): MinterAmino {
     const obj: any = {};
-    obj.epoch_provisions = message.epochProvisions;
+    obj.epoch_provisions = message.epoch_provisions;
     return obj;
   },
   fromAminoMsg(object: MinterAminoMsg): Minter {
@@ -206,9 +206,9 @@ export const Minter = {
 function createBaseDistributionProportions(): DistributionProportions {
   return {
     staking: "",
-    poolIncentives: "",
-    participationRewards: "",
-    communityPool: ""
+    pool_incentives: "",
+    participation_rewards: "",
+    community_pool: ""
   };
 }
 export const DistributionProportions = {
@@ -217,14 +217,14 @@ export const DistributionProportions = {
     if (message.staking !== "") {
       writer.uint32(10).string(message.staking);
     }
-    if (message.poolIncentives !== "") {
-      writer.uint32(18).string(message.poolIncentives);
+    if (message.pool_incentives !== "") {
+      writer.uint32(18).string(message.pool_incentives);
     }
-    if (message.participationRewards !== "") {
-      writer.uint32(26).string(message.participationRewards);
+    if (message.participation_rewards !== "") {
+      writer.uint32(26).string(message.participation_rewards);
     }
-    if (message.communityPool !== "") {
-      writer.uint32(34).string(message.communityPool);
+    if (message.community_pool !== "") {
+      writer.uint32(34).string(message.community_pool);
     }
     return writer;
   },
@@ -239,13 +239,13 @@ export const DistributionProportions = {
           message.staking = reader.string();
           break;
         case 2:
-          message.poolIncentives = reader.string();
+          message.pool_incentives = reader.string();
           break;
         case 3:
-          message.participationRewards = reader.string();
+          message.participation_rewards = reader.string();
           break;
         case 4:
-          message.communityPool = reader.string();
+          message.community_pool = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -257,41 +257,41 @@ export const DistributionProportions = {
   fromJSON(object: any): DistributionProportions {
     return {
       staking: isSet(object.staking) ? String(object.staking) : "",
-      poolIncentives: isSet(object.poolIncentives) ? String(object.poolIncentives) : "",
-      participationRewards: isSet(object.participationRewards) ? String(object.participationRewards) : "",
-      communityPool: isSet(object.communityPool) ? String(object.communityPool) : ""
+      pool_incentives: isSet(object.pool_incentives) ? String(object.pool_incentives) : "",
+      participation_rewards: isSet(object.participation_rewards) ? String(object.participation_rewards) : "",
+      community_pool: isSet(object.community_pool) ? String(object.community_pool) : ""
     };
   },
   toJSON(message: DistributionProportions): unknown {
     const obj: any = {};
     message.staking !== undefined && (obj.staking = message.staking);
-    message.poolIncentives !== undefined && (obj.poolIncentives = message.poolIncentives);
-    message.participationRewards !== undefined && (obj.participationRewards = message.participationRewards);
-    message.communityPool !== undefined && (obj.communityPool = message.communityPool);
+    message.pool_incentives !== undefined && (obj.pool_incentives = message.pool_incentives);
+    message.participation_rewards !== undefined && (obj.participation_rewards = message.participation_rewards);
+    message.community_pool !== undefined && (obj.community_pool = message.community_pool);
     return obj;
   },
   fromPartial(object: DeepPartial<DistributionProportions>): DistributionProportions {
     const message = createBaseDistributionProportions();
     message.staking = object.staking ?? "";
-    message.poolIncentives = object.poolIncentives ?? "";
-    message.participationRewards = object.participationRewards ?? "";
-    message.communityPool = object.communityPool ?? "";
+    message.pool_incentives = object.pool_incentives ?? "";
+    message.participation_rewards = object.participation_rewards ?? "";
+    message.community_pool = object.community_pool ?? "";
     return message;
   },
   fromAmino(object: DistributionProportionsAmino): DistributionProportions {
     return {
       staking: object.staking,
-      poolIncentives: object.pool_incentives,
-      participationRewards: object.participation_rewards,
-      communityPool: object.community_pool
+      pool_incentives: object.pool_incentives,
+      participation_rewards: object.participation_rewards,
+      community_pool: object.community_pool
     };
   },
   toAmino(message: DistributionProportions): DistributionProportionsAmino {
     const obj: any = {};
     obj.staking = message.staking;
-    obj.pool_incentives = message.poolIncentives;
-    obj.participation_rewards = message.participationRewards;
-    obj.community_pool = message.communityPool;
+    obj.pool_incentives = message.pool_incentives;
+    obj.participation_rewards = message.participation_rewards;
+    obj.community_pool = message.community_pool;
     return obj;
   },
   fromAminoMsg(object: DistributionProportionsAminoMsg): DistributionProportions {
@@ -312,38 +312,38 @@ export const DistributionProportions = {
 };
 function createBaseParams(): Params {
   return {
-    mintDenom: "",
-    genesisEpochProvisions: "",
-    epochIdentifier: "",
-    reductionPeriodInEpochs: Long.ZERO,
-    reductionFactor: "",
-    distributionProportions: DistributionProportions.fromPartial({}),
-    mintingRewardsDistributionStartEpoch: Long.ZERO
+    mint_denom: "",
+    genesis_epoch_provisions: "",
+    epoch_identifier: "",
+    reduction_period_in_epochs: Long.ZERO,
+    reduction_factor: "",
+    distribution_proportions: DistributionProportions.fromPartial({}),
+    minting_rewards_distribution_start_epoch: Long.ZERO
   };
 }
 export const Params = {
   typeUrl: "/quicksilver.mint.v1beta1.Params",
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.mintDenom !== "") {
-      writer.uint32(10).string(message.mintDenom);
+    if (message.mint_denom !== "") {
+      writer.uint32(10).string(message.mint_denom);
     }
-    if (message.genesisEpochProvisions !== "") {
-      writer.uint32(18).string(message.genesisEpochProvisions);
+    if (message.genesis_epoch_provisions !== "") {
+      writer.uint32(18).string(message.genesis_epoch_provisions);
     }
-    if (message.epochIdentifier !== "") {
-      writer.uint32(26).string(message.epochIdentifier);
+    if (message.epoch_identifier !== "") {
+      writer.uint32(26).string(message.epoch_identifier);
     }
-    if (!message.reductionPeriodInEpochs.isZero()) {
-      writer.uint32(32).int64(message.reductionPeriodInEpochs);
+    if (!message.reduction_period_in_epochs.isZero()) {
+      writer.uint32(32).int64(message.reduction_period_in_epochs);
     }
-    if (message.reductionFactor !== "") {
-      writer.uint32(42).string(message.reductionFactor);
+    if (message.reduction_factor !== "") {
+      writer.uint32(42).string(message.reduction_factor);
     }
-    if (message.distributionProportions !== undefined) {
-      DistributionProportions.encode(message.distributionProportions, writer.uint32(50).fork()).ldelim();
+    if (message.distribution_proportions !== undefined) {
+      DistributionProportions.encode(message.distribution_proportions, writer.uint32(50).fork()).ldelim();
     }
-    if (!message.mintingRewardsDistributionStartEpoch.isZero()) {
-      writer.uint32(56).int64(message.mintingRewardsDistributionStartEpoch);
+    if (!message.minting_rewards_distribution_start_epoch.isZero()) {
+      writer.uint32(56).int64(message.minting_rewards_distribution_start_epoch);
     }
     return writer;
   },
@@ -355,25 +355,25 @@ export const Params = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.mintDenom = reader.string();
+          message.mint_denom = reader.string();
           break;
         case 2:
-          message.genesisEpochProvisions = reader.string();
+          message.genesis_epoch_provisions = reader.string();
           break;
         case 3:
-          message.epochIdentifier = reader.string();
+          message.epoch_identifier = reader.string();
           break;
         case 4:
-          message.reductionPeriodInEpochs = (reader.int64() as Long);
+          message.reduction_period_in_epochs = (reader.int64() as Long);
           break;
         case 5:
-          message.reductionFactor = reader.string();
+          message.reduction_factor = reader.string();
           break;
         case 6:
-          message.distributionProportions = DistributionProportions.decode(reader, reader.uint32());
+          message.distribution_proportions = DistributionProportions.decode(reader, reader.uint32());
           break;
         case 7:
-          message.mintingRewardsDistributionStartEpoch = (reader.int64() as Long);
+          message.minting_rewards_distribution_start_epoch = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -384,57 +384,57 @@ export const Params = {
   },
   fromJSON(object: any): Params {
     return {
-      mintDenom: isSet(object.mintDenom) ? String(object.mintDenom) : "",
-      genesisEpochProvisions: isSet(object.genesisEpochProvisions) ? String(object.genesisEpochProvisions) : "",
-      epochIdentifier: isSet(object.epochIdentifier) ? String(object.epochIdentifier) : "",
-      reductionPeriodInEpochs: isSet(object.reductionPeriodInEpochs) ? Long.fromValue(object.reductionPeriodInEpochs) : Long.ZERO,
-      reductionFactor: isSet(object.reductionFactor) ? String(object.reductionFactor) : "",
-      distributionProportions: isSet(object.distributionProportions) ? DistributionProportions.fromJSON(object.distributionProportions) : undefined,
-      mintingRewardsDistributionStartEpoch: isSet(object.mintingRewardsDistributionStartEpoch) ? Long.fromValue(object.mintingRewardsDistributionStartEpoch) : Long.ZERO
+      mint_denom: isSet(object.mint_denom) ? String(object.mint_denom) : "",
+      genesis_epoch_provisions: isSet(object.genesis_epoch_provisions) ? String(object.genesis_epoch_provisions) : "",
+      epoch_identifier: isSet(object.epoch_identifier) ? String(object.epoch_identifier) : "",
+      reduction_period_in_epochs: isSet(object.reduction_period_in_epochs) ? Long.fromValue(object.reduction_period_in_epochs) : Long.ZERO,
+      reduction_factor: isSet(object.reduction_factor) ? String(object.reduction_factor) : "",
+      distribution_proportions: isSet(object.distribution_proportions) ? DistributionProportions.fromJSON(object.distribution_proportions) : undefined,
+      minting_rewards_distribution_start_epoch: isSet(object.minting_rewards_distribution_start_epoch) ? Long.fromValue(object.minting_rewards_distribution_start_epoch) : Long.ZERO
     };
   },
   toJSON(message: Params): unknown {
     const obj: any = {};
-    message.mintDenom !== undefined && (obj.mintDenom = message.mintDenom);
-    message.genesisEpochProvisions !== undefined && (obj.genesisEpochProvisions = message.genesisEpochProvisions);
-    message.epochIdentifier !== undefined && (obj.epochIdentifier = message.epochIdentifier);
-    message.reductionPeriodInEpochs !== undefined && (obj.reductionPeriodInEpochs = (message.reductionPeriodInEpochs || Long.ZERO).toString());
-    message.reductionFactor !== undefined && (obj.reductionFactor = message.reductionFactor);
-    message.distributionProportions !== undefined && (obj.distributionProportions = message.distributionProportions ? DistributionProportions.toJSON(message.distributionProportions) : undefined);
-    message.mintingRewardsDistributionStartEpoch !== undefined && (obj.mintingRewardsDistributionStartEpoch = (message.mintingRewardsDistributionStartEpoch || Long.ZERO).toString());
+    message.mint_denom !== undefined && (obj.mint_denom = message.mint_denom);
+    message.genesis_epoch_provisions !== undefined && (obj.genesis_epoch_provisions = message.genesis_epoch_provisions);
+    message.epoch_identifier !== undefined && (obj.epoch_identifier = message.epoch_identifier);
+    message.reduction_period_in_epochs !== undefined && (obj.reduction_period_in_epochs = (message.reduction_period_in_epochs || Long.ZERO).toString());
+    message.reduction_factor !== undefined && (obj.reduction_factor = message.reduction_factor);
+    message.distribution_proportions !== undefined && (obj.distribution_proportions = message.distribution_proportions ? DistributionProportions.toJSON(message.distribution_proportions) : undefined);
+    message.minting_rewards_distribution_start_epoch !== undefined && (obj.minting_rewards_distribution_start_epoch = (message.minting_rewards_distribution_start_epoch || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
-    message.mintDenom = object.mintDenom ?? "";
-    message.genesisEpochProvisions = object.genesisEpochProvisions ?? "";
-    message.epochIdentifier = object.epochIdentifier ?? "";
-    message.reductionPeriodInEpochs = object.reductionPeriodInEpochs !== undefined && object.reductionPeriodInEpochs !== null ? Long.fromValue(object.reductionPeriodInEpochs) : Long.ZERO;
-    message.reductionFactor = object.reductionFactor ?? "";
-    message.distributionProportions = object.distributionProportions !== undefined && object.distributionProportions !== null ? DistributionProportions.fromPartial(object.distributionProportions) : undefined;
-    message.mintingRewardsDistributionStartEpoch = object.mintingRewardsDistributionStartEpoch !== undefined && object.mintingRewardsDistributionStartEpoch !== null ? Long.fromValue(object.mintingRewardsDistributionStartEpoch) : Long.ZERO;
+    message.mint_denom = object.mint_denom ?? "";
+    message.genesis_epoch_provisions = object.genesis_epoch_provisions ?? "";
+    message.epoch_identifier = object.epoch_identifier ?? "";
+    message.reduction_period_in_epochs = object.reduction_period_in_epochs !== undefined && object.reduction_period_in_epochs !== null ? Long.fromValue(object.reduction_period_in_epochs) : Long.ZERO;
+    message.reduction_factor = object.reduction_factor ?? "";
+    message.distribution_proportions = object.distribution_proportions !== undefined && object.distribution_proportions !== null ? DistributionProportions.fromPartial(object.distribution_proportions) : undefined;
+    message.minting_rewards_distribution_start_epoch = object.minting_rewards_distribution_start_epoch !== undefined && object.minting_rewards_distribution_start_epoch !== null ? Long.fromValue(object.minting_rewards_distribution_start_epoch) : Long.ZERO;
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
     return {
-      mintDenom: object.mint_denom,
-      genesisEpochProvisions: object.genesis_epoch_provisions,
-      epochIdentifier: object.epoch_identifier,
-      reductionPeriodInEpochs: Long.fromString(object.reduction_period_in_epochs),
-      reductionFactor: object.reduction_factor,
-      distributionProportions: object?.distribution_proportions ? DistributionProportions.fromAmino(object.distribution_proportions) : undefined,
-      mintingRewardsDistributionStartEpoch: Long.fromString(object.minting_rewards_distribution_start_epoch)
+      mint_denom: object.mint_denom,
+      genesis_epoch_provisions: object.genesis_epoch_provisions,
+      epoch_identifier: object.epoch_identifier,
+      reduction_period_in_epochs: Long.fromString(object.reduction_period_in_epochs),
+      reduction_factor: object.reduction_factor,
+      distribution_proportions: object?.distribution_proportions ? DistributionProportions.fromAmino(object.distribution_proportions) : undefined,
+      minting_rewards_distribution_start_epoch: Long.fromString(object.minting_rewards_distribution_start_epoch)
     };
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.mint_denom = message.mintDenom;
-    obj.genesis_epoch_provisions = message.genesisEpochProvisions;
-    obj.epoch_identifier = message.epochIdentifier;
-    obj.reduction_period_in_epochs = message.reductionPeriodInEpochs ? message.reductionPeriodInEpochs.toString() : undefined;
-    obj.reduction_factor = message.reductionFactor;
-    obj.distribution_proportions = message.distributionProportions ? DistributionProportions.toAmino(message.distributionProportions) : undefined;
-    obj.minting_rewards_distribution_start_epoch = message.mintingRewardsDistributionStartEpoch ? message.mintingRewardsDistributionStartEpoch.toString() : undefined;
+    obj.mint_denom = message.mint_denom;
+    obj.genesis_epoch_provisions = message.genesis_epoch_provisions;
+    obj.epoch_identifier = message.epoch_identifier;
+    obj.reduction_period_in_epochs = message.reduction_period_in_epochs ? message.reduction_period_in_epochs.toString() : undefined;
+    obj.reduction_factor = message.reduction_factor;
+    obj.distribution_proportions = message.distribution_proportions ? DistributionProportions.toAmino(message.distribution_proportions) : undefined;
+    obj.minting_rewards_distribution_start_epoch = message.minting_rewards_distribution_start_epoch ? message.minting_rewards_distribution_start_epoch.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {

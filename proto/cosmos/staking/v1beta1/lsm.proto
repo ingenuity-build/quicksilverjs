@@ -4,6 +4,7 @@ package cosmos.staking.v1beta1;
 import "gogoproto/gogo.proto";
 
 import "cosmos/base/v1beta1/coin.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/cosmos/cosmos-sdk/x/staking/types";
 
@@ -35,4 +36,34 @@ message MsgRedeemTokensForShares {
 // MsgRedeemTokensForSharesResponse defines the Msg/MsgRedeemTokensForShares response type.
 message MsgRedeemTokensForSharesResponse {
   cosmos.base.v1beta1.Coin amount = 1 [(gogoproto.nullable) = false];
+}
+
+// MsgDisableTokenizeShares prevents the tokenization of shares for a given
+// address
+message MsgDisableTokenizeShares {
+  option (gogoproto.equal) = false;
+  option (gogoproto.goproto_getters) = false;
+
+  string delegator_address = 1 [(gogoproto.moretags) = "yaml:\"delegator_address\""];
+}
+
+// MsgDisableTokenizeSharesResponse defines the Msg/DisableTokenizeShares
+// response type.
+message MsgDisableTokenizeSharesResponse {}
+
+// MsgEnableTokenizeShares re-enables tokenization of shares for a given address
+message MsgEnableTokenizeShares {
+  option (gogoproto.equal) = false;
+  option (gogoproto.goproto_getters) = false;
+
+  string delegator_address = 1 [(gogoproto.moretags) = "yaml:\"delegator_address\""];
+}
+
+// MsgEnableTokenizeSharesResponse defines the Msg/EnableTokenizeShares response
+// type.
+message MsgEnableTokenizeSharesResponse {
+  google.protobuf.Timestamp completion_time = 1 [
+    (gogoproto.nullable) = false,
+    (gogoproto.stdtime) = true
+  ];
 }

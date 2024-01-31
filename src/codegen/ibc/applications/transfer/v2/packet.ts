@@ -16,7 +16,7 @@ export interface FungibleTokenPacketData {
   receiver: string;
 }
 export interface FungibleTokenPacketDataProtoMsg {
-  typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData";
+  type_url: "/ibc.applications.transfer.v2.FungibleTokenPacketData";
   value: Uint8Array;
 }
 /**

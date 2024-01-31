@@ -7,7 +7,7 @@ export interface Record {
   /** name represents a name of Record */
   name: string;
   /** pub_key represents a public key in any format */
-  pubKey: Any;
+  pub_key: Any;
   /** local stores the public information about a locally stored key */
   local?: Record_Local;
   /** ledger stores the public information about a Ledger key */
@@ -18,7 +18,7 @@ export interface Record {
   offline?: Record_Offline;
 }
 export interface RecordProtoMsg {
-  typeUrl: "/cosmos.crypto.keyring.v1.Record";
+  type_url: "/cosmos.crypto.keyring.v1.Record";
   value: Uint8Array;
 }
 /** Record is used for representing a key in the keyring. */
@@ -54,11 +54,11 @@ export interface RecordSDKType {
  * Local item
  */
 export interface Record_Local {
-  privKey: Any;
-  privKeyType: string;
+  priv_key: Any;
+  priv_key_type: string;
 }
 export interface Record_LocalProtoMsg {
-  typeUrl: "/cosmos.crypto.keyring.v1.Local";
+  type_url: "/cosmos.crypto.keyring.v1.Local";
   value: Uint8Array;
 }
 /**
@@ -86,7 +86,7 @@ export interface Record_Ledger {
   path: BIP44Params;
 }
 export interface Record_LedgerProtoMsg {
-  typeUrl: "/cosmos.crypto.keyring.v1.Ledger";
+  type_url: "/cosmos.crypto.keyring.v1.Ledger";
   value: Uint8Array;
 }
 /** Ledger item */
@@ -104,7 +104,7 @@ export interface Record_LedgerSDKType {
 /** Multi item */
 export interface Record_Multi {}
 export interface Record_MultiProtoMsg {
-  typeUrl: "/cosmos.crypto.keyring.v1.Multi";
+  type_url: "/cosmos.crypto.keyring.v1.Multi";
   value: Uint8Array;
 }
 /** Multi item */
@@ -118,7 +118,7 @@ export interface Record_MultiSDKType {}
 /** Offline item */
 export interface Record_Offline {}
 export interface Record_OfflineProtoMsg {
-  typeUrl: "/cosmos.crypto.keyring.v1.Offline";
+  type_url: "/cosmos.crypto.keyring.v1.Offline";
   value: Uint8Array;
 }
 /** Offline item */
@@ -132,7 +132,7 @@ export interface Record_OfflineSDKType {}
 function createBaseRecord(): Record {
   return {
     name: "",
-    pubKey: Any.fromPartial({}),
+    pub_key: Any.fromPartial({}),
     local: undefined,
     ledger: undefined,
     multi: undefined,
@@ -146,8 +146,8 @@ export const Record = {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.pubKey !== undefined) {
-      Any.encode(message.pubKey, writer.uint32(18).fork()).ldelim();
+    if (message.pub_key !== undefined) {
+      Any.encode(message.pub_key, writer.uint32(18).fork()).ldelim();
     }
     if (message.local !== undefined) {
       Record_Local.encode(message.local, writer.uint32(26).fork()).ldelim();
@@ -174,7 +174,7 @@ export const Record = {
           message.name = reader.string();
           break;
         case 2:
-          message.pubKey = Any.decode(reader, reader.uint32());
+          message.pub_key = Any.decode(reader, reader.uint32());
           break;
         case 3:
           message.local = Record_Local.decode(reader, reader.uint32());
@@ -198,7 +198,7 @@ export const Record = {
   fromJSON(object: any): Record {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      pubKey: isSet(object.pubKey) ? Any.fromJSON(object.pubKey) : undefined,
+      pub_key: isSet(object.pub_key) ? Any.fromJSON(object.pub_key) : undefined,
       local: isSet(object.local) ? Record_Local.fromJSON(object.local) : undefined,
       ledger: isSet(object.ledger) ? Record_Ledger.fromJSON(object.ledger) : undefined,
       multi: isSet(object.multi) ? Record_Multi.fromJSON(object.multi) : undefined,
@@ -208,7 +208,7 @@ export const Record = {
   toJSON(message: Record): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.pubKey !== undefined && (obj.pubKey = message.pubKey ? Any.toJSON(message.pubKey) : undefined);
+    message.pub_key !== undefined && (obj.pub_key = message.pub_key ? Any.toJSON(message.pub_key) : undefined);
     message.local !== undefined && (obj.local = message.local ? Record_Local.toJSON(message.local) : undefined);
     message.ledger !== undefined && (obj.ledger = message.ledger ? Record_Ledger.toJSON(message.ledger) : undefined);
     message.multi !== undefined && (obj.multi = message.multi ? Record_Multi.toJSON(message.multi) : undefined);
@@ -218,7 +218,7 @@ export const Record = {
   fromPartial(object: DeepPartial<Record>): Record {
     const message = createBaseRecord();
     message.name = object.name ?? "";
-    message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
+    message.pub_key = object.pub_key !== undefined && object.pub_key !== null ? Any.fromPartial(object.pub_key) : undefined;
     message.local = object.local !== undefined && object.local !== null ? Record_Local.fromPartial(object.local) : undefined;
     message.ledger = object.ledger !== undefined && object.ledger !== null ? Record_Ledger.fromPartial(object.ledger) : undefined;
     message.multi = object.multi !== undefined && object.multi !== null ? Record_Multi.fromPartial(object.multi) : undefined;
@@ -228,7 +228,7 @@ export const Record = {
   fromAmino(object: RecordAmino): Record {
     return {
       name: object.name,
-      pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined,
+      pub_key: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined,
       local: object?.local ? Record_Local.fromAmino(object.local) : undefined,
       ledger: object?.ledger ? Record_Ledger.fromAmino(object.ledger) : undefined,
       multi: object?.multi ? Record_Multi.fromAmino(object.multi) : undefined,
@@ -238,7 +238,7 @@ export const Record = {
   toAmino(message: Record): RecordAmino {
     const obj: any = {};
     obj.name = message.name;
-    obj.pub_key = message.pubKey ? Any.toAmino(message.pubKey) : undefined;
+    obj.pub_key = message.pub_key ? Any.toAmino(message.pub_key) : undefined;
     obj.local = message.local ? Record_Local.toAmino(message.local) : undefined;
     obj.ledger = message.ledger ? Record_Ledger.toAmino(message.ledger) : undefined;
     obj.multi = message.multi ? Record_Multi.toAmino(message.multi) : undefined;
@@ -269,19 +269,19 @@ export const Record = {
 };
 function createBaseRecord_Local(): Record_Local {
   return {
-    privKey: Any.fromPartial({}),
-    privKeyType: ""
+    priv_key: Any.fromPartial({}),
+    priv_key_type: ""
   };
 }
 export const Record_Local = {
   typeUrl: "/cosmos.crypto.keyring.v1.Local",
   aminoType: "cosmos-sdk/Local",
   encode(message: Record_Local, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.privKey !== undefined) {
-      Any.encode(message.privKey, writer.uint32(10).fork()).ldelim();
+    if (message.priv_key !== undefined) {
+      Any.encode(message.priv_key, writer.uint32(10).fork()).ldelim();
     }
-    if (message.privKeyType !== "") {
-      writer.uint32(18).string(message.privKeyType);
+    if (message.priv_key_type !== "") {
+      writer.uint32(18).string(message.priv_key_type);
     }
     return writer;
   },
@@ -293,10 +293,10 @@ export const Record_Local = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.privKey = Any.decode(reader, reader.uint32());
+          message.priv_key = Any.decode(reader, reader.uint32());
           break;
         case 2:
-          message.privKeyType = reader.string();
+          message.priv_key_type = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -307,32 +307,32 @@ export const Record_Local = {
   },
   fromJSON(object: any): Record_Local {
     return {
-      privKey: isSet(object.privKey) ? Any.fromJSON(object.privKey) : undefined,
-      privKeyType: isSet(object.privKeyType) ? String(object.privKeyType) : ""
+      priv_key: isSet(object.priv_key) ? Any.fromJSON(object.priv_key) : undefined,
+      priv_key_type: isSet(object.priv_key_type) ? String(object.priv_key_type) : ""
     };
   },
   toJSON(message: Record_Local): unknown {
     const obj: any = {};
-    message.privKey !== undefined && (obj.privKey = message.privKey ? Any.toJSON(message.privKey) : undefined);
-    message.privKeyType !== undefined && (obj.privKeyType = message.privKeyType);
+    message.priv_key !== undefined && (obj.priv_key = message.priv_key ? Any.toJSON(message.priv_key) : undefined);
+    message.priv_key_type !== undefined && (obj.priv_key_type = message.priv_key_type);
     return obj;
   },
   fromPartial(object: DeepPartial<Record_Local>): Record_Local {
     const message = createBaseRecord_Local();
-    message.privKey = object.privKey !== undefined && object.privKey !== null ? Any.fromPartial(object.privKey) : undefined;
-    message.privKeyType = object.privKeyType ?? "";
+    message.priv_key = object.priv_key !== undefined && object.priv_key !== null ? Any.fromPartial(object.priv_key) : undefined;
+    message.priv_key_type = object.priv_key_type ?? "";
     return message;
   },
   fromAmino(object: Record_LocalAmino): Record_Local {
     return {
-      privKey: object?.priv_key ? Any.fromAmino(object.priv_key) : undefined,
-      privKeyType: object.priv_key_type
+      priv_key: object?.priv_key ? Any.fromAmino(object.priv_key) : undefined,
+      priv_key_type: object.priv_key_type
     };
   },
   toAmino(message: Record_Local): Record_LocalAmino {
     const obj: any = {};
-    obj.priv_key = message.privKey ? Any.toAmino(message.privKey) : undefined;
-    obj.priv_key_type = message.privKeyType;
+    obj.priv_key = message.priv_key ? Any.toAmino(message.priv_key) : undefined;
+    obj.priv_key_type = message.priv_key_type;
     return obj;
   },
   fromAminoMsg(object: Record_LocalAminoMsg): Record_Local {
