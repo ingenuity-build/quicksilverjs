@@ -7,6 +7,12 @@ module.exports.AMINO_MAP = {
     },
     '/quicksilver.participationrewards.v1.MsgSubmitClaim': {
       aminoType: 'quicksilver/MsgSubmitClaim'
+    },
+    '/cosmos.staking.v1beta1.MsgDisableTokenizeShares': {
+      aminoType: 'cosmos-sdk/MsgDisableTokenizeShares'
+    },
+    '/cosmos.staking.v1beta1.MsgEnableTokenizeShares': {
+      aminoType: 'cosmos-sdk/MsgEnableTokenizeShares'
     }
   };
 
