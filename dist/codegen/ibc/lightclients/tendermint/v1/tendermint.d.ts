@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Duration, DurationAmino, DurationSDKType } from "../../../../google/protobuf/duration";
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
 import { ProofSpec, ProofSpecAmino, ProofSpecSDKType } from "../../../../confio/proofs";

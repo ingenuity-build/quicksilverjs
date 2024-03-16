@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { BondStatus, Description, DescriptionAmino, DescriptionSDKType, Commission, CommissionAmino, CommissionSDKType } from "../../../cosmos/staking/v1beta1/staking";
 import { PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";

@@ -3,7 +3,7 @@ import { MsgSubmitClaim } from "./messages";
 import { MsgGovRemoveProtocolData } from "./proposals";
 export const AminoConverter = {
   "/quicksilver.participationrewards.v1.MsgSubmitClaim": {
-    aminoType: "quicksilver/MsgSubmitClaim",
+    aminoType: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
     toAmino: MsgSubmitClaim.toAmino,
     fromAmino: MsgSubmitClaim.fromAmino
   },

@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
-import { MsgTokenizeShares, MsgRedeemTokensForShares } from "./lsm";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.staking.v1beta1.MsgCreateValidator", MsgCreateValidator], ["/cosmos.staking.v1beta1.MsgEditValidator", MsgEditValidator], ["/cosmos.staking.v1beta1.MsgDelegate", MsgDelegate], ["/cosmos.staking.v1beta1.MsgBeginRedelegate", MsgBeginRedelegate], ["/cosmos.staking.v1beta1.MsgUndelegate", MsgUndelegate], ["/cosmos.staking.v1beta1.MsgTokenizeShares", MsgTokenizeShares], ["/cosmos.staking.v1beta1.MsgRedeemTokensForShares", MsgRedeemTokensForShares]];
+import { MsgTokenizeShares, MsgRedeemTokensForShares, MsgDisableTokenizeShares, MsgEnableTokenizeShares } from "./lsm";
+export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.staking.v1beta1.MsgCreateValidator", MsgCreateValidator], ["/cosmos.staking.v1beta1.MsgEditValidator", MsgEditValidator], ["/cosmos.staking.v1beta1.MsgDelegate", MsgDelegate], ["/cosmos.staking.v1beta1.MsgBeginRedelegate", MsgBeginRedelegate], ["/cosmos.staking.v1beta1.MsgUndelegate", MsgUndelegate], ["/cosmos.staking.v1beta1.MsgTokenizeShares", MsgTokenizeShares], ["/cosmos.staking.v1beta1.MsgRedeemTokensForShares", MsgRedeemTokensForShares], ["/cosmos.staking.v1beta1.MsgDisableTokenizeShares", MsgDisableTokenizeShares], ["/cosmos.staking.v1beta1.MsgEnableTokenizeShares", MsgEnableTokenizeShares]];
 export const load = (protoRegistry: Registry) => {
   registry.forEach(([typeUrl, mod]) => {
     protoRegistry.register(typeUrl, mod);
@@ -51,6 +51,18 @@ export const MessageComposer = {
         typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
         value: MsgRedeemTokensForShares.encode(value).finish()
       };
+    },
+    disableTokenizeShares(value: MsgDisableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
+        value: MsgDisableTokenizeShares.encode(value).finish()
+      };
+    },
+    enableTokenizeShares(value: MsgEnableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
+        value: MsgEnableTokenizeShares.encode(value).finish()
+      };
     }
   },
   withTypeUrl: {
@@ -93,6 +105,18 @@ export const MessageComposer = {
     redeemTokensForShares(value: MsgRedeemTokensForShares) {
       return {
         typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
+        value
+      };
+    },
+    disableTokenizeShares(value: MsgDisableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
+        value
+      };
+    },
+    enableTokenizeShares(value: MsgEnableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
         value
       };
     }
@@ -139,6 +163,18 @@ export const MessageComposer = {
         typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
         value: MsgRedeemTokensForShares.toJSON(value)
       };
+    },
+    disableTokenizeShares(value: MsgDisableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
+        value: MsgDisableTokenizeShares.toJSON(value)
+      };
+    },
+    enableTokenizeShares(value: MsgEnableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
+        value: MsgEnableTokenizeShares.toJSON(value)
+      };
     }
   },
   fromJSON: {
@@ -183,6 +219,18 @@ export const MessageComposer = {
         typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
         value: MsgRedeemTokensForShares.fromJSON(value)
       };
+    },
+    disableTokenizeShares(value: any) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
+        value: MsgDisableTokenizeShares.fromJSON(value)
+      };
+    },
+    enableTokenizeShares(value: any) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
+        value: MsgEnableTokenizeShares.fromJSON(value)
+      };
     }
   },
   fromPartial: {
@@ -226,6 +274,18 @@ export const MessageComposer = {
       return {
         typeUrl: "/cosmos.staking.v1beta1.MsgRedeemTokensForShares",
         value: MsgRedeemTokensForShares.fromPartial(value)
+      };
+    },
+    disableTokenizeShares(value: MsgDisableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgDisableTokenizeShares",
+        value: MsgDisableTokenizeShares.fromPartial(value)
+      };
+    },
+    enableTokenizeShares(value: MsgEnableTokenizeShares) {
+      return {
+        typeUrl: "/cosmos.staking.v1beta1.MsgEnableTokenizeShares",
+        value: MsgEnableTokenizeShares.fromPartial(value)
       };
     }
   }
