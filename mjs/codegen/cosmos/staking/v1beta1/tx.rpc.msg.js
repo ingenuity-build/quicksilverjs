@@ -63,5 +63,19 @@ export class Msg {
             body: JSON.stringify(request, fm.replacer)
         });
     }
+    static disableTokenizeShares(request, initRequest) {
+        return fm.fetchReq(`/cosmos.staking.v1beta1/disableTokenizeShares`, {
+            ...initRequest,
+            method: "POST",
+            body: JSON.stringify(request, fm.replacer)
+        });
+    }
+    static enableTokenizeShares(request, initRequest) {
+        return fm.fetchReq(`/cosmos.staking.v1beta1/enableTokenizeShares`, {
+            ...initRequest,
+            method: "POST",
+            body: JSON.stringify(request, fm.replacer)
+        });
+    }
 }
 //# sourceMappingURL=tx.rpc.msg.js.map

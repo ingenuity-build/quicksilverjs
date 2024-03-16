@@ -10,7 +10,6 @@ function createBaseMsgRequestRedemption() {
 }
 export const MsgRequestRedemption = {
     typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
-    aminoType: "quicksilver/MsgRequestRedemption",
     encode(message, writer = _m0.Writer.create()) {
         if (message.value !== undefined) {
             Coin.encode(message.value, writer.uint32(10).fork()).ldelim();
@@ -83,12 +82,6 @@ export const MsgRequestRedemption = {
     },
     fromAminoMsg(object) {
         return MsgRequestRedemption.fromAmino(object.value);
-    },
-    toAminoMsg(message) {
-        return {
-            type: "quicksilver/MsgRequestRedemption",
-            value: MsgRequestRedemption.toAmino(message)
-        };
     },
     fromProtoMsg(message) {
         return MsgRequestRedemption.decode(message.value);
@@ -168,7 +161,6 @@ function createBaseMsgSignalIntent() {
 }
 export const MsgSignalIntent = {
     typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
-    aminoType: "quicksilver/MsgSignalIntent",
     encode(message, writer = _m0.Writer.create()) {
         if (message.chain_id !== "") {
             writer.uint32(10).string(message.chain_id);
@@ -241,12 +233,6 @@ export const MsgSignalIntent = {
     },
     fromAminoMsg(object) {
         return MsgSignalIntent.fromAmino(object.value);
-    },
-    toAminoMsg(message) {
-        return {
-            type: "quicksilver/MsgSignalIntent",
-            value: MsgSignalIntent.toAmino(message)
-        };
     },
     fromProtoMsg(message) {
         return MsgSignalIntent.decode(message.value);

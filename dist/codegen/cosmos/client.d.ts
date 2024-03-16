@@ -47,6 +47,16 @@ export declare const cosmosAminoConverters: {
         toAmino: (message: import("./staking/v1beta1/lsm").MsgRedeemTokensForShares) => import("./staking/v1beta1/lsm").MsgRedeemTokensForSharesAmino;
         fromAmino: (object: import("./staking/v1beta1/lsm").MsgRedeemTokensForSharesAmino) => import("./staking/v1beta1/lsm").MsgRedeemTokensForShares;
     };
+    "/cosmos.staking.v1beta1.MsgDisableTokenizeShares": {
+        aminoType: string;
+        toAmino: (message: import("./staking/v1beta1/lsm").MsgDisableTokenizeShares) => import("./staking/v1beta1/lsm").MsgDisableTokenizeSharesAmino;
+        fromAmino: (object: import("./staking/v1beta1/lsm").MsgDisableTokenizeSharesAmino) => import("./staking/v1beta1/lsm").MsgDisableTokenizeShares;
+    };
+    "/cosmos.staking.v1beta1.MsgEnableTokenizeShares": {
+        aminoType: string;
+        toAmino: (message: import("./staking/v1beta1/lsm").MsgEnableTokenizeShares) => import("./staking/v1beta1/lsm").MsgEnableTokenizeSharesAmino;
+        fromAmino: (object: import("./staking/v1beta1/lsm").MsgEnableTokenizeSharesAmino) => import("./staking/v1beta1/lsm").MsgEnableTokenizeShares;
+    };
     "/cosmos.slashing.v1beta1.MsgUnjail": {
         aminoType: string;
         toAmino: (message: import("./slashing/v1beta1/tx").MsgUnjail) => import("./slashing/v1beta1/tx").MsgUnjailAmino;

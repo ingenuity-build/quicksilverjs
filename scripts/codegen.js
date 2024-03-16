@@ -90,7 +90,6 @@ telescope({
     },
     aminoEncoding: {
       enabled: true,
-
       useRecursiveV2encoding: true
     },
     stargateClients: {

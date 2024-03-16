@@ -1,6 +1,6 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
-import { MsgTokenizeShares, MsgRedeemTokensForShares } from "./lsm";
+import { MsgTokenizeShares, MsgRedeemTokensForShares, MsgDisableTokenizeShares, MsgEnableTokenizeShares } from "./lsm";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
 export declare const MessageComposer: {
@@ -30,6 +30,14 @@ export declare const MessageComposer: {
             value: Uint8Array;
         };
         redeemTokensForShares(value: MsgRedeemTokensForShares): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        disableTokenizeShares(value: MsgDisableTokenizeShares): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        enableTokenizeShares(value: MsgEnableTokenizeShares): {
             typeUrl: string;
             value: Uint8Array;
         };
@@ -63,6 +71,14 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgRedeemTokensForShares;
         };
+        disableTokenizeShares(value: MsgDisableTokenizeShares): {
+            typeUrl: string;
+            value: MsgDisableTokenizeShares;
+        };
+        enableTokenizeShares(value: MsgEnableTokenizeShares): {
+            typeUrl: string;
+            value: MsgEnableTokenizeShares;
+        };
     };
     toJSON: {
         createValidator(value: MsgCreateValidator): {
@@ -90,6 +106,14 @@ export declare const MessageComposer: {
             value: unknown;
         };
         redeemTokensForShares(value: MsgRedeemTokensForShares): {
+            typeUrl: string;
+            value: unknown;
+        };
+        disableTokenizeShares(value: MsgDisableTokenizeShares): {
+            typeUrl: string;
+            value: unknown;
+        };
+        enableTokenizeShares(value: MsgEnableTokenizeShares): {
             typeUrl: string;
             value: unknown;
         };
@@ -123,6 +147,14 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgRedeemTokensForShares;
         };
+        disableTokenizeShares(value: any): {
+            typeUrl: string;
+            value: MsgDisableTokenizeShares;
+        };
+        enableTokenizeShares(value: any): {
+            typeUrl: string;
+            value: MsgEnableTokenizeShares;
+        };
     };
     fromPartial: {
         createValidator(value: MsgCreateValidator): {
@@ -152,6 +184,14 @@ export declare const MessageComposer: {
         redeemTokensForShares(value: MsgRedeemTokensForShares): {
             typeUrl: string;
             value: MsgRedeemTokensForShares;
+        };
+        disableTokenizeShares(value: MsgDisableTokenizeShares): {
+            typeUrl: string;
+            value: MsgDisableTokenizeShares;
+        };
+        enableTokenizeShares(value: MsgEnableTokenizeShares): {
+            typeUrl: string;
+            value: MsgEnableTokenizeShares;
         };
     };
 };

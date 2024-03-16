@@ -24,7 +24,7 @@ export interface MsgRequestRedemptionAmino {
     from_address: string;
 }
 export interface MsgRequestRedemptionAminoMsg {
-    type: "quicksilver/MsgRequestRedemption";
+    type: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
     value: MsgRequestRedemptionAmino;
 }
 /**
@@ -76,7 +76,7 @@ export interface MsgSignalIntentAmino {
     from_address: string;
 }
 export interface MsgSignalIntentAminoMsg {
-    type: "quicksilver/MsgSignalIntent";
+    type: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
     value: MsgSignalIntentAmino;
 }
 /**
@@ -107,7 +107,6 @@ export interface MsgSignalIntentResponseSDKType {
 }
 export declare const MsgRequestRedemption: {
     typeUrl: string;
-    aminoType: string;
     encode(message: MsgRequestRedemption, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgRequestRedemption;
     fromJSON(object: any): MsgRequestRedemption;
@@ -116,7 +115,6 @@ export declare const MsgRequestRedemption: {
     fromAmino(object: MsgRequestRedemptionAmino): MsgRequestRedemption;
     toAmino(message: MsgRequestRedemption): MsgRequestRedemptionAmino;
     fromAminoMsg(object: MsgRequestRedemptionAminoMsg): MsgRequestRedemption;
-    toAminoMsg(message: MsgRequestRedemption): MsgRequestRedemptionAminoMsg;
     fromProtoMsg(message: MsgRequestRedemptionProtoMsg): MsgRequestRedemption;
     toProto(message: MsgRequestRedemption): Uint8Array;
     toProtoMsg(message: MsgRequestRedemption): MsgRequestRedemptionProtoMsg;
@@ -137,7 +135,6 @@ export declare const MsgRequestRedemptionResponse: {
 };
 export declare const MsgSignalIntent: {
     typeUrl: string;
-    aminoType: string;
     encode(message: MsgSignalIntent, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgSignalIntent;
     fromJSON(object: any): MsgSignalIntent;
@@ -146,7 +143,6 @@ export declare const MsgSignalIntent: {
     fromAmino(object: MsgSignalIntentAmino): MsgSignalIntent;
     toAmino(message: MsgSignalIntent): MsgSignalIntentAmino;
     fromAminoMsg(object: MsgSignalIntentAminoMsg): MsgSignalIntent;
-    toAminoMsg(message: MsgSignalIntent): MsgSignalIntentAminoMsg;
     fromProtoMsg(message: MsgSignalIntentProtoMsg): MsgSignalIntent;
     toProto(message: MsgSignalIntent): Uint8Array;
     toProtoMsg(message: MsgSignalIntent): MsgSignalIntentProtoMsg;

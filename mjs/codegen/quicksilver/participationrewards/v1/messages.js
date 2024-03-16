@@ -12,7 +12,6 @@ function createBaseMsgSubmitClaim() {
 }
 export const MsgSubmitClaim = {
     typeUrl: "/quicksilver.participationrewards.v1.MsgSubmitClaim",
-    aminoType: "quicksilver/MsgSubmitClaim",
     encode(message, writer = _m0.Writer.create()) {
         if (message.user_address !== "") {
             writer.uint32(10).string(message.user_address);
@@ -117,12 +116,6 @@ export const MsgSubmitClaim = {
     },
     fromAminoMsg(object) {
         return MsgSubmitClaim.fromAmino(object.value);
-    },
-    toAminoMsg(message) {
-        return {
-            type: "quicksilver/MsgSubmitClaim",
-            value: MsgSubmitClaim.toAmino(message)
-        };
     },
     fromProtoMsg(message) {
         return MsgSubmitClaim.decode(message.value);

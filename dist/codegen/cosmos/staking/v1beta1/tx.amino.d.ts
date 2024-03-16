@@ -1,5 +1,5 @@
 import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
-import { MsgTokenizeShares, MsgRedeemTokensForShares } from "./lsm";
+import { MsgTokenizeShares, MsgRedeemTokensForShares, MsgDisableTokenizeShares, MsgEnableTokenizeShares } from "./lsm";
 export declare const AminoConverter: {
     "/cosmos.staking.v1beta1.MsgCreateValidator": {
         aminoType: string;
@@ -35,5 +35,15 @@ export declare const AminoConverter: {
         aminoType: string;
         toAmino: (message: MsgRedeemTokensForShares) => import("./lsm").MsgRedeemTokensForSharesAmino;
         fromAmino: (object: import("./lsm").MsgRedeemTokensForSharesAmino) => MsgRedeemTokensForShares;
+    };
+    "/cosmos.staking.v1beta1.MsgDisableTokenizeShares": {
+        aminoType: string;
+        toAmino: (message: MsgDisableTokenizeShares) => import("./lsm").MsgDisableTokenizeSharesAmino;
+        fromAmino: (object: import("./lsm").MsgDisableTokenizeSharesAmino) => MsgDisableTokenizeShares;
+    };
+    "/cosmos.staking.v1beta1.MsgEnableTokenizeShares": {
+        aminoType: string;
+        toAmino: (message: MsgEnableTokenizeShares) => import("./lsm").MsgEnableTokenizeSharesAmino;
+        fromAmino: (object: import("./lsm").MsgEnableTokenizeSharesAmino) => MsgEnableTokenizeShares;
     };
 };

@@ -2625,7 +2625,6 @@ export declare namespace quicksilver {
             };
             MsgRequestRedemption: {
                 typeUrl: string;
-                aminoType: string;
                 encode(message: _103.MsgRequestRedemption, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _103.MsgRequestRedemption;
                 fromJSON(object: any): _103.MsgRequestRedemption;
@@ -2641,7 +2640,6 @@ export declare namespace quicksilver {
                 fromAmino(object: _103.MsgRequestRedemptionAmino): _103.MsgRequestRedemption;
                 toAmino(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionAmino;
                 fromAminoMsg(object: _103.MsgRequestRedemptionAminoMsg): _103.MsgRequestRedemption;
-                toAminoMsg(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionAminoMsg;
                 fromProtoMsg(message: _103.MsgRequestRedemptionProtoMsg): _103.MsgRequestRedemption;
                 toProto(message: _103.MsgRequestRedemption): Uint8Array;
                 toProtoMsg(message: _103.MsgRequestRedemption): _103.MsgRequestRedemptionProtoMsg;
@@ -2662,7 +2660,6 @@ export declare namespace quicksilver {
             };
             MsgSignalIntent: {
                 typeUrl: string;
-                aminoType: string;
                 encode(message: _103.MsgSignalIntent, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _103.MsgSignalIntent;
                 fromJSON(object: any): _103.MsgSignalIntent;
@@ -2675,7 +2672,6 @@ export declare namespace quicksilver {
                 fromAmino(object: _103.MsgSignalIntentAmino): _103.MsgSignalIntent;
                 toAmino(message: _103.MsgSignalIntent): _103.MsgSignalIntentAmino;
                 fromAminoMsg(object: _103.MsgSignalIntentAminoMsg): _103.MsgSignalIntent;
-                toAminoMsg(message: _103.MsgSignalIntent): _103.MsgSignalIntentAminoMsg;
                 fromProtoMsg(message: _103.MsgSignalIntentProtoMsg): _103.MsgSignalIntent;
                 toProto(message: _103.MsgSignalIntent): Uint8Array;
                 toProtoMsg(message: _103.MsgSignalIntent): _103.MsgSignalIntentProtoMsg;
@@ -3836,7 +3832,6 @@ export declare namespace quicksilver {
             };
             MsgSubmitClaim: {
                 typeUrl: string;
-                aminoType: string;
                 encode(message: _110.MsgSubmitClaim, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _110.MsgSubmitClaim;
                 fromJSON(object: any): _110.MsgSubmitClaim;
@@ -3863,7 +3858,6 @@ export declare namespace quicksilver {
                 fromAmino(object: _110.MsgSubmitClaimAmino): _110.MsgSubmitClaim;
                 toAmino(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimAmino;
                 fromAminoMsg(object: _110.MsgSubmitClaimAminoMsg): _110.MsgSubmitClaim;
-                toAminoMsg(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimAminoMsg;
                 fromProtoMsg(message: _110.MsgSubmitClaimProtoMsg): _110.MsgSubmitClaim;
                 toProto(message: _110.MsgSubmitClaim): Uint8Array;
                 toProtoMsg(message: _110.MsgSubmitClaim): _110.MsgSubmitClaimProtoMsg;

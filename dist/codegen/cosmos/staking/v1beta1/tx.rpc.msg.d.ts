@@ -1,6 +1,6 @@
 import * as fm from "../../../grpc-gateway";
 import { MsgCreateValidator, MsgCreateValidatorResponse, MsgEditValidator, MsgEditValidatorResponse, MsgDelegate, MsgDelegateResponse, MsgBeginRedelegate, MsgBeginRedelegateResponse, MsgUndelegate, MsgUndelegateResponse } from "./tx";
-import { MsgTokenizeShares, MsgTokenizeSharesResponse, MsgRedeemTokensForShares, MsgRedeemTokensForSharesResponse } from "./lsm";
+import { MsgTokenizeShares, MsgTokenizeSharesResponse, MsgRedeemTokensForShares, MsgRedeemTokensForSharesResponse, MsgDisableTokenizeShares, MsgDisableTokenizeSharesResponse, MsgEnableTokenizeShares, MsgEnableTokenizeSharesResponse } from "./lsm";
 export declare class Msg {
     /** CreateValidator defines a method for creating a new validator. */
     static createValidator(request: MsgCreateValidator, initRequest?: fm.InitReq): Promise<MsgCreateValidatorResponse>;
@@ -23,4 +23,6 @@ export declare class Msg {
     static undelegate(request: MsgUndelegate, initRequest?: fm.InitReq): Promise<MsgUndelegateResponse>;
     static tokenizeShares(request: MsgTokenizeShares, initRequest?: fm.InitReq): Promise<MsgTokenizeSharesResponse>;
     static redeemTokensForShares(request: MsgRedeemTokensForShares, initRequest?: fm.InitReq): Promise<MsgRedeemTokensForSharesResponse>;
+    static disableTokenizeShares(request: MsgDisableTokenizeShares, initRequest?: fm.InitReq): Promise<MsgDisableTokenizeSharesResponse>;
+    static enableTokenizeShares(request: MsgEnableTokenizeShares, initRequest?: fm.InitReq): Promise<MsgEnableTokenizeSharesResponse>;
 }

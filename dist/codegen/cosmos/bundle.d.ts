@@ -6136,6 +6136,14 @@ export declare namespace cosmos {
                         typeUrl: string;
                         value: Uint8Array;
                     };
+                    disableTokenizeShares(value: _43.MsgDisableTokenizeShares): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
+                    enableTokenizeShares(value: _43.MsgEnableTokenizeShares): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
                 };
                 withTypeUrl: {
                     createValidator(value: _46.MsgCreateValidator): {
@@ -6166,6 +6174,14 @@ export declare namespace cosmos {
                         typeUrl: string;
                         value: _43.MsgRedeemTokensForShares;
                     };
+                    disableTokenizeShares(value: _43.MsgDisableTokenizeShares): {
+                        typeUrl: string;
+                        value: _43.MsgDisableTokenizeShares;
+                    };
+                    enableTokenizeShares(value: _43.MsgEnableTokenizeShares): {
+                        typeUrl: string;
+                        value: _43.MsgEnableTokenizeShares;
+                    };
                 };
                 toJSON: {
                     createValidator(value: _46.MsgCreateValidator): {
@@ -6193,6 +6209,14 @@ export declare namespace cosmos {
                         value: unknown;
                     };
                     redeemTokensForShares(value: _43.MsgRedeemTokensForShares): {
+                        typeUrl: string;
+                        value: unknown;
+                    };
+                    disableTokenizeShares(value: _43.MsgDisableTokenizeShares): {
+                        typeUrl: string;
+                        value: unknown;
+                    };
+                    enableTokenizeShares(value: _43.MsgEnableTokenizeShares): {
                         typeUrl: string;
                         value: unknown;
                     };
@@ -6226,6 +6250,14 @@ export declare namespace cosmos {
                         typeUrl: string;
                         value: _43.MsgRedeemTokensForShares;
                     };
+                    disableTokenizeShares(value: any): {
+                        typeUrl: string;
+                        value: _43.MsgDisableTokenizeShares;
+                    };
+                    enableTokenizeShares(value: any): {
+                        typeUrl: string;
+                        value: _43.MsgEnableTokenizeShares;
+                    };
                 };
                 fromPartial: {
                     createValidator(value: _46.MsgCreateValidator): {
@@ -6255,6 +6287,14 @@ export declare namespace cosmos {
                     redeemTokensForShares(value: _43.MsgRedeemTokensForShares): {
                         typeUrl: string;
                         value: _43.MsgRedeemTokensForShares;
+                    };
+                    disableTokenizeShares(value: _43.MsgDisableTokenizeShares): {
+                        typeUrl: string;
+                        value: _43.MsgDisableTokenizeShares;
+                    };
+                    enableTokenizeShares(value: _43.MsgEnableTokenizeShares): {
+                        typeUrl: string;
+                        value: _43.MsgEnableTokenizeShares;
                     };
                 };
             };
@@ -6293,6 +6333,16 @@ export declare namespace cosmos {
                     aminoType: string;
                     toAmino: (message: _43.MsgRedeemTokensForShares) => _43.MsgRedeemTokensForSharesAmino;
                     fromAmino: (object: _43.MsgRedeemTokensForSharesAmino) => _43.MsgRedeemTokensForShares;
+                };
+                "/cosmos.staking.v1beta1.MsgDisableTokenizeShares": {
+                    aminoType: string;
+                    toAmino: (message: _43.MsgDisableTokenizeShares) => _43.MsgDisableTokenizeSharesAmino;
+                    fromAmino: (object: _43.MsgDisableTokenizeSharesAmino) => _43.MsgDisableTokenizeShares;
+                };
+                "/cosmos.staking.v1beta1.MsgEnableTokenizeShares": {
+                    aminoType: string;
+                    toAmino: (message: _43.MsgEnableTokenizeShares) => _43.MsgEnableTokenizeSharesAmino;
+                    fromAmino: (object: _43.MsgEnableTokenizeSharesAmino) => _43.MsgEnableTokenizeShares;
                 };
             };
             tokenizeShareLockStatusFromJSON(object: any): _47.TokenizeShareLockStatus;
