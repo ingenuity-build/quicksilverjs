@@ -39,6 +39,16 @@ exports.AminoConverter = {
         aminoType: "cosmos-sdk/MsgRedeemTokensForShares",
         toAmino: lsm_1.MsgRedeemTokensForShares.toAmino,
         fromAmino: lsm_1.MsgRedeemTokensForShares.fromAmino
+    },
+    "/cosmos.staking.v1beta1.MsgDisableTokenizeShares": {
+        aminoType: "cosmos-sdk/MsgDisableTokenizeShares",
+        toAmino: lsm_1.MsgDisableTokenizeShares.toAmino,
+        fromAmino: lsm_1.MsgDisableTokenizeShares.fromAmino
+    },
+    "/cosmos.staking.v1beta1.MsgEnableTokenizeShares": {
+        aminoType: "cosmos-sdk/MsgEnableTokenizeShares",
+        toAmino: lsm_1.MsgEnableTokenizeShares.toAmino,
+        fromAmino: lsm_1.MsgEnableTokenizeShares.fromAmino
     }
 };
 //# sourceMappingURL=tx.amino.js.map

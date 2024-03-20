@@ -1,6 +1,6 @@
 import * as fm from "../../../grpc-gateway";
 import { MsgCreateValidator, MsgCreateValidatorResponse, MsgEditValidator, MsgEditValidatorResponse, MsgDelegate, MsgDelegateResponse, MsgBeginRedelegate, MsgBeginRedelegateResponse, MsgUndelegate, MsgUndelegateResponse } from "./tx";
-import { MsgTokenizeShares, MsgTokenizeSharesResponse, MsgRedeemTokensForShares, MsgRedeemTokensForSharesResponse } from "./lsm";
+import { MsgTokenizeShares, MsgTokenizeSharesResponse, MsgRedeemTokensForShares, MsgRedeemTokensForSharesResponse, MsgDisableTokenizeShares, MsgDisableTokenizeSharesResponse, MsgEnableTokenizeShares, MsgEnableTokenizeSharesResponse } from "./lsm";
 export class Msg {
   /** CreateValidator defines a method for creating a new validator. */
   static createValidator(request: MsgCreateValidator, initRequest?: fm.InitReq): Promise<MsgCreateValidatorResponse> {
@@ -60,6 +60,20 @@ export class Msg {
   }
   static redeemTokensForShares(request: MsgRedeemTokensForShares, initRequest?: fm.InitReq): Promise<MsgRedeemTokensForSharesResponse> {
     return fm.fetchReq(`/cosmos.staking.v1beta1/redeemTokensForShares`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
+  static disableTokenizeShares(request: MsgDisableTokenizeShares, initRequest?: fm.InitReq): Promise<MsgDisableTokenizeSharesResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/disableTokenizeShares`, {
+      ...initRequest,
+      method: "POST",
+      body: JSON.stringify(request, fm.replacer)
+    });
+  }
+  static enableTokenizeShares(request: MsgEnableTokenizeShares, initRequest?: fm.InitReq): Promise<MsgEnableTokenizeSharesResponse> {
+    return fm.fetchReq(`/cosmos.staking.v1beta1/enableTokenizeShares`, {
       ...initRequest,
       method: "POST",
       body: JSON.stringify(request, fm.replacer)

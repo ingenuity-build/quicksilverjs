@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Event, EventAmino, EventSDKType } from "../../../../tendermint/abci/types";
 import { Long, DeepPartial } from "../../../../helpers";

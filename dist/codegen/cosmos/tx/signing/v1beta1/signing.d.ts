@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Long, DeepPartial } from "../../../../helpers";

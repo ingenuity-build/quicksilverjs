@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate } from "./tx";
-import { MsgTokenizeShares, MsgRedeemTokensForShares } from "./lsm";
+import { MsgTokenizeShares, MsgRedeemTokensForShares, MsgDisableTokenizeShares, MsgEnableTokenizeShares } from "./lsm";
 export const AminoConverter = {
     "/cosmos.staking.v1beta1.MsgCreateValidator": {
         aminoType: "cosmos-sdk/MsgCreateValidator",
@@ -36,6 +36,16 @@ export const AminoConverter = {
         aminoType: "cosmos-sdk/MsgRedeemTokensForShares",
         toAmino: MsgRedeemTokensForShares.toAmino,
         fromAmino: MsgRedeemTokensForShares.fromAmino
+    },
+    "/cosmos.staking.v1beta1.MsgDisableTokenizeShares": {
+        aminoType: "cosmos-sdk/MsgDisableTokenizeShares",
+        toAmino: MsgDisableTokenizeShares.toAmino,
+        fromAmino: MsgDisableTokenizeShares.fromAmino
+    },
+    "/cosmos.staking.v1beta1.MsgEnableTokenizeShares": {
+        aminoType: "cosmos-sdk/MsgEnableTokenizeShares",
+        toAmino: MsgEnableTokenizeShares.toAmino,
+        fromAmino: MsgEnableTokenizeShares.fromAmino
     }
 };
 //# sourceMappingURL=tx.amino.js.map

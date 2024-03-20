@@ -1,3 +1,4 @@
+/// <reference types="long" />
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
 import { Long, DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
