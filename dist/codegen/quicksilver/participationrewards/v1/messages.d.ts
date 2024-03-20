@@ -28,7 +28,7 @@ export interface MsgSubmitClaimAmino {
     proofs: ProofAmino[];
 }
 export interface MsgSubmitClaimAminoMsg {
-    type: "/quicksilver.participationrewards.v1.MsgSubmitClaim";
+    type: "quicksilver/MsgSubmitClaim";
     value: MsgSubmitClaimAmino;
 }
 /**
@@ -61,6 +61,7 @@ export interface MsgSubmitClaimResponseSDKType {
 }
 export declare const MsgSubmitClaim: {
     typeUrl: string;
+    aminoType: string;
     encode(message: MsgSubmitClaim, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitClaim;
     fromJSON(object: any): MsgSubmitClaim;
@@ -69,6 +70,7 @@ export declare const MsgSubmitClaim: {
     fromAmino(object: MsgSubmitClaimAmino): MsgSubmitClaim;
     toAmino(message: MsgSubmitClaim): MsgSubmitClaimAmino;
     fromAminoMsg(object: MsgSubmitClaimAminoMsg): MsgSubmitClaim;
+    toAminoMsg(message: MsgSubmitClaim): MsgSubmitClaimAminoMsg;
     fromProtoMsg(message: MsgSubmitClaimProtoMsg): MsgSubmitClaim;
     toProto(message: MsgSubmitClaim): Uint8Array;
     toProtoMsg(message: MsgSubmitClaim): MsgSubmitClaimProtoMsg;

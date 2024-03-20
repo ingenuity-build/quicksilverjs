@@ -24,7 +24,7 @@ export interface MsgRequestRedemptionAmino {
   from_address: string;
 }
 export interface MsgRequestRedemptionAminoMsg {
-  type: "/quicksilver.interchainstaking.v1.MsgRequestRedemption";
+  type: "quicksilver/MsgRequestRedemption";
   value: MsgRequestRedemptionAmino;
 }
 /**
@@ -73,7 +73,7 @@ export interface MsgSignalIntentAmino {
   from_address: string;
 }
 export interface MsgSignalIntentAminoMsg {
-  type: "/quicksilver.interchainstaking.v1.MsgSignalIntent";
+  type: "quicksilver/MsgSignalIntent";
   value: MsgSignalIntentAmino;
 }
 /**
@@ -108,6 +108,7 @@ function createBaseMsgRequestRedemption(): MsgRequestRedemption {
 }
 export const MsgRequestRedemption = {
   typeUrl: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
+  aminoType: "quicksilver/MsgRequestRedemption",
   encode(message: MsgRequestRedemption, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.value !== undefined) {
       Coin.encode(message.value, writer.uint32(10).fork()).ldelim();
@@ -180,6 +181,12 @@ export const MsgRequestRedemption = {
   },
   fromAminoMsg(object: MsgRequestRedemptionAminoMsg): MsgRequestRedemption {
     return MsgRequestRedemption.fromAmino(object.value);
+  },
+  toAminoMsg(message: MsgRequestRedemption): MsgRequestRedemptionAminoMsg {
+    return {
+      type: "quicksilver/MsgRequestRedemption",
+      value: MsgRequestRedemption.toAmino(message)
+    };
   },
   fromProtoMsg(message: MsgRequestRedemptionProtoMsg): MsgRequestRedemption {
     return MsgRequestRedemption.decode(message.value);
@@ -259,6 +266,7 @@ function createBaseMsgSignalIntent(): MsgSignalIntent {
 }
 export const MsgSignalIntent = {
   typeUrl: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
+  aminoType: "quicksilver/MsgSignalIntent",
   encode(message: MsgSignalIntent, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.chain_id !== "") {
       writer.uint32(10).string(message.chain_id);
@@ -331,6 +339,12 @@ export const MsgSignalIntent = {
   },
   fromAminoMsg(object: MsgSignalIntentAminoMsg): MsgSignalIntent {
     return MsgSignalIntent.fromAmino(object.value);
+  },
+  toAminoMsg(message: MsgSignalIntent): MsgSignalIntentAminoMsg {
+    return {
+      type: "quicksilver/MsgSignalIntent",
+      value: MsgSignalIntent.toAmino(message)
+    };
   },
   fromProtoMsg(message: MsgSignalIntentProtoMsg): MsgSignalIntent {
     return MsgSignalIntent.decode(message.value);

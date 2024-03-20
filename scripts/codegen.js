@@ -1,8 +1,24 @@
 const { join } = require('path');
 const telescope = require('@cosmology/telescope').default;
 const rimraf = require('rimraf').rimrafSync;
-const AMINO_MAP = require('./amino').AMINO_MAP;
 
+const AMINO_MAP = {
+    '/quicksilver.interchainstaking.v1.MsgRequestRedemption': {
+      aminoType: 'quicksilver/MsgRequestRedemption'
+    },
+    '/quicksilver.interchainstaking.v1.MsgSignalIntent': {
+      aminoType: 'quicksilver/MsgSignalIntent'
+    },
+    '/quicksilver.participationrewards.v1.MsgSubmitClaim': {
+      aminoType: 'quicksilver/MsgSubmitClaim'
+    },
+    '/cosmos.staking.v1beta1.MsgDisableTokenizeShares': {
+      aminoType: 'cosmos-sdk/MsgDisableTokenizeShares'
+    },
+    '/cosmos.staking.v1beta1.MsgEnableTokenizeShares': {
+      aminoType: 'cosmos-sdk/MsgEnableTokenizeShares'
+    }
+  };
 
 
 const protoDirs = [join(__dirname, '/../proto')];
@@ -90,6 +106,7 @@ telescope({
     },
     aminoEncoding: {
       enabled: true,
+      exceptions: AMINO_MAP,
       useRecursiveV2encoding: true
     },
     stargateClients: {

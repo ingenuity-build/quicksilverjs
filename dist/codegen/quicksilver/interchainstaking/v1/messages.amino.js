@@ -6,12 +6,12 @@ const messages_1 = require("./messages");
 const proposals_1 = require("./proposals");
 exports.AminoConverter = {
     "/quicksilver.interchainstaking.v1.MsgRequestRedemption": {
-        aminoType: "/quicksilver.interchainstaking.v1.MsgRequestRedemption",
+        aminoType: "quicksilver/MsgRequestRedemption",
         toAmino: messages_1.MsgRequestRedemption.toAmino,
         fromAmino: messages_1.MsgRequestRedemption.fromAmino
     },
     "/quicksilver.interchainstaking.v1.MsgSignalIntent": {
-        aminoType: "/quicksilver.interchainstaking.v1.MsgSignalIntent",
+        aminoType: "quicksilver/MsgSignalIntent",
         toAmino: messages_1.MsgSignalIntent.toAmino,
         fromAmino: messages_1.MsgSignalIntent.fromAmino
     },
